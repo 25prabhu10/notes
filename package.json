@@ -1,0 +1,48 @@
+{
+  "name": "notes",
+  "version": "1.0.0",
+  "description": "Anthology of Snippets",
+  "scripts": {
+    "fetch": "sh utils/bash/sync.sh",
+    "dev": "npm run fetch && vuepress dev docs",
+    "build": "vuepress build docs",
+    "deploy": "npm run fetch && npm run lint:fix && npm run build && node deploy.js",
+    "lint": "textlint ./docs/**/*.md && prettier --check ./docs/**/*.md",
+    "lint:fix": "prettier --write ./docs/**/*.md"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/25prabhu10/notes.git"
+  },
+  "keywords": [
+    "notes",
+    "documents"
+  ],
+  "author": "Prabhu K Hiremath",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/25prabhu10/notes/issues"
+  },
+  "homepage": "https://github.com/25prabhu10/notes#readme",
+  "devDependencies": {
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.7",
+    "@vuepress/plugin-back-to-top": "^1.8.0",
+    "@vuepress/plugin-medium-zoom": "^1.8.0",
+    "@vuepress/plugin-pwa": "^1.8.0",
+    "prettier": "2.1.1",
+    "textlint": "^11.7.7",
+    "textlint-filter-rule-comments": "^1.2.2",
+    "textlint-rule-apostrophe": "^2.0.0",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-diacritics": "^1.0.0",
+    "textlint-rule-en-capitalization": "^2.0.3",
+    "textlint-rule-stop-words": "^2.0.9",
+    "textlint-rule-terminology": "^2.1.4",
+    "textlint-rule-write-good": "^1.6.2",
+    "vuepress": "^1.8.0",
+    "vuepress-plugin-mermaidjs": "^1.8.1"
+  },
+  "dependencies": {
+    "vuepress-plugin-code-copy": "^1.0.6"
+  }
+}
