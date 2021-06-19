@@ -12,7 +12,7 @@ Filesystem Hierarchy Standard (FHS)
 - `/bin` - Binaries of applications like `ls`, `cat`.
 - `/sbin` - Binaries containing system administration tools.
 - `/boot` - Contain bootfiles
-- `/dev` - Devices are found here. All devices are files and folders.
+- `/dev` - Devices are present here. All devices are files and folders.
 - `/etc` - System wide configurations like settings for `apt`.
 - `/home` - User directory
 - `/lib`, `/lib32`, `/lib64` - Contains libraries
@@ -25,5 +25,5 @@ Filesystem Hierarchy Standard (FHS)
 - `/srv` -
 - `/sys` - System files
 - `/tmp` - Temp folder
-- `/usr` - User installed applications
-- `/var` - Variable files that grow in size
+- `/usr` - User installed applications.
+- `/var` - Variable files that grow.

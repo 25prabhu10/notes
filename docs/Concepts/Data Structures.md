@@ -83,7 +83,7 @@ int main()
 
 #### struct (Structure)
 
-_Definition:_ It is a **physically grouped list of dissimilar data items under one name in a block of memory**, allowing the different data items to be **accessed via a single pointer**. It is used for defining user-defined data types, apart from the primitive data types.
+_Definition:_ It's a **physically grouped list of dissimilar data items under one name in a block of memory**, allowing the different data items to be **accessed via a single pointer**. It's used for defining user-defined data types, apart from the primitive data types.
 
 _Example:_
 
@@ -133,9 +133,9 @@ _Definition:_ Pointer is **an address variable** that is meant for **storing the
 
 Pointers are used for:
 
-- Accessing heap memory. The program will not automatically access the heap. So heap memory is external to the program.
+- Accessing heap memory. The program will not automatically access the heap. Heap memory is external to the program.
 - Accessing resources, such as files, keyboard, monitor, etc.:
-  - Like access files, files are stored in hard disks and are external to the program. So, file pointers are used to access these files.
+  - Like access files, files are stored in hard disks and are external to the program. File pointers are used to access these files.
   - Similarly to interact with any external device we use the pointer.
 - Functions use Pointers as parameters while using call by reference method.
 
@@ -162,7 +162,7 @@ int main()
 Accessing heap memory:
 
 - In c `malloc` is used to get memory in heap. Its present in `<stdlib.h>` and takes size as a parameter.
-- `malloc` returns a `void` pointer (generic pointer), so we have to type-caste it and say it is an `integer` pointer.
+- `malloc` returns a `void` pointer (generic pointer), so we have to type-caste it and say it's an `integer` pointer.
 
 _Example:_
 
@@ -227,7 +227,7 @@ int main()
 
 #### Reference
 
-_Definition:_ It's an alias of a given variable.
+_Definition:_ An alias of a given variable.
 
 - While referencing both the variable and its reference have the same address.
 

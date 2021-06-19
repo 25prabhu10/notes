@@ -17,7 +17,7 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
 2. Download the [ADB binary](https://www.xda-developers.com/google-releases-separate-adb-and-fastboot-binary-downloads/) for your particular OS ([Windows](https://dl.google.com/android/repository/platform-tools-latest-windows.zip), [Mac](https://dl.google.com/android/repository/platform-tools-latest-darwin.zip), [Linux](https://dl.google.com/android/repository/platform-tools-latest-linux.zip))
 
-3. Extract the zip file into a folder that you can quickly access.
+3. Extract the zip file into a folder.
 
 4. On your phone, go to Settings and tap on About Phone. Find the Build Number and **tap on it 7 times to enable Developer Options**.
 
@@ -31,7 +31,7 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
    <img src="./adb-folder.png" alt="No image, kindly refer the TEXT" style="zoom: 67%;" />
 
-8. Launch a Command Prompt in your ADB folder. For Windows users, this can be done by holding **Shift and Right-clicking** then selecting the _"open command prompt here"_ option.
+8. Launch a Command Prompt in your ADB folder. For Windows users, hold **Shift and Right-clicking** then selecting the _"open command prompt here"_ option.
 
    ![No image, kindly refer the TEXT](./adb-open-here.png)
 
@@ -41,7 +41,7 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
     ![No image, kindly refer the TEXT](./prompt-options.jpg)
 
-11. Now if you re-run the `adb devices` command, the terminal should print the serial number of your device. If so, then you’re ready to proceed.
+11. Now if you re-run the `adb devices` command, the terminal should print the serial number of your device. If so, then you’re ready.
 
 12. Execute the following command: `adb shell`
 
@@ -51,19 +51,19 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
     <img src="./package-list.png" alt="package list" style="zoom:80%;" />
 
-14. ALTERNATIVELY:
+14. Alternative way:
 
-    You can also easily find the package name of an installed system application by installing the **App Inspector** app on your phone. I prefer doing it this way so you know exactly what the app name is of the application that you are about to uninstall.
+    You can find the package name of an installed system application by installing the **App Inspector** app on your phone. I prefer doing it this way so you know what the app name is of the application that you are about to uninstall.
 
     - Step 1: Tap on _"App List"_
 
       [<img src="./app-inspector-1.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />](https://www.xda-developers.com/files/2017/07/AppInspector1.png)
 
-    - Step 2: Find the app you want gone. (eg. _"Compass"_)
+    - Step 2: Find the app you want gone. (for example: _"Compass"_)
 
       [<img src="./app-inspector-2.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />](https://www.xda-developers.com/files/2017/07/AppInspector2.png)
 
-    - Step 3: Find the package name under the App Name (eg. _"com.huawei.compass"_)
+    - Step 3: Find the package name under the App Name (for example: _"com.huawei.compass"_)
 
       [<img src="./app-inspector-3.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />](https://www.xda-developers.com/files/2017/07/AppInspector3.png)
 
@@ -72,5 +72,5 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
     <img src="./package-uninstall.png" alt="package uninstall" style="zoom:50%;" />
 
 ::: warning Note
-As a word of warning, uninstalling system applications can be dangerous so please know what you’re getting rid of before you complete these steps. Failing to do so could result in your phone becoming unusable until you perform a factory reset. Of course, by removing any given system application, another system application that may depend on it may also break so be careful what you remove. But if something does go wrong, you can always perform a factory reset to bring things back to the way they were.
+As a word of warning, uninstalling system applications can be dangerous so please know what you’re getting rid of before you complete these steps. Failing to do so could result in your phone becoming unusable until you perform a factory reset. By removing any given system application, another system application that may depend on it may also break so be careful what you remove. But if something does go wrong, you can always perform a factory reset.
 :::

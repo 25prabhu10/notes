@@ -1,6 +1,6 @@
 # Manjaro OS
 
-Things to do after installing _Manjaro OS_.
+Setup after installing _Manjaro OS_.
 
 ## Disable Start-Up Process
 
