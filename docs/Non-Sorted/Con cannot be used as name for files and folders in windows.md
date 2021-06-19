@@ -1,0 +1,2 @@
+- Con, aux, prn, lst, com0 - com9, Lpt0 - ltp9, null cannot be used as name for files and folders in windows. Because all those names for device files in MS dos.
+- In Excel 29th February 1900 is a valid date, which is not.

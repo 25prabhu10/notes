@@ -1,0 +1,414 @@
+.theme-container.homepage {
+  .hero {
+    img {
+      width: 100%;
+      object-fit: cover;
+      margin: 30px 0 0 0;
+    }
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+  grid-auto-rows: 15em;
+  grid-gap: 3em;
+  padding: 2em;
+  margin: 3em 0;
+  background-color: rgba(65, 184, 131, 0.03);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  text-align: center;
+  text-transform: uppercase;
+  overflow: hidden;
+
+  text-decoration: none;
+
+  background-color: rgba(65, 184, 131, 0.05);
+  border: 2px solid rgba(65, 184, 131, 0.2);
+  border-radius: 3px;
+  box-shadow: 0 0.5em 1em rgba(65, 184, 131, 0.15);
+  transition: all 0.2s ease-out;
+  backface-visibility: hidden;
+  opacity: 0.8;
+}
+
+.card__img {
+  margin: 0.8em;
+  font-size: 1.5rem;
+  height: 100%;
+  max-height: 60%;
+}
+
+.card__text--container {
+  background-color: rgba(65, 184, 131, 0.2);
+  height: 25%;
+}
+
+.card__text {
+  margin: 8% 0;
+
+  color: #2c3e50;
+  font-weight: 700;
+  font-size: 1.5rem;
+  
+  word-break: break-word;
+  word-wrap: anywhere;
+}
+
+.card:hover {
+  transform: scale(1.03) translateY(-1em);
+  box-shadow: 0 2.5em 4em rgba(65, 184, 131, 0.5);
+  border: 3px solid rgba(65, 184, 131, 1);
+  transition: all 0.2s ease-out;  
+}
+
+.card:hover .card__img {
+  opacity: 1;
+  transition: all 0.2s ease-out;
+}
+
+.card:hover .card__text {
+  opacity: 1;
+  color: #000000;
+  transition: all 0.2s ease-out;
+}
+
+.card:hover .card__text--container {
+  transform: scale(1.1);
+  background-color: rgba(65, 184, 131, 1);
+  transition: all 0.2s ease-out;
+}
+
+.card__1 {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+}
+
+.card__1:hover {
+  border: 3px solid rgba(0, 0, 0, 1);
+  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+}
+
+.card__1:hover .card__text {
+  color: #ffffff;
+}
+
+.card__text--container-1 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__text--container-1 {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.card__2 {
+  background-color: rgba(62, 71, 74, 0.05);
+  border: 2px solid rgba(62, 71, 74, 0.2);
+  box-shadow: 0 0.5em 1em rgba(62, 71, 74, 0.15);
+}
+
+.card__2:hover {
+  border: 3px solid rgba(62, 71, 74, 1);
+  box-shadow: 0 2.5em 4em rgba(62, 71, 74, 0.5);
+}
+
+.card__2:hover .card__text {
+  color: #ffffff;
+}
+
+.card__text--container-2 {
+  background-color: rgba(62, 71, 74, 0.2);
+}
+
+.card:hover .card__text--container-2 {
+  background-color: rgba(62, 71, 74, 1);
+}
+
+.card__3 {
+  background-color: rgba(255, 215, 72, 0.05);
+  border: 2px solid rgba(255, 215, 72, 0.2);
+  box-shadow: 0 0.5em 1em rgba(255, 215, 72, 0.15);
+}
+
+.card__3:hover {
+  border: 3px solid rgba(255, 215, 72, 1);
+  box-shadow: 0 2.5em 4em rgba(255, 215, 72, 0.5);
+}
+
+.card__text--container-3 {
+  background-color: rgba(255, 215, 72, 0.2);
+}
+
+.card:hover .card__text--container-3 {
+  background-color: rgba(255, 215, 72, 1);
+}
+
+.card__4 {
+  background-color: rgba(227, 79, 38, 0.05);
+  border: 2px solid rgba(227, 79, 38, 0.2);
+  box-shadow: 0 0.5em 1em rgba(227, 79, 38, 0.15);
+}
+
+.card__4:hover {
+  border: 3px solid rgba(227, 79, 38, 1);
+  box-shadow: 0 2.5em 4em rgba(227, 79, 38, 0.5);
+}
+
+.card__text--container-4 {
+  background-color: rgba(227, 79, 38, 0.2);
+}
+
+.card:hover .card__text--container-4 {
+  background-color: rgba(227, 79, 38, 1);
+}
+
+.card__5 {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+}
+
+.card__5:hover {
+  border: 3px solid rgba(0, 0, 0, 1);
+  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+}
+
+.card__5:hover .card__text {
+  color: #ffffff;
+}
+
+.card__text--container-5 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__text--container-5 {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.card__6 {
+  background-color: rgba(247, 223, 30, 0.05);
+  border: 2px solid rgba(247, 223, 30, 0.2);
+  box-shadow: 0 0.5em 1em rgba(247, 223, 30, 0.15);
+}
+
+.card__6:hover {
+  border: 3px solid rgba(247, 223, 30, 1);
+  box-shadow: 0 2.5em 4em rgba(247, 223, 30, 0.5);
+}
+
+.card__text--container-6 {
+  background-color: rgba(247, 223, 30, 0.2);
+}
+
+.card:hover .card__text--container-6 {
+  background-color: rgba(247, 223, 30, 1);
+}
+
+.card__7 {
+  background-color: rgba(0, 122, 204, 0.05);
+  border: 2px solid rgba(0, 122, 204, 0.2);
+  box-shadow: 0 0.5em 1em rgba(0, 122, 204, 0.15);
+}
+
+.card__7:hover {
+  border: 3px solid rgba(0, 122, 204, 1);
+  box-shadow: 0 2.5em 4em rgba(0, 122, 204, 0.5);
+}
+
+.card__text--container-7 {
+  background-color: rgba(0, 122, 204, 0.2);
+}
+
+.card:hover .card__text--container-7 {
+  background-color: rgba(0, 122, 204, 1);
+}
+
+.card__8 {
+  background-color: rgba(214, 26, 72, 0.05);
+  border: 2px solid rgba(214, 26, 72, 0.2);
+  box-shadow: 0 0.5em 1em rgba(214, 26, 72, 0.15);
+}
+
+.card__8:hover {
+  border: 3px solid rgba(214, 26, 72, 1);
+  box-shadow: 0 2.5em 4em rgba(214, 26, 72, 0.5);
+}
+
+.card__text--container-8 {
+  background-color: rgba(214, 26, 72, 0.2);
+}
+
+.card:hover .card__text--container-8 {
+  background-color: rgba(214, 26, 72, 1);
+}
+
+.card__9 {
+  background-color: rgba(97, 218, 251, 0.05);
+  border: 2px solid rgba(97, 218, 251, 0.2);
+  box-shadow: 0 0.5em 1em rgba(97, 218, 251, 0.15);
+}
+
+.card__9:hover {
+  border: 3px solid rgba(97, 218, 251, 1);
+  box-shadow: 0 2.5em 4em rgba(97, 218, 251, 0.5);
+}
+
+.card__text--container-9 {
+  background-color: rgba(97, 218, 251, 0.2);
+}
+
+.card:hover .card__text--container-9 {
+  background-color: rgba(97, 218, 251, 1);
+}
+
+.card__10 {
+  background-color: rgba(218, 70, 72, 0.05);
+  border: 2px solid rgba(218, 70, 72, 0.2);
+  box-shadow: 0 0.5em 1em rgba(218, 70, 72, 0.15);
+}
+
+.card__10:hover {
+  border: 3px solid rgba(218, 70, 72, 1);
+  box-shadow: 0 2.5em 4em rgba(218, 70, 72, 0.5);
+}
+
+.card__text--container-10 {
+  background-color: rgba(218, 70, 72, 0.2);
+}
+
+.card:hover .card__text--container-10 {
+  background-color: rgba(218, 70, 72, 1);
+}
+
+.card__11 {
+  background-color: rgba(50, 222, 132, 0.05);
+  border: 2px solid rgba(50, 222, 132, 0.2);
+  box-shadow: 0 0.5em 1em rgba(50, 222, 132, 0.15);
+}
+
+.card__11:hover {
+  border: 3px solid rgba(50, 222, 132, 1);
+  box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
+}
+
+.card__text--container-11 {
+  background-color: rgba(50, 222, 132, 0.2);
+}
+
+.card:hover .card__text--container-11 {
+  background-color: rgba(50, 222, 132, 1);
+}
+
+.card__12 {
+  background-color: rgba(161, 121, 219, 0.05);
+  border: 2px solid rgba(161, 121, 219, 0.2);
+  box-shadow: 0 0.5em 1em rgba(161, 121, 219, 0.15);
+}
+
+.card__12:hover {
+  border: 3px solid rgba(161, 121, 219, 1);
+  box-shadow: 0 2.5em 4em rgba(161, 121, 219, 0.5);
+}
+
+.card__text--container-12 {
+  background-color: rgba(161, 121, 219, 0.2);
+}
+
+.card:hover .card__text--container-12 {
+  background-color: rgba(161, 121, 219, 1);
+}
+
+.card__13 {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+}
+
+.card__13:hover {
+  border: 3px solid rgba(0, 0, 0, 1);
+  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+}
+
+.card__13:hover .card__text {
+  color: #ffffff;
+}
+
+.card__text--container-13 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__text--container-13 {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.card__14 {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+}
+
+.card__14:hover {
+  border: 3px solid rgba(0, 0, 0, 1);
+  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+}
+
+.card__14:hover .card__text {
+  color: #ffffff;
+}
+
+.card__text--container-14 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__text--container-14 {
+  background-color: rgba(0, 0, 0, 1);
+}
+
+.card__15 {
+  background-color: rgba(50, 222, 132, 0.05);
+  border: 2px solid rgba(50, 222, 132, 0.2);
+  box-shadow: 0 0.5em 1em rgba(50, 222, 132, 0.15);
+}
+
+.card__15:hover {
+  border: 3px solid rgba(50, 222, 132, 1);
+  box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
+}
+
+.card__text--container-15 {
+  background-color: rgba(50, 222, 132, 0.2);
+}
+
+.card:hover .card__text--container-15 {
+  background-color: rgba(50, 222, 132, 1);
+}
+
+.card__16 {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
+}
+
+.card__16:hover {
+  border: 3px solid rgba(0, 0, 0, 1);
+  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+}
+
+.card__16:hover .card__text {
+  color: #ffffff;
+}
+
+.card__text--container-16 {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card:hover .card__text--container-16 {
+  background-color: rgba(0, 0, 0, 1);
+}
