@@ -48,7 +48,7 @@ node ./node_modules/webpack-cli/bin/cli.js
 
 The above command will invoke webpack with its default settings and produce results.
 
-:::tip NOTE
+::: tip NOTE
 Webpack v5 is being used here.
 :::
 
@@ -129,7 +129,7 @@ Loaders help webpack to pre-process files. This allows you to bundle any static 
   };
   ```
 
-  :::tip NOTE
+  ::: tip NOTE
   Babel uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers.
   :::
 
@@ -178,7 +178,7 @@ Loaders help webpack to pre-process files. This allows you to bundle any static 
   npm install --save-dev sass-loader sass
   ```
 
-  :::tip NOTE
+  ::: tip NOTE
   Needs [Dart Sass](https://github.com/sass/dart-sass) or [Node Sass](https://github.com/sass/node-sass).
   Recommended to use Dart Sass.
   :::
@@ -199,7 +199,7 @@ Loaders help webpack to pre-process files. This allows you to bundle any static 
   };
   ```
 
-  :::tip NOTE
+  ::: tip NOTE
   PostCSS uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers.
   :::
 

@@ -58,7 +58,7 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 
    ![The reactor pattern](./the-reactor-pattern.png)
 
-   :::tip NOTE
+   ::: tip NOTE
    A Node.js application will exit when there are no more pending operations in the event demultiplexer, and no more events to be processed inside the event queue.
    :::
 

@@ -74,7 +74,7 @@ It is one of the three building block any web application.
 
    :::
 
-#### Combinators
+### Combinators
 
 Combinators help in combing different selectors. They also provide a hierarchical context based upon the element's relationship within the DOM.
 

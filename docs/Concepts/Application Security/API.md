@@ -17,6 +17,6 @@ Prevention Methods
 - Use difficult to predict globally unique identifiers to ID records.
 - Ensure there are tests in place to evaluate the access control mechanism.
 
-:::danger Vulnerabilities
+::: danger Vulnerabilities
 Failure to set up object level access control can leave records or other objects open to unauthorized access or modification.
 :::

@@ -5,7 +5,7 @@ description: Sass is a preprocessor scripting language that is interpreted or co
 
 # Sass
 
-_Definition:_ Syntactically Awesome Style Sheets (Sass) is a CSS pre-processor, this helps users to use features like variables, nesting, mixins, inheritance, and catch errors during compilation. These features help in writing well structured, readable, maintainable, and scalable CSS.
+Syntactically Awesome Style Sheets (Sass) is a CSS pre-processor, this helps users to use features like variables, nesting, mixins, inheritance, and catch errors during compilation. These features help in writing well structured, readable, maintainable, and scalable CSS.
 
 A stylesheet language initially designed by Hampton Catlin and developed by Nathan Weizenbaum and Chris Eppstein.
 

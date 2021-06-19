@@ -1,3 +1,8 @@
+---
+title: Functional programming in JavaScript
+description: An open source JavaScript task runner (build system).
+---
+
 # Functional programming in JavaScript
 
 Functional programming is a programming paradigm:
@@ -128,7 +133,7 @@ console.log(frederick);
 
 In the above example, `selfEducate` function is a pure function, as it takes an argument, returns a new object using the new _spread operator_ (`...`) without chaining the original data.
 
-:::tip NOTE
+::: tip NOTE
 Pure functions are easy to test as they always produce the same result for a given input.
 :::
 
