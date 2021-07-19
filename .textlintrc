@@ -1,0 +1,24 @@
+{
+  "rules": {
+    "@textlint-rule/no-unmatched-pair": true,
+    "common-misspellings": true,
+    "diacritics": true,
+    "spelling": {
+      "language": "en",
+      "skipPatterns": ["/\\d/g"],
+      "suggestCorrections": true
+    },
+    "en-capitalization": {
+      "allowHeading": false
+    },
+    "terminology": {
+      "defaultTerms": true
+    },
+    "write-good": {
+      "severity": "warning"
+    }
+  },
+  "filters": {
+    "comments": true
+  }
+}
