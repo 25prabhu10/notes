@@ -4,7 +4,7 @@
   "description": "Anthology of Snippets",
   "scripts": {
     "fetch": "sh utils/bash/sync.sh",
-    "dev": "npm run fetch && vuepress dev docs",
+    "dev": "npm run fetch && npm run lint:fix && vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "npm run fetch && npm run lint:fix && npm run build && node deploy.js",
     "lint": "textlint ./docs/**/*.md && prettier --check ./docs/**/*.md",

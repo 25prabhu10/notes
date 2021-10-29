@@ -7,6 +7,82 @@ description: Hypertext Markup Language is the standard markup language for docum
 
 Hyper-Text Markup Language.
 
+## HTML Forms
+
+An HTML form is used to collect user input. The user input is most often sent to a server for processing.
+
+_Example_:
+
+```html
+<form action="" method="get" class="form-example">
+  <div class="form-example">
+    <label for="name">Enter your name: </label>
+    <input type="text" name="name" id="name" required />
+  </div>
+  <div class="form-example">
+    <label for="email">Enter your email: </label>
+    <input type="email" name="email" id="email" required />
+  </div>
+  <div class="form-example">
+    <input type="submit" value="Subscribe!" />
+  </div>
+</form>
+```
+
+### Form Element
+
+The form elemet `<form>` is used to create an HTML form for user input:
+
+```html
+<form>...</form>
+```
+
+It's Attributes:
+
+- `autocomplete`: Indicates whether input elements can by default have their values automatically completed by the browser
+
+  - `off`: No autofill (expect for username and password)
+  - `on`: The browser may automatically complete entries
+
+- `name`: The name of the form. Must **not be empty string** and must **be unique among other form elements**
+
+- `rel`: Specifies the relationship between the current document and the linked document
+
+Attributes for form submission:
+
+- `action`: The URL that processes the form submission. This value can be overridden by a formaction attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` element.
+
+- `enctype`: If the value of the **method attribute is post, enctype is the MIME type** of the form submission.
+
+  - `application/x-www-form-urlencoded`: The default value.
+  - `multipart/form-data`: Use this if the form contains `<input>` elements with type=file.
+  - `text/plain`: Introduced by HTML5 for debugging purposes.
+  - This value can be overridden by `formenctype` attributes on `<button>`, `<input type="submit">`, or `<input type="image">` elements.
+
+- `method`: The HTTP method to submit the form with.
+
+  - `post`: The **POST method**; form data sent as the request body.
+  - `get`: The **GET method**; form data appended to the action URL with a `?` separator. Use this method when the form has no side-effects.
+  - `dialog`: When the form is inside a `<dialog>`, closes the dialog on submission.
+  - This value is overridden by `formmethod` attributes on `<button>`, `<input type="submit">`, or `<input type="image">` elements.
+
+- `novalidate`: This Boolean attribute indicates that the form shouldn't be validated when submitted. If this attribute is not set (and therefore the form is validated), it can be overridden by a `formnovalidate` attribute on a `<button`>, `<input type="submit">`, or `<input type="image"`> element belonging to the form.
+
+- `target`: Indicates where to display the response after submitting the form. In HTML5, it is a name/keyword for a browsing context (for example, tab, window, or iframe). The following keywords have special meanings:
+
+  - `_self (default)`: Load into the same browsing context as the current one.
+  - `_blank`: Load into a new unnamed browsing context.
+  - `_parent`: Load into the parent browsing context of the current one. If no parent, behaves the same as `_self.`
+  - `_top`: Load into the top-level browsing context (i.e., the browsing context that is an ancestor of the current one and has no parent). If no parent, behaves the same as `_self.`
+  - This value can be overridden by a formtarget attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` element.
+
+::: tip NOTE
+
+- Setting target="\_blank" on <form> elements implicitly provides the same rel behavior as setting rel="noopener" which does not set window.opener.
+- It is possible to use the `:valid` and `:invalid` CSS pseudo-classes to style a `<form>` element based on whether or not the elements inside the form are valid.
+
+:::
+
 ## Accessibility
 
 1. Tab order - Use `inert.js` pollyfill. `tabindex=0`. `document.querySelector('[tabindex="-1"]').focus()`. Don't use tabindex greater than 0.

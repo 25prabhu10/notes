@@ -13,18 +13,18 @@ The data structure is a collection of data values, the relationships among them,
 
 There are two types of Data structures:
 
-1. [Physical](#physical): They define how the data is arranged in memory.
+1. [Physical](#physical): They define how the **data is arranged** in memory.
 
    - [Arrays](#arrays)
    - Linked List
-   - Etc.
+   - Matrices
 
-2. [Logical](#logical): They define how the data can be utilized and the arrangement is.
+2. [Logical](#logical): They define how the **data can be utilized**.
 
    - Linear Data Structures:
 
      - **Stack** (LIFO)
-     - **Queues** (LIFO)
+     - **Queues** (FIFO)
 
    - Non-Linear Data Structures:
 
@@ -36,15 +36,13 @@ There are two types of Data structures:
 
 ### Problem solving vs programming:
 
-1. Problem-solving: It requires maths to solve problems. And maths does not have loops, it has [Recursion](#recursion). Problem-solving is a lifetime of work.
+1. Problem-solving: It requires math to solve problems. And math does not have loops, it has [Recursion](#recursion). It's a lifetime of work.
 
 2. Programming: Learning the syntax of a language and implementing the solution in it.
 
-### Revising C/C++ Concepts
+## C/C++ Concepts
 
-We will revise some basic concepts of C/C++.
-
-The main memory is divided into:
+The main memory can divided into:
 
 1. Heap:
 
@@ -65,10 +63,10 @@ int main()
         printf("%d", B[i]);
     }
 }
-// Arrays A and B will appear in the Stack after declaration.
+// ARRAYS A AND B WILL APPEAR IN THE STACK AFTER DECLARATION.
 ```
 
-#### Types and objects
+### Types and objects
 
 - A _type_ defines a set of possible values and a set of operations (for an object).
 - An _object_ is some memory that holds a value of a given type.
@@ -81,34 +79,38 @@ int main()
 
 ![Operations on data types](./operations-on-data-types.jpg)
 
-#### struct (Structure)
+### Struct (Structure)
 
 _Definition:_ It's a **physically grouped list of dissimilar data items under one name in a block of memory**, allowing the different data items to be **accessed via a single pointer**. It's used for defining user-defined data types, apart from the primitive data types.
+
+In the above example, we defined a `struct` called **Rectangle**.
+
+- `struct` is the keyword used to define a structure.
+- `.` (dot operator) is used to access the members of the structure.
+- Its size will the **sum of sizes consumed by all of its elements**.
+- **Structure Padding** is used to allocate memory for a structure.
 
 _Example:_
 
 ```c
+// DEFINITION
 struct Rectangle
 {
-    int length;
-    int breadth;
+  int length;
+  int breadth;
 }
 
 int main()
 {
-    struct Rectangle r;
-    struct Rectangle r1={10,5};
-    r1.length=25;
-    printf("Area of the Rectangle is %d", r.length * r.breadth);
+  // DECLARATION
+  struct Rectangle r;
+  struct Rectangle r1={10,5};
+
+  // INITIALISATION
+  r.length=25;
+  printf("Area of the Rectangle is %d", r.length * r.breadth);
 }
 ```
-
-In the above example, we defined a `struct` called **Rectangle**.
-
-- Its size will the **sum of sizes consumed by all of its elements**.
-- We can declare an array of structures as shown below:
-
-_Example:_
 
 ```c
 struct Card
@@ -125,7 +127,7 @@ int main()
 }
 ```
 
-#### Pointers
+### Pointers
 
 _Definition:_ Pointer is **an address variable** that is meant for **storing the address of another variable**.
 
@@ -144,24 +146,24 @@ _Example:_
 ```c
 int main()
 {
-    // data variable
+    // DATA VARIABLE
     int a=10;
-    // pointer variable
+    // POINTER VARIABLE
     int *p;
 
-    // save address of a
+    // SAVE ADDRESS OF a
     p=&a;
 
-    // print data present in a
+    // PRINT DATA PRESENT IN a
     printf("%d", a);
     printf("%d", *p);
-    // also know as dereferencing
+    // ALSO KNOW AS DEREFERENCING
 }
 ```
 
 Accessing heap memory:
 
-- In c `malloc` is used to get memory in heap. Its present in `<stdlib.h>` and takes size as a parameter.
+- In C `malloc` is used to get memory in heap. Its present in `<stdlib.h>` and takes size as a parameter.
 - `malloc` returns a `void` pointer (generic pointer), so we have to type-caste it and say it's an `integer` pointer.
 
 _Example:_
@@ -172,7 +174,8 @@ int main()
 {
     int *p;
     p=(int *)malloc(5 * sizeof(int));
-    // type-caste, malloc will now provide memory for an array of length 5 and each element of size int
+    // TYPE-CASTE, malloc WILL NOW PROVIDE MEMORY FOR
+    // AN ARRAY OF LENGTH 5 AND EACH ELEMENT OF SIZE INT
 }
 ```
 
@@ -204,8 +207,8 @@ int main()
     struct Rectangle *p=&r;
 
     r.length=15;
-    (*p).breadth=25; // *p is enclosed inside a bracket because `.` has higher priority than `*`
-    p->length=25; // alternative method
+    (*p).breadth=25; // *p IS ENCLOSED INSIDE A BRACKET BECAUSE `.` HAS HIGHER PRIORITY THAN `*`
+    p->length=25; // ALTERNATIVE METHOD
 }
 ```
 
@@ -214,7 +217,7 @@ Dynamic allocation of Pointer (in heap memory):
 _Example:_
 
 ```c
-// struct from the above example
+// struct FROM THE ABOVE EXAMPLE
 int main()
 {
     struct Rectangle *p;
@@ -225,7 +228,7 @@ int main()
 }
 ```
 
-#### Reference
+### Reference
 
 _Definition:_ An alias of a given variable.
 
@@ -238,7 +241,7 @@ int main()
 {
     int a=10;
     int &r=a;
-    // r is referring to a
+    // r IS REFERRING TO a
 
     cout<<a; // 10
     r++;
@@ -251,7 +254,7 @@ int main()
 Reference is not a part of the C language.
 :::
 
-#### Functions
+### Functions
 
 _Definition:_ A function is **a named sequence of statements**. A function can return a result (also called a return value).
 
@@ -260,27 +263,27 @@ _Definition:_ A function is **a named sequence of statements**. A function can r
 _Example:_
 
 ```c
-// Addition function
-int add(int a, int b) // This line is known as the prototype or signature of the function
+// ADDITION FUNCTION
+int add(int a, int b) // THIS LINE IS KNOWN AS THE PROTOTYPE OR SIGNATURE OF THE FUNCTION
 {
-    // int a and b are known as formal parameters
+    // int a AND b ARE KNOWN AS FORMAL PARAMETERS
     int c;
     c = a + b;
     return(c);
 }
 
-// main function
+// MAIN FUNCTION
 int main()
 {
     int x, y, z;
     x = 10;
     y = 5;
-    y = add(x, y); // here int z and x are known as actual parameters
+    y = add(x, y); // HERE int z AND x ARE KNOWN AS ACTUAL PARAMETERS
     printf("Sum is %d", y);
 }
 ```
 
-##### Parameter Passing
+#### Parameter Passing
 
 There are three ways of passing the parameters to a function.
 
@@ -291,7 +294,7 @@ There are three ways of passing the parameters to a function.
    _Example:_
 
    ```c
-   void swap(int *x, int *y) // to use variable address, define pointers
+   void swap(int *x, int *y) // TO USE VARIABLE ADDRESS, DEFINE POINTERS
    {
        int temp;
        temp=*x;
@@ -303,7 +306,7 @@ There are three ways of passing the parameters to a function.
    {
        int a;
        int b;
-       swap(&a, &b); // pass the variable address not the value
+       swap(&a, &b); // PASS THE VARIABLE ADDRESS NOT THE VALUE
        printf("A == %d, B == %d", a, b);
    }
    ```
@@ -313,7 +316,7 @@ There are three ways of passing the parameters to a function.
    _Example:_
 
    ```cpp
-   void swap(int &x, int &y) // using & we reference the variables a and b
+   void swap(int &x, int &y) // USING & WE REFERENCE THE VARIABLES a AND b
    {
        int temp;
        temp=*x;
@@ -325,7 +328,7 @@ There are three ways of passing the parameters to a function.
    {
        int a;
        int b;
-       swap(a, b); // no changes
+       swap(a, b); // NO CHANGES
        printf("A == %d, B == %d", a, b);
    }
    ```
@@ -341,7 +344,7 @@ Arrays as Parameters:
 _Example:_
 
 ```c
-void fun(int A[], int n) // here A[] is a pointer to an array, int *A is the same as int A[]
+void fun(int A[], int n) // HERE A[] IS A POINTER TO AN ARRAY, int *A IS THE SAME AS int A[]
 {
     int i;
     for(i=0; i<n; i++)
@@ -435,7 +438,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
 
 :::
 
-#### Structure of the Code
+### Structure of the Code
 
 1. In C, `main()` function should only have variable declarations and function calls.
 
@@ -490,7 +493,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
        private int length;
        private int breadth;
 
-       // instead of initialize function we use a constructor to set the values
+       // instead OF INITIALIZE FUNCTION WE USE A CONSTRUCTOR TO SET THE VALUES
        Rectangle(int l, int b)
        {
            length = l;
@@ -519,9 +522,9 @@ Even when a `struct` has an array member, it can be passed by value even though 
    _Example:_
 
    ```cpp
-   #include<iostream> // .h depends on compiler (check)
+   #include<iostream> // .h DEPENDS ON COMPILER (CHECK)
 
-   using namespace std; // if only iostream is used
+   using namespace std; // IF ONLY iostream IS USED
 
    class Rectangle
    {
@@ -530,21 +533,21 @@ Even when a `struct` has an array member, it can be passed by value even though 
            int breadth;
 
        public:
-           // default constructor
+           // DEFAULT CONSTRUCTOR
            Rectangle()
            {
                length = 1;
                breadth = 1;
            }
 
-           // parameterized construct (using constructor overloading)
-           Rectangle(int l, int b); // prototype or signature of the function
+           // PARAMETERIZED CONSTRUCT (USING CONSTRUCTOR OVERLOADING)
+           Rectangle(int l, int b); // PROTOTYPE OR SIGNATURE OF THE FUNCTION
 
-           // below two functions are facilitators which perform some operations on data members
+           // BELOW TWO FUNCTIONS ARE FACILITATORS WHICH PERFORM SOME OPERATIONS ON DATA MEMBERS
            int area();
            int perimeter();
 
-           // below two functions are accessor/getter (get()) and mutator/setter (set()) function
+           // BELOW TWO FUNCTIONS ARE accessor/getter (get()) and mutator/setter (set()) FUNCTION
            int getLength()
            {
                return length;
@@ -554,7 +557,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
                length = l;
            }
 
-           // destructor (call whenever dynamic memory is allocated by the class)
+           // DESTRUCTOR (CALL WHENEVER DYNAMIC MEMORY IS ALLOCATED BY THE CLASS)
            ~Rectangle();
    };
 
@@ -576,7 +579,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
 
    Rectangle::~Rectangle()
    {
-       // free the dynamically allocated memory
+       // FREE THE DYNAMICALLY ALLOCATED MEMORY
    }
 
    int main()
@@ -587,7 +590,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
        r.setLength(20);
        cout<<r.getLength();
 
-       // now destructor will automatically called when the object goes outside the scope
+       // NOW DESTRUCTOR WILL AUTOMATICALLY CALLED WHEN THE OBJECT GOES OUTSIDE THE SCOPE
    }
    ```
 
@@ -610,7 +613,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
    template <class T>
    Arithmetic<T>::Arithmetic(T a, T b)
    {
-       // this refers to class member variables not the function variables
+       // THIS REFERS TO CLASS MEMBER VARIABLES NOT THE FUNCTION VARIABLES
        this->a = a;
        this->b = b;
    }
@@ -641,7 +644,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
    }
    ```
 
-#### C/C++ Setup
+### C/C++ Setup
 
 For now, we will use [Dev-C++](https://www.bloodshed.net/dev/devcpp.html). Download the **with Mingw/GCC** version so that compiler will also be included.
 
@@ -652,9 +655,22 @@ Make the below changes in **Tools** --> **Compiler Options**:
 
 ## Arrays
 
-_Definition:_ Contiguous area of memory consisting of equal-size elements
+_Definition:_ Contiguous area of memory consisting of equal-size elements.
 
-Indexed by contiguous integers.
+_Example:_
+
+```c
+int main()
+{
+    // ARRAY OF INTEGERS OF LENGTH 5
+    int A[5];
+
+    // SIZE OF AN ARRAY CAN BE SKIPPED
+    int B[] = { 1, 2, 3 }; // SIZE 3
+}
+```
+
+Indexed by contiguous integers starting with 0 in case of C/C++.
 
 - Arrays have constant-time access to any element and to add/remove at the end. Linear time to add/remove at an arbitrary location.
 

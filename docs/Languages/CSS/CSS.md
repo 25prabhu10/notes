@@ -1,27 +1,71 @@
 ---
 title: CSS - Cascading Style Sheets
-description: Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML.
+description: Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in HTML or XML.
 ---
 
 # CSS
 
-Cascading Style Sheets (CSS) is a **style sheet language** used for describing the presentation of a document written in a markup language such as HTML
+Cascading Style Sheets (CSS) is a **style sheet language** used to describing the presentation of a document written in HTML or XML.
 
-It is one of the three building block any web application.
-
+- It is one of the three building block any web application (**HTML**, **CSS**, and **JavaScript**).
 - CSS is a declarative language.
 
-## Structure
+## Usage
 
-1. Rule-set
+For styling the HTML document, we can add CSS in two ways:
 
-```html
+1. **Inline styles**: The CSS is directly written in the HTML document as an attribute of the HTML element.
+
+   ```html
+   <p style="color: red; font-size: 20px;">This is my first paragraph.</p>
+   ```
+
+2. **Internal stylesheet**: The CSS is written inside the `<style>` element in theHTML document.
+
+   ```html
+   <head>
+     <style>
+       p {
+         color: red;
+         font-size: 20px;
+       }
+     </style>
+   </head>
+   ```
+
+3. **External stylesheet**: The CSS is written in a separete file, which is then refernced by the HTML document through the use of `<link>` element. The external file has a file extension as `.css`.
+
+   CSS inside external file, like `styles.css`:
+
+   ```css
+   p {
+     color: red;
+     font-size: 20px;
+   }
+   ```
+
+   Linking the external style sheet inside the HTML document:
+
+   ```html
+   <head>
+     <link rel="stylesheet" href="./index.css" />
+   </head>
+   ```
+
+## Syntax
+
+The basic building blocks are:
+
+- The **property** which is an identifier, that is a human-readable _name_, that defines which feature is considered.
+- The **value** which describe how the feature must be handled by the engine. Each property has a set of valid values, defined by a formal grammar, as well as a semantic meaning, implemented by the browser engine.
+
 <img src="./ruleset.png" alt="ruleset" style="zoom:70%;" />
-```
 
 ### Selectors
 
-1. Universal selector - `*`: Selector that matches every element on the page.
+This is the HTML element name at the start of the ruleset. It defines the element(s) to be styled.
+
+1. **Universal selector** - `*`: Selector that matches every element on the page.
 
    ```css
    * {
@@ -31,7 +75,7 @@ It is one of the three building block any web application.
    }
    ```
 
-2. Type Selector: Selecting an element using the tag name.
+2. **(Element or Tag or Type) Selector**: Selecting an element using the tag name.
 
    ```css
    a {
@@ -39,7 +83,7 @@ It is one of the three building block any web application.
    }
    ```
 
-3. Class Selector: Selecting an element using its class names assigned to its class attribute. Class names have to be prefixed with a dot `.` and as HTML element can have multiple classes, multiple class selectors may be combined.
+3. **Class Selector**: Selecting an element using its class names assigned to its class attribute. Class names have to be prefixed with a dot `.` and as HTML element can have multiple classes, multiple class selectors may be combined.
 
    ```css
    .invisible {
@@ -47,7 +91,7 @@ It is one of the three building block any web application.
    }
    ```
 
-4. ID Selector: Selecting an element using its ID assigned to its id attribute. As all ids inside a HTML are unique, there should not be duplicate ID selectors.
+4. **ID Selector**: Selecting an element using its ID assigned to its id attribute. As all ids inside a HTML are unique, there should not be duplicate ID selectors.
 
    ```css
    #ok {
@@ -56,7 +100,15 @@ It is one of the three building block any web application.
    }
    ```
 
-5. Attribute Selector: Selecting an element based upon one of its attributes. This selector uses square brackets to contain the attribute match and may be optionally combined with a type selector.
+5. **Pseudo-Class Selector**: Selecting an element, but only when in the specified state. (For example, when a cursor hovers over a link change the color.).
+
+   ```css
+   a:hover {
+     color: red;
+   }
+   ```
+
+6. **Attribute Selector**: Selecting an element based upon one of its attributes. This selector uses square brackets to contain the attribute match and may be optionally combined with a type selector.
 
    ```css
    a[target="_blank"] {
@@ -65,29 +117,30 @@ It is one of the three building block any web application.
    ```
 
    ::: tip NOTE
+
    Because class and ID are both HTML attributes, the class and ID selectors have attribute selector equivalents.
 
-   |                 | Basic Selector | Attribute Selector   |
+   | Type            | Basic Selector | Attribute Selector   |
    | :-------------- | :------------- | :------------------- |
    | Select by ID    | `#contactForm` | `[id=contactForm]`   |
    | Select by Class | `.outline`     | `[class~="outline"]` |
 
    :::
 
-### Combinators
+#### Combinators
 
-Combinators help in combing different selectors. They also provide a hierarchical context based upon the element's relationship within the DOM.
+Combinators help in combing different selectors. They also provide a hierarchical context based upon the element's relationship within the DOM:
 
 | Name             | Combinator  | Example         | Description                                                                         |
 | :--------------- | :---------- | :-------------- | :---------------------------------------------------------------------------------- |
-| Descendant       | " " (space) | `nav a`         | All anchor tags inside of a nav element                                             |
+| Descendant       | " " (space) | `nav a`         | All anchor tags inside of a `<nav>` element                                         |
 | Child            | ">"         | `nav > ul > li` | First list items inside a navigation list, ignoring any items after the first level |
 | Sibling          | "~"         | `p ~ p`         | All paragraphs (after the first) that share the same parent element                 |
 | Adjacent Sibling | "+"         | `h2 + p`        | All paragraphs that immediately follow an `<h2>` tag on the same hierarchy          |
 
 #### Pseudo Elements
 
-Pseudo-Element is a keyword added to a selector that lets you style a specific part of the selected element(s)
+Pseudo-Element is a keyword added to a selector that lets you style a specific part of the selected element(s):
 
 ```css
 /* The first line of every <p> element. */
@@ -108,6 +161,7 @@ List of Pseudo Elements:
 - `::selection`: Apply styles to the part of a document that has been highlighted by the user (such as clicking and dragging the mouse across text).
 
 ::: warning NOTE
+
 The CSS specification calls for a two-colon prefix before a pseudo element, such as `::after`. However, most browsers support pseudo elements with just a single colon (`:after`) without throwing an error.
 
 Best practice is to use two-colon prefix for two reasons:
@@ -130,7 +184,7 @@ List of Pseudo Classes:
 
 ### Properties
 
-The properties in CSS refer to the various aspects of layout and style that can be affected.
+The properties in CSS refer to the various aspects of layout and style that can be affected. These are ways in which you can style an HTML element.
 
 ### Units
 
@@ -142,8 +196,8 @@ Types of units:
    - `in`: Inch. _1in. = 6pc = 72pt = 2.54cm_. This will be a true inch on printers, but defined relative to a reference pixel for screens which is _96px_ regardless of the screen resolution.
    - `pc`: Pica. Unit of measure in typography.
    - `pt`: Point. Unit of measure in typography.
-   - `cm`: Centimeter. _1cm = 10mm_.
-   - `mm`: Millimeter.
+   - `cm`: Centimetre. _1cm = 10mm_.
+   - `mm`: Millimetre.
 
 2. Font-Relative
 
@@ -227,9 +281,113 @@ li::before {
 
 The CSS at-rules (so-named because of the **@** or _"at"_ symbol in the name of each) are language features that provide some control over the structure of your styles. Among other things these rules provide a mechanism for collecting or grouping other rulesets.
 
-#### Media
+#### Media Queries
+
+Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).
 
 `@media` at-rule is used to perform queries against the system, environment, or user agent. These media queries can be used to build responsive layouts.
+
+##### Media Types
+
+Media types describe the general category of a device. Except when using the `not` or `only` logical operators, the media type is optional and the `all` type will be implied.
+
+- `all`: Suitable for all devices
+- `print`: Intended for paged material and documents viewed on a screen in print preview mode
+- `screen`: Intended primarily for screens
+- `speech`: Intended for speech synthesizers
+
+##### Media Features
+
+Media features describe specific characteristics of the [user agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent), output device, or environment.
+
+- Visit [MDN - Media features](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#media_features) for the list of all media features expression.
+
+1. **Prefers-Color-Scheme**: The prefers-color-scheme CSS media feature is used to detect if the user has requested the system to use a light or dark color theme.
+
+   - **no-preference**: Indicates that the user has made no preference known to the system. This keyword value evaluates as false in the boolean context.
+
+   - **light**: Indicates that the user has notified the system that they prefer an interface that has a light theme.
+
+   - **dark**: Indicates that the user has notified the system that they prefer an interface that has a dark theme.
+
+```css
+body {
+  background: #e78900;
+  color: #fff;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background: #e78900;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #191a1a;
+  }
+}
+```
+
+2. **Prefers-Reduced-Motion**: The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of animation or motion it uses.
+
+   - **no-preference**: Indicates that the user has made no preference known to the system.
+
+   - **reduce**: Indicates that the user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where all non-essential movement is removed.
+
+```css
+.square-inner-box {
+  animation: fill 1.7s infinite ease-in;
+}
+
+@keyframes fill {
+  0% {
+    height: 0px;
+  }
+  100% {
+    height: 80px;
+  }
+}
+
+@keyframes roll {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    trasform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .square-box {
+    animation: none;
+  }
+  .square-inner-box {
+    animation: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .square-box {
+    animation: roll 2s infinite ease-out;
+  }
+  .square-inner-box {
+    animation: fill 1.7s infinite ease-in;
+  }
+}
+```
+
+##### Logical Operators
+
+The logical operators `not`, `and`, and `only` can be used to compose a complex media query.
+
+- `and`: It is used for combining multiple media features together into a single media query, requiring each chained feature to return true for the query to be true. It is also used for joining media features with media types.
+
+- `not`: It is used to negate a media query
+
+- `only`: It is used to apply a style only if an entire query matches, and is useful for preventing older browsers from applying selected styles.
+
+- `,` (comma): Commas are used to combine multiple media queries into a single rule. Each query in a comma-separated list is treated separately from the others. Thus, if any of the queries in a list is true, the entire media statement returns true. In other words, lists behave like a logical or operator.
 
 #### Import
 

@@ -6,6 +6,8 @@ next: ./API
 
 1. [API](./API)
 2. [SQL Injections](./SQL%20Injections)
+3. [SameOrigin vs SameSite](./SameOrigin)
+4. [Content Security Policy](./CSP)
 
 ## The Five Stages of Hacking
 

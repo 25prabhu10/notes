@@ -16,11 +16,11 @@ Variable is like a container that holds a value.
 
 Primitive Data Types in JavaScript:
 
-1. Number: Floating point numbers for both decimals and integers
-2. String: Sequence of characters, used for text
-3. Boolean: Logical data type that can only be _true_ or _false_
-4. Undefined: Data type of a variable that has no value assigned to it
-5. Null: Also means 'non-existent'. No value is present.
+1. _Number_: Floating point numbers for both decimals and integers
+2. _String_: Sequence of characters, used for text
+3. _Boolean_: Logical data type that can only be _true_ or _false_
+4. _Undefined_: Data type of a variable that has no value assigned to it
+5. _Null_: Also means 'non-existent'. No value is present.
 
 ## Operators
 
@@ -30,8 +30,8 @@ Check out Operator Precedence.
 
 ## Truthy and Falsy
 
-Truthy values: all NOT Falsy values
-Falsy values: `undefined`, `null`, 0, '', `NaN`
+- Truthy values: all NOT Falsy values
+- Falsy values: `undefined`, `null`, `0`, `''`, `NaN`
 
 ## Functions
 
@@ -61,7 +61,7 @@ The default execution context is the _Global Execution Context_.
 
 - Associated with the _Global Object_.
 
-- In the browser, the window object is the _Global Object_.
+- In the browser, the **window object** is the _Global Object_.
 
 ```javascript
 lastName === window.lastName; // true

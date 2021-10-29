@@ -9,3 +9,4 @@
 7. [JavaScript](./JavaScript)
 8. [Markdown](./Markdown) - A Lightweight Markup Language
 9. [Python](./Python)
+10. [Editors](./Editors)

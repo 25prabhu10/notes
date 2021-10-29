@@ -7,7 +7,22 @@ description: Collection of CLI applications and commands.
 
 ## General
 
-### 7z or zip
+1. Find difference in output of two shell commands:
+
+   ```bash
+   diff <(ls) <(ll)
+
+   # OR TO SEE ALL THE DIFFERENCE SIMILARE TO (n)vim -d (diff)
+   nvim <(pacman -Qi nvim) <(pacman -Si nvim)
+   ```
+
+2. Upload files and share for free (limit 10GB):
+
+   ```bash
+   curl --upload-file ./hello.txt https://transfer.sh/hello.txt
+   ```
+
+## 7z
 
 - 7z with ultra compression:
 
@@ -15,7 +30,7 @@ description: Collection of CLI applications and commands.
   7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on archive.7z dir1
   ```
 
-### ffmpeg
+## ffmpeg
 
 - Simple conversion of videos:
 
