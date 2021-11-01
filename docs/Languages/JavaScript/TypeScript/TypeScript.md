@@ -37,7 +37,7 @@ Ans: Programs are files that contain a bunch of text. That text is parsed by a s
 
 - TypeScript **compiles** to… **JavaScript** code! This JavaScript code is run in browser or NodeJS.
 
-> Note: JavaScript compilers and runtime tend to be smashed into a single program called an engine; as a programmer, this is what you’ll normally interact with. It’s how V8 (the engine powering NodeJS, Chrome, and Opera), SpiderMonkey (Firefox), JSCore (Safari), and Chakra (Edge) work, and it’s what gives JavaScript the appearance of being an interpreted language.
+> Note: JavaScript compilers and runtime tend to be smashed into a single program called an engine; as a programmer, this is what you'll normally interact with. It's how V8 (the engine powering NodeJS, Chrome, and Opera), SpiderMonkey (Firefox), JSCore (Safari), and Chakra (Edge) work, and it's what gives JavaScript the appearance of being an interpreted language.
 
 #### tsconfig.json
 

@@ -17,6 +17,6 @@ The choice of tools depends on lot of variables like:
 
 Some of the more popular Web Stacks are:
 
-1. **LAMP Stack** _(Linux, Apache, MySQL, PHP)_ – The Old-school Stack
-2. **MEAN** *(MongoDB, ExpressJS, Angular, NodeJS)* – The Jock Stack
+1. **LAMP Stack** _(Linux, Apache, MySQL, PHP)_ - The Old-school Stack
+2. **MEAN** *(MongoDB, ExpressJS, Angular, NodeJS)* - The Jock Stack
 3. **MERN** _(MongoDB, ExpressJS, ReactJS, NodeJS)_

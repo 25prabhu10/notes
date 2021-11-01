@@ -6,6 +6,12 @@
 - **~72%** passing score
 - Valid for **3 years**
 
+## AWS
+
+- AWS (**Amazon Web Services**) is a _Cloud Provider_
+- They provide many servers and services that can be used **on demand** and **scaled easily**
+- For more details checkout [AWS](./AWS)
+
 ## Who is the Developer Associate for
 
 - Web developers
@@ -38,42 +44,6 @@
 - Nov 2017 - _Running Containerized Microservices on AWS_
 - Aug 2016 - _Blue/Green Deployments on AWS_
 - [AWS White-papers link](https://aws.amazon.com/whitepapers)
-
-## AWS
-
-- AWS (**Amazon Web Services**) is a _Cloud Provider_
-- They provide many servers and services that can be used **on demand** and **scaled easily**
-- For more details checkout [AWS](./AWS)
-
-## AWS Services
-
-1. [IAM](./AWS_IAM)
-2. [EC2](./AWS_EC2)
-3. [EC2 Instance Storage](#ec2-instance-storage)
-4. [Load Balancing](./AWS_Load_Balancing)
-5. [RDS](./AWS_RDS)
-6. [Route 53](./AWS_Route_53)
-7. [VPC](./AWS_VPC)
-8. [S3](./Amazon_S3)
-9. [CloudFront](./AWS_CloudFront)
-10. [ECS](./AWS_ECS)
-11. [Elastic Beanstalk](./AWS_Elastic_Beanstalk)
-12. [AWS CICD](./AWS_CI_CD)
-13. [AWS CloudFormation](./AWS_CloudFormation)
-14. [AWS Monitoring, Troubleshooting & Audit](./AWS_Monitoring_Troubleshooting_Audit)
-15. [AWS Integration and Messaging](./AWS_Integration_and_Messaging)
-16. [AWS Lambda](./AWS_Lambda)
-17. [AWS DynamoDB](./AWS_DynamoDB)
-18. [AWS API Gateway](./AWS_API_Gateway)
-19. [AWS Serverless Application Model](./AWS_Serverless_Application_Model)
-20. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit)
-21. [AWS Cognito](./AWS_Cognito)
-
-## Queries
-
-1. IaaS vs PaaS vs SaaS
-
-- Lift and shift
 
 ## Training
 

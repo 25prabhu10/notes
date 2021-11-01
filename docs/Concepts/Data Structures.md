@@ -481,7 +481,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
    }
    ```
 
-2. Similarly in C++, OOP’s concepts are used to organize the code.
+2. Similarly in C++, OOP's concepts are used to organize the code.
 
    All the variables and functions related to them are grouped together as a class.
 
@@ -705,7 +705,7 @@ Heap Memory is known as Dynamic Memory, as the size is known only during run tim
 Steps of execution of a program:
 
 1. The program is copied into the code section of the memory.
-2. All the variables will have memory allocation in Stack Frame or Activation Record of the function which is part of the Stack section of the memory. The main function will have the first Stack Frame inside the Stack Memory. The functions called by the main function and subsequent function’s activation record will have to be saved as a Stack. Organized memory.
+2. All the variables will have memory allocation in Stack Frame or Activation Record of the function which is part of the Stack section of the memory. The main function will have the first Stack Frame inside the Stack Memory. The functions called by the main function and subsequent function's activation record will have to be saved as a Stack. Organized memory.
 
 Abstract Data Type (ADT):
 

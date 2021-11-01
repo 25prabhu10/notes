@@ -183,8 +183,8 @@ We use `analytics.js` rather than the newer `gtag.js` as
 The beacon transport mechanism is used to send all hits [which saves HTTP requests and improves performance](https://philipwalton.com/articles/the-google-analytics-setup-i-use-on-every-site-i-build/#loading-analytics.js).
 
 Google recommends that this script be placed at the top of the page.
-Factors to consider: if you place this script at the top of the page, you’ll
-be able to count users who don’t fully load the page, and you’ll incur the max
+Factors to consider: if you place this script at the top of the page, you'll
+be able to count users who don't fully load the page, and you'll incur the max
 number of simultaneous connections of the browser.
 
 Further information:

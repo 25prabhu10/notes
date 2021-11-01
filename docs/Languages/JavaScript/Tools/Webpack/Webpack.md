@@ -23,7 +23,7 @@ Some of the features are:
 
 - **Modularity**: Using module pattern, we can split code into multiple files and import them based on the requirement in each file.
 
-- **Composition**: With modules, we can build small, simple, reusable React components that we can compose efficiently into applications. Smaller components are easier to comprehend, test, and reuse. They’re also easier to replace down the line when enhancing applications.
+- **Composition**: With modules, we can build small, simple, reusable React components that we can compose efficiently into applications. Smaller components are easier to comprehend, test, and reuse. They're also easier to replace down the line when enhancing applications.
 
 - **Speed**: Packaging all the application's modules and dependencies into a single client bundle will reduce the load time of an application.
 

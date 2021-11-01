@@ -13,7 +13,7 @@ _Big O_ notation is special notation that tells how fast an algorithm is.
 
 ### Logarithms
 
-> "How many 2’s do we multiply together to get 128?" --> **log2 128 = 7**
+> "How many 2's do we multiply together to get 128?" --> **log2 128 = 7**
 
 ## Data Structures
 
@@ -81,10 +81,10 @@ Lets us look at two approaches to find a key present in one of the boxes (arrang
    ```
 
 When a recursive function is written, we need to tell it to stop recursing.
-That’s why _every recursive function has two parts: the base case, and the recursive case_.
+That's why _every recursive function has two parts: the base case, and the recursive case_.
 
 - The recursive case is when the function calls itself.
-- The base case is when the function doesn’t call itself (stop).
+- The base case is when the function doesn't call itself (stop).
 
 Recursive functions use the _call stack_ to keep track of function calls and function related variables.
 
@@ -116,7 +116,7 @@ Using the stack takes up a lot of memory.
 Divide & Conquer is an algorithm design paradigm based on multi-branched recursion. A divide-and-conquer algorithm works by recursively breaking down a problem into two or more sub-problems of the same or related type, until these become simple enough to be solved directly. The solutions to the sub-problems are then combined to give a solution to the original problem.
 
 - Finding the GCD is an use case of D&C.
-- Check Euclid’s algorithm for GCD.
+- Check Euclid's algorithm for GCD.
 
 ## Search
 

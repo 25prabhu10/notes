@@ -15,7 +15,7 @@ DESCRIPTION
        Git is a fast, scalable, distributed revision control system with an unusually rich command set that provides both high-level operations and
        full access to internals.
 
-       See gittutorial(7) to get started, then see giteveryday(7) for a useful minimum set of commands. The Git User’s Manual[1] has a more
+       See gittutorial(7) to get started, then see giteveryday(7) for a useful minimum set of commands. The Git User's Manual[1] has a more
        in-depth introduction.
 
        After you mastered the basic concepts, you can come back to this page to learn what commands Git offers. You can learn more about individual
@@ -57,7 +57,7 @@ OPTIONS
            no path is given, git will print the current setting and then exit.
 
        --html-path
-           Print the path, without trailing slash, where Git’s HTML documentation is installed and exit.
+           Print the path, without trailing slash, where Git's HTML documentation is installed and exit.
 
        --man-path
            Print the manpath (see man(1)) for the man pages for this version of Git and exit.
@@ -477,7 +477,7 @@ LOW-LEVEL COMMANDS (PLUMBING)
            List references in a local repository.
 
        git-unpack-file(1)
-           Creates a temporary file with a blob’s contents.
+           Creates a temporary file with a blob's contents.
 
        git-var(1)
            Show a Git logical variable.
@@ -572,7 +572,7 @@ LOW-LEVEL COMMANDS (PLUMBING)
            Compute unique ID for a patch.
 
        git-sh-i18n(1)
-           Git’s i18n setup code for shell scripts.
+           Git's i18n setup code for shell scripts.
 
        git-sh-setup(1)
            Common Git shell script setup code.
@@ -663,7 +663,7 @@ ENVIRONMENT VARIABLES
            This environment allows the specification of an alternate index file. If not specified, the default of $GIT_DIR/index is used.
 
        GIT_INDEX_VERSION
-           This environment variable allows the specification of an index version for new repositories. It won’t affect existing index files. By
+           This environment variable allows the specification of an index version for new repositories. It won't affect existing index files. By
            default index file version 2 or 3 is used. See git-update-index(1) for more information.
 
        GIT_OBJECT_DIRECTORY
@@ -695,7 +695,7 @@ ENVIRONMENT VARIABLES
            looking for a repository directory (useful for excluding slow-loading network directories). It will not exclude the current working
            directory or a GIT_DIR set on the command line or in the environment. Normally, Git has to read the entries in this list and resolve any
            symlink that might be present in order to compare them with the current directory. However, if even this access is slow, you can add an
-           empty entry to the list to tell Git that the subsequent entries are not symlinks and needn’t be resolved; e.g.,
+           empty entry to the list to tell Git that the subsequent entries are not symlinks and needn't be resolved; e.g.,
            GIT_CEILING_DIRECTORIES=/maybe/symlink::/very/slow/non/symlink.
 
        GIT_DISCOVERY_ACROSS_FILESYSTEM
@@ -735,7 +735,7 @@ ENVIRONMENT VARIABLES
        <old|new>-mode
            are the octal representation of the file modes.
 
-           The file parameters can point at the user’s working file (e.g.  new-file in "git-diff-files"), /dev/null (e.g.  old-file when a new file
+           The file parameters can point at the user's working file (e.g.  new-file in "git-diff-files"), /dev/null (e.g.  old-file when a new file
            is added), or a temporary file (e.g.  old-file in the index).  GIT_EXTERNAL_DIFF should not worry about unlinking the temporary file ---
            it is removed when GIT_EXTERNAL_DIFF exits.
 
@@ -773,7 +773,7 @@ ENVIRONMENT VARIABLES
        further details.
 
        GIT_SSH_VARIANT
-           If this environment variable is set, it overrides Git’s autodetection whether GIT_SSH/GIT_SSH_COMMAND/core.sshCommand refer to OpenSSH,
+           If this environment variable is set, it overrides Git's autodetection whether GIT_SSH/GIT_SSH_COMMAND/core.sshCommand refer to OpenSSH,
            plink or tortoiseplink. This variable overrides the config setting ssh.variant that serves the same purpose.
 
        GIT_ASKPASS
@@ -921,7 +921,7 @@ DISCUSSION
        The object database contains objects of three main types: blobs, which hold file data; trees, which point to blobs and other trees to build
        up directory hierarchies; and commits, which each reference a single tree and some number of parent commits.
 
-       The commit, equivalent to what other systems call a "changeset" or "version", represents a step in the project’s history, and each parent
+       The commit, equivalent to what other systems call a "changeset" or "version", represents a step in the project's history, and each parent
        represents an immediately preceding step. Commits with more than one parent represent merges of independent lines of development.
 
        All objects are named by the SHA-1 hash of their contents, normally written as a string of 40 hex digits. Such names are globally unique.
@@ -971,14 +971,14 @@ REPORTING BUGS
        Issues which are security relevant should be disclosed privately to the Git Security mailing list <git-security@googlegroups.com[6]>.
 
 SEE ALSO
-       gittutorial(7), gittutorial-2(7), giteveryday(7), gitcvs-migration(7), gitglossary(7), gitcore-tutorial(7), gitcli(7), The Git User’s
+       gittutorial(7), gittutorial-2(7), giteveryday(7), gitcvs-migration(7), gitglossary(7), gitcore-tutorial(7), gitcli(7), The Git User's
        Manual[1], gitworkflows(7)
 
 GIT
        Part of the git(1) suite
 
 NOTES
-        1. Git User’s Manual
+        1. Git User's Manual
            file:///usr/share/doc/git-doc/user-manual.html
 
         2. Git concepts chapter of the user-manual

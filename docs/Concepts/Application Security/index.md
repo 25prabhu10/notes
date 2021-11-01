@@ -61,7 +61,7 @@ next: ./API
 
 4. What are the other techniques to find bugs?
 
-   - **_Code Coverage Tools_** - Code coverage provides information about whether, and optionally how often certain parts of an application have been executed. It’s commonly used to determine how thoroughly a test suite exercises a particular codebase. [JestJS](https://jestjs.io/) is testing framework for JavaScript with code coverage.
+   - **_Code Coverage Tools_** - Code coverage provides information about whether, and optionally how often certain parts of an application have been executed. It's commonly used to determine how thoroughly a test suite exercises a particular codebase. [JestJS](https://jestjs.io/) is testing framework for JavaScript with code coverage.
    - **_Software Composition Analysis_** - Identify Vulnerabilities In Open Source Libraries used as dependencies in the project. [RetireJS](https://github.com/RetireJS/retire.js) is one such tool for JavaScript.
 
 ::: tip

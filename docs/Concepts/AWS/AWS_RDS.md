@@ -35,7 +35,7 @@
   - Manually triggered by the user
   - Retention of backup for as long as you want
 
-## RDS – Storage Auto Scaling
+## RDS - Storage Auto Scaling
 
 - Helps you increase storage on your RDS DB instance dynamically
 - When RDS detects you are running out of free database storage, it scales automatically
@@ -56,7 +56,7 @@
 - Replicas can be promoted to their own DB
 - Applications must update the connection string to leverage read replicas
 
-### RDS Read Replicas – Use Cases
+### RDS Read Replicas - Use Cases
 
 - You have a production database that is taking on normal load
 - You want to run a reporting application to run some analytics
@@ -64,7 +64,7 @@
 - The production application is unaffected
 - Read replicas are used for SELECT (=read) only kind of statements (not INSERT, UPDATE, DELETE)
 
-### RDS Read Replicas – Network Cost
+### RDS Read Replicas - Network Cost
 
 - In AWS there's a network cost when data goes from one AZ to another
 - For RDS Read Replicas within the same region, you don't pay that fee
@@ -72,7 +72,7 @@
 ## RDS Multi AZ (Disaster Recovery)
 
 - SYNC replication
-- One DNS name – automatic app failover to standby
+- One DNS name - automatic app failover to standby
 - Increase availability
 - Failover in case of loss of AZ, loss of network, instance or storage failure
 - No manual intervention in apps
@@ -80,7 +80,7 @@
 - Multi-AZ replication is free
 - Note:The Read Replicas be setup as Multi AZ for Disaster Recovery (DR)
 
-### RDS – From Single-AZ to Multi-AZ
+### RDS - From Single-AZ to Multi-AZ
 
 - Zero downtime operation (no need to stop the DB)
 - Just click on "modify" for the database
@@ -185,11 +185,11 @@ Steps:
   - Restore the database from the encrypted snapshot
   - Migrate applications to the new database, and delete the old database
 
-### RDS Security – Network & IAM
+### RDS Security - Network & IAM
 
 - Network Security
   - RDS databases are usually deployed within a private subnet, not in a public one
-  - RDS security works by leveraging security groups (the same concept as for EC2 instances) – it controls which IP / security group can communicate with RDS
+  - RDS security works by leveraging security groups (the same concept as for EC2 instances) - it controls which IP / security group can communicate with RDS
 - Access Management
   - IAM policies help control who can manage AWS RDS (through the RDS API)
   - Traditional Username and Password can be used to login into the database
@@ -205,7 +205,7 @@ Steps:
   - IAM to centrally manage users instead of DB
   - Can leverage IAM Roles and EC2 Instance profiles for easy integration
 
-### RDS Security – Summary
+### RDS Security - Summary
 
 - Encryption at rest:
   - Is done only when you first create the DB instance
@@ -229,7 +229,7 @@ Steps:
 - Aurora storage automatically grows in increments of 10GB, up to 64 TB.
 - Aurora can have 15 replicas while MySQL has 5, and the replication process is faster (sub 10 ms replica lag)
 - Failover in Aurora is instantaneous. It's HA (High Availability) native.
-- Aurora costs more than RDS (20% more) – but is more efficient
+- Aurora costs more than RDS (20% more) - but is more efficient
 
 ### Aurora High Availability and Read Scaling
 
@@ -339,14 +339,14 @@ Steps:
 - Helps relieve load in RDS
 - Cache must have an invalidation strategy to make sure only the most current data is used in there.
 
-### Solution Architecture – User Session Store
+### Solution Architecture - User Session Store
 
 - User logs into any of the application
 - The application writes the session data into ElastiCache
 - The user hits another instance of our application
 - The instance retrieves the data and the user is already logged in
 
-### ElastiCache – Redis vs Memcached
+### ElastiCache - Redis vs Memcached
 
 | REDIS                                                   | MEMCACHED                                      |
 | ------------------------------------------------------- | ---------------------------------------------- |
@@ -356,7 +356,7 @@ Steps:
 | Backup and restore features                             | No backup and restore                          |
 |                                                         | Multi-threaded architecture                    |
 
-### ElastiCache – Cache Security
+### ElastiCache - Cache Security
 
 - All caches in ElastiCache:
   - Do not support IAM authentication
@@ -430,14 +430,14 @@ def get_user(user_id):
 user = get_user(19)
 ```
 
-2. Write Through – Add or Update cache when database is updated
+2. Write Through - Add or Update cache when database is updated
 
 - Pros:
   - Data in cache is never stale, reads are quick
   - Write penalty vs Read penalty (each write requires 2 calls)
 - Cons:
   - Missing Data until it is added / updated in the DB. Mitigation is to implement Lazy Loading strategy as well
-  - Cache churn – a lot of the data will never be read RDS
+  - Cache churn - a lot of the data will never be read RDS
 
 _Example_:
 

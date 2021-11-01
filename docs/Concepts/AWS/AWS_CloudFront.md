@@ -6,7 +6,7 @@
 - DDoS protection, integration with Shield, AWS Web Application Firewall
 - Can expose external HTTPS and can talk to internal HTTPS backends
 
-## CloudFront – Origins
+## CloudFront - Origins
 
 - S3 bucket
   - For distributing files and caching them at the edge

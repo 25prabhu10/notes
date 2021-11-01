@@ -30,11 +30,11 @@ Load balancers are servers that forward internet traffic to multiple servers (EC
 ## Types of load balancer on AWS
 
 - AWS has 3 kinds of managed Load Balancers
-- Classic Load Balancer (v1 - old generation) – 2009
+- Classic Load Balancer (v1 - old generation) - 2009
   - HTTP, HTTPS, TCP
-- Application Load Balancer (v2 - new generation) – 2016
+- Application Load Balancer (v2 - new generation) - 2016
   - HTTP, HTTPS, WebSocket
-- Network Load Balancer (v2 - new generation) – 2017
+- Network Load Balancer (v2 - new generation) - 2017
   - TCP, TLS (secure TCP) & UDP
 - Gateway Load Balancer (Introduced on Nov 10th 2020)
 - Overall, it is recommended to use the newer / v2 generation load balancers as they provide more features
@@ -42,7 +42,7 @@ Load balancers are servers that forward internet traffic to multiple servers (EC
 
 ### Load Balancer Good to Know
 
-- LBs can scale but not instantaneously – contact AWS for a "warm-up"
+- LBs can scale but not instantaneously - contact AWS for a "warm-up"
 - Troubleshooting
   - 4xx errors are client induced errors
   - 5xx errors are application induced errors
@@ -111,10 +111,10 @@ Steps:
 
 #### Target Groups
 
-- EC2 instances (can be managed by an Auto Scaling Group) – HTTP
-- ECS tasks (managed by ECS itself) – HTTP
-- Lambda functions – HTTP request is translated into a JSON event
-- IP Addresses – must be private IPs
+- EC2 instances (can be managed by an Auto Scaling Group) - HTTP
+- ECS tasks (managed by ECS itself) - HTTP
+- Lambda functions - HTTP request is translated into a JSON event
+- IP Addresses - must be private IPs
 - ALB can route to multiple target groups
 - Health checks are at the target group level
 
@@ -193,7 +193,7 @@ Steps:
 - Use case: make sure the user doesn't lose his session data
 - Enabling stickiness may bring imbalance to the load over the backend EC2 instances
 
-### Sticky Sessions – Cookie Names
+### Sticky Sessions - Cookie Names
 
 - Application-based Cookies
   - Custom cookie
@@ -258,7 +258,7 @@ To enable Cross-Zone Load Balancing: Goto Load Balancers --> Enable Cross-Zone L
   - Clients can use SNI (Server Name Indication) to specify the hostname they reach
   - Ability to specify a security policy to support older versions of SSL / TLS (legacy clients)
 
-### SSL – Server Name Indication (SNI)
+### SSL - Server Name Indication (SNI)
 
 - SNI solves the problem of loading multiple SSL certificates onto one web server (to serve multiple websites)
 - It's a "newer" protocol, and requires the client to indicate the hostname of the target server in the initial SSL handshake
@@ -269,7 +269,7 @@ Note:
 - Only works for ALB & NLB (newer generation), CloudFront
 - Does not work for CLB (older gen)
 
-### Elastic Load Balancers – SSL Certificates
+### Elastic Load Balancers - SSL Certificates
 
 - Classic Load Balancer (v1)
   - Support only one SSL certificate
@@ -394,7 +394,7 @@ Steps:
 7. Add tags
 8. Review
 
-### Auto Scaling Groups – Dynamic Scaling Policies
+### Auto Scaling Groups - Dynamic Scaling Policies
 
 - Target Tracking Scaling
   - Most simple and easy to set-up
@@ -408,7 +408,7 @@ Steps:
   - Anticipate a scaling based on known usage patterns
   - Example: increase the min capacity to 10 at 5 pm on Fridays
 
-### Auto Scaling Groups – Predictive Scaling
+### Auto Scaling Groups - Predictive Scaling
 
 - Predictive scaling: continuously forecast load and schedule scaling ahead
 

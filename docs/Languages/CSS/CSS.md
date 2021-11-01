@@ -180,7 +180,7 @@ List of Pseudo Classes:
 - `:hover`: Match when an element is being hovered over (such as using the mouse)
 - `:focus`: Match an element selected with the keyboard (by tabbing), or with the mouse (by clicking the element)
 - `:active`: Match an element in the process of being activated (such as clicking, while the mouse button is depressed)
-- `:target`: Select an element that has an ID matching the URL’s fragment (the portion after the #)
+- `:target`: Select an element that has an ID matching the URL's fragment (the portion after the #)
 
 ### Properties
 
@@ -201,8 +201,8 @@ Types of units:
 
 2. Font-Relative
 
-   - `ch`: Represents the width of the **0** character in the element’s font (consisting of both typeface and size).
-   - `ex`: Represents the height of the **x** character in the element’s font (consisting of both typeface and size).
+   - `ch`: Represents the width of the **0** character in the element's font (consisting of both typeface and size).
+   - `ex`: Represents the height of the **x** character in the element's font (consisting of both typeface and size).
    - `em`: The calculated font-size of the element. If this unit is used on the font-size property, it will be relative to the inherited font-size.
    - `rem`: Exactly the same as `em`, but always relative to the font-size of the root element (which is the `<html>` for HTML documents). This is the preferred default unit for many web designers as it allows for manageable fluid layouts while addressing accessibility concerns.
 
@@ -237,7 +237,7 @@ CSS has a large number of available functions to perform a variety of tasks. But
 
 - **Counting**: The counting functions `counter()`, `counters()`, and `symbols()` are used to manage counter variables.
 
-- **Math**: Sometimes the built-in units aren’t enough and you need to calculate size or position based upon other elements. The `calc()` function makes it possible to do some basic math with a mix of units. Addition, subtraction, multiplication, and division are supported along with parentheses. As an example, you could use height: `calc(10vh - 1rem)` to calculate the height of a header that was _10%_ of the viewport height, but accounted for a _1rem_ border.
+- **Math**: Sometimes the built-in units aren't enough and you need to calculate size or position based upon other elements. The `calc()` function makes it possible to do some basic math with a mix of units. Addition, subtraction, multiplication, and division are supported along with parentheses. As an example, you could use height: `calc(10vh - 1rem)` to calculate the height of a header that was _10%_ of the viewport height, but accounted for a _1rem_ border.
 
 ### Variables
 
@@ -452,7 +452,7 @@ The initial value for a property may be set by the browser and can vary dependin
 
 #### Inherit
 
-The property value will equate that of the parent’s property whether the property is by default inherited or not.
+The property value will equate that of the parent's property whether the property is by default inherited or not.
 
 ## Rests or Neutralizers CSS
 
@@ -603,6 +603,15 @@ _Example:_
   }
 }
 ```
+
+## CSS Modules
+
+- [CSS Modules](https://github.com/css-modules/css-modules)
+- **Can only scope class names**, when elements are directly used in CSS modules they are applied globally
+
+## CSS in JS
+
+-
 
 ## Tools
 

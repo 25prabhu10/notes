@@ -5,7 +5,7 @@ description: Install two OS's in one computer.
 
 # Dual Booting OS
 
-Install two OS’s in one computer.
+Install two OS's in one computer.
 
 ## Remove Linux From Dual Boot
 

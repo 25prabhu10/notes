@@ -27,7 +27,7 @@
   - public domain names you own (or buy) application1.mypublicdomain.com
   - private domain names that can be resolved by your instances in your VPCs. application1.company.internal
 - Route53 has advanced features such as:
-  - Load balancing (through DNS – also called client load balancing)
+  - Load balancing (through DNS - also called client load balancing)
   - Health checks (although limited...)
   - Routing policy: simple, failover, geolocation, latency, weighted, multi value
 - You pay $0.50 per month per hosted zone
@@ -80,7 +80,7 @@
 
 - Have X health checks failed => unhealthy (default 3)
 - After X health checks passed => health (default 3)
-- Default Health Check Interval: 30s (can set to 10s – higher cost)
+- Default Health Check Interval: 30s (can set to 10s - higher cost)
 - About 15 health checkers will check the endpoint health
 - => one request every 2 seconds on average
 - Can have HTTP, TCP and HTTPS health checks (no SSL verification)
@@ -101,8 +101,8 @@
 - Route traffic to your resources based on the geographic location of users and resources
 - Ability to shift more traffic to resources based on the defined bias
 - To change the size of the geographic region, specify bias values:
-  - To expand (1 to 99) – more traffic to the resource
-  - To shrink (-1 to -99) – less traffic to the resource
+  - To expand (1 to 99) - more traffic to the resource
+  - To shrink (-1 to -99) - less traffic to the resource
 - Resources can be:
   - AWS resources (specify AWS region)
   - Non-AWS resources (specify Latitude and Longitude)

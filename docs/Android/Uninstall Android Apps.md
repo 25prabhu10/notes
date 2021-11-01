@@ -35,13 +35,13 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
    ![No image, kindly refer the TEXT](./adb-open-here.png)
 
-9. Once you’re in the command prompt/terminal, enter the following command: `adb devices`
+9. Once you're in the command prompt/terminal, enter the following command: `adb devices`
 
 10. You will see that the system is starting the ADB daemon. If this is your first time running ADB, you will see a prompt on your phone asking you to authorize a connection with the computer. Grant it.
 
     ![No image, kindly refer the TEXT](./prompt-options.jpg)
 
-11. Now if you re-run the `adb devices` command, the terminal should print the serial number of your device. If so, then you’re ready.
+11. Now if you re-run the `adb devices` command, the terminal should print the serial number of your device. If so, then you're ready.
 
 12. Execute the following command: `adb shell`
 
@@ -72,5 +72,5 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
     <img src="./package-uninstall.png" alt="package uninstall" style="zoom:50%;" />
 
 ::: warning Note
-As a word of warning, uninstalling system applications can be dangerous so please know what you’re getting rid of before you complete these steps. Failing to do so could result in your phone becoming unusable until you perform a factory reset. By removing any given system application, another system application that may depend on it may also break so be careful what you remove. But if something does go wrong, you can always perform a factory reset.
+As a word of warning, uninstalling system applications can be dangerous so please know what you're getting rid of before you complete these steps. Failing to do so could result in your phone becoming unusable until you perform a factory reset. By removing any given system application, another system application that may depend on it may also break so be careful what you remove. But if something does go wrong, you can always perform a factory reset.
 :::

@@ -7,7 +7,7 @@ Infrastructure as Code
   - In another region
   - in another AWS account
   - Within the same region if everything was deleted
-- Wouldn’t it be great, if all our infrastructure was... code?
+- Wouldn't it be great, if all our infrastructure was... code?
 - That code would be deployed and create / update / delete our infrastructure
 
 ## CloudFormation
@@ -53,14 +53,14 @@ Infrastructure as Code
   - VPC stacks
   - Network stacks
   - App stacks
-- Don’t re-invent the wheel
+- Don't re-invent the wheel
   - Leverage existing templates on the web!
   - Leverage the documentation
 
 ## How CloudFormation Works
 
 - Templates have to be uploaded in S3 and then referenced in CloudFormation
-- To update a template, we can’t edit previous ones. We have to re- upload a new version of the template to AWS
+- To update a template, we can't edit previous ones. We have to re- upload a new version of the template to AWS
 - Stacks are identified by a name
 - Deleting a stack deletes every single artifact that was created by CloudFormation.
 
@@ -94,19 +94,19 @@ Note: This is an introduction to CloudFormation
 
 - It can take over 3 hours to properly learn and master CloudFormation
 - This section is meant so you get a good idea of how it works
-- We’ll be slightly less hands-on than in other sections
-- We’ll learn everything we need to answer questions for the exam
+- We'll be slightly less hands-on than in other sections
+- We'll learn everything we need to answer questions for the exam
 - The exam does not require you to actually write CloudFormation
 - The exam expects you to understand how to read CloudFormation
 
 ## Introductory Example
 
-- We’re going to create a simple EC2 instance.
-- Then we’re going to create to add an Elastic IP to it
-- And we’re going to add two security groups to it
+- We're going to create a simple EC2 instance.
+- Then we're going to create to add an Elastic IP to it
+- And we're going to add two security groups to it
 - For now, forget about the code syntax.
-- We’ll look at the structure of the files later on EC2 Instance
-- We’ll see how in no-time, we are able to get started with CloudFormation!
+- We'll look at the structure of the files later on EC2 Instance
+- We'll see how in no-time, we are able to get started with CloudFormation!
 
 ## What are resources?
 
@@ -119,13 +119,13 @@ Note: This is an introduction to CloudFormation
 
 ## How do I find resources documentation?
 
-- I can’t teach you all of the 224 resources, but I can teach you how to learn how to use them.
+- I can't teach you all of the 224 resources, but I can teach you how to learn how to use them.
 - All the resources can be found here: [AWS Template Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 - Example here (for an EC2 instance): [EC2 Example](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)
 
 ## Analysis of CloudFormation Template
 
-- Going back to the example of the introductory section, let’s learn why it was written this way.
+- Going back to the example of the introductory section, let's learn why it was written this way.
 - Relevant documentation can be found here:
   - [AWS Properties EC2 Instance](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)
   - [AWS Properties EC2 Security Group](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html)
@@ -134,7 +134,7 @@ Note: This is an introduction to CloudFormation
 ## FAQ for resources
 
 - Can I create a dynamic amount of resources?
-- No, you can’t. Everything in the CloudFormation template has to be declared. You can’t perform code generation there
+- No, you can't. Everything in the CloudFormation template has to be declared. You can't perform code generation there
 
 - Is every AWS Service supported?
 - Almost. Only a select few niches are not there yet
@@ -143,7 +143,7 @@ Note: This is an introduction to CloudFormation
 ## What are parameters?
 
 - Parameters are a way to provide inputs to your AWS CloudFormation template
-- They’re important to know about if:
+- They're important to know about if:
 - You want to reuse your templates across the company
 - Some inputs can not be determined ahead of time
 - Parameters are extremely powerful, controlled, and can prevent errors from happening in your templates thanks to types.
@@ -153,7 +153,7 @@ Note: This is an introduction to CloudFormation
 - Ask yourself this:
   - Is this CloudFormation resource configuration likely to change in the future?
   - If so, make it a parameter.
-- You won’t have to re-upload a template to change its content J
+- You won't have to re-upload a template to change its content J
 
 ### Parameters Settings
 
@@ -164,7 +164,7 @@ Parameters can be controlled by all these settings:
   - Number
   - CommaDelimitedList
   - List<Type>
-  - AWS Parameter (to help catch invalid values – match against existing values in the AWS Account)
+  - AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
 - Description
 - Constraints
 - ConstraintDescription (String)
@@ -199,7 +199,7 @@ Parameters can be controlled by all these settings:
 ## What are mappings?
 
 - Mappings are fixed variables within your CloudFormation Template.
-- They’re very handy to differentiate between different environments (dev vs prod), regions (AWS regions), AMI types, etc
+- They're very handy to differentiate between different environments (dev vs prod), regions (AWS regions), AMI types, etc
 - All the values are hardcoded within the template
 - Example:
 
@@ -242,9 +242,9 @@ Parameters can be controlled by all these settings:
 
 - The Outputs section declares optional outputs values that we can import into other stacks (if you export them first)!
 - You can also view the outputs in the AWS Console or in using the AWS CLI
-- They’re very useful for example if you define a network CloudFormation, and output the variables such as VPC ID and your Subnet IDs
-- It’s the best way to perform some collaboration cross stack, as you let expert handle their own part of the stack
-- You can’t delete a CloudFormation Stack if its outputs are being referenced by another CloudFormation stack
+- They're very useful for example if you define a network CloudFormation, and output the variables such as VPC ID and your Subnet IDs
+- It's the best way to perform some collaboration cross stack, as you let expert handle their own part of the stack
+- You can't delete a CloudFormation Stack if its outputs are being referenced by another CloudFormation stack
 
 ## Outputs Example
 
@@ -264,7 +264,7 @@ Outputs:
 
 - We then create a second template that leverages that security group
 - For this, we use the `Fn::ImportValue` function
-- You can’t delete the underlying stack until all the references are deleted too.
+- You can't delete the underlying stack until all the references are deleted too.
 
 ```yaml
 Resources:
@@ -294,7 +294,7 @@ Conditions:
   CreateProdResources: !Equals [!Ref EnvType, prod]
 ```
 
-- The logical ID is for you to choose. It’s how you name condition
+- The logical ID is for you to choose. It's how you name condition
 - The intrinsic function (logical) can be any of the following:
 - `Fn::And`
 - `Fn::Equals`
@@ -414,7 +414,7 @@ Resources:
   !Join [delimiter, [comma-delimited list of values]]
   ```
 
-- This creates “a:b:c”
+- This creates "a:b:c"
 
   ```yaml
   !Join [":", [a, b c]]
@@ -422,7 +422,7 @@ Resources:
 
 ## Function Fn::Sub
 
-- Fn::Sub, or !Sub as a shorthand, is used to substitute variables from a text. It’s a very handy function that will allow you to fully customize your templates.
+- Fn::Sub, or !Sub as a shorthand, is used to substitute variables from a text. It's a very handy function that will allow you to fully customize your templates.
 - For example, you can combine `Fn::Sub` with References or AWS Pseudo variables!
 - String must contain `${VariableName}` and will substitute them
 
@@ -443,7 +443,7 @@ Conditions:
   CreateProdResources: !Equals [!Ref EnvType, prod]
 ```
 
-- The logical ID is for you to choose. It’s how you name condition
+- The logical ID is for you to choose. It's how you name condition
 - The intrinsic function (logical) can be any of the following:
   - `Fn::And`
   - `Fn::Equals`
@@ -463,7 +463,7 @@ Conditions:
 ## ChangeSets
 
 - When you update a stack, you need to know what changes before it happens for greater confidence
-- ChangeSets won’t say if the update will be successful
+- ChangeSets won't say if the update will be successful
 
 ## Nested stacks
 
@@ -475,7 +475,7 @@ Conditions:
 - Nested stacks are considered best practice
 - To update a nested stack, always update the parent (root stack)
 
-## CloudFormation – Cross vs Nested Stacks
+## CloudFormation - Cross vs Nested Stacks
 
 - Cross Stacks
   - Helpful when stacks have different lifecycles
@@ -484,7 +484,7 @@ Conditions:
 - Nested Stacks
   - Helpful when components must be re-used
   - Ex: re-use how to properly configure an Application Load Balancer
-  - The nested stack only is important to the higher level stack (it’s not shared)
+  - The nested stack only is important to the higher level stack (it's not shared)
 
 ## CloudFormation - StackSets
 
@@ -496,7 +496,7 @@ Conditions:
 ## CloudFormation Drift
 
 - CloudFormation allows you to create infrastructure
-- But it doesn’t protect you against manual configuration changes
+- But it doesn't protect you against manual configuration changes
 - How do we know if our resources have drifted?
 - We can use CloudFormation drift!
 - Not all resources are supported yet: [Using CloudFormation Drift](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html)

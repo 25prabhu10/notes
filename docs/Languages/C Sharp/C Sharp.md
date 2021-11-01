@@ -29,7 +29,7 @@ C# is a general-purpose, multi-paradigm programming language encompassing static
 
 1. Properties:
 
-   - Properties are function members that encapsulate a piece of an object’s state, such as a button’s color or a label’s text.
+   - Properties are function members that encapsulate a piece of an object's state, such as a button's color or a label's text.
 
 2. Methods
 
@@ -43,7 +43,7 @@ C# is a general-purpose, multi-paradigm programming language encompassing static
 
 ### Type-Safe
 
-- C# is primarily a type-safe language, meaning that instances of types can interact only through protocols they define, thereby ensuring each type’s internal consistency. For instance, C# prevents you from interacting with a string type as though it were an integer type.
+- C# is primarily a type-safe language, meaning that instances of types can interact only through protocols they define, thereby ensuring each type's internal consistency. For instance, C# prevents you from interacting with a string type as though it were an integer type.
 
 > NOTE: C# also allows parts of your code to be dynamically typed via the dynamic keyword. However, C# remains a predominantly statically typed language.
 
@@ -52,7 +52,7 @@ C# is a general-purpose, multi-paradigm programming language encompassing static
 - C# is one of several managed languages that get compiled into managed code. Managed code is represented in Intermediate Language or IL.
 - The CLR converts the IL into the native code of the machine, such as X86 or X64, usually just prior to execution. This is referred to as Just-In-Time (JIT) compilation.
 
-> NOTE: You can examine and disassemble the contents of an IL assembly with Microsoft’s ildasm tool. And with tools such as ILSpy, dotPeek (JetBrains), or Reflector (Red Gate), you can go further and decompile the IL to C#. Because IL is higher-level than native machine code, the decompiler can do quite a good job of reconstructing the original C#.
+> NOTE: You can examine and disassemble the contents of an IL assembly with Microsoft's ildasm tool. And with tools such as ILSpy, dotPeek (JetBrains), or Reflector (Red Gate), you can go further and decompile the IL to C#. Because IL is higher-level than native machine code, the decompiler can do quite a good job of reconstructing the original C#.
 
 ## Data Types
 
@@ -77,7 +77,7 @@ C# is a general-purpose, multi-paradigm programming language encompassing static
   Console.WriteLine (result);
   ```
 
-- And when calling a method with multiple out parameters, you can discard ones you’re uninterested in with the underscore character:
+- And when calling a method with multiple out parameters, you can discard ones you're uninterested in with the underscore character:
 
   ```csharp
   SomeBigMethod (out _, out _, out _, out int x, out _, out _, out _);

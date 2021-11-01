@@ -349,12 +349,12 @@ http://example.com/path?name=foo&name=bar
 
 - Grants the Lambda function permissions to AWS services / resources
 - Sample managed policies for Lambda:
-  - `AWSLambdaBasicExecutionRole` – Upload logs to CloudWatch.
-  - `AWSLambdaKinesisExecutionRole` – Read from Kinesis
-  - `AWSLambdaDynamoDBExecutionRole` – Read from DynamoDB Streams
-  - `AWSLambdaSQSQueueExecutionRole` – Read from SQS
-  - `AWSLambdaVPCAccessExecutionRole` – Deploy Lambda function in VPC
-  - `AWSXRayDaemonWriteAccess` – Upload trace data to X-Ray.
+  - `AWSLambdaBasicExecutionRole` - Upload logs to CloudWatch.
+  - `AWSLambdaKinesisExecutionRole` - Read from Kinesis
+  - `AWSLambdaDynamoDBExecutionRole` - Read from DynamoDB Streams
+  - `AWSLambdaSQSQueueExecutionRole` - Read from SQS
+  - `AWSLambdaVPCAccessExecutionRole` - Deploy Lambda function in VPC
+  - `AWSXRayDaemonWriteAccess` - Upload trace data to X-Ray.
 - **When you use an event source mapping to invoke your function, Lambda uses the execution role to read event data.**
 - **Best practice: create one Lambda Execution Role per function**
 

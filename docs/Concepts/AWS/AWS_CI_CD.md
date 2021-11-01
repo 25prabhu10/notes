@@ -4,19 +4,19 @@
 
 - We now know how to create resources in AWS manually (Fundamentals)
 - We know how to interact with AWS programmatically (CLI)
-- We’ve seen how to deploy code to AWS using Elastic Beanstalk
+- We've seen how to deploy code to AWS using Elastic Beanstalk
 - All these manual steps make it very likely for us to do mistakes!
-- What we’d like is to push our code “in a repository” and have it deployed onto the AWS
+- What we'd like is to push our code "in a repository" and have it deployed onto the AWS
   - Automatically
   - The right way
-  - Making sure it’s tested before deploying
+  - Making sure it's tested before deploying
   - With possibility to go into different stages (dev, test, pre-prod, prod)
   - With manual approval where needed
 - To be a proper AWS developer... we need to learn AWS CICD
 
-- This section is all about automating the deployment we’ve done so far while adding increased safety.
+- This section is all about automating the deployment we've done so far while adding increased safety.
 - It correspond to a whole part of the AWS Certification
-- We’ll learn about
+- We'll learn about
   - AWS CodeCommit: storing our code
   - AWS CodePipeline: automating our pipeline from code to ElasticBeanstalk
   - AWS CodeBuild: building and testing our code
@@ -25,18 +25,18 @@
 ## Continuous Integration
 
 - Developers push the code to a code repository often (GitHub / CodeCommit / Bitbucket / etc...)
-- A testing / build server checks the code as soon as it’s pushed (CodeBuild / Jenkins CI / etc...)
+- A testing / build server checks the code as soon as it's pushed (CodeBuild / Jenkins CI / etc...)
 - The developer gets feedback about the tests and checks that have passed / failed
 - Find bugs early, fix bugs
 - Deliver faster as the code is tested
 - Deploy often
-- Happier developers, as they’re unblocked
+- Happier developers, as they're unblocked
 
 ## Continuous Delivery
 
 - Ensure that the software can be released reliably whenever needed.
 - Ensures deployments happen often and are quick
-- Shift away from “one release every 3 months” to ”5 releases a day”
+- Shift away from "one release every 3 months" to "5 releases a day"
 - That usually means automated deployment
   - CodeDeploy
   - Jenkins CD
@@ -51,12 +51,12 @@ Code --> Build --> Test --> Deploy --> Provision
 
 - Version control is the ability to understand the various changes that happened to the code over time (and possibly roll back).
 - All these are enabled by using a version control system such as Git
-- A Git repository can live on one’s machine, but it usually lives on a central online repository
+- A Git repository can live on one's machine, but it usually lives on a central online repository
 - Benefits are:
 
   - Collaborate with other developers
   - Make sure the code is backed-up somewhere
-  - Make sure it’s fully viewable and auditable
+  - Make sure it's fully viewable and auditable
 
 - Git repositories can be expensive.
 - The industry includes:
@@ -82,7 +82,7 @@ Code --> Build --> Test --> Deploy --> Provision
   - IAM Policies manage user / roles rights to repositories
 - Encryption:
   - Repositories are automatically encrypted at rest using KMS
-  - Encrypted in transit (can only use HTTPS or SSH – both secure)
+  - Encrypted in transit (can only use HTTPS or SSH - both secure)
 - Cross Account access:
   - Do not share your SSH keys
   - Do not share your AWS credentials
@@ -154,7 +154,7 @@ Differences:
 
 ### AWS CodePipeline Artifacts
 
-- Each pipeline stage can create ”artifacts”
+- Each pipeline stage can create "artifacts"
 - Artifacts are passed stored in Amazon S3 and passed on to the next stage
 
 ### CodePipeline Troubleshooting
@@ -164,13 +164,13 @@ Differences:
   - Ex: you can create events for cancelled stages
 - If CodePipeline fails a stage, your pipeline stops and you can get information in the console
 - AWS CloudTrail can be used to audit AWS API calls
-- If Pipeline can’t perform an action, make sure the “IAM Service Role” attached does have enough permissions (IAM Policy)
+- If Pipeline can't perform an action, make sure the "IAM Service Role" attached does have enough permissions (IAM Policy)
 
 ## CodeBuild
 
 - Fully managed build service
 - Alternative to other build tools such as Jenkins
-- Continuous scaling (no servers to manage or provision – no build queue)
+- Continuous scaling (no servers to manage or provision - no build queue)
 - Pay for usage: the time it takes to complete the builds
 - Leverages Docker under the hood for reproducible builds
 - Possibility to extend capabilities leveraging our own base Docker images
@@ -181,7 +181,7 @@ Differences:
 - Output logs to Amazon S3 & AWS CloudWatch Logs
 - Metrics to monitor CodeBuild statistics
 - Use CloudWatch Events to detect failed builds and trigger notifications
-- Use CloudWatch Alarms to notify if you need “thresholds” for failures
+- Use CloudWatch Alarms to notify if you need "thresholds" for failures
 - CloudWatch Events / AWS Lambda as a Glue
 - SNS notifications
 - Ability to reproduce CodeBuild locally to troubleshoot in case of errors
@@ -298,7 +298,7 @@ Differences:
 - There are several ways to handle deployments using open source tools (Ansible, Terraform, Chef, Puppet, etc...)
 - We can use the managed Service AWS CodeDeploy
 
-## AWS CodeDeploy – Steps to make it work
+## AWS CodeDeploy - Steps to make it work
 
 - Each EC2 Machine (or On Premise machine) must be running the CodeDeploy Agent
 - The agent is continuously polling AWS CodeDeploy for work to do
@@ -312,7 +312,7 @@ Differences:
 - CodeDeploy can be chained into CodePipeline and use artifacts from there
 - CodeDeploy can re-use existing setup tools, works with any application, auto scaling integration
 - Note: Blue / Green only works with EC2 instances (not on premise)
-- Support for AWS Lambda deployments (we’ll see this later)
+- Support for AWS Lambda deployments (we'll see this later)
 - CodeDeploy does not provision resources
 
 ### AWS CodeDeploy Primary Components
@@ -361,8 +361,8 @@ Differences:
   - All at once: quick but no healthy host, downtime. Good for dev
   - Custom: min healthy host = 75%
 - Failures:
-  - Instances stay in “failed state”
-  - New deployments will first be deployed to “failed state” instances
+  - Instances stay in "failed state"
+  - New deployments will first be deployed to "failed state" instances
   - To rollback: redeploy old deployment or enable automated rollback for failures
 - Deployment Targets:
   - Set of EC2 instances with tags
@@ -397,7 +397,7 @@ Differences:
 ## CodeStar
 
 - CodeStar is an integrated solution that regroups: GitHub, CodeCommit, CodeBuild, CodeDeploy, CloudFormation, CodePipeline, CloudWatch
-- Helps quickly create “CICD-ready” projects for EC2, Lambda, Beanstalk
+- Helps quickly create "CICD-ready" projects for EC2, Lambda, Beanstalk
 - Supported languages: C#, Go, HTML 5, Java, Node.js, PHP, Python, Ruby
 - Issue tracking integration with: JIRA / GitHub Issues
 - Ability to integrate with Cloud9 to obtain a web IDE (not all regions)

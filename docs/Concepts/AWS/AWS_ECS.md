@@ -6,7 +6,7 @@ ECS (Elastic Container Service)
 
 - Docker is a software development platform to deploy apps
 - Apps are packaged in containers that can be run on any OS
-- Apps run the same, regardless of where they’re run
+- Apps run the same, regardless of where they're run
 - Any machine
 - No compatibility issues
 - Predictable behavior
@@ -26,7 +26,7 @@ ECS (Elastic Container Service)
 
 ### Docker versus Virtual Machines
 
-- Docker is ”sort of ” a virtualization technology, but not exactly
+- Docker is "sort of " a virtualization technology, but not exactly
 - Resources are shared with the host => many containers on one server
 
 ### Getting Started with Docker
@@ -37,9 +37,9 @@ ECS (Elastic Container Service)
 
 - To manage containers, we need a container management platform
 - Three choices:
-- ECS: Amazon’s own platform
-- Fargate: Amazon’s own Serverless platform
-- EKS: Amazon’s managed Kubernetes (open source)
+- ECS: Amazon's own platform
+- Fargate: Amazon's own Serverless platform
+- EKS: Amazon's managed Kubernetes (open source)
 
 ## ECS Clusters
 
@@ -148,7 +148,7 @@ To add a Load balancer you need to set it during the creation of the service.
 
 ## ECR Repository
 
-- So far we’ve been using Docker images from Docker Hub (public)
+- So far we've been using Docker images from Docker Hub (public)
 - ECR is a private Docker image repository
 - Access is controlled through IAM (permission errors => policy)
 - AWS CLI v1 login command (may be asked at the exam)
@@ -186,8 +186,8 @@ Steps:
 - When launching an ECS Cluster, we have to create our EC2 instances
 - If we need to scale, we need to add EC2 instances
 - So we manage infrastructure...
-- With Fargate, it’s all Serverless!
-- We don’t provision EC2 instances
+- With Fargate, it's all Serverless!
+- We don't provision EC2 instances
 - We just create task definitions, and AWS will run our containers for us
 - To scale, just increase the task number. Simple! No more EC2 J
 
@@ -345,16 +345,16 @@ Steps:
 - When you run a task or a service, you define a capacity provider strategy, to prioritize in which provider to run.
 - This allows the capacity provider to automatically provision infrastructure for you
 
-## ECS Data Volumes – EC2 Task Strategies
+## ECS Data Volumes - EC2 Task Strategies
 
 - The EBS volume is already mounted onto the EC2 instances
 - This allows your Docker containers to mount the EBS volume and extend the storage capacity of your task
-- Problem: if your task moves from one EC2 instance to another one, it won’t be the same EBS volume and data
+- Problem: if your task moves from one EC2 instance to another one, it won't be the same EBS volume and data
 - Use cases:
   - Mount a data volume between different containers on the same instance
   - Extend the temporary storage of a task
 
-## ECS Data Volumes – EFS File Systems
+## ECS Data Volumes - EFS File Systems
 
 - Works for both EC2 Tasks and Fargate tasks
 - Ability to mount EFS volumes onto tasks
@@ -362,16 +362,16 @@ Steps:
 - Fargate + EFS = serverless + data storage without managing servers
 - Use case: persistent multi-AZ shared storage for your containers
 
-## ECS Data Volumes – Bind Mounts Sharing data between containers
+## ECS Data Volumes - Bind Mounts Sharing data between containers
 
 - Works for both EC2 Tasks (using Fargate or EC2 instance storage) and Fargate tasks (get 4 GB for volume mounts)
 - Useful to share an ephemeral storage between multiple containers part of the same ECS task
-- Great for “sidecar” container pattern where the sidecar can be used to send metrics/logs to other destinations (separation of concerns)
+- Great for "sidecar" container pattern where the sidecar can be used to send metrics/logs to other destinations (separation of concerns)
 
 ## ECS Summary + Exam Tips
 
 - ECS is used to run Docker containers and has 3 flavors:
-- ECS “Classic”: provision EC2 instances to run containers onto
+- ECS "Classic": provision EC2 instances to run containers onto
 - Fargate: ECS Serverless, no more EC2 to provision
 - EKS: Managed Kubernetes by AWS
 
@@ -392,7 +392,7 @@ ECR is used to store Docker Images
 - ECR is tightly integrated with IAM
 - AWS CLI v1 login command (may be asked at the exam)
 - $(aws ecr get-login --no-include-email --region eu-west-1)
-- “aws ecr get-login” generates a “docker login” command
+- "aws ecr get-login" generates a "docker login" command
 - AWS CLI v2 login command (newer, may also be asked at the exam - pipe)
 - aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 1234567890.dkr.ecr.eu-west-1.amazonaws.com
 - Docker Push & Pull:

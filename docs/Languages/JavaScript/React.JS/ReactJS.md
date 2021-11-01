@@ -916,7 +916,7 @@ The value of the ref differs depending on the type of the node:
 
 - When the `ref` attribute is used on an HTML element, the `ref` created in the constructor with `React.createRef()` receives the underlying DOM element as its `current` property.
 - When the `ref` attribute is used on a custom class component, the `ref` object receives the mounted instance of the component as its `current`.
-- **You may not use the ref attribute on function components** because they don’t have instances.
+- **You may not use the ref attribute on function components** because they don't have instances.
 
 _Example_: Adding a ref to a DOM element
 
@@ -975,7 +975,7 @@ class AutoFocusTextInput extends React.Component {
 
 _Example_: Refs and Function Components
 
-- By default, **you may not use the ref attribute on function components** because they don’t have instances:
+- By default, **you may not use the ref attribute on function components** because they don't have instances:
 
 _The below code will not work_:
 
@@ -1024,7 +1024,7 @@ In some cases we need to expose DOM refs to Parent Components. There are few way
 Check this [Link](https://reactjs.org/docs/forwarding-refs.html).
 :::
 
-Ref forwarding is a technique for automatically passing a ref through a component to one of its children. Ref forwarding lets components opt into exposing any child component’s ref as their own.
+Ref forwarding is a technique for automatically passing a ref through a component to one of its children. Ref forwarding lets components opt into exposing any child component's ref as their own.
 
 For React 16.2 and earlier doesn't yet support ref forwarding. We can use the below technique:
 
@@ -1058,7 +1058,7 @@ class Parent extends React.Component {
 ```
 
 ::: warning DON'TS
-Don’t Overuse Refs
+Don't Overuse Refs
 :::
 
 ## Component Life Cycle Methods

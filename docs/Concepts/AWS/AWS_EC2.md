@@ -411,7 +411,7 @@ AMI Process (from an EC2 instance)
      - Max PIOPS: 64,000 for Nitro EC2 instances & 32,000 for other
      - Can increase PIOPS independently from storage size
      - io2 have more durability and more IOPS per GiB (at the same price as io1)
-   - io2 Block Express (4 GiB – 64 TiB):
+   - io2 Block Express (4 GiB - 64 TiB):
      - Sub-millisecond latency
      - Max PIOPS: 256,000 with an IOPS:GiB ratio of 1,000:1
    - Supports EBS Multi-attach
@@ -422,13 +422,13 @@ AMI Process (from an EC2 instance)
    - 125 MiB to 16 TiB
    - Throughput Optimized HDD (st1)
      - Big Data, Data Warehouses, Log Processing
-     - Max throughput 500 MiB/s – max IOPS 500
+     - Max throughput 500 MiB/s - max IOPS 500
    - Cold HDD (sc1):
      - For data that is infrequently accessed
      - Scenarios where lowest cost is important
-     - Max throughput 250 MiB/s – max IOPS 250
+     - Max throughput 250 MiB/s - max IOPS 250
 
-#### EBS Multi-Attach – io1/io2 family
+#### EBS Multi-Attach - io1/io2 family
 
 - Attach the same EBS volume to multiple EC2 instances in the same AZ
 - Each instance has full read & write permissions to the volume
@@ -437,7 +437,7 @@ AMI Process (from an EC2 instance)
   - Applications must manage concurrent write operations
 - Must use a file system that's cluster-aware (not XFS, EX4, etc...)
 
-### EFS – Elastic File System
+### EFS - Elastic File System
 
 - Managed NFS (network file system) that can be mounted on many EC2
 - EFS works with EC2 instances in multi-AZ
@@ -452,18 +452,18 @@ AMI Process (from an EC2 instance)
 - POSIX file system (~Linux) that has a standard file API
 - File system scales automatically, pay-per-use, no capacity planning!
 
-#### EFS – Performance & Storage Classes
+#### EFS - Performance & Storage Classes
 
 - EFS Scale
   - 1000s of concurrent NFS clients, 10 GB+ /s throughput
   - Grow to Petabyte-scale network file system, automatically
 - Performance mode (set at EFS creation time)
   - General purpose (default): latency-sensitive use cases (web server, CMS, etc...)
-  - Max I/O – higher latency, throughput, highly parallel (big data, media processing)
+  - Max I/O - higher latency, throughput, highly parallel (big data, media processing)
 - Throughput mode
   - Bursting (1 TB = 50MiB/s + burst of up to 100MiB/s)
   - Provisioned: set your throughput regardless of storage size, ex: 1 GiB/s for 1 TB storage
-- Storage Tiers (lifecycle management feature – move file after N days)
+- Storage Tiers (lifecycle management feature - move file after N days)
   - Standard: for frequently accessed files
   - Infrequent access (EFS-IA): cost to retrieve files, lower price to store
 
@@ -521,7 +521,7 @@ Steps:
 
 ### EBS vs EFS
 
-1. EBS – Elastic Block Storage
+1. EBS - Elastic Block Storage
 
    - EBS volumes...
      - Can be attached to only one instance at a time

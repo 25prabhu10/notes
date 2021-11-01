@@ -9,8 +9,8 @@ SQS, SNS and Kinesis
   2. Asynchronous/Event based (application to queue to application)
 
 - Synchronous between applications can be problematic if there are sudden spikes of traffic
-- What if you need to suddenly encode 1000 videos but usually it’s 10?
-- In that case, it’s better to decouple your applications,
+- What if you need to suddenly encode 1000 videos but usually it's 10?
+- In that case, it's better to decouple your applications,
   - using SQS: queue model
   - using SNS: pub/sub model
   - using Kinesis: real-time streaming model
@@ -18,7 +18,7 @@ SQS, SNS and Kinesis
 
 ## Amazon SQS (Simple Queue Service)
 
-### Amazon SQS – Standard Queue
+### Amazon SQS - Standard Queue
 
 - Oldest offering (over 10 years old)
 - Fully managed service, used to decouple applications
@@ -30,7 +30,7 @@ SQS, SNS and Kinesis
 - Can have duplicate messages (at least once delivery, occasionally)
 - Can have out of order messages (best effort ordering)
 
-### SQS – Producing Messages
+### SQS - Producing Messages
 
 - Produced to SQS using the SDK (SendMessage API)
 - The message is persisted in SQS until a consumer deletes it
@@ -41,14 +41,14 @@ SQS, SNS and Kinesis
   - Any attributes you want
 - SQS standard: unlimited throughput
 
-### SQS – Consuming Messages
+### SQS - Consuming Messages
 
 - Consumers (running on EC2 instances, servers, or AWS Lambda)...
 - Poll SQS for messages (receive up to 10 messages at a time)
 - Process the messages (example: insert the message into an RDS database)
 - Delete the messages using the DeleteMessage API
 
-### SQS – Multiple EC2 Instances Consumers
+### SQS - Multiple EC2 Instances Consumers
 
 - Consumers receive and process messages in parallel
 - At least once delivery
@@ -71,21 +71,21 @@ SQS, SNS and Kinesis
 
 Similar to S3 access policy.
 
-### SQS – Message Visibility Timeout
+### SQS - Message Visibility Timeout
 
 - After a message is polled by a consumer, it becomes invisible to other consumers
-- By default, the “message visibility timeout” is 30 seconds
+- By default, the "message visibility timeout" is 30 seconds
 - That means the message has 30 seconds to be processed
-- After the message visibility timeout is over, the message is “visible” in SQS
+- After the message visibility timeout is over, the message is "visible" in SQS
 
-### SQS – Message Visibility Timeout
+### SQS - Message Visibility Timeout
 
 - If a message is not processed within the visibility timeout, it will be processed twice
 - A consumer could call the ChangeMessageVisibility API to get more time
 - If visibility timeout is high (hours), and consumer crashes, re-processing will take time
 - If visibility timeout is too low (seconds), we may get duplicates
 
-### Amazon SQS – Dead Letter Queue
+### Amazon SQS - Dead Letter Queue
 
 - If a consumer fails to process a message within the Visibility Timeout... the message goes back to the queue!
 - We can set a threshold of how many times a message can go back to the queue
@@ -94,16 +94,16 @@ Similar to S3 access policy.
 - Make sure to process the messages in the DLQ before they expire:
   - Good to set a retention of 14 days in the DLQ
 
-### Amazon SQS – Delay Queue
+### Amazon SQS - Delay Queue
 
-- Delay a message (consumers don’t see it immediately) up to 15 minutes
+- Delay a message (consumers don't see it immediately) up to 15 minutes
 - Default is 0 seconds (message is available right away)
 - Can set a default at queue level
 - Can override the default on send using the DelaySeconds parameter
 
 ### Amazon SQS - Long Polling
 
-- When a consumer requests messages from the queue, it can optionally “wait” for messages to arrive if there are none in the queue
+- When a consumer requests messages from the queue, it can optionally "wait" for messages to arrive if there are none in the queue
 - This is called Long Polling
 - LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application.
 - The wait time can be between 1 sec to 20 sec (20 sec preferable)
@@ -115,7 +115,7 @@ Similar to S3 access policy.
 - Message size limit is 256KB, how to send large messages, e.g. 1GB?
 - Using the SQS Extended Client (Java Library)
 
-### SQS – Must know API
+### SQS - Must know API
 
 - CreateQueue (MessageRetentionPeriod), DeleteQueue
 - PurgeQueue: delete all the messages in queue
@@ -125,21 +125,21 @@ Similar to S3 access policy.
 - ChangeMessageVisibility: change the message timeout
 - Batch APIs for SendMessage, DeleteMessage, ChangeMessageVisibility helps decrease your costs
 
-### Amazon SQS – FIFO Queue
+### Amazon SQS - FIFO Queue
 
 - FIFO = First In First Out (ordering of messages in the queue)
 - Limited throughput: 300 msg/s without batching, 3000 msg/s with
 - Exactly-once send capability (by removing duplicates)
 - Messages are processed in order by the consumer
 
-### SQS FIFO – Deduplication
+### SQS FIFO - Deduplication
 
 - De-duplication interval is 5 minutes
 - Two de-duplication methods:
   - Content-based deduplication: will do a SHA-256 hash of the message body
   - Explicitly provide a Message Deduplication ID
 
-### SQS FIFO – Message Grouping
+### SQS FIFO - Message Grouping
 
 - If you specify the same value of MessageGroupID in an SQS FIFO queue, you can only have one consumer, and all the messages are in order
 - To get ordering at the level of a subset of messages, specify different values for MessageGroupID
@@ -153,14 +153,14 @@ Similar to S3 access policy.
 
 ### Amazon SNS
 
-- The “event producer” only sends message to one SNS topic
-- As many “event receivers” (subscriptions) as we want to listen to the SNS topic notifications
+- The "event producer" only sends message to one SNS topic
+- As many "event receivers" (subscriptions) as we want to listen to the SNS topic notifications
 - Each subscriber to the topic will get all the messages (note: new feature to filter messages)
 - Up to 10,000,000 subscriptions per topic
 - 100,000 topics limit
 - Subscribers can be:
   - SQS
-  - HTTP / HTTPS (with delivery retries – how many times)
+  - HTTP / HTTPS (with delivery retries - how many times)
   - Lambda
   - Emails
   - SMS messages
@@ -175,7 +175,7 @@ Similar to S3 access policy.
 - CloudFormation (upon state changes => failed to build, etc)
 - Etc...
 
-### Amazon SNS – How to publish
+### Amazon SNS - How to publish
 
 - Topic Publish (using the SDK)
   - Create a topic
@@ -187,7 +187,7 @@ Similar to S3 access policy.
   - Publish to the platform endpoint
   - Works with Google GCM, Apple APNS, Amazon ADM...
 
-### Amazon SNS – Security
+### Amazon SNS - Security
 
 - Encryption:
   - In-flight encryption using HTTPS API
@@ -211,7 +211,7 @@ Similar to S3 access policy.
 - For the same combination of: event type (e.g. object create) and prefix (e.g. images/) you can only have one S3 Event rule
 - If you want to send the same S3 event to many SQS queues, use fan-out
 
-### Amazon SNS – FIFO Topic
+### Amazon SNS - FIFO Topic
 
 - FIFO = First In First Out (ordering of messages in the topic)
 - Similar features as SQS FIFO:
@@ -224,10 +224,10 @@ Similar to S3 access policy.
 
 - In case you need fan out + ordering + deduplication
 
-### SNS – Message Filtering
+### SNS - Message Filtering
 
-- JSON policy used to filter messages sent to SNS topic’s subscriptions
-- If a subscription doesn’t have a filter policy, it receives every message
+- JSON policy used to filter messages sent to SNS topic's subscriptions
+- If a subscription doesn't have a filter policy, it receives every message
 
 ## Kinesis
 
@@ -243,7 +243,7 @@ Similar to S3 access policy.
 - Billing is per shard provisioned, can have as many shards as you want
 - Retention between 1 day (default) to 365 days
 - Ability to reprocess (replay) data
-- Once data is inserted in Kinesis, it can’t be deleted (immutability)
+- Once data is inserted in Kinesis, it can't be deleted (immutability)
 - Data that shares the same partition goes to the same shard (ordering)
 - Producers: AWS SDK, Kinesis Producer Library (KPL), Kinesis Agent
 - Consumers:
@@ -287,10 +287,10 @@ Similar to S3 access policy.
 - AWS Lambda
 - Kinesis Data Analytics
 - Kinesis Data Firehose
-- Custom Consumer (AWS SDK) – Classic or Enhanced Fan-Out
+- Custom Consumer (AWS SDK) - Classic or Enhanced Fan-Out
 - Kinesis Client Library (KCL): library to simplify reading from data stream
 
-### Kinesis Consumers – Custom Consumer
+### Kinesis Consumers - Custom Consumer
 
 - Shared (Classic) Fan-out Consumer: 2 MiB/Sec per shard across all consumers
 - Enhanced Fan-out Consumer: 2 MiB/Sec per consumer per shard
@@ -307,7 +307,7 @@ Similar to S3 access policy.
 | Consumers poll data from Kinesis using GetRecords API call               | Soft limit of 5 consumer applications (KCL) per data stream (default) |
 | Returns up to 10 MB (then throttle for 5 seconds) or up to 10000 records |                                                                       |
 
-### Kinesis Consumers – AWS Lambda
+### Kinesis Consumers - AWS Lambda
 
 - Supports Classic & Enhanced Lambda functions fan-out consumers
 - Read records in batches
@@ -329,20 +329,20 @@ Similar to S3 access policy.
   - KCL 1.x (supports shared consumer)
   - KCL 2.x (supports shared & enhanced fan-out consumer)
 
-### Kinesis Operation – Shard Splitting
+### Kinesis Operation - Shard Splitting
 
 - Used to increase the Stream capacity (1 MB/s data in per shard)
-- Used to divide a “hot shard”
+- Used to divide a "hot shard"
 - The old shard is closed and will be deleted once the data is expired
 - No automatic scaling (manually increase/decrease capacity)
-- Can’t split into more than two shards in a single operation
+- Can't split into more than two shards in a single operation
 
-### Kinesis Operation – Merging Shards
+### Kinesis Operation - Merging Shards
 
 - Decrease the Stream capacity and save costs
 - Can be used to group two shards with low traffic (cold shards)
 - Old shards are closed and will be deleted once the data is expired
-- Can’t merge more than two shards in a single operation
+- Can't merge more than two shards in a single operation
 
 ### Kinesis Data Firehose
 
@@ -367,7 +367,7 @@ Similar to S3 access policy.
 | Real-time (~200 ms)                        | Near real-time (buffer time min. 60 sec)                              |
 | Manage scaling (shard splitting / merging) | Automatic scaling                                                     |
 | Data storage for 1 to 365 days             | No data storage                                                       |
-| Supports replay capability                 | Doesn’t support replay capability                                     |
+| Supports replay capability                 | Doesn't support replay capability                                     |
 
 ### Kinesis Data Analytics (SQL application)
 
@@ -387,21 +387,21 @@ Similar to S3 access policy.
 - Imagine you have 100 trucks (truck_1, truck_2, ... truck_100) on the road sending their GPS positions regularly into AWS.
 - You want to consume the data in order for each truck, so that you can track their movement accurately.
 - How should you send that data into Kinesis?
-- Answer: send using a “Partition Key” value of the “truck_id”
+- Answer: send using a "Partition Key" value of the "truck_id"
 - The same key will always go to the same shard
 
 ### Ordering data into SQS
 
 - For SQS standard, there is no ordering.
-- For SQS FIFO, if you don’t use a Group ID, messages are consumed in the order they are sent, with only one consumer
-- You want to scale the number of consumers, but you want messages to be “grouped” when they are related to each other
+- For SQS FIFO, if you don't use a Group ID, messages are consumed in the order they are sent, with only one consumer
+- You want to scale the number of consumers, but you want messages to be "grouped" when they are related to each other
 - Then you use a Group ID (similar to Partition Key in Kinesis)
 
 ### Kinesis vs SQS ordering
 
-- Let’s assume 100 trucks, 5 kinesis shards, 1 SQS FIFO
+- Let's assume 100 trucks, 5 kinesis shards, 1 SQS FIFO
 - Kinesis Data Streams:
-  - On average you’ll have 20 trucks per shard
+  - On average you'll have 20 trucks per shard
   - Trucks will have their data ordered within each shard
   - The maximum amount of consumers in parallel we can have is 5
   - Can receive up to 5 MB/s of data
@@ -415,7 +415,7 @@ Similar to S3 access policy.
 
 | SQS                                             | SNS                                                  | Kinesis                                                  |
 | ----------------------------------------------- | ---------------------------------------------------- | -------------------------------------------------------- |
-| Consumer “pull data”                            | Push data to many subscribers                        | Standard: pull data: 2 MB per shard                      |
+| Consumer "pull data"                            | Push data to many subscribers                        | Standard: pull data: 2 MB per shard                      |
 | Data is deleted after being consumed            | Up to 12,500,000 subscribers                         | Enhanced-fan out: push data: 2 MB per shard per consumer |
 | Can have as many workers (consumers) as we want | Data is not persisted (lost if not delivered)        | Possibility to replay data                               |
 | No need to provision throughput                 | Pub/Sub                                              | Meant for real-time big data, analytics and ETL          |

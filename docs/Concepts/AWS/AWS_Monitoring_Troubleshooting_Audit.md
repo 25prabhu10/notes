@@ -7,7 +7,7 @@ Why Monitoring is Important
   - Automatically
   - Using Infrastructure as Code
   - Leveraging the best AWS components!
-- Our applications are deployed, and our users don’t care how we did it...
+- Our applications are deployed, and our users don't care how we did it...
 - Our users only care that the application is working!
   - Application latency: will it increase over time?
   - Application outages: customer experience should not be degraded
@@ -45,8 +45,8 @@ Why Monitoring is Important
 
 ## EC2 Detailed monitoring
 
-- EC2 instance metrics have metrics “every 5 minutes”
-- With detailed monitoring (for a cost), you get data “every 1 minute”
+- EC2 instance metrics have metrics "every 5 minutes"
+- With detailed monitoring (for a cost), you get data "every 1 minute"
 - Use detailed monitoring if you want to scale faster for your ASG!
 - The AWS Free Tier allows us to have 10 detailed monitoring metrics
 - Note: EC2 Memory usage is by default not pushed (must be pushed from inside the instance as a custom metric)
@@ -59,9 +59,9 @@ Why Monitoring is Important
 - Ability to use dimensions (attributes) to segment metrics
   - Instance.id
   - Environment.name
-- Metric resolution (StorageResolution API parameter – two possible value):
+- Metric resolution (StorageResolution API parameter - two possible value):
   - Standard: 1 minute (60 seconds)
-  - High Resolution: 1/5/10/30 second(s) – Higher cost
+  - High Resolution: 1/5/10/30 second(s) - Higher cost
 - Important: Accepts metric data points two weeks in the past and two hours in the future (make sure to configure your EC2 instance time correctly)
 
 ## AWS CloudWatch Logs
@@ -108,7 +108,7 @@ Why Monitoring is Important
   - Collect logs to send to CloudWatch Logs
   - Centralized configuration using SSM Parameter Store
 
-## CloudWatch Unified Agent – Metrics
+## CloudWatch Unified Agent - Metrics
 
 - Collected directly on your Linux server / EC2 instance
 - CPU (active, guest, idle, system, user, steal)
@@ -117,13 +117,13 @@ Why Monitoring is Important
 - Netstat (number of TCP and UDP connections, net packets, bytes)
 - Processes (total, dead, bloqued, idle, running, sleep)
 - Swap Space (free, used, used %)
-- Reminder: out-of-the box metrics for EC2 – disk, CPU, network (high level)
+- Reminder: out-of-the box metrics for EC2 - disk, CPU, network (high level)
 
 ## CloudWatch Logs Metric Filter
 
 - CloudWatch Logs can use filter expressions
   - For example, find a specific IP inside of a log
-  - Or count occurrences of “ERROR” in your logs
+  - Or count occurrences of "ERROR" in your logs
   - Metric filters can be used to trigger alarms
 - Filters do not retroactively filter data. Filters only publish the metric data points for events that happen after the filter was created.
 - `CloudWatch Logs Aganet` (EC2 Instance) --stream--> `CW Logs` --> Metric Filters --> CW Alaram --> SNS
@@ -205,7 +205,7 @@ Why Monitoring is Important
   - Add log statements everywhere
   - Re-deploy in production
 - Log formats differ across applications using CloudWatch and analytics is hard.
-- Debugging: monolith “easy”, distributed services “hard”
+- Debugging: monolith "easy", distributed services "hard"
 - No common views of your entire architecture!
 - Enter... AWS X-Ray!
 
@@ -231,8 +231,8 @@ Why Monitoring is Important
 
 ## AWS X-Ray Leverages Tracing
 
-- Tracing is an end to end way to following a “request”
-- Each component dealing with the request adds its own “trace”
+- Tracing is an end to end way to following a "request"
+- Each component dealing with the request adds its own "trace"
 - Tracing is made of segments (+ sub segments)
 - Annotations can be added to traces to provide extra-information
 - Ability to trace:
@@ -276,7 +276,7 @@ Why Monitoring is Important
 
 ## X-Ray Instrumentation in your code
 
-- Instrumentation means the measure of product’s performance, diagnose errors, and to write trace information.
+- Instrumentation means the measure of product's performance, diagnose errors, and to write trace information.
 - To instrument your application code, you use the X-Ray SDK
 - Many SDK require only configuration changes
 - You can modify your application code to customize and annotation the data that the SDK sends to X- Ray, using interceptors, filters, handlers, middleware...
@@ -303,7 +303,7 @@ app.use(AWSXRay.express.closeSegment());
 - Annotations: Key Value pairs used to index traces and use with filters
 - Metadata: Key Value pairs, not indexed, not used for searching
 - The X-Ray daemon / agent has a config to send traces cross account:
-  - make sure the IAM permissions are correct – the agent will assume the role
+  - make sure the IAM permissions are correct - the agent will assume the role
   - This allows to have a central account for all your application tracing
 
 ## X-Ray Sampling Rules
@@ -398,11 +398,11 @@ app.use(AWSXRay.express.closeSegment());
 
 ECS Cluster:
 
-1. X-Ray Container as a Daemon: X-Ray Daemon will run on each EC2 Instance part of the ECS Cluster. So, all the containers running inside a EC2 Instance will be connected to this one X-Ray Daemon
+1. X-Ray Container as a Daemon: X-Ray Daemon will run on each EC2 Instance part of the ECS Cluster. So, all the containers running inside a EC2 Instance will be connected to this one X-Ray Daemin
 
-2. X-Ray Container as a “Side Car”: X-Ray Daemon will run on each container and not on EC2 Instance basis
+2. X-Ray Container as a "Side Car": X-Ray Daemon will run on each container and not on EC2 Instance basis
 
-3. Fargate Cluster: We don't have control over the underlying architecture and it is similar to X-Ray Container as a “Side Car”
+3. Fargate Cluster: We don't have control over the underlying architecture and it is similar to X-Ray Container as a "Side Car"
 
 _Example_: ECS + X-Ray Task Definition
 
@@ -447,7 +447,7 @@ _Example_: ECS + X-Ray Task Definition
     - Configuring rules for routing data (Amazon EC2 CreateSubnet)
     - Setting up logging (AWS CloudTrail CreateTrail)
   - By default, trails are configured to log management events.
-  - Can separate Read Events (that don’t modify resources) from Write Events (that may modify resources)
+  - Can separate Read Events (that don't modify resources) from Write Events (that may modify resources)
 - Data Events:
   - By default, data events are not logged (because high volume operations)
   - Amazon S3 object-level activity (ex: GetObject, DeleteObject, PutObject): can separate Read and Write Events

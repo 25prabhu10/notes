@@ -3,19 +3,38 @@
 - AWS (**Amazon Web Services**) is a _Cloud Provider_.
 - They provide many servers and services that can be used **on demand** and **scaled easily**.
 
-## AWS Services
+## Amazon Web Services
 
-1. [IAM](./AWS_IAM)
-2. [EC2](./AWS_EC2)
-3. [EC2 Instance Storage](#ec2-instance-storage)
-4. [Load Balancing](./AWS_Load_Balancing)
-5. [RDS](./AWS_RDS)
-6. [Route 53](./AWS_Route_53)
-7. [VPC](./AWS_VPC)
-8. [S3](./Amazon_S3)
-9. [CloudFront](./AWS_CloudFront)
-10. [ECS](./AWS_ECS)
-11. [Elastic Beanstalk](./AWS_Elastic Beanstalk)
+1. [AWS Global Infrastructure](#aws-global-infrastructure)
+2. [IAM](./AWS_IAM)
+3. [EC2](./AWS_EC2)
+4. [EC2 Instance Storage](#ec2-instance-storage)
+5. [Load Balancing](./AWS_Load_Balancing)
+6. [RDS](./AWS_RDS)
+7. [Route 53](./AWS_Route_53)
+8. [VPC](./AWS_VPC)
+9. [S3](./Amazon_S3)
+10. [CloudFront](./AWS_CloudFront)
+11. [ECS](./AWS_ECS)
+12. [Elastic Beanstalk](./AWS_Elastic_Beanstalk)
+13. [AWS CICD](./AWS_CI_CD)
+14. [AWS CloudFormation](./AWS_CloudFormation)
+15. [AWS Monitoring, Troubleshooting & Audit](./AWS_Monitoring_Troubleshooting_Audit)
+16. [AWS Integration and Messaging](./AWS_Integration_and_Messaging)
+17. [AWS Lambda](./AWS_Lambda)
+18. [AWS DynamoDB](./AWS_DynamoDB)
+19. [AWS API Gateway](./AWS_API_Gateway)
+20. [AWS Serverless Application Model](./AWS_Serverless_Application_Model)
+21. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit)
+22. [AWS Cognito](./AWS_Cognito)
+
+## Queries
+
+1. IaaS vs PaaS vs SaaS
+
+### Lift And Shift Cloud Migration
+
+Lift and shift (or **rehosting**) is one way you might consider moving to the cloud. Simply put, lift and shift means moving a copy of an existing application and data to cloud infrastructure with minimal or no redesigning or modification.
 
 ## AWS Global Infrastructure
 
@@ -78,20 +97,6 @@ _Example_:
   - Rekognition (Software as a Service)
 
 > [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services)
-
-## Services
-
-1. [IAM](./AWS_IAM)
-2. [EC2](./AWS_EC2)
-3. [EC2 Instance Storage](#ec2-instance-storage)
-4. [Load Balancing](./AWS_Load_Balancing)
-5. [RDS](./AWS_RDS)
-6. [Route 53](./AWS_Route_53)
-7. [VPC](./AWS_VPC)
-8. [S3](./Amazon_S3)
-9. [CloudFront](./AWS_CloudFront)
-10. [ECS](./AWS_ECS)
-11. [Elastic Beanstalk](./AWS_Elastic Beanstalk)
 
 ## Developing on AWS
 

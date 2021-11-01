@@ -4,7 +4,7 @@ NoSQL Serverless Database
 
 ## Traditional Architecture
 
-- Client --> API Layer (EC2 + ASG + ELB) --> Database Layer (RDS – MySQL, PostgreSQL, etc...)
+- Client --> API Layer (EC2 + ASG + ELB) --> Database Layer (RDS - MySQL, PostgreSQL, etc...)
 - Traditional applications leverage RDBMS databases
 - These databases have the SQL query language
 - Strong requirements about how the data should be modeled
@@ -17,9 +17,9 @@ NoSQL Serverless Database
 - NoSQL databases include MongoDB, DynamoDB, etc.
 - NoSQL databases **do not support join**
 - All the data that is needed for a query is present in one row
-- NoSQL databases **don't perform aggregations** such as “SUM”
+- NoSQL databases **don't perform aggregations** such as "SUM"
 - **NoSQL databases scale horizontally**
-- There's no “right or wrong” for NoSQL vs SQL, they just require to model the data differently and think about user queries differently
+- There's no "right or wrong" for NoSQL vs SQL, they just require to model the data differently and think about user queries differently
 
 ## DynamoDB
 
@@ -37,7 +37,7 @@ NoSQL Serverless Database
 - DynamoDB is made of **tables**
 - Each table has a **primary key** (must be decided at creation time)
 - Each table can have an infinite number of items (= rows)
-- Each item has **attributes** (can be added over time – can be null)
+- Each item has **attributes** (can be added over time - can be null)
 - Maximum **size** of a item is **400KB**
 - Data types supported are:
   - Scalar Types: String, Number, Binary, Boolean, Null
@@ -48,7 +48,7 @@ NoSQL Serverless Database
 
 - Option 1: **Partition key only (HASH)**
 - Partition key must be unique for each item
-- Partition key must be “diverse” so that the data is distributed
+- Partition key must be "diverse" so that the data is distributed
 - _Example_: `user_id` for a users table
 
 - Option 2: **Partition key + Sort Key**
@@ -177,7 +177,7 @@ NoSQL Serverless Database
 
 - Query returns items based on:
   - _PartitionKey_ value (must be = operator)
-  - _SortKey_ value (=, <, <=, >, >=, Between, Begin) – optional
+  - _SortKey_ value (=, <, <=, >, >=, Between, Begin) - optional
   - _FilterExpression_ to further filter (client side filtering)
 - Returns:
   - Up to 1 MB of data
@@ -188,7 +188,7 @@ NoSQL Serverless Database
 ## Scan
 
 - Scan the entire table and then filter out data (inefficient)
-- Returns up to 1 MB of data – use pagination to keep on reading
+- Returns up to 1 MB of data - use pagination to keep on reading
 - Consumes a lot of RCU
 - Limit impact using Limit or reduce the size of the result and pause
 - For faster performance, use parallel scans:
@@ -210,7 +210,7 @@ NoSQL Serverless Database
 
 - To speed up queries on non-key attributes, use a Global Secondary Index
 - GSI = partition key + optional sort key
-- The index is a new “table” and we can project attributes on it
+- The index is a new "table" and we can project attributes on it
   - The partition key and sort key of the original table are always projected (KEYS_ONLY)
   - Can specify extra attributes to project (INCLUDE)
   - Can use all attributes from main table (ALL)
@@ -293,7 +293,7 @@ NoSQL Serverless Database
 - Deleted items due to TTL are also deleted in GSI / LSI
 - DynamoDB Streams can help recover expired items
 
-## DynamoDB CLI – Good to Know
+## DynamoDB CLI - Good to Know
 
 - `--projection-expression`: attributes to retrieve
   - `--filter-expression`: filter results
@@ -307,7 +307,7 @@ NoSQL Serverless Database
 ## DynamoDB Transactions
 
 - Transaction = Ability to Create / Update / Delete multiple rows in different tables at the same time
-- It's an “all or nothing” type of operation.
+- It's an "all or nothing" type of operation.
 - Write Modes: Standard, Transactional
 - Read Modes: Eventual Consistency, Strong Consistency, Transactional
 - **Consume 2x of WCU / RCU**
@@ -421,7 +421,7 @@ NoSQL Serverless Database
 - Web & Mobile Applications --> Login and Get Token & Get Temporary AWS Credentials (Social Identity Provider: Google, Facebook, SAML, OpenID, AWS Cognito User Pools)
 - Then use the token for Direct access to AWS --> DynamoDB Table
 
-### DynamoDB – Fine-Grained Access Control
+### DynamoDB - Fine-Grained Access Control
 
 - Using **Web Identity Federation** or **Cognito Identity Pools**, each user gets AWS credentials
 - You can assign an IAM role to these users with a **Condition** to limit their API access to DynamoDB

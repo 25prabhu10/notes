@@ -31,8 +31,8 @@
 - Object values are the content of the body:
   - Max Object Size is 5TB (5000GB)
   - If uploading more than 5GB, must use "multi-part upload"
-- Metadata (list of text key / value pairs – system or user metadata)
-- Tags (Unicode key / value pair – up to 10) – useful for security / lifecycle
+- Metadata (list of text key / value pairs - system or user metadata)
+- Tags (Unicode key / value pair - up to 10) - useful for security / lifecycle
 - Version ID (if versioning is enabled)
 
 ## Create a Amazon S3 Bucket
@@ -116,8 +116,8 @@ Steps:
   - IAM policies - which API calls should be allowed for a specific user from IAM console
 - Resource Based
   - Bucket Policies - bucket wide rules from the S3 console - allows cross account
-  - Object Access Control List (ACL) – finer grain
-  - Bucket Access Control List (ACL) – less common
+  - Object Access Control List (ACL) - finer grain
+  - Bucket Access Control List (ACL) - less common
 - Note: an IAM principal can access an S3 object if
   - the user IAM permissions allow it OR the resource policy ALLOWS it
   - AND there's no explicit DENY
@@ -305,9 +305,9 @@ Steps:
 - Copying is asynchronous
 - Must give proper IAM permissions to S3 eu-west-1
 - CRR - Use cases: compliance, lower latency access, replication across accounts
-- SRR – Use cases: log aggregation, live replication between production and test accounts
+- SRR - Use cases: log aggregation, live replication between production and test accounts
 
-### S3 Replication – Notes
+### S3 Replication - Notes
 
 - After activating, only new objects are replicated (not retroactive)
 - For DELETE operations:
@@ -346,7 +346,7 @@ Steps:
 - Amazon Glacier Deep Archive
 - Amazon S3 Reduced Redundancy Storage (deprecated - omitted)
 
-### S3 Standard – General Purpose
+### S3 Standard - General Purpose
 
 - High durability (99.999999999%) of objects across multiple AZ
 - If you store 10,000,000 objects with Amazon S3, you can on average expect to incur a loss of a single object once every 10,000 years
@@ -354,7 +354,7 @@ Steps:
 - Sustain 2 concurrent facility failures
 - Use Cases: Big Data analytics, mobile & gaming applications, content distribution...
 
-### S3 Standard – Infrequent Access (IA)
+### S3 Standard - Infrequent Access (IA)
 
 - Suitable for data that is less frequently accessed, but requires rapid access when needed
 - High durability (99.999999999%) of objects across multiple AZs
@@ -390,16 +390,16 @@ Steps:
 - Average annual durability is 99.999999999%
 - Cost per storage per month ($0.004 / GB) + retrieval cost
 - Each item in Glacier is called "Archive" (up to 40TB)
-- Archives are stored in "Vaults”
+- Archives are stored in "Vaults"
 
 ### Amazon Glacier & Glacier Deep Archive
 
-- Amazon Glacier – 3 retrieval options:
+- Amazon Glacier - 3 retrieval options:
   - Expedited (1 to 5 minutes)
   - Standard (3 to 5 hours)
   - Bulk (5 to 12 hours)
   - Minimum storage duration of 90 days
-- Amazon Glacier Deep Archive – for long term storage – cheaper:
+- Amazon Glacier Deep Archive - for long term storage - cheaper:
   - Standard (12 hours)
   - Bulk (48 hours)
   - Minimum storage duration of 180 days
@@ -416,7 +416,7 @@ Steps:
 | Minimum storage duration charge    |          N/A           |        30 days         |        30 days         |        30 days         |        90 days         |        180 days         |
 | Retrieval fee                      |          N/A           |          N/A           |    per GB retrieved    |    per GB retrieved    |    per GB retrieved    |    per GB retrieved     |
 
-S3 Storage Classes – Price Comparison
+S3 Storage Classes - Price Comparison
 
 _Example_: us-east-2
 
@@ -446,16 +446,16 @@ S3: Moving between storage classes
 - Rules can be created for a certain prefix (ex - s3://mybucket/mp3/\*)
 - Rules can be created for certain objects tags (ex - Department: Finance)
 
-### S3 Lifecycle Rules – Scenario 1
+### S3 Lifecycle Rules - Scenario 1
 
 - Your application on EC2 creates images thumbnails after profile photos are uploaded to Amazon S3. These thumbnails can be easily recreated, and only need to be kept for 45 days. The source images should be able to be immediately retrieved for these 45 days, and afterwards, the user can wait up to 6 hours. How would you design this?
 - S3 source images can be on STANDARD, with a lifecycle configuration to transition them to GLACIER after 45 days.
 - S3 thumbnails can be on ONEZONE_IA, with a lifecycle configuration to expire them (delete them) after 45 days.
 
-### S3 Lifecycle Rules – Scenario 2
+### S3 Lifecycle Rules - Scenario 2
 
 - A rule in your company states that you should be able to recover your deleted S3 objects immediately for 15 days, although this may happen rarely. After this time, and for up to 365 days, deleted objects should be recoverable within 48 hours.
-- You need to enable S3 versioning in order to have object versions, so that "deleted objects" are in fact hidden by a “delete marker” and can be recovered
+- You need to enable S3 versioning in order to have object versions, so that "deleted objects" are in fact hidden by a "delete marker" and can be recovered
 - You can transition these "noncurrent versions" of the object to S3_IA
 - You can transition afterwards these "noncurrent versions" to DEEP_ARCHIVE
 

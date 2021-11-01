@@ -13,14 +13,14 @@ Developer problems on AWS
 ## Elastic Beanstalk
 
 - Elastic Beanstalk is a developer centric view of deploying an application on AWS
-- It uses all the component’s we’ve seen before: EC2, ASG, ELB, RDS, ...
+- It uses all the component's we've seen before: EC2, ASG, ELB, RDS, ...
 - Managed service
   - Automatically handles capacity provisioning, load balancing, scaling, application health monitoring, instance configuration, ...
   - Just the application code is the responsibility of the developer
 - We still have full control over the configuration
 - Beanstalk is free but you pay for the underlying instances
 
-## Elastic Beanstalk – Components
+## Elastic Beanstalk - Components
 
 - Application: collection of Elastic Beanstalk components (environments, versions, configurations, ...)
 - Application Version: an iteration of your application code
@@ -29,7 +29,7 @@ Developer problems on AWS
   - Tiers: Web Server Environment Tier & Worker Environment Tier
   - You can create multiple environments (dev, test, prod, ...)
 
-## Elastic Beanstalk – Supported Platforms
+## Elastic Beanstalk - Supported Platforms
 
 - Go
 - Java SE
@@ -48,7 +48,7 @@ Developer problems on AWS
 
 ## Beanstalk Deployment Options for Updates
 
-- All at once (deploy all in one go) – fastest, but instances aren’t available to serve traffic for a bit (downtime)
+- All at once (deploy all in one go) - fastest, but instances aren't available to serve traffic for a bit (downtime)
 - Rolling: update a few instances at a time (bucket), and then move onto the next bucket once the first bucket is healthy
 - Rolling with additional batches: like rolling, but spins up new instances to move the batch (so that the old application is still available)
 - Immutable: spins up new instances in a new ASG, deploys version to these instances, and then swaps all the instances when everything is healthy
@@ -90,12 +90,12 @@ Developer problems on AWS
 ### Blue / Green
 
 - Similar to Immutable
-- Not a “direct feature” of Elastic Beanstalk
+- Not a "direct feature" of Elastic Beanstalk
 - Zero downtime and release facility
-- Create a new “stage” environment and deploy v2 there
+- Create a new "stage" environment and deploy v2 there
 - The new environment (green) can be validated independently and roll back if issues
 - Route 53 can be setup using weighted policies to redirect a little bit of traffic to the stage environment
-- Using Beanstalk, “swap URLs” when done with the environment test
+- Using Beanstalk, "swap URLs" when done with the environment test
 
 ::: danger DNS CHANGE
 It uses new load balancer, so the changes happen at DNS level. This is a problem as DNS changes have to propagate to servers around the world.
@@ -107,7 +107,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 - New application version is deployed to a temporary ASG with the same capacity
 - A small % of traffic is sent to the temporary ASG for a configurable amount of time
 - Deployment health is monitored
-- If there’s a deployment failure, this triggers an automated rollback (very quick)
+- If there's a deployment failure, this triggers an automated rollback (very quick)
 - No application downtime
 - New instances are migrated from the temporary to the original ASG
 - Old application version is then terminated
@@ -116,7 +116,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 
 ## Elastic Beanstalk CLI
 
-- We can install an additional CLI called the “EB cli” which makes working with Beanstalk from the CLI easier
+- We can install an additional CLI called the "EB cli" which makes working with Beanstalk from the CLI easier
 - Basic commands are:
   - `eb init`: Configure your project directory and the EB CLI
   - `eb create`: Create your first env
@@ -128,7 +128,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
   - `eb deploy`: once the env is running, deploy an update
   - `eb config`: take a look at the configuration options available for your running env
   - `eb terminate`: delete the environment
-- It’s helpful for your automated deployment pipelines!
+- It's helpful for your automated deployment pipelines!
 
 ## Elastic Beanstalk Deployment Process
 
@@ -143,11 +143,11 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 ## Beanstalk Lifecycle Policy
 
 - Elastic Beanstalk can store at most 1000 application versions
-- If you don’t remove old versions, you won’t be able to deploy anymore
+- If you don't remove old versions, you won't be able to deploy anymore
 - To phase out old application versions, use a lifecycle policy
   - Based on time (old versions are removed)
   - Based on space (when you have too many versions)
-- Versions that are currently used won’t be deleted
+- Versions that are currently used won't be deleted
 - Option not to delete the source bundle in S3 to prevent data loss
 
 ## Elastic Beanstalk Extensions
@@ -165,14 +165,14 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 ## Elastic Beanstalk Under the Hood
 
 - Under the hood, Elastic Beanstalk relies on CloudFormation
-- CloudFormation is used to provision other AWS services (we’ll see later)
+- CloudFormation is used to provision other AWS services (we'll see later)
 - Use case: you can define CloudFormation resources in your .ebextensions to provision ElastiCache, an S3 bucket, anything you want!
-- Let’s have a sneak peak into it!
+- Let's have a sneak peak into it!
 
 ## Elastic Beanstalk Cloning
 
 - Clone an environment with the exact same configuration
-- Useful for deploying a “test” version of your application
+- Useful for deploying a "test" version of your application
 - All resources and configuration are preserved:
   - Load Balancer type and configuration
   - RDS database type (but the data is not preserved)
@@ -184,7 +184,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 - After creating an Elastic Beanstalk environment, you cannot change the Elastic Load Balancer type (only the configuration)
 - To migrate:
 
-  1. create a new environment with the same configuration except LB (can’t clone)
+  1. create a new environment with the same configuration except LB (can't clone)
   2. deploy your application onto the new environment
   3. perform a CNAME swap or Route 53 update
 
@@ -200,10 +200,10 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 2. Go to the RDS console and protect the RDS database from deletion
 3. Create a new Elastic Beanstalk environment, without RDS, point your application to existing RDS
 4. perform a CNAME swap (blue/green) or Route 53 update, confirm working
-5. Terminate the old environment (RDS won’t be deleted)
+5. Terminate the old environment (RDS won't be deleted)
 6. Delete CloudFormation stack (in DELETE_FAILED state)
 
-## Elastic Beanstalk – Single Docker
+## Elastic Beanstalk - Single Docker
 
 - Run your application as a single docker container
 - Either provide:
@@ -216,7 +216,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
     - Etc...
 - Beanstalk in Single Docker Container does not use ECS
 
-## Elastic Beanstalk – Multi Docker Container
+## Elastic Beanstalk - Multi Docker Container
 
 - Multi Docker helps run multiple containers per EC2 instance in EB
 - This will create for you:
@@ -254,7 +254,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
   - Installs the Sqsd daemon on the EC2 instances
   - Creates CloudWatch Alarm to dynamically scale instances based on health
 
-## Elastic Beanstalk – Custom Platform (Advanced)
+## Elastic Beanstalk - Custom Platform (Advanced)
 
 - Custom Platforms are very advanced, they allow to define from scratch:
   - The Operating System (OS)

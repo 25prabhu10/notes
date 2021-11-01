@@ -89,7 +89,7 @@ JavaScript has two major syntactic categories: **statements** and **expressions*
 var foo;
 ```
 
-**Expressions** _produce values_. They are function arguments, the right side of an assignment, etc. Here’s an example of an expression:
+**Expressions** _produce values_. They are function arguments, the right side of an assignment, etc. Here's an example of an expression:
 
 ```javascript
 3 * 7;
@@ -966,7 +966,7 @@ traverse(process.cwd());
 
 ## Bits
 
-- JavaScript did not have exception handling until ECMAScript 3, which explains why the language so often automatically converts values and so often fails silently: it initially couldn’t throw exceptions.
+- JavaScript did not have exception handling until ECMAScript 3, which explains why the language so often automatically converts values and so often fails silently: it initially couldn't throw exceptions.
 
 - JavaScript was written in 10 days.
 

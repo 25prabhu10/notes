@@ -9,9 +9,9 @@
 - SAM can use CodeDeploy to deploy Lambda functions
 - SAM can help you to run Lambda, API Gateway, DynamoDB locally
 
-## AWS SAM – Recipe
+## AWS SAM - Recipe
 
-- Transform Header indicates it’s SAM template:
+- Transform Header indicates it's SAM template:
   - _Transform: 'AWS::Serverless-2016-10-31'_
 - Write Code:
   - _AWS::Serverless::Function_
@@ -43,7 +43,7 @@
 - Pre and Post traffic hooks features to validate deployment (before the traffic shift starts and after it ends)
 - Easy & automated rollback using CloudWatch Alarms
 
-## SAM – Exam Summary
+## SAM - Exam Summary
 
 - SAM is built on CloudFormation
 - SAM requires the **Transform** and **Resources** sections

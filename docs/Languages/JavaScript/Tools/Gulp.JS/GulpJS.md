@@ -395,7 +395,7 @@ Types of steams:
           .pipe(gulp.dest(DESTINATION));
       ```
 
-   2. [gulp-cache](https://github.com/jgable/gulp-cache) - A cache proxy task for Gulp. Optimizing images however, is an extremely slow process that you’d not want to repeat unless necessary. To do so, we can use this plugin.
+   2. [gulp-cache](https://github.com/jgable/gulp-cache) - A cache proxy task for Gulp. Optimizing images however, is an extremely slow process that you'd not want to repeat unless necessary. To do so, we can use this plugin.
 
       ```javascript
       const imagemin = require("gulp-imagemin");
