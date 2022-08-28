@@ -1,6 +1,12 @@
 {
+  "$schema": "https://json.schemastore.org/web-manifest-combined.json",
   "name": "Notes",
   "short_name": "Notes",
+  "description": "Anthology of Snippets",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#fff",
+  "theme_color": "#3eaf7c",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",
@@ -12,9 +18,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "start_url": "/",
-  "theme_color": "#3eaf7c",
-  "background_color": "#fff",
-  "display": "standalone"
+  ]
 }

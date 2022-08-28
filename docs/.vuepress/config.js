@@ -1,11 +1,16 @@
-module.exports = {
-  locales: {
-    '/': {
-      lang: 'en-US',
-      title: 'Notes',
-      description: 'Anthology of Snippets',
-    },
-  },
+import { pwaPlugin } from '@vuepress/plugin-pwa';
+import { registerComponentsPlugin } from '@vuepress/plugin-register-components';
+import { searchPlugin } from '@vuepress/plugin-search';
+import { defaultTheme } from '@vuepress/theme-default';
+import { getDirname, path } from '@vuepress/utils';
+import { defineUserConfig } from 'vuepress';
+
+const __dirname = getDirname(import.meta.url);
+
+export default defineUserConfig({
+  lang: 'en-US',
+  title: 'Notes',
+  description: 'Anthology of Snippets',
   head: [
     [
       'meta',
@@ -69,21 +74,21 @@ module.exports = {
     ['meta', { name: 'msapplication-config', content: '/browserconfig.xml' }],
   ],
   plugins: [
-    ['@vuepress/back-to-top', true],
-    [
-      '@vuepress/pwa',
-      {
-        serviceWorker: true,
-        updatePopup: true,
+    registerComponentsPlugin({
+      componentsDir: path.resolve(__dirname, './components'),
+    }),
+    searchPlugin({
+      locales: {
+        '/': {
+          placeholder: 'Search...',
+        },
       },
-    ],
-    ['@vuepress/medium-zoom', true],
-    ['vuepress-plugin-code-copy', true],
+    }),
+    pwaPlugin(),
   ],
-  // evergreen: true,
-  themeConfig: {
+  theme: defaultTheme({
     logo: '/logo.png',
-    nav: [
+    navbar: [
       {
         text: 'Home',
         link: '/',
@@ -94,7 +99,11 @@ module.exports = {
       },
     ],
     sidebar: 'auto',
-    searchPlaceholder: 'Search...',
-    smoothScroll: true,
-  },
-};
+    docsRepo: 'https://github.com/25prabhu10/notes',
+    docsBranch: 'master',
+    docsDir: 'docs',
+    editLink: true,
+    editLinkPattern: ':repo/edit/:branch/:path',
+    contributors: false,
+  }),
+});

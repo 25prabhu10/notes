@@ -68,7 +68,7 @@ Controller handles the user request. User interacts with View, which in-turn rai
 
 - The first part in controller name ( i.e. _Home_ in _HomeController_) is a folder inside _Views_ folder, which intern contains views.
 
-  ![Home Controller](home-controller.jpg)
+  ![Home Controller](./home-controller.jpg)
 
 ## Routing
 
