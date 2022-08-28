@@ -1,3 +1,9 @@
+---
+title: AWS RDS
+description: AWS RDS
+prev: ./AWS
+---
+
 # AWS RDS Overview
 
 - RDS stands for Relational Database Service
@@ -403,68 +409,68 @@ Steps:
 
 1. Lazy Loading / Cache-Aside / Lazy Population
 
-- Pros
-  - Only requested data is cached (the cache isn't filled up with unused data)
-  - Node failures are not fatal (just increased latency to warm the cache)
-- Cons
-  - Cache miss penalty that results in 3 round trips, noticeable delay for that request
-  - Stale data: data can be updated in the database and outdated in the cache
+   - Pros
+     - Only requested data is cached (the cache isn't filled up with unused data)
+     - Node failures are not fatal (just increased latency to warm the cache)
+   - Cons
+     - Cache miss penalty that results in 3 round trips, noticeable delay for that request
+     - Stale data: data can be updated in the database and outdated in the cache
 
-_Example_:
+   _Example_:
 
-```python
-def get_user(user_id):
-    # Check the cache
-    record = cache.get(user_id)
+   ```python
+   def get_user(user_id):
+       # Check the cache
+       record = cache.get(user_id)
 
-    if record is None:
-        # Run a DB query
-        record = db.query("select * from users where id = ?", user_id)
-        # Populate the cache
-        cache.ser(user_id, record)
-        return record
-    else:
-        return record
+       if record is None:
+           # Run a DB query
+           record = db.query("select * from users where id = ?", user_id)
+           # Populate the cache
+           cache.ser(user_id, record)
+           return record
+       else:
+           return record
 
-# App code
-user = get_user(19)
-```
+   # App code
+   user = get_user(19)
+   ```
 
 2. Write Through - Add or Update cache when database is updated
 
-- Pros:
-  - Data in cache is never stale, reads are quick
-  - Write penalty vs Read penalty (each write requires 2 calls)
-- Cons:
-  - Missing Data until it is added / updated in the DB. Mitigation is to implement Lazy Loading strategy as well
-  - Cache churn - a lot of the data will never be read RDS
+   - Pros:
+     - Data in cache is never stale, reads are quick
+     - Write penalty vs Read penalty (each write requires 2 calls)
+   - Cons:
+     - Missing Data until it is added / updated in the DB. Mitigation is to implement Lazy Loading strategy as well
+     - Cache churn - a lot of the data will never be read RDS
 
-_Example_:
+   _Example_:
 
-```python
-def save_user(user_id, values):
-    # Save to DB
-    record = db.query("update users ... where id = ?", user_id, values)
-    # Push into cache
-    cache.set(user_id, record)
-    return record
+   ```python
+   def save_user(user_id, values):
+       # Save to DB
+       record = db.query("update users ... where id = ?", user_id, values)
+       # Push into cache
+       cache.set(user_id, record)
+       return record
 
-# App code
-user = save_user(17, {"name": "Nate Dogg"})
-```
+   # App code
+   user = save_user(17, {"name": "Nate Dogg"})
+   ```
 
 3. Cache Evictions and Time-to-live (TTL)
 
-- Cache eviction can occur in three ways:
-  - You delete the item explicitly in the cache
-  - Item is evicted because the memory is full and it's not recently used (LRU)
-  - You set an item time-to-live (or TTL)
-- TTL are helpful for any kind of data:
-  - Leaderboards
-  - Comments
-  - Activity streams
-- TTL can range from few seconds to hours or days
-- If too many evictions happen due to memory, you should scale up or out
+   - Cache eviction can occur in three ways:
+     - You delete the item explicitly in the cache
+     - Item is evicted because the memory is full and it's not recently used (LRU)
+     - You set an item time-to-live (or TTL)
+   - TTL are helpful for any kind of data:
+     - Leaderboards
+     - Comments
+     - Activity streams
+   - TTL can range from few seconds to hours or days
+   - If too many evictions happen due to memory, you should scale up or out
 
 Final words of wisdom
 

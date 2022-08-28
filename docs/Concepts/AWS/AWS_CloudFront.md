@@ -1,3 +1,9 @@
+---
+title: AWS CloudFront
+description: AWS CloudFront
+prev: ./AWS
+---
+
 # AWS CloudFront
 
 - Content Delivery Network (CDN)
@@ -41,7 +47,7 @@
 - Control the TTL (0 seconds to 1 year), can be set by the origin using the Cache-Control header, Expires header...
 - You can invalidate part of the cache using the CreateInvalidation API
 
-## Create CloudFront:
+## Create CloudFront
 
 Steps:
 

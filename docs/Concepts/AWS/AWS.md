@@ -1,3 +1,8 @@
+---
+title: AWS
+description: Amazon Web Services is a Cloud Provider
+---
+
 # AWS
 
 - AWS (**Amazon Web Services**) is a _Cloud Provider_.
@@ -7,26 +12,25 @@
 
 1. [AWS Global Infrastructure](#aws-global-infrastructure)
 2. [IAM](./AWS_IAM)
-3. [EC2](./AWS_EC2)
-4. [EC2 Instance Storage](#ec2-instance-storage)
-5. [Load Balancing](./AWS_Load_Balancing)
-6. [RDS](./AWS_RDS)
-7. [Route 53](./AWS_Route_53)
-8. [VPC](./AWS_VPC)
-9. [S3](./Amazon_S3)
-10. [CloudFront](./AWS_CloudFront)
-11. [ECS](./AWS_ECS)
-12. [Elastic Beanstalk](./AWS_Elastic_Beanstalk)
-13. [AWS CICD](./AWS_CI_CD)
-14. [AWS CloudFormation](./AWS_CloudFormation)
-15. [AWS Monitoring, Troubleshooting & Audit](./AWS_Monitoring_Troubleshooting_Audit)
-16. [AWS Integration and Messaging](./AWS_Integration_and_Messaging)
-17. [AWS Lambda](./AWS_Lambda)
-18. [AWS DynamoDB](./AWS_DynamoDB)
-19. [AWS API Gateway](./AWS_API_Gateway)
-20. [AWS Serverless Application Model](./AWS_Serverless_Application_Model)
-21. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit)
-22. [AWS Cognito](./AWS_Cognito)
+3. [EC2 and Storage](./AWS_EC2)
+4. [Load Balancing](./AWS_Load_Balancing)
+5. [RDS](./AWS_RDS)
+6. [Route 53](./AWS_Route_53)
+7. [VPC](./AWS_VPC)
+8. [S3](./Amazon_S3)
+9. [CloudFront](./AWS_CloudFront)
+10. [ECS](./AWS_ECS)
+11. [Elastic Beanstalk](./AWS_Elastic_Beanstalk)
+12. [AWS CICD](./AWS_CI_CD)
+13. [AWS CloudFormation](./AWS_CloudFormation)
+14. [AWS Monitoring, Troubleshooting & Audit](./AWS_Monitoring_Troubleshooting_Audit)
+15. [AWS Integration and Messaging](./AWS_Integration_and_Messaging)
+16. [AWS Lambda](./AWS_Lambda)
+17. [AWS DynamoDB](./AWS_DynamoDB)
+18. [AWS API Gateway](./AWS_API_Gateway)
+19. [AWS Serverless Application Model](./AWS_Serverless_Application_Model)
+20. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit)
+21. [AWS Cognito](./AWS_Cognito)
 
 ## Queries
 
@@ -52,7 +56,7 @@ Lift and shift (or **rehosting**) is one way you might consider moving to the cl
 - A region is a **cluster of data centres**
 - **Most AWS services are region-scoped**
 
-1. How to choose an AWS Region?
+#### How to choose an AWS Region?
 
 - **_Compliance_ with data governance and legal requirements**: data never leaves a region without your explicit permission.
 - **_Proximity_ to customers**: reduced latency.
@@ -72,7 +76,7 @@ _Example_:
 |                            | `ap-sountheast-2c` |
 
 - Each Availability Zone (AZ) is **one or more discrete data centres with redundant power, networking, and connectivity**
-- They're separate from each other, so that they're **isolated** from disasters
+- They're separate from each other, so that they're **isolated from disasters**
 - They're connected with high bandwidth, ultra-low latency networking
 
 ### AWS Points of Presence
@@ -92,8 +96,8 @@ _Example_:
 - Most AWS services are Region-scoped:
 
   - [Amazon EC2](./AWS_EC2) (Infrastructure as a Service)
-  - [Elastic Beanstalk](./AWS_Elastic Beanstalk) (Platform as a Service)
-  - Lambda (Function as a Service)
+  - [Elastic Beanstalk](./AWS_Elastic_Beanstalk) (Platform as a Service)
+  - [Lambda](./AWS_Lambda) (Function as a Service)
   - Rekognition (Software as a Service)
 
 > [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services)
@@ -116,6 +120,7 @@ We can interact with AWS using AWS Console (Web Based App), AWS CLI, and AWS SDK
   - How to interact with AWS Proprietary services? (S3, DynamoDB, etc...)
 
 - Developing and performing AWS tasks against AWS can be done in several ways
+
   - Using the AWS CLI on our local computer
   - Using the AWS CLI on our EC2 machines
   - Using the AWS SDK on our local computer
@@ -164,7 +169,7 @@ AWS CLI v2 Setup: [Install AWS CLI on Windows/Mac/Linux](https://docs.aws.amazon
 - Sometimes, we'd just like to make sure we have the permissions...
 - But not actually run the commands!
 - Some AWS CLI commands (such as EC2) can become expensive if they succeed, say if we wanted to try to create an EC2 Instance
-- Some AWS CLI commands (not all) contain a --dry-run option to simulate API calls
+- Some AWS CLI commands (not all) contain a `--dry-run` option to simulate API calls
 
 ### AWS CLI STS Decode Errors
 
@@ -267,18 +272,20 @@ If you don't specify or configure a default region, then us-east-1 will be chose
 ### AWS Limits (Quotas)
 
 - API Rate Limits
-  - DescribeInstances API for EC2 has a limit of 100 calls per seconds
-  - GetObject on S3 has a limit of 5500 GET per second per prefix
-  - For Intermittent Errors: implement Exponential Backoff
+  - Describe Instances API for EC2 has a limit of 100 calls per seconds
+  - `GetObject` on S3 has a limit of 5500 GET per second per prefix
+  - For Intermittent Errors: implement [Exponential Backoff](#exponential-backoff)
   - For Consistent Errors: request an API throttling limit increase
 - Service Quotas (Service Limits)
   - Running On-Demand Standard Instances: 1152 vCPU
   - You can request a service limit increase by opening a ticket
   - You can request a service quota increase by using the Service Quotas API
 
-#### Exponential Backoff (any AWS service)
+#### Exponential Backoff
 
-- If you get ThrottlingException intermittently, use exponential backoff
+Exponential Backoff for any AWS service.
+
+- If you get _ThrottlingException_ intermittently, use exponential backoff
 - Retry mechanism already included in AWS SDK API calls
 - Must implement yourself if using the AWS API as-is or in specific cases
   - Must only implement the retries on 5xx server errors and throttling
@@ -362,22 +369,21 @@ If you don't specify or configure a default region, then us-east-1 will be chose
   - Vertical Scalability
   - Horizontal Scalability (= elasticity)
 - Scalability is linked but different to High Availability
-- Let's deep dive into the distinction, using a call center as an example
 
 ### Vertical Scalability
 
-- Vertically scalability means increasing the size of the instance
-- For example, your application runs on a t2.micro
-- Scaling that application vertically means running it on a t2.large
-- Vertical scalability is very common for non distributed systems, such as a database.
+- Vertically scalability means **increasing the size of the instance**
+- For example, your application runs on a `t2.micro`
+- Scaling that application vertically means running it on a `t2.large`
+- Vertical scalability is **very common for non-distributed systems, such as a database.**
 - RDS, ElastiCache are services that can scale vertically.
-- There's usually a limit to how much you can vertically scale (hardware limit)
+- There's **usually a limit to how much you can vertically scale (hardware limit)**
 
 ### Horizontal Scalability
 
-- Horizontal Scalability means increasing the number of instances/systems for your application
-- Horizontal scaling implies distributed systems. This is very common for web applications/modern applications
-- It's easy to horizontally scale thanks the cloud offerings such as Amazon EC2
+- Horizontal scalability means **increasing the number of instances/systems for your application**
+- Horizontal scaling **implies distributed systems**. This is very common for web applications/modern applications
+- It's **easy to horizontally scale** thanks the cloud offerings such as Amazon EC2
 
 ### High Availability
 

@@ -1,3 +1,9 @@
+---
+title: AWS Cloud Development Kit
+description: AWS Cloud Development Kit
+prev: ./AWS
+---
+
 # AWS Cloud Development Kit
 
 - Define your cloud infrastructure using a familiar language:

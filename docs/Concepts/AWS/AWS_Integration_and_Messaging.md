@@ -1,3 +1,9 @@
+---
+title: AWS Integration and Messaging
+description: AWS Integration and Messaging
+prev: ./AWS
+---
+
 # AWS Integration and Messaging
 
 SQS, SNS and Kinesis
@@ -78,8 +84,6 @@ Similar to S3 access policy.
 - That means the message has 30 seconds to be processed
 - After the message visibility timeout is over, the message is "visible" in SQS
 
-### SQS - Message Visibility Timeout
-
 - If a message is not processed within the visibility timeout, it will be processed twice
 - A consumer could call the ChangeMessageVisibility API to get more time
 - If visibility timeout is high (hours), and consumer crashes, re-processing will take time
@@ -150,8 +154,6 @@ Similar to S3 access policy.
 ## Amazon SNS
 
 - What if you want to send one message to many receivers?
-
-### Amazon SNS
 
 - The "event producer" only sends message to one SNS topic
 - As many "event receivers" (subscriptions) as we want to listen to the SNS topic notifications

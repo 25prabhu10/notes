@@ -1,20 +1,28 @@
+---
+title: EC2
+description: EC2
+prev: ./AWS
+---
+
 # EC2
 
-- EC2 - (Elastic Compute Cloud) - _Infrastructure as a Service_
-- It mainly consists in the capability of:
-  - Renting virtual machines (EC2) - Compute units
-  - Storing data on virtual drives (EBS)
-  - Distributing load across machines (ELB)
-  - Scaling the services using an auto-scaling group (ASG)
+EC2: **Elastic Compute Cloud** (_Infrastructure as a Service_)
 
-## EC2 sizing & configuration
+It mainly consists in the capability of:
 
-- Operating System (OS): Linux, Windows or Mac OS
+- Renting virtual machines (EC2) - Compute units
+- Storing data on virtual drives (EBS)
+- Distributing load across machines (ELB)
+- Scaling the services using an auto-scaling group (ASG)
+
+## EC2 Sizing and Configuration
+
+- **Operating System (OS)**: Linux, Windows or Mac OS
 - How much compute power & cores (CPU)
 - How much random-access memory (RAM)
 - How much storage space:
-  - Network-attached (EBS & EFS)
-  - Hardware (EC2 Instance Store)
+  - **Network-attached** (EBS & EFS)
+  - **Hardware** (EC2 Instance Store)
 - Network card: speed of the card, Public IP address
 - Firewall rules: security group
 - Bootstrap scrip (configure at first launch): EC2 User Data
@@ -31,23 +39,15 @@
   - Anything that is needed
 - The EC2 User Data Script runs with the root user
 
-_Example_: (EC2 instance types)
-
-| Instance    | vCPU | Mem (GiB) | Storage        | Network Performance | EBS Bandwidth (Mbps) |
-| ----------- | ---- | --------- | -------------- | ------------------- | -------------------- |
-| t2.micro    | 1    | 1         | EBS-Only       | Low to Moderate     |                      |
-| t2.xlarge   | 4    | 16        | EBS-Only       | Moderate            |                      |
-| c5d.4xlarge | 16   | 32        | 1x400 NVMe SSD | Up to 10 Gbps       | 4700                 |
-| r5.16xlarge | 64   | 512       | EBS-Only       | 20 Gbps             | 13600                |
-| m5.8xlarge  | 32   | 128       | EBS-Only       | 10 Gbps             | 6800                 |
-
 ## Creating an EC2 Instance
 
 Steps:
 
-1. Choose an Amazon Machine Image (AMI)
+1. Choose an [Amazon Machine Image](#amazon-machine-image) (AMI)
 2. Choose an Instance Type:
+
    - `t2.micro` is available in free tire
+
 3. Configure Instance Details
 
    - User data: Paste the bootstrap script here
@@ -72,36 +72,56 @@ Steps:
    - Download the Key pair
    - Used to SSH into the server
 
-## EC2 Instance Types:
+## EC2 Instance Types
 
-- [List of current EC2 instance types](https://aws.amazon.com/ec2/instance-types/)
-  - General Purpose:
-    - Great for a diversity of workloads such as web servers or code repositories
-    - Balance between: Compute, Memory, and Networking
-  - Compute Optimized:
-    - Great for compute-intensive tasks that require high performance processors
-    - Batch processing workloads
-    - Media transcoding
-    - High performance web servers
-    - High performance computing (HPC)
-    - Scientific modeling and machine learning
-    - Dedicated gaming servers
-    - Name starts with `c`
-  - Memory Optimized:
-    - Fast performance for workloads that process large data sets in memory
-    - High performance, relational/non-relational databases
-    - Distributed web scale cache stores
-    - In-memory databases optimized for BI (business intelligence)
-  - Accelerated Computing
-  - Storage Optimized:
-    - Great for storage-intensive tasks that require high, sequential read and write access to large data sets in local storage
-    - High frequency online transaction processing (OLTP) systems
-    - Relational & NoSQL databases
-    - Cache for in-memory databases (for example: Redis)
-    - Data warehousing applications
-    - Distributed file systems
-  - Instance Features
-  - Measuring Instance Performance
+[List of current EC2 instance types](https://aws.amazon.com/ec2/instance-types/):
+
+1. General Purpose:
+
+   - Great for a diversity of workloads such as web servers or code repositories
+   - Balance between: Compute, Memory, and Networking
+
+2. Compute Optimized:
+
+   - Great for compute-intensive tasks that require high performance processors
+   - Batch processing workloads
+   - Media transcoding
+   - High performance web servers
+   - High performance computing (HPC)
+   - Scientific modeling and machine learning
+   - Dedicated gaming servers
+   - Name starts with `c`
+
+3. Memory Optimized:
+
+   - Fast performance for workloads that process large data sets in memory
+   - High performance, relational/non-relational databases
+   - Distributed web scale cache stores
+   - In-memory databases optimized for BI (business intelligence)
+
+4. Accelerated Computing
+
+5. Storage Optimized:
+
+   - Great for storage-intensive tasks that require high, sequential read and write access to large data sets in local storage
+   - High frequency online transaction processing (OLTP) systems
+   - Relational & NoSQL databases
+   - Cache for in-memory databases (for example: Redis)
+   - Data warehousing applications
+   - Distributed file systems
+
+_Example_: (EC2 instance types)
+
+| Instance    | vCPU | Mem (GiB) | Storage        | Network Performance | EBS Bandwidth (Mbps) |
+| ----------- | ---- | --------- | -------------- | ------------------- | -------------------- |
+| t2.micro    | 1    | 1         | EBS-Only       | Low to Moderate     |                      |
+| t2.xlarge   | 4    | 16        | EBS-Only       | Moderate            |                      |
+| c5d.4xlarge | 16   | 32        | 1x400 NVMe SSD | Up to 10 Gbps       | 4700                 |
+| r5.16xlarge | 64   | 512       | EBS-Only       | 20 Gbps             | 13600                |
+| m5.8xlarge  | 32   | 128       | EBS-Only       | 10 Gbps             | 6800                 |
+
+- Instance Features
+- Measuring Instance Performance
 - AWS EC2 naming convention:
   - `m5.2xlarge`
   - `m`: instance class
@@ -113,26 +133,26 @@ Steps:
 ## Security Groups
 
 - Security Groups are the fundamental of network security in AWS
-- They control how traffic is allowed into or out of our EC2 Instances
-- Security groups only contain **allow** rules
+- They **control how traffic is allowed** into or out of our EC2 Instances
+- Security groups **only contain allow** rules
 - Security groups rules can reference by IP or by security groups
 
 - Security groups are acting as a "firewall" on EC2 instances
 - They regulate:
 
-  - Access to Ports
+  - **Access to Ports**
   - Authorised IP ranges - IPv4 and IPv6
-  - Control of inbound network (from other to the instance)
-  - Control of outbound network (from the instance to other)
+  - Control of **inbound network** (from other to the instance)
+  - Control of **outbound network** (from the instance to other)
 
-- Can be attached to multiple instances
+- **Can be attached to multiple instances**
 - Locked down to a region/VPC combination
-- Dose live "outside" the EC2 - if traffic is blocked the EC2 instance won't see it
+- Dose live "outside" the EC2 - **if traffic is blocked the EC2 instance won't see it**
 - It's good to maintain one separate security group for SSH access
 - If your application is not accessible (time out), then it's a security group issue
 - If your application gives a "connection refused" error, then it's an application error or it's not launched
-- All inbound traffic is blocked by default
-- All outbound traffic is authorised by default
+- All **inbound traffic** is **blocked by default**
+- All **outbound traffic** is **authorised by default**
 
 ### Classic Ports
 
@@ -154,6 +174,7 @@ You can connect to an EC2 instance from your workstation through SSH.
 Steps:
 
 1. Copy the `Public IPv4 address` of the EC2 instance
+
 2. Open your preferred terminal and use the `ssh` command as shown below:
 
    ```bash
@@ -168,6 +189,7 @@ Steps:
    ```
 
 4. This is because AWS will not allow anyone to connect to the EC2 instance without proper permissions. To proceed you will need the private key that you downloaded while creating the EC2 instance ([Creating an EC2 Instance](#creating-an-ec2-instance) - Step 8)
+
 5. Use the downloaded key with the `-i` flag in `ssh` command:
 
    ```bash
@@ -175,6 +197,7 @@ Steps:
    ```
 
 6. It should connect to the EC2 instance and you can start working on it
+
 7. If you get error like this:
 
    ```bash
@@ -219,45 +242,50 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 
 ## EC2 Instances Purchasing
 
-1. **[On-Demand Instances](#ec2-on-demand)**: short workload, predictable pricing
+1. [On-Demand Instances](#ec2-on-demand): short workload, predictable pricing
 2. [Reserved](#ec2-reserved-instances): (minimum 1 year)
    - **Reserved Instances**: long workloads (like databases)
    - **Convertible Reserved Instances**: long workloads with flexible instances
    - **Scheduled Reserved Instances**: example - every Thursday between 3 and 6 pm
-3. **[Spot Instances](#ec2-spot-instances)**: short workloads, cheap, can lose instances (less reliable)
-4. **[Dedicated Hosts](#ec2-dedicated-hosts)**: book an entire physical server, control instance placement
+3. [Spot Instances](#ec2-spot-instances): short workloads, cheap, can lose instances (less reliable)
+4. [Dedicated Hosts](#ec2-dedicated-hosts): book an entire physical server, control instance placement
+5. [Dedicated Instances](#ec2-dedicated-instances): no other customers will share your hardware
 
-### EC2 On Demand
+### EC2 On-Demand Instances
 
-- Pay for what you use:
+- **Pay for what you use**:
   - Linux: billing per second, after the first minute
   - All other operating systems (ex: Windows): billing per hour
-- has the highest cost but no upfront payment
-- No long-term commitment
+- Has the **highest cost** but no upfront payment
+- **No long-term commitment**
 - Recommended for **short-term** and **uninterrupted workloads**, where you can't predict how the application will behave
 
 ### EC2 Reserved Instances
 
-- Up to 75% discount compared to On-demand
-- Reservation period: 1 year = + discount | 3 year = +++ discount
-- Purchasing options: no upfront | partial upfront = + discount | All upfront = ++ discount
-- Reserve a specific instance type
-- Recommended for steady-state usage application (think database)
+1. **Reserved Instances**:
 
-- **Convertible Reserved Instance**
+   - **Up to 75% discount** compared to On-demand
+   - Reservation period: **1 year** = + discount | **3 year** = +++ discount
+   - Purchasing options: no upfront | partial upfront = + discount | All upfront = ++ discount
+   - Reserve a specific instance type
+   - Recommended for **steady-state usage application (think database)**
 
-  - Can change the EC2 instance type
-  - Up to 54% discount
+2. **Convertible Reserved Instance**:
 
-- **Scheduled Reserved Instance**
-  - Launch within time window you reserve
-  - When you require a fraction of day/week/month
-  - Still commitment over 1 to 3 years
+   - Can **change the EC2 instance type**
+   - Up to 54% discount
+
+3. **Scheduled Reserved Instance**:
+
+   - **Launch within time window you reserve**
+   - When you require a fraction of day/week/month
+   - Still commitment over 1 or 3 years
+   - **Currently not available**
 
 ### EC2 Spot Instances
 
-- Can get a discount of up to 90% compared to On-demand
-- Instances that you can "lose" at any point of time if your max price is less than the current spot price
+- Can get a **discount of up to 90%** compared to On-demand
+- Instances that you can **"lose" at any point of time** if your max price is less than the current spot price
 - The Most cost-efficient instances in AWS
 - **Useful for workloads that are resilient to failure**:
   - Batch jobs
@@ -270,18 +298,19 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 ### EC2 Dedicated Hosts
 
 - An Amazon EC2 Dedicated Host is a physical server with EC2 instance capacity fully dedicated to your use. Dedicated Hosts can help you address **compliance requirements** and reduce costs by allowing you to **use your existing server-bond software licences**
-- Allocated for your account for a 3 year period reservation
-- More expensive
+- Allocated for your account for a **3 year period reservation**
+- **More expensive**
 - Useful for software that have complicated licensing model (BYOL - Bring Your Own License)
-- Or fir companies that have strong regulatory or compliance needs
+- Or for companies that have strong regulatory or compliance needs
 
-**EC2 Dedicated Instances**
+### EC2 Dedicated Instances
 
-- Instances running on hardware that's dedicated to you
-- May share hardware with other instances in same account
+- Dedicated Instances running on hardware that's dedicated to a single customer (account)
+- Dedicated Instances that belong to different AWS accounts are physically isolated at a hardware level
+- May share hardware with other non-dedicated instances in the same account
 - No control over instance placement (can move hardware after Stop/Start)
 
-### Difference between Dedicated Instances and Dedicated Hosts:
+### Difference between Dedicated Instances and Dedicated Hosts
 
 | Characteristic                                      | Dedicated Instances | Dedicated Hosts |
 | --------------------------------------------------- | :-----------------: | :-------------: |
@@ -297,8 +326,8 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 ### AWS EC2 Instance Metadata
 
 - AWS EC2 Instance Metadata is powerful but one of the least known features to developers
-- It allows AWS EC2 instances to "learn about themselves" without using an IAM Role for that purpose.
-- The URL is http://169.254.169.254/latest/meta-data
+- It allows AWS EC2 instances to **"learn about themselves" without using an IAM Role for that purpose.**
+- The URL is `http://169.254.169.254/latest/meta-data`
 - You can retrieve the IAM Role name from the metadata, but you CANNOT retrieve the IAM Policy.
 - Metadata = Info about the EC2 instance
 - Userdata = launch script of the EC2 instance
@@ -307,7 +336,7 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 curl http://169.254.169.254
 ```
 
-AWS Instance calls `http://169.254.169.254/latest/meta-data/iam/sercurity-credentials/<IAM_ROLE>` to get the Token attached a specific Role to make other calls.
+AWS Instance calls `http://169.254.169.254/latest/meta-data/iam/security-credentials/<IAM_ROLE>` to get the Token attached a specific Role to make other calls.
 
 ## EC2 Instance Storage
 

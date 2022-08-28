@@ -7,6 +7,8 @@ description: It is a general-purpose, procedural computer programming language.
 
 C is a general-purpose, procedural computer programming language.
 
+C is a strongly-typed, weakly checked language.
+
 ## Data Types
 
 ### Arrays

@@ -1,13 +1,13 @@
 ---
 title: CSS - Cascading Style Sheets
-description: Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in HTML or XML.
+description: CSS is a style sheet language used for describing the presentation of a document written in HTML or XML.
 ---
 
 # CSS
 
 Cascading Style Sheets (CSS) is a **style sheet language** used to describing the presentation of a document written in HTML or XML.
 
-- It is one of the three building block any web application (**HTML**, **CSS**, and **JavaScript**).
+- It is one of the three building block any web application (**[HTML](../HTML)**, **CSS**, and **[JavaScript](../JavaScript)**).
 - CSS is a declarative language.
 
 ## Usage
@@ -33,9 +33,9 @@ For styling the HTML document, we can add CSS in two ways:
    </head>
    ```
 
-3. **External stylesheet**: The CSS is written in a separete file, which is then refernced by the HTML document through the use of `<link>` element. The external file has a file extension as `.css`.
+3. **External stylesheet**: The CSS is written in a separate file, which is then referenced by the HTML document through the use of `<link>` element. The external file has a file extension as `.css`.
 
-   CSS inside external file, like `styles.css`:
+   - CSS inside external file, like `styles.css`:
 
    ```css
    p {
@@ -44,7 +44,7 @@ For styling the HTML document, we can add CSS in two ways:
    }
    ```
 
-   Linking the external style sheet inside the HTML document:
+   - Linking the external style sheet inside the HTML document:
 
    ```html
    <head>
@@ -54,14 +54,15 @@ For styling the HTML document, we can add CSS in two ways:
 
 ## Syntax
 
-The basic building blocks are:
-
-- The **property** which is an identifier, that is a human-readable _name_, that defines which feature is considered.
-- The **value** which describe how the feature must be handled by the engine. Each property has a set of valid values, defined by a formal grammar, as well as a semantic meaning, implemented by the browser engine.
-
 <img src="./ruleset.png" alt="ruleset" style="zoom:70%;" />
 
-### Selectors
+The basic building blocks are:
+
+- The **property** which is an identifier, that is a human-readable name, that defines which feature is considered.
+
+- The **value** which describe how the feature must be handled by the engine. Each property has a set of valid values, defined by a formal grammar, as well as a semantic meaning, implemented by the browser engine.
+
+## Selectors
 
 This is the HTML element name at the start of the ruleset. It defines the element(s) to be styled.
 
@@ -100,7 +101,7 @@ This is the HTML element name at the start of the ruleset. It defines the elemen
    }
    ```
 
-5. **Pseudo-Class Selector**: Selecting an element, but only when in the specified state. (For example, when a cursor hovers over a link change the color.).
+5. **[Pseudo-Class Selector](#pseudo-classes)**: Selecting an element, but only when in the specified state. (For example, when a cursor hovers over a link change the color.).
 
    ```css
    a:hover {
@@ -127,7 +128,7 @@ This is the HTML element name at the start of the ruleset. It defines the elemen
 
    :::
 
-#### Combinators
+### Combinators
 
 Combinators help in combing different selectors. They also provide a hierarchical context based upon the element's relationship within the DOM:
 
@@ -138,7 +139,7 @@ Combinators help in combing different selectors. They also provide a hierarchica
 | Sibling          | "~"         | `p ~ p`         | All paragraphs (after the first) that share the same parent element                 |
 | Adjacent Sibling | "+"         | `h2 + p`        | All paragraphs that immediately follow an `<h2>` tag on the same hierarchy          |
 
-#### Pseudo Elements
+### Pseudo Elements
 
 Pseudo-Element is a keyword added to a selector that lets you style a specific part of the selected element(s):
 
@@ -171,26 +172,65 @@ Best practice is to use two-colon prefix for two reasons:
 
 :::
 
-#### Pseudo Classes
+### Pseudo Classes
 
 Pseudo-Class is a keyword added to a selector that specifies a special state of the selected element(s). For example, `:hover` can be used to change a button's color when the user's pointer hovers over it.
 
-List of Pseudo Classes:
+Some Pseudo Classes:
 
 - `:hover`: Match when an element is being hovered over (such as using the mouse)
+
 - `:focus`: Match an element selected with the keyboard (by tabbing), or with the mouse (by clicking the element)
+
+  - Example:
+
+  ```css
+  /* For links and other elements */
+  a:focus {
+    outline: 2px solid var(--clr-primary);
+    outline-offset: 4px;
+  }
+
+  /* For buttons */
+  button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--clr-bg), 0 0 0 4px var(--clr-primary);
+  }
+  ```
+
+- `:focus-visible`: Matches the `:focus` pseudo-class and the UA (User Agent) determines via heuristics that the focus should be made evident on the element.
+
+  - Example:
+
+  ```css
+  .element:focus-visible {
+    background-color: pink; /* Something to get the user's attention */
+  }
+  ```
+
 - `:active`: Match an element in the process of being activated (such as clicking, while the mouse button is depressed)
+
+  - Example:
+
+  ```css
+  button:active {
+    background-color: #333;
+    border-color: #333;
+    color: #eee;
+  }
+  ```
+
 - `:target`: Select an element that has an ID matching the URL's fragment (the portion after the #)
 
-### Properties
+## Properties
 
 The properties in CSS refer to the various aspects of layout and style that can be affected. These are ways in which you can style an HTML element.
 
-### Units
+## Units
 
 Types of units:
 
-1. Absolute
+1. Absolute:
 
    - `px`: Unit of measure for computer graphics; this is only suitable for screen-based displays.
    - `in`: Inch. _1in. = 6pc = 72pt = 2.54cm_. This will be a true inch on printers, but defined relative to a reference pixel for screens which is _96px_ regardless of the screen resolution.
@@ -199,25 +239,32 @@ Types of units:
    - `cm`: Centimetre. _1cm = 10mm_.
    - `mm`: Millimetre.
 
-2. Font-Relative
+2. Font-Relative:
 
    - `ch`: Represents the width of the **0** character in the element's font (consisting of both typeface and size).
    - `ex`: Represents the height of the **x** character in the element's font (consisting of both typeface and size).
    - `em`: The calculated font-size of the element. If this unit is used on the font-size property, it will be relative to the inherited font-size.
    - `rem`: Exactly the same as `em`, but always relative to the font-size of the root element (which is the `<html>` for HTML documents). This is the preferred default unit for many web designers as it allows for manageable fluid layouts while addressing accessibility concerns.
 
-3. Viewport-Relative
+3. Viewport-Relative:
 
    - `vh`: Equal to _1%_ of the height of the viewport
    - `vw`: Equal to _1%_ of the width of the viewport
+
    - `vmin`: Equal to the smaller of `vh` or `vw`
    - `vmax`: Equal to the larger of `vh` or `vw`
 
-4. Percentage
+   - `lvh` and `lvw`: The large viewport-percentage units are defined with respect to the large viewport size: the viewport sized assuming any UA interfaces that are dynamically expanded and retracted to be retracted.
+
+   - `svh` and `svw`: The small viewport-percentage units are defined with respect to the small viewport size: the viewport sized assuming any UA interfaces that are dynamically expanded and retracted to be expanded.
+
+   - `dvh` and `dvw`: The dynamic viewport-percentage units are defined with respect to the dynamic viewport size: the viewport sized with dynamic consideration of any UA interfaces that are dynamically expanded and retracted. This allows authors to size content such that it can exactly fit within the viewport whether or not such interfaces are present.
+
+4. Percentage:
 
    - Many CSS properties will accept a _percentage_ or a _length-percentage_ (meaning either a length or a percentage). While the rem is the best choice for many purposes, especially those relating to content and accessibility, percentage works relative to any inherited size including font-relative, view-relative, or even absolute units.
 
-### Functions
+## Functions
 
 CSS has a large number of available functions to perform a variety of tasks. But CSS dose not allow user-defined functions.
 
@@ -239,7 +286,7 @@ CSS has a large number of available functions to perform a variety of tasks. But
 
 - **Math**: Sometimes the built-in units aren't enough and you need to calculate size or position based upon other elements. The `calc()` function makes it possible to do some basic math with a mix of units. Addition, subtraction, multiplication, and division are supported along with parentheses. As an example, you could use height: `calc(10vh - 1rem)` to calculate the height of a header that was _10%_ of the viewport height, but accounted for a _1rem_ border.
 
-### Variables
+## Variables
 
 CSS has support for variables.
 
@@ -277,17 +324,33 @@ li::before {
 }
 ```
 
-### At-Rules
+- CSS variables can be consumed using `var()`, which takes CSS variable as the first argument and an optional default value
+
+```css
+:root {
+  --color-primary: #fff;
+}
+
+h1 {
+  color: var(--color-primary);
+}
+
+h3 {
+  color: var(--color-secondary, #aaa);
+}
+```
+
+## At-Rules
 
 The CSS at-rules (so-named because of the **@** or _"at"_ symbol in the name of each) are language features that provide some control over the structure of your styles. Among other things these rules provide a mechanism for collecting or grouping other rulesets.
 
-#### Media Queries
+### Media Queries
 
 Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).
 
 `@media` at-rule is used to perform queries against the system, environment, or user agent. These media queries can be used to build responsive layouts.
 
-##### Media Types
+#### Media Types
 
 Media types describe the general category of a device. Except when using the `not` or `only` logical operators, the media type is optional and the `all` type will be implied.
 
@@ -296,88 +359,106 @@ Media types describe the general category of a device. Except when using the `no
 - `screen`: Intended primarily for screens
 - `speech`: Intended for speech synthesizers
 
-##### Media Features
+#### Media Features
 
 Media features describe specific characteristics of the [user agent](https://developer.mozilla.org/en-US/docs/Glossary/User_agent), output device, or environment.
 
 - Visit [MDN - Media features](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#media_features) for the list of all media features expression.
 
-1. **Prefers-Color-Scheme**: The prefers-color-scheme CSS media feature is used to detect if the user has requested the system to use a light or dark color theme.
+1. Prefers-Color-Scheme: The prefers-color-scheme CSS media feature is used to detect if the user has requested the system to use a light or dark color theme.
 
-   - **no-preference**: Indicates that the user has made no preference known to the system. This keyword value evaluates as false in the boolean context.
+   - `no-preference`: Indicates that the user has made no preference known to the system. This keyword value evaluates as false in the boolean context.
 
-   - **light**: Indicates that the user has notified the system that they prefer an interface that has a light theme.
+   - `light`: Indicates that the user has notified the system that they prefer an interface that has a light theme.
 
-   - **dark**: Indicates that the user has notified the system that they prefer an interface that has a dark theme.
+   - `dark`: Indicates that the user has notified the system that they prefer an interface that has a dark theme.
+
+   ```css
+   body {
+     background: #e78900;
+     color: #fff;
+   }
+
+   @media (prefers-color-scheme: light) {
+     body {
+       background: #e78900;
+     }
+   }
+
+   @media (prefers-color-scheme: dark) {
+     body {
+       background: #191a1a;
+     }
+   }
+   ```
+
+2. Prefers-Reduced-Motion: The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of animation or motion it uses.
+
+   - `no-preference`: Indicates that the user has made no preference known to the system.
+
+   - `reduce`: Indicates that the user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where all non-essential movement is removed.
+
+   ```css
+   .square-inner-box {
+     animation: fill 1.7s infinite ease-in;
+   }
+
+   @keyframes fill {
+     0% {
+       height: 0px;
+     }
+     100% {
+       height: 80px;
+     }
+   }
+
+   @keyframes roll {
+     0% {
+       transform: rotate(180deg);
+     }
+     100% {
+       trasform: rotate(360deg);
+     }
+   }
+
+   @media (prefers-reduced-motion: reduce) {
+     .square-box {
+       animation: none;
+     }
+     .square-inner-box {
+       animation: none;
+     }
+   }
+
+   @media (prefers-reduced-motion: no-preference) {
+     .square-box {
+       animation: roll 2s infinite ease-out;
+     }
+     .square-inner-box {
+       animation: fill 1.7s infinite ease-in;
+     }
+   }
+   ```
+
+3. `pointer`: tests whether the user has a pointing device (such as a mouse), and if so, how accurate the primary pointing device is.
+
+- `none`: The primary input mechanism does not include a pointing device
+
+- `coarse`: The primary input mechanism includes a pointing device of limited accuracy, such as mobile or remote pointer.
+
+- `fine`:The primary input mechanism includes an accurate pointing device, such as mouse.
 
 ```css
-body {
-  background: #e78900;
-  color: #fff;
-}
+button {
+  min-height: 32px;
 
-@media (prefers-color-scheme: light) {
-  body {
-    background: #e78900;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #191a1a;
+  @media (pointer: coarse) {
+    min-height: 48px;
   }
 }
 ```
 
-2. **Prefers-Reduced-Motion**: The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of animation or motion it uses.
-
-   - **no-preference**: Indicates that the user has made no preference known to the system.
-
-   - **reduce**: Indicates that the user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where all non-essential movement is removed.
-
-```css
-.square-inner-box {
-  animation: fill 1.7s infinite ease-in;
-}
-
-@keyframes fill {
-  0% {
-    height: 0px;
-  }
-  100% {
-    height: 80px;
-  }
-}
-
-@keyframes roll {
-  0% {
-    transform: rotate(180deg);
-  }
-  100% {
-    trasform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .square-box {
-    animation: none;
-  }
-  .square-inner-box {
-    animation: none;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .square-box {
-    animation: roll 2s infinite ease-out;
-  }
-  .square-inner-box {
-    animation: fill 1.7s infinite ease-in;
-  }
-}
-```
-
-##### Logical Operators
+### Logical Operators
 
 The logical operators `not`, `and`, and `only` can be used to compose a complex media query.
 
@@ -389,11 +470,11 @@ The logical operators `not`, `and`, and `only` can be used to compose a complex 
 
 - `,` (comma): Commas are used to combine multiple media queries into a single rule. Each query in a comma-separated list is treated separately from the others. Thus, if any of the queries in a list is true, the entire media statement returns true. In other words, lists behave like a logical or operator.
 
-#### Import
+### Import
 
 `@import` helps in importing styles from a different style sheet.
 
-#### Supports
+### Supports
 
 `@supports` at-rule allows rules to be applied based upon specific support of CSS features by the user agent.
 
@@ -454,11 +535,89 @@ The initial value for a property may be set by the browser and can vary dependin
 
 The property value will equate that of the parent's property whether the property is by default inherited or not.
 
-## Rests or Neutralizers CSS
+## Resets or Neutralizers CSS
 
 Each browsers has its own set of default styles applied to the page. This may cause some problems with the uniformity of the CSS across different browsers. So, we can reset or neutralizer these default CSS behavior of browsers.
 
-There are plenty of available presets.
+There are plenty of available presets, one such example:
+
+```css
+/* 1. Use a more-intuitive box-sizing model. */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Allow percentage-based heights in the application */
+html,
+body {
+  height: 100%;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5 or calc(1em + 0.725rem);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Remove built-in form typography styles */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Create a root stacking context */
+#root,
+#__next {
+  isolation: isolate;
+}
+```
+
+## Height And Width
+
+- `width` of an element is calculated based on its parent
+- `height` of an element is calculated based on its children
+
+## Images
+
+- Images are considered inline elements
+
+## Inputs
+
+- Buttons and inputs don't inherit Typographical styles from their parents. Instead, they have their own styles
 
 ## Typography
 
@@ -483,6 +642,24 @@ Create a doc on [Typography](https://careerfoundry.com/en/blog/ui-design/beginne
 
 Fluid typography is the idea that `font-size` (and perhaps other attributes of type, like `line-height`) change depending on the screen size (or perhaps container queries if we had them).
 
+- The default HTML font size is `16px` which can be changed to `10px` by setting `font-size: 62.5%`, this makes calculations easier while using font-relative units
+
+- Create a function in Sass that converts pixel unit to `rem` unit
+
+  ```scss
+  @use "sass:math";
+
+  $html-font-size: 16px;
+
+  @function pxToRem($pxValue) {
+    @return math.div($pxValue, $html-font-size) * 1rem;
+  }
+
+  div {
+    width: pxToRem(400px); /* 25rem */
+  }
+  ```
+
 Sample snippets for fluid font-sizes (not optimal):
 
 1. Using `clamp`:
@@ -495,11 +672,13 @@ Sample snippets for fluid font-sizes (not optimal):
    html {
      font-size: 16px;
    }
+
    @media screen and (min-width: 320px) {
      html {
        font-size: calc(16px + 6 * ((100vw - 320px) / 680));
      }
    }
+
    @media screen and (min-width: 1000px) {
      html {
        font-size: 22px;
@@ -510,16 +689,20 @@ Sample snippets for fluid font-sizes (not optimal):
    The above snippet can be simplified with:
 
    ```css
-   /* NOT WIDELY SUPPORTED */
+   /* not widely supported */
    html {
      font-size: min(max(16px, 4vw), 22px);
    }
 
-   /* EVEN BETTER IMPLEMENTATION */
+   /* even better implementation */
    html {
      font-size: clamp(16px, 4vw, 22px);
      /* clamp(min size, variable size, max size) */
    }
+
+   or
+
+   font-size: clamp(105%, calc(100% + 0.5vw), 150%);
    ```
 
    ::: tip REFERENCE
@@ -535,10 +718,6 @@ Sample snippets for fluid font-sizes (not optimal):
    ```css
    font-size: calc(18px + ((100vw - 1025px) * (22 - 18) / (1920 - 1024)));
    ```
-
-## Media Queries
-
-Media queries are useful when you want to modify your site or app depending on a device's general type (such as print vs. screen) or specific characteristics and parameters (such as screen resolution or browser viewport width).
 
 ## CSS Layouts
 
@@ -604,14 +783,180 @@ _Example:_
 }
 ```
 
+## Topics
+
+- Sticky Positioning
+- aspect-ration
+- Flexbox
+- Grid
+- Transforms
+- `@layer`: Cascade Layers: Simplified style ordering, control of the cascade
+- Color Spaces & Functions:
+  - accent-color
+  - `hwb()`: Hue, Whiteness and Blackness
+- Containment: `@container` queries
+- `<dialog>`
+- Form Compatibility
+- Scrolling
+- Subgrid: Grid lines made available for children and grandchildren
+- Typography
+- Viewport Units
+- Web Compat
+
 ## CSS Modules
 
 - [CSS Modules](https://github.com/css-modules/css-modules)
 - **Can only scope class names**, when elements are directly used in CSS modules they are applied globally
 
-## CSS in JS
+## Styling Techniques
 
--
+- CSS vs `CSS-in-JS`
+- `atomic` vs `BEM`
+
+### Different ways to deal with CSS
+
+1. Global CSS:
+
+   - Good for small applications but is not scalable
+   - Naming becomes hard, can use naming conventions like BEM
+
+2. [CSS Modules](#css-modules):
+
+   - Scoped to individual component
+   - File name should contain `module` like `button.module.css`
+   - **No name collisions**
+
+3. Preprocessor:
+
+   - Sass (superset of CSS) (`.scss`), Less
+   - Do programmatic stuff
+   - Different language
+   - Decoupled from JS
+
+4. CSS-In-JS:
+
+   - Styled components, Emotion, JSS, styletron, Styled JSX (Next.js)
+   - Write CSS in JS
+   - Do programmatic stuff
+   - Create dynamic styles
+   - Scoped styles
+
+5. Utility Class Library:
+
+   - tailwindcss, Windi CSS
+   - Extra config
+   - Complex HTML
+   - No components
+
+6. CSS Frameworks:
+
+   - Bootstrap, Bulma
+
+7. Component Library:
+
+   - Mantine, React Bootstrap, ANT, Material Design, Rebase, chakra, tamagui
+
+### Sorting CSS properties
+
+1. Initial State: (random)
+
+   ```css
+   .wrapper {
+     top: 20px; /* is it absolute? fixed? You begin searching downwards */
+     margin-left: 20px; /* Any other margins applied? */
+     display: flex; /* How is this flexed?  searching for justify / align / flex rules */
+     position: absolute; /* ah absolute */
+     height: 100%; /* and width? */
+     margin-bottom: 20px;
+     border-radius: 5px; /* Is there even a border? */
+     color: red;
+     justify-content: center;
+     margin-left: 2px;
+     left: 0px;
+     width: 100%; /* and height? */
+     border: 1px solid red;
+   }
+   ```
+
+2. ABCSS: (alphabetical ordering)
+
+   ```css
+   .wrapper {
+     border: 1px solid red;
+     border-radius: 5px;
+     color: red;
+     display: flex;
+     height: 100%;
+     justify-content: center;
+     left: 0px;
+     margin-bottom: 20px;
+     margin-left: 20px;
+     margin-left: 2px; /* ouch? */
+     position: absolute;
+     top: 20px;
+     width: 100%;
+   }
+   ```
+
+   - Duplicates easily identifiable: like `margin-left`
+
+   - The main **advantage** of alphabetical sorting - easier property location. You are just scanning a table, like a glossary, and yep, here is the property I am looking for.
+
+   - The main **disadvantage**: `height` goes before `width`, `left` goes before `top` and there is some _distance_ between them. There is even `position:absolte` between `height` and `width`, as well as between `left` and `top`.
+
+   - Alphabetical sorting is **scattering context**.
+
+3. Groups: Sorting based on groups, cohorts, buckets, clusters.
+
+   ```css
+   .wrapper {
+     position: absolute;
+     top: 20px;
+     left: 0;
+
+     display: flex;
+     justify-content: center;
+
+     width: 100%;
+     height: 100%;
+     margin-bottom: 20px;
+     margin-left: 20px;
+     margin-left: 2px;
+
+     color: red;
+
+     border: 1px solid red;
+     border-radius: 5px;
+   }
+   ```
+
+   - Properties are grouped (clustered) into buckets by a sense.
+   - The ordering principle is known as "Outside-in":
+
+     - Layout Properties (`position`, `float`, `clear`, `display`)
+     - Box Model Properties (`width`, `height`, `margin`, `padding`)
+     - Visual Properties (`color`, `background`, `border`, `box-shadow`)
+     - Typography Properties (`font-size`, `font-family`, `text-align`, `text-transform`)
+     - Misc Properties (`cursor`, `overflow`, `z-index`)
+
+   - The problem: there is more than one standard around it (more than 5)
+
+   - The main **disadvantage**: you have to learn how to separate concerns (to write grouped CSS). But it's a tool job, not yours. So it's not the problem at all.
+
+## Performance
+
+- First Paint
+- Critical rendering path
+
+- [Website response times](https://www.nngroup.com/articles/website-response-times/)
+
+## Dark Mode
+
+- [CSS Variables with styled-components](https://www.joshwcomeau.com/css/css-variables-for-react-devs/)
+
+## Color Scheme
+
+- If not sure on what colors to work with, use black and white
 
 ## Tools
 

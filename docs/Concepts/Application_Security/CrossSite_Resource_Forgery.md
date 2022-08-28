@@ -1,0 +1,16 @@
+---
+title: Cross-Site Resource Forgery (CSRF)
+description: Cross-site request forgery is a type of malicious exploit of a website.
+---
+
+# Cross-Site Resource Forgery (CSRF)
+
+**Cross-site request forgery**, also known as **one-click attack** or **session riding** and abbreviated as **CSRF** (sometimes pronounced _sea-surf_) or **XSRF**, is a type of malicious exploit of a website where unauthorized commands are submitted from a user that the web application trusts,
+
+- Attack which forces an end user to execute unwanted actions on a web app in which they're currently authenticated
+
+- Normal users: CSRF attack can force user to perform requests like transferring funds, changing email address, etc.
+
+- Admin users: CSRF attack can force admins to add new admin user, or in the worst case, run commands directly on the server
+
+- Effective even when attacker can't read the HTTP response

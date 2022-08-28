@@ -1,11 +1,10 @@
 ---
-prev: false
-next: ./vsCode
-lang: en-US
+next: ./Keyboard
 ---
 
 # Table of Content
 
-1. [Visual Studio Code](./vsCode) - Free Source-Code Editor
-2. [Dual Boot OS](./Dual%20Boot%20OS)
-3. [Manjaro Startup Settings](./Manjaro%20Startup%20Settings)
+1. [Interview](./Interview)
+2. [Aptitude](./Apti/Programs)
+3. [Income Tax](./Income-Tax)
+4. [Keyboards](./Keyboard): Keyboard types

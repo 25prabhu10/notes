@@ -1,3 +1,9 @@
+---
+title: VPC
+description: VPC
+prev: ./AWS
+---
+
 # VPC
 
 - VPC is something you should know in depth for the AWS Certified Solutions Architect Associate & AWS Certified SysOps Administrator
@@ -33,9 +39,11 @@
   - Rules only include IP addresses
 
 - Security Groups
-  - A firewall that controls traffic to and from an ENI / an EC2 Instance
+
+  - Act as virtual firewall that controls traffic to and from an ENI / an EC2 Instance
   - Can have only ALLOW rules
   - Rules include IP addresses and other security groups
+  - Each instance can have up to 5 security groups
 
 ## Network ACLs vs Security Groups
 

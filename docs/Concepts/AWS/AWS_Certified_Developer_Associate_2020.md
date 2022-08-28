@@ -1,8 +1,14 @@
+---
+title: AWS Certified Developer - Associate
+description: AWS Certified Developer - Associate
+prev: ./AWS
+---
+
 # AWS Certified Developer - Associate
 
 - It costs **$150**
-- **130** minutes
-- **65** questions
+- **130 minutes**
+- **65 questions**
 - **~72%** passing score
 - Valid for **3 years**
 
@@ -48,12 +54,12 @@
 ## Training
 
 - Instructor: Jatin Goel
-- https://www.cloudwizardconsulting.com/ - Classroom
-- https://app.gotomeeting.com/?meetingId=590486733 - Meeting link
-  - https://global.gotomeeting.com/join/590486733
-- https://evantage.gilmoreglobal.com/# - Notes
-- https://www.cloudwizardconsulting.com/ - Company
-- https://cloudwizard.qwiklabs.com/ - Lab
+- [Classroom](https://www.cloudwizardconsulting.com/)
+- [Meeting link](https://app.gotomeeting.com/?meetingId=590486733)
+- [Meeting 2](https://global.gotomeeting.com/join/590486733)
+- [Notes](https://evantage.gilmoreglobal.com/#)
+- [Company](https://www.cloudwizardconsulting.com/)
+- [Lab](https://cloudwizard.qwiklabs.com/)
 
 AWS Account:
 
@@ -73,7 +79,7 @@ AWS Account:
 - A: [SNS Examples](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/sns-examples.html)
 
 - Link for outpost please?
-- [Outposts](A: https://aws.amazon.com/outposts/)
+- [Outposts](https://aws.amazon.com/outposts/)
 
 - Please provide any link to Aws hardware devices ?
 - A: [Snowball](https://aws.amazon.com/snowball/)
@@ -126,7 +132,7 @@ AWS Account:
 
 - [AWS Calculator](https://calculator.aws/#/)
 - [AWS Plans](https://aws.amazon.com/premiumsupport/plans/)
-- [Cloudskills Review](https://pages.awscloud.com/traincert-learn-aws-cloudskills.html ; Pls review this link and save it.)
+- [Cloudskills Review](https://pages.awscloud.com/traincert-learn-aws-cloudskills.html) ; Pls review this link and save it.)
 - [AWS Certified Cloud Practitioner - Exam Guide](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Exam-Guide.pdf)
 - [AWS Certified Cloud Practitioner - Sample Questions](https://d1.awsstatic.com/training-and-certification/docs-cloud-practitioner/AWS-Certified-Cloud-Practitioner_Sample-Questions.pdf)
 - AWS Partners: [AWS Partners Portal](https://www.aws.training/Details/eLearning?id=60697)

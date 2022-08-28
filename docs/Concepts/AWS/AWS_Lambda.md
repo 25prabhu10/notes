@@ -1,3 +1,9 @@
+---
+title: AWS Lambda
+description: AWS Lambda
+prev: ./AWS
+---
+
 # AWS Lambda
 
 AWS Lambda is a Serverless service.
@@ -234,7 +240,7 @@ http://example.com/path?name=foo&name=bar
 - Can define a DLQ (dead-letter queue) - SNS or SQS - for failed processing (need correct IAM permissions)
 - Asynchronous invocations allow you to speed up the processing if you don't need to wait for the result (ex: you need 1000 files processed)
 
-### Services
+### AWS Services
 
 - Amazon Simple Storage Service (S3)
 - Amazon Simple Notification Service (SNS)
@@ -519,7 +525,7 @@ Visit [AWS Configure Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/c
   - For `Node.js`, use `npm` & `node_modules` directory
   - For `Python`, use `pip --target` options
   - For `Java`, include the relevant `.jar` files
-- Upload the zip straight to Lambda if less than 50MB, else to S3 first
+- Upload the zip straight to Lambda if less than 50MB zipped, else to S3 first. Unzipped 250MB.
 - Native libraries work: they need to be compiled on Amazon Linux
 - AWS SDK comes by default with every Lambda function
 
@@ -564,8 +570,8 @@ Resources:
 ## Lambda Layers
 
 - Custom Runtimes
-  - Ex: C++ [ Codebase link ](https://github.com/awslabs/aws-lambda-cpp)
-  - Ex: Rust [ Codebase link ](https://github.com/awslabs/aws-lambda-rust-runtime)
+  - Ex: C++ [Codebase link](https://github.com/awslabs/aws-lambda-cpp)
+  - Ex: Rust [Codebase link](https://github.com/awslabs/aws-lambda-rust-runtime)
 - Externalize Dependencies to re-use them
 
 ## Lambda Container Images
@@ -576,8 +582,6 @@ Resources:
 - Can create your own image as long as it implements **the Lambda Runtime API**
 - Test the containers locally using the Lambda Runtime Interface Emulator
 - Unified workflow to build apps
-
-### Lambda Container Images
 
 _Example_: build from the base images provided by AWS
 

@@ -1,6 +1,6 @@
 ---
 title: Sass
-description: Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets.
+description: Sass is a preprocessor scripting language that is interpreted or compiled into Cascading Style Sheets
 ---
 
 # Sass
@@ -124,3 +124,5 @@ Sass allows nesting CSS rules, similar to HTML nesting.
 
 - [Sass](https://sass-lang.com/)
 - [Another UI Guy - Sass Notes](https://anotheruiguy.gitbooks.io/sassintherealworld_book-i/content/)
+
+- [Sass Guidelines](https://sass-guidelin.es/)

@@ -1,3 +1,9 @@
+---
+title: API Gateway
+description: API Gateway
+prev: ./AWS
+---
+
 # API Gateway
 
 _Example_: Building a Serverless API
@@ -149,7 +155,7 @@ _Example_: Building a Serverless API
 - Uses Velocity Template Language (VTL): for loop, if etc...
 - Filter output results (remove unnecessary data)
 
-**Mapping Example: JSON to XML with SOAP**
+Mapping Example: **JSON to XML with SOAP**
 
 - SOAP API are XML based, whereas REST API are JSON based
   - Client --RESTful, JSON Payload--> API Gateway + Mapping Template --XML Payload--> SOAP API
@@ -159,7 +165,7 @@ _Example_: Building a Serverless API
   - Call SOAP service and receive XML response
   - Transform XML response to desired format (like JSON), and respond to the user
 
-**Mapping Example: Query String parameters**
+Mapping Example: **Query String parameters**
 
 - Client --HTTP--> API Gateway + MAPPING TEMPLATE --JSON--> Lambda
 
@@ -171,7 +177,7 @@ _Example_: Building a Serverless API
   - Method Request
   - Integration Request
   - Method Response
-- - AWS extensions for API gateway and setup every single option
+- AWS extensions for API gateway and setup every single option
 - Can export current API as Swagger / OpenAPI spec
 - Swagger can be written in YAML or JSON
 - Using Swagger we can generate SDK for our applications

@@ -7,17 +7,24 @@ description: Hypertext Transfer Protocol (HTTP) is an application-layer protocol
 
 **Hypertext Transfer Protocol (HTTP)** is an _application-layer_ protocol for transmitting hypermedia documents, such as HTML.
 
-- HTTP is one of the main technologies used by the World Wide Web (WWW).
-
-- Uses _Client-Server_ model.
-- Based on a _request_ and a _response_.
-- HTTP is often based on _TCP/IP_ layer, it can be used on any reliable transport layer.
+- HTTP is one of the main technologies used by the _World Wide Web_ (WWW).
 
 The main features of HTTP are:
 
-- HTTP is simple - human-readable.
-- HTTP is extendable - easy to implement new features.
-- HTTP is a [stateless protocol](https://en.wikipedia.org/wiki/Stateless_protocol), meaning that the server does not keep any data (state) between two requests. **Not session less**, HTTP Cookies allow the use of stateful sessions.
+- Uses **Client-Server model**: Client asks server for resource, server replies
+- Based on a **request** and a **response**
+
+- HTTP is **simple** - human-readable text protocol
+
+- HTTP is **extendable** - easy to implement new features (just add headers)
+
+- HTTP is a **stateless protocol**:
+
+  - Meaning that the server does not keep any data (state) between two requests.
+  - HTTP protocol itself does not store state.
+  - **Not session less**, HTTP Cookies allow the use of stateful sessions
+
+- **Transport protocol agnostic**: HTTP is often based on _TCP/IP_ layer, it can be used on any reliable transport layer
 
 ::: tip Internet
 The internet is a collection of public computers through the shared use of the Internet Protocol (IP). It's made up of many services, including the WWW (or the web), email, file sharing, and internet telephony. The web, therefore, is but one part of the internet, though it's the most visible part.
@@ -27,6 +34,7 @@ The internet is a collection of public computers through the shared use of the I
 
 1. The browser requests for the real address of [www.google.com](http://www.google.com/) from a Domain Name System (DNS) server.
 
+   - DNS might perform multiple steps, hence it is called recursive resolver
    - DNS returns an IP address.
    - This IP address can be in an IPv4 or the newer IPv6.
 
@@ -38,7 +46,7 @@ The internet is a collection of public computers through the shared use of the I
 3. When the browser has a connection to the webserver, it can start asking for the website. This step is where HTTP comes in, and the web browser uses HTTP to ask the Google server for the Google home page.
 
    - The actual full URL includes the port and would be [http://www.google.com:80](http://www.google.com/), but if standard ports are being used (80 for HTTP and 443 for HTTPS), the browser hides the port.
-   - If nonstandard ports are being used, the port is shown. Some systems, particularly in development environments, use port 8080 for HTTP or 8443 for HTTPS, for example.
+   - If non-standard ports are being used, the port is shown. Some systems, particularly in development environments, use port 8080 for HTTP or 8443 for HTTPS, for example.
 
 4. The Google server responds with whatever URL you asked for. Typically, what gets sent back from the initial page is the text that makes up the web page in HTML format.
 
@@ -46,13 +54,34 @@ The internet is a collection of public computers through the shared use of the I
    - Similarly, if something goes wrong, you get back an HTTP response code, the best-known of which is the 404 Not Found response code.
 
 5. The web browser processes the returned request. Assuming that the returned response is HTML, the browser starts to parse the HTML code and builds in memory the Document Object Model (DOM), which is an internal representation of the page.
+
 6. The web browser requests any additional resources it needs. Each of these resources is requested similarly, following steps 1-6, and yes, that includes this step, because those resources may in turn request other resources. The average website isn't as lean as Google and needs 75 resources, often from many domains, so steps 1-6 must be repeated for all of them. This situation is one of the key things that makes web browsing slow and one of the key reasons for HTTP/2, the main purpose of which is to make requesting these additional resources more efficient.
+
 7. When the browser has enough of the critical resources, it starts to render the page onscreen. Choosing when to start rendering the page is a challenging task and not as simple as it sounds. If the web browser waits until all resources are downloaded, it would take a long time to show web pages, and the web would be an even slower, more frustrating place. But if the web browser starts to render the page too soon, you end up with the page jumping around as more content downloads, which is irritating if you're in the middle of reading an article when the page jumps down. A firm understanding of the technologies that make up the web—especially HTTP and HTML/CSS/JavaScript—can help website owners reduce these annoying jumps while pages are being loaded, but far too many sites don't optimize their pages effectively to prevent these jumps.
+
 8. After the initial display of the page, the web browser continues, in the background, to download other resources that the page needs and update the page as it processes them. These resources include non-critical items such as images and advertising tracking scripts. As a result, you often see a web page displayed initially without images (especially on slower connections), with images being filled in as more of them are downloaded.
+
 9. When the page is fully loaded, the browser stops the loading icon (a spinning icon on or near the address bar for most browsers) and fires the _OnLoad JavaScript_ event, which JavaScript code may use as a sign that the page is ready to perform certain actions.
+
 10. At this point, the page is fully loaded, but the browser hasn't stopped sending out requests. We're long past the days when a web page was a page of static information. Many web pages are now feature-rich applications that continually communicate with various servers on the internet to send or load additional content. This content may be user-initiated actions, such as when you type requests in the search bar on Google's home page and instantly see search suggestions without having to click the Search button, or it may be application-driven actions, such as your Facebook or Twitter feed's automatically updating without your having to click a refresh button. These actions often happen in the background and are invisible to you, especially advertising and analytics scripts that track your actions on the site to report analytics to website owners and/or advertising networks.
 
 ![What happens when you browse the web](./what-happens-when-you-browse-the-web.jpg)
+
+Short version:
+
+1. **Client** asks **DNS Recursive Resolver** to lookup a hostname (`stanford.edu`)
+
+2. **DNS Recursive Resolver** sends DNS query to **Root Nameserver**
+
+   - **Root Nameserver** responds with IP address of **TLD Nameserver** (`.edu`, etc.)
+
+3. **DNS Recursive Resolver** sends DNS query to **TLD Nameserver**
+
+4. **DNS Recursive Resolver** sends DNS query to **Domain Nameserver**
+
+   - **Domain Nameserver** is authoritative, sp replies with server IP address
+
+5. **DNS Recursive Resolver** finally responds to Client, sending server IP address (`171.67.215.200`)
 
 ## HTTP Versions
 
@@ -63,20 +92,26 @@ The HTTP Request and Response syntax have been updated in each version.
 The first published specification for HTTP was version 0.9, issued in 1991.
 
 1. Connection is made over **TCP/IP** or a similar connection-oriented service.
+
 2. Optional port or **80** if no port is provided.
+
 3. A single line of ASCII text should be sent, consisting of **GET**, the document address (with no spaces), and a carriage return and line feed (the carriage return being optional).
+
 4. Response is a message in HTML format ("a byte stream of ASCII characters").
+
 5. The **connection is closed** after each response is received.
+
 6. Hard to distinguish an error response from a satisfactory response.
+
 7. Server doesn't store any information about the request, hence it is **stateless**.
 
 The only possible command in HTTP/0.9:
 
-```markdown
+```http
 GET /page.html↵
 ```
 
-where:
+Where:
 
 - `GET` is an HTTP method.
 - `/page.html` is the resource that we need.
@@ -90,16 +125,20 @@ There is no concept of headers in HTTP/0.9 or any other media, such as images.
 The HTTP/1.0 RFC is not a formal specification and was published in 1996.
 
 1. More request methods: **HEAD** and **POST** were added to the previously defined GET.
+
 2. Addition of an optional **HTTP version number** for all messages. HTTP/0.9 is assumed by default to aid in backward compatibility.
+
 3. **HTTP headers**, which could be sent with both the request and the response to provide more information about the resource being requested and the response being sent.
+
 4. A **3-digit response code** indicating (for example) whether the response was successful. This code also enabled redirect requests, conditional requests, and error status (404).
+
 5. **GET** can send data in the form of query parameters that are specified at the end of a URL, after the **?** character. `https://www.google.com/?q=search+string`.
 
 #### Request Syntax
 
 With headers:
 
-```markdown
+```http
 GET /page.html HTTP/1.0↵
 Header1: Value1↵
 Header2: Value2↵
@@ -108,7 +147,7 @@ Header2: Value2↵
 
 And without headers:
 
-```markdown
+```http
 GET /page.html HTTP/1.0↵
 ↵
 ```
@@ -118,11 +157,30 @@ Here we can see some changes to the HTTP/1.0 GET request as compared to HTTP/0.9
 - The first line now contains an optional HTTP _version_ section.
 - Then an optional HTTP header section followed by two return characters (`↵`)
 
+##### Useful HTTP Request Headers
+
+- `Host`: The domain name of the server (e.g. example.com)
+- `User-Agent`: The name of your browser and operating system
+- `Referer`: The webpage which led you to this page (misspelled)
+- `Cookie`: The cookie server gave you earlier; keeps you logged in
+- `Cache-Control`: Specifies if you want a cached response or not
+- `If-Modified-Since`: Only send resource if it changed recently
+- `Connection`: Control TCP socket (e.g. `keep-alive` or `close`)
+- `Accept`: Which type of content we want (e.g. `text/html`)
+- `Accept-Encoding`: Encoding algorithms we understand (e.g. `gzip`)
+- `Accept-Language`: What language we want (e.g. `es`)
+
+_Example:_
+
+```bash
+curl https://twitter.com --header "Accept-Language: kn" --silent | grep JavaScript
+```
+
 #### Response Syntax
 
 A typical response from a HTTP/1.0 server:
 
-```markdown
+```http
 HTTP/1.0 200 OK
 Date: Sun, 27 Sep 2020 13:30:24 GMT
 Content-Type: text/html
@@ -134,31 +192,62 @@ Server: Apache
 etc.
 ```
 
-- The first line consists of an HTTP version (HTTP/1.0), a 3-digit HTTP status code (200), and a text description of that status code (Ok).
+- The first line consists of an HTTP version (HTTP/1.0), a 3-digit HTTP status code (200), and a text description of that status code (OK).
 
-The status codes and descriptions are not present in HTTP/0.9.
+##### Useful HTTP Response Headers
+
+- `Date`: When response was sent
+- `Last-Modified`: When content was last modified
+- `Cache-Control`: Specifies whether to cache response or not
+- `Expires`: Discard response from cache after this date
+- `Vary`: List of headers which affect response; used by cache
+- `Set-Cookie`: Set a cookie on the client
+- `Location`: URL to redirect the client to (used with 3xx responses)
+- `Connection`: Control TCP socket (e.g. `keep-alive` or `close`)
+- `Content-Type`: Type of content in response (e.g. `text/html`)
+- `Content-Encoding`: Encoding of the response (e.g. `gzip`)
+- `Content-Language`: Language of the response (e.g. `kn`)
+- `Content-Length`: Length of the response in bytes
+
+_Example:_
+
+```bash
+curl https://twitter.com --header "Accept-Language: kn" --silent | grep JavaScript
+```
+
+#### HTTP Response Status Codes
+
+- 1xx - Informational ("Hold on")
+- 2xx - Success ("Here you go")
+- 3xx - Redirection ("Go away")
+- 4xx - Client error ("You messed up")
+- 5xx - Server error ("I messed up")
+
+- The status codes and descriptions are not present in HTTP/0.9.
 
 Here are some of the HTTP/1.0 response codes:
 
-| Category            | Value | Description           | Details                                                                                                                                                                                          |
-| ------------------- | ----- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1xx (informational) | N/A   | N/A                   | HTTP/1.0 doesn't define any 1xx status codes, but does define the category.                                                                                                                      |
-| 2xx (successful)    | 200   | OK                    | This code is the standard response code for a successful request.                                                                                                                                |
-|                     | 201   | Created               | This code should be returned for a POST request.                                                                                                                                                 |
-|                     | 202   | Accepted              | The request is being processed but hasn't completed processing yet.                                                                                                                              |
-|                     | 204   | No content            | The request has been accepted and processed, but there's no BODY response to send back.                                                                                                          |
-| 3xx (redirection)   | 300   | Multiple choices      | This code isn't used directly. It explains that the 3xx category implies that the resource is available at one (or more) locations, and the exact response provides more details on where it is. |
-|                     | 301   | Moved permanently     | The Location HTTP response header should provide the new URL of the resource.                                                                                                                    |
-|                     | 302   | Moved temporarily     | The Location HTTP response header should provide the new URL of the resource.                                                                                                                    |
-|                     | 304   | Not modified          | This code is used for conditional responses in which the BODY doesn't need to be sent again.                                                                                                     |
-| 4xx (client error)  | 400   | Bad request           | The request couldn't be understood and should be changed before resending.                                                                                                                       |
-|                     | 401   | Unauthorized          | This code usually means that you're not authenticated.                                                                                                                                           |
-|                     | 403   | Forbidden             | This code usually means that you're authenticated, but your credentials don't have access.                                                                                                       |
-|                     | 404   | Not found             | This code is probably the best-known HTTP status code, as it often appears on error pages.                                                                                                       |
-| 5xx (server error)  | 500   | Internal server error | The request couldn't be completed due to a server-side error.                                                                                                                                    |
-|                     | 501   | Not implemented       | The server doesn't recognize the request (such as an HTTP method that hasn't yet been implemented).                                                                                              |
-|                     | 502   | Bad gateway           | The server is acting as a gateway or proxy and received an error from the downstream server.                                                                                                     |
-|                     | 503   | Service unavailable   | The server is unable to fulfill the request, perhaps because the server is overloaded or down for maintenance.                                                                                   |
+| Category            | Value | Description (Status Message) | Details                                                                                                                                                                                          |
+| ------------------- | ----- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1xx (informational) | N/A   | N/A                          | HTTP/1.0 doesn't define any 1xx status codes, but does define the category.                                                                                                                      |
+| 2xx (successful)    | 200   | OK                           | This code is the standard response code for a successful request.                                                                                                                                |
+|                     | 201   | Created                      | This code should be returned for a POST request.                                                                                                                                                 |
+|                     | 202   | Accepted                     | The request is being processed but hasn't completed processing yet.                                                                                                                              |
+|                     | 204   | No content                   | The request has been accepted and processed, but there's no BODY response to send back.                                                                                                          |
+|                     | 206   | Partial Content              | The the request has succeeded and the body contains the requested ranges of data, as described in the `Range` header of the request. succeeded.                                                  |
+| 3xx (redirection)   | 300   | Multiple choices             | This code isn't used directly. It explains that the 3xx category implies that the resource is available at one (or more) locations, and the exact response provides more details on where it is. |
+|                     | 301   | Moved permanently            | The resource has a new parament URL. The Location HTTP response header should provide the new URL of the resource.                                                                               |
+|                     | 302   | Moved temporarily            | The resource temporarily resides at a different URL. The Location HTTP response header should provide the new URL of the resource.                                                               |
+|                     | 304   | Not modified                 | The resource has not been modified since last cached. This code is used for conditional responses in which the BODY doesn't need to be sent again.                                               |
+| 4xx (client error)  | 400   | Bad request                  | The request couldn't be understood and should be changed before resending.                                                                                                                       |
+|                     | 401   | Unauthorized                 | This code usually means that you're not authenticated.                                                                                                                                           |
+|                     | 403   | Forbidden                    | This code usually means that you're authenticated, but your credentials don't have access.                                                                                                       |
+|                     | 404   | Not found                    | This code is probably the best-known HTTP status code, as it often appears on error pages.                                                                                                       |
+| 5xx (server error)  | 500   | Internal server error        | The request couldn't be completed due to a server-side error.                                                                                                                                    |
+|                     | 501   | Not implemented              | The server doesn't recognize the request (such as an HTTP method that hasn't yet been implemented).                                                                                              |
+|                     | 502   | Bad gateway                  | The server is acting as a gateway or proxy and received an error from the downstream server.                                                                                                     |
+|                     | 503   | Service unavailable          | The server is unable to fulfil the request, perhaps because the server is overloaded or down for maintenance.                                                                                    |
+|                     | 504   | Gateway timeout              | The server, while acting as a gateway or proxy, did not get a response in time from the upstream server that it needed in order to complete the request.                                         |
 
 ::: tip NOTE
 Some missing codes _(203, 303, 402)_ which are not part of HTTP/1.0.
@@ -169,22 +258,22 @@ Some missing codes _(203, 303, 402)_ which are not part of HTTP/1.0.
 
 The first HTTP/1.1 specification was published in January 1997, updated Specification in June 1999, and then enhanced for a third time in June 2014.
 
-Headers that are most used:
-
 #### Host
 
 Host is a **Mandatory header**. The URL provided with the first line of an HTTP request isn't an absolute URL but a relative URL.
-Nowadays, many web servers host several sites on the same server (a situation is known as _virtual hosting_), so it's important to tell the server which site you want as well as which relative URL you want on that site.
-So, the host header was implemented to include the full absolute URL.
 
-```markdown
+- Nowadays, many web servers host several sites on the same server (a situation is known as _virtual hosting_), so it's important to tell the server which site you want as well as which relative URL you want on that site.
+
+- So, the host header was implemented to include the full absolute URL.
+
+```http
 GET / HTTP/1.1
 Host: www.google.com
 ```
 
 ::: warning NOTE
 
-```markdown
+```http
 GET / HTTP/1.1
 ```
 
@@ -201,14 +290,14 @@ Most of the web servers are more forgiving than they should be and have a defaul
 The connection between the server and the client was closed after each request. This created unnecessary delays while requesting multiple resources.
 Hence, the new _Connection_ HTTP header with the value _Keep-Alive_ was added, so that the client can ask the server to keep the connection open for additional requests.
 
-```markdown
+```http
 GET /page.html HTTP/1.0
 Connection: Keep-Alive
 ```
 
 - If the server supports persistent connections, it includes a _Connection: Keep-Alive_ header in the response:
 
-```markdown
+```http
 HTTP/1.0 200 OK
 Date: Sun, 25 Jun 2017 13:30:24 GMT
 Connection: Keep-Alive
@@ -223,10 +312,12 @@ etc.
 ```
 
 - It is difficult to know when the response is completed and when the client sends another request. To overcome this, **Content-Length HTTP header** is used to define the length of the response body, and when the entire body is received, the client is free to send another request.
+
 - HTTP/1.1 sets **Connection: Keep-Alive** by default, hence no need of including it in the header (some clients and servers include this).
+
 - If the server did want to close the connection, it had to explicitly include a **Connection: close** HTTP header in the response.
 
-```markdown
+```http
 HTTP/1.1 200 OK
 Date: Sun, 25 Jun 2017 13:30:24 GMT
 Connection: close
@@ -252,7 +343,7 @@ Connection header is supported by many _HTTP/1.0_ servers, even though it wasn't
 
 HTTP/1.1 added the concept of **pipelining**, it is possible to send several requests over the same persistent connection and get the responses back in order. If a web browser is processing an HTML document, for example, and sees that it needs a CSS file and a JavaScript file, it should be able to send the requests for these files together and get the responses back in order rather than waiting for the first response before sending the second request.
 
-```markdown
+```http
 GET /style.css HTTP/1.1
 Host: www.example.com
 
@@ -286,7 +377,7 @@ While that one request is being handled, the HTTP connection is blocked from bei
 
 #### Other New Features
 
-- New methods are PUT, OPTIONS, and the less-used CONNECT, TRACE, and DELETE.
+- New methods are `PUT`, `OPTIONS`, and the less-used `CONNECT`, `TRACE`, and `DELETE`.
 - Better caching methods. These methods allowed the server to instruct the client to store the resource (such as a CSS file) in the browser's cache so it could be reused later if required. The Cache-Control HTTP header introduced in HTTP/1.1 had more options than the Expires header from HTTP/1.0.
 - HTTP cookies to allow HTTP sessions and move from the stateless protocol.
 - The introduction of character sets (as shown in some examples in this chapter) and language in HTTP responses.
@@ -306,7 +397,9 @@ Hence, HTTPS a secure version of HTTP was introduced.
 HTTPS adds 3 important concepts to HTTP messages:
 
 1. **Encryption** - Messages can't be read by third parties while in transit.
+
 2. **Integrity** - The message hasn't been altered in transit, as the entire encrypted message is digitally signed, and that signature is cryptographically verified before decryption.
+
 3. **Authentication** - The server is the one you intended to talk to.
 
 ### SSL, TLS, HTTPS, and HTTP
@@ -314,12 +407,77 @@ HTTPS adds 3 important concepts to HTTP messages:
 History of HTTP encryption:
 
 1. SSLv1 was never released outside Netscape.
+
 2. SSLv2 and **SSLv3** were released in 1995 and 1996 respectively.
+
 3. SSL was standardized as TLS.
-4. TLSv1.0 is similar to SSLv3, though not compatible.
+
+4. TLSv1.0 (~SSLv3.1) is similar to SSLv3, though not compatible.
+
 5. TLSv1.1 and TLSv1.2 were released in 2006 and 2008 respectively.
+
 6. **TLSv1.3** was released in 2018 (current standard).
+
 7. **SSLv3** was widely used, but in 2014 major vulnerabilities were discovered and support for SSLv3 is **not supported** by browsers.
+
+8. TLSv1.0 and TLSv1.1 should not be used (deprecated)
+
+#### TLS Handshake
+
+- What ciphers will be used?
+- Secret Key
+- Authentication (Public Key)
+- Robust against Man in the middle attacks, Replay attacks, Downgrade attacks, etc...
+
+TLSv1.2 Handshake:
+
+- Cipher suite: string representation, like `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`:
+
+  - Elliptic-curve Diffie–Hellman (ECDHE): is a key agreement protocol that allows two parties, each having an Elliptic-curve public-private key pair, to establish a shared secret over an secure channel.
+
+  - Rivest–Shamir–Adleman (RSA): is a public-key cryptosystem that is widely used for secure data transmission.
+
+  - AES:
+
+  - Key size:
+
+  - Operation Mode:
+
+  - SHA256:
+
+1. TCP Handshake
+
+2. Client Hello:
+
+   - Max TLS version the client supports
+   - Random number (hash)
+   - List of Cipher suits support by client
+
+3. Server Hello (responds):
+
+   - Chooses the TLS version, cipher suit, and send random number
+   - If non of these match it sends TLS alert
+   - Certificate
+   - Digital Signature
+   - Server Hello done
+
+4. Client Key Exchange:
+
+   - Pre-master key
+   - Master key
+   - Change cipher message
+   - Finish message
+
+5. Server replies:
+
+   - Change cipher message
+   - Finish message
+
+6. Total 2 round trips
+
+TLSv1.3 Handshake:
+
+- Total 1 round trip
 
 ### HTTPS Workings
 
@@ -364,13 +522,17 @@ Let us consider a scenario:
 Imagine a simple web page with some text and two images.
 
 1. Suppose that a request takes 50ms to reach the web server and the server takes 10ms to respond and the browser takes 10ms to process the response.
+
 2. Now the following steps happen when we request for a web page:
 
    ![Web page load time](./web-page-load-time.jpg)
 
 3. So the total time taken to load the web page was 360ms. Out of which 60ms was spent on processing the requests. And a total of 300ms or 80% of the time, was spent waiting for messages.
+
 4. In this scenario, the browser knows that it requires 2 images. So instead of requesting for both the images, the browser ask for image 1 and waits for the response before asking for image 2.
+
 5. This is an inefficient process. Some browsers open multiple connections to the servers to overcome the waiting process.
+
 6. If the number of assets required by the web page is large then the loading time will increase significantly.
 
 - _Latency_ measures how long it takes to send a single message to the server.
@@ -382,7 +544,9 @@ Imagine a simple web page with some text and two images.
 ### Pipelining for HTTP/1.1
 
 - HTTP/1.1 tired to introduce _pipelining_, which allows concurrent requests to be sent before responses are received so that requests can be sent parallel.
+
 - The initial HTML still needs to be requested separately, the rest of the requests can be sent concurrently. Thus shaving off 100ms loading time in the previous example.
+
 - Pipelining should have brought huge improvements to HTTP performance, but for many reasons, it was difficult to implement, easy to break, _head-of-line_ (HOL) blocking, and not well supported by web browsers or web servers.
 
 ::: danger SUPPORT
@@ -392,13 +556,170 @@ Pipelining was rarely used.
 ### Domain Sharding
 
 - Multiple connections are opened to overcome the issues with pipelining. About 6 connections are opened per domain.
+
 - Websites can serve static contents through sub-domains, thus allowing further 6 more connections per sub-domain. This technique is known as _domain sharding_.
+
 - Domain sharding helps to increase performance, reduce HTTP headers such as cookies.
 
 Disadvantages:
 
 - Extra memory and processing is required to maintain multiple connections over TCP.
 - TCP is significantly inefficient.
+
+## HTTP Compression
+
+The HTTP specification allows the server to compress responses if the client supports compression.
+
+- It reduces network traffic and increases response speed
+- If the client supports compression, it will send along the type of compression it can accept:
+
+  ```http
+  <!-- CLIENT -->
+
+  GET /foo
+  Accept-Encoding: gzip
+
+
+  <!-- SERVER -->
+
+  200 OK
+  Content-Encoding: gzip
+  <!-- gzipped payload -->
+  ```
+
+## HTTP Caching
+
+- Caching involves both the client and the server
+- The server can let the clients know that responses are cacheble in few ways:
+
+  - Cache Headers:
+
+    - `Cache-Control: max-age=100` (fresh for 100 seconds)
+    - `Cache-Control: no-cache, no-store` (**never cache**)
+
+    - The `Expires` header can also be used to let the client know how long to cache a request:
+
+    - `Expires: Mon, 06 Nov 2022 07:42:00 GMT`
+
+    - If a response includes both `Cache-Control` and `Expires`, `Cache-Control` takes priority in determining whether cache data is fresh.
+
+How clients determine to serve cached response?
+
+- If content is still fresh (based on header value), then return cached content. No call to the server is made
+- If content is stale (not fresh), then check with the server to see if the cached copy is still valid.
+  - Validation headers are included on the outgoing request which lets the server know which version of the resource the client has in the cache.
+  - If the server determines that the resource still hasn't changed, it can send back `304 Not Modified` status and updated cache headers `Cache-Control` with new freshness info.
+  - `304` response dose not include a response body
+
+1. Validation with `Last-Modified` header:
+
+   ```http
+   <!-- INITIAL SERVER RESPONSE -->
+
+   200 OK
+   Cache-Control: max-age=100
+   Last-Modified: Fri, 31 Dec 1999 11:49:59 GMT
+
+   <!-- CLIENT REQUEST TO CHECK CACHE VALIDITY -->
+
+   GET /rooms/ref-data
+   If-Modified-Since: Fri, 31 Dec 1999 11:49:59 GMT
+
+   <!-- SERVER RESPONSE IF CACHE IS VALID -->
+
+   304 Not Modified
+   Cache-Control: max-age=100
+   Last-Modified: Fri, 31 Dec 1999 11:49:59 GMT
+   ```
+
+2. Validation with `Etag` header (better):
+
+   - `ETag`: is a fingerprint or hash that uniquely identifies this version of a resource.
+
+   - If cache is stale, new `ETag` value is sent to the client
+
+   - **`ETag` validation is stronger and more accurate** than validation with `Last-Modified` because `Last-Modified` is only accurate down to a second of resolution whereas the `ETag` fingerprint will change anytime a resource is modified.
+
+   - `ETag` takes precedence if both are used
+
+   ```http
+   <!-- INITIAL SERVER RESPONSE -->
+
+   200 OK
+   Cache-Control: max-age=100
+   Etag: "88dk35h"
+
+   <!-- CLIENT REQUEST TO CHECK CACHE VALIDITY -->
+
+   GET /rooms/ref-data
+   If-None-Match: "88dk35h"
+
+   <!-- SERVER RESPONSE IF CACHE IS VALID -->
+
+   304 Not Modified
+   Cache-Control: max-age=100
+   Etag: "88dk35h"
+   ```
+
+## HTTP Security
+
+Checkout notes about HTTP Security here: [HTTP Security Notes Link](./../Application_Security/HTTP)
+
+## Authentication And Authorization
+
+Send and receive **Authentication and Authorization over HTTPS**
+
+Authentication: Checking are the users who they say they are?
+
+Authorization: Checking is the user allowed to do this?
+
+### Authentication
+
+Authorization Header Format: Used for Authentication (not Authorization)
+
+```http
+GET /profile
+Authorization: Scheme value...
+```
+
+- Servers responds back with status code `401 Unauthorized` if authentication fails
+
+Authentication Schemes:
+
+1. Basic: username/password (or API key/secret)
+
+   - Raw credentials are sent, which can be extremely (always use HTTPS)
+
+2. Bearer: tokens issued by the server
+
+3. Digest: (less common) A hash is computed from the client's credentials and some other pieces of the request, like headers, time-stamp, request payload, etc.. Some extra security.
+
+What schema to choose depends upon:
+
+- The target audience
+- What credentials will they use?
+
+| Developers or Machines                              | End User Applications                                        |
+| --------------------------------------------------- | ------------------------------------------------------------ |
+| Machine to Machine or Service to Service connection | Web sites or Apps where user can enter username and password |
+| API keys                                            | -                                                            |
+| HTTP Basic (if not worried about security)          | -                                                            |
+| OpenID Connect client credentials (better security) | OpenID Connect resource owner password                       |
+| Digest authentication (hard to implement)           | Digest authentication (hard to implement)                    |
+
+#### OpenID Connect
+
+OpenID Connect resource owner password flow:
+
+- Client sends user's credentials (usually username/password) to the server
+
+- If credentials are good, the server creates an access token and sends it back to the client
+
+- The client can use that access token instead of the raw credentials to make authenticated requests to the API
+
+- The token is placed in the Authorization header with a _Bearer_ scheme
+
+The OpenID Connect client credentials flow is very similar except a client would exchange an API key in secret instead of a username and password for a token.
 
 ## Tools
 
@@ -420,6 +741,13 @@ Some of the tools are:
 ::: tip Warning
 HTTP is not based on Ping. Ping is much simpler than HTTP
 :::
+
+## HTTP Proxy Servers
+
+- Can cache content
+- Can block content (e.g. malware, adult content)
+- Can modify content
+- Can sit in front of many servers ("reverse proxy")
 
 ## References
 

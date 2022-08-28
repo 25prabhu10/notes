@@ -5,8 +5,11 @@ next: ./HTTP
 # Table of Content
 
 1. [HTTP](./HTTP)
-2. [WebSockets](./WebSockets)
-3. [RESTful Web Services](./RESTful%20Web%20Services)
-4. [Web Development Stacks](./Web%20Development%20Stacks)
-5. [Web Security](./Web_Security)
-6. [WebDevResources](./WebDevResources)
+2. [URL](./URL)
+3. [Images](./Images)
+4. [Fonts](./Fonts)
+5. [Logging](./Logging)
+6. [RESTful Web Services](./RESTful_Web_Services)
+7. [Web Development Stacks](./Web_Development_Stacks)
+8. [Web Development Resources](./WebDevResources)
+9. [WebSocket](./WebSocket)

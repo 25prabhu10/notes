@@ -323,7 +323,7 @@ Underline is powered by raw HTML.
 
 `<u>Underline</u>` becomes <u>Underline</u>.
 
-### Emoji :smile:
+### Emoji
 
 Input emoji with syntax `:smile:`.
 

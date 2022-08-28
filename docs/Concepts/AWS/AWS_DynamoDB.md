@@ -1,3 +1,9 @@
+---
+title: AWS DynamoDB
+description: AWS DynamoDB
+prev: ./AWS
+---
+
 # AWS DynamoDB
 
 NoSQL Serverless Database

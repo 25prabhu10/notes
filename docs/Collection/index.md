@@ -1,11 +1,11 @@
 ---
-next: ./VSCode
+next: ./FFmpeg
 ---
 
 # Table of Content
 
-1. [Visual Studio Code (VSCode)](./VSCode) - A free source-code editor
-2. [Dual Boot OS](./Dual%20Boot%20OS)
-3. [Manjaro OS](./Manjaro%20OS) - Initial setup
-4. [Windows Quirks](./Windows%20Quirks)
-5. [x265](./x265)
+1. [FFmpeg](./FFmpeg) - CLI tool for processing video and audio
+2. [Manjaro OS](./Manjaro_OS) - Initial setup
+3. [Uninstall Android Apps](./Android/Uninstall_Android_Apps) - Uninstall pre-installed and bloat apps
+4. [Visual Studio Code (VSCode)](./VSCode) - A free source-code editor
+5. [Windows OS](./Windows_OS) - Windows Quirks

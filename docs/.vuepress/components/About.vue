@@ -1,30 +1,26 @@
 // About.vue
 
 <template>
-  <div class="box">
-    <h2>{{ title }}</h2>
-    {{ message }}<button @click="click">Hi</button>
+  <div>
+    <h2 class="heading">Notes</h2>
+    
+    <p class="content">Collection of all the information acquired from various sources in one place.</p>
+    <p class="content">Accessible from anywhere.</p>
+    <p class="content">Written in <strong>Markdown</strong>.</p>
+    <p class="content">Built with <a href="https://vuepress.vuejs.org" target="_blank" rel="noopener noreferrer">VuePress</a>.</p>
   </div>
 </template>
+
 <script>
-export default {
-  data() {
-    return {
-      message: "about page",
-    };
-  },
-  methods: {
-    click() {
-      alert("hi");
-    },
-  },
-  props: ["title"],
-};
+
 </script>
+
 <style scoped>
-.box {
-  padding: 20px;
-  margin: 2px;
-  box-shadow: 0 0 10px black;
+.heading {
+  font-size: 40px;
+}
+
+.content {
+    font-size: 18px;
 }
 </style>

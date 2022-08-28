@@ -80,6 +80,7 @@ module.exports = {
     ['@vuepress/medium-zoom', true],
     ['vuepress-plugin-code-copy', true],
   ],
+  // evergreen: true,
   themeConfig: {
     logo: '/logo.png',
     nav: [

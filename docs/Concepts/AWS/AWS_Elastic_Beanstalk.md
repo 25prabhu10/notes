@@ -1,3 +1,9 @@
+---
+title: AWS Elastic Beanstalk
+description: AWS Elastic Beanstalk
+prev: ./AWS
+---
+
 # AWS Elastic Beanstalk
 
 Developer problems on AWS

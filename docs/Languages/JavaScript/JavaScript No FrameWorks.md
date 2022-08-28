@@ -13,4 +13,3 @@
 ## State Management
 
 ## SPA vs MPA
-

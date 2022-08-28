@@ -1,3 +1,9 @@
+---
+title: AWS Monitoring Troubleshooting Audit
+description: AWS Monitoring Troubleshooting Audit
+prev: ./AWS
+---
+
 # AWS Monitoring Troubleshooting Audit
 
 Why Monitoring is Important

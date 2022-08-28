@@ -3,7 +3,7 @@ title: Angular
 description: A JavaScript Framework  to create reactive Single-Page-Applications (SPA)s.
 ---
 
-# Angular 7
+# Angular
 
 Angular is a **JavaScript Framework** which allows you to create _reactive_ **Single-Page-Applications** (SPA)s.
 
@@ -18,7 +18,7 @@ Lets get started...
 2. Install the **Angular CLI**.
 
    ```bash
-   npm install -g @angular/cli@latest
+   npm install -g @angular/cli
    ```
 
    > Angular CLI creates projects, generates application and library code, and performs a variety of ongoing development tasks such as testing, bundling, and deployment.
@@ -39,7 +39,7 @@ Lets get started...
 5. Install **[Bootstrap](https://getbootstrap.com/)** if needed.
 
    ```bash
-   npm install --save bootstrap popper.js@^1.14.7 jquery@1.9.1
+   npm install --save bootstrap popper.js jquery
    npm audit fix --force
    ```
 

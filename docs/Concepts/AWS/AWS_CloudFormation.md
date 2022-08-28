@@ -1,3 +1,9 @@
+---
+title: AWS CloudFormation
+description: AWS CloudFormation
+prev: ./AWS
+---
+
 # AWS CloudFormation
 
 Infrastructure as Code
@@ -36,9 +42,11 @@ Infrastructure as Code
 ## Benefits of AWS CloudFormation
 
 - Infrastructure as code
+
   - No resources are manually created, which is excellent for control
   - The code can be version controlled for example using git
   - Changes to the infrastructure are reviewed through code
+
 - Cost
 
   - Each resources within the stack is tagged with an identifier so you can easily see how much a stack costs you
@@ -46,14 +54,19 @@ Infrastructure as Code
   - Savings strategy: In Dev, you could automation deletion of templates at 5 PM and recreated at 8 AM, safely
 
 - Productivity
+
   - Ability to destroy and re-create an infrastructure on the cloud on the fly
   - Automated generation of Diagram for your templates!
   - Declarative programming (no need to figure out ordering and orchestration)
+
 - Separation of concern: create many stacks for many apps, and many layers. Ex:
+
   - VPC stacks
   - Network stacks
   - App stacks
+
 - Don't re-invent the wheel
+
   - Leverage existing templates on the web!
   - Leverage the documentation
 
@@ -78,12 +91,12 @@ Infrastructure as Code
 
 Templates components (one course section for each):
 
-1. Resources: your AWS resources declared in the template (MANDATORY)
-2. Parameters: the dynamic inputs for your template
-3. Mappings: the static variables for your template
-4. Outputs: References to what has been created
-5. Conditionals: List of conditions to perform resource creation
-6. Metadata
+1. **Resources**: your AWS resources declared in the template (MANDATORY)
+2. **Parameters**: the dynamic inputs for your template
+3. **Mappings**: the static variables for your template
+4. **Outputs**: References to what has been created
+5. **Conditionals**: List of conditions to perform resource creation
+6. **Metadata**
 
 Templates helpers:
 
@@ -108,6 +121,19 @@ Note: This is an introduction to CloudFormation
 - We'll look at the structure of the files later on EC2 Instance
 - We'll see how in no-time, we are able to get started with CloudFormation!
 
+_Example_:
+
+```yaml
+---
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-a4c7edb2
+      InstanceType: t2.micro
+```
+
 ## What are resources?
 
 - Resources are the core of your CloudFormation template (MANDATORY)
@@ -116,6 +142,59 @@ Note: This is an introduction to CloudFormation
 - AWS figures out creation, updates and deletes of resources for us
 - There are over 224 types of resources (!)
 - Resource types identifiers are of the form: `AWS::aws-product-name::data-type-name`
+
+_Example_:
+
+```yaml
+---
+Parameters:
+  SecurityGroupDescription:
+    Description: Security Group Description
+    Type: String
+
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-a4c7edb2
+      InstanceType: t2.micro
+      SecurityGroups:
+        - !Ref SSHSecurityGroup
+        - !Ref ServerSecurityGroup
+
+  # an elastic IP for our instance
+  MyEIP:
+    Type: AWS::EC2::EIP
+    Properties:
+      InstanceId: !Ref MyInstance
+
+  # our EC2 security group
+  SSHSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Enable SSH access via port 22
+      SecurityGroupIngress:
+        - CidrIp: 0.0.0.0/0
+          FromPort: 22
+          IpProtocol: tcp
+          ToPort: 22
+
+  # our second EC2 security group
+  ServerSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: !Ref SecurityGroupDescription
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 192.168.1.1/32
+```
 
 ## How do I find resources documentation?
 
@@ -133,12 +212,13 @@ Note: This is an introduction to CloudFormation
 
 ## FAQ for resources
 
-- Can I create a dynamic amount of resources?
-- No, you can't. Everything in the CloudFormation template has to be declared. You can't perform code generation there
+- **Q. Can I create a dynamic amount of resources?**
 
-- Is every AWS Service supported?
-- Almost. Only a select few niches are not there yet
-- You can work around that using AWS Lambda Custom Resources
+  - No, you can't. Everything in the CloudFormation template has to be declared. You can't perform code generation there
+
+- **Q. Is every AWS Service supported?**
+  - Almost. Only a select few niches are not there yet
+  - You can work around that using AWS Lambda Custom Resources
 
 ## What are parameters?
 
@@ -163,7 +243,7 @@ Parameters can be controlled by all these settings:
   - String
   - Number
   - CommaDelimitedList
-  - List<Type>
+  - `List<Type>`
   - AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
 - Description
 - Constraints
@@ -177,10 +257,19 @@ Parameters can be controlled by all these settings:
 
 ## How to Reference a Parameter
 
-- The Fn::Ref function can be leveraged to reference parameters
+- The `Fn::Ref` function can be leveraged to reference parameters
 - Parameters can be used anywhere in a template.
-- The shorthand for this in YAML is !Ref
+- The shorthand for this in YAML is `!Ref`
 - The function can also reference other elements within the template
+
+_Example_:
+
+```yaml
+DbSubnet1:
+  Type: AWS::EC2::Subnet
+  Properties:
+    VpcId: !Ref MyVPC
+```
 
 ## Concept: Pseudo Parameters
 
@@ -189,7 +278,7 @@ Parameters can be controlled by all these settings:
 
 | Reference Value       | Example Return Value                                                                               |
 | --------------------- | -------------------------------------------------------------------------------------------------- |
-| AWS::AccountId        | 1234567890                                                                                         |
+| **AWS::AccountId**    | 1234567890                                                                                         |
 | AWS::NotificationARNs | [arn:aws:sns:us-east- 1:123456789012:MyTopic]                                                      |
 | AWS::NoValue          | Does not return a value.                                                                           |
 | AWS::Region           | us-east-2                                                                                          |
@@ -201,20 +290,22 @@ Parameters can be controlled by all these settings:
 - Mappings are fixed variables within your CloudFormation Template.
 - They're very handy to differentiate between different environments (dev vs prod), regions (AWS regions), AMI types, etc
 - All the values are hardcoded within the template
-- Example:
 
-  ```yaml
-  Mappings:
-    Mapping01:
-      Key01:
-        Name: Value01
-      Key02:
-        Name: Value02
-      Key03:
-        Name: Value03
-  ```
+_Example_:
 
-  ```yaml
+```yaml
+Mappings:
+  Mapping01:
+    Key01:
+      Name: Value01
+    Key02:
+      Name: Value02
+    Key03:
+      Name: Value03
+```
+
+```yaml
+Mappings:
   RegionMap:
     us-east-1:
       "32": "ami-6411e20d"
@@ -225,7 +316,35 @@ Parameters can be controlled by all these settings:
     us-east-3:
       "32": "ami-6408e39d"
       "64": "ami-7a11e236"
-  ```
+```
+
+### Accessing Mapping Values
+
+Using `Fn::FindInMap`
+
+- We use `Fn::FindInMap` to return a named value from a specific key
+- `!FindInMap [ MapName, TopLevelKey, SecondLevelKey ]`
+
+_Example_:
+
+```yaml
+Mappings:
+  RegionMap:
+    us-east-1:
+      "32": "ami-6411e20d"
+      "64": "ami-7a11e213"
+    us-east-2:
+      "32": "ami-6394e21d"
+      "64": "ami-7a12e215"
+    us-east-3:
+      "32": "ami-6408e39d"
+      "64": "ami-7a11e236"
+Resources:
+  myEC2Ins:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", 32]
+```
 
 ## When would you use mappings vs parameters ?
 

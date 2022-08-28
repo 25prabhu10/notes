@@ -1,4 +1,15 @@
+---
+title: Vim
+description: A free and open-source, screen-based text editor program
+---
+
 # Vim - Neovim
+
+- [dot-files configure - init.lua](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
+
+[Vim](https://www.vim.org/) (a contraction of Vi IMproved) is a free and open-source, screen-based text editor program.
+
+And [Neovim](https://github.com/neovim/neovim): A Vim-fork focused on extensibility and usability
 
 Once Vim is opened Ex commands are executed.
 

@@ -1,3 +1,9 @@
+---
+title: Amazon S3
+description: Amazon S3
+prev: ./AWS
+---
+
 # Amazon S3 (Simple Storage Service)
 
 - Amazon S3 is one of the **main building blocks** of AWS
@@ -174,7 +180,7 @@ Steps:
   - Allow an ever changing list of users to download files by generating URLs dynamically
   - Allow temporarily a user to upload a file to a precise location in our bucket
 
-##### Generate S3 Pre-Signed URL using CLI:
+##### Generate S3 Pre-Signed URL using CLI
 
 1. Use the below command:
 
@@ -218,9 +224,9 @@ Steps:
 
 - S3 can host static websites and have them accessible on the www
 - The website URL will be:
-  - <bucket-name>.s3-website-<AWS-region>.amazonaws.com
+  - `<bucket-name>.s3-website-<AWS-region>.amazonaws.com`
     OR
-  - <bucket-name>.s3-website.<AWS-region>.amazonaws.com
+  - `<bucket-name>.s3-website.<AWS-region>.amazonaws.com`
 - If you get a 403 (Forbidden) error, make sure the bucket policy allows public reads!
 
 ### S3 as a static website host
@@ -242,11 +248,11 @@ Steps:
 ### CORS
 
 - An origin is a scheme (protocol), host (domain) and port
-  - E.g.: https://www.example.com (implied port is 443 for HTTPS, 80 for HTTP)
+  - E.g.: `https://www.example.com` (implied port is 443 for HTTPS, 80 for HTTP)
 - CORS means Cross-Origin Resource Sharing
 - Web Browser based mechanism to allow requests to other origins while visiting the main origin
-- Same origin: http://example.com/app1 & http://example.com/app2
-- Different origins: http://www.example.com & http://other.example.com
+- Same origin: `http://example.com/app1` & `http://example.com/app2`
+- Different origins: `http://www.example.com` & `http://other.example.com`
 - The requests won't be fulfilled unless the other origin allows for the requests, using CORS Headers (ex: Access-Control-Allow-Origin)
 
 #### S3 CORS
@@ -289,7 +295,7 @@ Steps:
 - Any request made to S3, from any account, authorized or denied, will be logged into another S3 bucket
 - That data can be analyzed using data analysis tools...
 - Or Amazon Athena
-- The log format is at: https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html
+- The log format is at: [AWS log format](https://docs.aws.amazon.com/AmazonS3/latest/dev/LogFormat.html)
 
 ### S3 Access Logs: Warning
 
@@ -317,7 +323,7 @@ Steps:
 - If bucket 1 has replication into bucket 2, which has replication into bucket 3
 - Then objects created in bucket 1 are not replicated to bucket 3
 
-### Replicate S3 Bucket:
+### Replicate S3 Bucket
 
 Steps:
 
@@ -459,7 +465,7 @@ S3: Moving between storage classes
 - You can transition these "noncurrent versions" of the object to S3_IA
 - You can transition afterwards these "noncurrent versions" to DEEP_ARCHIVE
 
-### Create Lifecycle rules:
+### Create Lifecycle rules
 
 Steps:
 

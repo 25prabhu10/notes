@@ -1,29 +1,32 @@
+---
+title: TypeScript
+description: TypeScript is JavaScript with syntax for types
+---
+
 # TypeScript
 
-May be, superset of JavaScript...
+TypeScript is JavaScript with syntax for types
 
 ## Introduction
 
-TypeScript has _type safety_[^1].
+TypeScript has _type safety_ (using types to prevent programs from doing invalid things)
 
-[^1]: Using types to prevent programs from doing invalid things.[1](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/ch01.html#idm45665077132712)
+- Strongly typed
 
-- strongly typed
+- Wrapper around JavaScript
 
-- wrapper around typescript
+- TypeScript --compiles to--> JavaScript
 
-- typescript --> compile--> JavaScript
+Advantages:
 
-```bash
-# Initialize a new NPM project (follow the prompts)
-npm init
+- Static Type checking
+- Can use Non-JavaScript features like [Interfaces](#interfaces) or [Generics](#generics)
+- Use Next-gen JavaScript features now and compile it to older versions
+- Meta-Programing features like [Decorators](#decorators)
 
-# Install TSC, TSLint, and type declarations for NodeJS
-npm install --save-dev typescript tslint @types/node
+- **TypeScript preserves the runtime behavior of JavaScript**
 
-# Install Lite Server, for live reload
-npm install lite-server --save-dev
-```
+- Type of a variable will be implicitly inferred if it is initialized during declaration.
 
 ## TypeScript Compiler
 
@@ -31,51 +34,85 @@ npm install lite-server --save-dev
 
 Ans: Programs are files that contain a bunch of text. That text is parsed by a special program called a _compiler_, which transforms it into an **abstract syntax tree (AST)**, a data structure that ignores things like whitespace, comments, and where you stand on the tabs versus spaces debate. The compiler then converts that _AST_ to a lower-level representation called _bytecode_. You can feed that bytecode into another program called a _runtime_ to evaluate it and get a result.
 
-### Compiler
-
 - TypeScript dose not compile straight to bytecode.
 
-- TypeScript **compiles** to… **JavaScript** code! This JavaScript code is run in browser or NodeJS.
+- TypeScript **compiles** to… **JavaScript** code! This JavaScript code is run in browser or [Node.js](../Node.js)
 
-> Note: JavaScript compilers and runtime tend to be smashed into a single program called an engine; as a programmer, this is what you'll normally interact with. It's how V8 (the engine powering NodeJS, Chrome, and Opera), SpiderMonkey (Firefox), JSCore (Safari), and Chakra (Edge) work, and it's what gives JavaScript the appearance of being an interpreted language.
+::: tip NOTE
+JavaScript compilers and runtime tend to be smashed into a single program called an engine; as a programmer, this is what you'll normally interact with. It's how V8 (the engine powering NodeJS, Chrome, and Opera), SpiderMonkey (Firefox), JSCore (Safari), and Chakra (Edge) work, and it's what gives JavaScript the appearance of being an interpreted language.
+:::
 
-#### tsconfig.json
+_Example:_ Using TypeScript compiler
 
-Initialize project with TypeScript compiler. The below line generates [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file.
+1. Install TypeScript compiler as global package
+2. Setup TypeScript in individual projects (recommended) and use npm scripts or [`gulp`](../Tools/Gulp.js/Gulp.js) or any other tool
+
+   ```bash
+   # Initialize a new NPM project (follow the prompts)
+   npm init
+
+   # Install TSC, TSLint, and type declarations for NodeJS
+   npm install --save-dev typescript tslint @types/node
+
+   # Install Lite Server, for live reload
+   npm install lite-server --save-dev
+   ```
+
+### `tsconfig.json`
+
+Initialize project with TypeScript compiler.
+
+The below command generates [`tsconfig.json`](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) file:
 
 ```bash
+# Will create a tsconfig.json file
 tsc --init
+
+# After initializing, TypeScript compiler
+# will look into this file for compilation configuration
+tsc
 ```
 
-`tsconfig.json` file contains:
+- `tsconfig.json` file contains:
 
 ```json
 {
   "compilerOptions": {
-    "lib": ["es2015"],
+    "target": "es2016",
+    "lib": [],
     "module": "commonjs",
     "outDir": "dist",
     "sourceMap": true,
-    "strict": true,
-    "target": "es2015"
+    "strict": true
   },
   "include": ["src"]
 }
 ```
 
-- JavaScript file is generated even when there are compiler errors. To over come this use `"noEmitOnError": true` in `tsconfig.json` file.
+- `"include": ["src"]`: Files and folders that should be compiled
+- `"exclude": []`: Files and folders that should be excluded from compilation
 
-- `"noImplicitAny": true` :- complain about implicit `any` type (enabled by default when in strict mode).
+Compiler Options:
 
-- `"strictNullChecks": true` :- complier gives error if a variable does not have a value assigned to it.
+- `"target":"es6` (default `es3`): Set the JavaScript language version for emitted JavaScript and include compatible library declarations.
 
-- `"noUnusedParameters": true"` :- error if parameters are not used.
+- `"watch": true`: Re-compiles when files change
 
-- check `"sourceMap": true` :- it creates a map file, this will allow debugging typescript in the browser itself.
+- `"lib": ["dom", "es2017"]`: Target runtime. Specify a set of bundled library declaration files that describe the target runtime environment.
 
-> [Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html) - For more compiler options.
+- `"noEmitOnError": true`: Disable emitting files if any type checking errors are reported.
 
-### tslint.json
+- `"noImplicitAny": true`: Enable error reporting for expressions and declarations with an implied `any` type. (enabled by default when in strict mode).
+
+- `"strictNullChecks": true`: Complier gives error if a variable does not have a value assigned to it. When type checking, take into account `null` and `undefined`.
+
+- `"noUnusedParameters": true"`: Raise an error when a function parameter isn't read.
+
+- `"sourceMap": true`: Create source map files for emitted JavaScript files, this will allow debugging typescript in the browser itself.
+
+- [For more Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+### `tslint.json`
 
 The following command will generate a _tslint.json_ file with a default TSLint configuration:
 
@@ -94,7 +131,9 @@ The following command will generate a _tslint.json_ file with a default TSLint c
 }
 ```
 
-> For the full list of available rules, head over to the [TSLint documentation](https://palantir.github.io/tslint/rules/). You can also add custom rules, or install extra presets (like for [ReactJS](https://www.npmjs.com/package/tslint-react)).
+::: tip LIST of RULES
+For the full list of available rules, head over to the [TSLint documentation](https://palantir.github.io/tslint/rules/). You can also add custom rules, or install extra presets (like for [ReactJS](https://www.npmjs.com/package/tslint-react)).
+:::
 
 ### Project's folder structure
 
@@ -108,19 +147,36 @@ project/
 └──tslint.json
 ```
 
-> - Install `ts-node`, and use it to compile and run your TypeScript with a single command.
->
-> - Use a scaffolding tool like `typescript-node-starter` to quickly generate your folder structure for you.
+- Install `ts-node`, and use it to compile and run your TypeScript with a single command.
+
+- Use a scaffolding tool like `typescript-node-starter` to quickly generate your folder structure for you.
 
 ## Data Types
 
 A set of values and the things you can do with them.
 
-### Default Types
+### Core Types
 
-1. `any` (default type) {[to avoid this](####tsconfig.json)}
+1. `number` (floating point):
 
-2. [`unknown`](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/ch03.html##unknown)
+   ```typescript
+   let variable: number;
+
+   variable = 1;
+   variable = 5.3;
+
+   let vars: 24 = 24;
+   ```
+
+2. `string`:
+
+   ```typescript
+   let name: string;
+
+   name = "Same";
+   name = "As";
+   name = `JavaScript`;
+   ```
 
 3. `boolean`: `true` or `false`
 
@@ -129,36 +185,152 @@ A set of values and the things you can do with them.
    let e: true = true;
    ```
 
-4. `number` (float)
+4. [`Objects`](###Objects)
+
+5. Arrays: Any JavaScript [array](../JavaScript.md#array), can be flexible or strict (regarding element types)
+
+6. `any` (default type): Any kind of value, no specific type assignment
 
    ```typescript
-   let variable: number;
-   let vars: 24 = 24;
+   // These variables can be of any type
+   let a: any;
+
+   // Implicit cast to type `any`
+   let variable;
+
+   variable = 1;
+   variable = "Name";
    ```
 
-5. `bigint`: `2^53` numbers (_new_)
+7. [`unknown`](https://learning.oreilly.com/library/view/programming-typescript/9781492037644/ch03.html##unknown)
 
-6. `string`
+8. `bigint`: `2^53` numbers (_new_)
 
-7. `symbol`
+9. `symbol`
 
-8. [`Objects`](###Objects)
-
-### TypeScript's type hierarchy:
+### TypeScript's type hierarchy
 
 ![types](./types.png)
 
-### Type Aliases
+### Tuple Type
 
-array (by default members are type of object),
+Fixed-length and fixed-type array:
 
-(only in TS):-->
+- Order is important
 
-tuples ==> order is important
+```typescript
+let tups: [number, string] = [25, "Types"];
 
-`enum` ==> incremental numbers
+// Error is thrown
+tups[1] = 36;
 
-union types
+// TypeScript will not throw Error
+tups.push(366);
+```
+
+- Remove `push` function from tuple:
+
+  ```typescript
+  type StrictTuple<T extends any[]> = Omit<T, keyof any[]> extends infer O
+    ? { [K in keyof O]: O[K] }
+    : never;
+
+  const x: StrictTuple<[number, string]> = [1, ""]; // {0: number; 1: string }
+
+  x[1] = "okay";
+  x[0] = 123;
+  x.push(123); // error!
+
+  //~~~~ Property 'push' does not exist on type { 0: number; 1: string; }
+  ```
+
+- Second option:
+
+  ```typescript
+  const testArray: readonly [number, string] = [10, "test"] as const;
+  testArray.push("test"); // error
+  ```
+
+### Enum Type
+
+Enums are used to define a set of named constants
+
+```typescript
+enum DIRECTION {
+  Up,
+  Down,
+  Left,
+  Right,
+}
+
+// Up has value: 0
+// All of the following members are auto-incremented
+```
+
+- Initialize values:
+
+```typescript
+enum DIRECTION {
+  Up = 1,
+  Down,
+  Left,
+  Right,
+}
+
+// Up has value: 1
+// Down has value: 2
+```
+
+- If string is used instead of numbers to initialize, we need to provide value to all the elements.
+
+```typescript
+enum ROLES {
+  ADMIN = "ADMIN",
+  READ_ONLY = 0,
+  AUTHOR,
+}
+```
+
+### Objects
+
+Same as JavaScript objects, we can add types to the keys and values of the object.
+Also, specify the what keys can be used in the object
+
+```typescript
+let userData: { name: string; age: string; wh: number } = {
+  name: "Max",
+  age: "22",
+  wh: 22,
+};
+```
+
+- Complex objects
+
+```typescript
+let complex: { data: number[]; output: (all: boolean) => number[] } = {
+  data: [100, 3.99, 10],
+  output: function (all: boolean): number[] {
+    return this.data;
+  },
+};
+```
+
+- [type alias](###Type Aliases)
+
+- Create an object type and use it multiple times
+
+  ```typescript
+  type Complex = { data: number[]; output: (all: boolean) => number[] };
+
+  let complex: Complex = {
+    data: [100, 3.99, 10],
+    output: function (all: boolean): number[] {
+      return this.data;
+    },
+  };
+  ```
+
+### Union Types
 
 - The variable can be of two or more types
 
@@ -168,6 +340,159 @@ union types
 
   myAge = true; // will cause error
   ```
+
+#### Discriminated Unions
+
+```typescript
+interface Bird {
+  type: "bird";
+  flyingSpeed: number;
+}
+
+interface Horse {
+  type: "horse";
+  runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+function moveAnimal(animal: Animal) {
+  switch (animal.type) {
+    case "bird":
+      console.log(animal.flyingSpeed);
+      break;
+
+    case "horse":
+      console.log(animal.runningSpeed);
+      break;
+  }
+}
+```
+
+### Literal Types
+
+```typescript
+let myAge: 80;
+
+myAge = 28; // will cause error as myAge can only have value 80
+```
+
+### Type Aliases
+
+- Alias ay types
+
+```typescript
+type Combinable = number | string;
+
+type ConversionResType = "as-number" | "as-text";
+
+function combine(
+  inp1: Combinable,
+  inp2: Combinable,
+  resultConversion: ConversionResType
+) {
+  // ...
+}
+```
+
+### Void Type
+
+```typescript
+function printName(name: string): void {
+  console.log(name);
+}
+```
+
+### Unknown Type
+
+```typescript
+let user: unknown;
+
+user = 25;
+user = "Name";
+```
+
+- Error is thrown if we try to assign a variable of `unknown` type to any other variable
+
+```typescript
+let user: unknown;
+let userName: string;
+let userAge: any;
+
+user = 25;
+
+userName = user; // Will throw an error
+
+userAge = user; // No error
+```
+
+### Never Type
+
+```typescript
+function generateError(msg: string, code: number): never {
+  throw { msg, code };
+}
+```
+
+### Intersection Types
+
+- Intersection of types:
+
+```typescript
+type Combinable = string | number;
+type Numeric = number | boolean;
+
+type Universal = Combinable & Numeric;
+// Universal is of type number,
+// as it is the only intersection between
+// Combinable and Numeric
+```
+
+- Using `type`:
+
+```typescript
+type Admin = {
+  name: string;
+  privileges: string[];
+};
+
+type Employee = {
+  name: string;
+  startDate: Date;
+};
+
+type ElevatedEmployee = Admin & Employee;
+
+const emp: ElevatedEmployee = {
+  name: "Java",
+  privileges: ["None"],
+  startDate: new Date(),
+};
+```
+
+- Using `interface`:
+
+```typescript
+interface Admin {
+  name: string;
+  privileges: string[];
+}
+
+interface Employee {
+  name: string;
+  startDate: Date;
+}
+
+interface ElevatedEmployee extends Admin, Employee {}
+
+const emp: ElevatedEmployee = {
+  name: "Java",
+  privileges: ["None"],
+  startDate: new Date(),
+};
+```
+
+### Type Checking
 
 `typeof` variable;
 
@@ -203,11 +528,11 @@ Nullable types
 
 > Note: once a variable is set to null, will it give error if we assign different value to it.
 
-#### TYPE SYSTEM
+### Type System
 
-> A set of rules that a type checker uses to assign types to your program.
->
-> In general, it is good style to let TypeScript infer as many types as it can for you, keeping explicitly typed code to a minimum.
+A set of rules that a type checker uses to assign types to your program.
+
+- In general, it is good style to let TypeScript infer as many types as it can for you, keeping explicitly typed code to a minimum.
 
 ```typescript
 // array of heterogeneous data
@@ -225,9 +550,176 @@ enum Color {
 let myColor: Color = Color.Green;
 ```
 
+### Type Casting
+
+```typescript
+const userInp = document.getElementById("username");
+
+// Type: HTMLElement
+// Error: as HTMLElement is generic, hence
+// not all HTML elements have the 'value' property
+userInp.value = "hello";
+
+// Type Casting
+const userInp = <HTMLInputElement>document.getElementById("username")!;
+
+// alternative syntax
+const userInp = document.getElementById("username") as HTMLInputElement;
+
+userInp.value = "hello";
+```
+
+- Nullable:
+
+```typescript
+const userInp = document.getElementById("username");
+
+if (userInp) {
+  (userInp as HTMLInputElement).value = "hello";
+}
+```
+
+### Type Guard
+
+- Base types
+
+```typescript
+type Combinable = string | number;
+
+function add(a: Combinable, b: Combinable) {
+  // This will throw an error
+  return a + b;
+}
+
+function add(a: Combinable, b: Combinable) {
+  // Type guard
+  if (typeof a === "number" || b === "number") {
+    return a.toString() + b.toString();
+  }
+  return a + b;
+}
+```
+
+- User defined types
+
+```typescript
+type Admin = {
+  name: string;
+  privileges: string[];
+};
+
+type Employee = {
+  name: string;
+  startDate: Date;
+};
+
+type ElevatedEmployee = Admin | Employee;
+
+function show(a: ElevatedEmployee) {
+  console.log(a.name);
+
+  // Type guards
+  if ("privileges" in a) {
+    console.log(a.privileges);
+  }
+
+  if ("startDate" in a) {
+    console.log(a.startDate);
+  }
+}
+```
+
+- Class
+
+```typescript
+class Car {
+  drive() {
+    console.log("Driving...");
+  }
+}
+
+class Truck {
+  drive() {
+    console.log("Driving Truck...");
+  }
+
+  loadCargo(amount: number) {
+    console.log(amount);
+  }
+}
+
+type Vehicle = Car | Truck;
+
+const v1 = new Car();
+const v2 = new Truck();
+
+function useVehicle(v: Vehicle) {
+  v.drive();
+
+  if (v instanceof Truck) {
+    v.loadCargo(21);
+  }
+}
+```
+
+### Index Properties
+
+- `boolean` not allowed for keys
+
+```typescript
+interface ErrorContainer {
+  [key: string]: string;
+}
+```
+
+### Utility Types
+
+- `Partial<Type>`:
+
+```typescript
+interface Todo {
+  title: string;
+  description: string;
+}
+
+function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
+  return { ...todo, ...fieldsToUpdate };
+}
+
+const todo1 = {
+  title: "organize desk",
+  description: "clear clutter",
+};
+
+const todo2 = updateTodo(todo1, {
+  description: "throw out trash",
+});
+```
+
+Example:
+
+```typescript
+interface Goal {
+  title: string;
+  date: Date;
+}
+
+function createGoal(title: string, date: Date): Goal {
+  let newGoal: Partial<Goal> = {};
+
+  // Perform validations if required
+  newGoal.title = title;
+  newGoal.date = date;
+
+  return newGoal as Goal;
+}
+```
+
+- [Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+
 ## Functions
 
-specify function return type:
+- Specify function return type:
 
 ```typescript
 function returnMyName(): string {
@@ -239,7 +731,7 @@ function voidFunc(): void {
 }
 ```
 
-argument type:
+- Argument type:
 
 ```typescript
 function returnMyName(name: string): string {
@@ -247,52 +739,57 @@ function returnMyName(name: string): string {
 }
 ```
 
-functions as types:
+- Functions as types:
 
 ```typescript
+// Any function can be assigned
+// Structure of the function not specified
+let anyFunc: Function;
+
+// Define the structure of the function that can be
+// Assigned to it
 let myName: (a: string) => string;
+
 myName = returnMyName;
 ```
 
-default parameters
-
-### Objects
+- Default parameters:
 
 ```typescript
-let userData: { name: string; age: string; wh: number } = {
-  name: "Max",
-  age: "22",
-  wh: 22,
-};
+function printName(name: string = "25") {
+  console.log(name);
+}
 ```
 
-complex objects
+- Callback Function:
 
 ```typescript
-let complex: { data: number[]; output: (all: boolean) => number[] } = {
-  data: [100, 3.99, 10],
-  output: function (all: boolean): number[] {
-    return this.data;
-  },
-};
+function printAndHandle(name: string, cb: (age: number) => void) {
+  console.log(name);
+  cb(27);
+}
 ```
 
-[type alias](###Type Aliases)
+### Function Overloads
 
-- Create an object type and use it multiple times
+```javascript
+function add(a: string, b: string): string;
+function add(a: number, b: string): string;
+function add(a: string, b: number): string;
+function add(a: Combinable, b: Combinable) {
+  if (typeof a === "number" || b === "number") {
+    return a.toString() + b.toString();
+  }
 
-  ```typescript
-  type Complex = { data: number[]; output: (all: boolean) => number[] };
+  return a + b;
+}
 
-  let complex: Complex = {
-    data: [100, 3.99, 10],
-    output: function (all: boolean): number[] {
-      return this.data;
-    },
-  };
-  ```
+const res = add("Maxi", "mum");
 
-### ES6 Features
+res.split("");
+```
+
+## ES6 Features
 
 - `let`, `const` and `var`
 
@@ -329,44 +826,466 @@ let complex: { data: number[]; output: (all: boolean) => number[] } = {
 
 - Access modifier can be used `public`(default), `private`, `protected`
 
-- syntax:
+_Example:_
 
-  ```typescript
-  class Person {
-    name: string; // public (default)
-    private typ: string;
-    protected age: number;
+```typescript
+class Person {
+  name: string; // public (default)
+  private typ: string;
+  protected age: number;
 
-    // userName will automatically assigned to this.userName
-    constructor(
-      name: string,
-      typ: string,
-      age: number,
-      public userName: string
-    ) {
-      this.name = name;
-      this.typ = typ;
-      this.age = age;
-    }
+  // userName will automatically assigned to this.userName
+  constructor(name: string, typ: string, age: number, public userName: string) {
+    this.name = name;
+    this.typ = typ;
+    this.age = age;
+  }
+}
+
+const pers1 = new Person("Max", "admin", 27, "maxin");
+```
+
+- Shorthand Initializer:
+
+```typescript
+class Person {
+  constructor(
+    public name: string,
+    private typ: string,
+    protected age: number,
+    public userName: string
+  ) {}
+}
+
+const pers1 = new Person("Max", "admin", 27, "maxin");
+```
+
+- `readonly` modifier mark a property that shouldn't be changed:
+
+```typescript
+class Car {
+  constructor(public readonly seats: number = 36, private color: string) {}
+
+  printCar(this: Car) {
+    console.log(this.seats + this.color);
+  }
+}
+```
+
+- Methods don't have `function` keyword.
+
+```typescript
+class Car {
+  seats: number;
+  private color: string;
+
+  constructor(seats: number, color: string) {
+    this.seats = seats;
+    this.color = color;
   }
 
-  const pers1 = new Person("Max", "admin", 27, "maxin");
-  ```
+  printCar() {
+    console.log(this.seats + this.color);
+  }
+}
+```
 
-- Methods don't have function keyword.
+- Handling `this`:
+
+```typescript
+// The above class is used as an example
+const newCar = new Car(25, "Red");
+
+// Save the pointer to the function of the object
+// So that it can be used later
+const printDetails = { printCar: newCar.printCar };
+
+// This will throw an error
+// Because the `this` keyword inside
+// the printCar method will not refer to the object of Car
+// but to the object printDetails, which dose not have
+// the seats and color properties
+printDetails.printCar();
+```
+
+- To help us catch these mistakes we can explicitly define a type for `this`:
+
+```typescript
+class Car {
+  seats: number = 20;
+  private color: string;
+
+  constructor(seats: number = 36, color: string) {
+    this.seats = seats;
+    this.color = color;
+  }
+
+  // The object calling this function
+  // must be an object of Car
+  printCar(this: Car) {
+    console.log(this.seats + this.color);
+  }
+}
+```
 
 ### Inheritance
 
-- syntax:
+- Multiple inheritance is not supported
 
-  ```typescript
-  class Max extends Person {
-    name = "Max";
+```typescript
+class Max extends Person {
+  name = "Max";
 
-    constructor(userName: string) {
-      super("Max", "Hulk", 2, userName);
-    }
+  constructor(userName: string) {
+    super("Max", "Hulk", 2, userName);
+  }
+}
+
+const newMax = new Max("maxin");
+```
+
+### Setters And Getters
+
+- Getters:
+
+```typescript
+class Car {
+  constructor(public readonly seats: number = 36, private color: string) {}
+
+  printCar(this: Car) {
+    console.log(this.seats + this.color);
   }
 
-  const newMax = new Max("maxin");
+  get colorValue(): string {
+    return this.color;
+  }
+}
+
+const newCar = new Car(25, "Red");
+
+console.log(newCar.colorValue);
+```
+
+- Setter:
+
+```typescript
+class Car {
+  constructor(public readonly seats: number = 36, private color: string) {}
+
+  printCar(this: Car) {
+    console.log(this.seats + this.color);
+  }
+
+  get colorValue(): string {
+    return this.color;
+  }
+
+  set colorValue(v: string) {
+    this.color = v;
+  }
+}
+
+const newCar = new Car(25, "Red");
+
+newCar.colorValue = "Pink";
+
+console.log(newCar.colorValue);
+```
+
+### Abstract Class
+
+- Abstract classes cannot be instantiated
+
+```typescript
+abstract class Car {
+  constructor(public readonly seats: number, private color: string) {}
+
+  abstract printCar(this: Car): void;
+}
+```
+
+### Singletons And Private Constructors
+
+```typescript
+class Car {
+  private static instance: Car;
+
+  private constructor(public readonly seats: number, private color: string) {}
+
+  printCar(this: Car) {
+    console.log(this.seats + this.color);
+  }
+
+  static getInstance(seats: number, color: string) {
+    if (this.instance) {
+      return this.instance;
+    }
+
+    this.instance = new Car(seats, color);
+    return this.instance;
+  }
+}
+
+const newCar = Car.getInstance(25, "Red");
+```
+
+## Interface
+
+```typescript
+interface Car {
+  seats: number;
+  color: string;
+
+  printCar(): void;
+}
+
+const newCar: Car = {
+  color: "Red",
+  seats: 5,
+  printCar() {
+    console.log(this.seats + this.color);
+  },
+};
+```
+
+- `readonly` properties
+- Declaration merging
+
+- Interfaces for functions:
+
+```typescript
+// type AddFunc = (a: number, b: number) => number;
+
+// Same with interface
+interface AddFunc {
+  (a: number, b: number): number;
+}
+```
+
+- Optional properties and functions
+
+```typescript
+interface Car {
+  seats: number;
+  color?: string;
+
+  printCar?(a: string): void;
+}
+```
+
+- `type` vs `interface`
+- `abstract` vs `interface`
+
+| Interfaces                        | [Type Aliases](#type-aliases) |
+| --------------------------------- | ----------------------------- |
+| Preferred for objects and classes | For functions                 |
+| Open for extensions               | Fixed object structure        |
+
+## Generics
+
+```typescript
+const ages: Array<number | string | boolean> = ["a", 25, true];
+
+const promise: Promise<number> = new Promise((resolve, reject) => {
+  resolve(10);
+});
+
+promise.then((data) => data.toExponential());
+
+function merge<T, U>(obj1: T, obj2: U) {
+  return Object.assign(obj1, obj2);
+}
+
+const a = merge({ name: "Prabhu" }, { age: 27 });
+```
+
+- Generic Class
+
+```typescript
+class GenericNumber<NumType> {
+  zeroValue: NumType;
+  add: (x: NumType, y: NumType) => NumType;
+}
+
+let myGenericNumber = new GenericNumber<number>();
+myGenericNumber.zeroValue = 0;
+myGenericNumber.add = function (x, y) {
+  return x + y;
+};
+```
+
+- Type Constraints:
+
+```typescript
+function merge<T extends object, U extends object>(obj1: T, obj2: U) {
+  return Object.assign(obj1, obj2);
+}
+```
+
+- `keyof` type operator: Takes an object type and produces a string or numeric literal union of its keys.
+
+```typescript
+type Point = { x: number; y: number };
+type P = keyof Point;
+
+// Example
+function extractAndConvert<T extends object, K extends keyof object>(
+  obj: T,
+  key: K
+) {
+  return obj[key];
+}
+```
+
+## Decorators
+
+```typescript
+unction Logger(constructor: Function): void {
+  console.log("Decorator called...");
+  console.log(constructor);
+}
+
+@Logger
+class Person {
+  name = "Max";
+
+  constructor() {
+    console.log("Creating object");
+  }
+}
+
+const per = new Person();
+
+console.log(per);
+```
+
+- Decorator Factories
+
+```typescript
+function Logger(logString: string) {
+  return function (constructor: Function): void {
+    console.log(logString);
+    console.log(constructor);
+  };
+}
+
+@Logger("Logging - Person")
+class Person {
+  name = "Max";
+
+  constructor() {
+    console.log("Creating object");
+  }
+}
+```
+
+- Multiple Decorator: Bottom ones run first
+
+- Runs when a class defined not when it is instantiated
+
+## Modules
+
+- Using `namespace`
+
+  - Per-file or bundled compilation is possible (less imports to manage)
+
+  - TypeScript specific
+
+  ```typescript
+  // Interface file: IPeople.ts
+  namespace People {
+    export interface IPeople {
+      name: string;
+      age: number;
+    }
+
+    export const defName = "Admin";
+    export const defAge = 0;
+  }
+
+  // Class file: People.ts
+
+  /// <reference path="IPeople.ts" />
+  namespace People {
+    class Person implements IPeople {
+      name: string;
+      age: number;
+
+      constructor(name: string, age: number) {
+        this.name = name ?? defName;
+        this.age = age ?? defAge;
+      }
+    }
+  }
   ```
+
+  - Set `outfile`, to concatenate files into a single file
+
+- Using ES6 Imports/Exports
+
+  - Per-file compilation but single `<script>` import
+  - Bundling via third-party tools (e.g. Webpack)
+
+  ```typescript
+  // Interface file: IPeople.ts
+  export interface IPeople {
+    name: string;
+    age: number;
+  }
+
+  export const defName = "Admin";
+  export const defAge = 0;
+
+  // Class file: People.ts
+  import { defAge, defName, IPeople } from "./counter";
+
+  class Person implements IPeople {
+    name: string;
+    age: number;
+
+    constructor(name: string, age: number) {
+      this.name = name ?? defName;
+      this.age = age ?? defAge;
+    }
+  }
+  ```
+
+## Globals
+
+```typescript
+// If a var is defined in script tag or
+// in a JavaScript file
+// <script>
+//    var GLOBAL = "yes";
+// </script>
+
+// Declare in TypeScript file
+declare var GLOBAL: string;
+
+console.log(GLOBAL);
+```
+
+- `window` object;
+
+```typescript
+// STOP doing this:
+(window as any).foo();
+//              ^? any
+
+// Do THIS instead:
+declare global {
+  interface Window {
+    bar: () => void;
+  }
+}
+
+window.bar();
+//    ^? (property) Window.bar: () => void
+```
+
+## Check Out
+
+- Opaque Type in Typed languages
+- Nullish Coalescing
+
+## Reference
