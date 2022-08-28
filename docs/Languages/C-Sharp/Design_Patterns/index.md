@@ -1,11 +1,12 @@
 ---
-next: ./Adapter
+next: ./Adapter.md
+sidebar: false
 ---
 
 # Table of Content
 
-1. [Adapter](./Adapter)
-2. [CQRS](./CQRS)
+1. [Adapter](./Adapter.md)
+2. [CQRS](./CQRS.md)
 
 ## Introduction
 

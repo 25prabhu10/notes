@@ -15,7 +15,7 @@ ASP.NET Core (Active Server Pages) was released in 2016. It's not tied to window
 Old ASP.NET Framework:
 
 - ASP.NET Webform (state-full)
-- [ASP.NET MVC 5](./ASP_NET_Core_MVC)
+- [ASP.NET MVC 5](./ASP_NET_Core_MVC.md)
 - ASP.NET API 2.2
 
 **Why .NET Core?**
@@ -27,7 +27,7 @@ Old ASP.NET Framework:
 
 1. .NET Core
 2. ASP.NET Core
-3. [Entity Framework Core](./../Entity_Framework_Core)
+3. [Entity Framework Core](./../Entity_Framework_Core.md)
 
 ## Telemetry
 
@@ -78,7 +78,7 @@ Telemetry is on by default.
 
 ### HTTP Request Flow
 
-1. When the browser makes a request, it first arrives at a web server like **[IIS](./IIS)**
+1. When the browser makes a request, it first arrives at a web server like **[IIS](./IIS.md)**
 2. _IIS_ will invoke the Dot.NET runtime which will load the CLR.
 3. Now the request looks for an entry point, i.e. `main` function present in the `Program.cs` file and execute it.
 4. This will start the internal web server in the application.
@@ -1443,7 +1443,7 @@ Entity Framework Updates:
 - Entity Framework DbContext pooling
 - Owned tables/table splitting
 - Like operator
-- Improved [LINQ](./../LINQ) translation
+- Improved [LINQ](./../LINQ.md) translation
 - Global query filters
 - String interpolation in raw SQL
 - Explicitly compiled queries

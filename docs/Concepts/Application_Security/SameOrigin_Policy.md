@@ -31,7 +31,7 @@ The basic rule:
 
 - This **"protocol-host-port tuple"** is called an **"origin"**
 
-Two URIs are part of the same origin, if they have the same `scheme`, `host` and `port`, in terms of an [URL](./../Web/URL):
+Two URIs are part of the same origin, if they have the same `scheme`, `host` and `port`, in terms of an [URL](./../Web/URL.md):
 
 - `scheme`: HTTP or HTTPS protocol
 - `host`: Hostname or Domain name

@@ -1,5 +1,6 @@
 ---
 next: ./NPM_Packages
+sidebar: false
 ---
 
 # Table of Content

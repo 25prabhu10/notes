@@ -1,6 +1,6 @@
 # Scrum
 
-An [Agile](./Agile) framework.
+An [Agile](./Agile.md) framework.
 
 The term **Scrum** was first introduced by professors Hirotaka Takeuchi and Ikujiro Nonaka in their article _"The New New Product Development Game"_ at Harvard Business Review in 1986.
 

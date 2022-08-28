@@ -5,7 +5,7 @@ description: .NET Testing
 
 # Testing
 
-For more details checkout [Testing](../)
+For more details checkout [Testing](../../Concepts/Testing/)
 
 ## Unit Testing
 

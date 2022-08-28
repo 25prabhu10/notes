@@ -11,7 +11,7 @@ Agile software development is an umbrella term for a set of frameworks and pract
 
 ## Agile Frameworks and Methodologies
 
-- [Scrum](./Scrum)
+- [Scrum](./Scrum.md)
 - ScrumBan
 - Other/Hybrid Methodologies
 - Scrum/XP Hybrid

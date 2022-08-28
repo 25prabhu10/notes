@@ -1,15 +1,16 @@
 ---
-next: ./Web_Security
+next: ./Web_Security.md
+sidebar: false
 ---
 
 # Table of Content
 
-1. [Web Security](./Web_Security)
-2. [API](./API)
-3. [Cross-site scripting (XSS)](./Cross_Site_Scripting)
-4. [SQL Injections](./Injections)
-5. [Content Security Policy](./CSP)
-6. [Same-Origin Policy](./SameOrigin_Policy)
+1. [Web Security](./Web_Security.md)
+2. [API](./API.md)
+3. [Cross-site scripting (XSS)](./Cross_Site_Scripting.md)
+4. [SQL Injections](./Injections.md)
+5. [Content Security Policy](./CSP.md)
+6. [Same-Origin Policy](./SameOrigin_Policy.md)
 7. [XPATH Injection]
 
 - Typosquatting

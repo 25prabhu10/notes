@@ -100,7 +100,7 @@ A resource has an _identifier_, which is a URI that uniquely identifies that res
 - Your name is an Identifier, it's an URI.
 - But your address is both an Identifier and locator, it's both an URI and an URL.
 - _Example:_ `https://adventure-works.com/orders/1`
-- Checkout notes about URL here: [URL Notes Link](./URL)
+- Checkout notes about URL here: [URL Notes Link](./URL.md)
 
 Clients interact with a service by **exchanging _representations_ of resources**.
 
@@ -273,7 +273,7 @@ API endpoint conventions follow same guidelines as resource naming:
 
 HTTP protocol has several method defined for different use cases.
 
-Checkout notes about HTTP here: [HTTP Notes Link](./HTTP)
+Checkout notes about HTTP here: [HTTP Notes Link](./HTTP.md)
 
 | Verb | Action | Idempotent? | Safe? | Response body? | Response cachable?|
 | GET | Retrieve a resource | Yes | Yes | Yes |Yes |
@@ -799,7 +799,7 @@ The API description is saved in a file called `swagger.json`:
 
 ## API Security
 
-Checkout notes about API Security here: [API Security Notes Link](./../Application_Security/API)
+Checkout notes about API Security here: [API Security Notes Link](./../Application_Security/API.md)
 
 - Course: _Web Security: OAuth and OpenID Connect with Keith Casey_
 - YouTube: _OAuth 2.0 and OpenID Connect (in plain English)_ with Nate Barbettini

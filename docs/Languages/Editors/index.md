@@ -1,8 +1,9 @@
 ---
-next: ./Vim-Neovim
+next: ./Vim-Neovim.md
+sidebar: false
 ---
 
 # Table of Content
 
-1. [Vim/Neovim](./Vim-Neovim)
-2. [VSCode](./VSCode)
+1. [Vim/Neovim](./Vim-Neovim.md)
+2. [VSCode](./VSCode.md)

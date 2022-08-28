@@ -16,7 +16,7 @@ prev: ./AWS
 
 - AWS (**Amazon Web Services**) is a _Cloud Provider_
 - They provide many servers and services that can be used **on demand** and **scaled easily**
-- For more details checkout [AWS](./AWS)
+- For more details checkout [AWS](./AWS.md)
 
 ## Who is the Developer Associate for
 

@@ -1,15 +1,16 @@
 ---
-next: ./ASP_NET_Core
+next: ./ASP_NET_Core.md
+sidebar: false
 ---
 
 # Table of Content
 
-1. [ASP.NET Core](./ASP_NET_Core)
-2. [ASP.NET Core API](./ASP_NET_Core_API)
-3. [ASP.NET Core MVC](./ASP_NET_Core_MVC)
-4. [ASP.NET Architectural Patterns](./ASP_NET_Architectural_Patterns)
-5. [ASP.NET Framework MVC 5](./ASP_NET_MVC)
-6. [IIS](./IIS)
+1. [ASP.NET Core](./ASP_NET_Core.md)
+2. [ASP.NET Core API](./ASP_NET_Core_API.md)
+3. [ASP.NET Core MVC](./ASP_NET_Core_MVC.md)
+4. [ASP.NET Architectural Patterns](./ASP_NET_Architectural_Patterns.md)
+5. [ASP.NET Framework MVC 5](./ASP_NET_MVC.md)
+6. [IIS](./IIS.md)
 
 ## ASP.NET Core Developer Roadmap in 2022
 
@@ -17,9 +18,9 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
 1. General Development Skills
 
-   - [GIT](./../../GIT)
-   - [HTTP/HTTPS](../../../Concepts/Web/HTTP) protocol
-   - [dotnet CLI](../Dotnet_CLI)
+   - [GIT](./../../Git)
+   - [HTTP/HTTPS](../../../Concepts/Web/HTTP.md) protocol
+   - [dotnet CLI](../Dotnet_CLI.md)
    - [Data Structures and Algorithms](./../../../Concepts/Data-Structures_and_Algorithms/)
 
 2. C#
@@ -60,7 +61,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
 6. ORM
 
-   - [Entity Framework Core](./../Entity_Framework_Core)
+   - [Entity Framework Core](./../Entity_Framework_Core.md)
 
      - Basic
      - Code First + Migrations
@@ -119,7 +120,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Cloud Databases
 
      - Azure CosmoDB
-     - [Amazon DynamoDB](./../../../Concepts/AWS/AWS_DynamoDB)
+     - [Amazon DynamoDB](./../../../Concepts/AWS/AWS_DynamoDB.md)
 
    - Search Engines
 
@@ -136,7 +137,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
      - RavenDB
      - CouchDB
 
-10. [Logging](./../Logging) Frameworks
+10. [Logging](./../Logging.md) Frameworks
 
     - Serilog
     - NLog
@@ -164,7 +165,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
 13. API Clients & Communications
 
-    - [REST](../../../Concepts/Web/RESTful_Web_Services)
+    - [REST](../../../Concepts/Web/RESTful_Web_Services.md)
 
       - OData
       - Sieve
@@ -179,7 +180,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 14. Real-Time Communication
 
     - SignalR Core
-    - [Web Sockets](./../../../Concepts/Web/WebSocket)
+    - [Web Sockets](./../../../Concepts/Web/WebSocket.md)
 
 15. Object Mapping
 
@@ -195,7 +196,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Quartz
     - Coravel
 
-17. [Testing](./../../../Concepts/Testing)
+17. [Testing](./../../../Concepts/Testing/)
 
     - [Unit Testing](./../../../Concepts/Testing/Unit_Testing)
 
@@ -241,13 +242,13 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
     - Cloud Provider
 
-      - [AWS](../../../Concepts/AWS)
+      - [AWS](../../../Concepts/AWS/)
       - Azure
       - GCP
 
     - Serverless
 
-      - [AWS Lambda](./../../../Concepts/AWS/AWS_Lambda)
+      - [AWS Lambda](./../../../Concepts/AWS/AWS_Lambda.md)
       - Azure Functions
 
     - Message-Broker
@@ -255,14 +256,14 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
       - RabbitMQ
       - Apache Kafka
       - ActiveMQ
-      - [AWS SNS](./../../../Concepts/AWS/AWS_Integration_and_Messaging)
+      - [AWS SNS](./../../../Concepts/AWS/AWS_Integration_and_Messaging.md)
       - Azure Service Bus
       - NetMQ
 
     - Message-Bus
 
       - MassTransit
-      - [AWS SQS](./../../../Concepts/AWS/AWS_Integration_and_Messaging)
+      - [AWS SQS](./../../../Concepts/AWS/AWS_Integration_and_Messaging.md)
       - NServiceBus
       - EasyNetQ
       - CAP
@@ -270,19 +271,19 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Event Streaming
 
       - Apache Kafka
-      - [AWS Kinesis](./../../../Concepts/AWS/AWS_Integration_and_Messaging)
+      - [AWS Kinesis](./../../../Concepts/AWS/AWS_Integration_and_Messaging.md)
       - Azure Event Hubs
 
     - API Gateway
 
       - Ocelot
-      - [AWS API Gateway](./../../../Concepts/AWS/AWS_API_Gateway)
+      - [AWS API Gateway](./../../../Concepts/AWS/AWS_API_Gateway.md)
       - Azure
       - GCP
 
     - Containerization
 
-      - [Docker](./../../Docker/Docker)
+      - [Docker](./../../CI-CD/Docker/Docker.md)
 
     - Orchestration
 
@@ -311,7 +312,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Jenkins
     - Circle CI
 
-21. [Design Patterns](../Design_Patterns)
+21. [Design Patterns](../Design_Patterns/)
 
     - CQRS
     - Decorator

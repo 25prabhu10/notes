@@ -10,27 +10,27 @@ description: Amazon Web Services is a Cloud Provider
 
 ## Amazon Web Services
 
-1. [AWS Global Infrastructure](#aws-global-infrastructure)
-2. [IAM](./AWS_IAM)
-3. [EC2 and Storage](./AWS_EC2)
-4. [Load Balancing](./AWS_Load_Balancing)
-5. [RDS](./AWS_RDS)
-6. [Route 53](./AWS_Route_53)
-7. [VPC](./AWS_VPC)
-8. [S3](./Amazon_S3)
-9. [CloudFront](./AWS_CloudFront)
-10. [ECS](./AWS_ECS)
-11. [Elastic Beanstalk](./AWS_Elastic_Beanstalk)
-12. [AWS CICD](./AWS_CI_CD)
-13. [AWS CloudFormation](./AWS_CloudFormation)
-14. [AWS Monitoring, Troubleshooting & Audit](./AWS_Monitoring_Troubleshooting_Audit)
-15. [AWS Integration and Messaging](./AWS_Integration_and_Messaging)
-16. [AWS Lambda](./AWS_Lambda)
-17. [AWS DynamoDB](./AWS_DynamoDB)
-18. [AWS API Gateway](./AWS_API_Gateway)
-19. [AWS Serverless Application Model](./AWS_Serverless_Application_Model)
-20. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit)
-21. [AWS Cognito](./AWS_Cognito)
+1. [AWS Global Infrastructure](#aws-global-infrastructure.md)
+2. [IAM](./AWS_IAM.md)
+3. [EC2 and Storage](./AWS_EC2.md)
+4. [Load Balancing](./AWS_Load_Balancing.md)
+5. [RDS](./AWS_RDS.md)
+6. [Route 53](./AWS_Route_53.md)
+7. [VPC](./AWS_VPC.md)
+8. [S3](./Amazon_S3.md)
+9. [CloudFront](./AWS_CloudFront.md)
+10. [ECS](./AWS_ECS.md)
+11. [Elastic Beanstalk](./AWS_Elastic_Beanstalk.md)
+12. [AWS CICD](./AWS_CI_CD.md)
+13. [AWS CloudFormation](./AWS_CloudFormation.md)
+14. [AWS Monitoring, Troubleshooting & Audit](./AWS_Monitoring_Troubleshooting_Audit.md)
+15. [AWS Integration and Messaging](./AWS_Integration_and_Messaging.md)
+16. [AWS Lambda](./AWS_Lambda.md)
+17. [AWS DynamoDB](./AWS_DynamoDB.md)
+18. [AWS API Gateway](./AWS_API_Gateway.md)
+19. [AWS Serverless Application Model](./AWS_Serverless_Application_Model.md)
+20. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit.md)
+21. [AWS Cognito](./AWS_Cognito.md)
 
 ## Queries
 
@@ -88,16 +88,16 @@ _Example_:
 
 - AWS has Global Services:
 
-  - [Identity and Access Management](./AWS_IAM) (IAM)
-  - [Route 53](./AWS_Route_53) (DNS service)
-  - [CloudFront](./AWS_CloudFront) (Content Delivery Network)
+  - [Identity and Access Management](./AWS_IAM.md) (IAM)
+  - [Route 53](./AWS_Route_53.md) (DNS service)
+  - [CloudFront](./AWS_CloudFront.md) (Content Delivery Network)
   - WAF (Web Application Firewall)
 
 - Most AWS services are Region-scoped:
 
-  - [Amazon EC2](./AWS_EC2) (Infrastructure as a Service)
-  - [Elastic Beanstalk](./AWS_Elastic_Beanstalk) (Platform as a Service)
-  - [Lambda](./AWS_Lambda) (Function as a Service)
+  - [Amazon EC2](./AWS_EC2.md) (Infrastructure as a Service)
+  - [Elastic Beanstalk](./AWS_Elastic_Beanstalk.md) (Platform as a Service)
+  - [Lambda](./AWS_Lambda.md) (Function as a Service)
   - Rekognition (Software as a Service)
 
 > [Region Table](https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services)
@@ -148,21 +148,21 @@ AWS CLI v2 Setup: [Install AWS CLI on Windows/Mac/Linux](https://docs.aws.amazon
 
 1. AWS CLI ON EC2... THE BAD WAY
 
-- To configure AWS CLI run `aws configure` on EC2
-- But... it's SUPER INSECURE
-- NEVER EVER EVER PUT YOUR PERSONAL CREDENTIALS ON AN EC2
-- Your PERSONAL credentials are PERSONAL and only belong on your PERSONAL computer
-- If the EC2 is compromised, so is your personal account
-- If the EC2 is shared, other people may perform AWS actions while impersonating you
-- For EC2, there's a better way... it's called AWS IAM Roles
+   - To configure AWS CLI run `aws configure` on EC2
+   - But... it's SUPER INSECURE
+   - NEVER EVER EVER PUT YOUR PERSONAL CREDENTIALS ON AN EC2
+   - Your PERSONAL credentials are PERSONAL and only belong on your PERSONAL computer
+   - If the EC2 is compromised, so is your personal account
+   - If the EC2 is shared, other people may perform AWS actions while impersonating you
+   - For EC2, there's a better way... it's called AWS IAM Roles
 
 2. AWS CLI ON EC2... THE RIGHT WAY
 
-- IAM Roles can be attached to EC2 instances
-- IAM Roles can come with a policy authorizing exactly what the EC2 instance should be able to do
-- AWS NETWORK --> EC2 Instance --> IAM ROLE --> CLI --> AWS Account (checks credentials and permissions of the ROLE)
-- EC2 Instances can then use these profiles automatically without any additional configurations
-- This is the best practice on AWS and you should 100% do this.
+   - IAM Roles can be attached to EC2 instances
+   - IAM Roles can come with a policy authorizing exactly what the EC2 instance should be able to do
+   - AWS NETWORK --> EC2 Instance --> IAM ROLE --> CLI --> AWS Account (checks credentials and permissions of the ROLE)
+   - EC2 Instances can then use these profiles automatically without any additional configurations
+   - This is the best practice on AWS and you should 100% do this.
 
 ### AWS CLI Dry Runs
 
@@ -229,19 +229,19 @@ You can add multiple profiles:
 
 3. Response:
 
-```json
-{
-  "Credentials": {
-    "SecretAccessKey": "secret-access-key",
-    "SessionToken": "temporary-session-token",
-    "Expiration": "expiration-date-time",
-    "AccessKeyId": "access-key-id"
-  }
-}
-```
+   ```json
+   {
+     "Credentials": {
+       "SecretAccessKey": "secret-access-key",
+       "SessionToken": "temporary-session-token",
+       "Expiration": "expiration-date-time",
+       "AccessKeyId": "access-key-id"
+     }
+   }
+   ```
 
-5. Run the `aws configure --profile <profile_name>` command and provide the access-key and secret-access-key
-6. Now open `~/.aws/credentials` file and add the session token:
+4. Run the `aws configure --profile <profile_name>` command and provide the access-key and secret-access-key
+5. Now open `~/.aws/credentials` file and add the session token:
 
    ```toml
    aws_session_token = sldjfljdsklfjsdklfjdskljfksdf324.234jv943.///;3423oj23f9

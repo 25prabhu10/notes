@@ -195,7 +195,7 @@ urllib.parse.urlparse("http://ikea.com").hostname
 - 2009
 - Stored as ASCII strings using Punycode transcription
 - No changes to the DNS system needed
-- Checkout notes about URL here: [URL Notes Link](./../Web/URL)
+- Checkout notes about URL here: [URL Notes Link](./../Web/URL.md)
 
 ## RIGHT-TO-LEFT OVERRIDE
 

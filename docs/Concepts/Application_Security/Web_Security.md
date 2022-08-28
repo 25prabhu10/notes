@@ -87,7 +87,7 @@ Different Parts of Web Security:
 
 - **Browser security**:
 
-  - _Example_: [Same-Origin Policy](./SameOrigin_Policy) - Isolate sites from each other, while running in the same browser
+  - _Example_: [Same-Origin Policy](./SameOrigin_Policy.md) - Isolate sites from each other, while running in the same browser
 
 - **Server app security**:
 
@@ -164,12 +164,12 @@ The browser has a seemingly impossible task:
 ### 2021 List
 
 1. Broken Access Control
-2. [Cryptographic](./Cryptography) Failures (2017 - 3)
-3. [Injection](./Injection)
+2. [Cryptographic](./Cryptography.md) Failures (2017 - 3)
+3. [Injection](./Injection.md)
 4. **Insecure Design**
 5. Security Misconfiguration
 6. Vulnerable and Outdated Components (2017 - 9)
-7. [Identification and Authentication Failures](./Authentication) (2017 - 2)
+7. [Identification and Authentication Failures](./Authentication.md) (2017 - 2)
 8. **Software and Data Integrity Failures**
 9. Security Logging and Monitoring Failures
 10. **Server-Side Request Forgery** (SSRF) (2017 - 10)
@@ -196,7 +196,7 @@ The browser has a seemingly impossible task:
 5. Security Misconfiguration
 6. Sensitive Data Exposure
 7. Missing Function Level Access Control
-8. [Cross-Site Request Forgery (CSFR)](./CrossSite_Resource_Forgery)
+8. [Cross-Site Request Forgery (CSFR)](./CrossSite_Resource_Forgery.md)
 9. Using Components with Known Vulnerabilities
 10. Unvalidated Redirects and Forwards
 

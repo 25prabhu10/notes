@@ -51,7 +51,7 @@ There are two types of Data structures:
 
 ### Problem solving vs programming
 
-1. Problem-solving: It requires math to solve problems. And math does not have loops, it has [Recursion](./Recursion). It's a lifetime of work.
+1. Problem-solving: It requires math to solve problems. And math does not have loops, it has [Recursion](./Recursion.md). It's a lifetime of work.
 
 2. Programming: Learning the syntax of a language and implementing the solution in it.
 

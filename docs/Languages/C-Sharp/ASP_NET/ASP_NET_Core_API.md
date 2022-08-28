@@ -15,7 +15,7 @@ Create Web APIs using ASP.NET Core.
    dotnet new webapi -n [project name]
    ```
 
-2. The above command scaffolds these files and folder (Check [Core Project Structure](./ASP_NET_Core.md#aspnet-core-project-structure)):
+2. The above command scaffolds these files and folder (Check [Core Project Structure](./ASP_NET_Core.md#aspnet-core-project-structure.md)):
 
    - `Controller/`
    - `Properties/launchSettings.json`: Visual Studio will use the profiles defined here to run the project
@@ -229,7 +229,7 @@ An exception filter that catches any unhandled exceptions and send the error mes
 
 ## Resources
 
-[RESTful APIs](./../../../Concepts/Web/RESTful_Web_Services) are all about returning and manipulating resources.
+[RESTful APIs](./../../../Concepts/Web/RESTful_Web_Services.md) are all about returning and manipulating resources.
 
 - We can use a base class for all the resource models we'll need to return from the API.
 
@@ -272,7 +272,7 @@ Asynchronous all the way.
 
 Working with Database using:
 
-- [Entity Framework Core](./../Entity_Framework_Core)
+- [Entity Framework Core](./../Entity_Framework_Core.md)
 - Dapper
 
 ### Authentication And Authorization
@@ -285,7 +285,7 @@ Working with Database using:
 
 ## API Security
 
-Checkout [Application Security](./../../../Concepts/Application_Security).
+Checkout [Application Security](./../../../Concepts/Application_Security.md).
 
 1. Transport security: Add security settings to Reverse Proxies as well
 
@@ -457,7 +457,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Secrets Management
 
-- [.Net Secrets Manger](./ASP.NET_Core.md#net-secrets-manger)
+- [.Net Secrets Manger](./ASP.NET_Core.md#net-secrets-manger.md)
 
 ## API Versioning
 

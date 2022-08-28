@@ -20,7 +20,7 @@ It is Application Layer protocol.
 - HTTP is stateless: After the initial request is done, the server-client communication is lost
 - Clients specify actions: GET / POST / PUT / DELETE ...
 - Data sent with headers: Headers sent with request and response
-- For more details see: [HTTP](./HTTP)
+- For more details see: [HTTP](./HTTP.md)
 
 ## AJAX Requests
 

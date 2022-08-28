@@ -2397,7 +2397,7 @@ The four basic principles of object-oriented programming are:
 - [Inheritance](#inheritance)
 - [Polymorphism](#polymorphism)
 
-Checkout [Object Oriented Programming](../../Concepts/Object-Oriented_Programming)
+Checkout [Object Oriented Programming](../../Concepts/Object-Oriented_Programming.md)
 
 #### Inheritance
 

@@ -5,7 +5,7 @@ description: HTTP Security
 
 # HTTP Security
 
-Checkout notes about HTTP here: [HTTP Notes Link](./../Web/HTTP)
+Checkout notes about HTTP here: [HTTP Notes Link](./../Web/HTTP.md)
 
 ## DNS Hijacking
 

@@ -124,7 +124,7 @@ document.cookie;
     - Can be bypassed using an `<iframe>` with the path of the cookie
     - Then, read `iframe.contentDocument.cookie`
 
-  - This is allowed by [Same-Origin Policy](./SameOrigin_Policy)
+  - This is allowed by [Same-Origin Policy](./SameOrigin_Policy.md)
   - `cs106.stanford.edu` vs. `cs253.stanford.edu`: mutually exclusive
   - `cs253.stanford.edu` vs. `stanford.edu`: `cs253.` can access `stanford.edu`'s cookies. Reverse is not true.
   - `hello.login.stanford.edu` vs. `login.stanford.edu`: `hello.login.` can access `login.`'s cookies. Reverse is not true.
@@ -304,6 +304,6 @@ Signature schemes:
 - Cross-site scripting: cookie theft
 - Cross-site scripting: proxy request
 
-- Cross-site request forgery (CSRF): Checkout notes about CSRF here: [CSRF Notes Link](./../Application_Security/CrossSite_Resource_Forgery)
+- Cross-site request forgery (CSRF): Checkout notes about CSRF here: [CSRF Notes Link](./../Application_Security/CrossSite_Resource_Forgery.md)
 
 - Cookiejacking: An attack against Internet Explorer which allows the attacker to steal session cookies of a user by tricking a user into dragging an object across the screen.

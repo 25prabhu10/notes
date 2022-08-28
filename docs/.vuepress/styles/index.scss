@@ -1,5 +1,10 @@
 :root {
   scroll-behavior: smooth;
+  --c-grey-vl: rgba(0, 0, 0, 0.05);
+}
+
+html.dark {
+  --c-grey-vl: rgba(158, 158, 158, 0.2);
 }
 
 .row {
@@ -9,7 +14,6 @@
   grid-gap: 3em;
   padding: 2em;
   margin: 3em 0;
-  background-color: rgba(65, 184, 131, 0.03);
 }
 
 .card {
@@ -24,9 +28,12 @@
   text-decoration: none;
 
   background-color: rgba(65, 184, 131, 0.05);
-  border: 2px solid rgba(65, 184, 131, 0.2);
-  border-radius: 3px;
+
+  outline: 1px solid rgba(65, 184, 131, 0.2);
+  border: none;
+  border-radius: 5px;
   box-shadow: 0 0.5em 1em rgba(65, 184, 131, 0.15);
+
   transition: all 0.2s ease-out;
   backface-visibility: hidden;
   opacity: 0.8;
@@ -53,7 +60,7 @@ h3:first-child.card__text {
   margin: 8% 0;
   padding: 0;
 
-  color: #2c3e50;
+  color: var(--c-text);
   font-weight: 700;
   font-size: 1.5rem;
 
@@ -62,9 +69,10 @@ h3:first-child.card__text {
 }
 
 .card:hover {
-  transform: scale(1.03) translateY(-1em);
+  transform: scale(1.1) translateY(-1em);
   box-shadow: 0 2.5em 4em rgba(65, 184, 131, 0.5);
-  border: 3px solid rgba(65, 184, 131, 1);
+  border: none;
+  outline: 3px solid rgba(65, 184, 131, 1);
   transition: all 0.2s ease-out;
 }
 
@@ -86,13 +94,13 @@ h3:first-child.card__text {
 }
 
 .card__1 {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--c-grey-vl);
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
 .card__1:hover {
-  border: 3px solid rgba(0, 0, 0, 1);
+  outline: 2px solid rgba(0, 0, 0, 1);
   box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
 }
 
@@ -110,12 +118,12 @@ h3:first-child.card__text {
 
 .card__2 {
   background-color: rgba(62, 71, 74, 0.05);
-  border: 2px solid rgba(62, 71, 74, 0.2);
+  outline: 1px solid rgba(62, 71, 74, 0.2);
   box-shadow: 0 0.5em 1em rgba(62, 71, 74, 0.15);
 }
 
 .card__2:hover {
-  border: 3px solid rgba(62, 71, 74, 1);
+  outline: 2px solid rgba(62, 71, 74, 1);
   box-shadow: 0 2.5em 4em rgba(62, 71, 74, 0.5);
 }
 
@@ -133,12 +141,12 @@ h3:first-child.card__text {
 
 .card__3 {
   background-color: rgba(255, 215, 72, 0.05);
-  border: 2px solid rgba(255, 215, 72, 0.2);
+  outline: 1px solid rgba(255, 215, 72, 0.2);
   box-shadow: 0 0.5em 1em rgba(255, 215, 72, 0.15);
 }
 
 .card__3:hover {
-  border: 3px solid rgba(255, 215, 72, 1);
+  outline: 2px solid rgba(255, 215, 72, 1);
   box-shadow: 0 2.5em 4em rgba(255, 215, 72, 0.5);
 }
 
@@ -151,13 +159,13 @@ h3:first-child.card__text {
 }
 
 .card__4 {
-  background-color: rgba(227, 79, 38, 0.05);
-  border: 2px solid rgba(227, 79, 38, 0.2);
+  background: rgba(227, 79, 38, 0.05);
+  outline: 1px solid rgba(227, 79, 38, 0.2);
   box-shadow: 0 0.5em 1em rgba(227, 79, 38, 0.15);
 }
 
 .card__4:hover {
-  border: 3px solid rgba(227, 79, 38, 1);
+  outline: 2px solid rgba(227, 79, 38, 1);
   box-shadow: 0 2.5em 4em rgba(227, 79, 38, 0.5);
 }
 
@@ -170,13 +178,13 @@ h3:first-child.card__text {
 }
 
 .card__5 {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--c-grey-vl);
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
 .card__5:hover {
-  border: 3px solid rgba(0, 0, 0, 1);
+  outline: 2px solid rgba(0, 0, 0, 1);
   box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
 }
 
@@ -194,12 +202,12 @@ h3:first-child.card__text {
 
 .card__6 {
   background-color: rgba(247, 223, 30, 0.05);
-  border: 2px solid rgba(247, 223, 30, 0.2);
+  outline: 1px solid rgba(247, 223, 30, 0.2);
   box-shadow: 0 0.5em 1em rgba(247, 223, 30, 0.15);
 }
 
 .card__6:hover {
-  border: 3px solid rgba(247, 223, 30, 1);
+  outline: 2px solid rgba(247, 223, 30, 1);
   box-shadow: 0 2.5em 4em rgba(247, 223, 30, 0.5);
 }
 
@@ -213,12 +221,12 @@ h3:first-child.card__text {
 
 .card__7 {
   background-color: rgba(0, 122, 204, 0.05);
-  border: 2px solid rgba(0, 122, 204, 0.2);
+  outline: 1px solid rgba(0, 122, 204, 0.2);
   box-shadow: 0 0.5em 1em rgba(0, 122, 204, 0.15);
 }
 
 .card__7:hover {
-  border: 3px solid rgba(0, 122, 204, 1);
+  outline: 2px solid rgba(0, 122, 204, 1);
   box-shadow: 0 2.5em 4em rgba(0, 122, 204, 0.5);
 }
 
@@ -232,12 +240,12 @@ h3:first-child.card__text {
 
 .card__8 {
   background-color: rgba(214, 26, 72, 0.05);
-  border: 2px solid rgba(214, 26, 72, 0.2);
+  outline: 1px solid rgba(214, 26, 72, 0.2);
   box-shadow: 0 0.5em 1em rgba(214, 26, 72, 0.15);
 }
 
 .card__8:hover {
-  border: 3px solid rgba(214, 26, 72, 1);
+  outline: 2px solid rgba(214, 26, 72, 1);
   box-shadow: 0 2.5em 4em rgba(214, 26, 72, 0.5);
 }
 
@@ -251,12 +259,12 @@ h3:first-child.card__text {
 
 .card__9 {
   background-color: rgba(97, 218, 251, 0.05);
-  border: 2px solid rgba(97, 218, 251, 0.2);
+  outline: 1px solid rgba(97, 218, 251, 0.2);
   box-shadow: 0 0.5em 1em rgba(97, 218, 251, 0.15);
 }
 
 .card__9:hover {
-  border: 3px solid rgba(97, 218, 251, 1);
+  outline: 2px solid rgba(97, 218, 251, 1);
   box-shadow: 0 2.5em 4em rgba(97, 218, 251, 0.5);
 }
 
@@ -270,12 +278,12 @@ h3:first-child.card__text {
 
 .card__10 {
   background-color: rgba(218, 70, 72, 0.05);
-  border: 2px solid rgba(218, 70, 72, 0.2);
+  outline: 1px solid rgba(218, 70, 72, 0.2);
   box-shadow: 0 0.5em 1em rgba(218, 70, 72, 0.15);
 }
 
 .card__10:hover {
-  border: 3px solid rgba(218, 70, 72, 1);
+  outline: 2px solid rgba(218, 70, 72, 1);
   box-shadow: 0 2.5em 4em rgba(218, 70, 72, 0.5);
 }
 
@@ -289,12 +297,12 @@ h3:first-child.card__text {
 
 .card__11 {
   background-color: rgba(50, 222, 132, 0.05);
-  border: 2px solid rgba(50, 222, 132, 0.2);
+  outline: 1px solid rgba(50, 222, 132, 0.2);
   box-shadow: 0 0.5em 1em rgba(50, 222, 132, 0.15);
 }
 
 .card__11:hover {
-  border: 3px solid rgba(50, 222, 132, 1);
+  outline: 2px solid rgba(50, 222, 132, 1);
   box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
 }
 
@@ -308,12 +316,12 @@ h3:first-child.card__text {
 
 .card__12 {
   background-color: rgba(161, 121, 219, 0.05);
-  border: 2px solid rgba(161, 121, 219, 0.2);
+  outline: 1px solid rgba(161, 121, 219, 0.2);
   box-shadow: 0 0.5em 1em rgba(161, 121, 219, 0.15);
 }
 
 .card__12:hover {
-  border: 3px solid rgba(161, 121, 219, 1);
+  outline: 2px solid rgba(161, 121, 219, 1);
   box-shadow: 0 2.5em 4em rgba(161, 121, 219, 0.5);
 }
 
@@ -326,13 +334,13 @@ h3:first-child.card__text {
 }
 
 .card__13 {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--c-grey-vl);
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
 .card__13:hover {
-  border: 3px solid rgba(0, 0, 0, 1);
+  outline: 2px solid rgba(0, 0, 0, 1);
   box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
 }
 
@@ -349,13 +357,13 @@ h3:first-child.card__text {
 }
 
 .card__14 {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--c-grey-vl);
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
 .card__14:hover {
-  border: 3px solid rgba(0, 0, 0, 1);
+  outline: 2px solid rgba(0, 0, 0, 1);
   box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
 }
 
@@ -373,12 +381,12 @@ h3:first-child.card__text {
 
 .card__15 {
   background-color: rgba(50, 222, 132, 0.05);
-  border: 2px solid rgba(50, 222, 132, 0.2);
+  outline: 1px solid rgba(50, 222, 132, 0.2);
   box-shadow: 0 0.5em 1em rgba(50, 222, 132, 0.15);
 }
 
 .card__15:hover {
-  border: 3px solid rgba(50, 222, 132, 1);
+  outline: 2px solid rgba(50, 222, 132, 1);
   box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
 }
 
@@ -391,13 +399,13 @@ h3:first-child.card__text {
 }
 
 .card__16 {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  background-color: var(--c-grey-vl);
+  outline: 1px solid rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
 .card__16:hover {
-  border: 3px solid rgba(0, 0, 0, 1);
+  outline: 2px solid rgba(0, 0, 0, 1);
   box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
 }
 

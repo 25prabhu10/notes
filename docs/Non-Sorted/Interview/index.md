@@ -1,16 +1,17 @@
 ---
 next: ./General
+sidebar: false
 ---
 
 # Table of Content
 
-1. [General](./General)
-2. [Agile](./Agile)
-3. [ASP.NET](./ASP_NET)
-4. [BackEnd](./BackEnd)
-5. [C-Sharp](./C-Sharp)
-6. [Database](./Database)
-7. [FrontEnd](./FrontEnd)
-8. [Tools](./Tools)
-9. [Roles and Responsibilities](./Roles_and_Responsibilities)
-10. [Temp](./temp)
+1. [General](./General.md)
+2. [Agile](./Agile.md)
+3. [ASP.NET](./ASP_NET.md)
+4. [BackEnd](./BackEnd.md)
+5. [C-Sharp](./C-Sharp.md)
+6. [Database](./Database.md)
+7. [FrontEnd](./FrontEnd.md)
+8. [Tools](./Tools.md)
+9. [Roles and Responsibilities](./Roles_and_Responsibilities.md)
+10. [Temp](./temp.md)

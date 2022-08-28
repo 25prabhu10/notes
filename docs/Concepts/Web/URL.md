@@ -15,7 +15,7 @@ A URL is a specific type of Uniform Resource Identifier (URI),
 
 URL are mostly used to reference:
 
-- Web pages ([http](./HTTP))
+- Web pages ([http](./HTTP.md))
 - File transfer (`ftp`)
 - email (`mailto`)
 - Database access (`JDBC`)

@@ -663,7 +663,7 @@ How clients determine to serve cached response?
 
 ## HTTP Security
 
-Checkout notes about HTTP Security here: [HTTP Security Notes Link](./../Application_Security/HTTP)
+Checkout notes about HTTP Security here: [HTTP Security Notes Link](./../Application_Security/HTTP.md)
 
 ## Authentication And Authorization
 

@@ -1,20 +1,25 @@
+---
+next: ./Usage.md
+sidebar: false
+---
+
 # Getting started
 
 [HTML5 Boilerplate homepage](https://html5boilerplate.com/)
 
-- [Usage](./Usage) — Overview of the project contents.
-- [FAQ](./Faq) — Frequently asked questions along with their answers.
+- [Usage](./Usage.md) — Overview of the project contents.
+- [FAQ](./Faq.md) — Frequently asked questions along with their answers.
 
 ## HTML5 Boilerplate core
 
-- [HTML](./HTML) — Guide to the default HTML.
-- [CSS](CSS) — Guide to the default CSS.
-- [JavaScript](JavaScript) — Guide to the default JavaScript.
-- [Everything else](Misc).
+- [HTML](./HTML.md) — Guide to the default HTML.
+- [CSS](./CSS.md) — Guide to the default CSS.
+- [JavaScript](./JavaScript.md) — Guide to the default JavaScript.
+- [Everything else](./Misc.md).
 
 ## Development
 
-- [Extending and customizing HTML5 Boilerplate](Extend) — Going further
+- [Extending and customizing HTML5 Boilerplate](./Extend.md) — Going further
   with the boilerplate.
 
 ## Related projects

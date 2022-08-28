@@ -1,14 +1,15 @@
 ---
-next: ./C-Sharp
+next: ./C-Sharp.md
+sidebar: false
 ---
 
 # Table of Content
 
-1. [C#](./C-Sharp)
-2. [dotnet CLI](./Dotnet_CLI)
-3. [ASP.NET](./ASP_NET)
-4. [Entity Framework Core](./Entity_Framework_Core)
-5. [LINQ](./LINQ)
-6. [Testing](./Testing)
-7. [Logging](./Logging)
-8. [Design Patterns](./Design_Patterns)
+1. [C#](./C-Sharp.md)
+2. [dotnet CLI](./Dotnet_CLI.md)
+3. [ASP.NET](./ASP_NET/)
+4. [Entity Framework Core](./Entity_Framework_Core.md)
+5. [LINQ](./LINQ.md)
+6. [Testing](./Testing.md)
+7. [Logging](./Logging.md)
+8. [Design Patterns](./Design_Patterns/)

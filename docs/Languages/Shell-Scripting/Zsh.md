@@ -5,7 +5,7 @@ description: An extended Bourne shell with many improvements.
 
 # ZSH
 
-An extended Bourne shell ([Bash](./Bash)) with many improvements.
+An extended Bourne shell ([Bash](./Bash.md)) with many improvements.
 
 ## Installation and Setup
 

@@ -1,16 +1,21 @@
+---
+sidebar: false
+---
+
 # Table of Content
 
-1. [Shell Scripting](./Shell-Scripting) - Shell Programming
-2. [C#](./C-Sharp)
-3. [CSS](./CSS) - Cascading Style Sheets
-4. [Database](./Database)
-5. [Git](./Git) - A Distributed Version-Control System
-6. [HTML](./HTML) - Hypertext Markup Language
-7. [JavaScript](./JavaScript)
-8. [Markdown](./Markdown) - A Lightweight Markup Language
-9. [Python](./Python)
-10. [C](./C-CPP/C)
-11. [C++](./C-CPP/CPP)
-12. [SQL](./SQL/SQL)
-13. [Databases](./SQL/Databases)
-14. [Editors](./Editors)
+1. [C](./C-CPP/C.md): A general-purpose programming language
+2. [C++](./C-CPP/CPP.md): A general-purpose programming language ("C with Classes")
+3. [C#](./C-Sharp/): A general-purpose, multi-paradigm programming language
+4. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
+5. [CSS](./CSS/): Cascading Style Sheets
+6. [Databases](./SQL/Databases/): An organized collection of data stored and accessed electronically
+7. [Docker](./CD-CI/Docker/Docker.md): Container
+8. [Text Editors](./Editors/)
+9. [Git](./Git/): A Distributed Version-Control System
+10. [HTML](./HTML/): Hypertext Markup Language
+11. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
+12. [Markdown](./Markdown/): A Lightweight Markup Language
+13. [Python](./Python/): A high-level, interpreted, general-purpose programming language
+14. [Shell Scripting](./Shell-Scripting/): Shell Programming
+15. [SQL](./SQL/SQL.md): A domain-specific language used in programming

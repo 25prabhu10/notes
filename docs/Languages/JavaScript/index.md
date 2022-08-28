@@ -1,5 +1,6 @@
 ---
 next: ./JavaScript
+sidebar: false
 ---
 
 # Table of Content

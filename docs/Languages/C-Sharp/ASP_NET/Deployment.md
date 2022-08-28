@@ -62,7 +62,7 @@ Handling Internet traffic:
 
 ## Deployment Strategies
 
-- Windows/Azure using [IIS](./IIS): Copy binaries manually
+- Windows/Azure using [IIS](./IIS.md): Copy binaries manually
 
   - IIS acting as reverse proxy to Kestrel
 

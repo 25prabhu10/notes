@@ -1,9 +1,10 @@
 ---
-next: ./Bash
+next: ./Bash.md
+sidebar: false
 ---
 
 # Table of Content
 
-1. [Bash](./Bash): GNU Bash Shell
-2. [Bash Snippets](./Bash-Snippets)
-3. [Zsh](./Zsh): Z Shell
+1. [Bash](./Bash.md): GNU Bash Shell
+2. [Bash Snippets](./Bash-Snippets.md)
+3. [Zsh](./Zsh.md): Z Shell
