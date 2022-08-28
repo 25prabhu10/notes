@@ -106,4 +106,7 @@ export default defineUserConfig({
     editLinkPattern: ':repo/edit/:branch/:path',
     contributors: false,
   }),
+  markdown: {
+    code: { lineNumbers: false },
+  },
 });
