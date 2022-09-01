@@ -1,4 +1,5 @@
 ---
+title: Node.js
 next: ./Node.js.md
 sidebar: false
 ---

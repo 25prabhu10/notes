@@ -1,4 +1,5 @@
 ---
+title: Collection
 next: ./FFmpeg.md
 sidebar: false
 ---

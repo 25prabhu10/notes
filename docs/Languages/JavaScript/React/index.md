@@ -1,4 +1,5 @@
 ---
+title: React.js
 next: ./React.md
 sidebar: false
 ---

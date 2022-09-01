@@ -1,5 +1,8 @@
 ---
-next: ./Data-Structures/
+title: Data-Structures and Algorithms
+next:
+  text: Data-Structures
+  link: ./Data-Structures/
 sidebar: false
 ---
 

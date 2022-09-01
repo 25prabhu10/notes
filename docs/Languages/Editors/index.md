@@ -1,4 +1,5 @@
 ---
+title: Text Editors
 next: ./Vim-Neovim.md
 sidebar: false
 ---

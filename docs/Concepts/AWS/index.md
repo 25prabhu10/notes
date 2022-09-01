@@ -1,4 +1,5 @@
 ---
+title: AWS
 next: ./AWS
 sidebar: false
 ---

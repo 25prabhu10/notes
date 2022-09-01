@@ -1,5 +1,8 @@
 ---
-next: ./Data-Structures_and_Algorithms/
+title: Concepts
+next:
+  text: Data-Structures and Algorithms
+  link: ./Data-Structures_and_Algorithms/
 sidebar: false
 ---
 

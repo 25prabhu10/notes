@@ -1,4 +1,5 @@
 ---
+title: Design Patterns
 next: ./Adapter.md
 sidebar: false
 ---

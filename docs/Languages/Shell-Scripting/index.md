@@ -1,4 +1,5 @@
 ---
+title: Shell-Scripting
 next: ./Bash.md
 sidebar: false
 ---

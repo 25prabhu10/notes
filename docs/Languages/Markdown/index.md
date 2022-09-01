@@ -1,4 +1,5 @@
 ---
+title: Markdown
 next: ./Introduction.md
 sidebar: false
 ---
@@ -12,5 +13,5 @@ sidebar: false
 5. [Code](./Code.md) Blocks: To write codes and formulas etc.
 6. [Tables](./Tables.md): To produce tables
 7. [List](./List.md): Ordered list and unordered list
-8. [lorem-ipsum](./lorem-ipsum.md): lorem-ipsum
+8. [lorem-ipsum](./lorem-ipsum.md)
 9. [Markdown Reference](./Markdown_Reference.md): Markdown Reference

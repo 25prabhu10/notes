@@ -20,8 +20,11 @@ TypeScript has _type safety_ (using types to prevent programs from doing invalid
 Advantages:
 
 - Static Type checking
-- Can use Non-JavaScript features like [Interfaces](#interfaces) or [Generics](#generics)
+
+- Can use Non-JavaScript features like [Interface](#interface) or [Generics](#generics)
+
 - Use Next-gen JavaScript features now and compile it to older versions
+
 - Meta-Programing features like [Decorators](#decorators)
 
 - **TypeScript preserves the runtime behavior of JavaScript**
@@ -45,6 +48,7 @@ JavaScript compilers and runtime tend to be smashed into a single program called
 _Example:_ Using TypeScript compiler
 
 1. Install TypeScript compiler as global package
+
 2. Setup TypeScript in individual projects (recommended) and use npm scripts or [`gulp`](../Tools/Gulp.js/Gulp.js) or any other tool
 
    ```bash
@@ -185,7 +189,7 @@ A set of values and the things you can do with them.
    let e: true = true;
    ```
 
-4. [`Objects`](###Objects)
+4. [`Objects`](#objects)
 
 5. Arrays: Any JavaScript [array](../JavaScript.md#array), can be flexible or strict (regarding element types)
 
@@ -1287,5 +1291,91 @@ window.bar();
 
 - Opaque Type in Typed languages
 - Nullish Coalescing
+
+## Examples
+
+```typescript
+const getDeepValue = <
+  TObj,
+  TFirstKey extends keyof TObj,
+  TSecondKey extends keyof TObj[TFirstKey]
+>(
+  obj: TObj,
+  firstKey: TFirstKey,
+  secondKey: TSecondKey
+) => {
+  return obj[firstKey][secondKey];
+};
+
+const obj = {
+  foo: {
+    a: true,
+    b: 2,
+  },
+  bar: {
+    c: "12",
+    d: 28,
+  },
+};
+
+const value = getDeepValue(obj, "foo", "a");
+// typeof value === boolean
+```
+
+```typescript
+type Animal = {
+  name: string;
+};
+
+type Human = {
+  firstName: string;
+  lastName: string;
+};
+
+type GetRequiredInfo<TType> = TType extends Animal
+  ? { age: number }
+  : { socialSecurityNumber: number };
+
+type RequiredInfoForAnimal = GetRequiredInfo<Animal>;
+// typeof RequiredInfoForAnimal === { age: number }
+
+type RequiredInfoForHuman = GetRequiredInfo<Human>;
+// typeof RequiredInfoForHuman === { socialSecurityNumber: number }
+```
+
+```typescript
+const deepEqualCompare = <Arg>(
+  a: Arg extends any[] ? `Don't pass an array!` : Arg,
+  b: Arg
+): boolean => {
+  return a === b;
+};
+```
+
+```typescript
+import second from "ts-toolbelt";
+
+const query = `/home?a=foo&b=wow`;
+
+type Query = typeof query;
+
+type SecondQueryPart = String.Split<Query, "?">[1];
+
+type QueryElements = String.Split<SecondQueryPart, "&">;
+
+type QueryParams = {
+  [QueryElement in QueryElements[number]]: {
+    [Key in String.Split<QueryElement, "=">[0]]: String.Split<
+      QueryElement,
+      "="
+    >[1];
+  };
+}[QueryElements[number]];
+
+const obj: Uint8ArrayConstructor.Merge<QueryParams> = {
+  a: "foo",
+  b: "wow",
+};
+```
 
 ## Reference

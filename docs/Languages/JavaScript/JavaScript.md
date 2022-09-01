@@ -407,6 +407,9 @@ There are 7 primitive data types in JavaScript:
 
    ```javascript
    let age = null;
+
+   typeof null;
+   // 'object'
    ```
 
 5. **Undefined**: The meaning of `undefined` is "value is not assigned". Default value of a variable until a value is assigned to it (Data type of a variable that has no value assigned to it)
@@ -415,16 +418,51 @@ There are 7 primitive data types in JavaScript:
    let age; // undefined
 
    age = undefined; // undefined
+
+   typeof undefined;
+   // 'undefined'
    ```
 
 6. **BigInt**: Represents numbers larger than (`2^53 - 1`) (that's `9007199254740991`) or less than `-(2^53 - 1)`
 
    ```javascript
    // the "n" at the end means it's a BigInt
-   const bigInt = 1234567890123456789012345678901234567890n;
+   const hugeNum = 1234567890123456789012345678901234567890n;
+
+   typeof hugeNum;
+   // 'bigint'
    ```
 
 7. **Symbol**: A `symbol` represents a unique identifier
+
+   - Primitive data type (not an object)
+
+   - Immutable
+
+   - Not enumerable
+
+   - Used as object keys, in [Generators](#generator-function)
+
+   - Symbols are often used to add unique property keys to an object that won't collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object.
+
+   - `Symbol.for("key")` call will always return the same Symbol for a given value of `"key"`.
+
+   ```javascript
+   let id = Symbol();
+
+   // id is a symbol with the description "id"
+   id = Symbol("id");
+
+   Symbol("foo") === Symbol("foo"); // false
+
+   Symbol.for("foo") === Symbol.for("foo"); // true
+
+   Symbol.keyFor(Symbol.for("tokenString"));
+   // "tokenString"
+
+   typeof Symbol("tokenString");
+   // 'symbol'
+   ```
 
 ### Objects
 
@@ -484,6 +522,27 @@ Everything is an object in JavaScript (well, almost everything), including:
      ```
 
      > In newer JavaScript version, **[class](#class)** keyword can be used instead of the constructor function.
+
+     ```javascript
+     function Cat(name) {
+       this.name = name;
+     }
+
+     let c = new Cat("meow");
+
+     c.name;
+     // 'meow'
+
+     c = Cat("Dog");
+     c.name;
+     // Uncaught TypeError: Cannot read properties of undefined (reading 'name')
+
+     c;
+     // undefined
+
+     window.name;
+     // 'Dog'
+     ```
 
 2. Object Literal:
 
@@ -736,7 +795,7 @@ Everything is an object in JavaScript (well, almost everything), including:
   console.log(Object.getOwnPropertyNames(a)); // [ 'boo', 'trick' ]
   ```
 
-- Alternative way to copy objects is by using the `...` [Spread](#spread-operator) Syntax, it's more cleaner. It is slightly different from `Object.assign({}, obj)`.
+- Alternative way to copy objects is by using the `...` [Spread](#spread-syntax) Syntax, it's more cleaner. It is slightly different from `Object.assign({}, obj)`.
 
   ```javascript
   a.trick = {
@@ -792,7 +851,7 @@ To stop any changes being made to the object after its creation (make it immutab
 
 #### Object Inheritance
 
-JavaScript is Prototype based language, hence the inheritance is achieved using prototypes.
+JavaScript is **Prototype** based language, hence the inheritance is achieved using prototypes.
 
 Prototype Chain:
 
@@ -1667,6 +1726,69 @@ console.log(ages);
 console.log(fullJapan);
 ```
 
+### Generator Function
+
+The `function*` declaration (`function` keyword followed by an asterisk) defines a _generator function_, which returns a **Generator object**.
+
+- Generators can return ("yield") multiple values, one after another, on-demand.
+
+Syntax:
+
+```javascript
+function* name(param0) {
+  statements;
+}
+
+function* name(param0, param1) {
+  statements;
+}
+
+function* name(param0, param1, /* … ,*/ paramN) {
+  statements;
+}
+```
+
+_Example:_
+
+```javascript
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+
+const gen = generator(10);
+
+console.log(gen.next());
+// {value: 10, done: false}
+
+console.log(gen.next());
+// {value: 20, done: false}
+
+console.log(gen.next());
+// {value: undefined, done: true}
+```
+
+::: warning NOTE
+Generator functions **do not have arrow function** counterparts.
+:::
+
+- Generators are iterable:
+
+```javascript
+function* generateSequence() {
+  yield 1;
+  yield 2;
+  yield 3;
+  // return 3; // this will be ignored during iteration
+}
+
+let generator = generateSequence();
+
+for (let value of generator) {
+  console.log(value); // 1, 2, 3
+}
+```
+
 ## Exception Handling
 
 You can throw exceptions using the `throw` statement and handle them using the `try...catch` statements.
@@ -1929,7 +2051,9 @@ Person6.greeting();
 Classes are not hoisted.
 :::
 
-#### Inheritance
+### Inheritance
+
+Is same as [Object Inheritance](#object-inheritance)
 
 ES5
 
@@ -2760,7 +2884,7 @@ mike.calculateAge(); // 32
 
 1. Asynchronous iteration
 
-2. Object [Rest](#rest-operator)/[Spread](#spread-operator) Properties
+2. Object [Rest](#rest-syntax)/[Spread](#spread-syntax) Properties
 
 3. `Promise.prototype.finally()`
 

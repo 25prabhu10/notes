@@ -1,4 +1,5 @@
 ---
+title: Git
 next: ./Git.md
 sidebar: false
 ---

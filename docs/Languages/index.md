@@ -1,4 +1,6 @@
 ---
+title: Languages
+next: ./C-CPP/C.md
 sidebar: false
 ---
 

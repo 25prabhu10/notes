@@ -1,4 +1,5 @@
 ---
+title: MongoDB
 next: ./MongoDB/MongoDB.md
 sidebar: false
 ---

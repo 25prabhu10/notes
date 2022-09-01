@@ -1,5 +1,6 @@
 ---
-next: ./Data-Structures
+title: Data-Structures
+next: ./Data-Structures.md
 sidebar: false
 ---
 

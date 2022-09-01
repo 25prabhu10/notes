@@ -1,4 +1,5 @@
 ---
+title: Algorithms
 next: ./Algorithms.md
 sidebar: false
 ---

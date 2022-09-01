@@ -1,4 +1,5 @@
 ---
+title: Application Security
 next: ./Web_Security.md
 sidebar: false
 ---

@@ -1,4 +1,5 @@
 ---
+title: HTTP
 next: ./HTTP.md
 sidebar: false
 ---

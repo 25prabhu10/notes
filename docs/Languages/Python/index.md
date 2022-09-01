@@ -1,4 +1,5 @@
 ---
+title: Python
 next: ./Python.md
 sidebar: false
 ---

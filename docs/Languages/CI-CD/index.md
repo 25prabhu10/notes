@@ -1,4 +1,5 @@
 ---
+title: CI-CD
 next: ./CI-CD.md
 sidebar: false
 ---

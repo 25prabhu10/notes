@@ -84,7 +84,7 @@ export default {
         {
           id: 11,
           title: "Vue.js",
-          url: "/Languages/JavaScript/Vue.JS/VuePress",
+          url: "/Languages/JavaScript/Vue.JS/",
           imgScr: "/vuejs-logo.svg",
         },
         {

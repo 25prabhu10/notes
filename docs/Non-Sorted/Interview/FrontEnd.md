@@ -187,6 +187,12 @@
     })(0);
     ```
 
+38. What is tree shakeable in Javascript:
+
+    - Tree shaking is a term commonly used within a JavaScript context to describe the **removal of dead code**.
+
+    - It relies on the **import and export statements (ES6)** to detect if code modules are exported and imported for use between JavaScript files.
+
 ## HTML
 
 1. What is label used for and how to connect label and input?
