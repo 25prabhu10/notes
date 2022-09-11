@@ -8,4 +8,3 @@ sidebar: false
 
 1. [Vue.js](./Vue.js.md)
 2. [VuePress](./VuePress.md)
-

@@ -28,7 +28,7 @@ Categorized by their _intent_ or _purpose_
    - Singleton
    - Prototype: Clone
    - Builder
-   - [Factory](#factory-mehtod)
+   - [Factory](#factory-method)
 
 2. **Structural patterns** explain how to assemble objects and classes into larger structures, while keeping these structures flexible and efficient: How objects relate to each other
 
