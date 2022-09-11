@@ -7,6 +7,14 @@ description: An array data structure consists of a collection of homogeneous ele
 
 _Definition:_ Contiguous area of memory consisting of equal-size elements. An array variable will store the address of the first element of that array (it acts like a pointer).
 
+Array is a data structure consisting of a collection of elements, each element is stored contiguously (right next to each other) in memory.
+
+- They are used when the size of elements is already known, as adding new element requires a free memory next to the last element, else the whole array needs to be moved to a new memory location with enough space. If there is no space to accommodate the whole array, it may cause memory issues.
+
+- As the memory location of each element can be determined easily, it is very fast in getting an element from anywhere in the array.
+
+- All elements in the array should be the same type (all integers or all doubles or all strings and so on).
+
 _Example:_ Declaring and initializing an array
 
 ```c
@@ -298,7 +306,7 @@ In C/C++, **Row-major mapping is used**.
 Most languages use zero-based indexing, some use one as the starting index, and some allow the user to specify the starting index.
 :::
 
-## Abstract Data Type (ADT)
+## Implementation
 
 Data Type is defined as:
 
@@ -554,7 +562,7 @@ int Delete(struct Array *arr, int index)
      }
      ```
 
-   - Using recursion:
+   - Using Recursion:
 
      ```c
      int Binary_search_recursion(int A[], int low, int high, int key)
@@ -795,7 +803,9 @@ void Rearrange(struct Array *arr)
 ### Merge
 
 - Merge two sorted arrays into a new sorted array
+
 - Both arrays must be sorted and the resulting array after merging must also be sorted
+
 - Operations: `Theta(m + n)`
 
 ```c
@@ -871,6 +881,7 @@ struct Array *merged_arr = Merge(arr1, arr2);
   ```
 
 - Operations: Sorted Array: `Theta(m + n)`
+
 - Similar to [Merge](#merge) operation
 
 ### Intersection
@@ -908,6 +919,7 @@ struct Array *Intersection(struct Array arr1, struct Array arr2)
 ```
 
 - Operations: Sorted Array: `Theta(m + n)`
+
 - Similar to [Merge](#merge) operation
 
 ### Difference
@@ -948,6 +960,7 @@ struct Array *Difference(struct Array arr1, struct Array arr2)
 ```
 
 - Operations: Sorted Array: `Theta(m + n)`
+
 - Similar to [Merge](#merge) operation
 
 ### Member

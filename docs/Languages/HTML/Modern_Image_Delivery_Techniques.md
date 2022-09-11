@@ -12,21 +12,26 @@ According to some analysis of website loading time, it was concluded that nearly
 As per google lighthouse, here are 4 Simple ways of Image Optimizations
 
 1. [Quality](#quality)
-2. [Format](#format)
+2. [Formats](#formats)
 3. [Sizing - Image Dimensions](#sizing-image-dimensions)
 4. [Lazy Loading](#lazy-loading)
 
 Websites to test web page performance:
 
 - [Google Lighthouse](https://web.dev/measure/) - Run tests on your web page online, you can use Chrome dev tools to run lighthouse locally.
+
 - [WEBPAGETEST](https://www.webpagetest.org/) - Run tests on your web page
+
 - [httparchive](https://httparchive.org/) - Test reports of millions of pages
 
 Network Info can help in image optimization, like check if the user's network is slow, then we can send smaller images or less images.
 
 - `navigator.connection.type;` - Network type that browser uses
+
 - `navigator.connection.downlink` - Effective bandwidth estimate
+
 - `navigator.connection.rtt` - Effective round-trip time estimate
+
 - `navigator.connection.downlinkMax` - Upper bound on the downlink speed of the first network hop
 
 Avoid Base 64 Encoding (Images embedded as Base64 in HTML/CSS/JS) because:

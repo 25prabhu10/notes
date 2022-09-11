@@ -347,6 +347,47 @@ let complex: { data: number[]; output: (all: boolean) => number[] } = {
 
 #### Discriminated Unions
 
+_Example:_
+
+```typescript
+type User = {
+  id: number;
+  name: string;
+} & (
+  | {
+      role: "admin";
+      adminPassword: string;
+    }
+  | {
+      role: "user";
+    }
+  | {
+      role: "super-admin";
+      superAdminPassword: string;
+    }
+);
+
+let usr: User = {
+  id: 25,
+  name: "JS",
+  role: "user",
+};
+
+let admin: User = {
+  id: 25,
+  name: "TS",
+  role: "admin",
+  adminPassword: "****",
+};
+
+let suAdmin: User = {
+  id: 25,
+  name: "C",
+  role: "super-admin",
+  superAdminPassword: "******",
+};
+```
+
 ```typescript
 interface Bird {
   type: "bird";
@@ -668,12 +709,34 @@ function useVehicle(v: Vehicle) {
 
 ### Index Properties
 
+- [Indexed Types](https://www.typescriptlang.org/play?q=101#example/indexed-types)
+
 - `boolean` not allowed for keys
 
 ```typescript
 interface ErrorContainer {
   [key: string]: string;
 }
+```
+
+_Example:_
+
+```typescript
+type UserRoleAttr =
+  | {
+      role: "admin";
+      adminPassword: string;
+    }
+  | {
+      role: "user";
+    }
+  | {
+      role: "super-admin";
+      superAdminPassword: string;
+    };
+
+type Roles = UserRoleAttr["role"];
+// "admin" | "user" | "super-admin"
 ```
 
 ### Utility Types

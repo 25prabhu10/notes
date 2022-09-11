@@ -5,14 +5,80 @@ description: Recursion is a method of solving a problem where the solution depen
 
 # Recursion
 
+Recursion is when a function calls itself.
+
 Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. Such problems can generally be solved by iteration, but this needs to identify and index the smaller instances at programming time.
 
-Generally recursion is less efficient than iteration.
+Lets us look at two approaches to find a key present in one of the boxes (arranged in _Matryoshka Dolls_ manner).
 
-Tracing tree of recursive function.
+1. First approach uses `while` loop:
+
+   ```python
+   def look_for_key(main_box):
+       pile = main_box.make_a_pile_to_look_through()
+       while pile is not empty:
+           box = pile.grab_a_box()
+           for item in box:
+               if item.is_a_box():
+                   pile.append(item)
+               elif item.is_a_key():
+                   return "Found the key!"
+   ```
+
+2. Second way uses _Recursion_:
+
+   ```python
+   def look_for_key(box):
+       for item in box:
+           if item.is_a_box():
+               # Recursion!
+               look_for_key(item)
+           elif item.is_a_key():
+               return "Found the key!"
+   ```
+
+When a recursive function is written, we need to tell it to stop recursing.
+That's why _every recursive function has two parts: the base case, and the recursive case_.
+
+- The recursive case is when the function calls itself.
+- The base case is when the function doesn't call itself (stop).
+
+Recursive functions use the _call stack_ to keep track of function calls and function related variables.
+
+```python
+# Factorial Function
+def factorial(x):
+    # Base case
+    if x == 1:
+        return 1
+    # Recursive case
+    else:
+        return x * factorial(x - 1)
+```
+
+- If written incorrectly recursive function results in **infinite loop**.
+
+- Generally recursion is **less efficient than iteration (loops)**.
+
+- Recursive algorithms tend to be **very efficient when traversing tree like data structures**
+
+Using the stack takes up a lot of memory.
+
+- Rewrite the code to use loop instead, to save space.
+- Or use something called [_tail recursion_](#types-of-recursion). Which is only supported by some languages.
+
+> Quote by Leigh CaldWell on [Stack Overflow](http://stackoverflow.com/a/72694/139117)
+
+::: warning NOTE
+**Excessive Recursion**: When a recursive function calls itself multiple times for the same parameters.
+:::
+
+## Tracing Tree of Recursive Function
 
 - Ascending Phase
+
   - Loops only has ascending phase
+
 - Descending Phase
 
 - Time complexity: _O(n)_
@@ -22,7 +88,9 @@ Tracing tree of recursive function.
 Global vs Static Variable:
 
 - They behave in the same way such as they are initialized once and the only case where they have default value as 0.
+
 - Global variable has global (that file) scope.
+
 - Static variable are scoped where they are initialized
 
 ## Types of recursion
@@ -641,6 +709,25 @@ Global vs Static Variable:
      // from 1 to 3
      ```
 
-::: tip NOTE
-**Excessive Recursion**: When a recursive function calls itself multiple times for the same parameters.
-:::
+8. Node.js traversing filesystem:
+
+   ```javascript
+   const fs = require("fs");
+   const { join } = require("path");
+
+   const traverse = (dir) => {
+     const subFolders = fs.statSync(dir).isDirectory() && fs.readdirSync(dir);
+
+     if (subFolders) {
+       console.log("👟👟👟 Traversing ", dir);
+
+       subFolders.forEach((path) => {
+         const fullPath = join(dir, path);
+
+         traverse(fullPath); // recursive function call
+       });
+     }
+   };
+
+   traverse(process.cwd());
+   ```

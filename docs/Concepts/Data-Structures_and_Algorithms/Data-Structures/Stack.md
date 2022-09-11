@@ -11,7 +11,9 @@ A stack is an abstract data type that serves as a collection of elements, with t
 
 2. **Pop**: Which removes the most recently added element that was not yet removed
 
-**LIFO**: Last-in First-out it is the order in which elements are pushed and popped. Similar to a stack of plates, inserting or removing is only possible at the top.
+**LIFO**: _Last-in First-out_ it is the order in which elements are pushed and popped.
+
+- Similar to a stack of plates, inserting or removing is only possible at the top.
 
 _Stack representation:_ :)
 
@@ -27,21 +29,21 @@ _Stack representation:_ :)
 //       | - |
 ```
 
-## Abstract Data Type
+## Implementation
 
 Data:
 
 - Space for storing elements
-- Top pointer
+- **Top pointer**
 
 Operations:
 
-- Push
-- Pop
-- Peak: Check the element at an index
+- **Push**: Add an element to the top of a stack
+- **Pop**: Remove an element from the top of a stack
+- **IsEmpty**: Check if the stack is empty
+- **Peak**: view first element in the queue
+- IsFull: Check if the stack is full
 - StackTop: Top most element
-- isEmpty
-- isFull
 
 The stack can be implemented using:
 
@@ -330,9 +332,17 @@ The stack can be implemented using:
    }
    ```
 
-## Problems
+## Applications
 
-Parenthesis Matching: Every opening parenthesis must have a matching closing parenthesis. Add condition to check multiple types of parenthesis.
+- To reverse a word
+
+- In compilers
+
+- In browsers: Store history of the tab
+
+- **Parenthesis Matching**:
+
+  - Every opening parenthesis must have a matching closing parenthesis. Add condition to check multiple types of parenthesis.
 
 ```c
 struct Stack
@@ -406,11 +416,11 @@ int main()
 
 ## Infix to Postfix Conversion
 
-1. **Infix**: Operand - Operator - Operand --> `a + b`
+1. **Infix**: **Operand** - _Operator_ - **Operand** --> `a + b`
 
-2. **Prefix**: Operator - Operand - Operand --> `+ ab`
+2. **Prefix**: _Operator_ - **Operand** - **Operand** --> `+ ab`
 
-3. **Postfix**: Operand - Operand - Operator --> `ab +`
+3. **Postfix**: **Operand** - **Operand** - _Operator_ --> `ab +`
 
 **Associativity**:
 
@@ -612,3 +622,11 @@ int main()
     return 0;
 }
 ```
+
+## Complexity
+
+Array Based:
+
+- Push and Pop: `O(1)`
+
+## Implementing Stack Using Queue

@@ -263,6 +263,7 @@ There are two limitations on variable names in JavaScript:
      ```javascript
      const MY_ARRAY = ["HTML", "CSS"];
      MY_ARRAY.push("JAVASCRIPT");
+
      console.log(MY_ARRAY); //logs ['HTML','CSS','JAVASCRIPT'];
      ```
 
@@ -518,7 +519,8 @@ Everything is an object in JavaScript (well, almost everything), including:
 
      const obj = new Zombie("🧟‍♂️ Jeff");
 
-     console.log(obj.eatBrain()); // 🧟‍♂️ Jef is hungry for 🧠
+     obj.eatBrain();
+     // 🧟‍♂️ Jef is hungry for 🧠
      ```
 
      > In newer JavaScript version, **[class](#class)** keyword can be used instead of the constructor function.
@@ -852,6 +854,34 @@ To stop any changes being made to the object after its creation (make it immutab
 #### Object Inheritance
 
 JavaScript is **Prototype** based language, hence the inheritance is achieved using prototypes.
+
+- The most important difference between class- and prototype-based inheritance is that a class defines a _type_ which can be instantiated at runtime, whereas a **_prototype_ is itself an object instance**.
+
+_Example:_ Prototype based inheritance
+
+```javascript
+let parent = { foo: "foo" };
+let child = {};
+Object.setPrototypeOf(child, parent);
+
+parent.isPrototypeOf(child); // true
+
+console.log(child.foo); // 'foo'
+
+child.foo = "bar";
+
+console.log(child.foo); // 'bar'
+
+console.log(parent.foo); // 'foo'
+
+delete child.foo;
+
+console.log(child.foo); // 'foo'
+
+parent.foo = "baz";
+
+console.log(child.foo); // 'baz'
+```
 
 Prototype Chain:
 
@@ -1563,7 +1593,7 @@ JavaScript supports first-class functions, i.e. functions can be passed as argum
 ```javascript
 let haveFun = () => console.log("fun!");
 
-// setTimeOut takes a function as a parameter
+// setTimeout takes a function as a parameter
 setTimeout(haveFun, 50);
 setTimeout(() => console.log("fun!"), 50);
 
@@ -1948,7 +1978,9 @@ JavaScript typed arrays are array-like objects that provide a mechanism for read
 
 ## Class
 
-ES5 class type functionality:
+In JavaScript (ES6+) `class` is not a language feature, it’s _syntactic obscurantism_.
+
+- ES5 class type functionality:
 
 ```javascript
 var Person5 = function (name, yearOfBirth, job) {
@@ -1965,7 +1997,7 @@ Person5.prototype.calcAge = function () {
 var john = new Person5("John", 1996, "teacher");
 ```
 
-ES6 added class syntax:
+- ES6 added class syntax:
 
 ```javascript
 class Person6 {
@@ -2193,7 +2225,11 @@ Array.from(mySet);
 mySet2 = new Set([1, 2, 3, 4]);
 ```
 
-## Asynchronous JavaScript: Promises, Async/Await
+## Asynchronous Programming
+
+Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
+
+- Tasks such as HTTP requests, file selection, etc. do not finish immediately
 
 Using `setTimeout()` to cause a delay in function execution:
 
@@ -2290,7 +2326,7 @@ function getRecipe() {
 getRecipe();
 ```
 
-This way of calling Asynchronous Functions where each asynchronous function is inside another asynchronous function causing a Call Back Hell.
+This way of calling Asynchronous Functions where each asynchronous function is inside another asynchronous function causing a **Call Back Hell**.
 
 ### Promise
 
@@ -2304,13 +2340,58 @@ Promise is:
 
 Promise States:
 
-1. Before the event has happened the Promise is in **Pending** state.
+1. **pending**: initial state, neither _fulfilled_ nor _rejected_.
 
-2. After the event has happened,the Promise is now either in **Settled or Resolved** state.
+2. **fulfilled**: meaning that the operation was completed successfully.
 
-3. If the Promise was successful then it is in **Fulfilled** state.
+   - A promise is _fulfilled_ if `promise.then(f)` will call `f` "as soon as possible."
 
-4. If it failed then it is in **Rejected** state.
+3. **rejected**: meaning that the operation failed.
+
+   - A promise is _rejected_ if `promise.then(undefined, r)` will call `r` "as soon as possible."
+
+- If the promise is fulfilled or rejected, the corresponding handler is called
+
+- A promise is said to be **settled** if it is either _fulfilled_ or _rejected_, but not _pending_.
+
+- `Promise()` constructor:
+
+  ```javascript
+  new Promise(executor);
+  ```
+
+  - `executor`: A function to be executed by the constructor. It receives two functions as parameters: `resolutionFunc` and `rejectionFunc`.
+
+- Creating a Promise:
+
+```javascript
+const myPromise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("foo");
+  }, 300);
+});
+```
+
+Promise Methods:
+
+- `.then()`: takes up to 2 arguments; the 1st argument is a callback function for the **fulfilled** case of the promise, and the second argument is a callback function for the **rejected** case.
+
+  ```javascript
+  const promise = new Promise((resolve, reject) =>
+      resolve('I am a resolved promise');
+  );
+
+  promise.then(ful => console.log('Resolved: ' + ful), rej => console.log(rej));
+  // 'Resolved: I am a resolved promise'
+  ```
+
+  - Handling a rejected promise in each `.then()` has consequences further down the promise chain.
+
+  - Instead of handling rejected promise in `.then()`, we need to throw an error and handle the error in `.catch()` method
+
+- `.catch()`: argument is a callback function for the **rejected** case or any errors thrown.
+
+_Example:_
 
 ```javascript
 const getIDs = new Promise((resolve, reject) => {
@@ -2358,7 +2439,7 @@ getIDs
   .catch((error) => console.log(error));
 ```
 
-Resolve multiple promises:
+- Resolve multiple promises:
 
 ```javascript
 // These 2 calls don't depend on each other
@@ -2379,6 +2460,55 @@ console.log(results);
 //   {status: "fulfilled", value: ... },
 //   {status: "rejected", reason: Error }
 // ]
+```
+
+- Example implementation of Promise class:
+
+```javascript
+class MyPromise {
+  constructor(cb) {
+    const resolve = (value) => {
+      setTimeout(() => this._then?.(value), 0);
+    };
+
+    const reject = (value) => {
+      setTimeout(() => this._catch?.(value), 0);
+    };
+
+    cb(resolve, reject);
+  }
+
+  _wrap(cb, resolve, reject) {
+    return (value) => {
+      try {
+        const output = cb(value);
+        resolve(output);
+      } catch (err) {
+        reject(err);
+      }
+    };
+  }
+
+  then(cb) {
+    return new MyPromise((resolve, reject) => {
+      console.log("binding then");
+      this._then = this._wrap(cb, resolve, reject);
+    });
+  }
+
+  catch(cb) {
+    return new MyPromise((resolve, reject) => {
+      console.log("binding catch");
+      this._catch = this._wrap(cb, resolve, reject);
+    });
+  }
+}
+
+const myPromise = new MyPromise((resolve, reject) => {
+  setTimeout(() => {
+    resolve("foo");
+  }, 300);
+});
 ```
 
 ### Async/Await
@@ -2421,8 +2551,10 @@ const getRelated = (publisher) => {
 async function getRecipeAW() {
   const IDs = await getIDs;
   console.log(IDs);
+
   const recipe = await getRecipe(IDs[2]);
   console.log(recipe);
+
   const related = await getRelated("Jonas");
   console.log(related);
 }
@@ -2639,6 +2771,36 @@ The `Intl` object is the namespace for the ECMAScript Internationalization API, 
 
 Handling date and time using browser-native `Intl` (International) object:
 
+- Number formatting:
+
+  ```javascript
+  const formatter = Intl.NumberFormat("en", { notation: "compact" });
+
+  let num = formatter.format(1_555_123_123);
+  // '1.6B'
+  ```
+
+- Currency formatting:
+
+  ```javascript
+  const gasPrice = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+    minimumFractionDigits: 3,
+  });
+
+  gasPrice.format(5.259);
+  // $5.259
+
+  const hanDecimalRMBInChina = new Intl.NumberFormat("zh-CN-u-nu-hanidec", {
+    style: "currency",
+    currency: "CNY",
+  });
+
+  hanDecimalRMBInChina.format(1314.25);
+  // ￥ 一,三一四.二五
+  ```
+
 - Date and time formatting:
 
   ```javascript
@@ -2657,7 +2819,8 @@ Handling date and time using browser-native `Intl` (International) object:
   };
   const americanDateTime = new Intl.DateTimeFormat("en-US", options).format;
 
-  console.log(americanDateTime(july172014)); // 07/16/14, 5:00 PM PDT
+  americanDateTime(july172014);
+  // 07/16/14, 5:00 PM PDT
   ```
 
 - Relative time and date:
@@ -2672,25 +2835,6 @@ Handling date and time using browser-native `Intl` (International) object:
   rtf.format(-1, "day"); // "yesterday"
   rtf.format(-3, "day"); // "3 days ago"
   rtf.format(2, "hour"); // "in 2 hours"
-  ```
-
-- Number formatting:
-
-  ```javascript
-  const gasPrice = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
-    minimumFractionDigits: 3,
-  });
-
-  console.log(gasPrice.format(5.259)); // $5.259
-
-  const hanDecimalRMBInChina = new Intl.NumberFormat("zh-CN-u-nu-hanidec", {
-    style: "currency",
-    currency: "CNY",
-  });
-
-  console.log(hanDecimalRMBInChina.format(1314.25)); // ￥ 一,三一四.二五
   ```
 
 ## Behind The Scenes
@@ -2931,11 +3075,11 @@ New Features:
    ```javascript
    const largestNum = BigInt(Number.MAX_SAFE_INTEGER);
 
-   console.log(Number.MAX_SAFE_INTEGER); // 9007199254740991
+   Number.MAX_SAFE_INTEGER;
+   // 9007199254740991
 
    const utterlyMassiveInt = largestNum ** 23n;
-
-   console.log(utterlyMassiveInt); // ... 155009387199006145641646091
+   // ... 155009387199006145641646091
    ```
 
 5. Lazy Loading Images built-in browser.

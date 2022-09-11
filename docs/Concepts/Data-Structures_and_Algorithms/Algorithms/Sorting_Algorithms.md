@@ -1,21 +1,21 @@
 ---
-title: Sorting Techniques
-description: Sorting Techniques
+title: Sorting Algorithms
+description: Sorting Algorithms
 ---
 
-# Sorting Techniques
+# Sorting Algorithms
 
-1. [Bubble](#bubble-sort) - `O(n^2)`
-2. [Insertion](#insertion-sort) - `O(n^2)`
-3. [Selection](#selection-sort) - `O(n^2)`
-4. [Heap Sort](#heap-sort) - `O(n log2 n)`
-5. [Merge Sort](#merge-sort) - `O(n log2 n)`
-6. [Quick Sort](#quick-sort) - `O(n log2 n)`
-7. [Tree Sort](#tree-sort) - `O(n log2 n)`
-8. [Shell Sort](#shell-sort) - `O(n^(3/2))`
-9. [Count Sort](#count-sort) - `O(n)`
-10. [Bucket/Bin Sort](#bucket-bin-sort) - `O(n)`
-11. [Radix Sort](#radix-sort) - `O(n)`
+1. [Bubble](#bubble-sort): `O(n^2)`
+2. [Insertion](#insertion-sort): `O(n^2)`
+3. [Selection](#selection-sort): `O(n^2)`
+4. [Heap Sort]: `O(n log2 n)`
+5. [Merge Sort](#merge-sort): `O(n log2 n)`
+6. [Quick Sort](#quick-sort): `O(n log2 n)`
+7. [Tree Sort]: `O(n log2 n)`
+8. [Shell Sort](#shell-sort): `O(n^(3/2))`
+9. [Count Sort](#count-sort): `O(n)`
+10. [Bucket/Bin Sort] : `O(n)`
+11. [Radix Sort] : `O(n)`
 
 - In the above list 1-8 are called _Comparison based Sorts_
 - And 9-11 are called _Index based Sorts_
@@ -110,7 +110,13 @@ If the list is already sorted:
 
 ## Selection Sort
 
+Selection sort is an in-place comparison-based algorithm in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list.
+
+The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. This process continues moving unsorted array boundary by one element to the right.
+
 - We get smallest number after just one pass
+
+- Each element is compared in every operation, with number of operations same as the number of elements. With each operation an element is moved to the new array, so one less element to be compared in the next operation. On an average, (1/2)n elements are compared for each operation. Thus, the runtime is **O(n x (1/2)n)**. But constants like _(1/2)_ are ignored in Big O. So the runtime is written as _O(n^2)_.
 
 For an array of size `n` at worst case:
 
@@ -121,11 +127,36 @@ For an array of size `n` at worst case:
 - Is is not Adaptive
 - It is not Stable
 
+_Implementations:_
+
+```python
+def find_smallest(arr):
+    smallest = arr[0]
+    smallest_index = 0
+    for i in range(1, len(arr)):
+        if arr[i] < smallest:
+            smallest = arr[i]
+            smallest_index = i
+    return smallest_index
+
+# Selection Sort
+def selection_sort(arr):
+    newArr = []
+    for i in range(len(arr)):
+        smallest = find_smallest(arr)
+        newArr.append(arr.pop(smallest))
+    return newArr
+```
+
 ## Quick Sort
+
+- It uses [Divide & Conquer](./Algorithms.md#divide--conquer) technique.
 
 - Partitioning procedure
 
 - Not suited for sorted list or reverse sorted list
+
+- _Inductive proofs_
 
 - Randomized Quick Sort
 

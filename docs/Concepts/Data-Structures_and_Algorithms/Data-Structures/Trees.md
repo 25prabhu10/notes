@@ -1,27 +1,74 @@
 ---
-title: Trees
-description: Trees
+title: Tree
+description: Tree
 ---
 
-# Trees
+# Tree
 
-1. Root
-2. Parent
-3. Child
-4. Siblings
-5. Descendants
-6. Ancestors
-7. Degree of a node
-8. Internal / External nodes
-9. Levels
-10. Height
-11. Forest
+A tree is a widely used abstract data type (ADT) that represents a hierarchical tree structure with a set of connected nodes.
+
+Subcategories:
+
+- [Binary trees](#binary-tree)
+- Decision trees
+- [Heaps](./Heap.md) (data structures)
+- R-tree
+- Search trees
+
+## Terminology
+
+1. **Node**: A structure which may contain data and connections to other nodes, sometimes called **edges** or **links**
+
+2. **Child**: Each node in a tree has zero or more **child nodes**
+
+3. **Parent**: A node that has a child
+
+4. **Root**: All nodes have exactly one parent, except the topmost **root node**
+
+5. **Neighbor**: Parent or child
+
+6. **Ancestors**: A node might have many **ancestor nodes**, such as the parent's parent
+
+   - A node reachable by repeated proceeding from child to parent
+
+7. **Descendants**: A node reachable by repeated proceeding from parent to child. Also known as **subchild**
+
+8. **Siblings**: Child nodes with the same parent
+
+9. **Internal node**: Any node of a tree **that has child nodes** (also known as an _inner node_, _inode_ for short, or _branch node_)
+
+10. **External node**: Any node that **does not have child nodes** (also known as an _outer node_, **leaf node**, or _terminal node_)
+
+11. **Degree**: For a given node, its number of children. A leaf has necessarily degree zero.
+
+12. **Degree of tree**: The degree of a tree is the maximum degree of a node in the tree.
+
+13. **Distance**: The number of edges along the shortest path between two nodes
+
+14. **Height**: The height of a node is the length of the longest downward path to a leaf from that node
+
+15. **Depth**: The depth of a node is the length of the path to its root
+
+16. **Levels**: The level of a node is the number of edges along the unique path between it and the root node.
+
+    - This is the same as depth when using zero-based counting.
+
+17. **Width**: The number of nodes in a level
+
+18. **Forest**: A set of one or more disjoint trees.
+
+19. **Breadth**: The number of leaves
+
+20. **Size of a tree**: Number of nodes in the tree
+
+21. **Subtree**: Each non-root node can be treated as the root node of its own subtree
 
 ## Binary Tree
 
-A Binary Tree is a tree with degree of node _2_.
+A Binary Tree is a tree with degree of node _2_
 
-- Every node can have a maximum 2 children. It can have 0, 1, or 2 children.
+- Every node can have a maximum 2 children
+- It can have **0, 1, or 2 children**
 
 ### Number Of Binary Tress
 
@@ -56,7 +103,7 @@ A Binary Tree is a tree with degree of node _2_.
 - Relation between Degrees:
   - `deg(0) = deg(2) + 1`
 
-## Strict / Proper / Complete Binary Tree
+### Strict / Proper / Complete Binary Tree
 
 A Binary Tree is a Strict Binary Tree if every node has either degree 0 or 2. Should not contain nodes with degree 1 (node with 1 child).
 
@@ -74,31 +121,13 @@ A Binary Tree is a Strict Binary Tree if every node has either degree 0 or 2. Sh
 
 - External Binary Nodes to Internal Binary Nodes: `e = i + 1`
 
-## N-Array Tree
+### Array Representation
 
-### Strict N-Array Tree
+### Linked List Representation
 
-#### Height vs Nodes Of Strict N-Array Tree
+### Full vs Complete Binary Tree
 
-- For Height `h` with degree `m` the:
-
-  - Min number of Nodes required: `min(n) = (m * h) + 1`
-  - Max number of Nodes required: `max(n) = (m^(h + 1) - 1)/(m - 1)` (Sum of G-P Series with `a=1` and `r=m`)
-
-- For `n` Nodes with degree `m` the:
-
-  - Min Height: `min(h) = logm [n(m - 1) + 1] - 1`
-  - Max Height: `max(h) = (n - 1)/m`
-
-- External Binary Nodes to Internal Binary Nodes with degree `m`: `e = (m - 1)*i + 1`
-
-## Array Representation
-
-## Linked List Representation
-
-## Full vs Complete Binary Tree
-
-## Strict vs Complete Binary Tree
+### Strict vs Complete Binary Tree
 
 ## Tree Traversal
 
@@ -127,7 +156,9 @@ Tree traversing means visiting all the nodes.
 Generating Tree if Traversal is provided:
 
 1. If only Pre-order or In-order or Post-order is provided: Not possible to reproduce
+
 2. If only Pre-order and Post-order are provided: Not possible to reproduce
+
 3. If only Pre-order and In-order or Post-order and In-order are provided: It is **possible to reproduce**
 
 ## Binary Search Tree (BST)
@@ -136,10 +167,13 @@ Generating Tree if Traversal is provided:
 - In-order Traversal will give sorted order
 - Number of BST for `n` nodes: `(2nCn)/(n+1)`
 - Usually represented using Doubly Linked List
+- In-Order traversal is preferred
 
 Drawbacks of Binary Search Tree:
 
 - No control over the height of the BST as it depends on the order of input.
+
+- It can become unbalanced easily
 
 ## AVL Tree
 
@@ -235,28 +269,23 @@ It uses balance factor to balance the height:
 - New Inserted Node is Red
 - Height in `log n <= h <= 2 * log n`
 
-- Recolour if Red-Red conflict where Parent and Uncle are Red
+- Re-colour if Red-Red conflict where Parent and Uncle are Red
 - Do Zig-Zig (LL/RR) or Zig-Zag (LR/RL) Rotation if Red-Red conflict where Parent is Red and Uncle are Black
 
-## Binary Heap
+## N-Array Tree
 
-- Complete Binary Tree is called a Heap
-- Duplicates are allowed
-- Min Heap: Where the every node is smaller than or equal to its dependents
-- Max Heap: Where the every node is greater than or equal to its dependents
+### Strict N-Array Tree
 
-Placement in an Array:
+#### Height vs Nodes Of Strict N-Array Tree
 
-- Node at `i`
-- Left child at `2 * i`
-- Right child at `2 * i + 1`
+- For Height `h` with degree `m` the:
 
-- In-place replacement
+  - Min number of Nodes required: `min(n) = (m * h) + 1`
+  - Max number of Nodes required: `max(n) = (m^(h + 1) - 1)/(m - 1)` (Sum of G-P Series with `a=1` and `r=m`)
 
-- We can only delete root node
+- For `n` Nodes with degree `m` the:
 
-### Heapify
+  - Min Height: `min(h) = logm [n(m - 1) + 1] - 1`
+  - Max Height: `max(h) = (n - 1)/m`
 
-Faster way to create Heap
-
-### Binary Heap As Priority Queue
+- External Binary Nodes to Internal Binary Nodes with degree `m`: `e = (m - 1)*i + 1`

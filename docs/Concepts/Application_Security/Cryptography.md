@@ -5,7 +5,86 @@ description: Cryptography involves converting sensitive data into a format that 
 
 # Cryptography
 
-Cryptography involves converting sensitive data into a format that is unreadable for an unauthorised user
+Cryptography involves converting sensitive data into a format that is unreadable for an unauthorized user
+
+## Hashing
+
+Hashing is one-way operation that produces a message digest
+
+- Used for message integrity, digital signatures & storing passwords
+
+- A salt (some random value) is added to the value before hashing it
+
+- Salting is important to protect against offline password attacks (e.g. **Rainbow Tables**)
+
+- Infeasible to reverse the output
+
+- Timing attacks can be used to hack
+
+> Hash means to chop and mix (in Culinary Terms)
+
+_Example:_
+
+```javascript
+const { createHash } = require("crypto");
+
+// Create a string hash
+function hash(input) {
+  // returns a hash value (also called digest) of size 256-bit
+  return createHash("sha256").update(input).digest("hex"); // 'base64' can also be used
+}
+```
+
+- Salting:
+
+```javascript
+const { scryptSync, randomBytes, timingSafeEqual } = require("crypto");
+
+function signup(email, password) {
+  const salt = randomBytes(16).toString("hex");
+
+  const hashedPassword = scryptSync(password, salt, 64);
+
+  const user = { email, password: `${salt}:${hashedPassword}` };
+
+  users.push(user);
+
+  return user;
+}
+
+function login(email, password) {
+  const user = users.find((v) => v.email === email);
+
+  const [salt, key] = user.password.split(":");
+
+  const hashedBuffer = scryptSync(password, salt, 64);
+
+  const keyBuffer = Buffer.from(key, "hex");
+
+  const match = timingSafeEqual(hashedPassword, keyBuffer);
+
+  if (match) return "login success!";
+
+  return "login fail!";
+}
+```
+
+### Hash-Based Message Authentication Code (HMAC)
+
+- A hash that requires a password (shared key)
+
+- Example is JWT
+
+_Example:_
+
+```javascript
+const { createHmac } = require("crypto");
+
+const key = "super-secret!";
+const message = "boo 👻";
+
+const hmac = createHmac("sha256", key).update(message).digest("hex");
+```
 
 ## Encryption
 
@@ -13,18 +92,25 @@ Encryption turns plaintext into ciphertext (and vice-versa):
 
 - Requires an algorithm and a key
 
-- Symmetric algorithms use the same key for both encryption and decryption
+- [Symmetric](#symmetric-encryption) algorithms use the same key for both encryption and decryption
 
-- Asymmetric (or public key) algorithms use different keys for encryption (the public key) and decryption (the private key)
+- [Asymmetric] (or public key) algorithms use different keys for encryption (the public key) and decryption (the private key)
 
 1. Encryption At Rest
 2. Encryption Transit
 
 ### Symmetric Encryption
 
+Symmetric encryption uses a single key to encrypt and decrypt.
+
+- Key needs to be shared
+- Which makes it less secure
+
 2 Types:
 
 - Block ciphers encrypt a fixed size of n-bits of data at a time (e.g. DES, 3DES, AES)
+
+  - AES (Advanced Encryption Standard)
 
 - Stream ciphers encrypt 1 byte of data at a time
 
@@ -44,39 +130,80 @@ Block ciphers support different modes of operation:
 
 - Cipher Block Chaining (CBC)
 
-## Hashing
+_Example:_ Symmetric encryption
 
-- Hashing is one-way operation that produces a message digest
-- Used for message integrity, digital signatures & storing passwords
-- Salting is important to protect against offline password attacks (e.g. Rainbow Tables)
+```javascript
+const { createCipheriv, randomBytes, createDecipheriv } = require("crypto");
 
-## Best Practices
+// Cipher
+const message = "i like turtles";
+const key = randomBytes(32);
+const iv = randomBytes(16);
 
-- Never design your own encryption algorithm
-- Use established, public algorithms that have been tested by experts (e.g. AES, RSA, SHA256+)
+const cipher = createCipheriv("aes256", key, iv);
 
-| Attribute             | Encryption | Hashing | Encoding |
-| --------------------- | :--------: | :-----: | :------: |
-| Decode                |    yes     |    -    |   yes    |
-| Secret/Key Needed     |    yes     |    !    |    -     |
-| Password Storage      |     -      |   yes   |    -     |
-| Data Storage in DB/FS |    yes     |    -    |    -     |
-| Web Tokens            |     -      |    -    |   yes    |
+// Encrypt
+const encryptedMessage =
+  cipher.update(message, "utf-8", "hex") + cipher.final("hex");
 
-Recommended Cryptographic Algorithms:
+// Decrypt
+const decipher = createDecipheriv("aes256", key, iv);
+const decryptedMessage =
+  decipher.update(encryptedMessage, "hex", "utf-8") + cipher.final("utf-8");
 
-| Service                                                      |       Approved        |    Not Approved     |
-| ------------------------------------------------------------ | :-------------------: | :-----------------: |
-| Data Confidentiality (e.g. DBs, Hard Disks, Flat files, ...) |       AES(256+)       | DES, 2DES, Blowfish |
-| Data Integrity                                               | HMAC(128+), SHA(256+) |      MD5, SHA1      |
+console.log(decryptedMessage.toString("utf-8"));
+```
 
-- Use Argon2bi, bycrpt or sycrpt.
-- **Strong configuration is required**
+- _IV_ stands from Initialization Vector: Prevent identical sequence of text
+
+### Asymmetric Encryption / Public-Key Cryptography
+
+Asymmetric Encryption encrypts and decrypts the data using two separate yet mathematically connected cryptographic keys.
+
+- The Private Key is intended to be private so that only the authenticated recipient can decrypt the message.
+
+- The Public Key is shared with users how intend to encrypt the message
+
+- Message longer than public key cannot be encrypted using the public key. This is an **important limitation**.
+
+- HTTPS performs key exchange (using public and private keys to generate symmetric key) and then encrypt any data larger than the public key using the resulting symmetric key.
+
+_Example:_
+
+```javascript
+const { generateKeyPairSync } = require("crypto");
+
+const { privateKey, publicKey } = generateKeyPairSync("rsa", {
+  modulusLength: 2048, // the length of your key in bits
+  publicKeyEncoding: {
+    type: "spki", // recommended to be 'spki' by Node.js docs,
+    format: "pem",
+  },
+  privateKeyEncoding: {
+    type: "pkcs8", // recommended to be 'pkcs8' by Node.js docs,
+    format: "pem",
+    // cipher: "aes-256-cbc",
+    // passphrase: "top secret",
+  },
+});
+
+const { publicEncrypt, privateDecrypt } = require("crypto");
+
+const message = "the germans are coming!";
+
+const encryptedData = publicEncrypt(publicKey, Buffer.from(message));
+
+console.log(encryptedData.toString("hex"));
+
+const decryptedData = privateDecrypt(privateKey, encryptedData);
+
+console.log(decryptedData.toString("utf-8"));
+```
 
 ## Encryption In Transit
 
 - Transport Layer Security (TLS): for end-to-end encryption (over HTTP)
-- Not only protects data from unauthorised disclosure/modification, but also provides trust of the web server to the client
+- Not only protects data from unauthorized disclosure/modification, but also provides trust of the web server to the client
 - TLS should be used everywhere
 
 Protecting Data in Transit:
@@ -94,6 +221,31 @@ Protecting Data in Transit:
   - Blocks HTTP resource load
   - Uses SSLSocketFactory to add further transport layer checks
   - Highly recommended to disallow turning off the strict checks
+
+### Signing
+
+Digital Signatures
+
+```javascript
+const { createSign, createVerify } = require("crypto");
+const { publicKey, privateKey } = require("./keypair"); // generated in Asymmetric Encryption
+
+const message = "need for speed";
+
+// sign
+const signer = createSign("rsa-sha256");
+
+signer.update(message);
+
+const signature = signer.sign(privateKey, "hex");
+
+// verify
+const verifier = createVerify("rsa-sha256");
+
+verifier.update(message);
+
+const isVerified = verifier.verify(publicKey, signature, "hex");
+```
 
 ### TLS
 
@@ -193,6 +345,29 @@ TLS Protocols & Cipher Suites:
   Strict-Transport-Security: max-age=3153600; includeSubDomains; preload
   ```
 
+## Best Practices
+
+- Never design your own encryption algorithm
+- Use established, public algorithms that have been tested by experts (e.g. AES, RSA, SHA256+)
+
+| Attribute             | Encryption | Hashing | Encoding |
+| --------------------- | :--------: | :-----: | :------: |
+| Decode                |    yes     |    -    |   yes    |
+| Secret/Key Needed     |    yes     |    !    |    -     |
+| Password Storage      |     -      |   yes   |    -     |
+| Data Storage in DB/FS |    yes     |    -    |    -     |
+| Web Tokens            |     -      |    -    |   yes    |
+
+Recommended Cryptographic Algorithms:
+
+| Service                                                      |       Approved        |    Not Approved     |
+| ------------------------------------------------------------ | :-------------------: | :-----------------: |
+| Data Confidentiality (e.g. DBs, Hard Disks, Flat files, ...) |       AES(256+)       | DES, 2DES, Blowfish |
+| Data Integrity                                               | HMAC(128+), SHA(256+) |      MD5, SHA1      |
+
+- Use Argon2bi, bycrpt or sycrpt.
+- **Strong configuration is required**
+
 ## Pinning & Certificate Transparency
 
 > "You should pin anytime you want to be relatively certain of the remote host's identity or when operating in a hostile environment. Since one or both are almost always true, you should probably pin all the time"
@@ -241,3 +416,20 @@ How do I trust a CA?
   ```
 
 - Chrome (Full support), Firefox (Implemented but disabled), Safari (Upcoming)
+
+## Encryption Techniques
+
+- Caesar cipher
+
+## Acronyms
+
+- SHA256 (Secure Hash Algorithm 2)
+- RSA (Rivest–Shamir–Adleman)
+- PEM (Privacy Enhanced Mail)
+
+```javascript
+const hash = "5e7d28e2cfff93edefb2d15abad07ec5";
+
+// md5
+// superhacker
+```

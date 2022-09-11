@@ -168,7 +168,7 @@ getFakeMembers(20).then(
 
 ### Recursion
 
-Recursion is a technique that involves creating functions that recall themselves.
+[Recursion](../../Concepts/Data-Structures_and_Algorithms/Algorithms/Recursion.md) is a technique that involves creating functions that recall themselves.
 
 ```javascript
 const countdown = (value, fn) => {

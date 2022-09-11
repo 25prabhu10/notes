@@ -54,7 +54,7 @@ For styling the HTML document, we can add CSS in two ways:
 
 ## Syntax
 
-<img src="./ruleset.png" alt="ruleset" style="zoom:70%;" />
+![Rule set](./ruleset.png)
 
 The basic building blocks are:
 

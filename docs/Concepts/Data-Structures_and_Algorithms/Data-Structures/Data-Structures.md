@@ -9,11 +9,18 @@ A **data structure is a data organization, management, and storage format** that
 
 A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
 
+- Data can always be represented in many different ways. However, depending on:
+
+  - what that data is and what you need to do with it, one representation will
+
+  - be a better choice than the others.
+
 Data-structures can be envisioned as:
 
 1. Mathematical / Logical models / Abstract data-types (ABTs): Define data and operations but no implementation details. Abstract view.
 
    - _Example:_ An abstract data-type: List
+
      - Store a given number of elements of a given data-type
      - Write/Modify elements at a position (index)
      - Read elements by position (index)
@@ -21,6 +28,7 @@ Data-structures can be envisioned as:
 2. Implementation: Concrete implementation.
 
    - _Example:_ For the above mentioned List ABT, it can be implemented using:
+
      - Arrays
      - Linked Lists
 
@@ -30,28 +38,31 @@ There are two types of Data structures:
 
 1. Physical: They define how the **data is arranged** in memory.
 
-   - [Arrays](#arrays): Fixed length, Can be created in Stack or Heap memory
-   - Linked List: Variable length, Created in Heap memory
+   - [Arrays](./Arrays.md): Fixed length, Can be created in Stack or Heap memory
+
+   - [Linked List](./Linked_List.md): Variable length, Created in Heap memory
+
    - Matrices
 
 2. Logical: They define how the **data can be utilized**.
 
    - Linear Data Structures:
 
-     - **Stack** (LIFO)
-     - **Queues** (FIFO)
+     - [**Stack**](./Stack.md) (LIFO)
+     - [**Queues**](./Queue.md) (FIFO)
 
    - Non-Linear Data Structures:
 
-     - **Tress**
+     - [**Tress**](./Trees.md)
      - **Graph**
 
    - Tabular (linear/non-linear):
+
      - **Hash Table**
 
 ### Problem solving vs programming
 
-1. Problem-solving: It requires math to solve problems. And math does not have loops, it has [Recursion](./Recursion.md). It's a lifetime of work.
+1. Problem-solving: It requires math to solve problems. And math does not have loops, it has [Recursion](../Algorithms/Recursion.md). It's a lifetime of work.
 
 2. Programming: Learning the syntax of a language and implementing the solution in it.
 
@@ -79,9 +90,13 @@ _Stack memory allocation:_
 _Heap memory:_
 
 - Memory stored as a heap (placed haphazardly on top of each other)
+
 - Used as a resource
-- Programs cannot directly access Heap memory, to access it we use [Pointers](#pointers)
+
+- Programs cannot directly access Heap memory, to access it we use [Pointers](./C-Cpp_Concepts.md#pointers)
+
 - Memory allocation and de-allocation in Heap must be handled by the user.
+
 - If the allocated memory is not released, then it will keep occupying space even when it is not needed. Then eventually the memory will be full and it will cause loss of memory (memory leak).
 
 ## Time And Space Complexity
@@ -95,6 +110,7 @@ There are often many approaches to solving a problem. How do we choose between t
 The method for evaluating the efficiency of an algorithm or computer program is called asymptotic analysis.
 
 - A method for estimating the efficiency of an algorithm or computer program by identifying its growth rate. Asymptotic analysis also gives a way to define the inherent difficulty of a problem. We frequently use the term algorithm analysis to mean the same thing.
+
 - Asymptotic analysis also gives a way to define the inherent difficulty of a problem.
 
 Order of the polynomial equation or Big O: How time scales with respect to some input variables
@@ -135,7 +151,7 @@ Time functions
 
 - Constant time beats linear if data is sufficiently big
 
-Big-O
+[Big-O](../Algorithms/Algorithms.md#big-o)
 
 - How code slows as data grows
 - Not the same as running time
@@ -171,11 +187,12 @@ Terms:
 
 Static and Global variables:
 
-## Singly-Linked Lists
-
 ## References
 
 1. [Udemy - Data Structures](https://tcsglobal.udemy.com/course/datastructurescncpp/learn/lecture/13319372#overview)
+
 2. [Coursera - Data Structures](https://www.coursera.org/learn/data-structures)
+
 3. [Udemy - Data Structures and Algorithms](https://tcsglobal.udemy.com/course/learn-data-structure-algorithms-with-java-interview/learn/lecture/13778082#overview)
+
 4. [Topcoder - The importance of algorithms](https://www.topcoder.com/community/competitive-programming/tutorials/the-importance-of-algorithms/)
