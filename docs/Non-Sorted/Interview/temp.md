@@ -6,30 +6,33 @@ One formula you can use for this is to say "[action verb such as created, wrote,
 
 Responsibilities:
 
-1. Developed testable web applications using React, Redux, and ASP.NET.
+1. Developed web applications using React, Redux, and ASP.NET.
 
-2. Created website layouts/user interfaces using HTML and CSS/Sass
+   - Created website layouts/user interfaces using HTML and CSS/Sass
 
-3. Implemented RESTful API services using ASP.NET
-   Core.
+2. Built REST API services using ASP.NET Core and integrated various back-end services.
 
-4. Integrated data from various back-end services.
+3. Participated in the whole process of development: planning, analysis, estimation, development, product launch and maintenance.
 
-5. Gathered and analyzed user specifications and software requirements to determine technical needs and design feasibility within time and cost constraints. Provide accurate estimates for the development effort for new features.
+   - SDLC
 
-6. Created prototypes and participated in PoC developments.
+4. Gathered and analyzed user specifications and software requirements to determine technical needs and design feasibility within time and cost constraints. Provide accurate estimates for the development effort for new features.
 
-7. Assisted in A/B testing of different UX components.
+5. Created prototypes and participated in PoC developments.
 
-8. Cooperated with web designers to match visual design intent
+6. Assisted in A/B testing of different UX components.
 
-9. Mentored junior developers and helped new hires onboard and be successful.
+7. Cooperated with web designers to match visual design intent
 
-10. Integrated Checkmarx SAST tools into TeamCity builds, which helped in identifying and resolving vulnerabilities.
+   - Translated design team's UX wireframes and mockups into responsive, interactive features, using HTML/CSS and JavaScript
 
-11. Performed code reviews for other team members.
+8. Mentored junior developers and helped new hires onboard // and be successful.
 
-12. Participated in support and technical troubleshooting activity
+9. Integrated Checkmarx SAST tools into TeamCity builds, which helped in identifying and resolving 20+ vulnerabilities.
+
+10. Performed code reviews for other team members.
+
+11. Participated in support and technical troubleshooting activity
 
     Collaborate within the team to apply the principles of design, development, testing, deployment, support, and evaluation
 
@@ -37,17 +40,21 @@ Responsibilities:
 
     Analyze business objectives and translate requirements to technical implementation components.
 
+12. Successfully shipped 15+ new features
+
 13. Release and deployment
 
 B
 
-1. Worked in a team of 8 to develop responsive and cross-browser compatible web applications using AngularJS, JavaScript, HTML, and CSS.
+1. Worked in an agile and collaborative environment to develop web applications.
 
-2. Wrote unit tests to ensure code was bug-free. Also improved code coverage by 20%.
+   - Worked with agile team to develop web applications.
 
-3. Handled client-side validations and errors.
+2. Developed user interfaces using AngularJS, JavaScript, HTML, and CSS.
 
-4. Worked in an Agile, collaborative environment to develop web applications.
+3. Wrote unit tests to ensure code was bug-free and improved code coverage of the codebase by 20%.
+
+4. Handled client-side validations and errors.
 
 ## Skills
 
@@ -75,6 +82,10 @@ B
 
 - React, Redux, AngularJS
 
+  - JavaScript (jQuery, AngularJS, React, Bootstrap), HTML/CSS, Git, Mocha, Jasmine
+  - Expert in responsive, mobile-first development
+  - Expert in HTML/CSS, JavaScript, jQuery, AngularJS, React
+
 - JavaScript, TypeScript, Jest, Python, C#, Node.js, (C & C++ less), Bash (Working with command lines)
 
 - HTML, CSS, Sass, Framework, and Components (built in-house), gulp.js, Bootstrap, Tailwind
@@ -84,6 +95,8 @@ B
 - Git (Version control system), Github, Postman, Zeplin (Design Handoff), Checkmarx
 
 - SQL, MongoDB, MySQL
+
+  - Knowledge of Python, Ruby, SQL, C#
 
 - TeamCity, AWS
 

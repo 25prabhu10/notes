@@ -316,7 +316,7 @@ This is because React uses an extended version JavaScript called [JSX](#javascri
 
 ### Virtual DOM
 
-When we use React, you usually don't deal with DOM elements directly. Instead, you create elements for a **"Virtual DOM"**.
+When we use React, we usually don't deal with DOM elements directly. Instead, we create elements for a **"Virtual DOM"**.
 
 Virtual DOM is an **in-memory**, **lightweight representation of the DOM**.
 
@@ -324,7 +324,7 @@ Virtual DOM is an **in-memory**, **lightweight representation of the DOM**.
 
 - React converts these virtual elements into real DOM elements as necessary. This process of finding the minimum number of changes that must be made in order to make the virtual DOM tree and the actual DOM tree identical is called **reconciliation**.
 
-- The Diffing algorithm is used to identify these changes:
+- A Diffing algorithm is used to identify these changes.
 
   - This algorithm is very fast and efficient
   - It makes few assumptions:
@@ -339,6 +339,7 @@ Virtual DOM is an **in-memory**, **lightweight representation of the DOM**.
 JSX stands for JavaScript XML. It is an **extension to the JavaScript language syntax.**
 
 - **React uses JSX** instead of vanilla JavaScript to provide a concise syntax for creating complex DOM trees with attributes.
+
 - JSX combines JavaScript and XML, to extend JavaScript that allows us to define React elements using a tag-based syntax directly within our JavaScript code. Using HTML inside JavaScript Code.
 
 - JSX allows nested components

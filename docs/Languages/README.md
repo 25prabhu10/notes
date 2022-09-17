@@ -13,11 +13,10 @@ sidebar: false
 5. [CSS](./CSS/): Cascading Style Sheets
 6. [Databases](./SQL/Databases/): An organized collection of data stored and accessed electronically
 7. [Docker](./CD-CI/Docker/Docker.md): Container
-8. [Text Editors](./Editors/)
-9. [Git](./Git/): A Distributed Version-Control System
-10. [HTML](./HTML/): Hypertext Markup Language
-11. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
-12. [Markdown](./Markdown/): A Lightweight Markup Language
-13. [Python](./Python/): A high-level, interpreted, general-purpose programming language
-14. [Shell Scripting](./Shell-Scripting/): Shell Programming
-15. [SQL](./SQL/SQL.md): A domain-specific language used in programming
+8. [Git](./Git/): A Distributed Version-Control System
+9. [HTML](./HTML/): Hypertext Markup Language
+10. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
+11. [Markdown](./Markdown/): A Lightweight Markup Language
+12. [Python](./Python/): A high-level, interpreted, general-purpose programming language
+13. [Shell Scripting](./Shell-Scripting/): Shell Programming
+14. [SQL](./SQL/SQL.md): A domain-specific language used in programming
