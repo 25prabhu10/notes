@@ -4,12 +4,16 @@
   "description": "Anthology of Snippets",
   "scripts": {
     "fetch": "sh utils/bash/sync.sh",
-    "dev": "npm run fetch && npm run lint:fix && vuepress dev docs",
+    "dev": "npm run fetch && vuepress dev docs",
     "docs:dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "npm run fetch && npm run lint:fix && npm run build && node deploy.js",
-    "lint": "textlint ./docs/**/*.md && prettier --check ./docs/**/*.md",
-    "lint:fix": "prettier --write ./docs/**/*.md"
+    "lint": "npm run lint:txt && npm run lint:check && npm run lint:md",
+    "lint:txt": "textlint './docs/**/*.md'",
+    "lint:check": "prettier --check './docs/**/*.md'",
+    "lint:fix": "prettier --write './docs/**/*.md'",
+    "lint:md": "markdownlint-cli2 './docs/**/*.md'",
+    "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted"
   },
   "repository": {
     "type": "git",
@@ -31,6 +35,7 @@
     "@vuepress/plugin-register-components": "^2.0.0-beta.51",
     "@vuepress/plugin-search": "^2.0.0-beta.51",
     "dictionary-en": "^3.2.0",
+    "markdownlint-cli2": "^0.5.1",
     "prettier": "^2.7.1",
     "textlint": "^12.2.1",
     "textlint-filter-rule-comments": "^1.2.2",
