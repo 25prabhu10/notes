@@ -66,7 +66,7 @@ description: Keyboard types
    - Quite
    - More force required to register each key-stroke
 
-2. [Mechanical Keyboards](#mechanical-keys):
+2. Mechanical Keyboards:
 
    - Consist of individual key-switches that are much more tactile and responsive to key-press
    - Durable

@@ -141,7 +141,7 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 }
 ```
 
-> A REST API consists of an assembly of interlinked resources. This set of resources is known as the REST API’s **resource model**.
+> A REST API consists of an assembly of interlinked resources. This set of resources is known as the REST API's **resource model**.
 
 #### Types of Resources
 

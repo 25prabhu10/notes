@@ -9,7 +9,7 @@ sidebar: false
 [HTML5 Boilerplate homepage](https://html5boilerplate.com/)
 
 - [Usage](./Usage.md): Overview of the project contents.
-- [FAQ](./Faq.md): Frequently asked questions along with their answers.
+- [FAQ](./FAQ.md): Frequently asked questions along with their answers.
 
 ## HTML5 Boilerplate core
 

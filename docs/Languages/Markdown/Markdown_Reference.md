@@ -4,8 +4,6 @@
 
 **Markdown** is created by [Daring Fireball](http://daringfireball.net/); the original guideline is [here](http://daringfireball.net/projects/markdown/syntax). Its syntax, however, varies between different parsers or editors. **Typora** is using [GitHub Flavored Markdown][gfm].
 
-[toc]
-
 ## Block Elements
 
 ### Paragraph and line breaks
@@ -26,7 +24,7 @@ Headers use 1-6 hash (`#`) characters at the start of the line, corresponding to
 ###### This is an H6
 ```
 
-In Typora, input ‘#'s followed by title content, and press `Return` key will create a header.
+In Typora, input '#'s followed by title content, and press `Return` key will create a header.
 
 ### Blockquotes
 
@@ -40,7 +38,7 @@ Markdown uses email-style > characters for block quoting. They are presented as:
 > This is another blockquote with one paragraph. There is three empty line to seperate two blockquote.
 ```
 
-In Typora, inputting ‘>' followed by your quote contents will generate a quote block. Typora will insert a proper ‘>' or line break for you. Nested block quotes (a block quote inside another block quote) by adding additional levels of ‘>'.
+In Typora, inputting '>' followed by your quote contents will generate a quote block. Typora will insert a proper '>' or line break for you. Nested block quotes (a block quote inside another block quote) by adding additional levels of '>'.
 
 ### Lists
 
@@ -57,9 +55,9 @@ Input `1. list item 1` will create an ordered list - their markdown source code 
 
 ## ordered list
 
-1.  Red
-2.             Green
-3.  Blue
+1. Red
+2. Green
+3. Blue
 ```
 
 ### Task List
@@ -78,17 +76,18 @@ You can change the complete/incomplete state by clicking on the checkbox before 
 
 ### (Fenced) Code Blocks
 
-Typora only supports fences in GitHub Flavored Markdown. Original code blocks in markdown are not supported.
+Typora only supports fences in GitHub Flavoured Markdown. Original code blocks in markdown are not supported.
 
 Using fences is easy: Input \`\`\` and press `return`. Add an optional language identifier after \`\`\` and we'll run it through syntax highlighting:
 
 ```markdown
 Here's an example:
 
-​` function test() { console.log("notice the blank line before this function?"); } ​`
+`function test() { console.log("notice the blank line before this function?"); }`
 
 syntax highlighting:
-​`ruby require 'redcarpet' markdown = Redcarpet.new("Hello World!") puts markdown.to_html ​`
+
+`ruby require 'redcarpet' markdown = Redcarpet.new("Hello World!") puts markdown.to_html`
 ```
 
 ### Math Blocks
@@ -97,15 +96,7 @@ You can render _LaTeX_ mathematical expressions using **MathJax**.
 
 To add a mathematical expression, input `$$` and press the 'Return' key. This will trigger an input field which accepts _Tex/LaTex_ source. For example:
 
-$$
-\mathbf{V}_1 \times \mathbf{V}_2 =  \begin{vmatrix}
-\mathbf{i} & \mathbf{j} & \mathbf{k} \\
-\frac{\partial X}{\partial u} &  \frac{\partial Y}{\partial u} & 0 \\
-\frac{\partial X}{\partial v} &  \frac{\partial Y}{\partial v} & 0 \\
-\end{vmatrix}
-$$
-
-In the markdown source file, the math block is a _LaTeX_ expression wrapped by a pair of ‘$$' marks:
+In the markdown source file, the math block is a _LaTeX_ expression wrapped by a pair of '$$' marks:
 
 ```markdown
 $$
@@ -136,7 +127,7 @@ In markdown source code, they look like:
 | Content Cell | Content Cell  |
 ```
 
-You can also include inline Markdown such as links, bold, italics, or strikethrough in the table.
+You can also include inline Markdown such as links, bold, italics, or strike-through in the table.
 
 Finally, by including colons (`:`) within the header row, you can define text in that column to be left-aligned, right-aligned, or center-aligned:
 
@@ -164,7 +155,7 @@ You can create footnotes like this[^footnote].
 
 [^footnote]: Here is the _text_ of the **footnote**.
 
-Hover over the ‘footnote' superscript to see content of the footnote.
+Hover over the 'footnote' superscript to see content of the footnote.
 
 ### Horizontal Rules
 
@@ -301,7 +292,7 @@ Typora recommends using the `**` symbol.
 
 ### Code
 
-To indicate an inline span of code, wrap it with backtick quotes (`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
+To indicate an inline span of code, wrap it with backtick quotes (\`). Unlike a pre-formatted code block, a code span indicates code within a normal paragraph. For example:
 
 ```markdown
 Use the `printf()` function.
@@ -313,7 +304,7 @@ Use the `printf()` function.
 
 ### Strike-through
 
-GFM adds syntax to create strikethrough text, which is missing from standard Markdown.
+GFM adds syntax to create strike-through text, which is missing from standard Markdown.
 
 `~~Mistaken text.~~` becomes ~~Mistaken text.~~
 
@@ -321,7 +312,7 @@ GFM adds syntax to create strikethrough text, which is missing from standard Mar
 
 Underline is powered by raw HTML.
 
-`<u>Underline</u>` becomes <u>Underline</u>.
+`<u>Underline</u>` becomes `<u>Underline</u>`
 
 ### Emoji
 
@@ -373,4 +364,4 @@ You can use the `<video>` HTML tag to embed videos. For example:
 
 You can find more details [here](https://support.typora.io/HTML/).
 
-[gfm]: https://help.github.com/articles/github-flavored-markdown/
+[gfm]: https://docs.github.com/en/get-started/writing-on-github

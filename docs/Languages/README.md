@@ -12,7 +12,7 @@ sidebar: false
 4. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
 5. [CSS](./CSS/): Cascading Style Sheets
 6. [Databases](./SQL/Databases/): An organized collection of data stored and accessed electronically
-7. [Docker](./CD-CI/Docker/Docker.md): Container
+7. [Docker](./CI-CD/Docker/Docker.md): Container
 8. [Git](./Git/): A Distributed Version-Control System
 9. [HTML](./HTML/): Hypertext Markup Language
 10. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web

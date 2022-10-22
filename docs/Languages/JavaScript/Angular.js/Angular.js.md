@@ -71,7 +71,7 @@ Digest cycle (digest phase or digest process or digest loop
 
 - Responsible to walk-through entire watch list for modifications
 
-    - Dirty-checking: the process of checking the current values of scope variables with their previous values
+  - Dirty-checking: the process of checking the current values of scope variables with their previous values
 
 - Exists modifications? Executes Watch Listeners, if any
 
@@ -79,4 +79,4 @@ Digest cycle (digest phase or digest process or digest loop
 
 - Digest process runs as part of Angular Context:
 
-    - Angular Context: run-time env. of AngularJS Framework
+  - Angular Context: run-time env. of AngularJS Framework

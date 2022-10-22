@@ -10,3 +10,5 @@ sidebar: false
 2. [Hooks](./Hooks.md)
 3. [Redux](./Redux.md)
 4. [Formik](./Formik.md)
+5. [React Testing](./React_Testing.md)
+6. [React Query](./React_Query.md)

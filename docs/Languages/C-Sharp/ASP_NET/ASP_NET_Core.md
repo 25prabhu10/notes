@@ -5,7 +5,7 @@ description: ASP.NET Core is a free and open-source web framework.
 
 # ASP.NET Core
 
-ASP.NET Core (Active Server Pages) was released in 2016. It's not tied to windows assemblies like `System.Web`, [IIS](./IIS) and Windows.
+ASP.NET Core (Active Server Pages) was released in 2016. It's not tied to windows assemblies like `System.Web`, [IIS](./IIS.md) and Windows.
 
 - Open Source
 - Cross-platform
@@ -83,7 +83,7 @@ Telemetry is on by default.
 3. Now the request looks for an entry point, i.e. `main` function present in the `Program.cs` file and execute it.
 4. This will start the internal web server in the application.
 5. The `main` and `startup` class will configure the application.
-6. The request will be routed form _IIS_ to _[Kestrel](./ASP.NET_Core.md#kestrel)_.
+6. The request will be routed form _IIS_ to _[Kestrel](./Deployment.md#kestrel)_.
 7. Now the request is pushed to the application.
 8. The request will be processed by all the middleware.
 9. The generated response will be routed back to _Kestrel_ that will again pass it to _IIS_, which will produce the response on the browser.

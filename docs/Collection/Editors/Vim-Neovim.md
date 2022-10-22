@@ -296,3 +296,20 @@ _Example_: Create plugin for OSC 52 yanks
 ::: tip YANKING
 For future use, add `alias vi='vi -c "let g:tty='\''$(tty)'\''"'` to `~/.bashrc` or `~/.zshrc`
 :::
+
+## Registers
+
+Types of registers:
+
+1. `""`: The _unnamed_ register (last deleted, changed, or yanked content)
+2. `"*`: synchronized with the selection clipboard
+3. `"+`: synchronized with the system clipboard
+4. `"_`: _black hole register_ (deleted or changed content smaller than one line)
+5. `":`: most recent executed command
+6. `".`: last inserted text
+7. `"%`: current filename
+8. `"#`: alternate file name for the current window
+9. `"/`: last search pattern
+10. `"0 to "9`: 10 _numbered registers_ (last yank)
+11. `"-`: _small delete register_
+12. `a-z or A-Z`: 26 _named registers_

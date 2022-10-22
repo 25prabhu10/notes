@@ -93,10 +93,42 @@ export const Button = () => {
   return (
     <button
       style={styles[mode]}
-      onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
+      onClick={() => setMode(mode === "dark" ? "light" : "dark")}
+    >
       {mode}
     </button>
   );
+};
+```
+
+_Example:_
+
+```jsx
+const matchDark = "(prefers-color-scheme: dark)";
+
+const useDarkMode = () => {
+  const [isDark, setIsDark] = useState(
+    () => window.matchMedia(matchDark) && window.matchMedia(matchDark).matches
+  );
+
+  useEffect(() => {
+    const matcher = window.matchMedia(matchDark);
+    const onChange = ({ matches }) => setIsDark(matches);
+
+    matcher.addEventListener(onChange);
+
+    return () => {
+      matcher.removeEventListener(onChange);
+    };
+  }, [setIsDark]);
+
+  return isDark;
+};
+
+const App = () => {
+  const theme = useDarkMode() ? themes.dark : themes.light;
+
+  return <ThemeProvider theme={theme}>...</ThemeProvider>;
 };
 ```
 
@@ -110,6 +142,41 @@ export const Button = () => {
 
 ```javascript
 const [isEnabled, enable] = useReducer(() => true, false);
+```
+
+## Click outside
+
+```jsx
+const useClickOutside = (elRef, callback) => {
+  const callbackRef = useRef();
+  callbackRef.current = callback;
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (elRef?.current?.contains(e.target) && callback) {
+        callbackRef.current(e);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside, true);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [callbackRef, elRef]);
+};
+
+const Menu = () => {
+  const menuRef = useRef(null);
+
+  const onClickOutside = () => {
+    console.log("Clicked outside!");
+  };
+
+  useClickOutside(menuRef, onClickOutside);
+
+  return <div ref={menuRef}>Menu items</div>;
+};
 ```
 
 ## HTTP Request

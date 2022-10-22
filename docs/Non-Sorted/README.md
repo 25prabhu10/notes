@@ -9,5 +9,5 @@ sidebar: false
 1. [Keyboards](./Keyboard.md): Keyboard types
 2. [Interview](./Interview/)
 3. [Aptitude](./Apti/Programs/)
-4. [Income Tax](./Income-Tax.md)
+4. [Income Tax](./Finance/Income-Tax.md)
 5. [Math](./Math/Information_Theory/Entropy.md)

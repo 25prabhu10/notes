@@ -27,20 +27,20 @@ Objects are instances of a [class](#classes). Objects are instantiated from Clas
 All objects have:
 
 - Identity: Olivia's coffee mug
-- Attributes: color, size, fullness
+- Attributes: colour, size, fullness
 - behaviours: `fill()`, `empty()`, `clean()`
 
 Objects are often referred to as Nouns:
 
-- Things, People, Place, Ideas, Concepts
+- Things, People, Places, Ideas, Concepts
 
 - Can "The" be placed in front of it: "The mug", "The bank account", "The time"
 
-- Not verbs: "The texting", "The ringing" as they describe the behaviour of an object not the object itself
+- Not verbs: "The texting", or "The ringing" as they describe the behaviour of an object, not the object itself
 
 ## Classes
 
-Class is the code-template for creating program [Objects](#objects)
+Class is the code template for creating program [Objects](#objects)
 
 - A Class can be used to create multiple objects
 - A Class itself is not an Object
@@ -49,7 +49,7 @@ Class Components:
 
 - Name (type): What is it? --> RoundCookie, Car
 
-- Attributes (properties, data): What describes it? -->weight, color, icing
+- Attributes (properties, data): What describes it? -->weight, colour, icing
 
 - behaviour (operations): What can it do? --> `decorate()`, `consume()`
 
@@ -59,7 +59,7 @@ A program procedure that can return a value
 
 - Methods are functions that are defined as part of a class
 
-- They can only access data known to its object
+- They can only access data known to it's object
 
 ## Fundamental Ideas
 
@@ -68,7 +68,7 @@ There are 4 fundamental ideas in OOP:
 1. [Abstraction](#abstraction)
 2. [Encapsulation](#encapsulation)
 3. [Inheritance](#inheritance)
-4. [Polymorphism](#Polymorphism)
+4. [Polymorphism](#polymorphism)
 
 ### Abstraction
 
@@ -78,7 +78,7 @@ Abstraction refers to only showing essential details and keep everything else hi
 
 - Interface and Implementation:
 
-  - The interface refers to the way sections of code can communicate with one another. This typically is done through methods that each class is able to access
+  - The interface refers to the way sections of code can communicate with one another. This typically is done through methods that each class can access
   - The implementation of these methods, or how these methods are coded, should be hidden
 
   - If classes are entangled, then one change creates a ripple effect that causes many more changes
@@ -101,7 +101,7 @@ Encapsulation refers to bundling data with methods that can operate on that data
 - Keeps the programmer in control of access to data
 - Prevents the program from ending up in any strange or unwanted states
 
-- Containing the elements of an object, not just keep them together, but to also protect them
+- Containing the elements of an object, not just keep them together, but also protect them
 
 - We bundle an object's attributes or data along with the methods that operate on that data within the same unit or the same class
 

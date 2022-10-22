@@ -623,28 +623,25 @@ h6 {
 
 It is if not the most important part of the web page. As even today most of the content on the page is presented in the form of text. So, focusing on the usual aspects of the text is very important.
 
-In Typography, _Typeface_ is the overall design of an entire family of fonts like _Helvetica_ and the _Font_ is the graphical representation of text characters, like font size, font weight, italic, boldness, etc..
+In Typography, _Typeface_ is the overall design of an entire family of fonts like _Helvetica_ and the _Font_ is the graphical representation of text characters, like font size, font weight, italic, boldness, etc.
 
 Choosing a font:
 
-- Choose Sans-serif font for heading and Serif for the body or vice-versa.
-- Fonts should have good contrasts, like the more important text must be emphasized.
-- Font selection must be consistent through out the application (web page).
+- Choose `Sans-serif` font for heading and Serif for the body or vice-versa
+
+- Fonts should have good contrasts, like the more important text must be emphasized
+
+- Font selection must be consistent through out the application (web page)
+
 - Proper use of white spaces (negative space).
+
 - Alignment
+
 - Text colour
 
-::: tip NOTE
-Create a doc on [Typography](https://careerfoundry.com/en/blog/ui-design/beginners-guide-to-typography).
-:::
+The default **HTML font size is `16px`** in most common browsers, it can be changed to `10px` by setting `font-size: 62.5%` (**not a best practice**), this makes calculations easier while using [font-relative units](#units)
 
-### Fluid Font Sizes
-
-Fluid typography is the idea that `font-size` (and perhaps other attributes of type, like `line-height`) change depending on the screen size (or perhaps container queries if we had them).
-
-- The default HTML font size is `16px` which can be changed to `10px` by setting `font-size: 62.5%`, this makes calculations easier while using font-relative units
-
-- Create a function in Sass that converts pixel unit to `rem` unit
+- Create a function in Sass that converts pixel unit to `rem` unit:
 
   ```scss
   @use "sass:math";
@@ -660,64 +657,115 @@ Fluid typography is the idea that `font-size` (and perhaps other attributes of t
   }
   ```
 
-Sample snippets for fluid font-sizes (not optimal):
+TODO: Create a doc on [Typography](https://careerfoundry.com/en/blog/ui-design/beginners-guide-to-typography)
 
-1. Using `clamp`:
+### Fluid Font Sizes
 
-   - `font-size: 16px` for screen widths smaller than **320px** and larger than **1920px**.
-   - `font-size` will vary from **16px** to **22px** for screen widths between **320px** and **1000px** depending on the screen width.
-   - `font-size: 22px` for screens widths between **1000px** and **1920px**.
+Fluid typography is the idea that `font-size` (and perhaps other attributes of type, like `line-height`) change depending on the screen size (or perhaps container queries if we had them)
 
-   ```css
-   html {
-     font-size: 16px;
-   }
+Please test these as they are _not a foolproof solution for all accessibility issues_:
 
-   @media screen and (min-width: 320px) {
-     html {
-       font-size: calc(16px + 6 * ((100vw - 320px) / 680));
-     }
-   }
+- Using media Queries (variable but not actually fluid):
 
-   @media screen and (min-width: 1000px) {
-     html {
-       font-size: 22px;
-     }
-   }
-   ```
+  ```css
+  /* minimum value */
+  .fluid {
+    font-size: 16px;
+  }
 
-   The above snippet can be simplified with:
+  /* increase font-size based of screen size */
+  @media screen and (min-width: 568px) {
+    .fluid {
+      font-size: 32px;
+    }
+  }
 
-   ```css
-   /* not widely supported */
-   html {
-     font-size: min(max(16px, 4vw), 22px);
-   }
+  @media screen and (min-width: 768px) {
+    .fluid {
+      font-size: 48px;
+    }
+  }
 
-   /* even better implementation */
-   html {
-     font-size: clamp(16px, 4vw, 22px);
-     /* clamp(min size, variable size, max size) */
-   }
+  /* and so on ... */
+  ```
 
-   or
+- Using `calc`:
 
-   font-size: clamp(105%, calc(100% + 0.5vw), 150%);
-   ```
+  ```css
+  .fluid {
+    font-size: calc(32px + ((100vw - 1025px) * (22 - 18) / (1920 - 1024)));
+  }
 
-   ::: tip REFERENCE
+  /* or */
 
-   - For more info on `calc`, `min` and `max` go to [w3.org](https://www.w3.org/TR/css-values-4/#calc-notation).
-   - Also watch [Video](https://twitter.com/i/status/1252140444231712769).
-   - Using device-width-ration see [Github Gist](https://gist.github.com/scottkellum/1438467)
+  .fluid {
+    font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  }
 
-   :::
+  /* or */
 
-2. Using `calc`:
+  /* Fixed minimum value below the minimum breakpoint */
+  .fluid {
+    font-size: 16px;
+  }
 
-   ```css
-   font-size: calc(18px + ((100vw - 1025px) * (22 - 18) / (1920 - 1024)));
-   ```
+  /* Fluid value from 568px to 768px viewport width */
+  @media screen and (min-width: 568px) {
+    .fluid {
+      font-size: calc(16px + 16 * ((100vw - 568px) / (768 - 568));
+      /* font-size: calc([value-min] + ([value-max] - [value-min]) * ((100vw - [breakpoint-min]) / ([breakpoint-max] - [breakpoint-min]))); */
+    }
+  }
+
+  /* Fixed maximum value above the maximum breakpoint */
+  @media screen and (min-width: 768px) {
+    .fluid {
+      font-size: 48px;
+    }
+  }
+  ```
+
+- Using `clamp` (Close to ideal):
+
+  ```css
+  /* not widely supported */
+  .fluid {
+    font-size: min(max(16px, 4vw), 22px);
+  }
+
+  /* using clamp instead of min and max */
+  .fluid {
+    font-size: 16px; /* Fallback value */
+    /* font-size: clamp([value-min], [value-preferred], [value-max]) */
+    font-size: clamp(16px, 4vw, 48px); /* `4vw` is 4% of current viewport */
+
+    /* better as rem will scale if user changes their preferred font size */
+    font-size: clamp(1rem, 4vw + 1rem, 3rem); /* using rem instead of px */
+
+    /* for consistent change from 36px to 52px*/
+    font-size: clamp(2.25rem, 2vw + 1.5rem, 3.25rem);
+  }
+
+  /* or */
+
+  .fluid {
+    font-size: clamp(105%, calc(100% + 0.5vw), 150%);
+  }
+  ```
+
+::: tip REFERENCE
+
+- For more info on `calc`, `min` and `max` go to [w3.org](https://www.w3.org/TR/css-values-4/#calc-notation).
+
+- [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
+
+- [Modern fluid typography editor](https://modern-fluid-typography.vercel.app/)
+
+- Also watch [Video](https://twitter.com/i/status/1252140444231712769).
+
+- Using device-width-ration see [Github Gist](https://gist.github.com/scottkellum/1438467)
+
+:::
 
 ## CSS Layouts
 
@@ -725,18 +773,32 @@ Sample snippets for fluid font-sizes (not optimal):
 
 - It is a **1-dimensional layout system**.
 
+- `display: inline-flex`: makes the _flex container_ display inline
+
+  - does not make _flex items_ display inline
+
 [A complete guide to flexbox](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
 
 ### Grid
 
-- CSS Grid Layout is the most **powerful layout system** available in CSS.
-- It is **2-dimensional system**.
+CSS Grid Layout is the most **powerful layout system** available in CSS
+
+- It is **2-dimensional system**
 
 ```css
 .container {
   display: grid;
 }
 ```
+
+- fixed dimensions
+- `fr` is _greedy_: take all leftover space
+- `auto` is _shy_: take minimum space if available
+
+_Example:_
+
+- `1fr 1fr 1fr`: 3 equal columns
+- `auto auto auto`: 3 adaptive-width columns
 
 1. `grid-template-columns`: Set the proportions for tracks along the inline axis of the grid container.
 
@@ -958,7 +1020,168 @@ _Example:_
 
 - If not sure on what colors to work with, use black and white
 
+## UI Libraries
+
+- Extensions of CSS ([Sass](./Sass.md), Less, [Tailwind](https://tailwindcss.com))
+
+- Behavior Libraries ([HeadlessUI](https://headlessui.com), [Radix](https://www.radix-ui.com), React Aria, [MUI](https://mui.com/))
+
+  - [Master.co](https://css.master.co/): A Virtual CSS language with enhanced syntax
+
+- Style systems ([TailwindUI](https://tailwindui.com), [DaisyUI](https://daisyui.com), [Mantine](https://mantine.dev))
+
 ## Tools
 
 1. [PostCSS](https://postcss.org/) - A tool for transforming CSS with JavaScript.
+
 2. [Browserslist](https://github.com/browserslist/browserslist) - Helps to share target browsers and Node.js versions between different front-end tools.
+
+3. [CSS Generators](https://www.smashingmagazine.com/2021/03/css-generators/):
+
+   - [Shadow Generator](https://shadows.brumm.af/)
+
+   - [CSS Scroll Shadows!](https://css-scroll-shadows.vercel.app/?bgColor=c4c5fc&shadowColor=222222&pxSize=15)
+
+   - [Fancy Border Radius](https://9elements.github.io/fancy-border-radius/#30.30.42.33--.)
+
+   - [Cubic-Bezier Curves Generator (Animations)](https://cubic-bezier.com/#.17,.67,.83,.67)
+
+   - [Animations](https://keyframes.app/animate)
+
+   - [Tint & Shade Generator](https://maketintsandshades.com/)
+
+   - [Vivid Color Gradients](https://www.learnui.design/tools/gradient-generator.html)
+
+   - [Color Gradients](https://larsenwork.com/easing-gradients/#editor)
+
+   - [CSS Gradients](https://cssgradient.io/)
+
+   - [Color Gradients](https://colordesigner.io/gradient-generator)
+
+   - [Color gradient generator](https://mybrandnewlogo.com/color-gradient-generator)
+
+   - [Data Color Picker](https://www.learnui.design/tools/data-color-picker.html)
+
+   - [Accessible color generator](https://www.learnui.design/tools/accessible-color-generator.html)
+
+   - [CSS Color Palette](https://coolors.co/3f3f37-d6d6b1-494331-878472-de541e)
+
+   - [Curated colors in context](https://www.happyhues.co/)
+
+   - [Omatsuri: CSS Tools App](https://omatsuri.app/)
+
+   - [Text Overlay on Images](https://codepen.io/yaphi1/pen/oNbEqGV): `background: linear-gradient(0deg, #00000088 30%, #ffffff44 100%`
+
+   - [google-webfonts-helper](https://google-webfonts-helper.herokuapp.com/fonts)
+
+   - [Modular Scale: font-size generator](https://www.modularscale.com/)
+
+   - [Type-Scale: font-size generator](https://type-scale.com/)
+
+   - [Typographic Scale: font-size generator](https://www.layoutgridcalculator.com/type-scale/)
+
+   - [Line Height Calculator](https://www.thegoodlineheight.com/)
+
+   - [Fluid typography](https://fluid-typography.netlify.app/)
+
+   - [Type Scale Clamp: Fluid Type](https://maximeroudier.com/typeScaleClampGenerator/)
+
+   - [How to avoid layout shifts caused by web fonts](https://simonhearne.com/2021/layout-shifts-webfonts/)
+
+   - [Variable Fonts](https://v-fonts.com/)
+
+   - [Font style matcher](https://meowni.ca/font-style-matcher/)
+
+   - [CSS selectors](https://quantityqueries.com/)
+
+   - [About Us Pop-Out Effect](https://codepen.io/ainalem/pen/QWGNzYm)
+
+   - [CSS `clip-path` Generator](https://bennettfeely.com/clippy/)
+
+   - [Flexbox Patterns](https://flexboxpatterns.com/)
+
+   - [Flexbox playground and code generator](https://the-echoplex.net/flexyboxes/)
+
+   - [CSS Grid Generator](https://cssgrid-generator.netlify.app/)
+
+   - [Griddy: CSS Grid Generator](https://griddy.io/)
+
+   - [CSS Grid Generator](https://alialaa.github.io/css-grid-cheat-sheet/)
+
+   - [CSS Grid Generator](https://grid.layoutit.com/)
+
+   - [Hero Generator](https://hero-generator.netlify.app/)
+
+   - [CSS Image Filters](https://cssduotone.com/)
+
+   - [Blurred Image Placeholders Generator](https://plaiceholder.co/)
+
+   - [BlurHash Images](https://blurha.sh/)
+
+   - [Image Maps Generator](https://www.imagemaps.net/)
+
+   - [Animista: CSS Animations Generator](https://animista.net/)
+
+   - [Ladda: Loading Animations](https://lab.hakim.se/ladda/)
+
+   - [Epic Spinners](https://epic-spinners.epicmax.co/)
+
+   - [A whimsical twist on hover transitions](https://www.joshwcomeau.com/react/boop/)
+
+   - [Scale with Pseudo-elements](https://www.joshwcomeau.com/snippets/html/scale-with-pseudoelements/)
+
+   - [CSS Doodles Generator](https://css-doodle.com/)
+
+   - [Useful Little Web Dev Helpers](https://tiny-helpers.dev/)
+
+   - [Feather Icons](https://feathericons.com/)
+
+   - [Icons and Photos For Everything](https://thenounproject.com/)
+
+   - [Colorblind Web Page Filter](https://www.toptal.com/designers/colorfilter)
+
+   - [Accessibility visualization toolkit](https://khan.github.io/tota11y/)
+
+   - [Accessibility Tool](https://www.deque.com/axe/)
+
+   - [unDraw: Illustrations](https://undraw.co/illustrations)
+
+   - [CSS triangle generator](http://apps.eky.hk/css-triangle-generator/)
+
+   - [Unicode Char Recognition from drawing](https://shapecatcher.com/)
+
+   - [SVG to JSX and other tools](https://transform.tools/)
+
+   - [px to em](http://pxtoem.com/)
+
+## Reference
+
+- [Animation Handbook](https://www.designbetter.co/animation-handbook)
+
+- [AST Explorer](https://astexplorer.net/)
+
+- [Code Editor Snippet Generator](https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode)
+
+- [Tiny Teachers](https://tiny-teachers.dev/)
+
+- [UI Tests](https://uitest.com/)
+
+- [CSS Stats](https://cssstats.com/)
+
+- [CSS Analyzer Local](https://github.com/katiefenn/parker)
+
+- [Yellow auditing web performance](https://yellowlab.tools/)
+
+- [CSS Specificity Visualizer](https://isellsoap.github.io/specificity-visualizer/)
+
+- [How to bulk find unused CSS and Javascript with Puppeteer](https://willmanntobias.medium.com/how-to-bulk-find-unused-css-and-javascript-with-puppeteer-and-chrome-coverage-f79f7d885d59)
+
+- [Style Checker](https://style-check.austingil.com/)
+
+- [Writing efficient CSS selectors](https://csswizardry.com/2011/09/writing-efficient-css-selectors/)
+
+- [CSS used to highlight potential performance issues](https://gist.github.com/tkadlec/683b26344cde774170b94c0fcf0088b4)
+
+- [Request Map](https://requestmap.webperf.tools/)
+
+- [JavaScript Loading Priorities in Chrome](https://addyosmani.com/blog/script-priorities/)

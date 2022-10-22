@@ -5,7 +5,7 @@ description: An open source JavaScript task runner (build system).
 
 # Gulp.js
 
-It's open source JavaScript toolkit and **task runner** (build system) that utilizes **[Node.js](./../Node.JS)**.
+It's open source JavaScript toolkit and **task runner** (build system) that utilizes **[Node.js](./../../Node.js/Node.js.md)**.
 
 ## Automating Repetitive Tasks
 
@@ -38,7 +38,7 @@ It's open source JavaScript toolkit and **task runner** (build system) that util
 
 ## Instruction
 
-1. First install [Node.js](./../Node.JS) which will install npm (node package manager) along with it. In latest versions `npx` as well is installed.
+1. First install [Node.js](./../../Node.js/Node.js.md) which will install npm (node package manager) along with it. In latest versions `npx` as well is installed.
 
 2. Install `gulp-cli` globally, it helps to maintain different versions of gulp.js.
 
@@ -515,7 +515,7 @@ Types of steams:
 ## Alternative Tools
 
 - [Grunt.js](https://gruntjs.com)
-- [Broccoli.js](https://broccoli.build)
+- [Broccoli.js](https://github.com/broccolijs/broccoli)
 - [Brunch](https://brunch.io)
 - [Webpack](https://webpack.js.org)
 - [Rollup.js](https://rollupjs.org)

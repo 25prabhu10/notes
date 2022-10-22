@@ -79,7 +79,7 @@ To learn more see this document [TypeScript Doc](../TypeScript/TypeScript.md).
 
 ## Modules
 
-A **collection** of [Components](#Components).
+A **collection** of [Components](#components).
 
 ## Components
 
@@ -228,12 +228,12 @@ export class name {
   // name.component.ts
   export class name {
       Name = '';
-  
+
       onUpdateServerName(event: Event) {
       this.Name = (<HTMLInputElement>event.target).value;
     }
   }
-  
+
   // name.component.html
   <input ="text" class="form-control" (input)="onUpdateServerName($event)">
   <p> {{ Name }} </p>

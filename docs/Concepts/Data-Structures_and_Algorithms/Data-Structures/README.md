@@ -17,5 +17,6 @@ sidebar: false
 9. [Hash Table (hash map)](./Hash_Table.md)
 10. [Trees](./Trees.md)
 11. [Heap](./Heap.md)
-12. [Trie](./Trie.md)
-13. [Bloom Filter](./Bloom_Filter.md)
+12. [Graph](./Graph.md)
+13. [Trie](./Trie.md)
+14. [Bloom Filter](./Bloom_Filter.md)

@@ -56,8 +56,7 @@ What follows is a general overview of each major part and how to use them.
 ### css
 
 This directory should contain all your project's CSS files. It includes some
-initial CSS to help get you started from a solid foundation. [About the
-CSS](css.md).
+initial CSS to help get you started from a solid foundation. [About the CSS](./CSS.md)
 
 ### doc
 
@@ -68,7 +67,7 @@ as the location and basis for your own project's documentation.
 
 This directory should contain all your project's JS files. Libraries, plugins,
 and custom code can all be included here. It includes some initial JS to help
-get you started. [About the JavaScript](js.md).
+get you started. [About the JavaScript](./JavaScript.md).
 
 ### .htaccess
 
@@ -95,7 +94,7 @@ For more info on this topic, please refer to
 
 The `.editorconfig` file is provided in order to encourage and help you and
 your team to maintain consistent coding styles between different
-editors and IDEs. [Read more about the `.editorconfig` file](misc.md#editorconfig).
+editors and IDEs. [Read more about the `.editorconfig` file](./Misc.md#editorconfig).
 
 ### index.html
 
@@ -124,4 +123,4 @@ Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple
 Touch Icon with your own.
 
 If you want to use different Apple Touch Icons for different resolutions please
-refer to the [according documentation](extend.md#apple-touch-icons).
+refer to the [according documentation](./Extend.md#apple-touch-icons)

@@ -1,6 +1,6 @@
 # Notes
 
-Anthology of Snippets.
+Anthology of Snippets
 
 ## TODO
 

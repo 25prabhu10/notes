@@ -202,6 +202,12 @@ git config --show-origin user.name
 
 We can modify configurations from the CLI or by directly modifying the configuration file.
 
+- Add this to automatically create a new upstream branch for your local branch
+
+  ```bash
+  git config --global push.autoSetupRemote true
+  ```
+
 ::: tip WINDOWS
 In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER`).
 :::
@@ -413,6 +419,7 @@ Create a commit, which is like a snapshot of your repository. These commits are 
 - Commits include lots of metadata in addition to the contents and message, like the author, timestamp, and more.
 
 - Each commit contains an unique hash number.
+
 - To view the details of a commit including the metadata and the changes made in the commit use the [git show](#show) command.
 
 ```bash
@@ -451,7 +458,7 @@ Make Atomic commits:
 - Easier to understand, to work with, and to find bugs
 - Improves collaboration
 
-The Perfect Commit:
+Commit best practice:
 
 - Add the _right_ changes
 - Compose a _good commit message_:
@@ -462,6 +469,33 @@ The Perfect Commit:
     - What is now different than before?
     - What's the reason for the change?
     - Is there anything to watch out for/anything particularly remarkable?
+
+_Example:_ [Angular commit convention](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#commit)
+
+```text
+<type>(<scope>): <short summary>
+  │       │             │
+  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+  │       │
+  │       └─⫸ Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|
+  │                          elements|forms|http|language-service|localize|platform-browser|
+  │                          platform-browser-dynamic|platform-server|router|service-worker|
+  │                          upgrade|zone.js|packaging|changelog|docs-infra|migrations|ngcc|ve|
+  │                          devtools
+  │
+  └─⫸ Commit Type: build|ci|docs|feat|fix|perf|refactor|test
+```
+
+Types:
+
+- `build`: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
+- `ci`: Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
+- `docs`: Documentation only changes
+- `feat`: A new feature
+- `fix`: A bug fix
+- `perf`: A code change that improves performance
+- `refactor`: A code change that neither fixes a bug nor adds a feature
+- `test`: Adding missing tests or correcting existing tests
 
 ### Pull
 
@@ -822,33 +856,7 @@ git branch --no-merged
 git branch -r --merged
 ```
 
-#### Branching Strategies
-
-Agree on a Branching Workflow in your team:
-
-- GIT allows you to create branches but it doesn't tell you how to use them
-- you need a written best practice of how work is ideally structure in your team - to avoid mistakes and collisions
-- it is highly depends on your team / team size on your project and how you handle releases
-  -it helps to onboard new team members ("this is how we work here")
-
-Integrating changes and structuring releases:
-
-1. mainline development ("Always Be Integrating"):
-
-   - few branches
-   - relatively small commits
-   - high quality testing and QA standards
-
-2. Stale, release and feature branches:
-
-   - different types of branches
-   - fulfill different types of jobs
-
-**GIT Flow vs Trunk based dev**: [Feature Toggles - Why and How to Add to Your Software](https://www.youtube.com/watch?v=-yHZ9uLVSp4)
-
-1. GitHub Flow: very simple, very lean: only one long-running branch ("main") + feature branches
-
-2. GitFlow: more structure, more rules, long-running: "main" + "development", short-lived: features, releases, hotfixes
+Checkout [Branching Strategies](#branching-strategies)
 
 #### Prune Stale Branches
 
@@ -1386,6 +1394,50 @@ git prune
 git gc
 ```
 
+## Branching Strategies
+
+Agree on a Branching Workflow in your team:
+
+- GIT allows you to create branches but it doesn't tell you how to use them
+
+- you need a written best practice of how work is ideally structure in your team - to avoid mistakes and collisions
+
+- it is highly depends on your team / team size on your project and how you handle releases
+  -it helps to onboard new team members ("this is how we work here")
+
+Integrating changes and structuring releases:
+
+1. mainline development ("Always Be Integrating"):
+
+   - few branches
+   - relatively small commits
+   - high quality testing and QA standards
+
+2. Stale, release and feature branches:
+
+   - different types of branches
+   - fulfill different types of jobs
+
+**GIT Flow vs Trunk based dev**:
+
+1. GitHub Flow: very simple, very lean:
+
+   - only one long-running branch (_"main"_) + feature branches
+
+2. GitFlow: more structure, more rules,
+
+   - long-running branches: _"main"_, _"development"_
+   - short-lived branches: _"features"_, _"releases"_, _"hotfixes"_
+
+   | Branch Name | Create from       | Merge back into    |
+   | ----------- | ----------------- | ------------------ |
+   | develop     | master            | -                  |
+   | feature     | develop           | develop            |
+   | release     | develop           | master and develop |
+   | hotfix      | master or develop | master and develop |
+
+   ![GitFlow](./gitflow.jpg)
+
 ## Tagging
 
 - Tag allows you to capture a reference point in your project history, such as release versions.
@@ -1497,11 +1549,11 @@ A `.gitmodules` file is created when we add a submodule to the project. This is 
 
 ## Git Hooks
 
-Git Hooks are shell scripts that get triggered when we perform a specific action in Git.
+Git Hooks are shell scripts that get triggered when we perform a specific action in Git
 
-Git hooks reside in the `[project-dir]/.git/hooks/` directory.
+- Git hooks reside in the `[project-dir]/.git/hooks/` directory
 
-![Git hooks](./git-hooks.jpeg)
+![Git hooks](./git-hooks.jpg)
 
 Based on the git operation, any one of the following `git hooks` will be triggered.
 
@@ -1536,6 +1588,34 @@ Based on the git operation, any one of the following `git hooks` will be trigger
 - Hooks are simple text files.
 - Hooks can be written in any _scripting language_ like python, Ruby, and so on.
 - The script **filename should match the hooks' name**. For `post-commit` hook the script filename should be `post-commit`.
+
+## Github Folder
+
+The below mentioned files can be created in the `.github` folder:
+
+- `CODE_OF_CONDUCT.md`: Defines standards for how to engage in a community.
+
+- `CONTRIBUTING.md`: Communicates how people should contribute to your project. (making pull request, setting development environment...)
+
+- `FUNDING.yml`: Displays a sponsor button in your repository to increase the visibility of funding options for your open source project.
+
+- `ISSUE_TEMPLATE`: Folder that contains a templates of possible issues user can use to open issue (such as if issue is related to documentation, if it's a bug, if user wants new feature etc)
+
+  - `config.yml`: Customize the issue template chooser that people see when creating a new issue in your repository by adding a `config.yml` file to the .`github/ISSUE_TEMPLATE` folder.
+
+- `PULL_REQUEST_TEMPLATE.md`: How to make a pull request to project
+
+- `stale.yml`: Probot configuration to close stale issues. There are many other apps on Github Marketplace that place their configurations inside .github folder because they are related to GitHub specifically.
+
+- `SECURITY.md`: Gives instructions for how to report a security vulnerability in your project
+
+- `SUPPORT.md`: Lets people know about ways to get help with your project. For more information
+
+- `workflows`: Configuration folder containing yaml files for GitHub Actions
+
+- `CODEOWNERS`: Pull request reviewer rules. More info here.
+
+- `dependabot.yml`: Configuration options for dependency updates. More info here.
 
 ## References and Guides
 

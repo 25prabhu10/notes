@@ -28,7 +28,7 @@ globally ignore:
     excludesfile = ~/.gitignore
 ```
 
-- [More on global ignores](https://help.github.com/articles/ignoring-files/)
+- [More on global ignores](https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files)
 - Comprehensive set of ignores on [GitHub](https://github.com/github/gitignore)
 
 ## .editorconfig
@@ -51,19 +51,18 @@ plugin](https://editorconfig.org/#download).
 Boilerplate, we highly encourage you to configure your server to block
 access to `.editorconfig` files, as they can disclose sensitive information!
 
-For more details, please refer to the [EditorConfig
-project](https://editorconfig.org/).
+For more details, please refer to the [EditorConfig project](https://editorconfig.org/)
 
 ## Server Configuration
 
-H5BP includes a [`.htaccess`](#htaccess) file for the [Apache HTTP
+H5BP includes a `.htaccess` file for the [Apache HTTP
 server](https://httpd.apache.org/docs/). If you are not using Apache
 as your web server, then you are encouraged to download a
 [server configuration](https://github.com/h5bp/server-configs) that
 corresponds to your web server and environment.
 
-A `.htaccess` (hypertext access) file is an [Apache HTTP server
-configuration file](https://github.com/h5bp/server-configs-apache).
+A `.htaccess` (hypertext access) file is an [Apache HTTP server configuration file](https://github.com/h5bp/server-configs-apache)
+
 The `.htaccess` file is mostly used for:
 
 - Rewriting URLs

@@ -165,7 +165,7 @@ The browser has a seemingly impossible task:
 
 1. Broken Access Control
 2. [Cryptographic](./Cryptography.md) Failures (2017 - 3)
-3. [Injection](./Injection.md)
+3. [Injection](./Code_Injection.md)
 4. **Insecure Design**
 5. Security Misconfiguration
 6. Vulnerable and Outdated Components (2017 - 9)
@@ -516,9 +516,8 @@ CSP3
 
 ### Policy Injection
 
-...
-
 - New directive `script-src-elem` allows you to control just script blocks
+
 - This allows event handlers but blocks script elements:
 
   ```http

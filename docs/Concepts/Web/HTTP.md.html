@@ -1,43 +1,48 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<title>/run/media/prabhu/18A22969A2294C96/Users/Vinayak/Dropbox/Notes/Concepts/Web/HTTP.md.html</title>
-<meta name="Generator" content="Vim/8.0">
-<meta name="plugin-version" content="vim8.1_v1">
-<meta name="syntax" content="mkd">
-<meta name="settings" content="use_css,no_foldcolumn,expand_tabs,prevent_copy=">
-<meta name="colorscheme" content="onedark">
-<style type="text/css">
-<!--
-pre { font-family: monospace; color: #afafaf; background-color: #262626; }
-body { font-family: monospace; color: #afafaf; background-color: #262626; }
-* { font-size: 1em; }
-.mkdDelimiter { color: #d75fd7; }
-.Operator { color: #d75fd7; }
-.htmlBold { color: #d7875f; font-weight: bold; }
-.htmlH1 { color: #ff5f87; }
-.htmlH2 { color: #ff5f87; }
-.htmlH3 { color: #ff5f87; }
-.Number { color: #d7875f; }
-.mkdHeading { color: #ff5f87; }
-.mkdLink { color: #00afff; }
-.mkdURL { color: #00afd7; text-decoration: underline; }
-.Special { color: #00afff; }
-.Statement { color: #d75fd7; }
-.Identifier { color: #ff5f87; }
-.htmlH4 { color: #ff5f87; }
-.htmlItalic { color: #d75fd7; font-style: italic; }
-.htmlLink { color: #00afd7; text-decoration: underline; }
-.htmlTag { color: #afafaf; }
-.htmlTagName { color: #ff5f87; }
-.String { color: #87d787; }
-.Comment { color: #5f5f5f; font-style: italic; }
--->
-</style>
-</head>
-<body>
-<pre id='vimCodeElement'>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>
+      /run/media/prabhu/18A22969A2294C96/Users/Vinayak/Dropbox/Notes/Concepts/Web/HTTP.md.html
+    </title>
+    <meta name="Generator" content="Vim/8.0" />
+    <meta name="plugin-version" content="vim8.1_v1" />
+    <meta name="syntax" content="mkd" />
+    <meta
+      name="settings"
+      content="use_css,no_foldcolumn,expand_tabs,prevent_copy="
+    />
+    <meta name="colorscheme" content="onedark" />
+    <style type="text/css">
+      <!--
+      pre { font-family: monospace; color: #afafaf; background-color: #262626; }
+      body { font-family: monospace; color: #afafaf; background-color: #262626; }
+      * { font-size: 1em; }
+      .mkdDelimiter { color: #d75fd7; }
+      .Operator { color: #d75fd7; }
+      .htmlBold { color: #d7875f; font-weight: bold; }
+      .htmlH1 { color: #ff5f87; }
+      .htmlH2 { color: #ff5f87; }
+      .htmlH3 { color: #ff5f87; }
+      .Number { color: #d7875f; }
+      .mkdHeading { color: #ff5f87; }
+      .mkdLink { color: #00afff; }
+      .mkdURL { color: #00afd7; text-decoration: underline; }
+      .Special { color: #00afff; }
+      .Statement { color: #d75fd7; }
+      .Identifier { color: #ff5f87; }
+      .htmlH4 { color: #ff5f87; }
+      .htmlItalic { color: #d75fd7; font-style: italic; }
+      .htmlLink { color: #00afd7; text-decoration: underline; }
+      .htmlTag { color: #afafaf; }
+      .htmlTagName { color: #ff5f87; }
+      .String { color: #87d787; }
+      .Comment { color: #5f5f5f; font-style: italic; }
+      -->
+    </style>
+  </head>
+  <body>
+    <pre id="vimCodeElement">
 <span class="mkdHeading">#</span><span class="htmlH1"> Hypertext Transfer Protocol (HTTP)</span>
 
 **<span class="htmlBold">Hypertext Transfer Protocol (HTTP)</span>** is an _<span class="htmlItalic">application-layer</span>_ protocol for transmitting hypermedia documents, such as HTML.
@@ -55,7 +60,7 @@ The main features of HTTP are:
 <span class="Identifier">-</span> HTTP is a <span class="mkdDelimiter">[</span><span class="mkdLink">stateless protocol</span><span class="mkdDelimiter">](</span><span class="mkdURL"><a href="https://en.wikipedia.org/wiki/Stateless_protocol">https://en.wikipedia.org/wiki/Stateless_protocol</a></span><span class="mkdDelimiter">)</span>, meaning that the server does not keep any data (state) between two requests. **<span class="htmlBold">Not session less</span>**, HTTP Cookies allow the use of stateful sessions.
 
 ::: tip Internet
-The internet is a collection of public computers through the shared use of the Internet Protocol (IP). It's made up of many services, including the WWW (or the web), email, file sharing, and internet telephony. The web, therefore, is but one part of the internet, though it’s the most visible part.
+The internet is a collection of public computers through the shared use of the Internet Protocol (IP). It's made up of many services, including the WWW (or the web), email, file sharing, and internet telephony. The web, therefore, is but one part of the internet, though it's the most visible part.
 :::
 
 <span class="mkdHeading">##</span><span class="htmlH2"> What happens when you browse the web?</span>
@@ -80,11 +85,11 @@ The internet is a collection of public computers through the shared use of the I
 <span class="Identifier">   -</span> Similarly, if something goes wrong, you get back an HTTP response code, the best-known of which is the 404 Not Found response code.
 
 <span class="Identifier">5.</span> The web browser processes the returned request. Assuming that the returned response is HTML, the browser starts to parse the HTML code and builds in memory the Document Object Model (DOM), which is an internal representation of the page.
-<span class="Identifier">6.</span> The web browser requests any additional resources it needs. Each of these resources is requested similarly, following steps 1–6, and yes, that includes this step, because those resources may in turn request other resources. The average website isn’t as lean as Google and needs 75 resources, often from many domains, so steps 1–6 must be repeated for all of them. This situation is one of the key things that makes web browsing slow and one of the key reasons for HTTP/2, the main purpose of which is to make requesting these additional resources more efficient.
-<span class="Identifier">7.</span> When the browser has enough of the critical resources, it starts to render the page onscreen. Choosing when to start rendering the page is a challenging task and not as simple as it sounds. If the web browser waits until all resources are downloaded, it would take a long time to show web pages, and the web would be an even slower, more frustrating place. But if the web browser starts to render the page too soon, you end up with the page jumping around as more content downloads, which is irritating if you’re in the middle of reading an article when the page jumps down. A firm understanding of the technologies that make up the web—especially HTTP and HTML/CSS/JavaScript—can help website owners reduce these annoying jumps while pages are being loaded, but far too many sites don’t optimize their pages effectively to prevent these jumps.
+<span class="Identifier">6.</span> The web browser requests any additional resources it needs. Each of these resources is requested similarly, following steps 1–6, and yes, that includes this step, because those resources may in turn request other resources. The average website isn't as lean as Google and needs 75 resources, often from many domains, so steps 1–6 must be repeated for all of them. This situation is one of the key things that makes web browsing slow and one of the key reasons for HTTP/2, the main purpose of which is to make requesting these additional resources more efficient.
+<span class="Identifier">7.</span> When the browser has enough of the critical resources, it starts to render the page onscreen. Choosing when to start rendering the page is a challenging task and not as simple as it sounds. If the web browser waits until all resources are downloaded, it would take a long time to show web pages, and the web would be an even slower, more frustrating place. But if the web browser starts to render the page too soon, you end up with the page jumping around as more content downloads, which is irritating if you're in the middle of reading an article when the page jumps down. A firm understanding of the technologies that make up the web—especially HTTP and HTML/CSS/JavaScript—can help website owners reduce these annoying jumps while pages are being loaded, but far too many sites don't optimize their pages effectively to prevent these jumps.
 <span class="Identifier">8.</span> After the initial display of the page, the web browser continues, in the background, to download other resources that the page needs and update the page as it processes them. These resources include non-critical items such as images and advertising tracking scripts. As a result, you often see a web page displayed initially without images (especially on slower connections), with images being filled in as more of them are downloaded.
 <span class="Identifier">9.</span> When the page is fully loaded, the browser stops the loading icon (a spinning icon on or near the address bar for most browsers) and fires the _<span class="htmlItalic">OnLoad JavaScript</span>_ event, which JavaScript code may use as a sign that the page is ready to perform certain actions.
-<span class="Identifier">10.</span> At this point, the page is fully loaded, but the browser hasn’t stopped sending out requests. We’re long past the days when a web page was a page of static information. Many web pages are now feature-rich applications that continually communicate with various servers on the internet to send or load additional content. This content may be user-initiated actions, such as when you type requests in the search bar on Google’s home page and instantly see search suggestions without having to click the Search button, or it may be application-driven actions, such as your Facebook or Twitter feed’s automatically updating without your having to click a refresh button. These actions often happen in the background and are invisible to you, especially advertising and analytics scripts that track your actions on the site to report analytics to website owners and/or advertising networks.
+<span class="Identifier">10.</span> At this point, the page is fully loaded, but the browser hasn't stopped sending out requests. We're long past the days when a web page was a page of static information. Many web pages are now feature-rich applications that continually communicate with various servers on the internet to send or load additional content. This content may be user-initiated actions, such as when you type requests in the search bar on Google's home page and instantly see search suggestions without having to click the Search button, or it may be application-driven actions, such as your Facebook or Twitter feed's automatically updating without your having to click a refresh button. These actions often happen in the background and are invisible to you, especially advertising and analytics scripts that track your actions on the site to report analytics to website owners and/or advertising networks.
 
 <span class="mkdDelimiter">![</span><span class="mkdLink">What happens when you browse the web</span><span class="mkdDelimiter">](</span><span class="mkdURL">./What happens when you browse the web.jpg</span><span class="mkdDelimiter">)</span>
 
@@ -186,8 +191,8 @@ Here are some of the HTTP/1.0 response codes:
 |                     | 302   | Moved temporarily     | The Location HTTP response header should provide the new URL of the resource.                                                                                                                    |
 |                     | 304   | Not modified          | This code is used for conditional responses in which the BODY doesn't need to be sent again.                                                                                                     |
 | 4xx (client error)  | 400   | Bad request           | The request couldn't be understood and should be changed before resending.                                                                                                                       |
-|                     | 401   | Unauthorized          | This code usually means that you’re not authenticated.                                                                                                                                           |
-|                     | 403   | Forbidden             | This code usually means that you’re authenticated, but your credentials don't have access.                                                                                                       |
+|                     | 401   | Unauthorized          | This code usually means that you're not authenticated.                                                                                                                                           |
+|                     | 403   | Forbidden             | This code usually means that you're authenticated, but your credentials don't have access.                                                                                                       |
 |                     | 404   | Not found             | This code is probably the best-known HTTP status code, as it often appears on error pages.                                                                                                       |
 | 5xx (server error)  | 500   | Internal server error | The request couldn't be completed due to a server-side error.                                                                                                                                    |
 |                     | 501   | Not implemented       | The server doesn't recognize the request (such as an HTTP method that hasn't yet been implemented).                                                                                              |
@@ -321,7 +326,7 @@ While that one request is being handled, the HTTP connection is blocked from bei
 <span class="mkdHeading">####</span><span class="htmlH4"> Other New Features</span>
 
 <span class="Identifier">-</span> New methods are PUT, OPTIONS, and the less-used CONNECT, TRACE, and DELETE.
-<span class="Identifier">-</span> Better caching methods. These methods allowed the server to instruct the client to store the resource (such as a CSS file) in the browser’s cache so it could be reused later if required. The Cache-Control HTTP header introduced in HTTP/1.1 had more options than the Expires header from HTTP/1.0.
+<span class="Identifier">-</span> Better caching methods. These methods allowed the server to instruct the client to store the resource (such as a CSS file) in the browser's cache so it could be reused later if required. The Cache-Control HTTP header introduced in HTTP/1.1 had more options than the Expires header from HTTP/1.0.
 <span class="Identifier">-</span> HTTP cookies to allow HTTP sessions and move from the stateless protocol.
 <span class="Identifier">-</span> The introduction of character sets (as shown in some examples in this chapter) and language in HTTP responses.
 <span class="Identifier">-</span> Proxy support.
@@ -429,6 +434,6 @@ HTTP is not based on Ping. Ping is much simpler than HTTP
 <span class="Identifier">-</span> <span class="mkdDelimiter">[</span><span class="mkdLink">URI - Specification</span><span class="mkdDelimiter">](</span><span class="mkdURL"><a href="https://tools.ietf.org/html/rfc1630">https://tools.ietf.org/html/rfc1630</a></span><span class="mkdDelimiter">)</span>
 <span class="Identifier">-</span> <span class="mkdDelimiter">[</span><span class="mkdLink">HTTP-Core Github</span><span class="mkdDelimiter">](</span><span class="mkdURL"><a href="https://github.com/httpwg/http-core">https://github.com/httpwg/http-core</a></span><span class="mkdDelimiter">)</span>
 </pre>
-</body>
+  </body>
 </html>
 <!-- vim: set foldmethod=manual : -->

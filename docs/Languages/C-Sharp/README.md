@@ -13,4 +13,3 @@ sidebar: false
 5. [LINQ](./LINQ.md)
 6. [Testing](./Testing.md)
 7. [Logging](./Logging.md)
-8. [Design Patterns](./Design_Patterns/)

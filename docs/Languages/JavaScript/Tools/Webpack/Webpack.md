@@ -86,7 +86,7 @@ module.exports = {};
 
 5. `loaders`: Webpack only understands JavaScript and JSON files by default. [Loaders](#loaders) allow webpack to process other types of files.
 
-6. `plugins`: [Plugins](#plugins) can perform wider range of tasks like bundle optimization, asset management and injection of environment variables.
+6. `plugins`: Plugins can perform wider range of tasks like bundle optimization, asset management and injection of environment variables.
 
 ## Loaders
 

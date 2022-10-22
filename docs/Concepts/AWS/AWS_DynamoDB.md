@@ -101,7 +101,7 @@ NoSQL Serverless Database
 
 - **Eventually Consistent Read**: If we read just after a write, it's possible we'll get unexpected response because of replication (wait time is needed for replication)
 - **Strongly Consistent Read**: If we read just after a write, we will get the correct data (slower)
-- **By default**: DynamoDB uses Eventually Consistent Reads, but [GetItem](#getitem), [Query](#query) & [Scan](#scan) provide a `ConsistentRead` parameter you can set to `True`
+- **By default**: DynamoDB uses Eventually Consistent Reads, but [GetItem](#reading-data), [Query](#query) & [Scan](#scan) provide a `ConsistentRead` parameter you can set to `True`
 
 ### Read Capacity Units
 

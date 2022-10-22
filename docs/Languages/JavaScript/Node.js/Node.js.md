@@ -5,11 +5,11 @@ description: A JavaScript runtime built on Google's V8 engine.
 
 # Node.js
 
-Node.js is a JavaScript runtime built on Google's open-source _V8 JavaScript engine_.
+Node.js is a JavaScript runtime built on Google's open-source _V8 JavaScript engine_
 
-Created by _Ryan Dahl_.
+> Created by _Ryan Dahl_
 
-## Philosophy
+## Introduction
 
 1. **Small core**: Node.js runtime and built-in modules are so-called Node.js core is small. Containing only the bare minimum functionalities leaving the rest to the so-called _userland_. Where modules can be created and experimented to provide better solutions.
 
@@ -28,7 +28,7 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 
 > "The design must be simple, both in implementation and interface. It is more important for the implementation to be simple than the interface. Simplicity is the most important consideration in a design."
 
-## How Node.js works
+## How Node.js Works?
 
 1. **I/O is slow**: Accessing disk or the network is slow. Sometimes the input comes form humans which are much slower.
 
@@ -73,7 +73,7 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 
 ## Modules
 
-- Modules allow us to divide the code-base into small units that can be developed and tested independently.
+Modules allow us to divide the code-base into small units that can be developed and tested independently
 
 ### Advantages
 
@@ -83,7 +83,9 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 - Managing dependencies.
 
 ::: tip NOTE
-It is important to clarify the distinction between a **module** and a **module system**. We can define a module as the actual unit of software, while a module system is the syntax and the tooling that allows us to define modules and to use them within our projects.
+It is important to clarify the distinction between a **module** and a **module system**.
+
+We can define **a module as the actual unit of software**, while a module system is the syntax and the tooling that allows us to define modules and to use them within our projects.
 :::
 
 ### Module system in JavaScript and Node.js
@@ -95,26 +97,29 @@ Two module systems became popular and were a community initiatives:
 - _asynchronous module definition_ (AMD)
 - _Universal Module Definition_ (UMD)
 
-Node.js came up with an implementation of the **CommonJS specification (CJS)**, which was designed to provide a module system for JavaScript in browserless environments.
+Node.js came up with an implementation of the **[CommonJS specification (CJS)](#commonjs-modules)**, which was designed to provide a module system for JavaScript in browserless environments.
 
-In 2015 _ECMAScript 6_ (ES6 or ES2015) proposed for a standard module system known as **ESM** or ECMAScript modules.
+In 2015 _ECMAScript 6_ (ES6 or ES2015) proposed for a standard module system known as **[ESM (ECMAScript modules)](../JavaScript.md#esm-ecmascript-modules)**
 
-Node.js ships with stable support for ESM starting from version 13.2.
+- Node.js ships with stable support for ESM starting from _v13.2_
 
-### The revealing module pattern
+### Revealing Module Pattern
 
 - JavaScript in the browser lacks namespacing. Every script runs in the global scope. So, if a third-party dependency instantiates a global variable called utils then any other library or the application code itself might accidentally override or alter utils. Causing unpredictable side effects.
-- The _revealing module pattern_ is used to solve this class of problems.
+
+- The [_revealing module pattern_](../../../Concepts/Design_Patterns/README.md#revealing-module-pattern) is used to solve this class of problems
 
 ```javascript
 const myModule = (() => {
+  // private
   const privateFoo = () => {};
   const privateBar = [];
-  const exported = {
+
+  // public
+  return {
     publicFoo: () => {},
     publicBar: () => {},
   };
-  return exported;
 })(); // once the parenthesis here are parsed, the function
 // will be invoked
 console.log(myModule);
@@ -122,7 +127,9 @@ console.log(myModule.privateFoo, myModule.privateBar);
 ```
 
 - This pattern leverages a self-invoking function also referred to as **Immediately Invoked Function Expression (IIFE)**.
+
 - In JavaScript, variables created inside a function are not accessible from the outer scope (outside the function). Functions can use the return statement to selectively propagate information to the outer scope.
+
 - This pattern is essentially exploiting these properties to keep the private information hidden and export only a public-facing API.
 
 ### CommonJS modules
@@ -209,7 +216,7 @@ module.exports.run = () => {
 The essential concept to remember is that everything inside a module is private unless it's assigned to the `module.exports` variable. The content of this variable is then cached and returned when the module is loaded using `require()`.
 :::
 
-#### module.exports versus exports
+#### `module.exports` VS `exports`
 
 - The `exports` variable is just a reference to the initial value of `module.exports`.
 - Only new properties can be attached to the object referenced by the `exports` variable.
@@ -258,13 +265,13 @@ setTimeout(() => {
 
 - Node.js solves this problem elegantly by loading different version of a module depending on where the module is loaded from.
 
-The three ma major branches of resolving algorithm:
+The 3 major branches of resolving algorithm:
 
 1. **File modules**: If `moduleName` starts with `/`, it is already considered an _absolute path_ to the module and it's returned as it is. If it starts with `./`, then `moduleName` is considered a _relative path_, which is calculated starting from the directory of the requiring module.
 
 2. **Core modules**: If `moduleName` is not prefixed with `/` or `./`, the algorithm will first try to _search within the core Node.js modules_.
 
-3. **Package modules**: If no core module is found matching `moduleName`, then the search continues by looking for a matching module in the _first node_modules directory that is found navigating up in the directory structure_ starting from the requiring module. The algorithm continues to search for a match by looking into the next node modules directory up in the directory tree, until it reaches the root of the filesystem\*.
+3. **Package modules**: If no core module is found matching `moduleName`, then the search continues by looking for a matching module in the _first node_modules directory that is found navigating up in the directory structure_ starting from the requiring module. The algorithm continues to search for a match by looking into the next node modules directory up in the directory tree, until it reaches the root of the filesystem.
 
 For file and package modules, both files and directories can match `moduleName`. The algorithm will try to match the following:
 
@@ -347,22 +354,6 @@ Contents of the modules:
   ```
 
 This result reveals the caveats of circular dependencies with CommonJS, that is, different parts of our application will have a different view of what is exported by module a.js and module b.js, depending on the order in which those dependencies are loaded. While both the modules are completely initialized as soon as they are required from the module main.js, the a.js module will be incomplete when it is loaded from b.js. In particular, its state will be the one that it reached the moment b.js was required.
-
-## Callback Function
-
-```javascript
-const add = (a, b, callback) => {
-  setTimeout(() => {
-    const sum = a + b;
-
-    callback(sum);
-  }, 2000);
-};
-
-add(1, 4, (sum) => {
-  console.log(sum);
-});
-```
 
 ## Heroku
 

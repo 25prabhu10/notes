@@ -1,6 +1,6 @@
 ---
 title: CSS Testing
-description: CSS Testing.
+description: CSS Testing
 ---
 
 # CSS Testing

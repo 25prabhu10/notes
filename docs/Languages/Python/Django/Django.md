@@ -36,4 +36,4 @@
    python manage.py runserver
    ```
 
-7. Open the link given in the browser: [http://localhost:8000](http://127.0.0.1:8000)
+7. Open the link given in the browser: `http://localhost:8000` or `http://127.0.0.1:8000`

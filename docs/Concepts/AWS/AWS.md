@@ -10,7 +10,7 @@ description: Amazon Web Services is a Cloud Provider
 
 ## Amazon Web Services
 
-1. [AWS Global Infrastructure](#aws-global-infrastructure.md)
+1. [AWS Global Infrastructure](#aws-global-infrastructure)
 2. [IAM](./AWS_IAM.md)
 3. [EC2 and Storage](./AWS_EC2.md)
 4. [Load Balancing](./AWS_Load_Balancing.md)

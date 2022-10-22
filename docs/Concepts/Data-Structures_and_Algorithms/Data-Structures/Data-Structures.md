@@ -105,7 +105,7 @@ There are often many approaches to solving a problem. How do we choose between t
 
 1. To design an algorithm that is easy to understand, code, and debug.
 
-2. To design an algorithm that makes efficient use of the computer’s resources.
+2. To design an algorithm that makes efficient use of the computer's resources.
 
 The method for evaluating the efficiency of an algorithm or computer program is called asymptotic analysis.
 

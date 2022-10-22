@@ -14,7 +14,7 @@ not everything fits with everyone's needs.
 - [Social Networks](#social-networks)
 - [URLs](#urls)
 - [Web Apps](#web-apps)
-- [security.txt](#security.txt)
+- [security.txt](#securitytxt)
 
 ## App Stores
 
@@ -142,15 +142,14 @@ ga("send", "pageview");
 
 ### Track jQuery AJAX requests in Google Analytics
 
-An article by @JangoSteve explains how to [track jQuery AJAX requests in Google
-Analytics](https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/).
+An article by @JangoSteve explains how to [track jQuery AJAX requests in Google Analytics](https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics)
 
 Add this to `plugins.js`:
 
 ```js
 /*
  * Log all jQuery AJAX requests to Google Analytics
- * See: https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics/
+ * See: https://www.alfajango.com/blog/track-jquery-ajax-requests-in-google-analytics
  */
 if (typeof ga !== "undefined" && ga !== null) {
   $(document).ajaxSend(function (event, xhr, settings) {
@@ -364,7 +363,7 @@ Submit it to search engine tool:
 - [Google](https://www.google.com/webmasters/tools/sitemap-list)
 - [Bing](https://www.bing.com/toolbox/webmaster)
 - [Yandex](https://webmaster.yandex.com/)
-- [Baidu](https://zhanzhang.baidu.com/)
+- `zhanzhang.baidu.com` (Baidu)
 
 Or insert the following line anywhere in your `robots.txt` file, specifying the path to your sitemap:
 
@@ -633,9 +632,7 @@ example for an iPhone:
 
 ### Chrome Mobile web apps
 
-Chrome Mobile has a specific meta tag for making apps [installable to the
-homescreen](https://developer.chrome.com/multidevice/android/installtohomescreen)
-which tries to be a more generic replacement to Apple's proprietary meta tag:
+Chrome Mobile has a specific meta tag for making apps **installable to the home-screen** which tries to be a more generic replacement to Apple's proprietary meta tag:
 
 ```html
 <meta name="mobile-web-app-capable" content="yes" />

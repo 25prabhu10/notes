@@ -285,7 +285,7 @@ Working with Database using:
 
 ## API Security
 
-Checkout [Application Security](./../../../Concepts/Application_Security.md).
+Checkout [Application Security](./../../../Concepts/Application_Security/).
 
 1. Transport security: Add security settings to Reverse Proxies as well
 
@@ -457,7 +457,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 
 ## Secrets Management
 
-- [.Net Secrets Manger](./ASP.NET_Core.md#net-secrets-manger.md)
+- [.Net Secrets Manger](./ASP_NET_Core.md#secret-manager)
 
 ## API Versioning
 

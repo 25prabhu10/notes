@@ -1,6 +1,6 @@
 # NodeJS-Express-Handlebars Project
 
-- [NodeJS](./NodeJS) is a JavaScript runtime used in server-side development.
+- [NodeJS](./Node.js.md) is a JavaScript runtime used in server-side development.
 - Express is a Fast, unopinionated, minimalist web framework for NodeJS.
 - Handlebars is a simple templating language.
 

@@ -139,7 +139,5 @@ AWS Account:
 - [AWS Certified Cloud Practitioner](https://aws.amazon.com/certification/certified-cloud-practitioner/)
 
 > Shwetabh Varma (Organizer, Presenter)to Everyone (public 2:21 PM)
-
-[Shwetabh Varma - Linkedin](https://www.linkedin.com/in/shwetabh-varma-482b0a13/)
-
+> Shwetabh Varma - Linkedin, linkedin.com/in/shwetabh-varma-482b0a13/
 > Parvesh Chopra (Organizer)to Everyone (public 1:58 PM)

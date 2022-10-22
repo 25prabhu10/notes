@@ -26,7 +26,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
 2. C#
 
-   - [C# 10](./../C-Sharp)
+   - [C# 10](./../C-Sharp.md)
    - .NET Core 6
 
 3. [SQL](./../../SQL) Fundamentals
@@ -49,13 +49,13 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Application Settings & Configurations
    - Authentication & Authorization (Identity, IdentityServer, Auth0/OIDC, OWASP Top 10)
 
-5. SOLID Principals
+5. [SOLID Principals](../../../Concepts/Design_Patterns/README.md#solid-principles)
 
-   - S - Single-responsiblity Principle (SRP)
-   - O - Open-closed Principle (OCP)
-   - L - Liskov Substitution Principle (LSP)
-   - I - Interface Segregation Principle (ISP)
-   - D - Dependency Inversion Principle (DIP)
+   - S: Single-responsiblity Principle (SRP)
+   - O: Open-closed Principle (OCP)
+   - L: Liskov Substitution Principle (LSP)
+   - I: Interface Segregation Principle (ISP)
+   - D: Dependency Inversion Principle (DIP)
    - DRY
    - KISS
    - YAGNI
@@ -199,7 +199,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
 17. [Testing](./../../../Concepts/Testing/)
 
-    - [Unit Testing](./../../../Concepts/Testing/Unit_Testing)
+    - [Unit Testing](./../../../Concepts/Testing/Unit_Testing.md)
 
       - Frameworks
 
@@ -313,7 +313,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Jenkins
     - Circle CI
 
-21. [Design Patterns](../Design_Patterns/)
+21. [Design Patterns](../../../Concepts/Design_Patterns/)
 
     - CQRS
     - Decorator

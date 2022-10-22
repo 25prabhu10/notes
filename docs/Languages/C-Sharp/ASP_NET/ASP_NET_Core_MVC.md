@@ -227,12 +227,12 @@ Other methods:
 
 - File extensions are not included in the URL.
 
-- |            URL            |                         Maps TO                          |
-  | :-----------------------: | :------------------------------------------------------: |
-  |      www.domain.com       |                   /Pages/index.cshtml                    |
-  |   www.domain.com/index    |                   /Pages/index.cshtml                    |
-  |  www.domain.com/account   | /Pages/account.cshtml **or** /Pages/account/index.cshtml |
-  | www.domain.com/invalidURL |           /Pages/index.cshtml _(default path)_           |
+| URL                         | Maps TO                                                  |
+| --------------------------- | -------------------------------------------------------- |
+| `www.domain.com`            | `/Pages/index.cshtml`                                    |
+| `www.domain.com/index`      | `/Pages/index.cshtml`                                    |
+| `www.domain.com/account`    | `/Pages/account.cshtml` or `/Pages/account/index.cshtml` |
+| `www.domain.com/invalidURL` | `/Pages/index.cshtml` _(default path)_                   |
 
 ## Tag Helpers
 

@@ -32,5 +32,4 @@ latest changes, but you'll have to assess the costs/benefits of doing so.
 
 ### Where can I get help with support questions?
 
-Please ask for help on
-[StackOverflow](https://stackoverflow.com/questions/tagged/html5boilerplate).
+Please ask for help on [StackOverflow](https://stackoverflow.com/questions/tagged/html5boilerplate)

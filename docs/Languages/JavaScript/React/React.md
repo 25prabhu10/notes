@@ -167,7 +167,7 @@ Steps to create a base React project without using any boilerplate tools:
 
 8. Now you need a **module packager or build tool**, which will orchestrate JSX transformation, file minification and concatenation, module/dependency bundling or any other tasks. Tools such as [Grunt](https://gruntjs.com/), [gulp.js](https://gulpjs.com/), [webpack](https://webpack.js.org/), [PARCEL](https://parceljs.org/), [rollup.js](https://rollupjs.org/), [Snowpack](https://www.snowpack.dev/) can be used
 
-9. We will use webpack (v5) and for more info on how webpack works check out this [Link](../Tools/Webpack/Webpack).
+9. We will use webpack (v5) and for more info on how webpack works check out this [Link](../Tools/Webpack/Webpack.md)
 
    - Install it as project development dependency:
 
@@ -466,6 +466,7 @@ Ways to create a React component:
   ```javascript
   const IngredientsList = React.createClass({
     displayName: "IngredientsList",
+
     render() {
       return React.createElement(
         "ul",
@@ -504,6 +505,8 @@ Ways to create a React component:
   This syntax may as well be deprecated in near future.
   :::
 
+- `displayName`: This string property is used in debugging messages.
+
 ### Rendering React Components
 
 Once a React element is created, we need a way to display it in the browser. **ReactDOM** contains the tools necessary to render React elements in the browser.
@@ -518,13 +521,17 @@ The `ReactDOM.render()` method takes two arguments:
 ReactDOM.render(<h1>Sherlock Holmes</h1>, document.querySelector("#container");
 ```
 
-The case of rendering in React:
+When will React render a component?
 
 1. State changes
+
 2. Parent component renders
+
 3. Props changes
+
 4. `shouldComponentUpdate` function returns `true`
-5. `forceUpdate`
+
+5. `component.forceUpdate(callback)`: Calling `forceUpdate()` will cause `render()` to be called on the component, skipping `shouldComponentUpdate()`
 
 ## React Fragments
 
@@ -552,12 +559,13 @@ ReactDOM.render(<Welcome name="Mort" />, document.getElementById("root"));
 
 - The above JSX will be converted to standard JavaScript as shown below, here we can see that the function returns 2 items, which is not valid in JavaScript:
 
-```javascript
-// function Welcome({ name }) {
-//   return
-//     React.createElement("h1", null, "Welcome ", name),
-//     React.createElement("p", null, "To the world of React");
-// }
+```jsx
+function Welcome({ name }) {
+  return (
+    React.createElement("h1", null, "Welcome ", name),
+    React.createElement("p", null, "To the world of React")
+  );
+}
 ```
 
 - To overcome these issue, we should wrap the two elements with a parent element such as a `div`, so that only one `createElement` is returned by the function after transpilation:
@@ -633,7 +641,7 @@ function ExampleApplication() {
 
 StrictMode currently helps with:
 
-- Identifying components with unsafe lifecycles
+- Identifying components with unsafe life-cycles
 - Warning about legacy string ref API usage
 - Warning about deprecated findDOMNode usage
 - Detecting unexpected side effects
@@ -877,9 +885,22 @@ PropTypes and TypeScript can be used together as type checkers.
 
 Specify default values for `props` with `defaultProps`
 
-```javascript
+```jsx
 function Greeting(props) {
-  return <div>Hi {props.name}!</div>;
+  return <div>Hi {props.name}!</div>; // Hi Guest
+}
+
+// Provide default values
+Greeter.defaultProps = {
+  name: "Guest",
+};
+```
+
+- This is used for `undefined` props, but not for `null` props
+
+```jsx
+function Greeting(props) {
+  return <div>Hi {props.name}!</div>; // Hi null
 }
 
 // Provide default values
@@ -894,11 +915,11 @@ In React **`props` are immutable**. This leads to static components.
 
 ### `useState` Hook
 
-The `useState` [hook](#hooks) declares a “state variable”.
+The `useState` [hook](#hooks) declares a "state variable".
 
-This is a way to “preserve” some values between the function calls - `useState` is a new way to use the exact same capabilities that [`this.state`](#old-class-based-state) provides in a class.
+This is a way to "preserve" some values between the function calls - `useState` is a new way to use the exact same capabilities that [`this.state`](#class-based-state) provides in a class.
 
-- Normally, variables “disappear” when the function exits but state variables are preserved by React.
+- Normally, variables "disappear" when the function exits but state variables are preserved by React.
 
 - React will preserve this state between re-renders.
 
@@ -987,7 +1008,7 @@ setFullName((prevFullName) => {
 });
 ```
 
-### Old Class Based State
+### Class Based State
 
 To have mutable data that represent the state of that component, React provides a private object called `this.state` whose data can be changed by calling `this.setState()`.
 
@@ -1060,7 +1081,7 @@ If you want to access `this.props` inside the constructor, you need to pass prop
    }
    ```
 
-2. Passing props will require us to pass props to constructor as well:
+2. Passing props will require us to pass props to `super` constructor as well:
 
    ```javascript
    constructor(props) {
@@ -1101,13 +1122,14 @@ React implements a **synthetic event system**.
 JSX makes use of HTML like event handling API, with some small changes in the naming scheme. Like the event names (`onclick`) are in camel case (`onClick`).
 
 - Use camel-case for event names.
-- Cannot `return false` to prevent default behavior in React as of in HTML.
+- Cannot `return false` to prevent default behaviour in React as of in HTML.
 
 ```jsx
 <a
   href="#"
   onclick="console.log('The link was clicked.');
-return false">
+return false"
+>
   {" "}
   Click me{" "}
 </a>
@@ -1128,17 +1150,9 @@ function ActionLink() {
 }
 ```
 
-::: danger XSS
-React provides the `dangerouslySetInnerHTML` property to skip XSS protection and render anything directly.
-
-Add a layer of security with [DOMPurify](https://github.com/cure53/DOMPurify).
-
-To convert Markdown to HTML use [markedjs/marked](https://github.com/markedjs/marked).
-:::
-
 ## Styling
 
-React supports both inline styling and external [CSS](../../CSS/CSS)
+React supports both inline styling and external [CSS](../../CSS/CSS.md)
 
 React's component inline styles are specified as a JavaScript object with style names in camel case:
 
@@ -1572,7 +1586,7 @@ Don't Overuse Refs
 
 Hooks (React v16.8) let you use state and other React features without writing a class.
 
-Hooks are functions that let you “hook into” React state and lifecycle features from function components.
+Hooks are functions that let you _"hook into"_ React state and lifecycle features from function components.
 
 They help in resolving some of the problems caused by class based components:
 
@@ -1604,22 +1618,29 @@ Hooks provided by React:
 
 - Only call Hooks at the Top Level
 
-  - Don't call Hooks inside loops, conditions, or nested functions
+  - **Don't call** Hooks **inside loops, conditions, or nested functions**
 
 - Only call Hooks from React Function components or custom Hook functions
 
 ### `useEffect` Hook
 
-The Effect Hook lets you perform side effects in function components.
+The Effect Hook lets you **perform side effects** in function components
 
 Side effects such as:
 
-- Accessing `localStorage`
+- Accessing [`localStorage`](../JavaScript.md#local-storage)
+- Event listeners
+- Syncing 2 different internal states together
 - Data fetching from API/database interactions
 - Subscriptions (e.g. web sockets)
-- Syncing 2 different internal states together
 - Manually changing the DOM in React components
 - Basically anything that React isn't in charge of
+
+Not recommended use case for `useEffect`:
+
+- Updating state (derive it whenever possible)
+- Use [react-query](https://tanstack.com/query/v4) for data fetching instead of `useEffect`
+- Actions (Bind to user actions)
 
 _Example:_
 
@@ -1643,68 +1664,68 @@ function Example() {
 }
 ```
 
-- By using this hook, you tell React that your component needs to do something after render.
+- By using this hook, you tell React that your component needs to do something after render
 
 - **`useEffect` runs after every render** until dependency array is provided
 
-- We can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
+- We can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined
 
 There are two common kinds of side effects in React components:
 
-- Effects Without Cleanup:
+1. Effects Without Clean-up:
 
-  - Running some additional code after React has updated the DOM.
-  - Network requests, manual DOM mutations, and logging are common examples of effects that don’t require a cleanup.
+   - Running some additional code after React has updated the DOM
 
-- Effects with Cleanup:
+   - Network requests, manual DOM mutations, and logging are common examples of effects that don't require a clean-up
 
-  ```jsx
-  import React, { useState, useEffect } from "react";
+2. Effects with Clean-up:
 
-  function FriendStatus(props) {
-    const [isOnline, setIsOnline] = useState(null);
+   ```jsx
+   import React, { useState, useEffect } from "react";
 
-    useEffect(() => {
-      function handleStatusChange(status) {
-        setIsOnline(status.isOnline);
-      }
+   function FriendStatus(props) {
+     const [isOnline, setIsOnline] = useState(null);
 
-      ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+     useEffect(() => {
+       function handleStatusChange(status) {
+         setIsOnline(status.isOnline);
+       }
 
-      // Specify how to clean up after this effect:
-      return function cleanup() {
-        ChatAPI.unsubscribeFromFriendStatus(
-          props.friend.id,
-          handleStatusChange
-        );
-      };
-    }, []);
+       ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
 
-    if (isOnline === null) {
-      return "Loading...";
-    }
+       // Specify how to clean-up after this effect
+       return function cleanUp() {
+         ChatAPI.unsubscribeFromFriendStatus(
+           props.friend.id,
+           handleStatusChange
+         );
+       };
+     }, []);
 
-    return isOnline ? "Online" : "Offline";
-  }
-  ```
+     if (isOnline === null) {
+       return "Loading...";
+     }
 
-  - The first argument it takes is a callback function
-  - The second argument is called the dependency array, it is optional
+     return isOnline ? "Online" : "Offline";
+   }
+   ```
+
+   - The first argument it takes is a callback function
+   - The second argument is called the dependency array, it is optional
 
 The callback function passed on to **`useEffect` must not be made as `async`**, because `useEffect` returns a callback function which React will run when the **component unmounts or the dependencies change** and the effect hook needs to run again with new values.
 
 - If the function is made `async` the `useEffect` will return a `Promise` instead of the callback function that was provided to the `return` statement
 
 ```javascript
-// Don't do this
-
+// don't do this
 useEffect(async () => {
   const res = await fetch("some url");
   const data = await res.json();
   setMemes(data);
 }, []);
 
-// Instead create a aysnc function that will
+// instead create a async function that will
 // be called from the callback function
 
 const getMemes = async () => {
@@ -1759,7 +1780,7 @@ Tips:
 
 ### `useReducer` Hook
 
-An alternative to `useState`. It accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a `dispatch` method. (If you’re familiar with Redux, you already know how this works.)
+An alternative to `useState`. It accepts a reducer of type `(state, action) => newState`, and returns the current state paired with a `dispatch` method. (If you're familiar with Redux, you already know how this works.)
 
 - It takes in the current state and returns a new state
 
@@ -1795,7 +1816,7 @@ function Counter() {
 }
 ```
 
-- React guarantees that `dispatch` function identity is stable and won’t change on re-renders. This is why it’s safe to omit from the `useEffect` or `useCallback` dependency list.
+- React guarantees that `dispatch` function identity is stable and won't change on re-renders. This is why it's safe to omit from the `useEffect` or `useCallback` dependency list.
 
 `useEffect` vs `useReducer`:
 
@@ -1815,7 +1836,7 @@ Pass an inline callback and an array of dependencies. `useCallback` will return 
 
 - It is helpful when passing callback props to highly optimized child component (such as memoized child)
 
-```javascript
+```jsx
 function ParentComponent() {
   const onHandleClick = useCallback(() => {
     // this will return the same function
@@ -1836,7 +1857,7 @@ It Returns a memoized value.
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
 
-Pass a “create” function and an array of dependencies. `useMemo` will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
+Pass a "create" function and an array of dependencies. `useMemo` will only recompute the memoized value when one of the dependencies has changed. This optimization helps to avoid expensive calculations on every render.
 
 - `useMemo` runs the function passed during rendering. Don't do anything there that you wouldn't normally do while rendering (such as side effects, they belong in `useEffect`)
 
@@ -1851,7 +1872,7 @@ Pass a “create” function and an array of dependencies. `useMemo` will only r
   - Be a Pure functional component.
   - Render _often_.
   - Usually, re-render with the same props.
-  - Be “medium” to “big” in size.
+  - Be "medium" to "big" in size.
 
 It can be used to memoize child to only rerender if props have changed:
 
@@ -2036,30 +2057,39 @@ function NameFields() {
 
 ### Custom Hooks
 
-- [Collection of custom Hooks](./Hooks)
+- [Collection of custom Hooks](./Hooks.md)
 - [useHooks - Know about custom hooks](https://usehooks.com/)
 
-## Component Life Cycle Methods
+## Component Life-Cycle Methods
 
-React life cycle methods are methods that are executed in certain occasions throughout the life cycle of the component.
+React life cycle methods are methods that are executed at certain occasions throughout the life cycle of the component.
 
-They are divided as:
+These are **available only in Class based components** and not present in functional components.
 
-- Mounting
-- Update
-- Unmount
+A `React.Component` subclass must define a `render()` method
 
-They are **available only in Class based components** and not present in functional components.
+- `render()`: Invoked before the component is mounted and then whenever the [State](#state-management) or [Props](#props) changes.
 
-### Mounting Life Cycle Methods
+  - It should always return React element.
+
+### Mounting
 
 **Mounting** is creating new instance of a component and inserting into the DOM.
 
-1. `constructor`: The first thing that gets called is your component constructor, if your component is a class component. This does not apply to functional components.
+Order of method calls on mount:
 
-   - `super()` must be called at the start inside the constructor
+- `constructor`
+- `getDerivedStateFromProps`
+- `render`
+- `componentDidMount`
 
-   - Setting up [state](#state)
+List of Methods:
+
+1. `constructor`:
+
+   - `super()` must be called at the start inside the constructor if class extends another class, in this case the component extends `React.Component` class
+
+   - Setting up [state](#state-management)
    - Creating [refs](#refs)
    - Method binding: `this.handleClick = this.handleClick.bind(this)`
 
@@ -2067,6 +2097,7 @@ They are **available only in Class based components** and not present in functio
    class MyComponent extends Component {
      constructor(props) {
        super(props);
+
        this.state = {
          counter: 0,
        };
@@ -2086,41 +2117,80 @@ They are **available only in Class based components** and not present in functio
 
    - _Constructor_ is required to call `createRef` or method binding
 
-2. `componentDidMount`: **Invoked once, immediately after the initial rendering** occurs. At this point, the component has a DOM representation that can be accessed (useful for data fetching). This is not invoked during component re-rendering after the component has been mounted.
+2. `componentDidMount`: **Invoked once, immediately after the initial rendering** occurs. At this point, the component has a DOM representation that can be accessed.
+
+   - This is **not invoked during component re-rendering** after the component has been mounted.
 
    - API calls are made here
    - Add event listeners
+
+3. `getDerivedStateFromProps`: **Invoked right before calling the `render()`** method, both on the initial mount and on subsequent updates. It should return an object to update the state, or `null` to update nothing.
+
+   - resetting a video or audio element when the source changes
+   - refreshing a UI element with updates from the server
+   - closing an accordion element when the contents change
+
+   ```javascript
+   static getDerivedStateFromProps(props, state) {
+     if (state.blocks.length > 0) {
+       return null;
+     }
+
+     return { blocks: createBlocks(props.numberOfBlocks) };
+   }
+   ```
+
+   - Checkout this link which suggests to use this method only in rare cases [You probably don't need derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
 ::: tip NOTE
 Components whose single responsibility is to communicate with the remote API, and passing data and callbacks down as props are called **container component**.
 :::
 
 ::: danger DEPRECATED
-These have be deprecated:
+This method is deprecated
 
-`componentWillMount`: Invoked once, immediately before the initial rendering occurs. Setting state here will not trigger a re-rending.
+`componentWillMount()`: Invoked once, immediately before the initial rendering occurs. Setting state here will not trigger a re-rending.
 :::
 
-### Updating Life Cycle Methods
+### Updating
 
 **Updating** is re-rendering the component. Based on changes occurring in component props or state.
+
+Order of method calls based on updates:
+
+- `getDerivedStateFromProps`
+- `shouldComponentUpdate`
+- `render`
+- `getSnapshotBeforeUpdate`
+- `componentDidUpdate`
 
 **Prop Changes** and **State Changes**:
 
 1. `shouldComponentUpdate`: **Called before the render function** and it gives the opportunity to **define if a re-rendering is needed or can be skipped**.
 
+   - Stop unnecessary re-renders
+
    ```javascript
    shouldComponentUpdate(nextProps, nextState) {
-     // return true if render is called on props or state change
+     return true; // if render is called on props or state change
      // return false if render is not required
    }
    ```
 
-2. `componentDidUpdate`: **Invoked immediately after the component's updates are flushed to the DOM**. This method is not called for the initial render.
+2. `componentDidUpdate`: **Invoked immediately after the component's updates are flushed to the DOM**.
+
+   - This method is **not called for the initial render**
+
+   - If `getSnapshotBeforeUpdate()` is implemented (which is rare), the value it returns will be passed as a third `snapshot` parameter to `componentDidUpdate()`. Otherwise this parameter will be `undefined`
+
+   - This method will **not be invoked if `shouldComponentUpdate()` returns `false`**
 
    ```javascript
-   componentDidUpdate(prevProps) {
+   componentDidUpdate(prevProps, prevState, snapshot) {
      // Typical usage (don't forget to compare props):
+     if (this.props.userID !== prevProps.userID) {
+        this.fetchData(this.props.userID);
+      }
    }
    ```
 
@@ -2131,60 +2201,114 @@ These have be deprecated:
 
    ```javascript
    getSnapshotBeforeUpdate(prevProps, prevState) {
-       return null;
-     }
+      return 100;
+    }
 
    componentDidUpdate(prevProps, prevState, snapshot) {
-     }
+      console.log(snapshot); // 100
+    }
    ```
 
 ::: danger DEPRECATED
 
 These have be deprecated:
 
-1. `componentWillReceiveProps`: Invoked when a component is receiving new props. Calling `this.setState()` will not trigger re-rendering.
+- `componentWillReceiveProps(nextProps)`: Invoked when a component is receiving new props. Calling `this.setState()` will not trigger re-rendering.
 
-2. `componentWillUpdate`: Invoked immediately before rending when new props or state being received. State change via `this.setState` is not allowed as this function should be strictly used to prepare for upcoming update and not trigger an update itself.
+- `componentWillUpdate(nextProps, nextState)`: Invoked immediately before rending when new props or state being received. State change via `this.setState` is not allowed as this function should be strictly used to prepare for upcoming update and not trigger an update itself.
 
 :::
 
-### Unmounting Life Cycle Methods
+### Unmounting
 
 Unmounting is when a component is being removed from the DOM.
+
+Order of method calls based on updates:
+
+- `componentWillUnmount`
 
 1. `componentWillUnmount`: **Invoked once, immediately before a component is unmounted from the DOM**. Used for clean-up operations like removing any event listener's timers defined in mounting life cycle.
 
    - Tear down or clean up tasks or code that will otherwise clutter the app before the component disappears
+
    - Remove event listeners
+
+   - **Should not call `setState()`**
 
    ```javascript
    componentWillUnmount() {
-       // tear down or cleanup
-     }
+      // tear down or cleanup
+    }
    ```
 
-### Other Life Cycle Methods
+### Error Boundaries (Handling)
 
-Life cycle methods that are triggered during Mount and Updating:
+These methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
 
-1. `render()`: Invoked before the component is mounted and then whenever the [State](#state) or [Props](#props) changes. It should always return React element.
+Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed.
 
-2. `getDerivedStateFromProps` (NEW): Invoked right before calling the render method, both on the initial mount and on subsequent updates. It should return an object to update the state, or null to update nothing.
+- During runtime errors React unmounts the whole React component tree
+- Error boundaries catch these runtime errors and display a fallback UI
 
-   - resetting a video or audio element when the source changes
-   - refreshing a UI element with updates from the server
-   - closing an accordion element when the contents change
+Error boundaries **do not catch** errors for:
 
-   ```javascript
-   static getDerivedStateFromProps(props, state) {
-     if (state.blocks.length > 0) {
-       return {};
-     }
-     return { blocks: createBlocks(props.numberOfBlocks) };
-   }
-   ```
+- Event handlers
+- Asynchronous code
+- Server side rendering
+- Errors thrown in the error boundary itself (rather than its children)
 
-- Checkout this link which suggests to use this method only in rare cases [You probably don't need derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
+A class component becomes an error boundary if it defines **either (or both)** of the lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`.
+
+- `static getDerivedStateFromError()`: This lifecycle is invoked after an error has been thrown by a descendant component.
+
+  - It receives the error that was thrown as a parameter and should return a value to update state.
+
+- `componentDidCatch()`: This lifecycle is invoked after an error has been thrown by a descendant component.
+
+  - It receives two parameters:
+
+    1. `error`: The error that was thrown.
+
+    2. `info`: An object with a `componentStack` key containing information about which component threw the error.
+
+  - to log error information.
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    // Update state so the next render will show the fallback UI.
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    // Example "componentStack":
+    //   in ComponentThatThrows (created by App)
+    //   in ErrorBoundary (created by App)
+    //   in div (created by App)
+    //   in App
+    logComponentStackToMyService(errorInfo.componentStack);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      // You can render any custom fallback UI
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
+
+// Wrap around components that might throw an error
+<ErrorBoundary>
+  <MyWidget />
+</ErrorBoundary>;
+```
 
 ## Forms
 
@@ -2219,11 +2343,14 @@ React form elements share the same HTML semantic element name and its attributes
 
 ### Controlled Components
 
-An input form element whose value is controlled by React is called a "controlled input or Controlled Component".
+An input form element whose value is controlled by React is called a "controlled input or Controlled Component"
 
 - The form data is stored in component's state property
+
 - As state is immutable, user won't be able to provide any input from the form's user interface
+
 - To enable user input, we need to implement `handleChange` method to update the state based on user input
+
 - As state will contain all the form's data, on submit this can be passed on to an API call or for further processing
 
 Lets create a simple input form which takes users first-name. Please find the code below:
@@ -2244,7 +2371,8 @@ class UserForm extends Component {
 }
 ```
 
-- Here we have an input element whose value is **not tracked by the React. Hence, it is an [Uncontrolled Component](#uncontrolled-component)**
+- Here we have an input element whose value is **not tracked by the React. Hence, it is an [Uncontrolled Component](#uncontrolled-components)**
+
 - To make it a controlled component, we need to track the input value through the component's state. So we will add a key `firstName` to the state object:
 
 ```jsx
@@ -2296,6 +2424,7 @@ class UserForm extends Component {
 ```
 
 - The input element's value is now tracked by React. But, this is still not a controlled component. Because, due to some business logic the `this.state.firstName` is changed outside of the form's interface (in code without any user action), this will not be reflected in the user interface. As, the input element's value is independent of the state, currently it only updates the state.
+
 - To correct this the input element's value should be bound to the state. This can be done by assigning the state to the input value, such as:
 
 ```jsx
@@ -2337,7 +2466,7 @@ class UserForm extends Component {
 }
 ```
 
-- This form is driven by the state and user actions update the state. `handleSubmit` method is used to handle the form submit event.
+- This form is driven by the state and user actions update the state. `handleSubmit` method is used to handle the form submit event
 
 _Example_:
 
@@ -2374,9 +2503,11 @@ class UserForm extends Component {
 
 - There only few updates:
 
-  - All form elements will require to have the name prop to be set same as the key name used in the state object to track that particular element.
-  - Ternary operator is used to determine the value as all elements have user data in their value props except checkboxes which have boolean data in the checked prop.
-  - Using the ES6 computed property name syntax the state key can be updated using the corresponding input name.
+  - All form elements will require to have the name prop to be set same as the key name used in the state object to track that particular element
+
+  - Ternary operator is used to determine the value as all elements have user data in their value props except checkboxes which have boolean data in the checked prop
+
+  - Using the ES6 computed property name syntax the state key can be updated using the corresponding input name
 
 Good to know:
 
@@ -2402,7 +2533,7 @@ Advantages of this way is:
 
 ### Uncontrolled Components
 
-In a [controlled component](#controlled-component), form data is handled by a React component. The alternative is **uncontrolled components, where form data is handled by the DOM itself**.
+In a [controlled component](#controlled-components), form data is handled by a React component. The alternative is **uncontrolled components, where form data is handled by the DOM itself**.
 
 Controlled components adhere to React's principles and have their advantages. In most cases, controlled components are recommended.
 
@@ -2515,13 +2646,13 @@ class FileInput extends React.Component {
 }
 ```
 
-- Checkout [Formik](./Formik)
+- Checkout [Formik](./Formik.md)
 
 ### Form Validation
 
 Using built-in browser validation with JavaScript to control how error messages are rendered
 
-```javascript
+```jsx
 const [error, setError] = useState("");
 
 const onBlur = (event) => {
@@ -2564,7 +2695,7 @@ const App = () => {
 
 - _Prop drilling_ refers to the process of sending props from a higher-level component to a lower-level component.
 
-- To overcome Prop drilling we can either use the Context API or a state management system
+- To overcome Prop drilling we can either use the [Context API](#context-api) or a state management system
 
 Types of state:
 
@@ -2572,8 +2703,9 @@ Types of state:
 
   - State that's only useful in the UI for controlling the interactive parts of our app (like modal `isOpen` state)
 
-  - [Redux](./Redux)
-  - [jotai](https://github.com/pmndrs/jotai)
+  - [Redux](./Redux.md)
+  - [jotai](https://github.com/pmndrs/jotai): Atomic State
+  - [zustand](https://github.com/pmndrs/zustand)
   - [recoiljs](https://recoiljs.org/)
   - [XState](https://xstate.js.org/): State machine
   - [Immer](https://immerjs.github.io/immer/): Write mutable code and execute it immutably
@@ -2586,45 +2718,46 @@ Types of state:
   - [`react-query`](https://react-query.tanstack.com/)
   - [`SWR`](https://swr.vercel.app/): _stale-while-revalidate_
 
-- Form State: The many different states of a form (e.g. loading, submitting, disabled, validation, retrying)
+- _Form State_: The many different states of a form (e.g. loading, submitting, disabled, validation, retrying)
 
-- URL State: State managed by the browser (e.g. filter products, saving to query parameters, and refreshing the page to see the same products filtered)
+- _URL State_: State managed by the browser (e.g. filter products, saving to query parameters, and refreshing the page to see the same products filtered)
 
-- State Machine: An explicit model of your state over time (e.g. a stoplight goes from green -> yellow -> red, but never green -> red)
+- _State Machine_: An explicit model of your state over time (e.g. a stop-light goes from green -> yellow -> red, but never green -> red)
 
 ### Context API
 
-Context API (React v16.3) enable us to define the context Object which stores some data and will make it available throughout the hierarchy without passing the data as props.
+Context API (_React v16.3_) enable us to define the context Object which stores some data and will make it available throughout the hierarchy without passing the data as props
 
 - Initialize Context:
 
   ```javascript
-  import React from "react";
+  // src/currency/currency-context.js
+  import * as React from "react";
 
-  const CurrencyContext = React.createContext();
-
-  export { CurrencyContext };
+  export const CurrencyContext = React.createContext();
   ```
 
-- The Context object exposes a Provider component, which is most often used at the top-level component to provide its context to all child components
+- The Context object exposes a `Provider` component, which is most often used at the top-level component to provide its context to all child components:
+
+  - `value` is the current value
 
   ```jsx
-  import React from "react";
-
   import { CurrencyContext } from "./currency-context";
 
   const App = () => {
     return (
       <CurrencyContext.Provider value="€">
-        <Books list={DATA} />
+        <Books list={dataItems} />
       </CurrencyContext.Provider>
     );
   };
   ```
 
-- The Context object also exposes a Consumer component, which can be used in all child components which need to access the context:
+- The Context object also exposes a `Consumer` component, which can be used in all child components which need to access the context:
 
   ```jsx
+  import { CurrencyContext } from "./currency-context";
+
   const Book = ({ item }) => {
     return (
       <CurrencyContext.Consumer>
@@ -2638,38 +2771,97 @@ Context API (React v16.3) enable us to define the context Object which stores so
   };
   ```
 
+#### `useContext` Hook
+
+This hook is used to create common data that can be accessed throughout the component hierarchy without passing the props down manually to each level (hence avoiding prop drilling)
+
+- The context can be consumed by using the **`useContext`** hook:
+
+```jsx
+import { CurrencyContext } from "./currency-context";
+import { useContext } from "react";
+
+const Book = ({ item }) => {
+  // const value = useContext(MyContext);
+  const currency = useContext(CurrencyContext);
+
+  return (
+    <li>
+      {item.title} - {item.price} {currency}
+    </li>
+  );
+};
+```
+
+_Example:_
+
+```jsx
+// src/count/count-context.jsx
+import * as React from "react";
+
+const CountContext = React.createContext();
+
+const useCount = () => {
+  // create context
+  const context = React.useContext(CountContext);
+
+  if (!context) {
+    throw new Error(`useCount must be used within a CountProvider`);
+  }
+
+  return context;
+};
+
+const CountProvider = (props) => {
+  // manage state of the context
+  const [count, setCount] = React.useState(0);
+
+  const value = React.useMemo(() => [count, setCount], [count]);
+
+  return <CountContext.Provider value={value} {...props} />;
+};
+
+export { CountProvider, useCount };
+```
+
+```jsx
+// src/count/page.jsx
+import * as React from "react";
+import { CountProvider, useCount } from "./count-context";
+
+const Counter = () => {
+  const [count, setCount] = useCount();
+
+  const increment = () => setCount((c) => c + 1);
+
+  return <button onClick={increment}>{count}</button>;
+};
+
+const CountDisplay = () => {
+  const [count] = useCount();
+
+  return <div>The current counter count is {count}</div>;
+};
+
+const CountPage = () => (
+  <div>
+    <CountProvider>
+      <CountDisplay />
+      <Counter />
+    </CountProvider>
+  </div>
+);
+```
+
 We can provide an initial value while creating a context:
 
 ```jsx
 const CurrencyContext = React.createContext({ currency: "USD" });
 
-// It is only useful when we de
 const { currency } = React.useContext(CurrencyContext);
 ```
 
 - As the context consumers are usually rendered within a provider which can provide a useful value, we can remove default value
-
-#### `useContext` Hook
-
-This hook is used to create common data that can be accessed throughout the component hierarchy without passing the props down manually to each level (hence avoiding prop drilling).
-
-```jsx
-const value = useContext(MyContext);
-```
-
-- The context can be consumed by using the **`useContext`** hook:
-
-  ```jsx
-  const Book = ({ item }) => {
-    const currency = React.useContext(CurrencyContext);
-
-    return (
-      <li>
-        {item.title} - {item.price} {currency}
-      </li>
-    );
-  };
-  ```
 
 #### Limitations Of Context
 
@@ -2708,281 +2900,13 @@ render() {
 }
 ```
 
-Typical use case for portals is when a parent component has an `overflow: hidden` or `z-index` style, but you need the child to visually "break out" of its container. For example, dialogs, hover-cards, and tooltips.
+Typical use case for portals is when a parent component has an `overflow: hidden` or `z-index` style, but you need the child to visually "break out" of its container. For example, **dialogs, hover-cards, and tooltips**
 
 ## Client-Side Routing
 
-### React Router
+There are many libraries available:
 
-- `react-router` core library
-- BaseName
-- v6
-- `GetUserConfirmation`
-- `forceRefresh`
-- `useRouteMatch`
-
-#### Routes
-
-```jsx
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/profile" element={<Profile />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-```
-
-- A `<Route>` is only ever to be used as the child of `<Routes>` element, never rendered directly.
-
-- If you want the new page to start from top:
-
-```jsx
-const Home = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
-  return <>...</>;
-};
-```
-
-- Not found page:
-
-```jsx
-<BrowserRouter>
-  <Header />
-  <Route path="/" element={<Home />} />
-  <Route path="/about" element={<About />} />
-  <Route path="*" element={<NotFoundPage />} />
-</BrowserRouter>
-```
-
-```jsx
-<BrowserRouter>
-  <Header />
-  <Route path="/" component={Home} />
-  <Route path="/about" component={About} />
-  <Route component={NotFoundPage} />
-</BrowserRouter>
-```
-
-#### BrowserRouter
-
-- `basename="profile"`
-
-#### Queries
-
-```jsx
-<BrowserRouter>
-  <Header />
-  <Routes>
-    <Route path="/" element={<Home />} />
-    <Route path="/about" element={<About />} />
-    <Route path="/profile/:id" element={<Profile />} />
-  </Routes>
-</BrowserRouter>
-```
-
-```jsx
-// http://localhost:5173/profile/565?name=mort&id=999
-
-import { useLocation, useParams } from "react-router-dom";
-
-export const Profile = () => {
-  const { id } = useParams(); // 565
-
-  const { search } = useLocation();
-
-  const query = new URLSearchParams(search);
-
-  console.log(query.get("name")); // mort
-  console.log(query.get("age")); // `null`
-
-  return <h1>My profile id {id}</h1>;
-};
-
-// export const Profile = ({ match }) => {
-//   console.log(match.params.id);
-//   return <h1>My profile</h1>;
-// };
-```
-
-#### Navigation (Redirect)
-
-- Using `useNavigate` hook:
-
-```jsx
-import { useNavigate, useParams } from "react-router-dom";
-
-export const Profile = () => {
-  const { id } = useParams();
-
-  const navigate = useNavigate();
-
-  if (id === null) {
-    navigate("/");
-  }
-
-  return <h1>My profile id {id}</h1>;
-};
-```
-
-- In v6 `Redirect` is replaced by `Navigate`
-
-```jsx
-import { BrowserRouter, Route, Navigate } from "react-router-dom";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route
-        path="/profile"
-        component={loggedIn ? <Profile /> : <Navigate to="/" />}
-      />
-    </BrowserRouter>
-  );
-}
-```
-
-```jsx
-import { BrowserRouter, Route, Redirect } from "react-router-dom";
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Header />
-      <Route path="/" component={Home} />
-      <Route path="/about" component={About} />
-      <Route
-        path="/profile"
-        component={loggedIn ? <Profile /> : <Redirect to="/" />}
-      />
-    </BrowserRouter>
-  );
-}
-```
-
-#### History
-
-```jsx
-import { useHistory } from "react-router-dom";
-
-export const Profile = ({ loggedIn }) => {
-  const history = useHistory();
-
-  useEffect(() => {
-    if (!loggedIn) {
-      // Redirect to home page if user is not logged in
-      history.push("/");
-    }
-  }, [loggedIn, history]);
-
-  return <h1>My profile id {id}</h1>;
-};
-```
-
-#### V5
-
-- Routes:
-
-  ```jsx
-  import { BrowserRouter, Route } from "react-router-dom";
-
-  function App() {
-    return (
-      <BrowserRouter>
-        <Route path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route path="/profile" component={Profile} />
-      </BrowserRouter>
-    );
-  }
-  ```
-
-  - By default React-Router will render all the matched paths
-
-    - In the above code, if we navigate to the path `/about` both `<Home />` and `<About />` components will be rendered as `/about` can be matched with `/` and `/about`
-
-    - To exclude `/` from being matched we can specify the **`exact` attribute**:
-
-    ```jsx
-    <BrowserRouter>
-      <Route path="/" exact component={Home} />
-      <Route path="/about" component={About} />
-    </BrowserRouter>
-    ```
-
-- Links: They render an anchor tag `<a>`
-
-  ```jsx
-  import { Link } from "react-router-dom";
-
-  export const NavBar = () => {
-    return (
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
-        </li>
-        <li>
-          <Link to="/about">about</Link>
-        </li>
-        <li>
-          <Link to="/profile">profile</Link>
-        </li>
-      </ul>
-    );
-  };
-  ```
-
-  - The above JSX will be rendered as:
-
-  ```html
-  <ul>
-    <li>
-      <a href="/">Home</a>
-    </li>
-    <li>
-      <a href="/about">about</a>
-    </li>
-    <li>
-      <a href="/profile">profile</a>
-    </li>
-  </ul>
-  ```
-
-  - Even though an anchor tag is render, on clicking the link the page will not be reloaded
-  - React prevents the browser navigation to the new page
-
-::: danger LINK
-`Link` should always be under any of the children of `BrowserRouter`
-:::
-
-Types of routers:
-
-- `BrowserRouter`: Uses everything after the TLD (.com, .net) or port as the "path"
-
-  - `localhost:3000/page-two`: `/page-two` is matched
-  - Backend server need to be configured to respond to different routes
-
-- `HashRouter`: Uses everything after a `#` as the "path"
-
-  - `localhost:3000/#/page-two`: `/page-two` is matched
-  - As anything after the `#` is ignored by the browser before making the request to server. The server will always return the root `index.html`
-
-- `MemoryRouter`: Doesn't use the URL to track navigation
-
-  - `localhost:3000/`: URL don't change even if we navigate to other pages
+- [React Router](./React_Router.md)
 
 ## Concurrent Features
 
@@ -3068,7 +2992,7 @@ const OtherComponent = React.lazy(() => import("./OtherComponent"));
 
 - Initially was used for lazy loading
 
-- The lazy component should then be rendered inside a `Suspense` component, which allows us to show some fallback content (such as a loading indicator) while we’re waiting for the lazy component to load.
+- The lazy component should then be rendered inside a `Suspense` component, which allows us to show some fallback content (such as a loading indicator) while we're waiting for the lazy component to load.
 
 _Example:_
 
@@ -3090,11 +3014,11 @@ function MyComponent() {
 
 Suspense for Data Fetching:
 
--
-
 ### Route Based Code-Splitting
 
 Code splitting based on the routes the user visits:
+
+_Example:_ Using [React Router](./React_Router.md)
 
 ```jsx
 import React, { Suspense, lazy } from "react";
@@ -3115,72 +3039,12 @@ const App = () => (
 );
 ```
 
-## Error Boundaries
-
-Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed.
-
-- During runtime errors React unmounts the whole React component tree
-- Error boundaries catch these runtime errors and display a fallback UI
-
-Error boundaries **do not catch** errors for:
-
-- Event handlers
-- Asynchronous code
-- Server side rendering
-- Errors thrown in the error boundary itself (rather than its children)
-
-A class component becomes an error boundary if it defines either (or both) of the lifecycle methods static `getDerivedStateFromError()` or `componentDidCatch()`.
-
-- `static getDerivedStateFromError()`: to render a fallback UI after an error has been thrown
-
-- `componentDidCatch()`: to log error information.
-
-```jsx
-class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
-    return { hasError: true };
-  }
-
-  componentDidCatch(error, errorInfo) {
-    // You can also log the error to an error reporting service
-    logErrorToMyService(error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      // You can render any custom fallback UI
-      return <h1>Something went wrong.</h1>;
-    }
-
-    return this.props.children;
-  }
-}
-```
-
-Usage:
-
-```jsx
-<ErrorBoundary>
-  <MyWidget />
-</ErrorBoundary>
-```
-
 ## Deploying React App
 
 Run the `build` script:
 
 ```bash
 npm run build
-
-yarn run build
-
-pnpm run build
 ```
 
 The source code will be bundled for production, minified and stored by default in:
@@ -3188,7 +3052,50 @@ The source code will be bundled for production, minified and stored by default i
 - `build` if you are using CRA
 - `dist` if you are using `vite.js`
 
+## Security
+
+React provides the `dangerouslySetInnerHTML` property to skip XSS protection and render anything directly
+
+- Avoid using it as it may cause [XSS](../../../Concepts/Application_Security/Cross_Site_Scripting.md)
+
+- Add a layer of security with [DOMPurify](https://github.com/cure53/DOMPurify)
+
+- To convert Markdown to HTML use [markedjs/marked](https://github.com/markedjs/marked)
+
+_Example:_
+
+```jsx
+import DOMPurify from "dompurify";
+
+const App = () => {
+  const data = "lorem <b>ipsum</b>";
+
+  return (
+    <>
+      <div>{data}</div>
+      <div dangerouslySetInnerHTML={{ __html: data }} />
+      <div dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(data) }} />
+    </>
+  );
+};
+
+// lorem <b>ipsum</b>
+// lorem ipsum
+// lorem ipsum
+
+export default App;
+```
+
 ## Versions
+
+React v18:
+
+- March 29, 2022
+- `ReactDOM.render` is deprecated
+- Automatic batching
+- New Hooks: [`useId`](#useid-hook), [`useDeferredValue`](#usedeferredvalue-hook)
+- Streaming SSR with [Suspense](#suspense)
+- Concurrent rendering: A behind-the-scenes
 
 React v17:
 
@@ -3229,15 +3136,6 @@ React v17:
     ```
 
 - React will no longer attach event handlers at the `document` level. Instead, it will attach them to the root DOM container into which your React tree is rendered
-
-React v18:
-
-- March 29, 2022
-- `ReactDOM.render` is deprecated
-- Automatic batching
-- New Hooks: [`useId`](#useid-hook), [`useDeferredValue`](#usedeferredvalue-hook)
-- Streaming SSR with [Suspense](#suspense)
-- Concurrent rendering: A behind-the-scenes
 
 ## References
 

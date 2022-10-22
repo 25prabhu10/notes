@@ -48,7 +48,7 @@ Enum.TryParse("West", out Directions parsedDirections);
 Console.WriteLine((int)parsedDirections);
 ```
 
-- By default, the **1<sup>st</sup>** item has value "**0**", and the **next** has **1** and so on...
+- By default, the **1st** item has value "**0**", and the **next** has **1** and so on...
 
 ### Methods
 

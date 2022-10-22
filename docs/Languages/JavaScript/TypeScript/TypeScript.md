@@ -49,7 +49,7 @@ _Example:_ Using TypeScript compiler
 
 1. Install TypeScript compiler as global package
 
-2. Setup TypeScript in individual projects (recommended) and use npm scripts or [`gulp`](../Tools/Gulp.js/Gulp.js) or any other tool
+2. Setup TypeScript in individual projects (recommended) and use npm scripts or [`gulp`](../Tools/Gulp.js/Gulp.js.md) or any other tool
 
    ```bash
    # Initialize a new NPM project (follow the prompts)
@@ -158,6 +158,9 @@ project/
 ## Data Types
 
 A set of values and the things you can do with them.
+
+![Cheat Sheet of TypeScript Types](./TypeScript_Types.png)
+![TypeScript Control Flow Analysis](./TypeScript_Control_Flow_Analysis.png)
 
 ### Core Types
 
@@ -995,6 +998,8 @@ class Car {
 }
 ```
 
+![TypeScript Classes](./TypeScript_Classes.png)
+
 ### Inheritance
 
 - Multiple inheritance is not supported
@@ -1147,6 +1152,8 @@ interface Car {
 | --------------------------------- | ----------------------------- |
 | Preferred for objects and classes | For functions                 |
 | Open for extensions               | Fixed object structure        |
+
+![TypeScript Interfaces](./TypeScript_Interfaces.png)
 
 ## Generics
 

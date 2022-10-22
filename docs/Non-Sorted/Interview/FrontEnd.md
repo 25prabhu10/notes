@@ -284,7 +284,7 @@
    - JS:
 
      - Jasmine:
-       - Behavioral Driven Development (BDD)
+       - Behavioural Driven Development (BDD)
        - Dose not require DOM
        - Frontend and Backend
      - MochaJS:

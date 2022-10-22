@@ -11,19 +11,19 @@ You can use `*`, `+`, and `-`.
 
 Syntax:
 
-    ```markdown
-    - Candy
-    - Gum
-    - Soda
+```markdown
+- Candy
+- Gum
+- Soda
 
-    * Candy
-    * Gum
-    * Soda
+* Candy
+* Gum
+* Soda
 
-    + Candy
-    + Gum
-    + Soda
-    ```
+- Candy
+- Gum
+- Soda
+```
 
 ## Ordered lists use numbers
 
@@ -37,7 +37,6 @@ Like...
 
 Like...
 
-- A list item.
-  with multi-paragraphs.
+- A list item. with multi-paragraphs.
 - Another item.  
   with 4 spaces.

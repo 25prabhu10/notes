@@ -9,8 +9,8 @@ sidebar: false
 1. [Web Security](./Web_Security.md)
 2. [API](./API.md)
 3. [Cross-site scripting (XSS)](./Cross_Site_Scripting.md)
-4. [SQL Injections](./Injections.md)
-5. [Content Security Policy](./CSP.md)
+4. [SQL Injections](./Code_Injection.md#sql-injection)
+5. [Content Security Policy](./Content_Security_Policy.md)
 6. [Same-Origin Policy](./SameOrigin_Policy.md)
 7. [XPATH Injection]
 
@@ -58,5 +58,4 @@ Static Code Analysis
 - Insecure apps for testing:
 
   - [Juice Shop](https://github.com/bkimminich/juice-shop)
-  - [Juice Shop Solutions](https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/appendix/solutions.html)
   - [WebGoat](https://github.com/WebGoat/WebGoat): A Java based deliberately insecure application and companion app **WebWolf**

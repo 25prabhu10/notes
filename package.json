@@ -1,18 +1,20 @@
 {
   "name": "notes",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Anthology of Snippets",
   "scripts": {
     "fetch": "sh utils/bash/sync.sh",
     "dev": "npm run fetch && vuepress dev docs",
     "docs:dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "npm run fetch && npm run lint:fix && npm run build && node deploy.js",
-    "lint": "npm run lint:txt && npm run lint:check && npm run lint:md",
-    "lint:txt": "textlint './docs/**/*.md'",
-    "lint:check": "prettier --check './docs/**/*.md'",
+    "deploy": "npm run fetch && npm run lint && npm run build && node deploy.js",
+    "lint": "npm run lint:fix && npm run lint:md && npm run lint:modLinks",
+    "lint:txt": "textlint",
+    "lint:prettier": "prettier --check './docs/**/*.md'",
     "lint:fix": "prettier --write './docs/**/*.md'",
-    "lint:md": "markdownlint-cli2 './docs/**/*.md'",
+    "lint:md": "markdownlint-cli2 './docs/**/*.md' '#./docs/index.md' '#./docs/about.md'",
+    "lint:links": "fd . ./docs -0 -e md | xargs -0 -n1 markdown-link-check -q -p",
+    "lint:modLinks": "git status --porcelain | grep '.md' | awk '{if($1==\"M\") {print \"./\"$2}}' | xargs markdown-link-check -q -p",
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted"
   },
   "repository": {
@@ -31,20 +33,21 @@
   "homepage": "https://github.com/25prabhu10/notes#readme",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.8",
-    "@vuepress/plugin-pwa": "^2.0.0-beta.51",
-    "@vuepress/plugin-register-components": "^2.0.0-beta.51",
-    "@vuepress/plugin-search": "^2.0.0-beta.51",
-    "dictionary-en": "^3.2.0",
+    "@vuepress/plugin-pwa": "^2.0.0-beta.52",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.52",
+    "@vuepress/plugin-search": "^2.0.0-beta.52",
+    "dictionary-en-gb": "^2.4.0",
+    "markdown-link-check": "^3.10.3",
     "markdownlint-cli2": "^0.5.1",
     "prettier": "^2.7.1",
-    "textlint": "^12.2.1",
+    "textlint": "^12.2.2",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^1.0.0",
     "textlint-rule-en-capitalization": "^2.0.3",
     "textlint-rule-spelling": "^0.3.0",
-    "textlint-rule-terminology": "^3.0.3",
+    "textlint-rule-terminology": "^3.0.4",
     "textlint-rule-write-good": "^2.0.0",
-    "vuepress": "^2.0.0-beta.51"
+    "vuepress": "^2.0.0-beta.52"
   }
 }

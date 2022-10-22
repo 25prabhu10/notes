@@ -395,7 +395,7 @@ Enabling HTTP logging:
 app.UseHttpLogging();
 ```
 
-### Configuration
+### Setup
 
 - By default, HTTP Logging logs common properties for requests and responses such as:
   - path

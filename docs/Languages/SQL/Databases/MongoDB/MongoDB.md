@@ -10,7 +10,7 @@ The word MongoDB is originated from _humongous_.
 
 ## Introduction
 
-- MongoDB is written in [C++](./) language.
+- MongoDB is written in [C++](../../../C-CPP/CPP.md) language.
 
 - MongoDB pairs each key with a data structure named as **document**.
 
@@ -34,7 +34,7 @@ The word MongoDB is originated from _humongous_.
 
 - MongoDB creates database for each application and each database contains multiple collections of documents.
 
-  ![MongoDB Database](./mongodb-database.png)
+  ![MongoDB Database](./mongodb-database.jpg)
 
 - In MongoDB everything is stored in one place.
 
@@ -48,7 +48,7 @@ MongoDB Flow:
 
 - WiredTiger Storage Engine is the default storage engine used by MongoDB, we can use any other engine also.
 
-  ![MongoDB-Flow](./mongodb-flow.png)
+  ![MongoDB-Flow](./mongodb-flow.jpg)
 
 MongoDB can be used by any user, but usually it is used by the Three A's of MongoDB:
 
@@ -216,7 +216,7 @@ Aggregation can be categorized as :
 
 ## MongoDB Architecture
 
-![MongoDB Architecture](./mongodb-architecture.jpeg)
+![MongoDB Architecture](./mongodb-architecture.jpg)
 
 The architecture of MongoDB comprises:
 
@@ -474,7 +474,7 @@ Relation is a way in which one document interacts with another document.
 
 mongoose is an _Object Data Modelling_ (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
 
-![Mongoose Data Mapping](./mongoose-data-mapping.png)
+![Mongoose Data Mapping](./mongoose-data-mapping.jpg)
 
 ## Mocha
 

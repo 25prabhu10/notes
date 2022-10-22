@@ -9,7 +9,7 @@ FFmpeg is a free and open-source software project consisting of a suite of libra
 
 ## x265
 
-[x265](https://x265.readthedocs.io/en/default/cli.html) is a H.265/HEVC encoder.
+[x265](https://x265.readthedocs.io/en/master/) is a H.265/HEVC encoder.
 
 An application for encoding video streams into the H.265/MPEG-H HEVC compression format.
 

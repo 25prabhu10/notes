@@ -73,7 +73,7 @@ description: Collection of CLI applications and commands.
   ffmpeg -i input.mp4 output.mp4
   ```
 
-[ffmpeg documentation](../../Collection/FFmpeg)
+[ffmpeg documentation](../../Collection/FFmpeg.md)
 
 ## mpv
 
@@ -89,7 +89,7 @@ To use MJPEG as the pixelformat instead of the default, which in most cases is Y
 mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0
 ```
 
-In some cases this can lead to drastic improvements in quality and performance (5FPS -> 30FPS for example), [see the mpv documentation](https://github.com/mpv-player/mpv/wiki/Video4Linux2-Input)
+In some cases this can lead to drastic improvements in quality and performance (_5 FPS_ -> _30 FPS_ for example), [see the mpv documentation](https://github.com/mpv-player/mpv/wiki/Video4Linux2-Input)
 
 ## Python
 

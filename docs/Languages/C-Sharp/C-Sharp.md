@@ -20,7 +20,7 @@ C# (C Sharp) is a general-purpose, multi-paradigm programming language encompass
 C# is primarily a type-safe language, meaning that instances of types can interact only through protocols they define, thereby ensuring each type's internal consistency. For instance, C# prevents you from interacting with a string type as though it were an integer type.
 
 ::: tip NOTE
-C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-data-type) keyword. However, C# remains a predominantly statically typed language.
+C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-type) keyword. However, C# remains a predominantly statically typed language.
 :::
 
 ## Compilation
@@ -302,7 +302,7 @@ A _type_ defines the structure and behaviour of any data. A _variable_ is a labe
 
 There are 2 kinds of types in C#:
 
-1. [Value Types](#value-types): They store data directly.
+1. Value Types: They store data directly.
 
    - Built-in Value types:
 
@@ -2251,7 +2251,7 @@ A constructor is a special method of the class or struct which gets automaticall
 
 - Constructor of a class must have the **same name as the class name** in which it resides.
 
-- A constructor doesn’t have any return type, not even void.
+- A constructor doesn't have any return type, not even void.
 
 #### Types of Constructors
 
@@ -4248,7 +4248,6 @@ Steps in .NET 5+:
 ## References
 
 - Coding standard: [dofactory webpage](https://www.dofactory.com/csharp-coding-standards)
-- [Design patterns](https://www.dofactory.com/net/design-patterns)
 
 ### Best Practices
 

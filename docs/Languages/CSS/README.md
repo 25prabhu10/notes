@@ -8,3 +8,4 @@ sidebar: false
 
 1. [CSS](./CSS.md): Cascading Style Sheets
 2. [Sass](./Sass.md): Syntactically Awesome Style Sheets
+3. [CSS Snippets](./CSS_Snippents.md)

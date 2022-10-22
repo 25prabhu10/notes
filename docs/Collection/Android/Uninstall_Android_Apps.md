@@ -21,9 +21,7 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
 4. On your phone, go to Settings and tap on About Phone. Find the Build Number and **tap on it 7 times to enable Developer Options**.
 
-5. Now enter _Developer Options_ and find _USB Debugging_ and enable it.
-
-   <img src="./enable-developer-options.jpg" alt="No image, kindly refer the TEXT" style="zoom:50%;" />
+5. Now enter _Developer Options_ and find _USB Debugging_ and enable it
 
 6. Plug your phone into the computer and change the mode to **"file transfer (MTP)"** mode.
 
@@ -37,9 +35,7 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
 9. Once you're in the command prompt/terminal, enter the following command: `adb devices`
 
-10. You will see that the system is starting the ADB daemon. If this is your first time running ADB, you will see a prompt on your phone asking you to authorize a connection with the computer. Grant it.
-
-    ![No image, kindly refer the TEXT](./prompt-options.jpg)
+10. You will see that the system is starting the ADB daemon. If this is your first time running ADB, you will see a prompt on your phone asking you to authorize a connection with the computer. Grant it
 
 11. Now if you re-run the `adb devices` command, the terminal should print the serial number of your device. If so, then you're ready.
 
@@ -57,15 +53,15 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 
     - Step 1: Tap on _"App List"_
 
-      [<img src="./app-inspector-1.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />](https://www.xda-developers.com/files/2017/07/AppInspector1.png)
+      <img src="./app-inspector-1.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />
 
     - Step 2: Find the app you want gone. (for example: _"Compass"_)
 
-      [<img src="./app-inspector-2.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />](https://www.xda-developers.com/files/2017/07/AppInspector2.png)
+      <img src="./app-inspector-2.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />
 
     - Step 3: Find the package name under the App Name (for example: _"com.huawei.compass"_)
 
-      [<img src="./app-inspector-3.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />](https://www.xda-developers.com/files/2017/07/AppInspector3.png)
+      <img src="./app-inspector-3.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />
 
 15. Execute the command like so: `pm uninstall -k --user 0 <name of package>` command to uninstall a specific system application.
 

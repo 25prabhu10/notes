@@ -5,7 +5,7 @@ description: Docker is a set of platform as a service (PaaS) products that use O
 
 # Docker
 
-Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called containers
+Docker is a set of platform as a service (PaaS) products that use OS-level virtualization to deliver software in packages called [containers](#container)
 
 _Example:_
 
@@ -29,7 +29,42 @@ docker stop [customName]
 docker stats
 ```
 
-## Dockerfile
+## Container
+
+A way to **package application** with **all** the **necessary dependencies** and **configuration**
+
+- Portable artifact, easily shared and moved around.
+
+Need of containers:
+
+- Compatibility / Dependency
+- Long setup time
+- Different Dev/Test/Prod environments
+
+## `Dockerfile`
+
+Each step is considered as a layer of an image
+
+- Docker caches results layer by layer
+
+```bash
+docker build .
+
+docker build -t <image-name> .
+
+docker image ls
+
+docker image rm <image-id>
+docker rmi -f <image-id>
+
+docker run -p 8080:3000 -d --name <container-name> <image-name>
+
+# enter the container
+docker exec -it express bash
+
+# delete container
+docker rm <container-name> -f
+```
 
 ### Examples
 
@@ -53,7 +88,7 @@ docker stats
   CMD ["python main.py"]
   ```
 
-- [ASP.NET Core app](../C-Sharp/ASP_NET/Deployment.md#deploying-with-docker)
+- [ASP.NET Core app](../../C-Sharp/ASP_NET/Deployment.md#deploying-with-docker)
 
 ## Reference
 

@@ -43,7 +43,7 @@ It mainly consists in the capability of:
 
 Steps:
 
-1. Choose an [Amazon Machine Image](#amazon-machine-image) (AMI)
+1. Choose an [Amazon Machine Image](#ami) (AMI)
 2. Choose an Instance Type:
 
    - `t2.micro` is available in free tire
@@ -237,12 +237,12 @@ Steps:
 8. It should connect to the EC2 instance and you can start working on it
 
 ::: tip WINDOWS 10
-Windows 10 comes with OpenSSH installed. In that case you can follow the steps mentioned above for [Linux/Mac](#in-linux-mac). No need to use PuTTY.
+Windows 10 comes with OpenSSH installed. In that case you can follow the steps mentioned above for [Linux/Mac](#in-linuxmac). No need to use PuTTY.
 :::
 
 ## EC2 Instances Purchasing
 
-1. [On-Demand Instances](#ec2-on-demand): short workload, predictable pricing
+1. [On-Demand Instances](#ec2-on-demand-instances): short workload, predictable pricing
 2. [Reserved](#ec2-reserved-instances): (minimum 1 year)
    - **Reserved Instances**: long workloads (like databases)
    - **Convertible Reserved Instances**: long workloads with flexible instances

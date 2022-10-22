@@ -35,7 +35,7 @@ Spotify account hijacking:
 Spotify followed simple rules for usernames:
 
 - not allow white space in usernames,
-- treat “BigBird” and “bigbird” as the same username.
+- treat "BigBird" and "bigbird" as the same username.
 
 [Creative usernames and Spotify account hijacking](https://engineering.atspotify.com/2013/06/18/creative-usernames/)
 
@@ -172,9 +172,9 @@ input.casefold()
 Normalization:
 
 ```python
-unicodedata.normalize(‘NFC’, input)
+unicodedata.normalize('NFC' input)
 
-unicodedata.normalize(‘NFKC’, input)
+unicodedata.normalize('NFKC', input)
 ```
 
 Others:

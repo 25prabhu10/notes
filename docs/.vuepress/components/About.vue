@@ -5,19 +5,7 @@
     <h2 class="heading">Notes</h2>
 
     <p class="content">
-      Collection of all the information acquired from various sources in one
-      place.
-    </p>
-    <p class="content">Accessible from anywhere.</p>
-    <p class="content">Written in <strong>Markdown</strong>.</p>
-    <p class="content">
-      Built with
-      <a
-        href="https://v2.vuepress.vuejs.org/"
-        target="_blank"
-        rel="noopener noreferrer"
-        >VuePress</a
-      >.
+      Collection of all the information acquired from various sources in one place
     </p>
   </div>
 </template>
@@ -27,6 +15,8 @@
 <style scoped>
 .heading {
   font-size: 40px;
+  text-align: center;
+  border: none;
 }
 
 .content {

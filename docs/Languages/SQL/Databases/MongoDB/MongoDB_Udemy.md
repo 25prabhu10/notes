@@ -27,6 +27,8 @@ Applications send query for data to MongoDB Server. MongoDB Server gets the data
 mongod --dbpath /data/db --logpath /data/logs/
 ```
 
+- `.mongorc.js` Loads whenever the shell is started
+
 ## Databases, Collections, And Documents
 
 - A **document** is the basic unit of data for MongoDB and is roughly equivalent to a row in a relational database management system (but much more expressive).
@@ -38,7 +40,7 @@ mongod --dbpath /data/db --logpath /data/logs/
 
 - Document is an ordered set of keys with associated values.
 
-- A value can be one of several different [Data Types](#data%20types) supported by MongoDB.
+- A value can be one of several different [Data Types](#data-types) supported by MongoDB.
 
 - Every document has a special key, **`_id`**, that is unique within a collection. By default a unique `_id` is generated if explicitly not provided.
 
@@ -455,9 +457,3 @@ db.runCommand({
 GeoJSON
 
 ## Aggregation Framework
-
-## References
-
-- [MongoDB Cheet Sheet](./mongodb_cheat_sheet)
-
-> `.mongorc.js` Loads whenever the shell is started.

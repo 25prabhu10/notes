@@ -220,3 +220,33 @@ Syntax:
 ```bash
 read -p "PROMPT" VARIABLE
 ```
+
+## Output
+
+File descriptors:
+
+- `0` is `stdin` the _standard input_
+- `1` is `stdout` the _standard output_
+- `2` is `stderr` the _standard error_
+
+```bash
+# redirect stdout to file.txt
+echo test > file.txt
+echo test 1> file.txt
+
+# redirect stderr to file.txt
+echo test 2> file.txt
+
+# redirect stderr and stdout to file.txt
+echo test 2>&1 file.txt
+```
+
+- `>`: _redirection_
+- `>>`: append to target if exists
+
+- `>&`: redirect a _stream_ to another _file descriptor_
+
+Thus, in `2>&1`:
+
+- `2>` redirects `stderr` to an _(unspecified) file_
+- `&1` redirects `stderr` to `stdout`

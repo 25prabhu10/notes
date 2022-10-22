@@ -201,7 +201,7 @@ Info:
 
    - Petrol Reimbursement (without bills and without supporting documentation/data to substantiate the reimbursement is for official purposes)
 
-   - City Compensatory Allowance or any other allowance paid as fixed component, uniformly and universally having no direct nexus to the outcome of an employee’s normal work.
+   - City Compensatory Allowance or any other allowance paid as fixed component, uniformly and universally having no direct nexus to the outcome of an employee's normal work.
 
 5. Wage Limit: PF Wages <= ₹15000
 

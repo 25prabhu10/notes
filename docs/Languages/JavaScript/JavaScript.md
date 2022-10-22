@@ -53,7 +53,7 @@ _ECMAScript_ is the official name for JavaScript.
 
 - ECMAScript is the name used by the language specification. Therefore, whenever referring to versions of the language, people say ECMAScript (ES6).
 
-- JavaScript is a trademark of Oracle Corporation, Mozilla has acquired a license to use the JavaScript name.
+- JavaScript is a trademark of Oracle Corporation, Mozilla has acquired a license to use the JavaScript name
 
 ### ECMAScript
 
@@ -71,6 +71,9 @@ _ECMAScript_ is the official name for JavaScript.
 
 1. JavaScript programs can be inserted almost anywhere into an HTML document using the `<script>` tag:
 
+   - It is usually placed at the end of `body` element
+   - Browsers read HTML document line by line and render it
+
    ```html
    <!DOCTYPE html>
    <html>
@@ -86,13 +89,13 @@ _ECMAScript_ is the official name for JavaScript.
    </html>
    ```
 
-2. External Scripts: JavaScript code can be written in a separate file and then attach it to HTML with the `src` attribute:
+2. **External Scripts**: JavaScript code can be written in a separate file and then attach it to HTML with the `src` attribute:
 
    ```html
    <script src="/path/to/script.js"></script>
    ```
 
-By default when we include the JavaScript file in the HTML:
+Default behavior of browser:
 
 - The browser will download the HTML file and start parsing the HTML
 
@@ -104,9 +107,13 @@ By default when we include the JavaScript file in the HTML:
 
 - It is a bad user experience as no content is rendered to the user
 
+- This is called **content or render blocking**
+
 To overcome this issue, we can use:
 
 - `async` attribute: This will tell the browser to not stop the HTML parsing and **download the file in the background**. But, once the JavaScript file is downloaded. It will be **executed immediately blocking the HTML rendering**
+
+  - This can be used when you need to execute JavaScript and don't care about render blocking
 
   ```html
   <script async src="/path/to/script.js"></script>
@@ -123,7 +130,7 @@ To overcome this issue, we can use:
 Syntactic principles of JavaScript:
 
 ```javascript
-// Two slashes start single-line comments
+// two slashes start single-line comments
 
 var x; // declaring a variable
 
@@ -133,13 +140,13 @@ foo(x, y); // calling function `foo` with parameters `x` and `y`
 
 obj.bar(3); // calling method `bar` of object `obj`
 
-// A conditional statement
+// a conditional statement
 // is `x` equal to zero?
 if (x === 0) {
   x = 123;
 }
 
-// Defining function `baz` with parameters `a` and `b`
+// defining function `baz` with parameters `a` and `b`
 function baz(a, b) {
   return a + b;
 }
@@ -207,7 +214,7 @@ Semicolons terminate statements, but not blocks. There is one case where you wil
 - A function expression is an expression that ends with a block. If such an expression comes last in a statement, it is followed by a semicolon:
 
 ```javascript
-// Pattern: var _ = ___;
+// pattern: var _ = ___;
 var x = 3 * 7;
 
 var f = function () {}; // function expr. inside var decl.
@@ -236,21 +243,21 @@ There are two limitations on variable names in JavaScript:
 
 1. `var`:
 
-   - Can be reassigned.
-   - Has a function scope
-   - Avoid using it
+   - Can be reassigned
+   - **Function scope**
+   - **Avoid using it**
 
 2. `let`:
 
    - Is similar to `var` in most ways, but its scope is limited to the block statement.
-   - Block scope
+   - **Block scope**
 
 3. `const`:
 
    - Read-only, cannot be reassigned a value.
-   - We need to assign a value during the declaration of a `const`.
-   - Uppercase letters are used for constant variable name
-   - Block scope
+   - **Block scope**
+   - We need to assign a value during the declaration of a `const`
+   - As convention uppercase letters are used for constant variable name
    - Properties of objects can be reassigned a new value
 
      ```javascript
@@ -264,8 +271,10 @@ There are two limitations on variable names in JavaScript:
      const MY_ARRAY = ["HTML", "CSS"];
      MY_ARRAY.push("JAVASCRIPT");
 
-     console.log(MY_ARRAY); //logs ['HTML','CSS','JAVASCRIPT'];
+     console.log(MY_ARRAY); // logs ['HTML','CSS','JAVASCRIPT'];
      ```
+
+- A variable declared by `let` or `const` has a so-called _temporal dead zone (TDZ)_
 
 ::: danger UNDECLARED VARIABLE
 
@@ -282,16 +291,20 @@ console.log(l); // l has a global scope
 
 ### Hoisting
 
+JavaScript **Hoisting** refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+
 When JavaScript processes in execution context, it will put all the variables at the top i.e. hoist them to the top of the context.
 
-- However, variables that are hoisted return a value of `undefined`.
+- Hoisting allows functions to be safely used in code before they are declared
+
+- `var` variable that is hoisted is initialized by setting it to `undefined`
 
 ```javascript
-// Example 1
+// example 1
 console.log(x === undefined); // true
 var x = 3;
 
-// Example 2
+// example 2
 var myVar = "my value";
 
 (function () {
@@ -303,12 +316,12 @@ var myVar = "my value";
 The above examples will be interpreted the same as:
 
 ```javascript
-// Example 1
+// example 1
 var x;
 console.log(x === undefined); // true
 x = 3;
 
-// Example 2
+// example 2
 var myVar = "my value";
 
 (function () {
@@ -318,7 +331,7 @@ var myVar = "my value";
 })();
 ```
 
-- In ECMAScript 2015, `let` and `const` **are hoisted but not initialized**.
+- In ES6, `let` and `const` **are hoisted but not initialized**
 
   ```javascript
   console.log(x); // ReferenceError
@@ -353,14 +366,14 @@ There are 7 primitive data types in JavaScript:
    let n = 123;
    n = 122.345;
 
-   // Octal integers: only digits 0 - 7
+   // octal integers: only digits 0 - 7
    octal = 0o; // or `0O`
 
    // Hexadecimal integers: 0-9 and a-f / A-F
    hex = 0xA; // or `0xa`
    ```
 
-   - `Infinity`: represents the mathematical _Infinity_ **∞**. It is a special value that’s greater than any number.
+   - `Infinity`: represents the mathematical _Infinity_ **∞**. It is a special value that's greater than any number.
 
      ```javascript
      //
@@ -394,6 +407,11 @@ There are 7 primitive data types in JavaScript:
    let str2 = "Single quotes are ok too";
    let phrase = `can embed another ${str}`;
    ```
+
+   - `startsWith`: Check if the string starts with the string passed as argument.
+   - `endsWith`: Check if the string ends with the string passed as argument.
+   - `includes`: Check if the string passed as argument is present.
+   - `repeat`: Repeat the string _n_ number of times.
 
 3. **Boolean**: Logical data type that can only be `true` or `false`
 
@@ -442,18 +460,42 @@ There are 7 primitive data types in JavaScript:
 
    - Not enumerable
 
-   - Used as object keys, in [Generators](#generator-function)
+   - Use symbols to create constants and be sure that they are always unique:
+
+     ```javascript
+     const COLOR_RED = Symbol("Red");
+     const COLOR_ORANGE = Symbol("Orange");
+
+     function getComplement(color) {
+       switch (color) {
+         case COLOR_RED:
+           return COLOR_GREEN;
+         case COLOR_ORANGE:
+           return COLOR_BLUE;
+         default:
+           throw new Exception("Unknown color: " + color);
+       }
+     }
+
+     getComplement(COLOR_ORANGE);
+     ```
+
+   - Used as object keys, in [Iterators & Generators](#iterators-and-generators)
 
    - Symbols are often used to add unique property keys to an object that won't collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object.
 
-   - `Symbol.for("key")` call will always return the same Symbol for a given value of `"key"`.
+   - Characteristics of Symbol:
+
+     - `Symbol.for("key")` call will always return the same Symbol for a given value of `"key"`.
 
    ```javascript
+   // create symbol via a factory function
    let id = Symbol();
 
    // id is a symbol with the description "id"
    id = Symbol("id");
 
+   // Every symbol returned by Symbol() is unique
    Symbol("foo") === Symbol("foo"); // false
 
    Symbol.for("foo") === Symbol.for("foo"); // true
@@ -461,6 +503,7 @@ There are 7 primitive data types in JavaScript:
    Symbol.keyFor(Symbol.for("tokenString"));
    // "tokenString"
 
+   // Symbols are primitive
    typeof Symbol("tokenString");
    // 'symbol'
    ```
@@ -509,7 +552,7 @@ Everything is an object in JavaScript (well, almost everything), including:
      ```javascript
      // constructor function
      function Zombie(name) {
-       this.name = name;
+       this.name = name || "Zombie";
        this.reAnimated = Date.now();
 
        this.eatBrain = function () {
@@ -523,28 +566,33 @@ Everything is an object in JavaScript (well, almost everything), including:
      // 🧟‍♂️ Jef is hungry for 🧠
      ```
 
-     > In newer JavaScript version, **[class](#class)** keyword can be used instead of the constructor function.
+     - The function `eatBrain` is redefined for every instance of `Zombie`
+
+     - As JavaScript is [prototype](#object-inheritance) based we can avoid this by adding `eatBrain` to the `prototype`
 
      ```javascript
-     function Cat(name) {
-       this.name = name;
+     function Zombie(name) {
+       this.name = name || "Zombie";
+       this.reAnimated = Date.now();
      }
 
-     let c = new Cat("meow");
+     Zombie.prototype.eatBrain = function () {
+       return `${this.name} is hungry for 🧠`;
+     };
 
-     c.name;
-     // 'meow'
+     const obj = new Zombie("🧟‍♂️ Jeff");
 
-     c = Cat("Dog");
-     c.name;
-     // Uncaught TypeError: Cannot read properties of undefined (reading 'name')
+     obj.eatBrain();
+     // 🧟‍♂️ Jef is hungry for 🧠
 
-     c;
-     // undefined
+     console.log(obj);
+     // {name: "🧟‍♂️ Jeff", reAnimated: 1664716920669}
 
-     window.name;
-     // 'Dog'
+     console.log(Object.getPrototypeOf(obj));
+     // {eatBrain: ƒ ()}
      ```
+
+     - From ES6, **[class](#class)** keyword can be used instead of the constructor function
 
 2. Object Literal:
 
@@ -687,11 +735,26 @@ Everything is an object in JavaScript (well, almost everything), including:
 
      Object.defineProperty(obj, "unicorn", {
        get: () => "🦄",
+       value: "value",
+       writable: true,
        enumerable: false,
+       configurable: true,
      });
 
      console.log(obj); // {}
      console.log(obj.unicorn); // 🦄
+
+     // defining multiple properties with Object.defineProperties
+     Object.defineProperties(obj, {
+       firstKey: {
+         value: "first key value",
+         writable: true,
+       },
+       secondKey: {
+         value: "second key value",
+         writable: false,
+       },
+     });
      ```
 
 #### Looping Through Objects
@@ -813,37 +876,37 @@ Objects by default are mutable, hence the properties of any object can be modifi
 
 To stop any changes being made to the object after its creation (make it immutable):
 
-- Use `Object.freeze` method: but it only **dose shallow freeze**
+1. Use `Object.freeze` method: but it only **dose shallow freeze**
 
-  ```javascript
-  // Mutable object
-  const supportedLanguages = {
-    en: "English",
-    fr: "French",
-  };
+   ```javascript
+   // Mutable object
+   const supportedLanguages = {
+     en: "English",
+     fr: "French",
+   };
 
-  // Immutable object
-  const frozenObject = Object.freeze(supportedLanguages);
+   // Immutable object
+   const frozenObject = Object.freeze(supportedLanguages);
 
-  frozenObject === supportedLanguages; // true
-  ```
+   frozenObject === supportedLanguages; // true
+   ```
 
-- For deep freeze, we can iterate through every property and recursively apply the freeze method:
+   - For deep freeze, we can iterate through every property and recursively apply the freeze method:
 
-  ```javascript
-  const deepFreeze = (obj) => {
-    Object.keys(obj).forEach((prop) => {
-      if (typeof obj[prop] === "object") deepFreeze(obj[prop]);
-    });
-    return Object.freeze(obj);
-  };
+   ```javascript
+   const deepFreeze = (obj) => {
+     Object.keys(obj).forEach((prop) => {
+       if (typeof obj[prop] === "object") deepFreeze(obj[prop]);
+     });
+     return Object.freeze(obj);
+   };
 
-  deepFreeze(config);
-  ```
+   deepFreeze(config);
+   ```
 
-- `Object.seal`: We cannot add a new property or delete existing properties. But we can still update the value of existing properties
+2. `Object.seal`: We cannot add a new property or delete existing properties. But we can still update the value of existing properties
 
-- `Object.preventExtensions`: This method prevents new property creation. But you can update and delete existing properties
+3. `Object.preventExtensions`: This method prevents new property creation. But you can update and delete existing properties
 
 | Method              | Create | Read | Update | Delete |
 | ------------------- | ------ | ---- | ------ | ------ |
@@ -855,7 +918,9 @@ To stop any changes being made to the object after its creation (make it immutab
 
 JavaScript is **Prototype** based language, hence the inheritance is achieved using prototypes.
 
-- The most important difference between class- and prototype-based inheritance is that a class defines a _type_ which can be instantiated at runtime, whereas a **_prototype_ is itself an object instance**.
+- The most important difference between class- and prototype-based inheritance is that a class defines a _type_ which can be instantiated at runtime, whereas a **_prototype_ is itself an object instance**
+
+- Prototype based programming is a style that builds the reuse of features (the inheritance) by reusing already existing objects that are extended and not implemented
 
 _Example:_ Prototype based inheritance
 
@@ -944,7 +1009,7 @@ The `Proxy` object (ES6) enables you to create a proxy for another object, which
 
 - Proxy objects are commonly used to log property accesses, validate, format, or sanitize inputs, and so on.
 
-- [Metaprogramming](../../Concepts/Metaprogramming) using `Proxy`
+- [Metaprogramming](../../Concepts/Metaprogramming.md) using `Proxy`
 
 You create a Proxy with two parameters:
 
@@ -975,25 +1040,25 @@ console.log(prx.age); // 25
 console.log(prx.name); // EVERYONE
 ```
 
-## Type Conversion
+## Type Coercion
 
-- String conversion:
+- String Coercion:
 
   ```javascript
   // number to string
   String(25); // "25"
 
   // boolean to string
-  console.log(true); // "true"
+  true + " value"; // "true value"
 
   // null to string
-  console.log(null); // "null"
+  null + " is no value"; // "null is no value"
 
   // undefined to string
-  console.log(undefined); // "undefined"
+  undefined + ", then define it"; // "undefined , then define it"
   ```
 
-  Conversion rules:
+  Coercion rules:
 
   | Value       | Becomes     |
   | ----------- | ----------- |
@@ -1002,7 +1067,7 @@ console.log(prx.name); // EVERYONE
   | `null`      | "null"      |
   | `undefined` | "undefined" |
 
-- Numeric conversion:
+- Numeric Coercion:
 
   ```javascript
   // adding string to a number
@@ -1013,12 +1078,42 @@ console.log(prx.name); // EVERYONE
   2 * "5"; // 10
   2 * "a"; // NaN
 
-  Number("a"); // NaN
-
   Number("12.3"); // 12.3
+  +"12.3"; // 12.3
+
+  Number("a"); // NaN
+  +"a"; // NaN
+
+  ("b" + "a" + +"a" + "a").toLowerCase();
+  // banana
+
+  +true; // 1
+  +false; // 0
+
+  true + 0; // 1
+  false + 7; // 7
+
+  +null; // 0
+  null + 7; // 7
+
+  +undefined; // NaN
+  undefined + 7; // NaN
+
+  +[]; // 0
+  -[]; // -0
+  // result is string
+  [] + 36; // "36"
+  // result is number
+  [] - 36; // -36
+
+  +{}; // NaN
+  25 + {}; // "25[object Object]"
+  25 - {}; // NaN
+
+  [] + {}; // "[object Object]"
   ```
 
-  Conversion rules:
+  Coercion rules:
 
   | Value              | Becomes |
   | ------------------ | ------- |
@@ -1028,7 +1123,7 @@ console.log(prx.name); // EVERYONE
   | `null`             | 0       |
   | `undefined`        | NaN     |
 
-- Boolean conversion:
+- Boolean Coercion:
 
   ```javascript
   Boolean(1); // true
@@ -1043,7 +1138,7 @@ console.log(prx.name); // EVERYONE
   Boolean(undefined); // false
   ```
 
-  Conversion rules:
+  Coercion rules:
 
   | Value                                          | Becomes |
   | ---------------------------------------------- | ------- |
@@ -1326,9 +1421,11 @@ const factorial = function fac(n) {
 };
 ```
 
-Function Declaration vs Function Expression:
+_Function Declaration vs Function Expression_:
 
-- Function declaration is [hoisted](#hoisting) while the function expression is not.
+- Function declaration is [hoisted](#hoisting) while the function expression is not
+
+- Function declaration can be redeclared (can introduce bugs)
 
 - We can use a function before its declaration, but when we have an expression the function is created only when the code is reached in the script.
 
@@ -1354,7 +1451,9 @@ Use function expressions as a best practice, because they are not hoisted and th
 
 ### Immediately Invoked Function Expression (IIFE)
 
-By wrapping an anonymous function in parentheses, we can then call it immediately by adding parentheses afterwards.
+By **wrapping an anonymous (or named) function in parentheses**, we can then **call it immediately** by adding parentheses afterwards.
+
+_Example:_
 
 ```javascript
 // IIFE
@@ -1372,28 +1471,28 @@ By wrapping an anonymous function in parentheses, we can then call it immediatel
 })();
 ```
 
-ES5:
+- IIFE can be used for scoping in ES5:
 
-```javascript
-(function () {
-  var a = 1;
-  var b = 2;
-  console.log(a + b);
-})();
-```
+  ```javascript
+  (function () {
+    var a = 1;
+    var b = 2;
+    console.log(a + b);
+  })();
+  ```
 
-ES6:
+- Using [ES6 modules](#esm-ecmascript-modules) for scoping:
 
-```javascript
-{
-  const a = 10;
-  let b = 25;
-  console.log(a + b);
-}
-```
+  ```javascript
+  {
+    const a = 10;
+    let b = 25;
+    console.log(a + b);
+  }
+  ```
 
 ::: tip Note
-`var` inside a block scope ca be accessed outside the block as it only has function scope.
+`var` inside a block scope can be accessed outside the block as it only has function scope.
 :::
 
 ### Parameters And Arguments
@@ -1511,8 +1610,9 @@ While Arguments are the actual value or expressions used when calling the functi
 An arrow function expression has a shorter syntax compared to function expressions.
 
 - It does not have its own `this`, `arguments`, `super`, `new.target`
-- Arrow functions are always anonymous
-- Array functions are function expressions.
+- `this` is picked up from surroundings (lexical)
+- Arrow functions are _always anonymous_
+- Array functions are _function expressions_
 
 Arrow function syntax:
 
@@ -1610,6 +1710,8 @@ cool(() => console.log('sweet'));
 
 #### Closures
 
+A closure is **the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment)**
+
 Closure is just a function within a function where inner function references a variable that was declared in the scope of the outer function and returns the inner function.
 
 - An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned.
@@ -1662,9 +1764,47 @@ console.log(fun()); // 2 🐠
 console.log(fun()); // 3 🐠
 ```
 
+- Closure can be used to create objects with public and private parts:
+
+```javascript
+// Using a closure we will expose an object
+// as part of a public API that manages its
+// private parts
+let fruitsCollection = (() => {
+  // private
+  let objects = [];
+
+  // public
+  return {
+    addObject: (object) => {
+      objects.push(object);
+    },
+    removeObject: (object) => {
+      let index = objects.indexOf(object);
+      if (index >= 0) {
+        objects.splice(index, 1);
+      }
+    },
+    getObjects: () => JSON.parse(JSON.stringify(objects)),
+  };
+})(); // notice the execution
+
+fruitsCollection.addObject("apple");
+fruitsCollection.addObject("orange");
+fruitsCollection.addObject("banana");
+
+// prints: ["apple", "orange", "banana"]
+console.log(fruitsCollection.getObjects());
+
+fruitsCollection.removeObject("apple");
+
+// prints: ["orange", "banana"]
+console.log(fruitsCollection.getObjects());
+```
+
 - Closure is similar to a class from a conceptual standpoint:
 
-```typescript
+```javascript
 class Outer {
   constructor(public fish = "🐠", public count = 0) {}
 
@@ -1682,6 +1822,10 @@ console.log(instance.inner()); // 3 🐠
 ```
 
 ### Function Binding (Bind, Call, And Apply)
+
+- Bind: "Call me later!"
+- Apply: Execute me right now; accepts this + array
+- Call: Execute me right now; this + individual parameters
 
 ```javascript
 var john = {
@@ -1727,7 +1871,7 @@ johnFormal("morning");
 johnFormal("evening");
 ```
 
-Example 2:
+_Example:_
 
 ```javascript
 var years = [1990, 1965, 1937, 2005, 1998];
@@ -1755,6 +1899,91 @@ var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
 console.log(ages);
 console.log(fullJapan);
 ```
+
+## Iterators and Generators
+
+[Iterators](#iterators) and [Generators](#generator-function) bring the concept of iteration directly into the core language and provide a mechanism for customizing the behavior of `for...of` loops
+
+### Iterators
+
+_Iterator_ is an object which defines a sequence and potentially a return value upon its termination
+
+An iterator is any **object which implements the Iterator protocol** by having a `next()` method that returns an object with two properties:
+
+- `value`: The next value in the iteration sequence
+
+- `done`: This is `true` if the last value in the sequence has already been consumed. If `value` is present alongside `done`, it is the iterator's return value
+
+_Example:_
+
+```javascript
+// iterator
+function nameIterator(names) {
+  let nextIndex = 0;
+
+  return {
+    next: function () {
+      return nextIndex < names.length
+        ? { value: names[nextIndex++], done: false }
+        : { done: true };
+    },
+  };
+}
+
+// iterator an array of names
+const namesArr = ["Aragorn", "Legolas", "Gimli"];
+
+const namesItr = nameIterator(namesArr);
+
+console.log(namesItr.next()); // {value: "Aragorn", done: false}
+console.log(namesItr.next()); // {value: "Legolas", done: false}
+console.log(namesItr.next()); // {value: "Gimli", done: false}
+console.log(namesItr.next()); // {done: true}
+```
+
+- Use `Symbol.iterator` as key to enable `for..of`
+
+- The downside is that now it's **impossible to have two `for..of` loops running** over the object **simultaneously** (very rare): they'll share the iteration state
+
+  ```javascript
+  function range(start = 0, end = Infinity, step = 1) {
+    return {
+      [Symbol.iterator]() {
+        return this;
+      },
+
+      next() {
+        if (start < end) {
+          start = start + step;
+          return { value: start, done: false };
+        }
+
+        return { value: end, done: true };
+      },
+    };
+  }
+
+  for (let num of range(0, 10)) {
+    console.log(num); // 1 2 3 4 5 6 7 8 9 10
+  }
+  ```
+
+- Calling an iterator manually:
+
+  ```javascript
+  let str = "Hello";
+
+  // for (let char of str) console.log(char);
+
+  // does the same as for..of
+  let iterator = str[Symbol.iterator]();
+
+  while (true) {
+    let result = iterator.next();
+    if (result.done) break;
+    console.log(result.value); // outputs characters one by one
+  }
+  ```
 
 ### Generator Function
 
@@ -1798,9 +2027,26 @@ console.log(gen.next());
 // {value: undefined, done: true}
 ```
 
+```javascript
+function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
+  let iterationCount = 0;
+
+  for (let i = start; i < end; i += step) {
+    iterationCount++;
+    yield i;
+  }
+
+  return iterationCount;
+}
+```
+
 ::: warning NOTE
 Generator functions **do not have arrow function** counterparts.
 :::
+
+### Iterables
+
+An object is _iterable_ if it defines its iteration behavior (implement the `Symbol.iterator` method), such as what values are looped over in a `for...of` construct
 
 - Generators are iterable:
 
@@ -1872,10 +2118,11 @@ try {
 
 ## Template Literals
 
-Put strings inside back ticks (tilda) and use `${}` to put the variables, function calls, and expressions.
-This is alternative to the old string formating.
+Template literals are _string literals_ with **support for interpolation and multiple lines**
 
-ES5
+Put strings inside back ticks (tilda) and use `${}` to put the variables, function calls, and expressions
+
+- This is alternative to the old string formatting
 
 ```javascript
 let year = 1996;
@@ -1884,23 +2131,66 @@ function calcAge(year) {
   return 2018 - year;
 }
 
+// ES5
 console.log(
   "I was born in the year " + year + " and my age is " + calcAge(year)
 );
-```
 
-ES6
-
-```javascript
+//ES6
 console.log(`I was born in the year ${year} and my age is ${calcAge(year)}`);
 ```
 
-New string functions:
+- Line terminators in template literals are always _LF_ (`\n`)
 
-- `startsWith`: Check if the string starts with the string passed as argument.
-- `endsWith`: Check if the string ends with the string passed as argument.
-- `includes`: Check if the string passed as argument is present.
-- `repeat`: Repeat the string _n_ number of times.
+Common ways of terminating lines are:
+
+- **Line feed** (LF, `\n`, _U+000A_): used by _Unix_ (incl. current macOS)
+- **Carriage return** (CR, `\r`, _U+000D_): used by the old _Mac OS_
+- **CRLF** (`\r\n`): used by _Windows_
+
+```javascript
+const str = `BEFORE
+AFTER`;
+
+// On all OS
+console.log(str === "BEFORE\nAFTER"); // true
+```
+
+### Tagged Template Literals
+
+_Tagged template literals_: are function calls whose **parameters are provided via template literals**
+
+```javascript
+tagFunction`Hello ${firstName} ${lastName}!`;
+
+// is equivalent to
+tagFunction(["Hello ", " ", "!"], firstName, lastName);
+```
+
+- Tagged template literals allow you to implement custom embedded sub-languages (which are sometimes called _domain-specific languages_) with little effort, because JavaScript does much of the parsing for you.
+
+_Example:_
+
+```javascript
+function myTag(strings, personExp, ageExp) {
+  const str0 = strings[0]; // "That "
+  const str1 = strings[1]; // " is a "
+  const str2 = strings[2]; // "."
+
+  const ageStr = ageExp > 99 ? "centenarian" : "youngster";
+
+  // We can even return a string built using a template literal
+  return `${str0}${personExp}${str1}${ageStr}${str2}`;
+}
+
+const person = "Mike";
+const age = 28;
+
+const output = myTag`That ${person} is a ${age}.`;
+
+console.log(output);
+// That Mike is a youngster.
+```
 
 ## Array
 
@@ -1959,6 +2249,7 @@ let arr = [element0, element1, ..., elementN]
   const boxes = document.querySelectorAll(".box");
 
   var boxesArr5 = Array.prototype.slice.call(boxes);
+
   boxesArr5.forEach(function (cur) {
     cur.style.backgroundColor = "dodgerblue";
   });
@@ -1978,42 +2269,42 @@ JavaScript typed arrays are array-like objects that provide a mechanism for read
 
 ## Class
 
-In JavaScript (ES6+) `class` is not a language feature, it’s _syntactic obscurantism_.
+In JavaScript (ES6+) `class` is not a language feature, it's _syntactic obscurantism_.
 
-- ES5 class type functionality:
+- ES5 class type functionality using Object Constructor:
 
-```javascript
-var Person5 = function (name, yearOfBirth, job) {
-  this.name = name;
-  this.yearOfBirth = yearOfBirth;
-  this.job = job;
-};
-
-Person5.prototype.calcAge = function () {
-  var age = new Date().getFullYear() - this.yearOfBirth;
-  console.log(age);
-};
-
-var john = new Person5("John", 1996, "teacher");
-```
-
-- ES6 added class syntax:
-
-```javascript
-class Person6 {
-  constructor(name, yearOfBirth, job) {
+  ```javascript
+  var Person5 = function (name, yearOfBirth, job) {
     this.name = name;
     this.yearOfBirth = yearOfBirth;
     this.job = job;
-  }
+  };
 
-  calcAge() {
-    let age = new Date().getFullYear() - this.yearOfBirth;
+  Person5.prototype.calcAge = function () {
+    var age = new Date().getFullYear() - this.yearOfBirth;
     console.log(age);
+  };
+
+  var john = new Person5("John", 1996, "teacher");
+  ```
+
+- ES6 added class syntax:
+
+  ```javascript
+  class Person6 {
+    constructor(name, yearOfBirth, job) {
+      this.name = name;
+      this.yearOfBirth = yearOfBirth;
+      this.job = job;
+    }
+
+    calcAge() {
+      let age = new Date().getFullYear() - this.yearOfBirth;
+      console.log(age);
+    }
   }
-}
-const emily = new Person6("Emily", 1994, "teacher");
-```
+  const emily = new Person6("Emily", 1994, "teacher");
+  ```
 
 ES5 and ES6 versions:
 
@@ -2037,7 +2328,9 @@ var Car = /** @class */ (function () {
 })();
 
 var newCar = new Car(25, "Red");
+```
 
+```javascript
 // ES6
 class Car {
   constructor(seats = 36, color) {
@@ -2072,6 +2365,7 @@ class Person6 {
     console.log("Hey There!");
   }
 }
+
 const emily = new Person5("Emily", 1994, "teacher");
 
 Person6.greeting();
@@ -2155,11 +2449,13 @@ Collections of data which are indexed by a key
 
 ### Maps
 
-A Map object (ES6) is a simple key/value map and can iterate its elements in insertion order.
+A Map object (ES6) is a simple **key-value map** and can iterate its elements in insertion order
 
 - Data structure to map values to values
-- Anything can be a key
+- Anything can be a key (even _object_, _function_)
 - Maps are enumerable
+
+_Example:_
 
 ```javascript
 const question = new Map();
@@ -2182,22 +2478,34 @@ question.forEach((value, key) =>
   console.log(`This is ${key}, and it's set to ${value}`)
 );
 
-// Below both are same
-// for (let [key, value] of question) {
+// loop through key-value pairs
 for (let [key, value] of question.entries()) {
+  // of question) {
   if (typeof key === "number") {
     console.log(`This is ${key}, and it's set to ${value}`);
   }
 }
+
+// loop through keys or values
+question.keys();
+question.values();
 
 question.clear();
 
 question.size; // 0
 ```
 
+- Create an array of key-value pairs:
+
+  ```javascript
+  const keyValArr = Array.from(question);
+
+  const valuesArr = Array.from(question.values());
+  ```
+
 ### Sets
 
-`Set` objects are collections of values
+`Set` objects are **collections of unique values**
 
 - A value in a `Set` may only occur once; it is **unique** in the Set's collection.
 
@@ -2207,11 +2515,34 @@ mySet.add(1);
 mySet.add("foo");
 
 mySet.has(1); // true
+
 mySet.delete("foo");
+
 mySet.size; // 2
 
-for (let item of mySet) console.log(item);
-// 1
+for (let item of mySet) {
+  console.log(item); // 1
+}
+
+// Set object performs shallow comparison
+// to determine duplicate values
+mySet = new Set();
+
+mySet.add({ name: "A Set" });
+mySet.add({ name: "A Set" });
+
+// because
+// { name: "A Set" } !== { name: "A Set" }
+mySet.size; // 2
+
+const person = { name: "Bilbo" };
+
+mySet.add(person);
+mySet.add(person);
+
+// because
+// person === person
+mySet.size; // 3 not 4
 ```
 
 Converting between Array and Set:
@@ -2564,26 +2895,69 @@ getRecipeAW();
 
 ## AJAX (Asynchronous JavaScript And XML)
 
-We can use any of the Web APIs to perform AJAX calls.
+We can use any of the Web APIs to perform AJAX calls
+
+AJAX APIs and libraries:
+
+- [XMLHttpRequest](#xmlhttprequest)
+- [Fetch API](#fetch-api)
+- [Axios](./Libraries/Axios.md)
+- [jQuery](./jQuery/jQuery.md)
+- Node HTTP
 
 ### XMLHttpRequest
+
+`XMLHttpRequest` (XHR) objects are used to **interact with servers**
+
+- You can retrieve data from a URL without having to do a full page refresh
+
+`readyState` values:
+
+- `0`: request not initialized
+- `1`: server connection established
+- `2`: request received
+- `3`: processing request
+- `4`: request finished and response is ready
+
+_Example:_
 
 ```javascript
 const getData = () => {
   const xhr = new XMLHttpRequest();
 
-  // CREATE A REQUEST
+  // create a request
   xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=pizza");
 
-  // PARSE JSON TO JavaScript OBJECT
+  // parse json to javascript object
   xhr.responseType = "json";
 
-  // SAVE THE RESPONSE
+  // optional, used for spinners/loaders
+  xhr.onprogress = function () {
+    console.log(this.readyState);
+    // console.log(xhr.readyState);
+  };
+
+  // // old way
+  // xhr.onreadystatechange = function () {
+  //   if (this.status === 200 && this.readyState === 4) {
+  //     console.log(this.responseText);
+  //   }
+  // };
+
+  // save the response
   xhr.onload = () => {
+    // if (this.status === 200) {
+    // }
+
     console.log(xhr.response);
   };
 
-  // SEND THE REQUEST
+  // handle errors
+  xhr.onerror = () => {
+    console.log("Something went wrong...");
+  };
+
+  // send the request
   xhr.send();
 };
 ```
@@ -2708,9 +3082,112 @@ try {
 
 - `fetch()` **won't send cross-origin cookies** unless you set the credentials `init` option
 
-## ES6 Modules
+## Events
+
+**Event Bubbling**:
+
+- When an element has lots of child elements that we are interested in.
+
+- When we want an event handler attached to an element that is not yet in the DOM when the page is loaded.
+
+**Event delegation** is a technique of delegating events to a single common ancestor.
+
+- Due to _event bubbling_, events "bubble" up the DOM tree by executing any handlers progressively on each ancestor element up to the root that may be listening to it
+
+## ESM (ECMAScript Modules)
+
+JavaScript modules allow us to break up our code into separate files
+
+- This makes it easier to maintain the code-base
+
+- JavaScript modules rely on the [`import`](#import) and [`export`](#export) statements
+
+- Module file is always executed in **strict mode**
+
+- Modules only work with the **HTTP(s) protocol**
+
+- Checkout [Node.js modules](./Node.js/Node.js.md#modules) for more details
+
+JavaScript Modules:
+
+- Each module is a piece of code that is executed once it is loaded
+- Modules are singletons. Even if a module is imported multiple times, only a single "instance" of it exists.
+
+Use the `type="module"` attribute of `script` tag to let browsers know that the file is a JavaScript module
+
+- `script` tag will automatically `defer` if `type="module"`
+
+::: warning NOTE
+A web-page opened via the `file://` protocol **cannot use `import` / `export`**
+:::
+
+### Export
+
+Export a function, variable, or class from any file
+
+Types of export:
+
+- Named export:
+
+  - Export multiple items
+
+  ```javascript
+  // person.js
+
+  // in-line individual export
+  export const name = "Jesse";
+  export const age = 40;
+
+  // export all at once
+  const name = "Jesse";
+  const age = 40;
+
+  export { name, age };
+  ```
+
+- Default export:
+
+  - **Only one default export** in a file
+
+  ```javascript
+  // person.js
+  const person = {
+    name: "Jesse",
+    age: 40,
+
+    getInfo: () => `Name: ${this.name}, Age: ${this.age}`,
+  };
+
+  export default person;
+  ```
+
+### Import
+
+Import modules into a file
+
+There are 2 ways Based on if they are named exports or default exports:
+
+- Import from named exports:
+
+  ```javascript
+  import { name, age } from "./person.js";
+
+  // or imports the module as an object
+  import * as person from "./person.js";
+
+  // rename named imports:
+  import { name as personName, age } from "./person.js";
+  ```
+
+- Import from default exports:
+
+  ```javascript
+  import person from "./person.js";
+  ```
 
 ### Module Pattern
+
+Module pattern using [IIFE](#immediately-invoked-function-expression-iife):
 
 ```javascript
 var budgetController = (function () {
@@ -3090,37 +3567,116 @@ New Features:
 
 ## To Read
 
-1. Symbols data type
-2. Primitive Wrapper Objects
-3. Hoisting
-4. Closures
-5. Higher Order Functions
-6. Map, Filter, Reduce, and ForEach (They are less performant)
-7. getter and setter
-8. WeakMap and WeakSet
-9. Web Components
-10. Web AuthN
-11. Worker Threads
-12. Next.JS
-13. Graph QL
-14. `cypress`, `Gatsby,js`, `Xstate`.
-15. Event Delegation
-16. Tagged template literal
+1. Primitive Wrapper Objects
+2. Higher Order Functions
+3. getter and setter
+4. WeakMap and WeakSet
+5. Web Components
+6. Web AuthN
+7. Worker Threads
 
-Event Bubbling
+## Document Object Model (DOM)
 
-- When an element has lots of child elements that we are interested in.
-- When we want an event handler attached to an element that is not yet in the DOM when the page is loaded.
+The Document Object Model (DOM) is a cross-platform, **language-independent convention** for representing and interacting with objects in HTML, XHTML and XML documents.
 
-## DOM (Document Object Model)
+The Document Object Model (DOM) is **the data representation of** the objects that comprise the structure and content of **a document on the web**
 
-DOM (Document Object Model)
+- DOM is structured representation of an HTML document
 
-- DOM is structured representation of an HTML document.
-- The DOM is used to connect web pages to scripts like JavaScript.
-- For each HTML element, there is an object in the DOM that can be accessed and interacted with.
+- The DOM is used to connect web pages to scripts like JavaScript
 
-- `document` - Contains the whole HTML
+- For each HTML element, there is an object in the DOM that can be accessed and interacted with
+
+- Objects in the DOM tree may be addressed and manipulated
+
+DOM Objects:
+
+- `document`: Contains the whole HTML
+
+- `window`: Represents a window containing a DOM document
+
+  - Main JavaScript object root, aka the **global object**
+
+  ```javascript
+  window.document === document; // true
+
+  window === document.defaultView; // true
+
+  window.window === window; // true
+
+  // global this
+  this === window; // true
+
+  // all these point refer to window
+  // object
+  top;
+  parent;
+  self;
+  globalThis;
+  ```
+
+### Accessing DOM
+
+- `document.querySelector()`
+- `document.getElementById()`
+- `document.getElementsByClassName()`
+
+- `Element.className`: Gets and sets the value of the class attribute of the specified element
+
+- `Element.classList`: A read-only property that returns a live `DOMTokenList` collection of the class attributes of the element
+
+  ```javascript
+  const div = document.createElement("div");
+  div.className = "foo";
+
+  // our starting state: <div class="foo"></div>
+  console.log(div.outerHTML);
+
+  // use the classList API to remove and add classes
+  div.classList.remove("foo");
+  div.classList.add("anotherclass");
+
+  // <div class="anotherclass"></div>
+  console.log(div.outerHTML);
+
+  // if visible is set remove it, otherwise add it
+  div.classList.toggle("visible");
+
+  // add/remove visible, depending on test conditional, i less than 10
+  div.classList.toggle("visible", i < 10);
+
+  console.log(div.classList.contains("foo"));
+
+  // add or remove multiple classes
+  div.classList.add("foo", "bar", "baz");
+  div.classList.remove("foo", "bar", "baz");
+
+  // add or remove multiple classes using spread syntax
+  const cls = ["foo", "bar"];
+  div.classList.add(...cls);
+  div.classList.remove(...cls);
+
+  // replace class "foo" with class "bar"
+  div.classList.replace("foo", "bar");
+  ```
+
+### DOM Elements
+
+- Add DOM Elements:
+
+  ```javascript
+  // replaces existing content inside <main>
+  document.querySelector("main").innerHTML = `<h1>Hello, World!</h1>`;
+
+  // create an element and add it to <main> content
+  const headEl = document.createElement("h1");
+
+  headEl.classList.add("header");
+  headEl.setAttribute("id", "mainHeader");
+
+  document.querySelector("main").prepend(headEl);
+  document.querySelector("main").append(headEl);
+  ```
 
 ## Do You Know
 
@@ -3143,3 +3699,5 @@ DOM (Document Object Model)
 - [Simplified JavaScript Jargon](https://jargon.js.org)
 
 - [caniuse.com](http://caniuse.com): per-feature tables of support
+
+[Unleash JS](https://github.com/Unleash/unleash): Unleash is the open source feature toggle service
