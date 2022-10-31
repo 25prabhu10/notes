@@ -128,7 +128,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### ApiController Attribute
 
-ApiController attribute: The `[ApiController]` attribute can be applied to a controller class to enable the following opinionated, API-specific behaviors:
+ApiController attribute: The `[ApiController]` attribute can be applied to a controller class to enable the following opinionated, API-specific behaviours:
 
 - Attribute routing is a requirement: `[Route("[controller]")]`
 - Automatic HTTP 400 responses: makes model validation errors automatically trigger an HTTP 400 response
@@ -176,7 +176,7 @@ _Example:_
 
 ```csharp
 services.AddControllers()
-    .ConfigureApiBehaviorOptions(options =>
+    .ConfigureApibehaviourOptions(options =>
     {
         // Disable multipart/form-data request inference when [FromForm] is used
         options.SuppressConsumesConstraintForFormFileParameters = true;

@@ -459,7 +459,7 @@ function Hello() {
 }
 ```
 
-Ways to create a React component:
+Ways to create a React class component:
 
 - When React was first made open source in 2013, there was one way to create a component: `createClass`. The use of `React.createClass` to create a component looks like this:
 
@@ -583,7 +583,7 @@ function Welcome({ name }) {
 ReactDOM.render(<Welcome name="Mort" />, document.getElementById("root"));
 ```
 
-- In cases where parent element such as `div` tag are unnecessary, React (16.2+) provides an inbuilt element called `React.Fragment` which mimics the behavior of a wrapper without actually creating a new tag:
+- In cases where parent element such as `div` tag are unnecessary, React (16.2+) provides an inbuilt element called `React.Fragment` which mimics the behaviour of a wrapper without actually creating a new tag:
 
 ```jsx
 function Welcome({ name }) {
@@ -858,6 +858,7 @@ Some prop types:
 | Numbers   | `PropTypes.number` |
 | Objects   | `PropTypes.object` |
 | Strings   | `PropTypes.string` |
+| Symbols   | `PropTypes.symbol` |
 
 You can combine multiple `propTypes`:
 
@@ -874,7 +875,7 @@ You can combine multiple `propTypes`:
 
 ::: tip NOTE
 
-PropTypes and TypeScript can be used together as type checkers.
+PropTypes and TypeScript can be used together as type checkers
 
 - PropTypes: Runtime Type Check
 - TypeScript: Static Type Check
@@ -886,24 +887,38 @@ PropTypes and TypeScript can be used together as type checkers.
 Specify default values for `props` with `defaultProps`
 
 ```jsx
-function Greeting(props) {
+const Greeting = (props) => {
   return <div>Hi {props.name}!</div>; // Hi Guest
-}
+};
 
-// Provide default values
+// provide default values
 Greeter.defaultProps = {
   name: "Guest",
 };
 ```
 
+- Since ES2022, we can `defaultProps` as `static` property within a class component:
+
+  ```jsx
+  class Greeting extends React.Component {
+    static defaultProps = {
+      name: "stranger",
+    };
+
+    render() {
+      return <div>Hello, {this.props.name}</div>;
+    }
+  }
+  ```
+
 - This is used for `undefined` props, but not for `null` props
 
 ```jsx
-function Greeting(props) {
+const Greeting = (props) => {
   return <div>Hi {props.name}!</div>; // Hi null
-}
+};
 
-// Provide default values
+// provide default values
 Greeter.defaultProps = {
   name: "Guest",
 };
@@ -1095,7 +1110,7 @@ If you want to access `this.props` inside the constructor, you need to pass prop
 
 ::: danger STATE MUTATION
 
-- Do not mutate the state directly as it breaks the React's state management and JavaScript copies objects and arrays by reference, hence causing unexpected behaviors.
+- Do not mutate the state directly as it breaks the React's state management and JavaScript copies objects and arrays by reference, hence causing unexpected behaviours.
 
 - If the state is directly mutate React will not know about the state change and hence it will not render the component with the latest state change.
 
@@ -1149,6 +1164,19 @@ function ActionLink() {
   );
 }
 ```
+
+```js
+function handleClick(event) {
+  event.persist();
+  this.setState((prevState) => ({
+    foo: prevState.foo + event.pageX,
+  }));
+}
+```
+
+::: tip NOTE
+As of _v17_, `e.persist()` doesn't do anything because the SyntheticEvent is no longer pooled
+:::
 
 ## Styling
 
@@ -1739,7 +1767,7 @@ useEffect(() => {
 }, []);
 ```
 
-The behaviors without the dependency array and with an empty [] dependency array are very different:
+The behaviours without the dependency array and with an empty [] dependency array are very different:
 
 ```javascript
 useEffect(() => {
@@ -1926,6 +1954,36 @@ function moviePropsAreEqual(prevMovie, nextMovie) {
 React.memo(Component, moviePropsAreEqual);
 ```
 
+- Memoization can be avoid by using `children` prop: this technique is known as **"lifting content up"**
+
+  - When `count` changes, `Parent` component will re-render. But it still has the same `children` prop it got from the `App` last time, so React doesn't visit that subtree
+
+  ```jsx
+  const Parent = ({ children }) => {
+    const [count, setCount] = useState(0);
+
+    return (
+      <div>
+        <button type="button" onClick={() => setCount((count) => count + 1)}>
+          Counter {count}
+        </button>
+
+        {children}
+      </div>
+    );
+  };
+
+  function App() {
+    return (
+      <Parent>
+        <Child />
+      </Parent>
+    );
+  }
+
+  // <Child /> component is not rerendered
+  ```
+
 ### `useImperativeHandle` Hook
 
 `useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`.
@@ -2070,7 +2128,9 @@ A `React.Component` subclass must define a `render()` method
 
 - `render()`: Invoked before the component is mounted and then whenever the [State](#state-management) or [Props](#props) changes.
 
-  - It should always return React element.
+  - It should always return React element
+
+![Component Life-Cycle Methods](./react_component_life_cycle.webp)
 
 ### Mounting
 
@@ -2245,7 +2305,7 @@ Order of method calls based on updates:
 
 These methods are called when there is an error during rendering, in a lifecycle method, or in the constructor of any child component.
 
-Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed.
+Error boundaries are React components that **catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI** instead of the component tree that crashed
 
 - During runtime errors React unmounts the whole React component tree
 - Error boundaries catch these runtime errors and display a fallback UI
@@ -2309,6 +2369,9 @@ class ErrorBoundary extends React.Component {
   <MyWidget />
 </ErrorBoundary>;
 ```
+
+- [react-error-boundary library](https://github.com/bvaughn/react-error-boundary)
+- [Using the library](https://kentcdodds.com/blog/use-react-error-boundary-to-handle-errors-in-react)
 
 ## Forms
 
@@ -2964,7 +3027,7 @@ import("./math").then((math) => {
 
 #### React Lazy Loading
 
-`React.lazy` (React v16.6) function lets you render a dynamic import as a regular component.
+`React.lazy` (React _v16.6_) function lets you render a dynamic import as a regular component.
 
 - `React.lazy` takes a function that must call a dynamic `import()`. This must return a `Promise` which resolves to a module with a **`default` export containing a React component.**
 
@@ -3159,6 +3222,8 @@ React v17:
 
 - [react-redux-links](https://github.com/markerikson/react-redux-links)
 
+- [Very old React tutorial](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)
+
 ## Libraries
 
 1. Icons:
@@ -3195,3 +3260,9 @@ React v17:
 3. Multi Select Input:
 
    - [react-select](https://github.com/jedwatson/react-select)
+
+4. Performance:
+
+   - [why-did-you-render](https://github.com/welldone-software/why-did-you-render)
+
+   - [Benchmark React Components](https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c)

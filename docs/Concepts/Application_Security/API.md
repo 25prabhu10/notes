@@ -39,7 +39,10 @@ X-RateLimit-Remaining: 992
 ## Mass Assignment
 
 - Use of functions that automatically bind input from client into variables or objects
+
 - Filter data
+
+[Mass Assignment exploit](https://cheatsheetseries.owasp.org/cheatsheets/Mass_Assignment_Cheat_Sheet.html)
 
 ## Security Misconfiguration
 

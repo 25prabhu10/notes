@@ -53,7 +53,7 @@ All patterns can be categorized by their _intent_ or _purpose_:
 
 2. [Structural Patterns](#structural-patterns)
 
-3. [Behavioral Patterns](#behavioral-patterns)
+3. [behavioural Patterns](#behavioural-patterns)
 
 - The most basic and low-level patterns are often called _idioms_. They usually apply only to a single programming language.
 
@@ -343,7 +343,7 @@ class Settings {
 
 const settings = Settings.getInstance();
 
-// same behavior can be achieved using object literal
+// same behaviour can be achieved using object literal
 const settings = {
   dark: true,
 };
@@ -420,13 +420,13 @@ client.turnOnSystems();
 
 This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to sub-classing for extending functionality
 
-_Intent:_ Decorator is a structural design pattern that lets you attach new behaviors to objects by placing these objects inside special wrapper objects that contain the behaviors
+_Intent:_ Decorator is a structural design pattern that lets you attach new behaviours to objects by placing these objects inside special wrapper objects that contain the behaviours
 
 _Applicability:_
 
-- Use the Decorator pattern when you need to be able to assign extra behaviors to objects at runtime without breaking the code that uses these objects
+- Use the Decorator pattern when you need to be able to assign extra behaviours to objects at runtime without breaking the code that uses these objects
 
-- Use the pattern when it's awkward or not possible to extend an object's behavior using inheritance
+- Use the pattern when it's awkward or not possible to extend an object's behaviour using inheritance
 
 ### Proxy Pattern
 
@@ -444,9 +444,9 @@ _Applicability:_
 
 - Use the Adapter class when you want to use some existing class, but its interface isn't compatible with the rest of your code
 
-## Behavioral Patterns
+## behavioural Patterns
 
-Behavioral patterns take care of effective communication and the assignment of responsibilities between objects: **How objects communicate with each other**
+behavioural patterns take care of effective communication and the assignment of responsibilities between objects: **How objects communicate with each other**
 
 - They help to guarantee that unrelated parts of the application have a synchronized information
 
@@ -512,7 +512,7 @@ console.log(manager.execute("subtract", 5, 3));
 
 This pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation
 
-_Intent:_ Iterator is a behavioral design pattern that lets you traverse elements of a collection without exposing its underlying representation (_list_, _stack_, _tree_, etc.)
+_Intent:_ Iterator is a behavioural design pattern that lets you traverse elements of a collection without exposing its underlying representation (_list_, _stack_, _tree_, etc.)
 
 - Iterate pattern allows to traverse through a collection of object
 
@@ -614,7 +614,7 @@ const air69 = new Airplane();
 
 The _observer pattern_ is very useful when we want to **optimize the communication between separated parts of the system**
 
-_Intent:_ Observer is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing.
+_Intent:_ Observer is a behavioural design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing.
 
 - This pattern exemplifies loose coupling
 
@@ -784,7 +784,7 @@ class Human {
 
 This pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This lets the algorithm vary independently from clients that use it
 
-_Intent:_ Strategy is a behavioral design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+_Intent:_ Strategy is a behavioural design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
 
 The Strategy pattern suggests that you take **a class that does something specific in a lot of different ways** and extract all of these algorithms into **separate classes called _strategies_**
 

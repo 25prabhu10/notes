@@ -14,7 +14,7 @@ Fundamental Principles:
 
 1. **[Encapsulate what varies](#encapsulate-what-varies)**
 
-2. **[Favor composition](#favor-composition)** (over inheritance)
+2. **[Favour composition](#favour-composition)** (over inheritance)
 
 3. **[Loose coupling](#loose-coupling)**
 
@@ -26,7 +26,7 @@ Fundamental Principles:
 
 Identify the aspects of your application that vary and separate them from what stays the same
 
-- If we have part of our design that is changing, say with every new requirement, well then we should encapsulate that part away from the rest of the design. Favor composition over inheritance
+- If we have part of our design that is changing, say with every new requirement, well then we should encapsulate that part away from the rest of the design. Favour composition over inheritance
 
 - **Underlines almost all design patterns** like Strategy, Adapter, Facade, Decorator, Observer, Singleton, etc.
 
@@ -76,18 +76,18 @@ public class SimplePancakeFactory {
 }
 ```
 
-## Favor Composition
+## Favour Composition
 
-This principle warrants against overuse of inheritance and suggests composition as a powerful alternative for extending behavior in our designs
+This principle warrants against overuse of inheritance and suggests composition as a powerful alternative for extending behaviour in our designs
 
 - _HAS-A_ is better than _IS-A_
 
   - IS-A is an inheritance relationship: Dog is an animal
   - HAS-A is a relationship of composition: Dog has a owner
 
-- Instead of inheriting behavior, we can compose our objects with new behaviors
+- Instead of inheriting behaviour, we can compose our objects with new behaviours
 
-- Composition often gives us more flexibility, even allows behavior changes at runtime
+- Composition often gives us more flexibility, even allows behaviour changes at runtime
 
 ## Loose Coupling
 

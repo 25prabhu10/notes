@@ -17,7 +17,7 @@ Types of Models:
 
 1. Computational
 
-   - Computer simulations representing time-varying behavior of a system
+   - Computer simulations representing time-varying behaviour of a system
 
 2. Analytical:
 
@@ -44,7 +44,7 @@ Types of Models:
    5. Package diagram
    6. Deployment diagram
 
-2. _Behavior_: Represents dynamic view of the system and its components
+2. _behaviour_: Represents dynamic view of the system and its components
 
    1. Use case diagram:
 
@@ -75,7 +75,7 @@ Types of Models:
    3. State machine diagram
    4. Interaction
 
-3. _Interaction_ (part of _Behavior_): Represents interaction, among components of the system and between system and external actors
+3. _Interaction_ (part of _behaviour_): Represents interaction, among components of the system and between system and external actors
 
    1. Sequence diagram
    2. Communication diagram
@@ -86,7 +86,7 @@ Types of Models:
 
 - Class Name
 - Attributes
-- Behaviors
+- behaviours
 
 ## References
 

@@ -376,7 +376,7 @@ http://example.com/path?name=foo&name=bar
 ## Lambda Environment Variables
 
 - Environment variable = key / value pair in "String" form
-- Adjust the function behavior without updating code
+- Adjust the function behaviour without updating code
 - The environment variables are available to your code
 - Lambda Service adds its own system environment variables as well
 - Helpful to store secrets (encrypted by KMS)
@@ -484,7 +484,7 @@ http://example.com/path?name=foo&name=bar
 - Concurrency limit: up to 1000 concurrent executions
 - Can set a "**reserved concurrency**" at the function level (=limit)
 - Each invocation over the concurrency limit will trigger a "Throttle"
-- Throttle behavior:
+- Throttle behaviour:
   - If synchronous invocation --> **return ThrottleError** - 429
   - If asynchronous invocation --> **retry automatically** and then go to DLQ
 - If you need a higher limit, open a support ticket

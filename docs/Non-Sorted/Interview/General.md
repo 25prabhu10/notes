@@ -35,7 +35,7 @@ The goal here is to answer the following questions:
 
 2. What roles and responsibilities have the candidate performed design implementation vs implement other designs, technical leadership, management, etc.)
 
-3. What type of person is the candidate in terms of general behavior and personality (can we explain what they have done, can they communicate clearly, do they appear arrogant, etc.)
+3. What type of person is the candidate in terms of general behaviour and personality (can we explain what they have done, can they communicate clearly, do they appear arrogant, etc.)
 
 ### Phone Screening
 

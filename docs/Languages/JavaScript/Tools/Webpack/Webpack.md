@@ -17,7 +17,7 @@ Some of the features are:
 
 - **Minification**: Removes whitespace, line breaks, rename lengthy variable names to smaller ones, and unnecessary code to reduce the file size.
 
-- **Feature Flagging**: Sends code to one or more—but not all—environments when testing out features.
+- **Feature Flagging**: Sends code to one or more-but not all-environments when testing out features.
 
 - **Hot Module Replacement (HMR)**: Watches for changes in source code. Changes only the updated modules immediately without reloading the browser tab.
 

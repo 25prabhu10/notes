@@ -71,11 +71,11 @@ description: C# and Angular interview questions.
 
 ### Encapsulation
 
-- Encapsulation means creating a boundary around an object, to separate its external (public) behavior from its internal (private) implementation details.
+- Encapsulation means creating a boundary around an object, to separate its external (public) behaviour from its internal (private) implementation details.
 
 ## Class
 
-- **Methods** are what an _object_ **does** (object's behavior). **Fields** are what the _object_ **knows**.
+- **Methods** are what an _object_ **does** (object's behaviour). **Fields** are what the _object_ **knows**.
 
   > _Objects_ are stored in computer's memory in **heap**.
 

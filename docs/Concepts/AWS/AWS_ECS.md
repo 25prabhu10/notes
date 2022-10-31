@@ -15,7 +15,7 @@ ECS (Elastic Container Service)
 - Apps run the same, regardless of where they're run
 - Any machine
 - No compatibility issues
-- Predictable behavior
+- Predictable behaviour
 - Less work
 - Easier to maintain and deploy
 - Works with any language, any OS, any technology

@@ -687,15 +687,19 @@ git am [directory-name]/*.patch
 
 ### Git Clean
 
-Git clean undoes files from the repository. It **primarily focuses on untracked files**.
+Git clean undoes files from the repository. It **primarily focuses on untracked files**
 
 - Remove untracked files
 
 ```bash
-git clean -f
-
 # do a dry run
 git clean -n
+
+# remove untracked files
+git clean -f
+
+# remove untracked directories
+git clean -fd
 ```
 
 ### Restore File
@@ -935,7 +939,7 @@ git reset --hard ORIG_HEAD
 ```
 
 ::: tip NOTE
-Use revert whenever possible.
+Use revert whenever possible
 :::
 
 ### Revert

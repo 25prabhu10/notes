@@ -375,7 +375,7 @@ Common Update Semantics:
 
 - Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
 
-- Similar to upsert behavior in some databases
+- Similar to upsert behaviour in some databases
 
 #### PATCH
 
@@ -804,12 +804,18 @@ Checkout notes about API Security here: [API Security Notes Link](./../Applicati
 - Course: _Web Security: OAuth and OpenID Connect with Keith Casey_
 - YouTube: _OAuth 2.0 and OpenID Connect (in plain English)_ with Nate Barbettini
 
-## Further Information
+## References
+
+- RESTful Web APIs: Services for a Changing World - by Leonard Richardson
 
 - _Learning RESTful APIs_
+
 - [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html)
+
 - _Rest in Practice_
+
 - _RESTful Web Services Cookbook_
+
 - Nate Barbettini: building-and-securing-restful-apis-in-asp-dot-net-core-2018
 
 ## Queries

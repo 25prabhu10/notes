@@ -397,7 +397,7 @@ Differences:
 - You can specify automated rollback options
 - Roll back when a deployment fails
 - Roll back when alarm thresholds are met
-- Disable rollbacks — Do not perform rollbacks for this deployment.
+- Disable rollbacks - Do not perform rollbacks for this deployment.
 - If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment.
 
 ## CodeStar

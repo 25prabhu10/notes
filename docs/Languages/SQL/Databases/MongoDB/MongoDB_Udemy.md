@@ -1,6 +1,6 @@
 ---
 title: MongoDB
-description: MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program.
+description: MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program
 ---
 
 # MongoDB
@@ -10,31 +10,71 @@ MongoDB is a:
 - Flexible
 - Scalable (scale-out)
 - General-purpose
-- **Document-Oriented** database.
+- **Document-Oriented** database
 
 Features of MongoDB:
 
-- **Indexing**: MongoDB supports generic secondary indexes and provides unique, compound, geospatial, and full-text indexing capabilities as well. Secondary indexes on hierarchical structures such as nested documents and arrays are also supported and enable developers to take full advantage of the ability to model in ways that best suit their applications.
-- **Aggregation**: MongoDB provides an aggregation framework based on the concept of data processing pipelines. Aggregation pipelines allow you to build complex analytics engines by processing data through a series of relatively simple stages on the server side, taking full advantage of database optimizations.
-- **Special collection and index types**: MongoDB supports time-to-live (TTL) collections for data that should expire at a certain time, such as sessions and fixed-size (capped) collections, for holding recent data, such as logs. MongoDB also supports partial indexes limited to only those documents matching a criteria filter in order to increase efficiency and reduce the amount of storage space required.
-- **File Storage**: MongoDB supports an easy-to-use protocol for storing large files and file metadata.
+- **Indexing**: MongoDB supports generic secondary indexes and provides unique, compound, geospatial, and full-text indexing capabilities as well. Secondary indexes on hierarchical structures such as nested documents and arrays are also supported and enable developers to take full advantage of the ability to model in ways that best suit their applications
 
-Applications send query for data to MongoDB Server. MongoDB Server gets the data through a Storage Engine, which handles the actual reading and writing of the data to the database.
+- **Aggregation**: MongoDB provides an aggregation framework based on the concept of data processing pipelines. Aggregation pipelines allow you to build complex analytics engines by processing data through a series of relatively simple stages on the server side, taking full advantage of database optimizations
 
-## Installation Process
+- **Special collection and index types**: MongoDB supports time-to-live (TTL) collections for data that should expire at a certain time, such as sessions and fixed-size (capped) collections, for holding recent data, such as logs. MongoDB also supports partial indexes limited to only those documents matching a criteria filter in order to increase efficiency and reduce the amount of storage space required
 
-```bash
-mongod --dbpath /data/db --logpath /data/logs/
-```
+- **File Storage**: MongoDB supports an easy-to-use protocol for storing large files and file metadata
 
-- `.mongorc.js` Loads whenever the shell is started
+Applications send query for data to MongoDB Server. MongoDB Server gets the data through a Storage Engine, which handles the actual reading and writing of the data to the database
+
+## Setup
+
+Installation steps for both (L)UNIX and Windows systems
+
+### Linux Setup
+
+1. Install MongoDB using your favourite package manager for your distro or build one for your system
+
+2. After installation, configure MongoDB. `mongod` (MongoDB Demon) will be used for configuration:
+
+   ```bash
+   # create directory for database storage
+   sudo mkdir -p /data/db
+   sudo chown -Rv $(whoami) /data/db
+   ```
+
+3. Start the mongo server: `mongod`
+
+4. Open a new terminal and start working on MongoDB: `mongo`
+
+5. Every time we want to work on MongoDB. We need to start the `mongod` every time. So, we have to add MongoDB as a service, this will start the MongoDB service every time system boots up
+
+6. Optionally provide database and log path:
+
+   ```bash
+   mongod --dbpath /data/db --logpath /data/logs/
+   ```
+
+   - `.mongorc.js` Loads whenever the shell is started
+
+### Windows Setup
+
+1. Download and install MongoDB from [MongoDB Site](https://www.mongodb.com/), use the default settings (customize the paths is you need to)
+
+2. Add the MongoDB installed path to your Environment variable Path (change the version number accordingly i.e. 4.2 to the installed version) `C:\Program Files\MongoDB\Server\4.2\bin\`
+
+3. Open _command prompt_ and run `mongo` to start the MongoDB shell to interact with the DB
+
+Other applications required are:
+
+- Install **Robo 3T** (Robomongo), a GUI to interact with the MongoDB database. It's an alternative to MongoDB Compass
 
 ## Databases, Collections, And Documents
 
-- A **document** is the basic unit of data for MongoDB and is roughly equivalent to a row in a relational database management system (but much more expressive).
-- A **collection** can be thought of as a table with a dynamic schema that contains documents.
-- A single instance of MongoDB can host multiple independent **databases**, each of which contains its own _collections_.
-- Databases and Collections are created "lazily" or implicitly (when a Document is inserted).
+- A **document** is the basic unit of data for MongoDB and is roughly equivalent to a row in a relational database management system (but much more expressive)
+
+- A **collection** can be thought of as a table with a dynamic schema that contains documents
+
+- A single instance of MongoDB can host multiple independent **databases**, each of which contains its own _collections_
+
+- Databases and Collections are created "lazily" or implicitly (when a Document is inserted)
 
 ### Documents
 
@@ -74,28 +114,58 @@ _Embedded Documents_:
 
 ### Collections
 
-- A collection is a group of documents.
-- Collection names can be any UTF-8 string, with few restrictions:
-  1. The **empty string** ("") is not valid.
-  2. Collection names may not contain the character **\0** (the `null` character), because this delineates the end of a collection name.
-  3. **system** should not be used as it is a **reserved for internal collections**.
-  4. Also `$` and `.` is a reserved word and should not be used in the collection names.
-  5. Collections can be organized using **namespace sub-collections** separated by the `.` character.
+A _collection_ is a group of documents
+
+Collection names can be any UTF-8 string, with few restrictions:
+
+1. The **empty string** ("") is not valid
+
+2. Collection names may not contain the character **\0** (the `null` character), because this delineates the end of a collection name
+
+3. **system** should not be used as it is a **reserved for internal collections**
+
+4. Also `$` and `.` is a reserved word and should not be used in the collection names
+
+5. Collections can be organized using **namespace sub-collections** separated by the `.` character
+
+Commands:
+
+- `show collections`: List of collections
+
+- `db.collectionName.insertOne({.})`: Creates a collection if not present and inserts one document
+
+- `db.<collectionName>.find().pretty()`: List of all documents present in the collection
+
+- `db.<collectionName>.drop()`
 
 ### Databases
 
-- MongoDB groups collections into _databases_.
+MongoDB groups collections into _databases_
+
 - Database names:
-  - The **empty string** ("") is not valid.
-  - Special characters such as _/_, _\*_, _._, _"\*_, _\*\*_, _<_, _>_, _:_, _|_, _?_, _\$_, (a single space), or **\0** (the `null` character) should not be used in database names.
-  - Database names are **case-insensitive**.
-  - Database names are limited to a **maximum of 64 bytes**.
+
+  - The **empty string** ("") is not valid
+
+  - Special characters such as `/`, `*`, `.`, `"*`, `**`, `<`, `>`, `:`, `|`, `?`, `$`, (a single space), or `\0` (the `null` character) should not be used in database names
+
+  - Database names are **case-insensitive**
+
+  - Database names are limited to a **maximum of 64 bytes**
+
+Commands:
+
+- `show dbs`: List of databases
+- `use newDBName`: Creates a new database
+- `db`: To check which database is in use
+- `db.createUser({ ... })`: Create user for the database
 
 Some reserved database names:
 
-- `admin`: The _admin_ database plays a role in authentication and authorization.
-- `local`: This database stores data specific to a single server. In replica sets, _local_ stores data used in the replication process. The _local_ database itself is never replicated.
-- `config`: Sharded MongoDB clusters use the config database to store information about each shard.
+- `admin`: The _admin_ database plays a role in authentication and authorization
+
+- `local`: This database stores data specific to a single server. In replica sets, _local_ stores data used in the replication process. The _local_ database itself is never replicated
+
+- `config`: Sharded MongoDB clusters use the config database to store information about each shard
 
 ## Data Types
 
@@ -457,3 +527,13 @@ db.runCommand({
 GeoJSON
 
 ## Aggregation Framework
+
+## Mongoose
+
+Mongoose is an _Object Data Modelling_ (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB
+
+![Mongoose Data Mapping](./mongoose-data-mapping.jpg)
+
+## References
+
+- [freeCodeCamp - mongoose introduction](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)

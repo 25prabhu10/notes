@@ -102,9 +102,9 @@ should edit or remove the snippet of code.
 
 ## Modernizr
 
-HTML5 Boilerplate uses a custom build of Modernizr.
+HTML5 Boilerplate uses a custom build of Modernizr.js
 
-[Modernizr](https://modernizr.com/) is a JavaScript library which adds classes to
+Modernizr.js is a JavaScript library which adds classes to
 the `html` element based on the results of feature test and which ensures that
 all browsers can make use of HTML5 elements (as it includes the HTML5 Shiv).
 This allows you to target parts of your CSS and JavaScript based on the

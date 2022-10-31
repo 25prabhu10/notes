@@ -11,43 +11,105 @@ Structured Query Language
 
 ## SELECT
 
-`SELECT` is a DQL (Data Query Language) used to read data from tables.
+`SELECT` is a DQL (Data Query Language) used to read data from tables
 
 ```sql
--- read all columns
+-- query for all columns
 SELECT * FROM artist;
 
--- read select columns
+-- query for select columns
 SELECT artist_name,artist_id FROM artist;
+
+-- calculate value
+SELECT name, (gdp/population) FROM world;
 ```
 
-### WHERE
+## WHERE
 
-- `LIKE`
+Operators:
+
+| Operator                        | Condition                                            | SQL Example                     |
+| ------------------------------- | ---------------------------------------------------- | ------------------------------- |
+| `=`, `!=`, `<`, `<=`, `>`, `>=` | Standard numerical operators                         | `col_name != 4`                 |
+| `=`, `!=`, `<>`                 | Case sensitive exact string comparison               | `col_name = "abc"`              |
+| `LIKE`                          | Case insensitive exact string comparison             | `col_name LIKE "ABC"`           |
+| `%`                             | Match a sequence of zero or more characters          | `col_name LIKE "%AT%"`          |
+| `_`                             | Match a single character                             | `col_name LIKE "AN_"`           |
+| `IN (…)`                        | Number/String exists in a list                       | `col_name IN (2, 4, 6)`         |
+| `NOT IN (…)`                    | Number/String does not exist in a list               | `col_name NOT IN (1, 3, 5)`     |
+| `BETWEEN … AND …`               | Number is within range of two values (inclusive)     | `col_name BETWEEN 1.5 AND 10.5` |
+| `NOT BETWEEN … AND …`           | Number is not within range of two values (inclusive) | `col_name NOT BETWEEN 1 AND 10` |
+
 - `AND`
 - `OR`
-- `NOT`
 - `XOR`
 
 ```sql
-SELECT * FROM artist WHERE artist_name = "New Order";
+-- query with constraints
+SELECT column, another_column, …
+FROM myTable
+WHERE condition
+    AND/OR another_condition
+    AND/OR …;
+
+SELECT *
+FROM   artist
+WHERE  artist_name = "new order";
 
 -- >, <, <=, >=, not equal ( <> or !=)
-SELECT artist_name FROM artist WHERE artist_id < 5;
+SELECT artist_name
+FROM   artist
+WHERE  artist_id < 5;
 
 -- pattern matching
-SELECT album_name FROM album WHERE album_name LIKE "Retro%";
+SELECT album_name
+FROM   album
+WHERE  album_name LIKE "retro%";
 
 -- 3 letters beginning with 'R' and match rest
-SELECT * FROM track WHERE track_name LIKE "R__ %";
+SELECT *
+FROM   track
+WHERE  track_name LIKE "r__ %";
 
-SELECT album_name FROM album WHERE
-album_name > "C" AND album_name < "M";
+SELECT album_name
+FROM   album
+WHERE  album_name > "c"
+       AND album_name < "m";
+
+SELECT name,
+       population
+FROM   world
+WHERE  name IN ( 'Brazil', 'Russia', 'India', 'China' );
+
+SELECT name,
+       area
+FROM   world
+WHERE  area BETWEEN 250000 AND 300000;
+
+-- XOR
+SELECT name,
+       population,
+       area
+FROM   world
+WHERE  ( population >= 250000000
+         AND area < 3000000 )
+        OR ( population < 250000000
+             AND area >= 3000000 );
+```
+
+### DISTINCT
+
+Select query with unique results:
+
+```sql
+SELECT DISTINCT column, another_column, …
+FROM myTable
+WHERE condition(s);
 ```
 
 ### ORDER BY
 
-Clause
+Query sorted
 
 ```sql
 -- ascending (default) ASC
@@ -79,7 +141,7 @@ Cast as:
 
 ### LIMIT
 
-Limit the total number of rows returned.
+Limit the total number of rows returned:
 
 ```sql
 SELECT track_name FROM track LIMIT 10;
@@ -87,7 +149,7 @@ SELECT track_name FROM track LIMIT 10;
 -- limit from row 6
 SELECT track_name FROM track LIMIT 5,5;
 
-or
+-- or
 
 SELECT track_name FROM track LIMIT 5 OFFSET 5;
 ```

@@ -2401,7 +2401,7 @@ Checkout [Object Oriented Programming](../../Concepts/Object-Oriented_Programmin
 
 #### Inheritance
 
-Inheritance allows you to define a child class that reuses (inherits), extends, or modifies the behaviors of a parent class.
+Inheritance allows you to define a child class that reuses (inherits), extends, or modifies the behaviours of a parent class.
 
 - Base Class: The class whose members are inherited
 - Derived Class: The class that inherits the members of the base class

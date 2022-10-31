@@ -152,6 +152,11 @@ then
   command 2
   command n
 fi
+
+# double bracket [[
+# this construct is not POSIX compliant
+# and only available in Bash shell along with a few other shells
+if [[ $MY_SHELL == "bash" ]]
 ```
 
 Example:
@@ -169,7 +174,7 @@ fi
 ```
 
 ::: tip
-Use variables under quotes to prevent unknown errors.
+Use variables under quotes to prevent unknown errors
 :::
 
 ## for Loop

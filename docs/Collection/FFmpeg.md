@@ -72,3 +72,7 @@ ffmpeg -f x11grab -r 20 -s 1920x1080 -i :0.0 -vcodec libx265 -preset fast -b:v 5
 ```bash
 ffmpeg -f pulse -ac 2 -i default -f x11grab -r 20 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx264 -preset ultrafast -b:v 900k -threads 0 -y output.mkv
 ```
+
+## Tools
+
+[Build FFmpeg filters](https://ffmpeg.guide/): A simple GUI tool to create complex FFmpeg filtergraphs quickly and correctly

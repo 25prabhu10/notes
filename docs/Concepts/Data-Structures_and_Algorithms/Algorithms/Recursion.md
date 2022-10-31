@@ -137,10 +137,10 @@ Global vs Static Variable:
    // 1
    ```
 
-   | Type             | Time Complexity | Space Complexity                                                         |
-   | ---------------- | --------------- | ------------------------------------------------------------------------ |
-   | Tail Recursion   | O(n)            | O(n) - Creates a new function activation record for each recursion       |
-   | Loop (while/for) | O(n)            | O(1) - Only one activation record of the function that contains the loop |
+   | Type             | Time Complexity | Space Complexity                                                           |
+   | ---------------- | --------------- | -------------------------------------------------------------------------- |
+   | Tail Recursion   | `O(n)`          | `O(n)` - Creates a new function activation record for each recursion       |
+   | Loop (while/for) | `O(n)`          | `O(1)` - Only one activation record of the function that contains the loop |
 
    From the above table we can see that space complexity of Tail recursion is higher than loops, hence we can use loops instead of Tail recursion.
 
@@ -190,10 +190,10 @@ Global vs Static Variable:
    // 3
    ```
 
-   | Type             | Time Complexity | Space Complexity                                                         |
-   | ---------------- | --------------- | ------------------------------------------------------------------------ |
-   | Head Recursion   | O(n)            | O(n) - Creates a new function activation record for each recursion       |
-   | Loop (while/for) | O(n)            | O(1) - Only one activation record of the function that contains the loop |
+   | Type             | Time Complexity | Space Complexity                                                           |
+   | ---------------- | --------------- | -------------------------------------------------------------------------- |
+   | Head Recursion   | `O(n)`          | `O(n)` - Creates a new function activation record for each recursion       |
+   | Loop (while/for) | `O(n)`          | `O(1)` - Only one activation record of the function that contains the loop |
 
    From the above table we can see that space complexity of Head recursion is higher than loops, hence we can use loops instead of Head recursion.
 
@@ -323,7 +323,7 @@ Global vs Static Variable:
      // 55
      ```
 
-   - _Using equation:_ This method is better than recursion in terms of both time and space complexity. It only has to evaluate one statement. O(1)
+   - _Using equation:_ This method is better than recursion in terms of both time and space complexity. It only has to evaluate one statement. `O(1)`
 
      ```c
      int sum_of_first_n_numbers(int n)

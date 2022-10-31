@@ -360,4 +360,4 @@
 
 23. What are directives?
 
-    - Directives add behavior to an existing DOM element or an existing component instance.
+    - Directives add behaviour to an existing DOM element or an existing component instance.

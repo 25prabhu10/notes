@@ -7,7 +7,7 @@ description: A Predictable State Container for JS Apps
 
 A Predictable State Container for JS Apps
 
-- Redux was inspired by several important qualities of Flux architecture
+- Redux was inspired by several important qualities of [Flux architecture](#flux-architecture)
 - A change emitter holding a value
 - _Reducers + Flux = Redux_
 
@@ -35,11 +35,11 @@ This type of data flow enables:
 - Find the bad state easily, check the action, and fix the reducer
 - Easy to write tests
 
-> "Redux is just a [dumb] event emitter"
+> "Redux is just a (dumb) event emitter" 🙃
 
 ## Flux Architecture
 
-- Build to overcome constraints of MVC
+Build to overcome constraints of MVC
 
 Single direction data flow:
 
@@ -55,6 +55,7 @@ _Example:_
 
 ```javascript
 import { createStore } from "redux";
+import reducerFn from "../reducers/todosReducer";
 
 export const store = createStore(reducerFn);
 ```
@@ -90,9 +91,7 @@ const createStore = (reducer) => {
 
 ## Actions
 
-Actions must be a plain JavaScript object
-
-- To use `async` calls use a middleware such as [`redux-thunk`](#redux-thunk) or `redux-saga`
+An action must be a plain JavaScript object
 
 Actions have 2 properties:
 
@@ -102,9 +101,9 @@ Actions have 2 properties:
 _Example:_
 
 ```javascript
-// Action creator
+// action creator
 const createAdd = (num) => {
-  // Returns an action
+  // returns an action
   return {
     type: "ADD_ONE",
     payload: {
@@ -114,16 +113,18 @@ const createAdd = (num) => {
 };
 ```
 
+- To use `async` calls use a middleware such as [`redux-thunk`](#redux-thunk) or `redux-saga`
+
 ## Reducers
 
-Manages the State and Returns the newly updated state
+Manages the state and returns the newly updated state
 
-- They should be **synchronous functions**
+- Reducers must be **Pure Functions**
+- **Should not mutate the original state** (no side-effects)
+- Always provide a default state
 - Must return any value besides `undefined`
 - Should **always return new state**
-- **Should not mutate the original state**
-- **Should be side-effect free**
-- Always provide a default state
+- They should be **synchronous functions**
 
 _Example:_
 
@@ -132,7 +133,7 @@ const defaultState = {
   counter: 0,
 };
 
-const reducerFn = (state = defaultState, action) => {
+const reducerFn = (state = defaultState, action = {}) => {
   switch (action.type) {
     case "INC":
       return { counter: state.counter + 1 };
@@ -190,33 +191,53 @@ dispatch({ type: "ADDBY", payload: 10 });
 
 Simple Redux store used in a simple JavaScript app:
 
+```html
+<p id="value"></p>
+
+<button id="increment">Increment</button>
+```
+
 ```javascript
 import { createStore } from "redux";
 
-// 1. Create a store
-const store = createStore(counter);
-
-// 2. Subscribe to store updates
-store.subscribe(render);
-
 const valueEl = document.getElementById("value");
 
-// 3. When the subscription callback runs:
+// 1. Create reducer function
+const counterReducer = (state, action) => {
+  switch (action.type) {
+    case "INCREMENT":
+      return { counter: state.counter + 1 };
+
+    default:
+      return state;
+  }
+};
+
+// 2. Set initial state
+const initialState = { counter: 0 };
+
+// 3. Create a store
+const store = createStore(counterReducer, initialState);
+
+// 5. When the subscription callback runs:
 const render = () => {
-  // 3.1 Get the current store state
+  // 5.1 Get the current store state
   const state = store.getState();
 
-  // 3.2 Extract the data you want
-  const newValue = state.toString();
+  // 5.2 Extract the data you want
+  const newValue = state.counter.toString();
 
-  // 3.3 Update the UI with the new value
+  // 5.3 Update the UI with the new value
   valueEl.innerHTML = newValue;
 };
 
-// 4. Display the UI with the initial store state
+// 4. Subscribe to store updates
+store.subscribe(render);
+
+// 6. Display the UI with the initial store state
 render();
 
-// 5. Dispatch actions based on UI inputs
+// 7. Dispatch actions based on UI inputs
 document.getElementById("increment").addEventListener("click", () => {
   store.dispatch({ type: "INCREMENT" });
 });
@@ -224,15 +245,19 @@ document.getElementById("increment").addEventListener("click", () => {
 
 ### `react-redux`
 
-`react-redux` subscribes to the Redux store, checks to see if the data your component wants has changed, and re-renders your component.
+`react-redux` subscribes to the Redux store, checks to see if the data your component wants has changed, and re-renders your component
 
-- Added Hooks API in v7.1
+- It provides bind between React and Redux
+
+- Added Hooks API in _v7.1_
 
 Integrating Redux in a React App:
 
 - Install Redux and `react-redux`:
 
   ```bash
+  npm install redux react-redux
+  # or
   yarn add redux react-redux
   ```
 
@@ -250,9 +275,7 @@ Usage:
 
    ```bash
    npm install @reduxjs/toolkit react-redux
-
    # Or
-
    yarn add @reduxjs/toolkit react-redux
    ```
 
@@ -307,7 +330,7 @@ Usage:
    //{ type: "UNIQUE KEY"}
    counterSlice.actions.increment;
 
-   // Action creators are generated for each case reducer function
+   // action creators are generated for each case reducer function
    export const { increment, decrement, incrementByAmount } =
      counterSlice.actions;
    ```

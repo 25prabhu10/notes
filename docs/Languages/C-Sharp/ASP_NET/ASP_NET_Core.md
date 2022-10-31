@@ -549,7 +549,7 @@ public class Test2Controller : ControllerBase
 
 Route name: can be used to generate a URL based on a specific route. Route names:
 
-- Have no impact on the URL matching behavior of routing.
+- Have no impact on the URL matching behaviour of routing.
 - Are only used for URL generation.
 - Route names must be unique application-wide
 
@@ -1222,10 +1222,15 @@ Non-Form Tag Helpers:
     - Adds `?v=[hash of file]` to the URL
 
 - Cache/Distributed Cache:
+
   - Provides a way to mark content as cached using the `[cache]` tag
+
   - Supports absolute, timespan, or sliding expiration
+
   - Supports additional cache options
+
   - Distributed Cache Tag helper:
+
     - Inherits from Cache Tag Helper
     - Supports SQL Server or Redis as a distributed cache
 

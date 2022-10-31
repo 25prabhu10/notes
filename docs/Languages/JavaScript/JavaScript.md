@@ -95,7 +95,7 @@ _ECMAScript_ is the official name for JavaScript.
    <script src="/path/to/script.js"></script>
    ```
 
-Default behavior of browser:
+Default behaviour of browser:
 
 - The browser will download the HTML file and start parsing the HTML
 
@@ -1667,7 +1667,7 @@ If a function doesn't have a `return` statement, it will return `undefined`
 
 Pure functions are those functions that depend only on their input parameters and only mutate variables that are within its local scope and it should also not produce any side effects.
 
-Pure functions always produce the same output given the same input.
+Pure functions always produce the same output given the same input
 
 - They are easier to test.
 - Easier to understand in general.
@@ -1902,7 +1902,7 @@ console.log(fullJapan);
 
 ## Iterators and Generators
 
-[Iterators](#iterators) and [Generators](#generator-function) bring the concept of iteration directly into the core language and provide a mechanism for customizing the behavior of `for...of` loops
+[Iterators](#iterators) and [Generators](#generator-function) bring the concept of iteration directly into the core language and provide a mechanism for customizing the behaviour of `for...of` loops
 
 ### Iterators
 
@@ -2046,7 +2046,7 @@ Generator functions **do not have arrow function** counterparts.
 
 ### Iterables
 
-An object is _iterable_ if it defines its iteration behavior (implement the `Symbol.iterator` method), such as what values are looped over in a `for...of` construct
+An object is _iterable_ if it defines its iteration behaviour (implement the `Symbol.iterator` method), such as what values are looped over in a `for...of` construct
 
 - Generators are iterable:
 
@@ -2547,7 +2547,7 @@ mySet.size; // 3 not 4
 
 Converting between Array and Set:
 
-- `Set` objects store unique values—so any duplicate elements from an Array are deleted when converting!
+- `Set` objects store unique values-so any duplicate elements from an Array are deleted when converting!
 
 ```javascript
 Array.from(mySet);
@@ -3678,6 +3678,62 @@ DOM Objects:
   document.querySelector("main").append(headEl);
   ```
 
+## Service Worker
+
+It is a JavaScript file that gets registered with the browser
+
+- Stays registered with the browser even when offline
+- Can load content even with no connection
+
+- They cannot directly access the [DOM](#document-object-model-dom)
+- Programmable network proxy
+- Terminated when not being used
+- make use of [promises](#promise)
+- Require HTTPS unless on `localhost`
+
+Use cases:
+
+- Caching assets and API calls
+- Push notification (Push & Notification API)
+- Background data syc/preload
+- Used on PWA
+
+### Lifecycle & Events
+
+Register --> Install --> Activate
+
+- Triggers `install` event
+- Triggers `activate` event
+- Message events & functional events such as `fetch`, `push` & `sync`
+
+## Polyfill
+
+A polyfill is a piece of code that provides a fallback if a certain feature doesn't exist within that browser's JavaScript engine
+
+- Polyfills check to see if the function they implement exists, and then we only write our fallback implementation if we have to
+
+_Example:_
+
+```javascript
+// polyfill Array `forEach`
+if (Array.prototype.forEach != undefined) {
+  Array.prototype.forEach = function (callback, thisArg) {
+    if (typeof callback !== "function") {
+      throw new TypeError(callback + " is not a function!");
+    }
+
+    const len = this.length;
+
+    for (let i = 0; i < len; i++) {
+      callback.call(thisArg, this[i], i, this);
+    }
+  };
+}
+```
+
+- [caniuse.com](http://caniuse.com): per-feature tables of support
+- [HTML5 Please: Look up HTML5, CSS3, etc features](https://html5please.com/)
+
 ## Do You Know
 
 - JavaScript did not have exception handling until ECMAScript 3, which explains why the language so often automatically converts values and so often fails silently: it initially couldn't throw exceptions.
@@ -3685,6 +3741,43 @@ DOM Objects:
 - JavaScript is said to be written in 10 days.
 
 > "There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors." - Jeff Atwood (@codinghorror)
+
+## Snippets
+
+```javascript
+// using clsx library
+clsx("base", undefined, ["more", "classes"], {
+  "bg-red": hasError,
+  "pointer-events-none": !isEnabled,
+  "font-semibold": isTitle,
+  "font-normal": !isTitle,
+});
+
+// utility
+cx(
+  "base",
+  undefined,
+  ["more", "classes"],
+  hasError && "bg-red",
+  isEnabled || "pointer-events-none",
+  isTitle ? "font-semibold" : "font-normal"
+);
+
+type Cx = (...a: Array<undefined | null | string | boolean>) => string;
+
+import { compose, join, filter, isBoolean, isNil, flatten } from "lodash/fp";
+
+const cx: Cx = (...args) =>
+  compose(join(" "), filter(isBoolean), filter(isNil), flatten)(args);
+
+// or
+
+const cx: Cx = (...args) =>
+  args
+    .flat()
+    .filter((x) => x !== null && x !== undefined && typeof x !== "boolean")
+    .join(" ");
+```
 
 ## References
 
@@ -3700,4 +3793,4 @@ DOM Objects:
 
 - [caniuse.com](http://caniuse.com): per-feature tables of support
 
-[Unleash JS](https://github.com/Unleash/unleash): Unleash is the open source feature toggle service
+- [Unleash JS](https://github.com/Unleash/unleash): Unleash is the open source feature toggle service

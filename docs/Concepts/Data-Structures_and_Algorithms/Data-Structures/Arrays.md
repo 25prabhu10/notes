@@ -5,13 +5,13 @@ description: An array data structure consists of a collection of homogeneous ele
 
 # Arrays
 
-_Definition:_ Contiguous area of memory consisting of equal-size elements. An array variable will store the address of the first element of that array (it acts like a pointer).
+_Definition:_ Contiguous area of memory consisting of equal-size elements. An array variable will store the address of the first element of that array (it acts like a pointer)
 
-Array is a data structure consisting of a collection of elements, each element is stored contiguously (right next to each other) in memory.
+Array is a data structure consisting of a collection of elements, each element is stored contiguously (right next to each other) in memory
 
-- They are used when the size of elements is already known, as adding new element requires a free memory next to the last element, else the whole array needs to be moved to a new memory location with enough space. If there is no space to accommodate the whole array, it may cause memory issues.
+- They are used when the size of elements is already known, as adding new element requires a free memory next to the last element, else the whole array needs to be moved to a new memory location with enough space. If there is no space to accommodate the whole array, it may cause memory issues
 
-- As the memory location of each element can be determined easily, it is very fast in getting an element from anywhere in the array.
+- As the memory location of each element can be determined easily, it is very fast in getting an element from anywhere in the array
 
 - All elements in the array should be the same type (all integers or all doubles or all strings and so on).
 
@@ -104,8 +104,11 @@ Arrays are created inside the Stack Memory and have fixed size and cannot be cha
 The size of an array can be determined dynamically (user inputs the size during runtime) (supported in C++):
 
 - We can create an array of size _n_, where _n_ is determined during runtime by the user (dynamically)
+
 - After the size is know, an array of size _n_ is declared
+
 - Here the array cannot be initialized with values during declaration
+
 - Garbage value is set instead of setting `0` for elements whose value was not provided
 
 _Example:_
@@ -268,7 +271,7 @@ There are two ways to do this mapping or representation:
 
    - Formula for `d1 x d2 x d3 x d4` metrics:
 
-     `Adress(A[i1][i2][i3][i4]) = L0 + ((i1 * d2 * d3 * d4) + (i2 * d3 * d4) + (i3 * d4) + i4) * w`
+     `Address(A[i1][i2][i3][i4]) = L0 + ((i1 * d2 * d3 * d4) + (i2 * d3 * d4) + (i3 * d4) + i4) * w`
 
    - Multiplication of dimensions goes left to right.
 
@@ -278,7 +281,7 @@ There are two ways to do this mapping or representation:
 
    - For n dimension the number of multiplication are `n(n - 1)/2` and have `O(n^2)`. Optimizing the above formula:
 
-     `Adress(A[i1][i2][i3][i4]) = L0 + (i4 + d4 * (i3 + d3 * (i2 + (d2 * i1)))) * w`
+     `Address(A[i1][i2][i3][i4]) = L0 + (i4 + d4 * (i3 + d3 * (i2 + (d2 * i1)))) * w`
 
    - Here the number of multiplications are reduced to `n-1` and hence `O(n)`.
 
@@ -286,7 +289,7 @@ There are two ways to do this mapping or representation:
 
    - Formula for `m x n` metrics: `Address(A[i][j] = L0 + (i + (j * m)) * w`
 
-   - Formula for `d1 x d2 x d3 x d4` metrics: `Adress(A[i1][i2][i3][i4]) = L0 + ((i4 * d3 * d2 * d1) + (i3 * d2 * d1) + (i2 * d1) + i1) * w`
+   - Formula for `d1 x d2 x d3 x d4` metrics: `Address(A[i1][i2][i3][i4]) = L0 + ((i4 * d3 * d2 * d1) + (i3 * d2 * d1) + (i2 * d1) + i1) * w`
 
    - Multiplication of dimensions goes right to left.
 
@@ -296,11 +299,11 @@ In C/C++, **Row-major mapping is used**.
 
 ## Performance
 
-|     ~     | Add  | Remove |
-| :-------: | :--: | :----: |
-| Beginning | O(n) |  O(n)  |
-|    End    | O(1) |  O(1)  |
-|  Middle   | O(n) |  O(n)  |
+|     ~     |  Add   | Remove |
+| :-------: | :----: | :----: |
+| Beginning | `O(n)` | `O(n)` |
+|    End    | `O(1)` | `O(1)` |
+|  Middle   | `O(n)` | `O(n)` |
 
 ::: tip NOTE
 Most languages use zero-based indexing, some use one as the starting index, and some allow the user to specify the starting index.
@@ -512,7 +515,7 @@ int Delete(struct Array *arr, int index)
      }
      ```
 
-   - Optimization using _Move to Front/Head_: Swapping the first element with the searched value. If the same value is searched again the operation will be `O(1)`.
+   - Optimization using _Move to Front/Head_: Swapping the first element with the searched value. If the same value is searched again the operation will be `O(1)`
 
      ```c
      int Linear_search_move_front(struct Array *arr, int key)
@@ -693,7 +696,7 @@ float Average(struct Array arr)
 
     return (float)sum / arr.length;
 
-    // OR JUST INSTEAD OF FOR LOOP
+    // or just instead of for loop
 
     return (float)Sum(arr) / arr.length;
 }
@@ -704,7 +707,7 @@ float Average(struct Array arr)
 - Using auxiliary array: Operations: `O(n)`
 
   ```c
-  void Reverse_auxilary_array(struct Array *arr)
+  void Reverse_auxiliary_array(struct Array *arr)
   {
       int i, j, *B;
 

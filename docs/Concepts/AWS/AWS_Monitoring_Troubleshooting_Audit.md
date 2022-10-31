@@ -220,7 +220,7 @@ Why Monitoring is Important
 - Troubleshooting performance (bottlenecks)
 - Understand dependencies in a microservice architecture
 - Pinpoint service issues
-- Review request behavior
+- Review request behaviour
 - Find errors and exceptions
 - Are we meeting time SLA?
 - Where I am throttled?

@@ -27,7 +27,7 @@ Advantages:
 
 - Meta-Programing features like [Decorators](#decorators)
 
-- **TypeScript preserves the runtime behavior of JavaScript**
+- **TypeScript preserves the runtime behaviour of JavaScript**
 
 - Type of a variable will be implicitly inferred if it is initialized during declaration.
 
@@ -1214,7 +1214,7 @@ function extractAndConvert<T extends object, K extends keyof object>(
 ## Decorators
 
 ```typescript
-unction Logger(constructor: Function): void {
+function Logger(constructor: Function): void {
   console.log("Decorator called...");
   console.log(constructor);
 }

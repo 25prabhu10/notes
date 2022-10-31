@@ -666,11 +666,11 @@ int main() {
 
 ### PQ Complexity
 
-| Operations         | peek | insert   | delete   |
-| ------------------ | ---- | -------- | -------- |
-| Linked List        | O(1) | O(n)     | O(1)     |
-| Binary Heap        | O(1) | O(log n) | O(log n) |
-| Binary Search Tree | O(1) | O(log n) | O(log n) |
+| Operations         | peek   | insert     | delete     |
+| ------------------ | ------ | ---------- | ---------- |
+| Linked List        | `O(1)` | `O(n)`     | `O(1)`     |
+| Binary Heap        | `O(1)` | `O(log n)` | `O(log n)` |
+| Binary Search Tree | `O(1)` | `O(log n)` | `O(log n)` |
 
 ### PQ Applications
 

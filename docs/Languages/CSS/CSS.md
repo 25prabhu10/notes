@@ -537,7 +537,7 @@ The property value will equate that of the parent's property whether the propert
 
 ## Resets or Neutralizers CSS
 
-Each browsers has its own set of default styles applied to the page. This may cause some problems with the uniformity of the CSS across different browsers. So, we can reset or neutralizer these default CSS behavior of browsers.
+Each browsers has its own set of default styles applied to the page. This may cause some problems with the uniformity of the CSS across different browsers. So, we can reset or neutralizer these default CSS behaviour of browsers.
 
 There are plenty of available presets, one such example:
 
@@ -1024,7 +1024,7 @@ _Example:_
 
 - Extensions of CSS ([Sass](./Sass.md), Less, [Tailwind](https://tailwindcss.com))
 
-- Behavior Libraries ([HeadlessUI](https://headlessui.com), [Radix](https://www.radix-ui.com), React Aria, [MUI](https://mui.com/))
+- behaviour Libraries ([HeadlessUI](https://headlessui.com), [Radix](https://www.radix-ui.com), React Aria, [MUI](https://mui.com/))
 
   - [Master.co](https://css.master.co/): A Virtual CSS language with enhanced syntax
 
@@ -1084,7 +1084,7 @@ _Example:_
 
    - [Fluid typography](https://fluid-typography.netlify.app/)
 
-   - [Type Scale Clamp: Fluid Type](https://maximeroudier.com/typeScaleClampGenerator/)
+   - Type Scale Clamp: Fluid Type (maximeroudier.com/typeScaleClampGenerator)
 
    - [How to avoid layout shifts caused by web fonts](https://simonhearne.com/2021/layout-shifts-webfonts/)
 
@@ -1153,6 +1153,16 @@ _Example:_
    - [SVG to JSX and other tools](https://transform.tools/)
 
    - [px to em](http://pxtoem.com/)
+
+   - [Neumorphism](https://neumorphism.io/)
+
+   - [SVG wave generator](https://getwaves.io/)
+
+   - [Collection of CSS animations](https://xsgames.co/animatiss/)
+
+   - [Glassmorphism CSS generator](https://markodenic.com/tools/glassmorphism-css-generator/)
+
+   - [CSS glass](https://css.glass/)
 
 ## Reference
 

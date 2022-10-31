@@ -36,7 +36,7 @@ description: User-Centric Performance Metrics
 
 5. **Time to First Byte (TTFB)**: measures the time it takes for the network to respond to a user request with the first byte of a resource
 
-6. **Interaction to Next Paint (INP)**: measures the latency of every tap, click, or keyboard interaction made with the page, and—based on the number of interactions—selects the worst interaction latency of the page (or close to the highest) as a single, representative value to describe a page's overall responsiveness
+6. **Interaction to Next Paint (INP)**: measures the latency of every tap, click, or keyboard interaction made with the page, and-based on the number of interactions-selects the worst interaction latency of the page (or close to the highest) as a single, representative value to describe a page's overall responsiveness
 
 7. **Time to Interactive (TTI)**: measures the time from when the page starts loading to when it's visually rendered, its initial scripts (if any) have loaded, and it's capable of reliably responding to user input quickly
 

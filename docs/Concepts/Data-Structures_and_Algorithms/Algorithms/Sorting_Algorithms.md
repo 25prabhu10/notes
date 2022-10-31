@@ -99,10 +99,10 @@ If the list is already sorted:
 
 |                | Bubble Sort | Insertion Sort |             Cases |
 | -------------- | ----------: | -------------: | ----------------: |
-| Min Comparison |        O(n) |           O(n) |    Already Sorted |
-| Max Comparison |      O(n^2) |         O(n^2) | Sorted in Reverse |
-| Min Swap       |        O(1) |           O(1) |    Already Sorted |
-| Max Swap       |      O(n^2) |         O(n^2) | Sorted in Reverse |
+| Min Comparison |      `O(n)` |         `O(n)` |    Already Sorted |
+| Max Comparison |    `O(n^2)` |       `O(n^2)` | Sorted in Reverse |
+| Min Swap       |      `O(1)` |         `O(1)` |    Already Sorted |
+| Max Swap       |    `O(n^2)` |       `O(n^2)` | Sorted in Reverse |
 | Adaptive       |         Yes |            Yes |                   |
 | Stable         |         Yes |            Yes |                   |
 | Linked List    |           - |            Yes |                   |

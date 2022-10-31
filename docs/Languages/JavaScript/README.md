@@ -18,16 +18,18 @@ sidebar: false
 
 6. [React](./React/): A JavaScript library for building user interfaces
 
-7. [Angular](./Angular/Angular.md): TypeScript-based Open-Source Web Application Framework
+7. [Next.js](./Next.js/Next.js.md): Web development framework enabling React-based web applications with server-side rendering and generating static websites
 
-8. [Angular.js](./Angular.js/Angular.js.md): JavaScript based web framework to build SPA
+8. [Angular](./Angular/Angular.md): TypeScript-based Open-Source Web Application Framework
 
-9. [Gulp.js](./Tools/Gulp.js/Gulp.js.md): JavaScript Build Toolkit
+9. [Angular.js](./Angular.js/Angular.js.md): JavaScript based web framework to build SPA
 
-10. [Webpack](./Tools/Webpack/Webpack.md): A static module bundler for modern JavaScript applications.
+10. [Gulp.js](./Tools/Gulp.js/Gulp.js.md): JavaScript Build Toolkit
 
-11. [Axios](./Libraries/Axios.md): promise-based HTTP Client for node.js and the browser
+11. [Webpack](./Tools/Webpack/Webpack.md): A static module bundler for modern JavaScript applications.
 
-12. [VuePress](./Vue.js/VuePress.md): Vue-powered Static Site Generator
+12. [Axios](./Libraries/Axios.md): promise-based HTTP Client for node.js and the browser
 
-13. [Libraries](./Libraries/): Collection of useful NPM Packages
+13. [VuePress](./Vue.js/VuePress.md): Vue-powered Static Site Generator
+
+14. [Libraries](./Libraries/): Collection of useful NPM Packages

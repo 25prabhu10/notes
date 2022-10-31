@@ -310,7 +310,7 @@ Good Practices:
 
 - Don't do anything out of the box
 
-- Button behavior is added by hooking them to browser events or using JavaScript
+- Button behaviour is added by hooking them to browser events or using JavaScript
 
 - Add more info for buttons
 

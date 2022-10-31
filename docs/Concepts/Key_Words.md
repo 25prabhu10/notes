@@ -13,6 +13,8 @@
 
    - Therefore, the result of the change in data is dependent on the thread scheduling algorithm, i.e. both threads are **"racing" to access/change the data**
 
+   - Pure functions can help in avoiding race condition issues
+
 ## Floating Point Numbers
 
 _IEEE 754_: Floating point number specification

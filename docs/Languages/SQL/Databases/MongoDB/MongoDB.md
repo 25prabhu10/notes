@@ -1,12 +1,13 @@
 ---
 title: MongoDB
-description: MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program.
+description: MongoDB is a cross-platform document-oriented database program. Classified as a NoSQL database program
 ---
 
 # MongoDB
 
-MongoDB is a _NoSQL_ database, classified as document-oriented database.
-The word MongoDB is originated from _humongous_.
+MongoDB is a _NoSQL_ database, classified as document-oriented database
+
+> The word MongoDB is originated from _humongous_
 
 ## Introduction
 
@@ -26,7 +27,7 @@ The word MongoDB is originated from _humongous_.
 
 - **Models** are higher-order constructors that take a schema and create an instance of a document equivalent to records in a relational database.
 
-- There is no schema enforcement in MongoDB by default (you may implement it). SQL defines a schema via the table definition. A [mongoose](#mongoose) schema is a document data structure (or shape of the document) that is enforced via the application layer.
+- There is no schema enforcement in MongoDB by default (you may implement it). SQL defines a schema via the table definition. A [mongoose](https://mongoosejs.com/) schema is a document data structure (or shape of the document) that is enforced via the application layer.
 
 - MongoDB stores document in a binary-encoded format termed as BSON (Binary JSON) - [BSON and JSON](https://www.mongodb.com/json-and-bson). BSON is an extended format of JSON data model.
 
@@ -260,41 +261,6 @@ A document is a set of key-value pairs that support dynamic schema. A document i
 
 Dynamic schema implies that the documents stored in the database can have different fields, with different types for each field.
 
-## Setup
-
-Installation steps for both (L)UNIX and Windows systems.
-
-### Linux Setup
-
-1. Install MongoDB using your favorite package manager for your distro or build one for your system.
-
-2. After installation, configure MongoDB. `mongod` (MongoDB Demon) will be used for configuration:
-
-   ```bash
-   # Create dir for database storage
-   sudo mkdir -p /data/db
-   sudo chown -Rv $(whoami) /data/db
-   ```
-
-3. Now start the mongo server: `mongod`
-
-4. Open a new terminal and start working on MongoDB: `mongo`
-
-5. Every time we want to work on MongoDB. We need to start the `mongod` every time. So, we have to add MongoDB as a service, this will start the MongoDB service every time system boots up.
-
-### Windows Setup
-
-1. Download and install MongoDB from [MongoDB Site](https://www.mongodb.com/), use the default settings (customize the paths is you need to).
-
-2. Add the MongoDB installed path to your Environment variable Path (change the version number accordingly i.e. 4.2 to the installed version) `C:\Program Files\MongoDB\Server\4.2\bin\`
-
-3. Open _command prompt_ and run `mongo` to start the MongoDB shell to interact with the DB.
-
-Other applications required are:
-
-- Also install **Node.js**, which is part of the MEAN or MERN stack and also it helps in testing MongoDB.
-- Install **Robo 3T** (Robomongo), a GUI to interact with the MongoDB database. It's an alternative to MongoDB Compass.
-
 ## CRUD
 
 [**C**](#create-operations) - Create operations
@@ -389,9 +355,9 @@ Relation is a way in which one document interacts with another document.
 
    1. The schema is stored in a separate file for each collection. Use singular noun for file names.
 
-   2. Import mongoose module - `const mongoose = require("mongoose");`
+   2. Import mongoose module: `const mongoose = require("mongoose");`
 
-   3. We are creating a schema, so lets define a constant for that - `const Schema = mongoose.Schema;`
+   3. We are creating a schema, so lets define a constant for that: `const Schema = mongoose.Schema;`
 
    4. Now define your schema
 
@@ -401,13 +367,13 @@ Relation is a way in which one document interacts with another document.
       });
       ```
 
-   5. Now give a name for this model - `const Student = mongoose.model("student", StudentSchema);`
+   5. Now give a name for this model: `const Student = mongoose.model("student", StudentSchema);`
 
    6. Export this schema to use it other places to create **Student**.
 
 2. Now lets make a connection to the MongoDB.
 
-   1. Import **mongoose**, then connect to the database - `mongoose.connect("mongodb://localhost/<databaseName>", {useNewUrlParser: true});`
+   1. Import **mongoose**, then connect to the database: `mongoose.connect("mongodb://localhost/<databaseName>", {useNewUrlParser: true});`
 
 ## Example
 
@@ -458,27 +424,6 @@ Relation is a way in which one document interacts with another document.
    ```
 
 > Keys in MongoDB need not be enclosed within "".
-
-## MongoDB Commands
-
-- `show dbs` - List of databases.
-- `show collections` - List of collections.
-- `use newDBName` - Creates a new database.
-- `db` - To check which database is in use.
-- `db.collectionName.insertOne({.})` - Creates a collection if not present and inserts one document.
-- `db.createUser({ ... })` - Create user for the database.
-- `db.<collectionName>.find().pretty()` - List of all documents present in the collection.
-- `db.<collectionName>.drop()`
-
-## mongoose
-
-mongoose is an _Object Data Modelling_ (ODM) library for MongoDB and Node.js. It manages relationships between data, provides schema validation, and is used to translate between objects in code and the representation of those objects in MongoDB.
-
-![Mongoose Data Mapping](./mongoose-data-mapping.jpg)
-
-## Mocha
-
-JavaScript testing framework.
 
 ## MongoDB Cheat Sheet
 
@@ -753,7 +698,3 @@ db.posts.find({ views: { $gte: 7 } });
 db.posts.find({ views: { $lt: 7 } });
 db.posts.find({ views: { $lte: 7 } });
 ```
-
-## References
-
-- [freeCodeCamp - mongoose introduction](https://www.freecodecamp.org/news/introduction-to-mongoose-for-mongodb-d2a7aa593c57/)

@@ -283,22 +283,22 @@ class Node {
 
 Time Complexity:
 
-| Operation     |    Array     | Linked List  |
-| ------------- | :----------: | :----------: |
-| Access        |   **O(1)**   |     O(n)     |
-| Insert first  |     O(n)     |   **O(1)**   |
-| Insert middle |     O(n)     |     O(n)     |
-| Insert last   |   **O(1)**   |     O(n)     |
-| Linear Search |     O(n)     |     O(n)     |
-| Binary Search | **O(log n)** | O(n x log n) |
-| Deletion      |     O(n)     |   **O(1)**   |
+| Operation     |     Array      |  Linked List   |
+| ------------- | :------------: | :------------: |
+| Access        |   **`O(1)`**   |     `O(n)`     |
+| Insert first  |     `O(n)`     |   **`O(1)`**   |
+| Insert middle |     `O(n)`     |     `O(n)`     |
+| Insert last   |   **`O(1)`**   |     `O(n)`     |
+| Linear Search |     `O(n)`     |     `O(n)`     |
+| Binary Search | **`O(log n)`** | `O(n x log n)` |
+| Deletion      |     `O(n)`     |   **`O(1)`**   |
 
 - Insertion Sort
 - Merge Sort
 
 Space Complexity:
 
-- O(n)
+- `O(n)`
 
 ## Issues
 

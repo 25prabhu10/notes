@@ -219,7 +219,7 @@ This is [an example][id] reference-style link.
 
 [id]: http://example.com/ "Optional Title Here"
 
-The implicit link name shortcut allows you to omit the name of the link, in which case the link text itself is used as the name. Just use an empty set of square brackets — for example, to link the word "Google" to the google.com web site, you could simply write:
+The implicit link name shortcut allows you to omit the name of the link, in which case the link text itself is used as the name. Just use an empty set of square brackets - for example, to link the word "Google" to the google.com web site, you could simply write:
 
 ```markdown
 [Google][]

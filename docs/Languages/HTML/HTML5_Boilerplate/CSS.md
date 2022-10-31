@@ -8,13 +8,13 @@ HTML5 Boilerplate's CSS includes:
 This starting CSS does not rely on the presence of
 [conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
 [conditional style sheets](https://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
-or [Modernizr](https://modernizr.com/), and it is ready to use no matter what
+or Modernizr.js, and it is ready to use no matter what
 your development preferences happen to be.
 
 ## Normalize.css
 
 In order to make browsers render all elements more consistently and in line
-with modern standards, we include Normalize.css — a modern, HTML5-ready
+with modern standards, we include Normalize.css - a modern, HTML5-ready
 alternative to CSS resets.
 
 As opposed to CSS resets, Normalize.css:

@@ -46,15 +46,25 @@ description: Collection of CLI applications and commands.
 - Compress image:
 
   ```bash
+  magick -format jpg -quality 50 /path/to/image.svg /path/to/image.jpg
+
+  # or
+
   mogrify -compress JPEG -quality 50 /path/to/image.jpg
 
-  # OR
+  # or
 
   convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% /path/to/source/image.jpg /path/to/result/image.jpg
 
-  # OR
+  # or
 
   jpegoptim --size=512k /path/to/image.jpg
+  ```
+
+- Compare images: using [Image magick compare](https://imagemagick.org/script/compare.php)
+
+  ```bash
+  magick compare image1.jpg image2.jpg diff.png
   ```
 
 ## 7z

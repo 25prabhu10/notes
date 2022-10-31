@@ -103,7 +103,7 @@ _Example:_
 
   - `_self`: the current browsing context. (Default)
 
-  - `_blank`: usually a new tab, but users can configure browsers to open a new window instead. Set `rel="noopener"` which does not set `window.opener`, for some browsers it is the default behavior
+  - `_blank`: usually a new tab, but users can configure browsers to open a new window instead. Set `rel="noopener"` which does not set `window.opener`, for some browsers it is the default behaviour
 
     - **Not good for accessibility**, as user is navigated away from the current context and not clear indication to go back
 
@@ -369,7 +369,7 @@ Attributes for form submission:
 
 ::: tip NOTE
 
-- Setting `target="\_blank"` on `<form>` elements implicitly provides the same rel behavior as setting rel="noopener" which does not set window.opener.
+- Setting `target="\_blank"` on `<form>` elements implicitly provides the same rel behaviour as setting rel="noopener" which does not set window.opener.
 - It is possible to use the `:valid` and `:invalid` CSS pseudo-classes to style a `<form>` element based on whether or not the elements inside the form are valid.
 
 :::

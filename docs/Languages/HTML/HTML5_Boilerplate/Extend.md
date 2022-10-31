@@ -247,7 +247,7 @@ application.
 
 ### Give your Pinned Site a tooltip
 
-You know — a tooltip. A little textbox that appears when the user holds their
+You know - a tooltip. A little textbox that appears when the user holds their
 mouse over your Pinned Site's icon.
 
 ```html
