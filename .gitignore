@@ -108,3 +108,6 @@ dist
 # PDF files
 *.pdf
 *.PDF
+
+# Development
+dev/

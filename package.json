@@ -8,13 +8,13 @@
     "docs:dev": "vuepress dev docs",
     "build": "vuepress build docs",
     "deploy": "npm run fetch && npm run lint && npm run build && node deploy.js",
-    "lint": "npm run lint:fix && npm run lint:md && npm run lint:modLinks",
+    "lint": "npm run lint:fix && npm run lint:md && npm run lint:links",
     "lint:txt": "textlint",
     "lint:prettier": "prettier --check './docs/**/*.md'",
     "lint:fix": "prettier --write './docs/**/*.md'",
     "lint:md": "markdownlint-cli2 './docs/**/*.md' '#./docs/index.md' '#./docs/about.md'",
-    "lint:links": "fd . ./docs -0 -e md | xargs -0 -n1 markdown-link-check -q -p",
-    "lint:modLinks": "git status --porcelain | grep '.md' | awk '{if($1==\"M\") {print \"./\"$2}}' | xargs markdown-link-check -q -p",
+    "lint:links": "git status --porcelain | grep '.md' | awk '{if($1==\"M\") {print \"./\"$2}}' | xargs markdown-link-check -c ./.markdownLinkCheck.json -q -p",
+    "lint:allLinks": "fd . ./docs -0 -e md | xargs -0 -n1 markdown-link-check -c ./.markdownLinkCheck.json -q -p",
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted"
   },
   "repository": {

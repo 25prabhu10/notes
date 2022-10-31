@@ -1,0 +1,13 @@
+{
+  "ignorePatterns": [
+    {
+      "pattern": "^https://codepen.io"
+    },
+    {
+      "pattern": "^https://docs.github.com"
+    },
+    {
+      "pattern": "^https://www.omg.org"
+    }
+  ]
+}
