@@ -482,7 +482,7 @@ Ways to create a React class component:
   Components that used `createClass` would have a `render()` method that described the React element(s) that should be returned and rendered. The idea of the component was the same: we'd describe a reusable bit of UI to render.
 
   ::: danger DEPRECATED
-  In React v15.5 (April 2017), React started throwing warnings if `createClass` was used. In **React v16 (September 2017), `React.createClass` was officially deprecated** and was moved to its own package, `create-react-class`.
+  In React _v15.5_ (April 2017), React started throwing warnings if `createClass` was used. In **React _v16_ (September 2017), `React.createClass` was officially deprecated** and was moved to its own package, `create-react-class`.
   :::
 
 - Using class syntax added to JavaScript with ES2015. React added `React.Component` API that allowed the use of class syntax to create a new component:
@@ -1356,7 +1356,7 @@ function TextInputWithFocusButton() {
 
 ### Creating Refs
 
-1. We create a class property which will hold the element/component ref using `React.createRef()` (React v16.3) and attach it to the React element via the `ref` attribute. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
+1. We create a class property which will hold the element/component ref using `React.createRef()` (React _v16.3_) and attach it to the React element via the `ref` attribute. Refs are commonly assigned to an instance property when a component is constructed so they can be referenced throughout the component.
 
    ```jsx
    class MyComponent extends React.Component {
@@ -1567,7 +1567,7 @@ function CustomTextInput(props) {
 
 ### Forwarding Refs
 
-In some cases we need to expose DOM refs to Parent Components. There are few ways to achieve this. It is recommended to use **ref forwarding** in React v16.3 or higher,
+In some cases we need to expose DOM refs to Parent Components. There are few ways to achieve this. It is recommended to use **ref forwarding** in React _v16.3_ or higher,
 
 ::: danger ADD NOTES HERE
 Check this [Link](https://reactjs.org/docs/forwarding-refs.html).
@@ -1575,7 +1575,7 @@ Check this [Link](https://reactjs.org/docs/forwarding-refs.html).
 
 Ref forwarding is a technique for automatically passing a ref through a component to one of its children. Ref forwarding lets components opt into exposing any child component's ref as their own.
 
-For React v16.2 and earlier doesn't yet support ref forwarding. We can use the below technique:
+For React _v16.2_ and earlier doesn't yet support ref forwarding. We can use the below technique:
 
 - Expose a special prop on the child.
 - This prop can be named anything other than `ref` (e.g. `inputRef`).
@@ -1606,13 +1606,13 @@ class Parent extends React.Component {
 }
 ```
 
-::: warning DON'TS
+::: warning DON'T
 Don't Overuse Refs
 :::
 
 ## Hooks
 
-Hooks (React v16.8) let you use state and other React features without writing a class.
+Hooks (React _v16.8_) let you use state and other React features without writing a class.
 
 Hooks are functions that let you _"hook into"_ React state and lifecycle features from function components.
 
@@ -1630,17 +1630,19 @@ Hooks provided by React:
 
 1. [`useState`](#usestate-hook)
 2. [`useEffect`](#useeffect-hook)
-3. [`useReducer`](#usereducer-hook)
-4. [`useRef`](#useref-hook)
-5. [`useContext`](#usecontext-hook)
-6. [`useCallback`](#usecallback-hook)
-7. [`useMemo`](#usememo-hook)
+3. [`useContext`](#usecontext-hook)
+4. [`useReducer`](#usereducer-hook)
+5. [`useCallback`](#usecallback-hook)
+6. [`useMemo`](#usememo-hook)
+7. [`useRef`](#useref-hook)
 8. [`useImperativeHandle`](#useimperativehandle-hook)
 9. [`useLayoutEffect`](#uselayouteffect-hook)
 10. [`useDebugValue`](#usedebugvalue-hook)
-11. [`useDeferredValue`](#usedeferredvalue-hook)
-12. [`useTransition`](#usetransition-hook)
-13. [`useId`](#useid-hook): React v18+
+11. [`useDeferredValue`](#usedeferredvalue-hook): _v18_
+12. [`useTransition`](#usetransition-hook): _v18_
+13. [`useId`](#useid-hook): _v18_
+14. `usesyncexternalstore`: _v18_ "Library Hooks"
+15. `useinsertioneffect`: _v18_ "Library Hooks"
 
 ### Rules of Hooks
 
@@ -1767,7 +1769,7 @@ useEffect(() => {
 }, []);
 ```
 
-The behaviours without the dependency array and with an empty [] dependency array are very different:
+The behaviours without the dependency array, with an empty `[]` and with dependency array are very different:
 
 ```javascript
 useEffect(() => {
@@ -1782,6 +1784,8 @@ useEffect(() => {
   // This runs on mount *and also* if either a or b have changed since the last render
 }, [a, b]);
 ```
+
+Dependencies array dose value comparison, but for object and functions it performs reference comparison
 
 Tips:
 
@@ -1826,7 +1830,7 @@ function reducer(state, action) {
     case "increment":
       return { count: state.count + 1 };
     case "decrement":
-      return { count: state.count - 1 };
+      return { count: state.count - action.payload };
     default:
       throw new Error();
   }
@@ -1838,7 +1842,9 @@ function Counter() {
     <>
       Count: {state.count}
       <button onClick={() => dispatch({ type: "decrement" })}>-</button>
-      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "increment", payload: 1 })}>
+        +
+      </button>
     </>
   );
 }
@@ -1986,7 +1992,9 @@ React.memo(Component, moviePropsAreEqual);
 
 ### `useImperativeHandle` Hook
 
-`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`.
+`useImperativeHandle` customizes the instance value that is exposed to parent components when using `ref`
+
+- Lets you customize the handle exposed as a `ref`
 
 ```jsx
 useImperativeHandle(ref, createHandle, [deps]);
@@ -2042,21 +2050,110 @@ function useFriendStatus(friendID) {
 
 ### `useDeferredValue` Hook
 
-`useDeferredValue` accepts a value and returns a new copy of the value that will defer to more urgent updates.
+`useDeferredValue` accepts a value and returns a new copy of the value that will defer to more urgent updates
+
+- Dose same thing as [`useTransition`](#usetransition-hook), making a slow and laggy interface faster
+
+- Useful when the value comes "from above" and you don't actually have control over the corresponding `setState` call
+
+- This Hook wraps a value affected by the state change
 
 ```jsx
 const deferredValue = useDeferredValue(value);
 ```
 
+_Example:_
+
+```jsx
+const List = (input) => {
+  const LIST_SIZE = 20000;
+
+  const defInput = useDeferredValue(input);
+
+  // expensive task
+  const divList = useMemo(() => {
+    const l = [];
+    for (let i = 0; i < LIST_SIZE; i++) {
+      l.push(<div key={i}>{defInput}</div>);
+    }
+    return l;
+  }, [defInput]);
+
+  return divList;
+};
+
+const DefValue = () => {
+  const [input, setInput] = useState("");
+
+  const handleClick = useCallback((e) => {
+    setInput(e.target.value);
+  }, []);
+
+  return (
+    <>
+      <input type="text" value={input} onChange={handleClick} />
+      <div>{List(input)}</div>
+    </>
+  );
+};
+
+// input:    a
+// defInput:
+
+// input:    ab
+// defInput:
+
+// input:    abc
+// defInput:
+
+// input:    abcd
+// defInput: abcd
+```
+
 ### `useTransition` Hook
 
-Returns a stateful value for the pending state of the transition, and a function to start it.
+Returns a stateful value for the pending state of the transition, and a function to start it
+
+- This Hook wraps the state updating code
 
 ```jsx
 const [isPending, startTransition] = useTransition();
 ```
 
 _Example:_
+
+```jsx
+const DelayedApp = () => {
+  const [input, setInput] = useState('')
+  const [list, setList] = useState<JSX.Element[]>([])
+  const [isPending, startTransition] = useTransition()
+
+  const LIST_SIZE = 20000
+
+  const handleClick = (e: ChangeEvent<HTMLInputElement>) => {
+    setInput(e.target.value)
+
+    startTransition(() => {
+      // expensive task
+      const l: JSX.Element[] = []
+      for (let i = 0; i < LIST_SIZE; i++) {
+        l.push(<div key={i}>{e.target.value}</div>)
+      }
+
+      // this state update is de-prioritized
+      // thus UI is not blocked by this time consuming task
+      setList(l)
+    })
+  }
+
+  return (
+    <>
+      <input type="text" name="t" id="t" value={input} onChange={handleClick} />
+      {isPending ? <p>Loading...</p> : <div>{list}</div>}
+    </>
+  )
+}
+```
 
 ```jsx
 function App() {
@@ -2078,7 +2175,21 @@ function App() {
 }
 ```
 
-- `startTransition` lets you mark updates in the provided callback as transitions
+- `startTransition` lets you mark updates as low priority in the provided callback as transitions
+
+  - Lets you explicitly tell React which updates are a lower priority
+
+  ```javascript
+  function handleChange(e) {
+      setHighPriorityInput(e.target.value);
+
+      React.startTransition(() => {
+          setLowPrioritySearchTerm(e.target.value);
+      }
+  }
+  ```
+
+  - Can be used standalone without `useTransition`, as shown in the above example
 
 - `isPending` indicates when a transition is active to show a pending state
 
@@ -2789,7 +2900,7 @@ Types of state:
 
 ### Context API
 
-Context API (_React v16.3_) enable us to define the context Object which stores some data and will make it available throughout the hierarchy without passing the data as props
+Context API (React _v16.3_) enable us to define the context Object which stores some data and will make it available throughout the hierarchy without passing the data as props
 
 - Initialize Context:
 
@@ -2973,20 +3084,14 @@ There are many libraries available:
 
 ## Concurrent Features
 
-- `useDeferredValue`
-- `startTransition`: Lets you explicitly tell React which updates are a lower priority
+Concurrent React can work on multiple tasks at a time, and switch between them according to priority
 
-  ```javascript
-  function handleChange(e) {
-      setHighPriorityInput(e.target.value);
+- Can partially render a tree without committing the result
+- Dose not block the main thread
 
-      React.startTransition(() => {
-          setLowPrioritySearchTerm(e.target.value);
-      }
-  }
-  ```
+Name transitions: async rendering --> concurrent React --> Concurrent mode --> Concurrent features
 
-- We need to use `ReactDOM.createRoot` instead of `ReactDOM.render` (deprecated in v18) to enable current mode
+- We need to use `ReactDOM.createRoot` instead of `ReactDOM.render` (deprecated in _v18_) to enable current mode
 
 ```jsx
 import React from "react";
@@ -3001,9 +3106,37 @@ root.render(
 );
 ```
 
-### Code-Splitting
+### Suspense
 
-- Declaratively specify the loading UI for any part of the component tree, if it's not yet ready to be displayed
+`Suspense` suspends things until they are ready
+
+Declaratively specify the loading UI for any part of the component tree, if it's not yet ready to be displayed
+
+- Initially was used for lazy loading
+
+- The lazy component should then be rendered inside a `Suspense` component, which allows us to show some fallback content (such as a loading indicator) while we're waiting for the lazy component to load.
+
+_Example:_
+
+```jsx
+import React, { Suspense } from "react";
+
+const OtherComponent = React.lazy(() => import("./OtherComponent"));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+Suspense for Data Fetching:
+
+### Code-Splitting
 
 #### Dynamic `import()` Syntax
 
@@ -3043,41 +3176,13 @@ import OtherComponent from "./OtherComponent";
 const OtherComponent = React.lazy(() => import("./OtherComponent"));
 ```
 
-- Before React v16.6 we used [`react-loadable`](https://github.com/jamiebuilds/react-loadable): Recommended for server rendered apps
+- Before React _v16.6_ we used [`react-loadable`](https://github.com/jamiebuilds/react-loadable): Recommended for server rendered apps
 
 ::: tip NAMED EXPORTS
 `React.lazy` currently only supports default exports.
 :::
 
-### Suspense
-
-`Suspense` suspends things until they are ready
-
-- Initially was used for lazy loading
-
-- The lazy component should then be rendered inside a `Suspense` component, which allows us to show some fallback content (such as a loading indicator) while we're waiting for the lazy component to load.
-
-_Example:_
-
-```jsx
-import React, { Suspense } from "react";
-
-const OtherComponent = React.lazy(() => import("./OtherComponent"));
-
-function MyComponent() {
-  return (
-    <div>
-      <Suspense fallback={<div>Loading...</div>}>
-        <OtherComponent />
-      </Suspense>
-    </div>
-  );
-}
-```
-
-Suspense for Data Fetching:
-
-### Route Based Code-Splitting
+#### Route Based Code-Splitting
 
 Code splitting based on the routes the user visits:
 
@@ -3151,16 +3256,23 @@ export default App;
 
 ## Versions
 
-React v18:
+React _v18_:
 
 - March 29, 2022
 - `ReactDOM.render` is deprecated
 - Automatic batching
-- New Hooks: [`useId`](#useid-hook), [`useDeferredValue`](#usedeferredvalue-hook)
+- New Hooks:
+
+  - [`useDeferredValue`](#usedeferredvalue-hook)
+  - [`useTransition`](#usetransition-hook)
+  - [`useId`](#useid-hook)
+  - `usesyncexternalstore`
+  - `useinsertioneffect`
+
 - Streaming SSR with [Suspense](#suspense)
 - Concurrent rendering: A behind-the-scenes
 
-React v17:
+React _v17_:
 
 - October 20, 2020
 - React import is not required
@@ -3199,6 +3311,16 @@ React v17:
     ```
 
 - React will no longer attach event handlers at the `document` level. Instead, it will attach them to the root DOM container into which your React tree is rendered
+
+React _v16_:
+
+- Fibre
+- React _16.3_:
+
+  - Marked for depreciation `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, `UNSAFE_componentWillUpdate`
+
+  - [`React.createContext`](#context-api)
+  - [`React.createRef`](#creating-refs)
 
 ## References
 

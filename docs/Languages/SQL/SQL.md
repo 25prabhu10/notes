@@ -9,9 +9,74 @@ Structured Query Language
 
 - Cascading referential integrity constraint
 
+Sub-Groups of SQL Commands:
+
+1. DDL (Data Definition Language):
+
+   - Commands that can be used to define the database schema
+   - Some commands:
+
+     - `CREATE`: to create objects in database
+     - `ALTER`: alters the structure of database
+     - `DROP`: delete objects from database
+     - `RENAME`: rename an objects
+
+2. DML (Data Manipulation Language)
+
+   - Commands that deal with the manipulation of data present in database
+   - Some commands:
+
+     - `SELECT`: retrieve data from the database
+     - `INSERT`: insert data into a table
+     - `UPDATE`: update existing data within a table
+     - `DELETE`: deletes all records from a table, space for the records remain
+
+3. DQL (Data Query Language)
+
+   - Commands that can be used to define the database schema
+   - Some commands:
+
+     - `SELECT`: retrieve data from the database
+
+4. DCL (Data Control Language)
+
+   - Commands which deal with the rights, permissions and other controls of the database system
+   - Some commands:
+
+     - `GRANT`: allow specified users to perform specified tasks
+     - `REVOKE`: cancel previously granted or denied permissions
+
+- TCL (Transaction control language)
+
+  - Commands which mainly deal with the transaction of database
+  - Some commands:
+
+    - `COMMIT`: This command is used to permanently save any transaction into the database
+    - `ROLLBACK`: This command restores the database to last committed state. It is also used with savepoint command to jump to a savepoint in a transaction
+    - `SAVEPOINT`: This command is used to temporarily save a transaction so that you can rollback to that point whenever necessary
+
+## CREATE
+
+The `CREATE` command is used to establish a new database, table, index, or stored procedure
+
+- DDL statement
+
+```sql
+-- CREATE TABLE [table name] ( [column definitions] ) [table parameters]
+CREATE TABLE employees (
+    id            INTEGER       PRIMARY KEY,
+    first_name    VARCHAR(50)   not null,
+    last_name     VARCHAR(75)   not null,
+    mid_name      VARCHAR(50)   not null,
+    dateofbirth   DATE          not null
+);
+```
+
 ## SELECT
 
-`SELECT` is a DQL (Data Query Language) used to read data from tables
+`SELECT` is used to read data from tables
+
+- DQL statement
 
 ```sql
 -- query for all columns
@@ -156,7 +221,7 @@ SELECT track_name FROM track LIMIT 5 OFFSET 5;
 
 ## INSERT
 
-Insert is a DML (Data Manipulation Language).
+- DML statement
 
 ```sql
 INSERT INTO artist VALUES (7, "Barry Adamson");
@@ -172,9 +237,20 @@ VALUES((SELECT 1+MAX(artist_id) FROM artist), "Barry Adamson");
 - `IGNORE`: Ignore errors
 - `DEFAULT`: Use default value
 
+## UPDATE
+
+- DML statement
+
+```sql
+UPDATE artist SET artist_name = UPPER(artist_name);
+```
+
 ## DELETE
 
-Delete is a DML (Data Manipulation Language).
+Delete a row in a table
+
+- DML statement
+- We can rollback data after using delete statement
 
 ```sql
 -- delete all rows (empty the table)
@@ -183,26 +259,67 @@ DELETE FROM played;
 DELETE FROM artist WHERE artist_id = 3;
 ```
 
-### TRUNCATE
+## TRUNCATE
 
-Faster method to remove all rows in a table.
+Faster method to remove all rows in a table
 
+- It is a DDL statement
 - Drops the table
 - Creates a new table
+- Cannot rollback data
 
 ```sql
+-- TRUNCATE TABLE table_name;
 TRUNCATE TABLE played;
 ```
 
 Limitations:
 
-- Identical to `DELETE` if you use InnoDB tables
+- In [MySQL](./Databases/MySQL.md) Identical to `DELETE` if you use InnoDB tables
 - It dose not work with locking or transactions
 
-## UPDATE
+## DROP
 
-Update is a DML (Data Manipulation Language).
+The `DROP` statement destroys an existing database, table, index, or view
+
+- DDL statement
 
 ```sql
-UPDATE artist SET artist_name = UPPER(artist_name);
+-- DROP objectType objectName
+DROP TABLE employees;
+```
+
+## ALTER
+
+The ALTER statement modifies an existing database object
+
+```sql
+-- ALTER objecttype objectname parameters
+ALTER TABLE sink ADD bubbles INTEGER;
+
+ALTER TABLE sink DROP COLUMN bubbles;
+```
+
+## GRANT
+
+Give certain permissions for the table (and other objects) for specified groups/users of a database
+
+```sql
+GRANT SELECT,INSERT,UPDATE,DELETE on Employee To User1;
+```
+
+## DENY
+
+Bans certain permissions from groups/users
+
+```sql
+DENY Update On Employee to user1;
+```
+
+## REVOKE
+
+This command takes away permissions from groups/users
+
+```sql
+REVOKE INSERT On Employee To user1;
 ```

@@ -7,6 +7,41 @@ description: FFmpeg is a free and open-source software project consisting of a s
 
 FFmpeg is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams.
 
+Check streams:
+
+```bash
+ffprobe -v error -show_entries stream=index,codec_name,codec_type movie.mkv
+```
+
+Combine audio and video:
+
+```bash
+ffmpeg -i video.mkv -i audio.mp3 -map 0:v -map 1:a -c:v copy -shortest movie.mkv
+```
+
+## Audio
+
+Audio conversion:
+
+```bash
+ffmpeg -i audio.mka -acodec libmp3lame audio.mp3
+```
+
+Extract audio:
+
+```bash
+# -map channel
+ffmpeg -i movie.mkv -vn -map 0:4 -acodec copy output.mka
+```
+
+## Video
+
+Extract video:
+
+```bash
+ffmpeg -i movie.mkv -an -map 0:0 -vcodec copy video.mkv
+```
+
 ## x265
 
 [x265](https://x265.readthedocs.io/en/master/) is a H.265/HEVC encoder.

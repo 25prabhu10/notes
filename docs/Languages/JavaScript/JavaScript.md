@@ -2661,29 +2661,29 @@ This way of calling Asynchronous Functions where each asynchronous function is i
 
 ### Promise
 
-A `Promise` is an object representing the eventual completion or failure of an asynchronous operation.
+A `Promise` is an object representing the eventual completion or failure of an asynchronous operation
 
 Promise is:
 
-- An object that keeps track about whether a certain event has happened already or not.
-- Determines what happens after the event has happened.
-- Implements the concept of a future value that is expected.
+- An object that keeps track about whether a certain event has happened already or not
+- Determines what happens after the event has happened
+- Implements the concept of a future value that is expected
 
 Promise States:
 
-1. **pending**: initial state, neither _fulfilled_ nor _rejected_.
+1. **pending**: initial state, neither _fulfilled_ nor _rejected_
 
-2. **fulfilled**: meaning that the operation was completed successfully.
+2. **fulfilled**: meaning that the operation was completed successfully
 
-   - A promise is _fulfilled_ if `promise.then(f)` will call `f` "as soon as possible."
+   - A promise is _fulfilled_ if `promise.then(f)` will call `f` "as soon as possible"
 
 3. **rejected**: meaning that the operation failed.
 
-   - A promise is _rejected_ if `promise.then(undefined, r)` will call `r` "as soon as possible."
+   - A promise is _rejected_ if `promise.then(undefined, r)` will call `r` "as soon as possible"
 
 - If the promise is fulfilled or rejected, the corresponding handler is called
 
-- A promise is said to be **settled** if it is either _fulfilled_ or _rejected_, but not _pending_.
+- A promise is said to be **settled** if it is either _fulfilled_ or _rejected_, but not _pending_
 
 - `Promise()` constructor:
 
@@ -2691,7 +2691,7 @@ Promise States:
   new Promise(executor);
   ```
 
-  - `executor`: A function to be executed by the constructor. It receives two functions as parameters: `resolutionFunc` and `rejectionFunc`.
+  - `executor`: A function to be executed by the constructor. It receives two functions as parameters: `resolutionFunc` and `rejectionFunc`
 
 - Creating a Promise:
 
@@ -2705,7 +2705,7 @@ const myPromise = new Promise((resolve, reject) => {
 
 Promise Methods:
 
-- `.then()`: takes up to 2 arguments; the 1st argument is a callback function for the **fulfilled** case of the promise, and the second argument is a callback function for the **rejected** case.
+- `.then()`: takes up to 2 arguments; the 1st argument is a callback function for the **fulfilled** case of the promise, and the second argument is a callback function for the **rejected** case
 
   ```javascript
   const promise = new Promise((resolve, reject) =>
@@ -2716,11 +2716,11 @@ Promise Methods:
   // 'Resolved: I am a resolved promise'
   ```
 
-  - Handling a rejected promise in each `.then()` has consequences further down the promise chain.
+  - Handling a rejected promise in each `.then()` has consequences further down the promise chain
 
   - Instead of handling rejected promise in `.then()`, we need to throw an error and handle the error in `.catch()` method
 
-- `.catch()`: argument is a callback function for the **rejected** case or any errors thrown.
+- `.catch()`: argument is a callback function for the **rejected** case or any errors thrown
 
 _Example:_
 
@@ -2841,6 +2841,8 @@ const myPromise = new MyPromise((resolve, reject) => {
   }, 300);
 });
 ```
+
+-[What is Promise?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.aa7ubggsy)
 
 ### Async/Await
 
