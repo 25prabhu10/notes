@@ -1,6 +1,6 @@
 ---
 title: CSS - Cascading Style Sheets
-description: CSS is a style sheet language used for describing the presentation of a document written in HTML or XML.
+description: CSS is a style sheet language used for describing the presentation of a document written in HTML or XML
 ---
 
 # CSS
@@ -771,7 +771,7 @@ Please test these as they are _not a foolproof solution for all accessibility is
 
 ### Flexbox
 
-- It is a **1-dimensional layout system**.
+- It is a **1-dimensional layout system**
 
 - `display: inline-flex`: makes the _flex container_ display inline
 
@@ -1032,11 +1032,43 @@ _Example:_
 
 ## Tools
 
-1. [PostCSS](https://postcss.org/) - A tool for transforming CSS with JavaScript.
+### PostCSS
 
-2. [Browserslist](https://github.com/browserslist/browserslist) - Helps to share target browsers and Node.js versions between different front-end tools.
+[PostCSS](https://postcss.org/) is a tool for transforming CSS with JavaScript plugins
 
-3. [CSS Generators](https://www.smashingmagazine.com/2021/03/css-generators/):
+Plugins:
+
+- Autoprefixer: Generates needed presets
+
+- postcss-preset-env: Use cutting edge CSS features
+
+- precss: Use Sass-like syntax
+
+- Stylelint: Linting for your styles
+
+- PostCSS Assets: Asset manager
+
+- CSSNano: Optimize and minify CSS
+
+Config:
+
+- Create `postcss.config.js` file in the root directory of the project
+
+```javascript
+module.exports = {
+  plugins: [
+    require("autoprefixer"),
+    require("postcss-nested"),
+    require("postcss-preset-env")({ stage: 0 }),
+  ],
+};
+```
+
+### Others
+
+1. [Browserslist](https://github.com/browserslist/browserslist) - Helps to share target browsers and Node.js versions between different front-end tools
+
+2. [CSS Generators](https://www.smashingmagazine.com/2021/03/css-generators/):
 
    - [Shadow Generator](https://shadows.brumm.af/)
 
@@ -1184,7 +1216,7 @@ _Example:_
 
 - [CSS Specificity Visualizer](https://isellsoap.github.io/specificity-visualizer/)
 
-- [How to bulk find unused CSS and Javascript with Puppeteer](https://willmanntobias.medium.com/how-to-bulk-find-unused-css-and-javascript-with-puppeteer-and-chrome-coverage-f79f7d885d59)
+- [How to bulk find unused CSS and JavaScript with Puppeteer](https://willmanntobias.medium.com/how-to-bulk-find-unused-css-and-javascript-with-puppeteer-and-chrome-coverage-f79f7d885d59)
 
 - [Style Checker](https://style-check.austingil.com/)
 

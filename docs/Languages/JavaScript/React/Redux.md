@@ -5,7 +5,7 @@ description: A Predictable State Container for JS Apps
 
 # Redux
 
-A Predictable State Container for JS Apps
+A Predictable State Container for JavaScript Apps
 
 - Redux was inspired by several important qualities of [Flux architecture](#flux-architecture)
 - A change emitter holding a value
@@ -265,9 +265,10 @@ Integrating Redux in a React App:
 
 Includes packages like:
 
-- Redux
-- Immer
-- `redux-thunk`
+- Redux (core library, state management)
+- Immer (allows to mutate state)
+- `redux-thunk` (handles async actions)
+- reselect (simplifies reducer functions)
 
 Usage:
 

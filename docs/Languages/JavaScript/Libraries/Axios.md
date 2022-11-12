@@ -18,7 +18,7 @@ Features:
 - Transform request and response data
 - Cancel requests
 - Automatic transforms for JSON data
-- Client side support for protecting against _XSRF_
+- Client side support for protecting against _CSRF_
 
 Advantages of `fetch` over axios:
 

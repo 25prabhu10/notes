@@ -15,6 +15,12 @@
 
    - Pure functions can help in avoiding race condition issues
 
+4. Working set overflow: The "working set" is short hand for "parts of memory that the current algorithm is using" and is determined by which parts of memory the CPU just happens to access
+
+5. P95 Latency (P% Latency): The P95 Threshold indicates that 5% of transaction durations are greater than the threshold. For example, if the P95 threshold is 50 milliseconds, then 5% of transactions exceeded that threshold, taking longer than 50 milliseconds
+
+RAII (Resource acquisition is initialization)
+
 ## Floating Point Numbers
 
 _IEEE 754_: Floating point number specification

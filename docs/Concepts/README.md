@@ -19,5 +19,6 @@ sidebar: false
 9. [Artifactory](./Artifactory.md)
 10. [Clean Architecture](./Clean_Architecture.md)
 11. [Key Words](./Key_Words.md)
-12. [Object-Oriented Programming](./Object-Oriented_Programming.md)
-13. [Metaprogramming](./Metaprogramming.md)
+12. [Programming Paradigms](./Programming_Paradigms/)
+13. [Object-Oriented Programming](./Programming_Paradigms/Object-Oriented_Programming.md)
+14. [Metaprogramming](./Metaprogramming.md)

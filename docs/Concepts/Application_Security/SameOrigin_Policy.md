@@ -3,7 +3,7 @@ title: Same-Origin Policy
 description: Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
 ---
 
-# Same-Origin Policy
+# Same-Origin Policy (SOP)
 
 Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
 
@@ -265,11 +265,30 @@ Methods to work around SOP restrictions in ajax
     - "Structured clone" algorithm used for complicated objects. Handles cycles. Can't handle object instances, functions, DOM nodes.
     - "Transferable objects" allow transferring ownership of an object. It becomes unusable (neutered) in the context it was sent from.
 
-## SameOrigin vs SameSite
+## Same-Origin and Same-Site
 
-What is valuable in client-side.
+What is valuable in client-side?
 
 - Same-Origin Policy
-- Same-site restrictions
+- Same-Site restrictions
 
-Are "site" and "Origin" same?
+Are "Site" and "Origin" same?
+
+Two URLs have the same origin if the protocol, port (if specified), and host are the same for both
+
+| URL1                                     | URL2                                              | Outcome     | Reason                                           |
+| ---------------------------------------- | ------------------------------------------------- | ----------- | ------------------------------------------------ |
+| `http://store.company.com/dir/page.html` | `http://store.company.com/dir2/other.html`        | Same origin | Only the path differs                            |
+|                                          | `http://store.company.com/dir/inner/another.html` | Same origin | Only the path differs                            |
+|                                          | `https://store.company.com/page.html`             | Failure     | Different protocol                               |
+|                                          | `http://store.company.com:81/dir/page.html`       | Failure     | Different port (`http://` is port 80 by default) |
+|                                          | `http://news.company.com/dir/page.html`           | Failure     | Different host                                   |
+
+| Origin A                      | Origin B                                | Whether Origin A and B are "schemeful same-site"           |
+| ----------------------------- | --------------------------------------- | ---------------------------------------------------------- |
+| `https://www.example.com:443` | `https://`**`www.evil.com`**`:443`      | cross-site: different domains                              |
+|                               | `https://`**`login.`**`example.com:443` | **schemeful same-site: different subdomains don't matter** |
+|                               | **`http:`**`//www.example.com:443`      | cross-site: different schemes                              |
+|                               | `https://www.example.com`**`:80`**      | **schemeful same-site: different ports don't matter**      |
+|                               | **`https://www.example.com:443`**       | **schemeful same-site: exact match**                       |
+|                               | **`https://www.example.com`**           | **schemeful same-site: ports don't matter**                |

@@ -8,52 +8,64 @@ description: Structured Query Language
 Structured Query Language
 
 - Cascading referential integrity constraint
+- SQL implementations vary between systems
+- SQL can mainly be categorised as [declarative programming](../../Concepts/Programming_Paradigms/) (non-procedural)
 
-Sub-Groups of SQL Commands:
+> Developed by Raymond Boyce and Donald Chamberlin
+
+Sub-Groups of SQL Commands (syntax):
 
 1. DDL (Data Definition Language):
 
    - Commands that can be used to define the database schema
+   - A set of statements that allow the user to define or modify data structures and objects, such as tables
    - Some commands:
 
-     - `CREATE`: to create objects in database
-     - `ALTER`: alters the structure of database
-     - `DROP`: delete objects from database
-     - `RENAME`: rename an objects
+     - [`CREATE`](#create): to create entire databases and objects in database
+     - [`ALTER`](#alter): alters the structure of existing objects such as database
+     - [`DROP`](#drop): delete objects from database
+     - [`RENAME`](#rename): rename an objects
+     - [`TRUNCATE`](#truncate)
 
 2. DML (Data Manipulation Language)
 
    - Commands that deal with the manipulation of data present in database
+   - Statement allow us to manipulation the data in the tables of a database
    - Some commands:
 
-     - `SELECT`: retrieve data from the database
-     - `INSERT`: insert data into a table
-     - `UPDATE`: update existing data within a table
-     - `DELETE`: deletes all records from a table, space for the records remain
+     - [`SELECT`](#select): retrieve data from the database objects, like tables (DQL (Data Query Language))
+     - [`INSERT`](#insert): insert data into a table
+     - [`UPDATE`](#update): update existing data within a table
+     - [`DELETE`](#delete): deletes all records from a table, space for the records remain
 
-3. DQL (Data Query Language)
+3. TCL (Transaction control language)
 
-   - Commands that can be used to define the database schema
+   - Commands which mainly deal with the transaction of database
    - Some commands:
 
-     - `SELECT`: retrieve data from the database
+     - [`COMMIT`](#commit): permanently save any transaction into the database
+     - [`ROLLBACK`](#rollback): restores the database to last committed state. It is also used with savepoint command to jump to a savepoint in a transaction
+     - `SAVEPOINT`: temporarily save a transaction so that you can rollback to that point whenever necessary
 
 4. DCL (Data Control Language)
 
    - Commands which deal with the rights, permissions and other controls of the database system
    - Some commands:
 
-     - `GRANT`: allow specified users to perform specified tasks
-     - `REVOKE`: cancel previously granted or denied permissions
+     - [`GRANT`](#grant): allow specified users to perform specified tasks
+     - [`REVOKE`](#revoke): cancel previously granted or denied permissions
 
-- TCL (Transaction control language)
+Queries:
 
-  - Commands which mainly deal with the transaction of database
-  - Some commands:
+- A query is a set of instructions given to the RDBMS that tell what needs to be done
 
-    - `COMMIT`: This command is used to permanently save any transaction into the database
-    - `ROLLBACK`: This command restores the database to last committed state. It is also used with savepoint command to jump to a savepoint in a transaction
-    - `SAVEPOINT`: This command is used to temporarily save a transaction so that you can rollback to that point whenever necessary
+Data Type: Different DBMSs support different Data types
+
+Comments:
+
+```sql
+-- comment
+```
 
 ## CREATE
 
@@ -62,7 +74,10 @@ The `CREATE` command is used to establish a new database, table, index, or store
 - DDL statement
 
 ```sql
+-- CREATE object_type object_name
+
 -- CREATE TABLE [table name] ( [column definitions] ) [table parameters]
+
 CREATE TABLE employees (
     id            INTEGER       PRIMARY KEY,
     first_name    VARCHAR(50)   not null,
@@ -70,13 +85,16 @@ CREATE TABLE employees (
     mid_name      VARCHAR(50)   not null,
     dateofbirth   DATE          not null
 );
+
+-- create a database user
+CREATE USER 'kantara'@'localhost' IDENTIFIED BY 'some_password';
 ```
 
 ## SELECT
 
 `SELECT` is used to read data from tables
 
-- DQL statement
+- DML or DQL statement
 
 ```sql
 -- query for all columns
@@ -87,6 +105,157 @@ SELECT artist_name,artist_id FROM artist;
 
 -- calculate value
 SELECT name, (gdp/population) FROM world;
+```
+
+`HAVING` vs `WHERE`:
+
+- `WHERE` runs before `GROUP BY`, cannot use aggregate functions
+- `HAVING` runs after `GROUP BY`, hence we can use aggregate functions
+
+```sql
+SELECT COUNT(customerId), country
+FROM customers
+GROUP BY country
+HAVING COUNT(customerId) > 5;
+```
+
+### UNION
+
+Combine the result-set of two or more `SELECT` statements
+
+- Every `SELECT` statement within `UNION` must have the **same number of columns**
+- The columns must also have **similar data types**
+- The columns in every `SELECT` statement must also be in the **same order**
+
+```sql
+SELECT
+  city
+FROM customers
+UNION
+SELECT
+  city
+FROM suppliers
+ORDER BY city;
+
+-- UNION all
+SELECT
+  city
+FROM customers
+UNION ALL
+SELECT
+  city
+FROM suppliers
+ORDER BY city;
+```
+
+- `UNION` operator selects only distinct values by default
+- To allow duplicate values, use `UNION ALL`
+
+### JOIN
+
+Joins are used to combine rows from two or more tables based on a common field between them
+
+4 types of joins:
+
+1. `LEFT JOIN`:
+
+   - Select **all records** from the **left table** (`table1`), and the **matching records** from the **right table** (`table2`)
+   - The result is **0 records** from the **right side**, if there is **no match**
+
+   ```sql
+   SELECT column_name
+   FROM table1
+   LEFT JOIN table2
+     ON table1.column_name = table2.column_name;
+   ```
+
+2. `RIGHT JOIN`:
+
+   - Select **all records** from the **right table** (`table2`), and the **matching records** from the **left table** (`table1`)
+   - The result is **0 records** from the **left side**, if there is **no match**
+
+   ```sql
+   SELECT column_name
+   FROM table1
+   RIGHT JOIN table2
+     ON table1.column_name = table2.column_name;
+   ```
+
+3. `INNER JOIN`: just known as `JOIN`
+
+   - Select records that have **matching values in both tables**
+
+   ```sql
+   SELECT column_name
+   FROM table1
+   INNER JOIN table2
+     ON table1.column_name = table2.column_name;
+
+   -- or
+
+   SELECT column_name
+   FROM table1
+   JOIN table2
+     ON table1.column_name = table2.column_name;
+   ```
+
+4. `OUTER JOIN` (`FULL OUTER JOIN`):
+
+   - Select **all records** when there is a **match in left (`table1`) or right (`table2`)** table records
+   - Not supported in MySQL
+
+   ```sql
+   SELECT column_name
+   FROM table1
+   FULL OUTER JOIN table2
+     ON table1.column_name = table2.column_name
+   WHERE condition;
+   ```
+
+- Self `JOIN`:
+
+  - A self join is a regular join, but the table is joined with itself
+
+  ```sql
+  SELECT
+    a.customerName AS customerName1,
+    b.customerName AS customerName2,
+    a.city
+  FROM customers a,
+      customers b
+  WHERE a.customerId <> b.customerId
+  AND a.city = b.city
+  ORDER BY a.city;
+  ```
+
+  ```sql
+  SELECT
+    a.customerName AS customerName1,
+    b.customerName AS customerName2,
+    a.city
+  FROM customers a
+  JOIN customers b
+  WHERE a.customerId <> b.customerId
+  AND a.city = b.city
+  ORDER BY a.city;
+  ```
+
+### Sub-Query (Nested Queries)
+
+A query within another query
+
+```sql
+SELECT
+  a.studentId,
+  a.name,
+  b.total_marks
+FROM student a,
+     marks b
+WHERE a.studentId = b.studentId
+AND b.total_marks > (SELECT
+  total_marks
+FROM marks
+WHERE studentId = 'V002');
 ```
 
 ## WHERE
@@ -110,7 +279,7 @@ Operators:
 - `XOR`
 
 ```sql
--- query with constraints
+-- query with clause
 SELECT column, another_column, …
 FROM myTable
 WHERE condition
@@ -118,48 +287,50 @@ WHERE condition
     AND/OR …;
 
 SELECT *
-FROM   artist
-WHERE  artist_name = "new order";
+FROM artist
+WHERE artist_name = "new order";
 
 -- >, <, <=, >=, not equal ( <> or !=)
 SELECT artist_name
-FROM   artist
-WHERE  artist_id < 5;
+FROM artist
+WHERE artist_id < 5;
 
 -- pattern matching
 SELECT album_name
-FROM   album
-WHERE  album_name LIKE "retro%";
+FROM album
+WHERE album_name LIKE "retro%";
 
 -- 3 letters beginning with 'R' and match rest
 SELECT *
-FROM   track
-WHERE  track_name LIKE "r__ %";
+FROM track
+WHERE track_name LIKE "r__ %";
 
 SELECT album_name
-FROM   album
-WHERE  album_name > "c"
-       AND album_name < "m";
+FROM album
+WHERE album_name > "c"
+AND album_name < "m";
 
-SELECT name,
-       population
-FROM   world
-WHERE  name IN ( 'Brazil', 'Russia', 'India', 'China' );
+SELECT name, population
+FROM world
+WHERE name IN ('Brazil', 'Russia', 'India', 'China');
 
-SELECT name,
-       area
-FROM   world
-WHERE  area BETWEEN 250000 AND 300000;
+SELECT name, area
+FROM world
+WHERE area BETWEEN 250000 AND 300000;
+
+-- find rows with NULL value
+SELECT name, area
+FROM world
+WHERE area IS NULL
+AND name IS NOT NULL;
 
 -- XOR
-SELECT name,
-       population,
-       area
-FROM   world
-WHERE  ( population >= 250000000
-         AND area < 3000000 )
-        OR ( population < 250000000
-             AND area >= 3000000 );
+SELECT name, population, area
+FROM world
+WHERE (population >= 250000000
+AND area < 3000000)
+OR (population < 250000000
+AND area >= 3000000);
 ```
 
 ### DISTINCT
@@ -177,7 +348,7 @@ WHERE condition(s);
 Query sorted
 
 ```sql
--- ascending (default) ASC
+-- `ASC`: ascending (default)
 SELECT * FROM artist ORDER BY artist_name;
 
 -- descending
@@ -224,14 +395,21 @@ SELECT track_name FROM track LIMIT 5 OFFSET 5;
 - DML statement
 
 ```sql
-INSERT INTO artist VALUES (7, "Barry Adamson");
+-- INSERT INTO table_name (column_names) VALUES (data)
 
+-- insert data into all columns
+INSERT INTO artist
+  VALUES (7, "Barry Adamson");
+
+-- insert multiple rows
 INSERT INTO album (artist_id, album_id, album_name)
-VALUES (7, 2, "Oedipus Schmoedipus");
+  VALUES (7, 2, "Oedipus Schmoedipus"),
+  (7, 2, "Oedipus Schmoedipus"),
+  (7, 2, "Oedipus Schmoedipus");
 
 -- using SELECT
 INSERT INTO artist
-VALUES((SELECT 1+MAX(artist_id) FROM artist), "Barry Adamson");
+  VALUES ((SELECT 1 + MAX(artist_id) FROM artist), "Barry Adamson");
 ```
 
 - `IGNORE`: Ignore errors
@@ -242,7 +420,14 @@ VALUES((SELECT 1+MAX(artist_id) FROM artist), "Barry Adamson");
 - DML statement
 
 ```sql
-UPDATE artist SET artist_name = UPPER(artist_name);
+-- update all rows
+UPDATE artist
+SET artist_name = UPPER(artist_name);
+
+-- update only those rows that meet the conditions
+UPDATE sales
+SET date_of_purchase = '2017-12-12'
+WHERE purchase_number = 1;
 ```
 
 ## DELETE
@@ -256,12 +441,16 @@ Delete a row in a table
 -- delete all rows (empty the table)
 DELETE FROM played;
 
-DELETE FROM artist WHERE artist_id = 3;
+-- delete only those rows that meet the conditions
+DELETE FROM artist
+WHERE artist_id = 3;
 ```
 
 ## TRUNCATE
 
 Faster method to remove all rows in a table
+
+Instead of deleting an entire table through `DROP`, we can remove its data and continue to have the table
 
 - It is a DDL statement
 - Drops the table
@@ -269,7 +458,8 @@ Faster method to remove all rows in a table
 - Cannot rollback data
 
 ```sql
--- TRUNCATE TABLE table_name;
+-- TRUNCATE object_type object_name
+
 TRUNCATE TABLE played;
 ```
 
@@ -285,27 +475,48 @@ The `DROP` statement destroys an existing database, table, index, or view
 - DDL statement
 
 ```sql
--- DROP objectType objectName
+-- DROP object_type object_name
+
 DROP TABLE employees;
+
+DROP DATABASE airbnb;
 ```
 
 ## ALTER
 
 The ALTER statement modifies an existing database object
 
+- `ADD`
+- `REMOVE`
+- `RENAME`
+
 ```sql
--- ALTER objecttype objectname parameters
+-- ALTER object_type object_name [parameters]
+
 ALTER TABLE sink ADD bubbles INTEGER;
 
 ALTER TABLE sink DROP COLUMN bubbles;
 ```
 
-## GRANT
-
-Give certain permissions for the table (and other objects) for specified groups/users of a database
+## RENAME
 
 ```sql
-GRANT SELECT,INSERT,UPDATE,DELETE on Employee To User1;
+-- RENAME object_type object_type TO new_object_name
+
+RENAME TABLE customers TO customer_data;
+```
+
+## GRANT
+
+Give (or grant) certain permissions for the table (and other objects) for specified groups/users of a database
+
+```sql
+-- GRANT type_of_permission ON database_name.table_name TO 'username'@'localhost'
+
+GRANT SELECT,INSERT,UPDATE,DELETE ON employee TO user1;
+
+-- grant all permissions
+GRANT ALL ON movies.* to 'kantara'@'localhost';
 ```
 
 ## DENY
@@ -313,13 +524,43 @@ GRANT SELECT,INSERT,UPDATE,DELETE on Employee To User1;
 Bans certain permissions from groups/users
 
 ```sql
-DENY Update On Employee to user1;
+DENY UPDATE ON employee TO user1;
 ```
 
 ## REVOKE
 
-This command takes away permissions from groups/users
+Revoke permissions and privileges of database from groups/users
 
 ```sql
-REVOKE INSERT On Employee To user1;
+-- REVOKE type_of_permission ON database_name.table_name FROM 'username'@'localhost'
+
+REVOKE INSERT ON employee FROM user1;
+```
+
+## COMMIT
+
+Not every change made to a database is saved automatically
+
+- This command saves the changes made using `INSERT`, `DELETE`, `UPDATE`
+- Committed states can accrue
+
+```sql
+-- SQL statement that perform some changes on database
+
+-- save those changes
+COMMIT;
+```
+
+## ROLLBACK
+
+Allows you to undo any changes you have made but don't want to be saved permanently
+
+- Reverts to the last non-committed state
+
+```sql
+-- SQL statement that perform some changes on database
+-- save changes
+
+-- undo last saved changes
+ROLLBACK;
 ```

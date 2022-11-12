@@ -271,6 +271,10 @@ Roles and Landmarks:
 | `<article>` | article       | -             |
 | `<footer>`  | contentinfo   | contentinfo   |
 
+![Choosing HTML Element](./h5d-sectioning-flowchart.jpg)
+
+> [Image from HTML5 Doctor](https://html5doctor.com/)
+
 ### Links and Buttons
 
 **[Links](./HTML_Elements.md#anchor-element) and [Buttons](./HTML_Elements.md#button)** Pseudo Classes:

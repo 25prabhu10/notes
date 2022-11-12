@@ -1,14 +1,16 @@
 ---
 title: HTTP Cookie
-description: Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
+description:
 ---
 
 # HTTP Cookie
 
-**HTTP cookies** (also called **web cookies**, **Internet cookies**, **browser cookies**, or simply **cookies**) are small blocks of data created by a _web server_ while a user is browsing a website and placed on the user's computer or other device by the user's web browser.
+**HTTP cookies** (also called **web cookies**, **Internet cookies**, **browser cookies**, or simply **cookies**) are small blocks of data created by a _web server_ while a user is browsing a website and placed on the user's computer or other device by the user's web browser
 
-- Cookies are arbitrary pieces of data, usually chosen and first sent by the web server, and stored on the client computer by the web browser.
+- Cookies are arbitrary pieces of data, usually chosen and first sent by the web server, and stored on the client computer by the web browser
+
 - Cookies are placed on the device used to access a website, and more than one cookie may be placed on a user's device during a session
+
 - Cookies are sent with all subsequent requests made to that site
 
 Introduction:
@@ -25,7 +27,9 @@ Introduction:
 ## Use Of Cookies
 
 - **[Session Management](#session-management)**: Logins, shopping carts or anything else server should remember
+
 - **Personalisation**: User preferences, themes and other settings
+
 - **Tracking**: Recording and analysing user behaviour
 
 ## Cookie Structure
@@ -34,7 +38,7 @@ A cookie consists of the following components:
 
 - Name
 - Value
-- Zero or more attributes (name/value pairs). Attributes store information such as the cookie's expiration, domain, and flags (such as `Secure` and `HttpOnly`).
+- Zero or more attributes (name/value pairs). Attributes store information such as the cookie's expiration, domain, and flags (such as `Secure` and `HttpOnly`)
 
 ## Implementation
 
@@ -42,13 +46,13 @@ A cookie consists of the following components:
 
 The cookie specifications:
 
-- Can support cookies as large as **4,096 bytes in size**.
-- Can support at least **50 cookies per domain** (i.e. per website).
-- Can support at least **3,000 cookies in total**.
+- Can support cookies as large as **4,096 bytes in size**
+- Can support at least **50 cookies per domain** (i.e. per website)
+- Can support at least **3,000 cookies in total**
 
 ## Setting A Cookie
 
-- Cookies are set using `Set-Cookie` header field, sent in an HTTP response from the web server.
+- Cookies are set using `Set-Cookie` header field, sent in an HTTP response from the web server
 
 _Example:_
 
@@ -59,7 +63,7 @@ _Example:_
   Host: www.example.org
   ```
 
-- The server responds with two `Set-Cookies` header fields:
+- The server responds with `Set-Cookies` header fields:
 
   ```http
   HTTP/1.0 200 OK
@@ -68,7 +72,7 @@ _Example:_
   Set-Cookie: sessionToken=abc123; Expires=Thu, 01 Jan 2022 10:03:17 GMT
   ```
 
-- The browser from now will include a `Cookie` header field in subsequent requests which contains the two cookies that the server instructed the browser to set:
+- The browser from now will include a `Cookie` header field in subsequent requests which contains the cookies that the server instructed the browser to set:
 
   ```http
   GET / HTTP/1.1
@@ -78,11 +82,11 @@ _Example:_
 
 Rules:
 
-- The _value_ of a **cookie may consist of any printable ASCII character** (`!` through `~`, Unicode `\u0021` through `\u007E`) excluding `,` and `;` and whitespace characters.
+- The _value_ of a **cookie may consist of any printable ASCII character** (`!` through `~`, Unicode `\u0021` through `\u007E`) excluding `,` and `;` and whitespace characters
 
-- The _name_ of a cookie excludes the same characters, as well as `=`, since that is the delimiter between the name and value.
+- The _name_ of a cookie excludes the same characters, as well as `=`, since that is the delimiter between the name and value
 
-- The cookie standard RFC 2965 is more restrictive but not implemented by browsers.
+- The cookie standard _RFC 2965_ is more restrictive but not implemented by browsers
 
 Cookies can be set from JavaScript:
 
@@ -140,7 +144,7 @@ document.cookie;
 
   - The date and time are specified in the form: `Wdy, DD Mon YYYY HH:MM:SS GMT`, or `Wdy, DD Mon YY HH:MM:SS GMT` (69 >= `yy` > 0)
   - Use a reasonable expiration date for your cookies
-  - 30 - 90 days
+  - _30 - 90 days_
   - You can set the cookie with each response to restart the 30 day counter, so an active user won't ever be logged out, despite the short timeout
   - When `Expires` not specified, lasts for current browser session (Caveat: Browsers do session restoring, so can last way longer)
 
@@ -186,6 +190,7 @@ document.cookie;
 
     - Limited protection against cookies being used for CSRF attack
     - No protection against:
+
       - CSRF via HTML injection: `evil.com` --> `<a href="https://example.com">click me</a>`
 
   - `SameSite=Strict`: Only send cookies if the request originates from the website that set the cookie

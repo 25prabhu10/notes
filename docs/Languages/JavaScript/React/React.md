@@ -1641,8 +1641,8 @@ Hooks provided by React:
 11. [`useDeferredValue`](#usedeferredvalue-hook): _v18_
 12. [`useTransition`](#usetransition-hook): _v18_
 13. [`useId`](#useid-hook): _v18_
-14. `usesyncexternalstore`: _v18_ "Library Hooks"
-15. `useinsertioneffect`: _v18_ "Library Hooks"
+14. `usesyncexternalstore`: _v18_ (to be used by libraries)
+15. `useinsertioneffect`: _v18_ (to be used by libraries)
 
 ### Rules of Hooks
 

@@ -7,6 +7,52 @@ description: Custom Hooks
 
 Collection of custom hooks
 
+- If custom Hook receives a callback function that will be called inside `useEffect`:
+
+```jsx
+function App() {
+    const [url, setUrl] = useState(null);
+    const { data } = useFetch({ url, onSuccess: () => console.log("Success") });
+
+    return (
+    <>
+        <div>{JSON.stringify(data)}</div>
+        <div>
+            <button onClick={() => setUrl("users")} />
+            <button onClick={() => setUrl("todos")} />
+        </div>
+    </>
+    );
+}
+
+const useCallbackRef = (callback) => {
+    const callbackRef = useRef(callback);
+
+    useLayoutEffect(() => {
+        callbackRef.current = callback;
+    }, [callback]);
+
+    return callbackRef;
+}
+
+export const useFetch = (options) => {
+    const [data, setData] = useState(null);
+
+    cosnt savedOnSuccess = useCallbackRef(options.onSuccess);
+
+    useEffect(() => {
+        if (options.url) {
+            fetch(options.url)
+                .then((response) => response.json())
+                .then((json) => {
+                    savedOnSuccess.current();
+                    setData(json);
+                });
+        }
+    }, [options.url)
+}
+```
+
 ## Toggle Hook
 
 ```javascript
@@ -19,7 +65,7 @@ Typescript:
 import { useCallback, useState } from "react";
 
 const App = () => {
-  // Call the hook which returns, current value and the toggler function
+  // call the hook which returns, current value and the toggler function
   const [isTextChanged, setIsTextChanged] = useToggle();
 
   return (
@@ -29,14 +75,14 @@ const App = () => {
   );
 };
 
-// Hook
-// Parameter is the boolean, with default "false" value
+// custom Hook
+// parameter is the boolean, with default "false" value
 const useToggle = (initialState: boolean = false): [boolean, any] => {
-  // Initialize the state
+  // initialize the state
   const [state, setState] = useState<boolean>(initialState);
 
-  // Define and memorize toggler function in case we pass down the component,
-  // This function change the boolean value to it's opposite value
+  // define and memorize toggler function in case we pass down the component,
+  // this function change the boolean value to it's opposite value
   const toggle = useCallback((): void => setState((state) => !state), []);
 
   return [state, toggle];
@@ -270,5 +316,3 @@ const GitHub = ({ login }) => {
 
 export default GitHub;
 ```
-
-### Using Axios

@@ -46,3 +46,10 @@ Some examples include:
 I get excited about opportunities where I (insert specifics about what you're looking for in a new role).
 
 I love connecting with new people, you can reach me at name @email.com
+
+## Profile
+
+Full Stack Engineer
+Full Stack Engineer
+Full Stack Developer (.Net)
+Dot Net full stack developer

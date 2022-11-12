@@ -44,9 +44,9 @@ fall-back for $VIM: "/usr/share/nvim"
 To launch Vim/Neovim without user defined configuration file:
 
 ```bash
-# SKIP EVERYTHING
+# skip everything
 { vim/nvim } -u NONE
-# SKIP EVERYTHING EXCEPT plugins AND syntax highlighting
+# skip everything except plugins and syntax highlighting
 { vim/nvim } -u NORC
 ```
 
@@ -71,7 +71,7 @@ First, plugin scripts are loaded, which is equivalent to running:
 
 ```vim
 :runtime! plugin/**/*.vim
-# EXCEPT FOR rtp DIRECTORIES ENDING "after"
+# except for 'rtp' directories ending 'after'
 ```
 
 - **Usually, this is** `$HOME/.vim/plugin/**/*.vim`
@@ -142,12 +142,13 @@ To create a custom syntax file:
 4. Link the above syntax group with the highlight group (to get the highlight groups run `:hi`)
 
    ```vim
-   # FIRST SYNTAX GROUP
+   # first syntax group
    syntax match sshknownhostspubkey "AAAA[0-9a-zA-Z+/]\+[=]\{0,2}"
-   # LINK THE ABOVE SYNTAX GROUP TO A HIGHLIGHT GROUP
+
+   # link the above syntax group to a highlight group
    highlight def link sshknownhostspubkey Special
 
-   # KEEP ADDING SYNTAX GROUPS
+   # keep adding syntax groups
    syn keyword sshalg ssh-rsa
    hi def link sshalg Identifier
 
@@ -165,7 +166,7 @@ Some considerations:
    - Add the missing pattern to `iskeyword` at the start of the syntax file:
 
      ```vim
-     " ADD - TO MATCH 'ssh-rsa' KEYWORD
+     " add - to match 'ssh-rsa' keyword
      setlocal iskeyword=@,48-57,_,192-255,-
      ```
 
@@ -214,7 +215,7 @@ _Example_:
 - Write your script in any of you preferred language like `Python`, `Vimscript`, `JavaScript`, `Lua`...
 
   ```vim
-  echo "INITIALIZING AUTOLOAD PLUGIN"
+  echo "Initializing Autoload Plugin"
   python3 << PYEND
   from google.cloud import storage
 

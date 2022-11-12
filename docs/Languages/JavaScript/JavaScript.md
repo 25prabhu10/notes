@@ -55,6 +55,8 @@ _ECMAScript_ is the official name for JavaScript.
 
 - JavaScript is a trademark of Oracle Corporation, Mozilla has acquired a license to use the JavaScript name
 
+> [FreeCodeCamp Article on JavaScript vs ECMAScript](https://www.freecodecamp.org/news/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5/)
+
 ### ECMAScript
 
 - It was created to standardize JavaScript
@@ -63,9 +65,19 @@ _ECMAScript_ is the official name for JavaScript.
 
 - ECMAScript provides the rules, details, and guidelines that a scripting language must contain to be considered part of ECMAScript.
 
-- [The ECMA-262 specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) contains the most in-depth, detailed and formalized information about JavaScript. It defines the language.
+- [The ECMA-262 specification](https://www.ecma-international.org/publications/standards/Ecma-262.htm) contains the most in-depth, detailed and formalized information about JavaScript. It defines the language
 
-> [FreeCodeCamp Article on JavaScript vs ECMAScript](https://www.freecodecamp.org/news/whats-the-difference-between-javascript-and-ecmascript-cba48c73a2b5/)
+- [TC39](https://github.com/tc39) is the committee for the "Standardization of the general purpose, cross platform, vendor-neutral programming language ECMAScript"
+
+How features get accepted by TC39?
+
+They are "proposed" to the committee by delegates, ideally with community support, and pass through phases:
+
+- Stage 0: to be proposed
+- Stage 1: accepted for consideration
+- Stage 2: spec almost complete
+- Stage 3: waiting for implementation
+- Stage 4: accepted!
 
 ## JavaScript In HTML
 
@@ -249,7 +261,7 @@ There are two limitations on variable names in JavaScript:
 
 2. `let`:
 
-   - Is similar to `var` in most ways, but its scope is limited to the block statement.
+   - Is similar to `var` in most ways, but its scope is limited to the block statement
    - **Block scope**
 
 3. `const`:
@@ -291,7 +303,7 @@ console.log(l); // l has a global scope
 
 ### Hoisting
 
-JavaScript **Hoisting** refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
+JavaScript **Hoisting** refers to the process whereby the interpreter appears to **move the declaration of functions, variables or classes to the top of their scope**, prior to execution of the code
 
 When JavaScript processes in execution context, it will put all the variables at the top i.e. hoist them to the top of the context.
 
@@ -1767,7 +1779,7 @@ console.log(fun()); // 3 🐠
 - Closure can be used to create objects with public and private parts:
 
 ```javascript
-// Using a closure we will expose an object
+// using a closure we will expose an object
 // as part of a public API that manages its
 // private parts
 let fruitsCollection = (() => {
@@ -2612,7 +2624,7 @@ Key aspects of Asynchronous functions are:
 
 ### The Event Loop
 
-JavaScript has a runtime model based on an **event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks.
+JavaScript has a runtime model based on an **event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks
 
 WEB API's are part of JavaScript Runtime but leave outside of the JavaScript engine. Like the DOM events, `setTimeout()`, `XMLHttpRequest()` etc.
 
@@ -3213,32 +3225,82 @@ budgetController.publicTest(25); // 49
 
 ## Local Storage
 
-**localstorage** API stores information as a key-value pair inside the browser. This data persists even after the page is reloaded.
+**`localStorage`** API stores information as a key-value pair inside the browser. This data persists even after the page is reloaded.
 
 You can set, retrieve, and delete an item:
 
+- `setItem(key, value)`: store key/value pair
+- `getItem(key)`: get the value by key
+- `removeItem(key)`: remove the key with its value
+- `clear()`: delete everything
+- `key(index)`: get the key number index
+- `length`: the number of stored items
+- Use `Object.keys` to get all keys
+- We access keys as object properties, in that case `storage` event isn't triggered
+
+_Example:_
+
 ```javascript
-// SET ITEM
+// set item
 localStorage.setItem("id", "123");
 
-// GET ITEM
-localStorage.getItem("id");
-
-// REMOVE ITEM
-localStorage.removeItem("id");
-
-// SHOW ALL ITEMS
+// show all items
 console.log(localStorage);
-
-// NUMBER OF ITEMS
-console.log(localStorage.length);
 ```
+
+The main features of `localStorage` are:
+
+- **Shared between all tabs and windows from the same origin**
+- The **data does not expire**. It remains after the browser restart and even OS reboot
+
+Limitations:
+
+- Both `key` and `value` **must be strings**
+- The **limit is 5mb+**, depends on the browser
+- They **do not expire**
+- The data is bound to the origin (domain/port/protocol)
 
 ::: tip NOTE
 
 _localStorage_ can only store strings and numbers, so always convert arrays and objects to JSON string like `JSON.stringify(value)` and use `JSON.parse(stringifiedValue)` to read the object or array back
 
 :::
+
+### Session Storage
+
+Properties and methods are the same as `localStorage`, but it's much more limited:
+
+- The sessionStorage exists only within the current browser tab
+
+  - Another tab with the same page will have a different storage
+  - But it is shared between iframes in the same tab (assuming they come from the same origin)
+
+- The data survives page refresh, but not closing/opening the tab
+
+```javascript
+sessionStorage.setItem("test", 1);
+```
+
+### Storage Event
+
+When the data gets updated in `localStorage` or `sessionStorage`, storage event triggers, with properties:
+
+- `key`: the key that was changed (null if .clear() is called)
+- `oldValue`: the old value (null if the key is newly added)
+- `newValue`: the new value (null if the key is removed)
+- `url`: the url of the document where the update happened
+- `storageArea`: either localStorage or sessionStorage object where the update happened
+
+```javascript
+// triggers on updates made to the same storage from other documents
+window.onstorage = (event) => {
+  // can also use window.addEventListener('storage', event => {
+  if (event.key != "now") return;
+  alert(event.key + ":" + event.newValue + " at " + event.url);
+};
+
+localStorage.setItem("now", Date.now());
+```
 
 ## Date And Time
 
