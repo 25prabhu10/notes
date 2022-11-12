@@ -39,8 +39,10 @@ html.dark {
   opacity: 0.8;
 }
 
-a:hover.card {
-  text-decoration: none;
+@media (hover: hover) and (pointer: fine) {
+  a:hover.card {
+    text-decoration: none;
+  }
 }
 
 .card__img {
@@ -68,33 +70,41 @@ h3:first-child.card__text {
   word-wrap: anywhere;
 }
 
-.card:hover {
-  transform: scale(1.1) translateY(-1em);
-  box-shadow: 0 2.5em 4em rgba(65, 184, 131, 0.5);
-  border: none;
-  outline: 3px solid rgba(65, 184, 131, 1);
-  transition: all 0.2s ease-out;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover {
+    transform: scale(1.1) translateY(-1em);
+    box-shadow: 0 2.5em 4em rgba(65, 184, 131, 0.5);
+    border: none;
+    outline: 3px solid rgba(65, 184, 131, 1);
+    transition: all 0.2s ease-out;
+  }
 }
 
 .card:active {
   transform: translateY(-1em);
 }
 
-.card:hover .card__img {
-  opacity: 1;
-  transition: all 0.2s ease-out;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__img {
+    opacity: 1;
+    transition: all 0.2s ease-out;
+  }
 }
 
-.card:hover .card__text {
-  opacity: 1;
-  color: #000000;
-  transition: all 0.2s ease-out;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text {
+    opacity: 1;
+    color: #000000;
+    transition: all 0.2s ease-out;
+  }
 }
 
-.card:hover .card__text--container {
-  transform: scale(1.1);
-  background-color: rgba(65, 184, 131, 1);
-  transition: all 0.2s ease-out;
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container {
+    transform: scale(1.1);
+    background-color: rgba(65, 184, 131, 1);
+    transition: all 0.2s ease-out;
+  }
 }
 
 .card:active .card__text--container {
@@ -107,21 +117,27 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
-.card__1:hover {
-  outline: 2px solid rgba(0, 0, 0, 1);
-  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__1:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+  }
 }
 
-.card__1:hover .card__text {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .card__1:hover .card__text {
+    color: #ffffff;
+  }
 }
 
 .card__text--container-1 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .card__text--container-1 {
-  background-color: rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-1 {
+    background-color: rgba(0, 0, 0, 1);
+  }
 }
 
 .card__2 {
@@ -130,21 +146,27 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(62, 71, 74, 0.15);
 }
 
-.card__2:hover {
-  outline: 2px solid rgba(62, 71, 74, 1);
-  box-shadow: 0 2.5em 4em rgba(62, 71, 74, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__2:hover {
+    outline: 2px solid rgba(62, 71, 74, 1);
+    box-shadow: 0 2.5em 4em rgba(62, 71, 74, 0.5);
+  }
 }
 
-.card__2:hover .card__text {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .card__2:hover .card__text {
+    color: #ffffff;
+  }
 }
 
 .card__text--container-2 {
   background-color: rgba(62, 71, 74, 0.2);
 }
 
-.card:hover .card__text--container-2 {
-  background-color: rgba(62, 71, 74, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-2 {
+    background-color: rgba(62, 71, 74, 1);
+  }
 }
 
 .card__3 {
@@ -153,17 +175,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(255, 215, 72, 0.15);
 }
 
-.card__3:hover {
-  outline: 2px solid rgba(255, 215, 72, 1);
-  box-shadow: 0 2.5em 4em rgba(255, 215, 72, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__3:hover {
+    outline: 2px solid rgba(255, 215, 72, 1);
+    box-shadow: 0 2.5em 4em rgba(255, 215, 72, 0.5);
+  }
 }
 
 .card__text--container-3 {
   background-color: rgba(255, 215, 72, 0.2);
 }
 
-.card:hover .card__text--container-3 {
-  background-color: rgba(255, 215, 72, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-3 {
+    background-color: rgba(255, 215, 72, 1);
+  }
 }
 
 .card__4 {
@@ -172,17 +198,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(227, 79, 38, 0.15);
 }
 
-.card__4:hover {
-  outline: 2px solid rgba(227, 79, 38, 1);
-  box-shadow: 0 2.5em 4em rgba(227, 79, 38, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__4:hover {
+    outline: 2px solid rgba(227, 79, 38, 1);
+    box-shadow: 0 2.5em 4em rgba(227, 79, 38, 0.5);
+  }
 }
 
 .card__text--container-4 {
   background-color: rgba(227, 79, 38, 0.2);
 }
 
-.card:hover .card__text--container-4 {
-  background-color: rgba(227, 79, 38, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-4 {
+    background-color: rgba(227, 79, 38, 1);
+  }
 }
 
 .card__5 {
@@ -191,21 +221,27 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
-.card__5:hover {
-  outline: 2px solid rgba(0, 0, 0, 1);
-  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__5:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+  }
 }
 
-.card__5:hover .card__text {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .card__5:hover .card__text {
+    color: #ffffff;
+  }
 }
 
 .card__text--container-5 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .card__text--container-5 {
-  background-color: rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-5 {
+    background-color: rgba(0, 0, 0, 1);
+  }
 }
 
 .card__6 {
@@ -214,17 +250,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(247, 223, 30, 0.15);
 }
 
-.card__6:hover {
-  outline: 2px solid rgba(247, 223, 30, 1);
-  box-shadow: 0 2.5em 4em rgba(247, 223, 30, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__6:hover {
+    outline: 2px solid rgba(247, 223, 30, 1);
+    box-shadow: 0 2.5em 4em rgba(247, 223, 30, 0.5);
+  }
 }
 
 .card__text--container-6 {
   background-color: rgba(247, 223, 30, 0.2);
 }
 
-.card:hover .card__text--container-6 {
-  background-color: rgba(247, 223, 30, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-6 {
+    background-color: rgba(247, 223, 30, 1);
+  }
 }
 
 .card__7 {
@@ -233,17 +273,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(0, 122, 204, 0.15);
 }
 
-.card__7:hover {
-  outline: 2px solid rgba(0, 122, 204, 1);
-  box-shadow: 0 2.5em 4em rgba(0, 122, 204, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__7:hover {
+    outline: 2px solid rgba(0, 122, 204, 1);
+    box-shadow: 0 2.5em 4em rgba(0, 122, 204, 0.5);
+  }
 }
 
 .card__text--container-7 {
   background-color: rgba(0, 122, 204, 0.2);
 }
 
-.card:hover .card__text--container-7 {
-  background-color: rgba(0, 122, 204, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-7 {
+    background-color: rgba(0, 122, 204, 1);
+  }
 }
 
 .card__8 {
@@ -252,17 +296,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(214, 26, 72, 0.15);
 }
 
-.card__8:hover {
-  outline: 2px solid rgba(214, 26, 72, 1);
-  box-shadow: 0 2.5em 4em rgba(214, 26, 72, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__8:hover {
+    outline: 2px solid rgba(214, 26, 72, 1);
+    box-shadow: 0 2.5em 4em rgba(214, 26, 72, 0.5);
+  }
 }
 
 .card__text--container-8 {
   background-color: rgba(214, 26, 72, 0.2);
 }
 
-.card:hover .card__text--container-8 {
-  background-color: rgba(214, 26, 72, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-8 {
+    background-color: rgba(214, 26, 72, 1);
+  }
 }
 
 .card__9 {
@@ -271,17 +319,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(97, 218, 251, 0.15);
 }
 
-.card__9:hover {
-  outline: 2px solid rgba(97, 218, 251, 1);
-  box-shadow: 0 2.5em 4em rgba(97, 218, 251, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__9:hover {
+    outline: 2px solid rgba(97, 218, 251, 1);
+    box-shadow: 0 2.5em 4em rgba(97, 218, 251, 0.5);
+  }
 }
 
 .card__text--container-9 {
   background-color: rgba(97, 218, 251, 0.2);
 }
 
-.card:hover .card__text--container-9 {
-  background-color: rgba(97, 218, 251, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-9 {
+    background-color: rgba(97, 218, 251, 1);
+  }
 }
 
 .card__10 {
@@ -290,17 +342,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(218, 70, 72, 0.15);
 }
 
-.card__10:hover {
-  outline: 2px solid rgba(218, 70, 72, 1);
-  box-shadow: 0 2.5em 4em rgba(218, 70, 72, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__10:hover {
+    outline: 2px solid rgba(218, 70, 72, 1);
+    box-shadow: 0 2.5em 4em rgba(218, 70, 72, 0.5);
+  }
 }
 
 .card__text--container-10 {
   background-color: rgba(218, 70, 72, 0.2);
 }
 
-.card:hover .card__text--container-10 {
-  background-color: rgba(218, 70, 72, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-10 {
+    background-color: rgba(218, 70, 72, 1);
+  }
 }
 
 .card__11 {
@@ -309,17 +365,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(50, 222, 132, 0.15);
 }
 
-.card__11:hover {
-  outline: 2px solid rgba(50, 222, 132, 1);
-  box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__11:hover {
+    outline: 2px solid rgba(50, 222, 132, 1);
+    box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
+  }
 }
 
 .card__text--container-11 {
   background-color: rgba(50, 222, 132, 0.2);
 }
 
-.card:hover .card__text--container-11 {
-  background-color: rgba(50, 222, 132, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-11 {
+    background-color: rgba(50, 222, 132, 1);
+  }
 }
 
 .card__12 {
@@ -328,17 +388,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(161, 121, 219, 0.15);
 }
 
-.card__12:hover {
-  outline: 2px solid rgba(161, 121, 219, 1);
-  box-shadow: 0 2.5em 4em rgba(161, 121, 219, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__12:hover {
+    outline: 2px solid rgba(161, 121, 219, 1);
+    box-shadow: 0 2.5em 4em rgba(161, 121, 219, 0.5);
+  }
 }
 
 .card__text--container-12 {
   background-color: rgba(161, 121, 219, 0.2);
 }
 
-.card:hover .card__text--container-12 {
-  background-color: rgba(161, 121, 219, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-12 {
+    background-color: rgba(161, 121, 219, 1);
+  }
 }
 
 .card__13 {
@@ -347,21 +411,27 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
-.card__13:hover {
-  outline: 2px solid rgba(0, 0, 0, 1);
-  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__13:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+  }
 }
 
-.card__13:hover .card__text {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .card__13:hover .card__text {
+    color: #ffffff;
+  }
 }
 
 .card__text--container-13 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .card__text--container-13 {
-  background-color: rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-13 {
+    background-color: rgba(0, 0, 0, 1);
+  }
 }
 
 .card__14 {
@@ -370,21 +440,27 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
-.card__14:hover {
-  outline: 2px solid rgba(0, 0, 0, 1);
-  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__14:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+  }
 }
 
-.card__14:hover .card__text {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .card__14:hover .card__text {
+    color: #ffffff;
+  }
 }
 
 .card__text--container-14 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .card__text--container-14 {
-  background-color: rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-14 {
+    background-color: rgba(0, 0, 0, 1);
+  }
 }
 
 .card__15 {
@@ -393,17 +469,21 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(50, 222, 132, 0.15);
 }
 
-.card__15:hover {
-  outline: 2px solid rgba(50, 222, 132, 1);
-  box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__15:hover {
+    outline: 2px solid rgba(50, 222, 132, 1);
+    box-shadow: 0 2.5em 4em rgba(50, 222, 132, 0.5);
+  }
 }
 
 .card__text--container-15 {
   background-color: rgba(50, 222, 132, 0.2);
 }
 
-.card:hover .card__text--container-15 {
-  background-color: rgba(50, 222, 132, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-15 {
+    background-color: rgba(50, 222, 132, 1);
+  }
 }
 
 .card__16 {
@@ -412,19 +492,25 @@ h3:first-child.card__text {
   box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.15);
 }
 
-.card__16:hover {
-  outline: 2px solid rgba(0, 0, 0, 1);
-  box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+@media (hover: hover) and (pointer: fine) {
+  .card__16:hover {
+    outline: 2px solid rgba(0, 0, 0, 1);
+    box-shadow: 0 2.5em 4em rgba(0, 0, 0, 0.5);
+  }
 }
 
-.card__16:hover .card__text {
-  color: #ffffff;
+@media (hover: hover) and (pointer: fine) {
+  .card__16:hover .card__text {
+    color: #ffffff;
+  }
 }
 
 .card__text--container-16 {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-.card:hover .card__text--container-16 {
-  background-color: rgba(0, 0, 0, 1);
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .card__text--container-16 {
+    background-color: rgba(0, 0, 0, 1);
+  }
 }
