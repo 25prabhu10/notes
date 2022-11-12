@@ -1,6 +1,6 @@
 {
   "name": "notes",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Anthology of Snippets",
   "scripts": {
     "fetch": "sh utils/bash/sync.sh",
@@ -33,9 +33,9 @@
   "homepage": "https://github.com/25prabhu10/notes#readme",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^1.0.8",
-    "@vuepress/plugin-pwa": "^2.0.0-beta.52",
-    "@vuepress/plugin-register-components": "^2.0.0-beta.52",
-    "@vuepress/plugin-search": "^2.0.0-beta.52",
+    "@vuepress/plugin-pwa": "^2.0.0-beta.53",
+    "@vuepress/plugin-register-components": "^2.0.0-beta.53",
+    "@vuepress/plugin-search": "^2.0.0-beta.53",
     "dictionary-en-gb": "^2.4.0",
     "markdown-link-check": "^3.10.3",
     "markdownlint-cli2": "^0.5.1",
@@ -48,6 +48,6 @@
     "textlint-rule-spelling": "^0.3.0",
     "textlint-rule-terminology": "^3.0.4",
     "textlint-rule-write-good": "^2.0.0",
-    "vuepress": "^2.0.0-beta.52"
+    "vuepress": "^2.0.0-beta.53"
   }
 }
