@@ -66,6 +66,7 @@ dotnet new console -o MyApp
 
 # Run the application
 cd MyApp
+# dotnet build
 dotnet run
 
 # Clean build artifacts
@@ -73,6 +74,10 @@ dotnet run
 # - bin
 dotnet clean
 ```
+
+- Solution: `dotnet new sln -o solution-name`
+- Web API: `dotnet new webapi -o project-name`
+- Class Library: `dotnet new classlib -o project-name`
 
 Build command results in 2 folders:
 

@@ -9,16 +9,16 @@ It's open source JavaScript toolkit and **task runner** (build system) that util
 
 ## Automating Repetitive Tasks
 
-- **Compressing** images.
-- **Generating HTML** from templates and content files.
-- **Compiling Sass** to CSS.
-- **Removing** unwanted development related statements from scripts.
-- **Transpiling** latest versions of JavaScript to cross-browser-compatible version.
-- Code **testing, linting, and validation**.
-- **Concatenation and minifying** of scripts, styles, and other files.
-- **Cache busing** (Letting browser know new version of cache is available).
-- Creating local **development servers**.
-- **Deploying files** to various servers.
+- **Compressing** images
+- **Generating HTML** from templates and content files
+- **Compiling Sass** to CSS
+- **Removing** unwanted development related statements from scripts
+- **Transpiling** latest versions of JavaScript to cross-browser-compatible version
+- Code **testing, linting, and validation**
+- **Concatenation and minifying** of scripts, styles, and other files
+- **Cache busting** (Letting browser know new version of cache is available)
+- Creating local **development servers**
+- **Deploying files** to various servers
 
 ## How Gulp works
 
@@ -133,7 +133,7 @@ There different levels for functions.
 
 Streams separate concerns because they restrict the implementation surface area into a consistent interface which could be reused.
 
-`.pipe()` is a mere function that takes a readable source stream `src:` and hooks the output to a destination writable stream `dst:`.
+`.pipe()` is a mere function that takes a readable source stream `src:` and hooks the output to a destination writeable stream `dst:`.
 
 Pipes can be chained together: `one.pipe(two).pipe(three).pipe(four)`
 
@@ -247,7 +247,7 @@ Types of steams:
       );
       ```
 
-   3. **[gulp-sass](https://github.com/dlmanning/gulp-sass)** - Generate CSS from SASS files:
+   3. **[gulp-sass](https://github.com/dlmanning/gulp-sass)** - Generate CSS from Sass files:
 
       ```javascript
       const sass = require("gulp-sass");
@@ -338,7 +338,7 @@ Types of steams:
           .src(["assets/icons/*.svg"])
           .pipe(
             iconfont({
-              fontName: "myfont", // required
+              fontName: "myFont", // required
               prependUnicode: true, // recommended option
               formats: ["ttf", "eot", "woff"], // default, 'woff2' and 'svg' are available
               timestamp: runTimestamp, // recommended to get consistent builds when watching files
@@ -370,7 +370,7 @@ Types of steams:
 
       gulp.task("browser-sync", () => {
         browserSync.init({
-          proxy: "yourlocal.dev",
+          proxy: "yourLocal.dev",
         });
       });
       ```

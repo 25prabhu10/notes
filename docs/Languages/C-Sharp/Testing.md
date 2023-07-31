@@ -74,7 +74,7 @@ Parametrized tests: Using `[Theory]`: represents a suite of tests that execute t
 - `[MemberData]`: Fetch data from a static property or method
 - `[ClassData]`:
 
-_Examples:_
+_Example:_
 
 ```csharp
 [Theory]

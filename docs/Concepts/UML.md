@@ -1,11 +1,11 @@
 ---
-title: Unified Modeling Language (UML)
-description: Unified Modeling Language (UML) is a general-purpose, developmental modeling language
+title: Unified Modelling Language (UML)
+description: Unified Modelling Language (UML) is a general-purpose, developmental modelling language
 ---
 
-# Unified Modeling Language (UML)
+# Unified Modelling Language (UML)
 
-UML is a general-purpose, developmental modeling language that is intended to provide a standard way to visualize the design of a system.
+UML is a general-purpose, developmental modelling language that is intended to provide a standard way to visualize the design of a system
 
 ## Model
 
@@ -90,7 +90,7 @@ Types of Models:
 
 ## References
 
-- [Unified Modeling Language (UML) specification 2.5](https://www.omg.org/spec/UML/)
+- [Unified Modelling Language (UML) specification 2.5](https://www.omg.org/spec/UML/)
 
   - controlled by Object Management Group (OMG)
   - Releases: UML-1 (1997), UML-2 (2005), UML-2.5 (2015)

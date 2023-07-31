@@ -1,5 +1,5 @@
 ---
-title: Deploying ASP.NET Core Applications
+title: Deployment
 description: Deploying ASP.NET Core Applications
 ---
 
@@ -21,9 +21,9 @@ Frontend:
 
 ## Server Choices
 
-ASP.NET Core applications themselves run as a self-contained process with the help of a server library. If you've developed self-hosted OWIN applications in the past with ASP.NET, you'll find this pattern familiar. The server itself contains the code that translates raw HTTP requests into the structures that ASP.NET Core is looking for.
+ASP.NET Core applications themselves run as a self-contained process with the help of a server library. If you've developed self-hosted OWIN (Open Web Interface for .NET) applications in the past with ASP.NET, you'll find this pattern familiar. The server itself contains the code that translates raw HTTP requests into the structures that ASP.NET Core is looking for
 
-1. IIS
+1. [IIS](./IIS.md)
 
    - IIS Express
 
@@ -45,6 +45,7 @@ Handling Internet traffic:
   - Internet --> Application code: Server (Kestrel or HTTP.sys)
   - App server configured for HTTPS and listening for connections
   - Not good for large applications:
+
     - Hard to scale
     - No easy way to balance load and send traffic to another server
 
@@ -58,11 +59,12 @@ Handling Internet traffic:
 ### Kestrel
 
 - Fast, open-source, cross-platform web server based on `libuv`
-- It is a light weight web server, it can only execute the requests. So external web server is used to configure security, hashing, etc..
+- It is a light weight web server, it can only execute the requests. So external web server is used to configure security, hashing, etc.
+- Not used directly in production in production
 
 ## Deployment Strategies
 
-- Windows/Azure using [IIS](./IIS.md): Copy binaries manually
+- Windows/Azure using IIS: Copy binaries manually
 
   - IIS acting as reverse proxy to Kestrel
 
@@ -128,15 +130,12 @@ To add these files: These settings will be included in every publish profile
 
 ```xml
 <ItemGroup>
-<!-- INCLUDE FILES -->
-
-<ResolvedFileToPublish Include="README.md">
-<RelativePath>wwwroot\README.md</RelativePath>
-</ResolvedFileToPublish>
-
-<!-- EXCLUDE FILES -->
-
-<Content Update="wwwroot\**\*.txt" CopyTo PublishDirectory="Never"></Content>
+   <!-- INCLUDE FILES -->
+   <ResolvedFileToPublish Include="README.md">
+      <RelativePath>wwwroot\README.md</RelativePath>
+   </ResolvedFileToPublish>
+   <!-- EXCLUDE FILES -->
+   <Content Update="wwwroot\**\*.txt" CopyToPublishDirectory="Never"></Content>
 </ItemGroup>
 ```
 
@@ -149,17 +148,15 @@ To add these files: These settings will be included in every publish profile
      - (v3+) The `ConfigureWebHostDefaults` method calls `UseKestrel` internally:
 
        ```csharp
-       public static void Main(string[] args)
-       {
-       CreateHostBuilder(args).Build().Run();
+       public static void Main(string[] args) {
+          CreateHostBuilder(args).Build().Run();
        }
 
        public static IHostBuilder CreateHostBuilder(string[] args) =>
-       Host.CreateDefaultBuilder(args)
-       .ConfigureWebHostDefaults(webBuilder =>
-       {
-       webBuilder.UseStartup<Startup>();
-       });
+          Host.CreateDefaultBuilder(args)
+          .ConfigureWebHostDefaults(webBuilder => {
+             webBuilder.UseStartup < Startup > ();
+          });
        ```
 
      - (v6+) The `WebApplication.CreateBuilder` method calls `UseKestrel` internally:
@@ -180,33 +177,31 @@ To add these files: These settings will be included in every publish profile
       ```bash
       makecert -sv [YourName].pvk -n "CN=[YourCN]" [YourCertName].cer -r
 
-      <!-- you will be prompted for a password (twice) -->
+      # you will be prompted for a password (twice)
 
       pvk2pfk -pvk [YourName].pvk -spc [YourCertName].cer -pfx [YourName].pfx -pi [password]
 
-      <!-- pvk2pfx gets installed to %ProgramFiles(x86)%Windows Kits\10\bin\10.0.16299.0\x64 -->
+      # pvk2pfx gets installed to %ProgramFiles(x86)%Windows Kits\10\bin\10.0.16299.0\x64
       ```
 
    2. Add SSL configurations:
 
       ```csharp
-      public class Program
-      {
+      public class Program {
 
-      public static void Main(string[] args)
-      {
-      var cert = new X506Certificate2("PfjEnterprises.pfx", Secrets.PASSWORD);
-      var host = new WebHostBuilder()
-      // .UseKestrel()
-      .UseKestrel(cfg => cfg.UseHttps(cert))
-      .UseUrls("http://_:6001;https://_:6002")
-      .UseContentRoot(Directory.GetCurrentDirectory())
-      .UseIISIntegration()
-      .UseStartup<Startup>()
-      .UseApplicationInsights()
-      .Build();
-      host.Run();
-      }
+         public static void Main(string[] args) {
+            var cert = new X506Certificate2("PfjEnterprises.pfx", Secrets.PASSWORD);
+            var host = new WebHostBuilder()
+                  // .UseKestrel()
+                  .UseKestrel(cfg => cfg.UseHttps(cert))
+                  .UseUrls("http://_:6001;https://_:6002")
+                  .UseContentRoot(Directory.GetCurrentDirectory())
+                  .UseIISIntegration()
+                  .UseStartup < Startup > ()
+                  .UseApplicationInsights()
+                  .Build();
+            host.Run();
+         }
       }
       ```
 
@@ -225,6 +220,7 @@ To add these files: These settings will be included in every publish profile
      - `X-Forwarded-Proto: https`
 
    - `ForwardedHeadersMiddleware`, reads these headers and fills in the associated fields on `HttpContext`.
+
    - Forwarded Headers Middleware is enabled by default by IIS Integration Middleware when the app is hosted out-of-process behind IIS and the ASP.NET Core Module.
 
    - For other proxies: **Forwarded Headers Middleware should run before other middleware**.
@@ -232,16 +228,16 @@ To add these files: These settings will be included in every publish profile
      ```csharp
      public void ConfigureServices(IServiceCollection services)
        {
-           services.Configure<ForwardedHeadersOptions>(options =>
-           {
-               options.ForwardedHeaders =
-                   ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-           });
+         services.Configure<ForwardedHeadersOptions>(options =>
+         {
+            options.ForwardedHeaders =
+                  ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+         });
        }
 
        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
        {
-           app.UseForwardedHeaders();
+         app.UseForwardedHeaders();
        }
      ```
 
@@ -270,16 +266,16 @@ Create a Site and Application Pool:
 
 Setup Data Protection:
 
-- ASP.NET Core uses the Windows Data Protection API (DPAPI) to encrypt and store keys that are used for authentication in your application. Windows DPAPI isn't intended for use in web applications.
+- ASP.NET Core uses the _Windows Data Protection API (DPAPI)_ to encrypt and store keys that are used for authentication in your application. Windows DPAPI isn't intended for use in web applications
 
-- When hosting your application with IIS, you'll need to run a small script to create a registry hive for these keys, otherwise the keys will be regenerated when you restart the application or your server, which will invalidate any user sessions or cookies that were encrypted with the previous old keys.
+- When hosting your application with IIS, you'll need to run a small script to create a registry hive for these keys, otherwise the keys will be regenerated when you restart the application or your server, which will invalidate any user sessions or cookies that were encrypted with the previous old keys
 
 [Data protection](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/iis/?view=aspnetcore-3.1#data-protection)
 
 - Download the [Provision-AutoGenKeys.ps1](https://github.com/dotnet/AspNetCore/blob/main/src/DataProtection/Provision-AutoGenKeys.ps1) script
 - Run this script in admin mode:
 
-  - Now elevate this PowerShell window to give it the remote signed execution policy, which allows the execution of that script.
+  - Now elevate this PowerShell window to give it the remote signed execution policy, which allows the execution of that script
 
     ```powershell
     powershell -ExecutionPolicy RemoteSigned
@@ -298,13 +294,13 @@ Publishing Application:
    - Open the Publish wizard (Create a publish profile)
 
    - Pick a publish target:
+
      - Example: Folder --> select the folder mentioned in the IIS Application Pool --> Physical path
 
 2. Via the CLI:
 
    ```powershell
-   <!-- Restore nuget packages -->
-
+   # restore nuget packages
    dotnet restore
 
    dotnet build
@@ -318,7 +314,7 @@ Publishing Application:
 `Web.config` file is generated when application is published:
 
 - It is not used for the application configuration (as it was in ASP.NET Framework), `appsettings.json` is used now
-- IIS still needs `Web.config`, even if ASP.NET Core isn't using it.
+- IIS still needs `Web.config`, even if ASP.NET Core isn't using it
 - Configures the ASP.NET Core module (reverse proxy)
 - Is automatically created for you by `dotnet publish` or Visual Studio
 - Must be in the application root folder
@@ -489,20 +485,20 @@ Benefits of Docker:
    ```bash
    docker build -t [username/image name] .
 
-   # Check if image was created
+   # check if image was created
    docker image ls
    ```
 
 4. Run the newly created Docker Image:
 
    ```bash
-   # In Development environment
+   # in development environment
    docker run -it -p 5000:5000 [image name]
 
-   # Production
+   # production
    docker run -d -p 5000:5000 [image name]
 
-   # Monitor Docker status
+   # monitor docker status
    docker ps
 
    # docker ps --format 'table {{.Names}}\t{{.Images}}\t{{.Status}}\t{{.Ports}}'
@@ -571,8 +567,8 @@ Create Nginx Docker Containers:
 Save the images that we created, so that it can be shared and loaded on other machines:
 
 ```bash
-docker save -o [output image name].tar [image name]
+docker save -o [output-image-name].tar [image-name]
 
 # load image
-docker load -i [output image name].tar
+docker load -i [output-image-name].tar
 ```

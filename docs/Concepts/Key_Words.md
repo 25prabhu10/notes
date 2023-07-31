@@ -19,7 +19,21 @@
 
 5. P95 Latency (P% Latency): The P95 Threshold indicates that 5% of transaction durations are greater than the threshold. For example, if the P95 threshold is 50 milliseconds, then 5% of transactions exceeded that threshold, taking longer than 50 milliseconds
 
+6. Software Rot
+
+7. Use-After-Free (UAF) is a vulnerability related to incorrect use of dynamic memory during program operation
+
+8. Write-what-where Condition: Any condition where the attacker has the ability to write an arbitrary value to an arbitrary location, often as the result of a buffer overflow.
+
+9. Global Offset Table (GOT): is a section of a computer program's (executables and shared libraries) memory used to enable computer program code compiled as an ELF file to run correctly, independent of the memory address where the program's code or data is loaded at runtime.
+
 RAII (Resource acquisition is initialization)
+
+Semantic Versioning:
+
+- Major.Minor.Patch release
+- Caret (^): All minor and patches OK (^1.x.x)
+- Tilde (~): All patches only (~1.5.x)
 
 ## Floating Point Numbers
 
@@ -47,13 +61,13 @@ The floating point number's binary representation is split into 3-parts:
 
    - Represents a range
 
-   | Exponent (n) | Power Range (2^n) | Numerical Range |
-   | :----------: | :---------------: | :-------------: |
-   |      0       |      [0, 1]       |     [1, 2]      |
-   |      1       |      [1, 2]       |     [2, 4]      |
-   |      2       |      [2, 3]       |     [4, 8]      |
-   |      3       |      [3, 4]       |     [8, 16]     |
-   |      4       |      [4, 5]       |    [16, 32]     |
+   | Exponent (`n`) | Power Range (`2^n`) | Numerical Range |
+   | :------------: | :-----------------: | :-------------: |
+   |       0        |       [0, 1]        |     [1, 2]      |
+   |       1        |       [1, 2]        |     [2, 4]      |
+   |       2        |       [2, 3]        |     [4, 8]      |
+   |       3        |       [3, 4]        |     [8, 16]     |
+   |       4        |       [4, 5]        |    [16, 32]     |
 
 3. _Mantissa (10 Bits)_:
 

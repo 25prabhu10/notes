@@ -324,7 +324,7 @@ app.use(AWSXRay.express.closeSegment());
 
 - You can create your own rules with the reservoir and rate
 
-- _Example_: Higher minimum rate for POSTs
+- _Example:_ Higher minimum rate for POSTs
 
   - Rule name: `POST minimum`
   - Priority: `100`
@@ -410,7 +410,7 @@ ECS Cluster:
 
 3. Fargate Cluster: We don't have control over the underlying architecture and it is similar to X-Ray Container as a "Side Car"
 
-_Example_: ECS + X-Ray Task Definition
+_Example:_ ECS + X-Ray Task Definition
 
 ```json
 {

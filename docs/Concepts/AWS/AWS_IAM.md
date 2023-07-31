@@ -101,7 +101,7 @@ By default, all requests are implicitly denied with the **exception of the AWS a
   - `Resource`: list of resources to which the actions applied to
   - `Condition`: conditions for when this policy is in effect (optional)
 
-_Example_:
+_Example:_
 
 ```json
 {

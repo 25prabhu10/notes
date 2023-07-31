@@ -171,18 +171,18 @@ _Example:_
 ```c
 int main()
 {
-    // DATA VARIABLE
+    // data variable
     int a=10;
 
-    // POINTER VARIABLE
+    // pointer variable
     int *p;
 
-    // SAVE ADDRESS OF a
+    // save address of `a`
     p=&a;
 
-    // PRINT DATA PRESENT IN a
+    // print data present in `a`
     printf("%d", a);
-    printf("%d", *p); // ALSO KNOW AS DEREFERENCING
+    printf("%d", *p); // also know as dereferencing
 }
 ```
 

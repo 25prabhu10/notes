@@ -1,6 +1,6 @@
 ---
 title: Angular
-description: A JavaScript Framework  to create reactive Single-Page-Applications (SPA)s.
+description: A JavaScript Framework  to create reactive Single-Page-Applications (SPA)s
 ---
 
 # Angular
@@ -63,7 +63,7 @@ Lets get started...
 
 ### TypeScript
 
-To learn more see this document [TypeScript Doc](../TypeScript/TypeScript.md).
+To learn more see this document [TypeScript](../TypeScript/TypeScript.md)
 
 ### How dose Angular start?
 
@@ -79,7 +79,7 @@ To learn more see this document [TypeScript Doc](../TypeScript/TypeScript.md).
 
 ## Modules
 
-A **collection** of [Components](#components).
+A **collection** of [Components](#components)
 
 ## Components
 

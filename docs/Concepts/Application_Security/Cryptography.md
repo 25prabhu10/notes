@@ -5,7 +5,9 @@ description: Cryptography involves converting sensitive data into a format that 
 
 # Cryptography
 
-Cryptography involves converting sensitive data into a format that is unreadable for an unauthorized user
+It is the practice and study of techniques for secure communication in the presence of adversarial behavior
+
+- Cryptography involves converting sensitive data into a format that is unreadable for an unauthorized user
 
 ## Hashing
 
@@ -69,9 +71,30 @@ function login(email, password) {
 }
 ```
 
+- **Key Derivation**
+
+_Example:_
+
+```javascript
+// the secret message is: JavaScript
+md5Hash = "686155af75a60a0f6e9d80c1f7edd3e9";
+shaHash = "b6e13ad53d8ec41b034c49f131c64e99cf25207a";
+sha256Hash = "eda71746c01c3f465ffd02b6da15a6518e6fbc8f06f1ac525be193be5507069d";
+sha512Hash =
+  "6179a35e21da636ce44afd549e01cce9e54952f3f7ec40060698a3f58aeb1a5a4e3e82164ee22394d362fdd845570e8df86053bc051b9e3ae6fa4290504579c7";
+```
+
 ### Hash-Based Message Authentication Code (HMAC)
 
-- A hash that requires a password (shared key)
+Hashing is used to provide data integrity
+
+- Message Authentication Code (MAC) is a concept of combining Message + Secret Key when calculating Digest
+
+- Provides _Integrity_ and _Authentication_ for bulk data transfer
+
+- Industry standard implementation of MAC: HAMC (RFC 2104)
+
+  - A hash that requires a password (shared key)
 
 - Example is JWT
 
@@ -200,11 +223,18 @@ const decryptedData = privateDecrypt(privateKey, encryptedData);
 console.log(decryptedData.toString("utf-8"));
 ```
 
-## Encryption In Transit
+```bash
+# using openssl to generate RSA public and private key
+openssl genrsa
+```
+
+## Encryption in Transit
 
 - Transport Layer Security (TLS): for end-to-end encryption (over HTTP)
 - Not only protects data from unauthorized disclosure/modification, but also provides trust of the web server to the client
 - TLS should be used everywhere
+
+- **Diffie–Hellman key exchange**
 
 Protecting Data in Transit:
 
@@ -303,7 +333,7 @@ TLS Protocols & Cipher Suites:
 - Instead of just keys, certificates hold more personal information like domain name, organization, etc
 - Primarily made up of:
 
-  - Certificate AUthority
+  - Certificate Authority (CA): An entity that issues digital certificates to websites
   - Registration Authority
   - Certificate Databases
   - Certificate Stores
@@ -365,7 +395,7 @@ Recommended Cryptographic Algorithms:
 | Data Confidentiality (e.g. DBs, Hard Disks, Flat files, ...) |       AES(256+)       | DES, 2DES, Blowfish |
 | Data Integrity                                               | HMAC(128+), SHA(256+) |      MD5, SHA1      |
 
-- Use Argon2bi, bycrpt or sycrpt.
+- Use Argon2bi, bycrpt or sycrpt
 - **Strong configuration is required**
 
 ## Pinning & Certificate Transparency
@@ -427,9 +457,16 @@ How do I trust a CA?
 - RSA (Rivest–Shamir–Adleman)
 - PEM (Privacy Enhanced Mail)
 
-```javascript
-const hash = "5e7d28e2cfff93edefb2d15abad07ec5";
+## References
 
-// md5
-// superhacker
-```
+- _The Code Book: The Science of Secrecy from Ancient Egypt to Quantum Cryptography_ by Simon Singh (ISBN-10: 0-385-495323) (1999) (Introductory)
+
+- _Cryptography Engineering: Design Principles and Practical Applications_ by Niels Ferguson, Tadayoshi Kohno, Bruce Schneier (ISBN-13: 978-0-470-47424-2) (2010)
+
+- _Serious Cryptography: A Practical Introduction to Modern Encryption_ by Jean-Philippe Aumasson (ISBN-13: 978-1593278267) (2017)
+
+- [Password Hashing in PHP](https://www.php.net/manual/en/book.password.php)
+- [Using Libsodium in PHP Projects](https://paragonie.com/book/pecl-libsodium)
+- [OpenSSL in PHP](https://www.php.net/manual/en/book.openssl.php)
+
+- Cryptographically Secure Pseudorandom Number Generator (CSPRNG) Or Cryptographic Pseudorandom Number Generator (CPRNG)

@@ -416,7 +416,7 @@ Steps:
      - Cache miss penalty that results in 3 round trips, noticeable delay for that request
      - Stale data: data can be updated in the database and outdated in the cache
 
-   _Example_:
+   _Example:_
 
    ```python
    def get_user(user_id):
@@ -445,7 +445,7 @@ Steps:
      - Missing Data until it is added / updated in the DB. Mitigation is to implement Lazy Loading strategy as well
      - Cache churn - a lot of the data will never be read RDS
 
-   _Example_:
+   _Example:_
 
    ```python
    def save_user(user_id, values):

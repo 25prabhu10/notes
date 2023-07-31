@@ -5,49 +5,49 @@ description: MongoDB is a cross-platform document-oriented database program. Cla
 
 # MongoDB
 
-MongoDB is a _NoSQL_ database, classified as document-oriented database
+MongoDB is a _NoSQL_ database, classified as document-oriented database created in 2007
 
 > The word MongoDB is originated from _humongous_
 
 ## Introduction
 
-- MongoDB is written in [C++](../../../C-CPP/CPP.md) language.
+- MongoDB is written in [C++](../../../C-CPP/CPP.md) language
 
-- MongoDB pairs each key with a data structure named as **document**.
+- MongoDB pairs each key with a data structure named as **document**
 
-- MongoDB stores data in flexible, _JSON-like_ documents. The document model map to the objects in your application code, making data easy to work with.
+- MongoDB stores data in flexible, _JSON-like_ documents. The document model map to the objects in your application code, making data easy to work with
 
-- MongoDB is a collection of documents.
+- MongoDB is a collection of documents
 
-- **Collections** in Mongo are equivalent to tables in relational databases. They can hold multiple JSON documents.
+- **Collections** in Mongo are equivalent to tables in relational databases. They can hold multiple JSON documents
 
-- **Documents** are equivalent to records or rows of data in SQL. While a SQL row can reference data in other tables, Mongo documents usually combine that in a document.
+- **Documents** are equivalent to records or rows of data in SQL. While a SQL row can reference data in other tables, Mongo documents usually combine that in a document
 
-- **Fields** or attributes are similar to columns in a SQL table.
+- **Fields** or attributes are similar to columns in a SQL table
 
-- **Models** are higher-order constructors that take a schema and create an instance of a document equivalent to records in a relational database.
+- **Models** are higher-order constructors that take a schema and create an instance of a document equivalent to records in a relational database
 
-- There is no schema enforcement in MongoDB by default (you may implement it). SQL defines a schema via the table definition. A [mongoose](https://mongoosejs.com/) schema is a document data structure (or shape of the document) that is enforced via the application layer.
+- There is no schema enforcement in MongoDB by default (you may implement it). SQL defines a schema via the table definition. A [mongoose](https://mongoosejs.com/) schema is a document data structure (or shape of the document) that is enforced via the application layer
 
-- MongoDB stores document in a binary-encoded format termed as BSON (Binary JSON) - [BSON and JSON](https://www.mongodb.com/json-and-bson). BSON is an extended format of JSON data model.
+- MongoDB stores document in a binary-encoded format termed as BSON (Binary JSON) - [BSON and JSON](https://www.mongodb.com/json-and-bson). BSON is an extended format of JSON data model
 
-- MongoDB is a distributed database at its core, so it has high availability, horizontal scaling, and geographic distribution built in and easy to use.
+- MongoDB is a distributed database at its core, so it has high availability, horizontal scaling, and geographic distribution built in and easy to use
 
-- MongoDB creates database for each application and each database contains multiple collections of documents.
+- MongoDB creates database for each application and each database contains multiple collections of documents
 
   ![MongoDB Database](./mongodb-database.jpg)
 
-- In MongoDB everything is stored in one place.
+- In MongoDB everything is stored in one place
 
-- Tables are optional.
+- Tables are optional
 
-- Great for applications with lot of read and writes.
+- Great for applications with lot of read and writes
 
-- It is very fast.
+- It is very fast
 
 MongoDB Flow:
 
-- WiredTiger Storage Engine is the default storage engine used by MongoDB, we can use any other engine also.
+- WiredTiger Storage Engine is the default storage engine used by MongoDB, we can use any other engine also
 
   ![MongoDB-Flow](./mongodb-flow.jpg)
 
@@ -59,42 +59,42 @@ MongoDB can be used by any user, but usually it is used by the Three A's of Mong
 
 MongoDB is recommended:
 
-- where _very minimal Total Cost of Owership (TCO)_ is required.
+- where _very minimal Total Cost of Ownership (TCO)_ is required
 
-- when a need for replication across multiple data centers globally.
+- when a need for replication across multiple data centers globally
 
-- where rapid deployment and faster scaling are required.
+- where rapid deployment and faster scaling are required
 
-- when a need for easy loading of data at the beginning and overtime is needed.
+- when a need for easy loading of data at the beginning and overtime is needed
 
-- when massive concurrency is demanded by a user.
+- when massive concurrency is demanded by a user
 
-- when no downtime can be tolerated.
+- when no downtime can be tolerated
 
-- when the database needs to grow rapidly as per user needs.
+- when the database needs to grow rapidly as per user needs
 
-- when high uncertainty in sizing exists.
+- when high uncertainty in sizing exists
 
-- where seamless and consistent experience is expected.
+- where seamless and consistent experience is expected
 
 ## NoSQL - Overview
 
-NoSQL provides a mechanism for retrieval and storage of data other than relational databases.
+NoSQL provides a mechanism for retrieval and storage of data other than relational databases
 
-- NoSQL does not use the relational model.
-- NoSQL runs on clusters.
-- NoSQL is mostly used in Big data and Real-time web applications.
-- Commonly used Data structures are Document, Graph, Key-Value, and Wide Column.
+- NoSQL does not use the relational model
+- NoSQL runs on clusters
+- NoSQL is mostly used in Big data and Real-time web applications
+- Commonly used Data structures are Document, Graph, Key-Value, and Wide Column
 
 ## Document Databases
 
-Document-Oriented databases are a special type of NoSQL database used for managing semi-structured data.
+Document-Oriented databases are a special type of NoSQL database used for managing semi-structured data
 
-- Document databases pair each key with a complex data structure commonly with a block of XML or JSON termed as a _document_.
+- Document databases pair each key with a complex data structure commonly with a block of XML or JSON termed as a _document_
 
-- The document is the most basic unit of data here, its similar to a row in SQL.
+- The document is the most basic unit of data here, its similar to a row in SQL
 
-- Document databases contain collections (kind of a table in SQL terms), each collection contains many documents.
+- Document databases contain collections (kind of a table in SQL terms), each collection contains many documents
 
   ```json
   {
@@ -106,18 +106,18 @@ Document-Oriented databases are a special type of NoSQL database used for managi
 
 ### Use Cases
 
-1. Event logging.
-2. Blogs and website content management.
-3. Web analytics or Real-Time analytics.
-4. E-Commerce.
+1. Event logging
+2. Blogs and website content management
+3. Web analytics or Real-Time analytics
+4. E-Commerce
 
 ### Features
 
-1. Flexible data modelling.
-2. Fast querying.
-3. Faster write performance.
+1. Flexible data modelling
+2. Fast querying
+3. Faster write performance
 
-Some of the commonly used Document databases are _MongoDB_, _Couchbase_, _OrientDB_, and _RavenDB_.
+Some of the commonly used Document databases are _MongoDB_, _Couchbase_, _OrientDB_, and _RavenDB_
 
 ## Features of MongoDB
 
@@ -125,9 +125,9 @@ Some of the commonly used Document databases are _MongoDB_, _Couchbase_, _Orient
 
 Following are the indexes supported in MongoDB:
 
-- **default_id**: Each collection contains an index named default_id.
+- **Default `_id`**: Each collection contains an index named default `_id`
 
-- **Single Field**: Used for Single field or sort. Indexes can be either in ascending order or descending order.
+- **Single Field**: Used for Single field or sort. Indexes can be either in ascending order or descending order
 
 - **Compound Index**: Used for multiple fields.
 
@@ -135,21 +135,27 @@ Following are the indexes supported in MongoDB:
 
 - **Geo-spacial Index**: Indexes used are two dimensional and 2D sphere (geolocation).
 
+- Text Search Indexes
+
+- Hashed Indexes
+
+- Clustered Indexes
+
 ### Load Balancing
 
-**Sharding** is a technique used for distribute data across multiple servers.
+**Sharding** is a technique used for distribute data across multiple servers
 
-- MongoDB supports Horizontal scaling by sharding.
+- MongoDB supports Horizontal scaling by sharding
 
-- Mongo leverages Sharding for splitting up of a large collection among multiple servers.
+- Mongo leverages Sharding for splitting up of a large collection among multiple servers
 
-- MongoDB supports deployments with very large data sets and high throughput operations through this.
+- MongoDB supports deployments with very large data sets and high throughput operations through this
 
 ### Capped Collections
 
-MongoDB supports _Capped collections_. It is a fixed type collection that maintains insertion order once the specified size has arrived.
+MongoDB supports _Capped collections_. It is a fixed type collection that maintains insertion order once the specified size has arrived
 
-It acts as a circular queue. In this collection, you can restrain the size of the collection, or you can put a limit on the size of a collection.
+It acts as a circular queue. In this collection, you can restrain the size of the collection, or you can put a limit on the size of a collection
 
 Syntax:
 
@@ -159,8 +165,8 @@ db.createCollection(<CollectionName>, {capped: <true/false>, size: Number, max:n
 
 Two types of capped collections used are:
 
-1. `fs.files` is used to store the meta-data.
-2. `fs.chunks` is used to store the file chunks.
+1. `fs.files` is used to store the meta-data
+2. `fs.chunks` is used to store the file chunks
 
 Example:
 
@@ -185,23 +191,23 @@ MongoDB supports:
 
 ### Replication
 
-MongoDB uses replica sets for high availability.
+MongoDB uses replica sets for high availability
 
-Replica sets contain two or more copies of the data. Each replica set may act as a primary or secondary replica set. By default, read and write operations are performed on the primary replica. The secondary replica will maintain a copy of primary data.
+Replica sets contain two or more copies of the data. Each replica set may act as a primary or secondary replica set. By default, read and write operations are performed on the primary replica. The secondary replica will maintain a copy of primary data
 
 ### Storage Mechanisms
 
 MongoDB supports different storage engines:
 
-1. **MMAPv1**: Default Storage engine till MongoDB version 3.2.
+1. **MMAPv1**: Default Storage engine till MongoDB version 3.2
 
-2. **WiredTiger**: Default storage engine starting from MongoDB 3.2.
+2. **WiredTiger**: Default storage engine starting from MongoDB 3.2
 
-3. **In-Memory Storage Engine**: This storage engine will be available in Enterprise version. It retains documents in-memory.
+3. **In-Memory Storage Engine**: This storage engine will be available in Enterprise version. It retains documents in-memory
 
-MongoDB uses _GridFS_ specification for storing and retrieving large collections.
+MongoDB uses _GridFS_ specification for storing and retrieving large collections
 
-_GridFS_ is a special type of file system in which data can be stored within MongoDB collections. GridFS splits a larger file into smaller chunks and stores each chunk of data in a separate document with a size of 255k.
+_GridFS_ is a special type of file system in which data can be stored within MongoDB collections. GridFS splits a larger file into smaller chunks and stores each chunk of data in a separate document with a size of 255k
 
 ### Aggregation
 
@@ -237,11 +243,11 @@ The architecture of MongoDB comprises:
 
 ### Application Drivers
 
-- Drivers are client libraries that provide interfaces and methods for applications to interact with MongoDB database.
+- Drivers are client libraries that provide interfaces and methods for applications to interact with MongoDB database
 
-- Drivers will handle the translation of documents between BSON objects and mapping structures.
+- Drivers will handle the translation of documents between BSON objects and mapping structures
 
-- C++, Java, .NET, Ruby, PHP, JavaScript, Node.js, Python, Perl, PHP, and Scala are some of the widely used drivers supported by MongoDB.
+- C++, Java, .NET, Ruby, PHP, JavaScript, Node.js, Python, Perl, PHP, and Scala are some of the widely used drivers supported by MongoDB
 
 ### Database
 
@@ -351,9 +357,9 @@ Relation is a way in which one document interacts with another document.
 
 ## Practices
 
-1. First create a schema for the collection.
+1. First create a schema for the collection
 
-   1. The schema is stored in a separate file for each collection. Use singular noun for file names.
+   1. The schema is stored in a separate file for each collection. Use singular noun for file names
 
    2. Import mongoose module: `const mongoose = require("mongoose");`
 
@@ -369,9 +375,9 @@ Relation is a way in which one document interacts with another document.
 
    5. Now give a name for this model: `const Student = mongoose.model("student", StudentSchema);`
 
-   6. Export this schema to use it other places to create **Student**.
+   6. Export this schema to use it other places to create **Student**
 
-2. Now lets make a connection to the MongoDB.
+2. Now lets make a connection to the MongoDB
 
    1. Import **mongoose**, then connect to the database: `mongoose.connect("mongodb://localhost/<databaseName>", {useNewUrlParser: true});`
 

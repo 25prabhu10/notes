@@ -17,10 +17,10 @@ C# (C Sharp) is a general-purpose, multi-paradigm programming language encompass
 - object-oriented
 - and component-oriented programming disciplines.
 
-C# is primarily a type-safe language, meaning that instances of types can interact only through protocols they define, thereby ensuring each type's internal consistency. For instance, C# prevents you from interacting with a string type as though it were an integer type.
+C# is primarily a type-safe language, meaning that instances of types can interact only through protocols they define, thereby ensuring each type's internal consistency. For instance, C# prevents you from interacting with a string type as though it were an integer type
 
 ::: tip NOTE
-C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-type) keyword. However, C# remains a predominantly statically typed language.
+C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-type) keyword. However, C# remains a predominantly statically typed language
 :::
 
 ## Compilation
@@ -60,11 +60,9 @@ namespace HelloCS
 }
 ```
 
-In C# 9 or later we can just write: Top level statements
+In C# 9 or later we can just write:
 
 ```csharp
-using System;
-
 Console.WriteLine("Hello World!");
 ```
 
@@ -80,7 +78,7 @@ Console.WriteLine("Hello World!");
 
 ### Versions
 
-1. C# 1.0: Statically typed object-oriented language.
+1. C# 1.0: Statically typed object-oriented language
 
    - Visual Studio .NET 2002 (.NET Framework 1.0/1.1)
    - Classes
@@ -178,12 +176,12 @@ Console.WriteLine("Hello World!");
    3. C# 7.3:
 
       - .NET Framework 4.8 / .NET Core 2.1/2.2
-      - Performance-oriented safe code that improves `ref` variables, pointers, and `stackalloc`.
+      - Performance-oriented safe code that improves `ref` variables, pointers, and `stackalloc`
 
 8. C# 8:
 
    - Visual Studio 2019 (.NET Core 3.0)
-   - Readonly members
+   - `Readonly` members
    - Default interface methods
    - Switch expressions
    - Nullable reference types
@@ -193,13 +191,14 @@ Console.WriteLine("Hello World!");
    - Visual Studio 2019 (.NET 5.0)
    - Records
    - Target-typed new
-   - Minimal-code console apps: Top-level statements
+   - Top-level statements (minimal-code console apps)
    - Enhanced pattern matching
 
 10. C# 10:
 
     - Visual Studio 2022 (.NET 6.0)
-    - Global namespace imports
+    - Global `namespace` imports (global `using` Directives)
+    - `using static` directive
     - Constant string literals: Formatting using interpolated strings
     - File-scoped namespaces
     - Required properties: Requiring properties to be set during instantiation
@@ -296,13 +295,57 @@ namespace HelloCS
 `System.Runtime` assembly contains 0 types as it is special because it only contains **type-forwarders** rather than actual types
 :::
 
+### Top-Level Statements
+
+Top-level statements enable you to avoid the extra ceremony required by placing your program's entry point in a static method in a class
+
+```csharp
+// Program.cs
+// C# 9.0
+using System;
+
+Console.WriteLine("Hello World!");
+```
+
+- Top-level statements are executed in the order they appear in the file
+- Top-level statements can **only be used in one source file** in your application
+- The compiler generates an error if you use them in more than one file
+
+### Implicit `using` Directives
+
+The .NET 6 SDK also adds a set of implicit `global using` directives:
+
+- A _global `using` directive_ imports a namespace for your whole application instead of a single file
+
+```csharp
+// C# 10.0
+Console.WriteLine("Hello World!");
+```
+
+- Add `<ImplicitUsings>disable</ImplicitUsings>` in the project file to **disable app implicit used** namespaces
+
+Remove an implicit imported namespace:
+
+- We can remove a specific implicit `using` directive
+- The following entry in the project file removes `System`
+
+```csharp
+<ImplicitUsings>enable</ImplicitUsings>
+
+<ItemGroup>
+  <Using Remove="System.Collections" />
+</ItemGroup>
+```
+
 ## Types
 
-A _type_ defines the structure and behaviour of any data. A _variable_ is a label that refers to an instance of a specific type. A _literal_ is a notation that represents a _fixed value_.
+- A _type_ defines the structure and behaviour of any data
+- A _variable_ is a label that refers to an instance of a specific type
+- A _literal_ is a notation that represents a _fixed value_
 
 There are 2 kinds of types in C#:
 
-1. Value Types: They store data directly.
+1. Value Types: They store data directly
 
    - Built-in Value types:
 
@@ -312,7 +355,7 @@ There are 2 kinds of types in C#:
      - `nullable` value type
      - `tuple` value type
 
-2. Reference Types: They store references to their data.
+2. Reference Types: They store references to their data
 
    - They are also known as _objects_
    - Built-in Reference Types:
@@ -324,9 +367,9 @@ There are 2 kinds of types in C#:
      - `delegate` type
      - `dynamic` type
 
-Unified Type System:
+_Unified Type System_:
 
-The fundamental building block in C# is an encapsulated unit of data and functions called a type. C# has a unified type system, where all types ultimately share a common base type and can be treated as an `object`. This means that all types, whether they represent business objects or are primitive types such as `numbers`, share the same basic functionality. For example, an instance of any type can be converted to a string by calling its `ToString` method.
+The fundamental building block in C# is an encapsulated unit of data and functions called a type. C# has a unified type system, where all types ultimately share a common base type and can be treated as an `object`. This means that all types, whether they represent business objects or are primitive types such as `numbers`, share the same basic functionality. For example, an instance of any type can be converted to a string by calling its `ToString` method
 
 Naming conventions:
 
@@ -686,7 +729,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
   }
   ```
 
-- `unchecked` can be used to ignore any statement in a `checked` block.
+- `unchecked` can be used to ignore any statement in a `checked` block
 
 - The compiler can put all the operations of that project under `checked` without explicitly using the keyword in the source code by adding through Visual Studio or to the below settings under `<PropertyGroup>` inside `.csproj` file:
 
@@ -697,7 +740,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 - All numbers are primitive data-types
 
 ::: danger NOTE
-**Do not use equality comparator with double variables** they will not be equal.
+**Do not use equality comparator with double variables** they will not be equal
 :::
 
 ### Booleans
@@ -712,7 +755,7 @@ bool sad = false;
 Console.WriteLine(default(bool));
 ```
 
-In C# numbers are not considered as Booleans, like 0 as false and reset as true.
+In C# numbers are not considered as Booleans, like `0` as `false` and reset as `true`
 
 So, the below code will not work:
 
@@ -1290,6 +1333,72 @@ int invocationCount = d1.GetInvocationList().GetLength(0);
 
 - If the delegate has a return type other than void and if the delegate is a multicast delegate, only the value of the last invoked method will be returned.
 
+### Records
+
+- Records (C# 9) as a reference type (instead of classes)
+- Record structs (C# 10) as value types
+
+- Records are distinct from classes in that record types **use value-based equality**
+- Create record types with **immutable properties** by using positional parameters or standard property syntax
+- Positional properties are **immutable** in a `record class` and a `readonly record struct`. They're _mutable_ in a `record struct`
+
+```csharp
+// reference type (`class` keyword is optional)
+public record Person(string FirstName, string LastName);
+
+// same as above
+public record Person
+{
+    public string FirstName { get; init; } = default!;
+    public string LastName { get; init; } = default!;
+};
+
+// add other properties
+public record DailyTemperature(double HighTemp, double LowTemp)
+{
+    public double Mean => (HighTemp + LowTemp) / 2.0;
+}
+
+
+// value type (record struct)
+public readonly record struct Point(double X, double Y, double Z);
+```
+
+_Example:_
+
+```csharp
+Person person = new("Nancy", "Davolio");
+
+Console.WriteLine(person);
+// output: Person { FirstName = Nancy, LastName = Davolio }
+
+Person newPerson = new("Nancy", "Davolio");
+
+Console.WriteLine(person == newPerson); // true
+Console.WriteLine(ReferenceEquals(person, newPerson)); // false
+```
+
+### `with` Expression
+
+A `with` expression (C# 9) produces a copy of its operand with the specified properties and fields modified:
+
+- A left-hand operand of a `with` expression (C# 9) must be of a [record type](#records)
+- From C# 10, it can also be of a [structure type](#structure) or an [anonymous type](#anonymous-types)
+
+```csharp
+public record Point(int X, int Y);
+public record NamedPoint(string Name, int X, int Y) : Point(X, Y);
+
+public static void Main()
+{
+    Point p1 = new NamedPoint("A", 0, 0);
+    Point p2 = p1 with { X = 5, Y = 3 };
+
+    Console.WriteLine(p2 is NamedPoint);  // output: True
+    Console.WriteLine(p2);  // output: NamedPoint { X = 5, Y = 3, Name = A }
+}
+```
+
 ## Conditional
 
 - Run a set of statements only if certain condition is met
@@ -1577,7 +1686,7 @@ Arguments can be passed by reference using parameter modifiers:
 
 - `out`: Keyword causes arguments to be passed by reference.
 
-  - Variables passed as `out` arguments don not have to be initialized before being passed in a method call.
+  - Variables passed as `out` arguments don't have to be initialized before being passed in a method call.
   - **Arguments must be modified**: Value must be assigned before the method returns
   - Enables a function to return multiple values (old way). [Tuples](#tuples) are recommended for this.
   - Cannot be used on the first argument of an extension method
@@ -1735,7 +1844,7 @@ public class Counter
 }
 ```
 
-The `new` operator is used to create new instances of a class.
+The `new` operator is used to create new instances of a class
 
 ```csharp
 static void Main()
@@ -1803,16 +1912,16 @@ Console.Write(c1.GetNextValue());
 // 1 2 3 4 5
 ```
 
-- Only one instance is created here and both `c1` and `c2` refer to this same instance.
+- Only one instance is created here and both `c1` and `c2` refer to this same instance
 
-- `object.ReferenceEquals(instance1, instance2)` or `==` operator: can be used to check if both objects refer the same instance.
+- `object.ReferenceEquals(instance1, instance2)` or `==` operator: can be used to check if both objects refer the same instance
 
-Reference types can contain `null`, makes it hard to know whether it's safe to attempt to perform an action with that variable.
+Reference types can contain `null`, makes it hard to know whether it's safe to attempt to perform an action with that variable
 
-- C# 8.0 added _nullable references_ to make a distinction between references that may be null, and ones that must not be.
+- C# 8.0 added _nullable references_ to make a distinction between references that may be null, and ones that must not be
 - This feature is disabled by default
 
-- `#nullable`: allows fine-grained control of the nullable annotation context.
+- `#nullable`: allows fine-grained control of the nullable annotation context
 
 ```csharp
 string? mayBeNull = null;
@@ -1832,7 +1941,7 @@ Console.WriteLine(mayBeNull.Length);
 
 ### Access Modifiers (Accessibility)
 
-Classes offer a mechanism for _encapsulation_ through access modifiers.
+Classes offer a mechanism for _encapsulation_ through access modifiers
 
 - The accessibility level controls whether they can be used from other code in your assembly or other assemblies.
 
@@ -2079,7 +2188,7 @@ Fields are a kind of variable, but unlike local variable, whose scope and lifeti
 | `readonly`                                                | `const`                                        |
 | --------------------------------------------------------- | ---------------------------------------------- |
 | Runtime constant                                          | Compile time constant                          |
-| Value of `readonly` field can be changed                  | Value of the const field can not be changed    |
+| Value of `readonly` field can be changed                  | Value of the `const` field can not be changed  |
 | Value can be assigned in declaration and constructor part | Value can be only assigned in declaration part |
 | Can be used with `static` modifiers                       | Cannot be used with `static` modifiers         |
 | Value can be different for different objects              | Value is same for all objects                  |
@@ -2255,7 +2364,7 @@ A constructor is a special method of the class or struct which gets automaticall
 
 #### Types of Constructors
 
-- Default Constructor: It is a parameterless constructor.
+- Default Constructor: It is a parameterless constructor
 
   - Unless the class is static, classes without constructors are given a public parameterless constructor by the C# compiler in order to enable class instantiation.
 
@@ -2326,7 +2435,7 @@ A constructor is a special method of the class or struct which gets automaticall
   }
   ```
 
-- Private Constructor: A constructor with private access modifier.
+- Private Constructor: A constructor with private access modifier
 
   - It is generally used in classes that contain static members only
   - If the class only contains private constructors, then instances of this class cannot be created
@@ -2343,13 +2452,13 @@ A constructor is a special method of the class or struct which gets automaticall
   }
   ```
 
-- Static Constructor: A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed only once.
+- Static Constructor: A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed only once
 
   - It is called automatically before the first instance is created or any static members are referenced.
 
-  - There can be only one static constructor
+  - There can be **only one static constructor**
 
-  - Cannot be a parameterized constructor
+  - **Cannot be a parameterized** constructor
 
   ```csharp
   class SimpleClass
@@ -2365,6 +2474,13 @@ A constructor is a special method of the class or struct which gets automaticall
       }
   }
   ```
+
+Constructor **Execution order for Parent-Child**:
+
+1. Child Initializers (includes Static Constructors, fields)
+2. Parent Initializers (includes Static Constructors, fields)
+3. Parent Constructors
+4. Child Constructors
 
 #### Destructor (Finalizers)
 
@@ -2397,7 +2513,7 @@ The four basic principles of object-oriented programming are:
 - [Inheritance](#inheritance)
 - [Polymorphism](#polymorphism)
 
-Checkout [Object Oriented Programming](../../Concepts/Object-Oriented_Programming.md)
+Checkout [Object Oriented Programming](../../Concepts/Programming_Paradigms/Object-Oriented_Programming.md)
 
 #### Inheritance
 
@@ -2523,15 +2639,17 @@ Overloading is known as compile-time (or static) polymorphism because each of th
 
 ### Abstract Class
 
-An abstract class is an incomplete class and hence cannot be instantiated
+An abstract class is an **incomplete class** and hence **cannot be instantiated**
 
 - The `abstract` keyword is used to create an abstract class
-- An abstract class can only be used as base class
-- An abstract class cannot be sealed
-- An abstract class may contain abstract members
-- A non-abstract class derived from an abstract class must provide implementations for all inherited abstract members
+- An abstract class can **only be used as base class**
+- An abstract class **cannot be sealed**
+- An abstract class _may contain abstract members_
+- A **non-abstract class** derived from an abstract class **must provide implementations for all inherited abstract members**
 
 Abstract class vs Interface:
+
+-
 
 ### Partial Classes
 
@@ -2682,7 +2800,7 @@ public readonly struct Point
 
 ## Interface
 
-An `interface` type defines a contract as a named set of public members.
+An `interface` type defines a contract as a named set of public members
 
 - Just like classes, interfaces also contain properties, methods, delegates, or events.
 
@@ -3114,7 +3232,7 @@ catch (NullReferenceException e)
 }
 ```
 
-## Pre-processing Directives
+## Pre-Processing Directives
 
 C# doesn't have a full pre-processing stage like C, it has limited pre-processor directives.
 
@@ -3179,7 +3297,7 @@ The compiler ignores these and throws error if a `#region` dose not have a corre
       int a;
   ```
 
-- `#nullable`: allows fine-grained control of the nullable annotation context.
+- `#nullable`: allows fine-grained control of the nullable annotation context
 
 ## Generics
 
@@ -3922,11 +4040,18 @@ Using `Task` present in `System.Threading`:
 
 What is a Process:
 
-- Process is what the operating system uses to facilitate the execution of a program by providing the resources required. Each process has a unique process Id associated with it.
+- Process is what the operating system uses to facilitate the execution of a program by providing the resources required. Each process has a unique process Id associated with it
+- Memory pages
+- Each memory has its own memory space, one process cannot corrupt the memory space of another process
 
 What is Thread:
 
-- Thread is a light weight process. A process has at least one thread which is commonly called as main thread which actually executes the application code. A single process can have multiple threads
+- Thread is a light weight process. A process has at least one thread which is commonly called as _main thread_ which actually executes the application code. A single process can have multiple threads
+- It is an unit of execution within a process
+- Processor registers, Program counters, Stack pointers
+- Threads within a process share memory address space, enables threads to communicate
+- CPU uses Scheduler and Context Switch, PCB (Process Control Block)
+- Context switching are costly, Fiber or Coroutines can be used to lower context switching costs but increase complexity
 
 Advantages:
 
@@ -4154,10 +4279,10 @@ Commonly used built-in classes
 - `Console.ReadLine()`: Takes a string or integer input and returns it as the output value
 - `Console.ReadKey()`: Takes a single input of type string and it returns the Key info
 
-- Change console color:
+- Change console colour:
 
 ```csharp
-// clear the console so that the colors are applied to the whole console
+// clear the console so that the colours are applied to the whole console
 Console.Clear()
 Console.ForegroundColor = ConsoleColor.Red;
 Console.BackgroundColor = ConsoleColor.DarkGreen;
@@ -4192,12 +4317,12 @@ Console.BackgroundColor = ConsoleColor.DarkGreen;
 
 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)
 
-- `Microsoft.CodeAnalysis.NetAnalyzers`: Analyzer for code quality and style issues (VS 2019, .NET 5+)
-- `Microsoft.CodeAnalysis.FxCopAnalyzers`: Old no longer maintained analyzer
+- `Microsoft.CodeAnalysis.NetAnalyzers`: Analyser for code quality and style issues (VS 2019, .NET 5+)
+- `Microsoft.CodeAnalysis.FxCopAnalyzers`: Old no longer maintained analyser
 
 Steps in .NET 5+:
 
-1. Enable analyzer:
+1. Enable analyser:
 
    ```xml
    <PropertyGroup>

@@ -25,7 +25,7 @@ Advantages:
 
 - Use Next-gen JavaScript features now and compile it to older versions
 
-- Meta-Programing features like [Decorators](#decorators)
+- Meta-Programming features like [Decorators](#decorators)
 
 - **TypeScript preserves the runtime behaviour of JavaScript**
 
@@ -115,6 +115,21 @@ Compiler Options:
 - `"sourceMap": true`: Create source map files for emitted JavaScript files, this will allow debugging typescript in the browser itself.
 
 - [For more Compiler Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html)
+
+_Example:_ Node.js Project
+
+```json
+{
+  "compilerOptions": {
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "target": "ES2020",
+    "sourceMap": true,
+    "outDir": "dist"
+  },
+  "include": ["src/**/*"]
+}
+```
 
 ### `tslint.json`
 
@@ -1148,10 +1163,11 @@ interface Car {
 - `type` vs `interface`
 - `abstract` vs `interface`
 
-| Interfaces                        | [Type Aliases](#type-aliases) |
-| --------------------------------- | ----------------------------- |
-| Preferred for objects and classes | For functions                 |
-| Open for extensions               | Fixed object structure        |
+| Interfaces                        | [Type Aliases](#type-aliases)                         |
+| --------------------------------- | ----------------------------------------------------- |
+| Preferred for objects and classes | Preferred for functions and everything else           |
+| Open for extensions               | Fixed object structure                                |
+| Supports Inheritance              | Can be done using [Intersection](#intersection-types) |
 
 ![TypeScript Interfaces](./TypeScript_Interfaces.png)
 
@@ -1361,6 +1377,25 @@ window.bar();
 
 - Opaque Type in Typed languages
 - Nullish Coalescing
+
+### `satisfies` Operator
+
+`satisfies` (_v4.9_): Enforce a constraint on a variable, without changing its type
+
+```typescript
+type RGB = [red: number, green: number, blue: number];
+type Color = RGB | string;
+
+const myColor: Color = "red";
+
+myColor.toUpperCase();
+//     ^^^^^^^^^^^^^^ invalid operation as myColor can be string or RGB
+
+const myColorNew = "red" satisfies Color; // works
+const myIncorrectColor = 100 satisfies Color; // throws error
+
+myColorNew.toUpperCase(); // valid operation as myColorNew is a string
+```
 
 ## Examples
 

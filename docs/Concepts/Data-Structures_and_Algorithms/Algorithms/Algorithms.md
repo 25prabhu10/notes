@@ -178,7 +178,7 @@ _Big-O Complexity:_
    arr[1]
    arr[2]
 
-   # HashMap / Set
+   # HashMap/Set
    hashMap = {}
    hashMap["key"] = 10     # insert
    print("key" in hashMap) # lookup
@@ -291,14 +291,14 @@ _Big-O Complexity:_
 7. `O(n log n)`:
 
    ```python
-   # HeapSort
+   # Heap Sort
    import heapq
    arr = [1, 2, 3, 4, 5]
    heapq.heapify(arr)     # O(n)
    while arr:
       heapq.heappop(arr) # O(log n)
 
-   # MergeSort (and most built-in sorting functions)
+   # Merge Sort (and most built-in sorting functions)
    ```
 
 8. `O(2^n)`:

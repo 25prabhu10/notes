@@ -5,13 +5,13 @@ description: A free and open-source, screen-based text editor program
 
 # Vim - Neovim
 
-- [dot-files configure - init.lua](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
+- [dot-files configure - `init.lua`](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
 
-[Vim](https://www.vim.org/) (a contraction of Vi IMproved) is a free and open-source, screen-based text editor program.
+[Vim](https://www.vim.org/) (a contraction of Vi IMproved) is a free and open-source, screen-based text editor program
 
 And [Neovim](https://github.com/neovim/neovim): A Vim-fork focused on extensibility and usability
 
-Once Vim is opened Ex commands are executed.
+Once Vim is opened Ex commands are executed
 
 ## Initialization
 
@@ -80,7 +80,7 @@ First, plugin scripts are loaded, which is equivalent to running:
 
 ### Runtimepath
 
-A List of directories which will be searched for runtime files. (see `:h rtp`)
+A List of directories which will be searched for runtime files (see `:h rtp`)
 
 To list current runtimepaths:
 
@@ -120,13 +120,13 @@ Sample list of files and directories searched during runtime:
 
 #### Syntax
 
-The runtime directory which is searched is called `syntax/`.
+The runtime directory which is searched is called `syntax/`
 
-It is the first directory to be loaded from the runtimepath.
+It is the first directory to be loaded from the runtimepath
 
-Enables customized syntax highlighting.
+Enables customized syntax highlighting
 
-- When invoking `:set sytax=xxx`, syntax file(s) named `xxx.vim` are sourced from the runtimepath, Usually, an autocommand does this if the filetype can be inferred.
+- When invoking `:set sytax=xxx`, syntax file(s) named `xxx.vim` are sourced from the runtimepath, Usually, an autocommand does this if the file type can be inferred
 - System defaults usually defined in `$VIMRUNTIME/syntax`
 
 There are two ways to enable syntax:
@@ -138,7 +138,7 @@ To create a custom syntax file:
 
 1. Create `syntax` folder inside `$HOME/.vim` or `$HOME/.config/nvim` (for Neovim)
 2. Create a file such as `syntax/sshknownhosts.vim`
-3. Now, create a syntax group which match the string (keyword) or patterns (using regex).
+3. Now, create a syntax group which match the string (keyword) or patterns (using regex)
 4. Link the above syntax group with the highlight group (to get the highlight groups run `:hi`)
 
    ```vim
@@ -170,29 +170,29 @@ Some considerations:
      setlocal iskeyword=@,48-57,_,192-255,-
      ```
 
-2. If you switch buffers the syntax highlighting will be gone. This is because, there is no automatic filetype tp syntax inference going on (see [File Type Detections](#file-type-detection)
+2. If you switch buffers the syntax highlighting will be gone. This is because, there is no automatic file type syntax inference going on (see [File Type Detections](#file-type-detection)
 
 #### File Type Detection
 
 There are many ways to detect file types:
 
-1. Override filetype **AFTER** default filetype detection. Add `:set filetype=<file>` autocommand to a file in `ftdetect/`
+1. Override file type **AFTER** default file type detection. Add `:set filetype=<file>` autocommand to a file in `ftdetect/`
 
-2. Only create a new filetype **AFTER** default filetype detection. Add `:setfiletype <file>` autocommand to a file in `ftdetect/`
+2. Only create a new file type **AFTER** default file type detection. Add `:setfiletype <file>` autocommand to a file in `ftdetect/`
 
-3. Define filetype **BEFORE** default filetype detection (detectable _by name_). Add `:setfiletype <file>` for all files you want to define in `filetype.vim` file
+3. Define file type **BEFORE** default file type detection (detectable _by name_). Add `:setfiletype <file>` for all files you want to define in `filetype.vim` file
 
-4. Define filetype **BEFORE** default filetype detection (detectable _by content_). Add `:setfiletype <file>` for all files you want to define in `scripts.vim` file
+4. Define file type **BEFORE** default file type detection (detectable _by content_). Add `:setfiletype <file>` for all files you want to define in `scripts.vim` file
 
-Runtime files and directories searched for filetype detection:
+Runtime files and directories searched for file type detection:
 
 - `ftdetect` +
 - `filetype.vim` +
 - `scripts.vim`
 
-You can define your own filetype using any one of the above mentioned ways (see `:h new-filetype`)
+You can define your own file type using any one of the above mentioned ways (see `:h new-filetype`)
 
-_Example_:
+_Example:_
 
 - Create `filetype.vim` file inside user vim runtime (using option 3)
 - Add an autocommand (commands that get executed when an event occurs)
@@ -208,7 +208,7 @@ The directory `autoload/` is searched during runtime (see `:h autoload`)
 - Scripts loaded only when required
 - When you issue a call `filename#funcname()`, Vim searches in the `autoload/` directory of runtimepath for a file called `filename.vim` and calls `funcname()`
 
-_Example_:
+_Example:_
 
 - Create `autoload` directory inside the user vim runtime (using option 3)
 - Create a script file which performs some task(s), like `gcp.vim`
@@ -243,7 +243,7 @@ The directory `compiler/` is used to place compiler specific options.
 
 - When invoking `:compiler xxx`, compiler specific options from `xxx.vim` are sourced to set a `makeprg` and `errorformat` for vim-native compilations
 
-_Example_:
+_Example:_
 
 - Create `compiler` directory inside the user vim runtime (using option 3)
 - Create a script file which contains the compiler instructions for a particular build, like `typescript.vim`
@@ -262,16 +262,16 @@ _Example_:
 - Now when we open a TypeScript project, just set the compiler, like `compiler typescript` (filename)
 - Then run make: It will build the project and add errors to the quick fix list (`:copen`)
 
-#### FileType Plugin
+#### File Type Plugin
 
 Defines Vim scripts loaded for particular files (applies to current buffer) (see `:h ftplugin`)
 
-The directory `ftplugin/` is used to place the file specific vim scripts.
+The directory `ftplugin/` is used to place the file specific vim scripts
 
-_Example_:
+_Example:_
 
 - Create `ftplugin/` directory inside the user vim runtime (using option 3)
-- Create a script file, (`typescript.vim`) which sets filetype specific options and keybindings
+- Create a script file, (`typescript.vim`) which sets file type specific options and keybindings
 - Now, just add the your options, keybindings, etc...
 
   ```vim
@@ -288,11 +288,11 @@ _Example_:
 
 Defines global plugins automatically loaded when vim starts (see `:h plugin`)
 
-The directory `plugin/` is used to place the file specific vim scripts.
+The directory `plugin/` is used to place the file specific vim scripts
 
-_Example_: Create plugin for OSC 52 yanks
+_Example:_ Create plugin for OSC 52 yanks
 
-- We want to create a plugin that allows us to directly yand all text to our local clipboard by utilizing an xterm-compatible terminal's OSC-52 escape sequence support
+- We want to create a plugin that allows us to directly yank all text to our local clipboard by utilizing an xterm-compatible terminal's OSC-52 escape sequence support
 
 ::: tip YANKING
 For future use, add `alias vi='vi -c "let g:tty='\''$(tty)'\''"'` to `~/.bashrc` or `~/.zshrc`

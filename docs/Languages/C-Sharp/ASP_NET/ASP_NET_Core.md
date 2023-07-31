@@ -33,7 +33,7 @@ Old ASP.NET Framework:
 
 Telemetry is on by default.
 
-- `$Env:DOTNET_CLI_TELEMETRY_OPTOUT = 1` to opt out
+- Set `$Env:DOTNET_CLI_TELEMETRY_OPTOUT = 1` to opt out
 
 ## ASP.NET Core Project Structure
 
@@ -43,7 +43,7 @@ Telemetry is on by default.
 
    - `TargetFramework`: Specifies the target framework for the application.
 
-     - To specify a target framework we use Target Framework Moniker (TFM).
+     - To specify a target framework we use _Target Framework Moniker_ (TFM).
      - E.g. `netcoreapp3.1`
 
    - `AspNetCoreHostingModel`: Specifies how the application should be hosted
@@ -74,6 +74,8 @@ Telemetry is on by default.
 
 5. `Startup.cs`: Configures services and application request pipelines (middlewares)
 
+   - **`Program.cs` and `Startup.cs` files are combined into `Program.cs` file from ASP.NET Core 6+**
+
    - `public IConfiguration Configuration { get; }`: Read configuration settings from multiple sources like `appsettings.json`, Environment variables, files...
 
 ### HTTP Request Flow
@@ -90,16 +92,76 @@ Telemetry is on by default.
 
 ### `Program.cs` File
 
-The application always starts execution from the `Main` function present in `Program.cs` file.
+The application always starts execution from the `static Main` function present in `Program.cs` file
 
-- `Host.CreateDefaultBuilder()` performs various tasks:
+Program is concerned with infrastructure configuration that will typically remain stable throughout the lifetime of the project, such as:
 
-  - Setting up the web server
-  - Loading the host and application configuration from various configuration sources
-  - Configuring logging
+- Application Settings: Loads configuration settings (such as `appsettings.json`) at runtime such as connection strings, usernames and passwords
 
-- This method returns `IHostBuilder`.
-- Web builder configurations are done in `Startup.cs` file.
+- Logging
+- HTTP Server (Kestrel)
+- Content Root
+- IIS Integration
+
+The `WebHost.CreateDefaultBuilder()` (Core 2.x), `Host.CreateDefaultBuilder()` (Core 3.x - 5.x), and `WebApplication.CreateBuilder()` (Core 6+) method performs various tasks:
+
+- Setting up the web server
+- Loading the host and application configuration from various configuration sources
+- Configuring logging
+- Web builder configurations are done in `Startup.cs` file (before ASP.NET Core 6+)
+
+_Example:_
+
+```csharp
+// ASP.NET Core 2.x
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        BuildWebHost(args).Run();
+    }
+
+    public static IWebHost BuildWebHost(string[] args) =>
+        WebHost.CreateDefaultBuilder(args)
+            .UseStartup<Startup>()
+            .Build();
+}
+
+// ASP.NET Core 3.x - 5.x
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
+}
+
+// ASP.NET Core 6+
+// Single file, no need of `Startup.cs` file
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddRazorPages();
+
+var app = builder.Build();
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseDeveloperExceptionPage();
+}
+
+app.UseStaticFiles();
+
+app.MapGet("/", () => "Hello World!");
+app.MapRazorPages();
+
+app.Run();
+```
 
 An ASP.NET Core application can be hosted:
 
@@ -118,6 +180,14 @@ An ASP.NET Core application can be hosted:
   - `OutOfProcess` hosting model forward we requests to a backend ASP.NET Core app running the Kestrel Server
 
 ### `Startup.cs` File
+
+Startup file (**not needed from ASP.NET Core 6+**) is used to configure the majority of your application's custom behaviour, such as:
+
+- Dependency Injection: To correctly create classes at runtime, dependencies are registered with a container
+- Middleware Pipeline
+- Endpoint Configuration
+
+Methods present in the file:
 
 - `ConfigureServices`: Add and configure services, like entity framework, etc..
 - `Configure`: Add and configure middle-ware to the pipe line.
@@ -179,7 +249,7 @@ Configuration management:
 
 ## Dependency Injection
 
-ASP.NET Core supports the dependency injection (DI) software design pattern, which is a technique for achieving Inversion of Control (IoC) between classes and their dependencies.
+ASP.NET Core supports the [Dependency Injection](../../../Concepts/Design_Patterns/Design_Patterns.md) (DI) software design pattern, which is a technique for achieving _Inversion of Control_ (IoC) between classes and their dependencies.
 
 - Dependency injection, a development pattern which encourages loose coupling between components.
 
@@ -408,7 +478,7 @@ Types of Routing:
      - `Index` is default action
      - `?` defines `id` as optional
 
-2. Attribute routing: **preferred with REST APIs.**
+2. Attribute routing: **preferred with REST APIs**
 
    - Placing a route on the controller or action makes it attribute-routed.
 
@@ -556,7 +626,7 @@ Route name: can be used to generate a URL based on a specific route. Route names
 ```csharp
 [HttpGet("/products2/{id}", Name = "Products_List")]
 
-// OR using nameof()
+// or using `nameof()`
 
 [HttpGet("/products2/{id}", Name = nameof(GetProduct))]
 public IActionResult GetProduct(int id)
@@ -704,27 +774,41 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Authorization
 
-Authorization is identifying what the user can and cannot do.
+Authorization is identifying what the user can and cannot do
 
-Role management
+Role management:
 
-- `RoleManager<IdentityRole>`: Provides the APIs for managing roles in a persistence store.
+- `RoleManager<IdentityRole>`: Provides the APIs for managing roles in a persistence store
 
 | Role | Claims |
 | ---- | ------ |
-
-|
 
 In ASP.NET Core, a Role is a Claim with Type Role
 
 ### Role Based Authorization
 
+Roles
+
+- Boolean
+- Encapsulating:
+
+  - Users
+  - Functions
+
 ### Claims Based Authorization
 
-Claims: A claim is a name value pair that represents what the subject is, not what the subject can do.
+Claims: A claim is a name-value pair that represents what the subject is, not what the subject can do
 
-- ClaimType comparison is case in-sensitive
-- ClaimValue comparison is case sensitive
+- Key-Value pair
+- User property
+- Describes the user
+
+- `ClaimType` comparison is case in-sensitive
+- `ClaimValue` comparison is case sensitive
+
+### Policy
+
+- Authorization Function
 
 ### External Identity Providers
 
@@ -737,13 +821,13 @@ Trusted External Identity Providers such as:
 
 Steps for the integration: In all cases, we must complete an application registration procedure that is vendor dependent and that usually involves:
 
-1. Getting a Client Application ID.
+1. Getting a Client Application ID
 
-2. Getting a Client Application Secret.
+2. Getting a Client Application Secret
 
 3. Configuring a redirection URL, that's handled by the authorization middleware and the registered provider
 
-4. Optionally, configuring a sign-out URL to properly handle sign out in a Single Sign On (SSO) scenario.
+4. Optionally, configuring a sign-out URL to properly handle sign out in a Single Sign On (SSO) scenario
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)
@@ -1000,6 +1084,7 @@ Dependency injection is completely built in:
     - Azure Key Vault configuration provider
 
   - Changed in 2.0
+
     - Configuration is loaded using `CreateDefaultBuilder`
 
 #### Web host configuration & SSL
@@ -1225,7 +1310,7 @@ Non-Form Tag Helpers:
 
   - Provides a way to mark content as cached using the `[cache]` tag
 
-  - Supports absolute, timespan, or sliding expiration
+  - Supports absolute, time-span, or sliding expiration
 
   - Supports additional cache options
 
@@ -1773,3 +1858,5 @@ EU General Data Protection Regulation (GDPR):
 - `NSwag`: Generates HTTPClient from the `swagger.json` output
 
 ### ASP.NET Core 6.0
+
+- Implicit `using` directive

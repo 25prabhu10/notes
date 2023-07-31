@@ -73,6 +73,7 @@ There are 3-phases of a LINQ query:
 
    - Initialize the source
    - Use the appropriate LINQ provider
+
      - The default provider is LINQ to Objects
 
 2. Define the Query:
@@ -96,8 +97,9 @@ There are 3-phases of a LINQ query:
 What sources are queryable?
 
 - We need a pool of data to query
-- Pool of data in functional programming is called a sequence
+- Pool of data in functional programming is called a _sequence_
 - In C# class represent data and for them to be queryable, they have to implement either of these interfaces:
+
   - `IEnumerable`
   - `IQueryable`: Is an interface designed Queryable providers i.e. remote data sources, like database. It allows for more sophisticated query expressions and disparate data sources
 
@@ -212,10 +214,10 @@ var q = from n in numbers
         select n;
 
 // Running the query
-var numsAsArray = q.ToArray();
+var numAsArray = q.ToArray();
 
 // Running again
-var numsAsList = q.ToList();
+var numAsList = q.ToList();
 
 foreach (var item in q)
 {
@@ -271,7 +273,7 @@ var count = (from color in colors
 
 The Enumerable class contains methods to generate `IEnumerable` sources
 
-1. `Empty`: Returns a 0 length `Array<T>`
+1. `Empty`: Returns a `0` length `Array<T>`
 
    - Low memory usage
    - Useful for a starting value, or as a empty parameter for method
@@ -327,16 +329,16 @@ The Enumerable class contains methods to generate `IEnumerable` sources
 
 ## Query Expressions
 
-The Query expression syntax is a substitute for calling the query operator extension method.
+The Query expression syntax is a substitute for calling the query operator extension method
 
 LINQ query expressions can be categorized into 3 areas:
 
-1. Takes a sequence, returns a new sequence containing the same element type.
+1. Takes a sequence, returns a new sequence containing the same element type
 
    - Doubles to Doubles, Strings to Strings, Products to Products, etc.
    - Elements are the same, but may be sorted, grouped, filtered
 
-2. Takes a sequence, returns a new sequence containing a different type of element.
+2. Takes a sequence, returns a new sequence containing a different type of element
 
    - Transforms the object into another type
    - Integers to Decimals, Products to Strings
@@ -396,7 +398,7 @@ void Main()
   var q = from calendar in calendars
           select calendar;
 
-  var q2 = calendars.SelectMany(m =>m.Years );
+  var q2 = calendars.SelectMany(m => m.Years);
 }
 
 // Define other methods and classes here
@@ -713,7 +715,10 @@ var q2 = numbersB.Except(numbersA);
 
   numbers.Skip(46);
   numbers.Skip(numbers.Count() - 12);
-  numbers.Skip(11).Take(3);
+
+  numbers.Skip(2).Take(3);
+  // new in .NET 6 same as above
+  numbers.Take(2..5);
 
   numbers.Skip(2).Take(10);
   ```
@@ -733,6 +738,36 @@ var q2 = numbersB.Except(numbersA);
 
   numbers.SkipWhile(x => x <100 ).Dump();
   ```
+
+Chunk a collection with LINQ:
+
+```csharp
+// .NET 5 <
+public IEnumerable<IEnumerable<T>> ChunkBy<T>(IEnumerable<T> source, int chunkSize)
+{
+    return source
+        .Select((x, i) => new { Index = 1, Value = x })
+        .GroupBy(x => x.Index / chunkSize)
+        .Select(x => x.Select(v => v.Value));
+}
+
+public IEnumerable<Task[]> Chunk<T>(IEnumerable<T> enumerable, int size)
+{
+    while (enumerable.Any())
+    {
+        yield return enumerable.Take(size).ToArray();
+
+        enumerable = enumerable.Skip(size);
+    }
+}
+
+// .NET 6 +
+public IEnumerable<Task[]> Chunk<T>(IEnumerable<T> enumerable, int size)
+{
+    return enumerable.Chunk(size);
+}
+
+```
 
 ### 3rd Party Extensions
 

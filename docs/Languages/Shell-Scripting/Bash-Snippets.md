@@ -75,6 +75,19 @@ description: Collection of CLI applications and commands.
   7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on archive.7z dir1
   ```
 
+## PDF
+
+- PDF to image:
+
+  ```bash
+  # pdftoppm <image_format> <input_pdf> <image_output>
+
+  pdftoppm -png resume.pdf resume.png
+
+  # by default it will output 100 DPI, which can be increased
+  pdftoppm -png -rx 300 -ry 300 resume.pdf resume.png
+  ```
+
 ## ffmpeg
 
 - Simple conversion of videos:
@@ -166,6 +179,65 @@ In some cases this can lead to drastic improvements in quality and performance (
   ```
 
 > Refer: [Recommended ways to clean cache](https://ostechnix.com/recommended-way-clean-package-cache-arch-linux/)
+
+## Starship Prompt
+
+[Starship](https://starship.rs/) is a minimal, blazing-fast, and infinitely customizable cross-shell prompt for any shell
+
+### Installation Linux
+
+1. Install/Update the latest version:
+
+   ```bash
+   curl -sS https://starship.rs/install.sh | sh
+   ```
+
+2. Add the following to the end of `~/.bashrc` or `~/.zshrc`:
+
+   ```bash
+   eval "$(starship init bash)"
+   # -- or --
+   eval "$(starship init zsh)"
+   ```
+
+## OpenSSH
+
+Known Hosts
+
+- Remove Entry from the Known-Hosts File:
+
+```bash
+ssh-keygen -R hostname
+```
+
+Using the SSH Config File
+
+If you are regularly connecting to multiple remote systems over SSH, you can configure your remote servers with the `.ssh/config` file
+
+_Example:_
+
+```ini
+Host dev
+    HostName dev.your-domain
+    User xcad
+  Port 7654
+    IdentityFile ~/.ssh/targaryen.key
+Host *
+    User root
+    Compression yes
+```
+
+Connect to a host (like `dev` , eg.) with `ssh dev`
+
+## OpenSSL
+
+- Generate a DKIM private and public keypair:
+
+```bash
+openssl genrsa -out dkim_private.pem 2048
+
+openssl rsa -in dkim_private.pem -pubout -outform der 2>/dev/null | openssl base64 -A
+```
 
 ## KDE
 

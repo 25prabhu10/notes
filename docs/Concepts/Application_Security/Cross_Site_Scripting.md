@@ -1,3 +1,8 @@
+---
+title: Cross-site scripting (XSS)
+description: Attacks are a type of injection
+---
+
 # Cross-site scripting (XSS)
 
 Cross-Site Scripting (XSS) attacks are a type of injection, in which malicious scripts are injected into otherwise benign and trusted websites

@@ -5,11 +5,18 @@ description: MySQL is an open-source RDBMS
 
 # MySQL
 
-MySQL is an open-source [RDBMS](./README.md#relational-database-management-system-rdbms)
+MySQL is an open-source [RDBMS](./README.md#relational-database-management-system-rdbms) created in 1995
 
 - MySQL InnoDB Storage Engine
 
 Setup: Install the MySQL Community Server from this [link](https://dev.mysql.com/downloads/)
+
+Features:
+
+- Web App
+- Ease of use
+- Speed
+- Scalability
 
 ## Data Types
 

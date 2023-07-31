@@ -359,7 +359,7 @@ Use SVGs for icons
 
 - They can be made accessible, and they don't interfere with assistive technologies the way icon fonts do (screen readers might read them out)
 
-_Examples:_
+_Example:_
 
 ```html
 <a href="https://www.linkedin.com/" aria-label="Go to LinkedIn">

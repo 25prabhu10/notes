@@ -13,7 +13,7 @@ A Predictable State Container for JavaScript Apps
 
 A complex state management tool, with a single store as CDS (Central Data Store)
 
-- To change state of the app, we call an --> Action Creator --which produces an--> Action --which is fed to--> Dispatch --which forwards the action to--> Reducers --which creates new--> State --emit a change event to all the--> Subscribers --> then, wait until we need to update the state again
+- To change state of the app, we call an --> **Action Creator** --which produces an--> **Action** --which is fed to--> **Dispatch** --which forwards the action to--> **Reducers** --which creates new--> **State** --emit a change event to all the--> **Subscribers** --> then, wait until we need to update the state again
 
 Core Concepts and Principles:
 
@@ -43,9 +43,13 @@ Build to overcome constraints of MVC
 
 Single direction data flow:
 
-- **Action** --> **Dispatcher** --> **Store** --> **View**
-
-- **View** --> **Action** --> the above cycle
+```text
+Action --> Dispatcher --> Store --> View
+  ^                                  |
+  |                                  |
+  |                                  v
+   <---------------------------------
+```
 
 ## Store
 
@@ -113,7 +117,7 @@ const createAdd = (num) => {
 };
 ```
 
-- To use `async` calls use a middleware such as [`redux-thunk`](#redux-thunk) or `redux-saga`
+- To use `async` calls use a middleware such as [`redux-thunk`](#redux-thunk) or [`redux-saga`](#redux-saga)
 
 ## Reducers
 
@@ -387,6 +391,10 @@ Middleware to help us write async actions
   ```
 
 - Rest of the Redux config will be same
+
+### `redux-saga`
+
+Watcher Saga --> Actions --> Worker Saga
 
 ## References
 

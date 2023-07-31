@@ -115,6 +115,18 @@ ffmpeg -f x11grab -r 20 -s 1920x1080 -i :0.0 -vcodec libx265 -preset fast -b:v 5
 ffmpeg -f pulse -ac 2 -i default -f x11grab -r 20 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx264 -preset ultrafast -b:v 900k -threads 0 -y output.mkv
 ```
 
+## Something
+
+I have png images from `0000.png` through `0120.png`. I want to use ffmpeg to convert them into an `mp4` video. The images have an alpha channel, I would like the alpha channel to be composited to the right side of the rgb channels, so that the video has double the width of the input images, with the rgb on the left half and the alpha on the right half. The alpha should be represented as black for 100% transparent and white for 0% transparent
+
+Here is an ffmpeg command that you can use to convert a sequence of png images with an alpha channel into an mp4 video:
+
+```bash
+ffmpeg -framerate 24 -i %04d.png -vf "split[rgb][a]:[rgb]setpts=PTS-STARTPTS[rgb]:[a]alphaextract.format=gray[alpha]:[rgb][alpha]hstack" -c:v 1ibx264 -crf 23 -preset veryfast output.mp4
+```
+
+This command will convert the png images `0000. png` through `0120.png` at a frame rate of 24 frames per second. The `-vf` option specifies the video filterchain that is used to process the images. In this case, the filterchain uses the `split` filter to split the input images into their red, green, blue (RGB) and alpha channels. The `setpts` filter is then used to adjust the timing of the RGB channels so that they match the alpha channels. The `alphaextract` filter is used to extract the alpha channel and convert it to grayscale. The `format` filter is then used to convert the alpha channel to the desired format (in this case, grayscale). Finally, the `hstack` filter is used to stack the RGB and alpha channels horizontally, with the RGB channels on the left and the alpha channel on the right. The `-c:v` option specifies the codec that should be used for the video, and the `-crf` and `-preset` options control the quality and encoding speed of the output video
+
 ## Tools
 
-[Build FFmpeg filters](https://ffmpeg.guide/): A simple GUI tool to create complex FFmpeg filtergraphs quickly and correctly
+[Build FFmpeg filters](https://ffmpeg.guide/): A simple GUI tool to create complex FFmpeg filter-graphs quickly and correctly

@@ -121,7 +121,7 @@ Note: This is an introduction to CloudFormation
 - We'll look at the structure of the files later on EC2 Instance
 - We'll see how in no-time, we are able to get started with CloudFormation!
 
-_Example_:
+_Example:_
 
 ```yaml
 ---
@@ -143,7 +143,7 @@ Resources:
 - There are over 224 types of resources (!)
 - Resource types identifiers are of the form: `AWS::aws-product-name::data-type-name`
 
-_Example_:
+_Example:_
 
 ```yaml
 ---
@@ -262,7 +262,7 @@ Parameters can be controlled by all these settings:
 - The shorthand for this in YAML is `!Ref`
 - The function can also reference other elements within the template
 
-_Example_:
+_Example:_
 
 ```yaml
 DbSubnet1:
@@ -291,7 +291,7 @@ DbSubnet1:
 - They're very handy to differentiate between different environments (dev vs prod), regions (AWS regions), AMI types, etc
 - All the values are hardcoded within the template
 
-_Example_:
+_Example:_
 
 ```yaml
 Mappings:
@@ -325,7 +325,7 @@ Using `Fn::FindInMap`
 - We use `Fn::FindInMap` to return a named value from a specific key
 - `!FindInMap [ MapName, TopLevelKey, SecondLevelKey ]`
 
-_Example_:
+_Example:_
 
 ```yaml
 Mappings:

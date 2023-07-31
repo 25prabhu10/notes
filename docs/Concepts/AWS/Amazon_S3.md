@@ -424,7 +424,7 @@ Steps:
 
 S3 Storage Classes - Price Comparison
 
-_Example_: us-east-2
+_Example:_ us-east-2
 
 |                                    |  S3 Standard  | S3 Intelligent-Tiering | S3 Standard-IA | S3 One Zone-IA |                                  S3 Glacier                                   |             S3 Glacier Deep Archive              |
 | ---------------------------------- | :-----------: | :--------------------: | :------------: | :------------: | :---------------------------------------------------------------------------: | :----------------------------------------------: |

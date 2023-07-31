@@ -110,7 +110,7 @@ Steps:
    - Data warehousing applications
    - Distributed file systems
 
-_Example_: (EC2 instance types)
+_Example:_ (EC2 instance types)
 
 | Instance    | vCPU | Mem (GiB) | Storage        | Network Performance | EBS Bandwidth (Mbps) |
 | ----------- | ---- | --------- | -------------- | ------------------- | -------------------- |

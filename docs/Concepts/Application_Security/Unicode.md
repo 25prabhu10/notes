@@ -1,3 +1,8 @@
+---
+title: Unicode
+description: Unicode Normalisation Vulnerability
+---
+
 # Unicode Normalisation Vulnerability
 
 **Normalization ensures two strings that may use a different binary representation for their characters have the same binary value after normalization.**

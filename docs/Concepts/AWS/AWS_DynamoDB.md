@@ -55,13 +55,13 @@ NoSQL Serverless Database
 - Option 1: **Partition key only (HASH)**
 - Partition key must be unique for each item
 - Partition key must be "diverse" so that the data is distributed
-- _Example_: `user_id` for a users table
+- _Example:_ `user_id` for a users table
 
 - Option 2: **Partition key + Sort Key**
 - The **combination must be unique**
 - Data is grouped by partition key
 - Sort key == range key
-- _Example_: **users-games** table
+- _Example:_ **users-games** table
   - **user_id** for the partition key
   - **game_id** for the sort key
 
@@ -239,7 +239,7 @@ NoSQL Serverless Database
 - DynamoDB has a feature called **Conditional Update / Delete**
 - That means that you can ensure an item hasn't changed before altering it
 - That makes DynamoDB an **optimistic locking / concurrency database**
-- _Example_:
+- _Example:_
   - There is an item with an attribute Version = 1
   - Client 1 and Client 2 try to update item Name only if item version = 1
   - Suppose, request of Client 1 is executed first then the Name and Version is updated according to Client 1
@@ -338,7 +338,7 @@ NoSQL Serverless Database
 ### Transactional Capacity Computations
 
 - **5 KB item size**
-- _Example_: Transactional Item Writes per second: 3
+- _Example:_ Transactional Item Writes per second: 3
   - = `[5 KB / 1 KB per WCU] * 2 (cost of transactional) * 3 (# writes per sec)`
   - = `30 WCU`
 - Transactional Item Reads per second: 5

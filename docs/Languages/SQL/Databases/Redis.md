@@ -415,3 +415,7 @@ app.get("photos/:id", async (req, res) => {
 
 app.listen(3000);
 ```
+
+## Certification
+
+- RU102JS (Redis University): Redis for .NET Developers

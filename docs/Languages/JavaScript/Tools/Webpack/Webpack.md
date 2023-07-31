@@ -82,19 +82,21 @@ module.exports = {};
 
 3. `mode`: Mode in which webpack needs to operate in `development`, `production` or `none`. Default: `production`
 
-4. `devtool`: To create source-maps or remove `eval` from output file.
+4. `devtool`: To create source-maps or remove `eval` from output file
 
-5. `loaders`: Webpack only understands JavaScript and JSON files by default. [Loaders](#loaders) allow webpack to process other types of files.
+5. `loaders`: Webpack only understands JavaScript and JSON files by default. [Loaders](#loaders) allow webpack to process other types of files
 
-6. `plugins`: Plugins can perform wider range of tasks like bundle optimization, asset management and injection of environment variables.
+6. `plugins`: [Plugins](#plugins) can perform wider range of tasks like bundle optimization, asset management and injection of environment variables
 
 ## Loaders
 
-Loaders help webpack to pre-process files. This allows you to bundle any static resource way beyond JavaScript.
+Loaders help webpack to pre-process files. This allows you to bundle any static resource way beyond JavaScript
+
+Loaders work at the individual file level _during or before_ the **bundle** is generated
 
 ### Transpiling
 
-- `babel-loader`: This package allows transpiling JavaScript files using **[Babel](https://github.com/babel/babel)**. Use `babel.config.js` for babel configurations.
+- `babel-loader`: This package allows transpiling JavaScript files using **[Babel](https://github.com/babel/babel)**. Use `babel.config.js` for babel configurations
 
   Installation:
 
@@ -130,14 +132,14 @@ Loaders help webpack to pre-process files. This allows you to bundle any static 
   ```
 
   ::: tip NOTE
-  Babel uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers.
+  Babel uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers
   :::
 
-- `ts-loader`: Loads [TypeScript](https://www.typescriptlang.org/).
+- `ts-loader`: Loads [TypeScript](https://www.typescriptlang.org/)
 
 ### Templating
 
-- `html-loader`: Exports HTML as string. HTML is minimized when the compiler demands.
+- `html-loader`: Exports HTML as string. HTML is minimized when the compiler demands
 
   Installation:
 
@@ -220,3 +222,26 @@ module: {
   ],
 }
 ```
+
+## Plugins
+
+Plugins work at **bundle** or **chunk** level and usually work at the end of the bundle generation process
+
+Plugins can also modify how the bundles themselves are created. Plugins have more powerful control than loaders
+
+Bhumika Bharti
+Abhishek Ramaswamy (Data Science Team Lead)
+Aparna Padmakshi (Engineering Manager)
+Sarathprasanna K B (UI/UX Designer)
+
+Purdue University Global, PG & Certification
+Training Reembersment
+Udemy Courses Vouchers
+
+Content Team
+
+K & N analytics
+
+Associate --> DS --> Sen DS --> Pricpal
+Data Engineering --> ... --> Architic
+SVP --> VP

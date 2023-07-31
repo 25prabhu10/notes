@@ -56,7 +56,7 @@ AWS Lambda is a Serverless service.
 - Java (Java 8 compatible)
 - C# (.NET Core)
 - Golang
-- C# / Powershell
+- C#/PowerShell
 - Ruby
 - Custom Runtime API (community supported, example Rust)
 - Lambda Container Image
@@ -76,17 +76,17 @@ AWS Lambda is a Serverless service.
 - SQS
 - Congnito
 
-_Example_: Serverless Thumbnail creation
+_Example:_ Serverless Thumbnail creation
 
 - New image in S3 (uploaded) --> AWS Lambda Function Creates a Thumbnail --> New thumbnail in S3 --> Metadata in DynamoDB
 
-_Example_: Serverless CRON Job
+_Example:_ Serverless CRON Job
 
 - CloudWatch Events EventBridge --Trigger Every 1 hour--> AWS Lambda Perform a task
 
 ## AWS Lambda Pricing
 
-_Example_:
+_Example:_
 
 - You can find overall pricing information here: [AWS Lambda pricing](https://aws.amazon.com/lambda/pricing/)
 - **Pay per calls**:
@@ -583,7 +583,7 @@ Resources:
 - Test the containers locally using the Lambda Runtime Interface Emulator
 - Unified workflow to build apps
 
-_Example_: build from the base images provided by AWS
+_Example:_ build from the base images provided by AWS
 
 ```text
 # Use an image that implements the Lambda Runtime API

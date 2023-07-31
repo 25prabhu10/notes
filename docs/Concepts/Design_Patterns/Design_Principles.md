@@ -164,7 +164,7 @@ _"Software entities should be open for extension, but closed for modification"_ 
 
 _"Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program"_ - Introduced by Barbara Liskov
 
-- Object of some Base class S can be replaced with objects of any Derived class of S
+- Object of some _Base class_ `S` can be replaced with objects of any _Derived class_ of `S`
 
 - If a program module is using a Base class, then the reference to the Base class can be replaced with a Derived class without affecting the functionality of the program module
 

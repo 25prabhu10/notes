@@ -5,23 +5,81 @@ description: It is a general-purpose, procedural computer programming language.
 
 # C
 
-C is a general-purpose, procedural computer programming language.
+C is a general-purpose, procedural computer programming language
 
-C is a strongly-typed, weakly checked language.
+C is a strongly-typed, weakly checked language
+
+`www.cc4e.com` refers to `cc` command which stands for C Compiler
+
+Code styles:
+
+```c
+// Allman
+while (x == y)
+{
+  func1();
+  func2();
+}
+
+// Kernighan & Ritchie
+while (x == y) {
+  func1();
+  func2();
+}
+
+// GNU
+while (x == y) 
+  {
+    func1 ();
+    func2 ();
+  }
+
+// Whitesmiths
+while (x == y) 
+    {
+    func1();
+    func2();
+    }
+
+// Horstmann
+while (x == y) 
+{
+  func1();
+  func2();
+}
+
+// Haskell style
+while (x == y) 
+  { func1()
+  ; func2()
+  ;
+  }
+
+// Ratliff style
+while (x == y) {
+    func1();
+    func2();
+    }
+
+// Lisp style
+while (x == y)
+  { func1();
+    func2(); }
+```
 
 ## Data Types
 
 ### Arrays
 
-_Definition:_ Contiguous area of memory consisting of equal-size elements.
+_Definition:_ Contiguous area of memory consisting of equal-size elements
 
-- Declared with size inside square brackets `[]`.
+- Declared with size inside square brackets `[]`
 
-- It can be declared without size, but in this case it must be initialized with items. The size of the array will be equal to the number of items.
+- It can be declared without size, but in this case it must be initialized with items. The size of the array will be equal to the number of items
 
-- If number of items are less than the declared size of an array, the rest of the places will be filled with `0`.
+- If number of items are less than the declared size of an array, the rest of the places will be filled with `0`
 
-- If an array is declared and never initialized then it will contain garbage values.
+- If an array is declared and never initialized then it will contain garbage values
 
 _Example:_
 

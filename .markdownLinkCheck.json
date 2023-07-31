@@ -8,6 +8,15 @@
     },
     {
       "pattern": "^https://www.omg.org"
+    },
+    {
+      "pattern": "^https://angel.co"
+    },
+    {
+      "pattern": "^https://in.indeed.com"
+    },
+    {
+      "pattern": "^https://google-webfonts-helper.herokuapp.com"
     }
   ]
 }

@@ -85,15 +85,15 @@ How website works:
 
   3. `AddControllers()`: Everything that `AddMvcCore()` does and (Better suited for API apps):
 
-     - authorization services - needed for authorization policies, filters and other authorization components to work
-     - API explorer - required if you want to build dynamic API documentation, generate Swagger/OpenAPI files
-     - data annotations - needed for model validation with attributes and IValidateableObject to work
-     - formatter mappings - needed for content negotiation to work
+     - authorization services: needed for authorization policies, filters and other authorization components to work
+     - API explorer: required if you want to build dynamic API documentation, generate Swagger/OpenAPI files
+     - data annotations: needed for model validation with attributes and IValidateableObject to work
+     - formatter mappings: needed for content negotiation to work
      - CORS
 
   4. `AddControllersWithViews()`: Everything that `AddControllers()` does and (building a "classic" MVC site):
 
-     - views functionality - explicitly registers the Razor view engine
+     - views functionality: explicitly registers the Razor view engine
      - cache tag helper
 
   5. `AddRazorPages()`: Everything that `AddMvcCore()` does and:

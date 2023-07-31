@@ -5,7 +5,20 @@ description: Creating RESTful APIs using ASP.NET Core
 
 # ASP.NET Core API
 
-Create Web APIs using ASP.NET Core.
+Create Web APIs using ASP.NET Core
+
+## Minimal API
+
+ASP.NET Core Minimal API is a low footprint and super mini sized project type helps to develop an API with less code
+
+```csharp
+var builder = WebApplication.CreateBuilder(args);
+var app = builder.Build();
+
+app.MapGet("/", () => "Hello World!");
+
+app.Run();
+```
 
 ## Project
 

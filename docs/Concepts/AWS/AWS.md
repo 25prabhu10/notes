@@ -5,8 +5,9 @@ description: Amazon Web Services is a Cloud Provider
 
 # AWS
 
-- AWS (**Amazon Web Services**) is a _Cloud Provider_.
-- They provide many servers and services that can be used **on demand** and **scaled easily**.
+AWS (**Amazon Web Services**) is a _Cloud Provider_
+
+They provide many servers and services that can be used **on demand** and **scaled easily**
 
 ## Amazon Web Services
 
@@ -32,11 +33,65 @@ description: Amazon Web Services is a Cloud Provider
 20. [AWS Cloud Development Kit](./AWS_Cloud_Development_Kit.md)
 21. [AWS Cognito](./AWS_Cognito.md)
 
+## What is Cloud-Computing?
+
+- A model that enables businesses to acquire resources for their IT infrastructure needs on demand
+
+- Cloud resources: Servers, storage, databases, networks, software applications, and so on
+
+- Ensures the instantaneous availability of resources with lower cost and operational overhead
+
+Benefits:
+
+- Cost savings
+- Data Loss Prevention
+- Scalability
+- Flexibility
+- Security
+- Data Analytics
+- Mobile Access
+
+Cloud Economics: Cloud computing reduces Capital Expenditures (CapEx) by eliminating the need to run and maintain your own infrastructure Your costs shift to Operating Expenses (OpEx), which are generally lower as you only pay for the resources you consume
+
+## Types of Cloud
+
+### Public Clouds
+
+- Public Clouds are environments where network infra and resources are made accessible to the public
+- Resources are partitioned and distributed amongst multiple customers or tenants
+
+### Private Clouds
+
+- Private Clouds environments are privately owned and hosted by an enterprise.
+- Resources are generally made accessible to a private organization and their customers and partners
+
+  - Managed private clouds are deployed and fully managed by a third-party, reducing the IT staffing needs for the enterprise
+  - Dedicated private clouds are hosted on a public or private cloud to server a particular department within an enterprise
+
+### Hybrid Clouds
+
+- Hybrid Clouds are cloud environments that appear as a single cloud although they are built from multiple clouds ( connected through LANs, WANs, VPNs and/or APIs )
+- Offer flexibility in deployment options by enabling workloads to move between private and public clouds based on computing needs
+
+### Multi Clouds
+
+- Multi-clouds are cloud environments that offer more than one cloud service from more than one public cloud service provider
+- Resources are deployed across different cloud availability zones and regions
+- All Hybrid Clouds are Multi Clouds
+
+### Top Public Cloud Providers
+
+- Amazon Web Services
+- Microsoft Azure
+- Google Cloud
+- Others Public Cloud Providers
+- Cloud Connectors
+
 ## Queries
 
 1. IaaS vs PaaS vs SaaS
 
-### Lift And Shift Cloud Migration
+### Lift and Shift Cloud Migration
 
 Lift and shift (or **rehosting**) is one way you might consider moving to the cloud. Simply put, lift and shift means moving a copy of an existing application and data to cloud infrastructure with minimal or no redesigning or modification.
 
@@ -67,7 +122,7 @@ Lift and shift (or **rehosting**) is one way you might consider moving to the cl
 
 - Each region has many Availability Zones (usually 3, min is 2, max is 6).
 
-_Example_:
+_Example:_
 
 | AWS Region                 | Availability Zones |
 | -------------------------- | ------------------ |
@@ -111,7 +166,7 @@ We can interact with AWS using AWS Console (Web Based App), AWS CLI, and AWS SDK
   - EC2 exposes a standard Linux machine we can use any way we want
   - RDS exposes a standard database we can connect to using a URL
   - ElastiCache exposes a cache URL we can connect to using a URL
-  - ASG / ELB are automated and we don't have to program against them
+  - ASG/ELB are automated and we don't have to program against them
   - Route53 was setup manual
 
 - Developing against AWS has two components:
@@ -249,88 +304,98 @@ You can add multiple profiles:
 
 ## AWS SDK
 
-- What if you want to perform actions on AWS directly from your applications code ? (without using the CLI).
-- You can use an SDK (software development kit) !
-- Official SDKs are...
+What if you want to perform actions on AWS directly from your applications code ? (without using the CLI)
+
+- You can use an SDK (software development kit)!
+
+- Official SDKs are:
 
   - Java
   - .NET
   - Node.js
   - PHP
-  - Python (named boto3 / botocore)
+  - Python (named `boto3`/`botocore`)
   - Go
   - Ruby
   - C++
 
 - We have to use the AWS SDK when coding against AWS Services such as DynamoDB
-- Fun fact... The AWS CLI uses the Python SDK (boto3)
+
+- The AWS CLI uses the Python SDK (`boto3`)
 
 ::: tip NOTE
-If you don't specify or configure a default region, then us-east-1 will be chosen by default
+If you don't specify or configure a default region, then `us-east-1` will be chosen by default
 :::
 
 ### AWS Limits (Quotas)
 
 - API Rate Limits
+
   - Describe Instances API for EC2 has a limit of 100 calls per seconds
   - `GetObject` on S3 has a limit of 5500 GET per second per prefix
-  - For Intermittent Errors: implement [Exponential Backoff](#exponential-backoff)
+  - For Intermittent Errors: implement [Exponential Back-off](#exponential-back-off)
   - For Consistent Errors: request an API throttling limit increase
+
 - Service Quotas (Service Limits)
+
   - Running On-Demand Standard Instances: 1152 vCPU
   - You can request a service limit increase by opening a ticket
   - You can request a service quota increase by using the Service Quotas API
 
-#### Exponential Backoff
+#### Exponential Back-off
 
-Exponential Backoff for any AWS service.
+Exponential Back-off for any AWS service
 
-- If you get _ThrottlingException_ intermittently, use exponential backoff
+- If you get _ThrottlingException_ intermittently, use exponential back-off
 - Retry mechanism already included in AWS SDK API calls
 - Must implement yourself if using the AWS API as-is or in specific cases
-  - Must only implement the retries on 5xx server errors and throttling
-  - Do not implement on the 4xx client errors
+
+  - Must only implement the retries on `5xx` server errors and throttling
+  - Do not implement on the `4xx` client errors
 
 ### AWS CLI Credentials Provider Chain
 
-- The CLI will look for credentials in this order
+The CLI will look for credentials in this order:
 
 1. Command line options: `--region`, `--output`, and `--profile`
 2. Environment variables: `AWS_ACCESS_KEY_ID`, `AWS_SECRET_ACCESS_KEY`, and `AWS_SESSION_TOKEN`
 3. CLI credentials file: `aws configure` and `~/.aws/credentials` on Linux/Mac & `C:\Users\user\.aws\credentials` on Windows
-4. CLI configuration file: `aws configure` and `~/.aws/config` on Linux / macOS & `C:\Users\USERNAME\.aws\config` on Windows
+4. CLI configuration file: `aws configure` and `~/.aws/config` on Linux/macOS & `C:\Users\USERNAME\.aws\config` on Windows
 5. Container credentials: for ECS tasks
 6. Instance profile credentials: for EC2 Instance Profiles
 
 #### AWS SDK Default Credentials Provider Chain
 
-- The Java SDK (example) will look for credentials in this order
+The Java SDK (example) will look for credentials in this order:
 
 1. Java system properties: `aws.accessKeyId` and `aws.secretKey`
-2. Environment variables - `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
+2. Environment variables: `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`
 3. The default credential profiles file: ex at: `~/.aws/credentials`, shared by many SDK
 4. Amazon ECS container credentials: for ECS containers
 5. Instance profile credentials: used on EC2 instances
 
 #### AWS Credentials Scenario
 
-- An application deployed on an EC2 instance is using environment variables with credentials from an IAM user to call the Amazon S3 API.
-- The IAM user has S3FullAccess permissions.
+- An application deployed on an EC2 instance is using environment variables with credentials from an IAM user to call the Amazon S3 API
+- The IAM user has S3FullAccess permissions
 - The application only uses one S3 bucket, so according to best practices:
-- An IAM Role & EC2 Instance Profile was created for the EC2 instance
-- The Role was assigned the minimum permissions to access that one S3 bucket
-- The IAM Instance Profile was assigned to the EC2 instance, but it still had access to all S3 buckets. Why?
+
+  - An IAM Role & EC2 Instance Profile was created for the EC2 instance
+  - The Role was assigned the minimum permissions to access that one S3 bucket
+  - The IAM Instance Profile was assigned to the EC2 instance, but it still had access to all S3 buckets. Why?
   - The credentials chain is still giving priorities to the environment variables
 
 #### AWS Credentials Best Practices
 
-- Overall, NEVER EVER STORE AWS CREDENTIALS IN YOUR CODE
+- Overall, **NEVER EVER STORE AWS CREDENTIALS IN YOUR CODE**
 - Best practice is for credentials to be inherited from the credentials chain
 - If using working within AWS, use IAM Roles
-  - => EC2 Instances Roles for EC2 Instances
-  - => ECS Roles for ECS tasks
-  - => Lambda Roles for Lambda functions
-- If working outside of AWS, use environment variables / named profiles
+
+  - For EC2 Instances Roles for EC2 Instances
+  - For ECS Roles for ECS tasks
+  - For Lambda Roles for Lambda functions
+
+- If working outside of AWS, use environment variables/named profiles
 
 #### Signing AWS API requests
 
@@ -343,7 +408,7 @@ Exponential Backoff for any AWS service.
 
 - HTTP Header option:
 
-  ```text
+  ```http
   GET https://iam.amazonaws.com/?Action=ListUsers&Version=2010-05-08 HTTP/1.1
   Authorization: AWS4-HMAC-SHA256 Credential=AKIDEXAMPLE/20150830/us-east-1/iam/aws4_request,
   SignedHeaders=content-type;host;x-amz-date,
@@ -353,7 +418,7 @@ Exponential Backoff for any AWS service.
 
 - Query String option (ex: S3 pre-signed URLs)
 
-  ```text
+  ```http
   GET https://iam.amazonaws.com/?Action=ListUsers&Version=2010-05-08&
   X-Amz-Algorith=AWS4-HMAC-SHA256&
   X-Amz-Credential=AKIDEXAMPLE%2F20150830%2Fus-east-1%2Fiam%2Faws4_request&
@@ -364,43 +429,69 @@ Exponential Backoff for any AWS service.
 
 ## Scalability & High Availability
 
-- Scalability means that an application / system can handle greater loads by adapting.
+Scalability means that an application/system can handle greater loads by adapting
+
 - There are two kinds of scalability:
+
   - Vertical Scalability
-  - Horizontal Scalability (= elasticity)
+  - Horizontal Scalability (elasticity)
+
 - Scalability is linked but different to High Availability
 
 ### Vertical Scalability
 
-- Vertically scalability means **increasing the size of the instance**
-- For example, your application runs on a `t2.micro`
+Vertically scalability means **increasing the size of the instance**
+
+- Example, your application runs on a `t2.micro`
 - Scaling that application vertically means running it on a `t2.large`
-- Vertical scalability is **very common for non-distributed systems, such as a database.**
-- RDS, ElastiCache are services that can scale vertically.
+- Vertical scalability is **very common for non-distributed systems, such as a database**
+- RDS, ElastiCache are services that can scale vertically
 - There's **usually a limit to how much you can vertically scale (hardware limit)**
 
 ### Horizontal Scalability
 
-- Horizontal scalability means **increasing the number of instances/systems for your application**
+Horizontal scalability means **increasing the number of instances/systems for your application**
+
 - Horizontal scaling **implies distributed systems**. This is very common for web applications/modern applications
 - It's **easy to horizontally scale** thanks the cloud offerings such as Amazon EC2
 
 ### High Availability
 
 - High Availability usually goes hand in hand with horizontal scaling
-- High availability means running your application/system in at least 2 data centers (== Availability Zones)
-- The goal of high availability is to survive a data center loss
-- The high availability can be passive (for RDS Multi AZ for example)
-- The high availability can be active (for horizontal scaling)
+- High availability means **running your application/system in at least 2 data centers** (Availability Zones)
+- The goal of high availability is to **survive a data center loss**
+- The high availability can be passive (RDS Multi AZ)
+- The high availability can be active (horizontal scaling)
 
-### High Availability & Scalability For EC2
+### High Availability and Scalability for EC2
 
-- Vertical Scaling: Increase instance size (= scale up / down)
-  - From: t2.nano - 0.5G of RAM, 1 vCPU
-  - To: u-12tb1.metal - 12.3 TB of RAM, 448 vCPUs
-- Horizontal Scaling: Increase number of instances (= scale out / in)
+- Vertical Scaling: Increase instance size (scale up/down)
+
+  - From: `t2.nano` - 0.5G of RAM, 1 vCPU
+  - To: `u-12tb1.metal` - 12.3TB of RAM, 448 vCPUs
+
+- Horizontal Scaling: Increase number of instances (scale out/in)
+
   - Auto Scaling Group
   - Load Balancer
+
 - High Availability: Run instances for the same application across multi AZ
+
   - Auto Scaling Group multi AZ
   - Load Balancer multi AZ
+
+## What is a Distributed System?
+
+A distributed computing system consists of multiple independent software components. These independent software components are located on different systems that communicate in such a way that they appear as a single system to the end user
+
+- Cloud computing is based on the distributed systems model
+
+Types of Distributed Systems:
+
+1. Peer-to-Peer: in the peer-to-peer architectural model, responsibilities are uniformly distributed among machines in the system
+
+2. Client-Server: In the client-server model, data on the server is accessed by clients
+
+3. Three-tier: The three-tier architectural model enables information about the client to be stored in the middle tier
+
+4. N-tier: The n-tier architecture allows an application or server to forward requests to additional enterprise services on the network

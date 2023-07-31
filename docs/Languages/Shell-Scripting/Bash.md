@@ -7,7 +7,10 @@ description: Working with Unix Shells like GNU Bash.
 
 Scripts contain a series of commands. An interpreter executes these commands.
 
-Great for automating repetitive tasks.
+Great for automating repetitive tasks
+
+- [Explain Shell Commands](https://explainshell.com/)
+- [ShellCheck: Finds bugs in your shell scripts](https://www.shellcheck.net/)
 
 ::: tip Note
 Anything you can type at the command line, you can put in a script.
@@ -41,20 +44,28 @@ Let's create a simple script, that prints `Hello World` to the terminal.
 
 ## Use of Shebang
 
-It is used to specify the shell program that needs to be used to execute the script file.
+It is used to specify the shell program that needs to be used to execute the script file
 
 When the interpreter executes the script. The first line, i.e. shebang is used as an argument for the path of the shell program. This can be observed below:
 
 ```bash
-# Run the script in background
+# run the script in background
 ./script.sh &
 
-# Check the process
+# check the process
 ps -ef process_id
 
 # check commands executed by script.sh
 pstree -p process_id
 ```
+
+Different Bash shebang:
+
+- `#!/usr/bin/env bash`: Flexibility on different systems (protability)
+
+  - Different `*nixes` put `bash` in different places
+
+- `#!/usr/bin/bash`: Explicit control on a given system of what executable is called
 
 ::: warning Why Shebang is needed?
 

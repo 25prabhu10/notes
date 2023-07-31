@@ -33,3 +33,7 @@ sidebar: false
 13. [Shell Scripting](./Shell-Scripting/): Shell Programming
 
 14. [SQL](./SQL/SQL.md): A domain-specific language used in programming
+
+15. [Nginx](./Nginx.md)
+
+[Same problem solved in different languages](https://rosettacode.org/wiki/Rosetta_Code)

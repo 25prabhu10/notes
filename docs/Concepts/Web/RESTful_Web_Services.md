@@ -85,6 +85,13 @@ Disadvantages:
 
 REST APIs are best for APIs that expose CRUD like operations
 
+| SOAP                       | Rest                        |
+| -------------------------- | --------------------------- |
+| A fixed process            | Few requirements            |
+| Lots of documents up front | Docs discovered as you go   |
+| Detailed scenarios         | Flexible, based on needs    |
+| Complex error handling     | Flexible, based on patterns |
+
 ### Resource
 
 RESTful APIs are designed around _resources_
@@ -214,10 +221,12 @@ Disadvantages:
 
 - "Loose" and no enforced schema
 
-Use a standardized schema for REST and JSON. Popular REST and JSON approaches:
+Use a standardized schema for REST and JSON
 
-- [JSON API](https://jsonapi.org/)
+Popular REST and JSON approaches:
+
 - [HAL](https://stateless.group/hal_specification.html): Designed specifically HATEOAS
+- [JSON API](https://jsonapi.org/)
 - [ION](https://ionspec.org/): Designed specifically HATEOAS
 - [JSON Schema](https://json-schema.org/)
 - [Collection+JSON](http://amundsen.com/media-types/collection/)
@@ -228,19 +237,21 @@ Use a standardized schema for REST and JSON. Popular REST and JSON approaches:
 
 API defines a contract on how to interact with the application.
 
-For an API to be RESTful it should comply with the following constraints:
+For an **API to be RESTful** it should comply with the following constraints:
 
-- **Uniform Design (interface)**: Once a developer becomes familiar with one of your APIs, he should be able to follow a similar approach for other APIs.
+1. **Uniform Design (interface)**: Once a developer becomes familiar with one of your APIs, he should be able to follow a similar approach for other APIs
 
-- **Client-Server Architecture**: Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered.
+2. **Client-Server Architecture**: Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered
 
-- **Stateless**: No client context shall be stored on the server between requests. The client is responsible for managing the state of the application.
+3. **Stateless**: No client context shall be stored on the server between requests. The client is responsible for managing the state of the application
 
-- **Cacheable** (last modified header): Well-managed caching partially or completely eliminates some client-server interactions, further improving scalability and performance.
+4. **Cacheable** (last modified header): Well-managed caching partially or completely eliminates some client-server interactions, further improving scalability and performance
 
-- **Layered System**: Layered system architecture where client dose know how many systems are involved in fulfilling the request.
+5. **Layered System**: Layered system architecture where client dose know how many systems are involved in fulfilling the request
 
-- **Code on Demand** (optional): All the above constraints help you build a truly RESTful API, and you should follow them. Still, at times, you may find yourself violating one or two constraints. Do not worry; you are still making a RESTful API – but not "truly RESTful"
+6. **Code on Demand** (optional)
+
+All the above constraints help you build a truly RESTful API, and you should follow them. Still, at times, you may find yourself violating one or two constraints. Do not worry; you are still making a RESTful API - but not "truly RESTful"
 
 ## API Design
 
@@ -275,20 +286,22 @@ HTTP protocol has several method defined for different use cases.
 
 Checkout notes about HTTP here: [HTTP Notes Link](./HTTP.md)
 
-| Verb | Action | Idempotent? | Safe? | Response body? | Response cachable?|
-| GET | Retrieve a resource | Yes | Yes | Yes |Yes |
-| HEAD | Retrieve header | Yes | Yes | Yes |Yes |
-| POST | Create or partial update | No | No | Yes?? |Maybe\* |
-| PUT | Create or full update (upsert) | Yes | No | No |No |
-| PATCH | Partial update | No | No | No |No |
-| DELETE | Delete a resource | Yes | No | No |No |
+| Verb     | Action                         | Idempotent? | Safe? | Response body? | Response cacheable? |
+| -------- | ------------------------------ | ----------- | ----- | -------------- | ------------------- |
+| `GET`    | Retrieve a resource            | Yes         | Yes   | Yes            | Yes                 |
+| `HEAD`   | Retrieve header                | Yes         | Yes   | Yes            | Yes                 |
+| `POST`   | Create or partial update       | No          | No    | Yes??          | Maybe?              |
+| `PUT`    | Create or full update (upsert) | Yes         | No    | No             | No                  |
+| `PATCH`  | Partial update                 | No          | No    | No             | No                  |
+| `DELETE` | Delete a resource              | Yes         | No    | No             | No                  |
 
 - Post can only be cached if it contains what's called freshness information or headers that describe its cache ability.
 
-| Verb | Full update? | Partial update? | Idempotent> | Response body?|
-| POST | Yes | Yes | No | Yes?? |
-| PUT | Yes | No | Yes | No |
-| PATCH| No | Yes | No | No |
+| Verb    | Full update? | Partial update? | Idempotent> | Response body? |
+| ------- | ------------ | --------------- | ----------- | -------------- |
+| `POST`  | Yes          | Yes             | No          | Yes??          |
+| `PUT`   | Yes          | No              | Yes         | No             |
+| `PATCH` | No           | Yes             | No          | No             |
 
 Common Update Semantics:
 
@@ -308,13 +321,15 @@ Common Update Semantics:
 
 - `GET`: Retrieve information. Read-only (safe)
 - Successful: **returns HTTP status code 200** (OK)
-- If the **resource cannot be found**, the method should **return 404** (Not Found).
+- If the **resource cannot be found**, the method should **return 404** (Not Found)
 
 #### POST
 
 - `POST` and `PUT` can both be used for create and update
 
-- `POST` for create: on a parent resource. `POST` is not Idempotent.
+- `POST` is **not Idempotent**
+
+- `POST` for create: on a parent resource:
 
   ```http
   POST /applications
@@ -345,11 +360,11 @@ Common Update Semantics:
   200 OK
   ```
 
-- Creates a new resource: **returns HTTP status code 201** (Created). The URI of the new resource is included in the `Location` header of the response. The **response body** contains a representation of the resource.
+- Creates a new resource: **returns HTTP status code 201** (Created). The URI of the new resource is included in the `Location` header of the response. The **response body** may contain a representation of the resource
 
-- Some processing is done but does not create a new resource, the method can **return HTTP status code 200** and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return **HTTP status code 204** (No Content) with no response body.
+- Some processing is done but does not create a new resource, the method can **return HTTP status code 200** and include the result of the operation in the response body. Alternatively, if there is no result to return, the method can return **HTTP status code 204** (No Content) with no response body
 
-- If the client puts invalid data into the request, the server should **return HTTP status code 400** (Bad Request). The response body can contain additional information about the error or a link to a URI that provides more details.
+- If the client puts invalid data into the request, the server should **return HTTP status code 400** (Bad Request). The response body can contain additional information about the error or a link to a URI that provides more details
 
 #### PUT
 
@@ -563,16 +578,56 @@ Give all optional parameters in query strings meaningful defaults. For example, 
 
 - Twilio:
 
-  ```json
+  ```json5
   // HTTP Status Code: 401
 
   {
-    "status": 401,
-    "message": "Authenticate",
-    "code": 2003,
-    "more_info": "https://www.twilio.com/docs/errors/20003"
+    status: 401,
+    message: "Authenticate",
+    code: 2003,
+    more_info: "https://www.twilio.com/docs/errors/20003",
   }
   ```
+
+## API Versioning
+
+APIs need to be versioned if breaking changes need to be implemented
+
+- Create directories/namespaces like `v1`, `v2` and add the controllers inside them
+
+Approaches to Restful Versioning:
+
+1. Don't version if possible (clients should be dynamic)
+
+2. Content/Media type (header) versioning (ideal): Content negotiation process that already exists in HTTP. When clients request a media type using the Accept header they can explicitly include a version number or string in the media type itself
+
+   ```http
+   GET api/test HTTP/1.1
+   host: localhost
+
+   Accept: application/ion+json;v=2.0
+   content-type: text/plain;v=1.0
+   ```
+
+3. URL prefix (path) versioning:
+
+   - `/api/v1/test`, `/api/v2/test`
+   - Least restful
+   - But more explicit to the clients
+
+4. Query String:
+
+   - `/api/test?api-version=1.0`, `/api/test?api-version=2.0`
+   - Set default version
+
+5. HTTP Header:
+
+   ```http
+   GET api/test HTTP/1.1
+   host: localhost
+
+   custom-version-header: 1.0
+   ```
 
 ## HATEOAS
 
@@ -612,7 +667,7 @@ Ion objects contain:
 
 - Resources in ION: Include a self-referential link
 
-  ```json
+  ```json5
   {
     "self": {
       "href": "https://example.io/people/123"
@@ -632,7 +687,7 @@ Ion objects contain:
 
 - `value` object: property. Models a collection of resources
 
-  ```json
+  ```json5
   // no context of the language
   {
       "greeting": "Hola"
@@ -662,7 +717,7 @@ Ion objects contain:
 
 - Collection: Meta-data can contain info relevant to each element of the collection (no need to repeat this info in each element) or the property of the collection (length, max-size...)
 
-  ```json
+  ```json5
   // no info about the collection
   "value": []
 
@@ -675,7 +730,7 @@ Ion objects contain:
 
 - Linking:
 
-  ```json
+  ```json5
   // links
   {
       "href": "https://example.io/users/a1b2c3c"
@@ -727,15 +782,15 @@ While Posting data, how do clients know which fields and types of data to submit
 
 - As ION collection:
 
-  ```json
+  ```json5
   {
-    "href": "https://example.io/register",
-    "rel": ["form"], // (or edit-form, create-form, query-form)
-    "method": "POST",
-    "value": [
-      { "name": "firstName", "type": "string" },
-      { "name": "lastName", "type": "string", "required": true }
-    ]
+    href: "https://example.io/register",
+    rel: ["form"], // (or edit-form, create-form, query-form)
+    method: "POST",
+    value: [
+      { name: "firstName", type: "string" },
+      { name: "lastName", type: "string", required: true },
+    ],
   }
   ```
 
@@ -779,6 +834,27 @@ Employee resource API:
 
    - Responses:
      - 200
+
+## Adding an API
+
+1. Bolt-On Strategy: for existing systems
+
+   - Brute-force approach
+   - The fastest way to build something useful
+   - Benefit: takes advantages of existing code and systems
+   - Drawback: problems in the application or architecture leak through into the API
+
+2. Greenfield Strategy: for new systems
+
+   - API or mobile-first mindset
+   - Benefits: takes advantage of new technologies and architectures and may reinvigorate the team
+   - Drawback: often requires massive uppfront investment before any Benefits appear
+
+3. Facade Strategy: replacing piece by piece
+
+   - Benefit: ideal for legacy systems as the application is always functional
+   - Drawback: multiple mindsts in the system
+   - Drawback: hard to replicate behaviour for a full one-on-one conversion
 
 ## OpenAPI
 

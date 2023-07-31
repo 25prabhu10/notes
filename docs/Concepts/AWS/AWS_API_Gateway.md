@@ -6,7 +6,7 @@ prev: ./AWS
 
 # API Gateway
 
-_Example_: Building a Serverless API
+_Example:_ Building a Serverless API
 
 - Client --REST API--> API Gateway --PROXY REQUESTS--> Lambda --CRUD--> DynamoDB
 
@@ -28,11 +28,11 @@ _Example_: Building a Serverless API
   - Easy way to expose REST API backed by AWS Lambda
 - **HTTP**
   - Expose HTTP endpoints in the backend
-  - _Example_: internal HTTP API on premise, Application Load Balancer...
+  - _Example:_ internal HTTP API on premise, Application Load Balancer...
   - Why? Add rate limiting, caching, user authentications, API keys, etc...
 - **AWS Service**
   - Expose any AWS API through the API Gateway?
-  - _Example_: start an AWS Step Function workflow, post a message to SQS
+  - _Example:_ start an AWS Step Function workflow, post a message to SQS
   - Why? Add authentication, deploy publicly, rate control...
 
 ## Endpoint Types
@@ -221,7 +221,7 @@ Mapping Example: **Query String parameters**
   - configure throttling limits and quota limits that are enforced on individual client
 - API Keys:
   - alphanumeric string values to distribute to your customers
-  - _Example_: _WBjHxNtoAb4WPKBC7cGm64CBibIb24b4jt8jJHo9_
+  - _Example:_ _WBjHxNtoAb4WPKBC7cGm64CBibIb24b4jt8jJHo9_
   - Can use with usage plans to control access
   - Throttling limits are applied to the API keys
 - Quotas limits is the overall number of maximum requests
@@ -315,7 +315,7 @@ To configure a usage plan:
 
 ### Lambda Authorizer (formerly Custom Authorizers)
 
-- **Token-based authorizer** (bearer token) - ex JWT (JSON Web Token) or Oauth
+- **Token-based authorizer** (bearer token): e.g. JWT (JSON Web Token) or Oauth
 - A request parameter-based Lambda authorizer (headers, query string, stage var)
 - Lambda must return an IAM policy for the user, result policy is cached
 - **Authentication = External | Authorization = Lambda function**

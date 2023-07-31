@@ -5,7 +5,9 @@ description: A lightweight but powerful source code editor.
 
 # Visual Studio Code (VSCode)
 
-Visual Studio Code is a free source-code editor.
+Visual Studio Code is a free source-code editor
+
+[Snippet Generator](https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode)
 
 ## Short Cut Keys
 

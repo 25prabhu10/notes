@@ -33,7 +33,7 @@ Declarative programming is a style of programming where applications are structu
 
 In a functional program, data is immutable
 
-- An **immutable object** is an object that **can't be modified** after it’s created
+- An **immutable object** is an object that **can't be modified** after it's created
 
 In JavaScript, function **arguments are references** to the actual data. So, if the function changes or mutates the value of the argument, then the original data will also be mutated. This is not functional programming
 
@@ -262,7 +262,7 @@ A closure is the combination of a function bundled together (enclosed) with refe
 
 - A closure may be described as a combination of a function and the lexical environment in which it was declared
 
-  - The lexical environment consists of any local variables in the function’s scope when the function is created
+  - The lexical environment consists of any local variables in the function's scope when the function is created
 
 - You have a closure when a function accesses variables defined outside of it
 

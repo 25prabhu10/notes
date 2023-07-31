@@ -44,7 +44,7 @@ Sub-Groups of SQL Commands (syntax):
    - Some commands:
 
      - [`COMMIT`](#commit): permanently save any transaction into the database
-     - [`ROLLBACK`](#rollback): restores the database to last committed state. It is also used with savepoint command to jump to a savepoint in a transaction
+     - [`ROLLBACK`](#rollback): restores the database to last committed state. It is also used with save-point command to jump to a save-point in a transaction
      - `SAVEPOINT`: temporarily save a transaction so that you can rollback to that point whenever necessary
 
 4. DCL (Data Control Language)
@@ -338,14 +338,14 @@ AND area >= 3000000);
 Select query with unique results:
 
 ```sql
-SELECT DISTINCT column, another_column, …
+SELECT DISTINCT column, another_column
 FROM myTable
-WHERE condition(s);
+WHERE conditions;
 ```
 
 ### ORDER BY
 
-Query sorted
+Query sorted:
 
 ```sql
 -- `ASC`: ascending (default)

@@ -9,7 +9,7 @@ Design patterns are common approaches to solving similar problems
 
 They are like pre-made blueprints that you can customize to solve a recurring design problem in your code
 
-The _1995_ book _Design Patterns: Elements of Reusable Object-Oriented Software_ by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, also know as _Gang of Four_ (GoF), describes **23 patterns**
+The 1995 book _Design Patterns: Elements of Reusable Object-Oriented Software_ by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides, also know as _Gang of Four (GoF)_, describes **23 patterns**
 
 Quote from the book:
 
@@ -23,13 +23,13 @@ Quote from the book:
 
 - Some design patterns tend to **cause more problems** than they solve, and are thus commonly referred to as **anti-patterns**
 
-> Prerequisite: Knowing [OOPs concepts](../Object-Oriented_Programming.md)
+> Prerequisite: Knowing [OOPs concepts](../Programming_Paradigms/Object-Oriented_Programming.md)
 
 ## Todo
 
-- SAGA
-- 2-way pattern
-- Add advantages, usage, and UML for each pattern.
+- [ ] SAGA
+- [ ] 2-way pattern
+- [ ] Add advantages, usage, and UML for each pattern
 
 ## Criticism of Patterns
 
@@ -39,7 +39,7 @@ Quote from the book:
 
   - For example, the [Strategy pattern](#strategy-pattern) can be implemented with a simple anonymous (lambda) function in most modern programming languages
 
-- Inefficient solutions
+- Leads to inefficient solutions
 
 - Unjustified use:
 
@@ -53,11 +53,30 @@ All patterns can be categorized by their _intent_ or _purpose_:
 
 2. [Structural Patterns](#structural-patterns)
 
-3. [behavioural Patterns](#behavioural-patterns)
+3. [Behavioural Patterns](#behavioural-patterns)
 
-- The most basic and low-level patterns are often called _idioms_. They usually apply only to a single programming language.
+These pattern can also be divided based on their _scope_:
 
-- The most universal and high-level patterns are _architectural patterns_. Developers can implement these patterns in virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application
+- Class:
+
+  - Deal with relationships between classes and their subclasses
+  - These relationships are established through inheritance
+  - So they are static, fixed at compile-time
+
+- Object:
+
+  - Deal with object relationships
+  - Which can be changed at run-time and are more dynamic
+
+- The most **basic and low-level patterns** are often called **idioms**. They usually apply only to a single programming language
+
+- The most **universal and high-level patterns** are **architectural patterns**. Developers can implement these patterns in virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application
+
+Other Types of Patterns:
+
+- Concurrency design patterns: When you are dealing with multi threading programming these are the patterns that you will want to use
+
+- Architectural design patterns: Design patterns that are used on the system's architecture, like MVC or MVVM
 
 ## Creational Patterns
 
@@ -65,15 +84,105 @@ Creational patterns provide **object creation mechanisms** that increase flexibi
 
 - When the regular object creation manner would cause more complexity or bring problems to the code
 
-Design Patterns:
+Patterns:
 
-1. [Factory](#factory)
-2. [Abstract](#abstract-factory)
-3. [Builder](#builder-pattern)
-4. [Prototype](#prototype-pattern): Clone
-5. [Singleton](#singleton-pattern)
+1. [Abstract Factory](#abstract-factory): Creates an instance of several families of classes
 
-### Factory
+2. [Builder](#builder-pattern): Separates object construction from its representation
+
+3. [Factory Method](#factory-method): Creates an instance of several derived classes
+
+4. [Prototype](#prototype-pattern): A fully initialized instance to be copied or cloned
+
+5. [Singleton](#singleton-pattern): A class of which only a single instance can exist
+
+### Abstract Factory
+
+_Popularity:_ Important
+_Complexity:_ 2
+_Scope:_ Object
+_AKA:_ Kit
+
+_Intent:_ Provide an interface for creating families of related or dependent objects without specifying their concrete classes
+
+- Groups object factories that have a common theme
+
+### Builder Pattern
+
+_Popularity:_ Common
+_Complexity:_ 2
+_Scope:_ Object
+
+_Intent:_ Separate the construction of a complex object from its representation so that the same
+construction process can create different representations
+
+_Example:_
+
+```javascript
+class HotDog {
+  constructor(bun, ketchup, mustard, kraut) {
+    this.bun = bun;
+    this.ketchup = ketchup;
+    this.mustard = mustard;
+    this.kraut = kraut;
+  }
+}
+
+// passing parameters to constructor becomes
+// problematic if there are many
+const snack = new HotDog("wheat", false, true, true);
+
+// add properties to object
+// via methods
+class HotDog {
+  constructor(bun) {
+    this.bun = bun;
+  }
+
+  addKetchup() {
+    this.ketchup = true;
+    return this;
+  }
+  addMustard() {
+    this.mustard = true;
+    return this;
+  }
+  addKraut() {
+    this.kraut = true;
+    return this;
+  }
+}
+
+const snack = new HotDog("wheat");
+
+// method chaining
+snack.addKetchup().addKraut();
+
+console.log(snack); // { bun: 'wheat', ketchup: true, kraut: true }
+```
+
+_Usage_:
+
+- May be very useful while writing Unit Tests
+
+### Factory Method
+
+_Popularity:_ Important
+_Complexity:_ 2
+_Scope:_ Class
+_AKA:_ Virtual Constructor
+
+_Intent:_ The Factory Method pattern defines an interface for creating objects, but lets subclasses decide which class to instantiate
+
+- Factory Method lets a class defer instantiation to subclasses
+
+_Applicability:_
+
+- Use the Factory Method when you don't know beforehand the exact types and dependencies of the objects your code should work with
+
+- Use the Factory Method when you want to provide users of your library or framework with a way to extend its internal components
+
+#### Simple Factory Design
 
 In _Simple Factory Design_ pattern, a **client** asks for an object without knowing where the object is coming from (that is, which class is used to generate it)
 
@@ -105,7 +214,7 @@ const btn1 = factory.createButton(os);
 const btn2 = factory.createButton(os);
 ```
 
-_Usage_:
+_Usage:_
 
 - Consider we want to read data from a _json_ or _XML_ file as per the needs
 
@@ -166,72 +275,21 @@ _Usage_:
 
 - This can be used in any function to read data from either _json_ or _XML_ file
 
-#### Factory Method
-
-_Intent:_ The Factory Method pattern defines an interface for creating objects, but lets subclasses decide which class to instantiate.
-
-- Factory Method lets a class defer instantiation to subclasses
-
-_Applicability:_
-
-- Use the Factory Method when you don't know beforehand the exact types and dependencies of the objects your code should work with
-
-- Use the Factory Method when you want to provide users of your library or framework with a way to extend its internal components
-
-### Abstract Factory
-
-### Builder Pattern
-
-```javascript
-class HotDog {
-  constructor(bun, ketchup, mustard, kraut) {
-    this.bun = bun;
-    this.ketchup = ketchup;
-    this.mustard = mustard;
-    this.kraut = kraut;
-  }
-}
-
-// passing parameters to constructor becomes
-// problematic if there are many
-const snack = new HotDog("wheat", false, true, true);
-
-// add properties to object
-// via methods
-class HotDog {
-  constructor(bun) {
-    this.bun = bun;
-  }
-
-  addKetchup() {
-    this.ketchup = true;
-    return this;
-  }
-  addMustard() {
-    this.mustard = true;
-    return this;
-  }
-  addKraut() {
-    this.kraut = true;
-    return this;
-  }
-}
-
-const snack = new HotDog("wheat");
-
-// method chaining
-snack.addKetchup().addKraut();
-
-console.log(snack); // { bun: 'wheat', ketchup: true, kraut: true }
-```
-
 ### Prototype Pattern
 
-We can create objects that will be used as prototypes for other objects to be created.
+_Popularity:_ Not Common
+_Complexity:_ 1
+_Scope:_ Object
+
+_Intent:_ Lets you copy existing objects without making your code dependent on their classes
+
+We can create objects that will be used as prototypes for other objects to be created
 
 - Inheritance by prototypes ends up bringing a improvement in performance as well, because both objects have a reference to the same method that is implemented on the prototype, instead of being implemented on each one of them.
 
 - It enables us to extent the prototype with new functions that are immediately available to all the objects. **This is not a best practice**
+
+_Example:_
 
 ```javascript
 // constructor function
@@ -282,8 +340,16 @@ genericZombie.canRun();
 
 ### Singleton Pattern
 
+_Popularity:_ Not Common
+_Complexity:_ 1
+_Scope:_ Object
+
+_Intent:_ Ensure a class only has one instance, and provide a global point of access to it
+
 - Global point of access instead of encapsulation
 - Hard to debug
+
+_Example:_
 
 ```javascript
 let configurationSingleton = (() => {
@@ -357,15 +423,69 @@ Structural patterns explain how to assemble objects and classes into larger stru
 
 Design Patterns:
 
-1. [Adapter](#adapter-pattern)
-2. [Bridge]
-3. [Composite]
-4. [Decorator (Wrapper)](#decorator-wrapper-pattern)
-5. [Facade](#facade-pattern): Simplified API
-6. [Flyweight]
-7. [Proxy](#proxy-pattern): Substitution
+1. [Adapter](#adapter-pattern): Match interfaces of different classes
+
+2. [Bridge](#bridge-pattern): Separates an object's interface from its implementation
+
+3. [Composite](#composite-pattern): A tree structure of simple and composite objects
+
+4. [Decorator (Wrapper)](#decorator-wrapper-pattern): Add responsibilities to objects dynamically
+
+5. [Facade](#facade-pattern): A single class that represents an entire subsystem (Simplified API)
+
+6. [Flyweight](#flyweight-pattern): A fine-grained instance used for efficient sharing
+
+7. [Proxy](#proxy-pattern): An object representing another object (Substitution)
+
+### Adapter Pattern
+
+_Popularity:_ Important
+_Complexity:_ 1
+_Scope:_ Class & Object
+
+This pattern converts the interface of a class into another interface that clients expect. It allows classes to work together that couldn't otherwise because of incompatible interfaces
+
+The Adapter Design Pattern, also known as the _Wrapper_, allows two classes to work together that otherwise would have incompatible interfaces
+
+_Intent:_ Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate
+
+- You can create an _adapter_. This is a special object that converts the interface of one object so that another object can understand it
+
+_Applicability:_
+
+- Use the Adapter class when you want to use some existing class, but its interface isn't compatible with the rest of your code
+
+### Bridge Pattern
+
+_Popularity:_ Rare
+_Complexity:_ 3
+_Scope:_ Object
+
+### Composite Pattern
+
+_Popularity:_ Important
+_Complexity:_ 2
+_Scope:_ Object
+
+### Decorator (Wrapper) Pattern
+
+_Popularity:_ Important
+Scope: Object
+Complexity: 2
+
+This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to sub-classing for extending functionality
+
+_Intent:_ Decorator is a structural design pattern that lets you attach new behaviours to objects by placing these objects inside special wrapper objects that contain the behaviours
+
+_Applicability:_
+
+- Use the Decorator pattern when you need to be able to assign extra behaviours to objects at runtime without breaking the code that uses these objects
+
+- Use the pattern when it's awkward or not possible to extend an object's behaviour using inheritance
 
 ### Facade Pattern
+
+Scope: Object
 
 The facade design pattern is used when we want to create an abstraction layer between what is show publicly and the internal implementation. It is used when we want to have a simpler interface.
 
@@ -416,61 +536,47 @@ let client = new House();
 client.turnOnSystems();
 ```
 
-### Decorator (Wrapper) Pattern
-
-This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to sub-classing for extending functionality
-
-_Intent:_ Decorator is a structural design pattern that lets you attach new behaviours to objects by placing these objects inside special wrapper objects that contain the behaviours
-
-_Applicability:_
-
-- Use the Decorator pattern when you need to be able to assign extra behaviours to objects at runtime without breaking the code that uses these objects
-
-- Use the pattern when it's awkward or not possible to extend an object's behaviour using inheritance
+### Flyweight Pattern
 
 ### Proxy Pattern
 
-### Adapter Pattern
+Scope: Object
 
-This pattern converts the interface of a class into another interface that clients expect. It allows classes to work together that couldn't otherwise because of incompatible interfaces
+## Behavioural Patterns
 
-The Adapter Design Pattern, also known as the _Wrapper_, allows two classes to work together that otherwise would have incompatible interfaces
-
-_Intent:_ Adapter is a structural design pattern that allows objects with incompatible interfaces to collaborate
-
-- You can create an _adapter_. This is a special object that converts the interface of one object so that another object can understand it
-
-_Applicability:_
-
-- Use the Adapter class when you want to use some existing class, but its interface isn't compatible with the rest of your code
-
-## behavioural Patterns
-
-behavioural patterns take care of effective communication and the assignment of responsibilities between objects: **How objects communicate with each other**
+Behavioural patterns take care of effective communication and the assignment of responsibilities between objects: **How objects communicate with each other**
 
 - They help to guarantee that unrelated parts of the application have a synchronized information
 
 Design Patterns:
 
-1. [Chain of Responsibility]
-2. [Command](#command-pattern)
-3. [Interpreter]
-4. [Iterator](#iterator-pattern)
-5. [Mediator](#mediator-pattern)
-6. [Memento]
-7. [Observer](#observer-pattern)
-8. [State](#state-pattern)
-9. [Strategy](#strategy-pattern)
-10. [Template Method]
-11. [Visitor]
+1. [Chain of Responsibility](#chain-of-responsibility): A way of passing a request between a chain of objects
 
-Others:
+2. [Command](#command-pattern): Encapsulate a command request as an object
 
-- Concurrency design patterns: When you are dealing with multi threading programming these are the patterns that you will want to use
+3. [Interpreter](#interpreter-pattern): A way to include language elements in a program
 
-- Architectural design patterns: Design patterns that are used on the system's architecture, like MVC or MVVM
+4. [Iterator](#iterator-pattern): Sequentially access the elements of a collection
+
+5. [Mediator](#mediator-pattern): Defines simplified communication between classes
+
+6. [Memento](#memento-pattern): Capture and restore an object's internal state
+
+7. [Observer](#observer-pattern): A way of notifying change to a number of classes
+
+8. [State](#state-pattern): Alter an object's behaviour when its state changes
+
+9. [Strategy](#strategy-pattern): Encapsulates an algorithm inside a class
+
+10. [Template Method](#template-method-pattern): Defer the exact steps of an algorithm to a subclass
+
+11. [Visitor](#visitor-pattern): Defines a new operation to a class without change
+
+### Chain of Responsibility
 
 ### Command Pattern
+
+Scope: Object
 
 Encapsulate a call as an object
 
@@ -508,7 +614,11 @@ console.log(manager.execute("add", 3, 5));
 console.log(manager.execute("subtract", 5, 3));
 ```
 
+### Interpreter Pattern
+
 ### Iterator Pattern
+
+Scope: Object
 
 This pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation
 
@@ -572,6 +682,8 @@ console.log(sum);
 
 ### Mediator Pattern
 
+Scope: Object
+
 - Used a lot on decoupled system
 
 - When we have different parts of a system that need to communicate on a coordinated manner, a mediator can be the best option
@@ -610,7 +722,13 @@ const air007 = new Airplane();
 const air69 = new Airplane();
 ```
 
+### Memento Pattern
+
 ### Observer Pattern
+
+_Popularity:_ Important
+Complexity: 2
+Scope: Object
 
 The _observer pattern_ is very useful when we want to **optimize the communication between separated parts of the system**
 
@@ -782,6 +900,10 @@ class Human {
 
 ### Strategy Pattern
 
+_Popularity:_ Important
+Complexity: 2
+Scope: Object
+
 This pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This lets the algorithm vary independently from clients that use it
 
 _Intent:_ Strategy is a behavioural design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
@@ -798,6 +920,13 @@ _Example:_
 
 - Ducks
 - Algorithms used to show a route in map for different mode of transport differ
+
+### Template Method Pattern
+
+_Popularity:_ Important
+Complexity: 2
+
+### Visitor Pattern
 
 ## Constructor Pattern
 
@@ -886,3 +1015,7 @@ const fruitsCollection = (() => {
 - [C# Design patterns](https://www.dofactory.com/net/design-patterns)
 
 - [Refactoring Guru - Design Patterns](https://refactoring.guru/design-patterns)
+
+- [Source Making: Design Patterns](https://sourcemaking.com/design_patterns)
+
+- [Design Questions](https://www.geeksforgeeks.org/software-design-patterns/)

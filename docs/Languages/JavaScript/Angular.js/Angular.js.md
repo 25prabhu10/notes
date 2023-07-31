@@ -1,11 +1,11 @@
 ---
 title: AngularJS
-description: A JavaScript Framework to create Single-Page-Applications (SPA)s.
+description: A JavaScript Framework to create Single-Page-Applications (SPA)s
 ---
 
 # AngularJS
 
-AngularJS is a JavaScript-based open-source front-end web framework for developing single-page applications.
+AngularJS is a JavaScript-based open-source front-end web framework for developing single-page applications
 
 Features of AngularJS:
 
@@ -19,11 +19,11 @@ Features of AngularJS:
 
 - Various ways to integrate AngularJS:
 
-  - Install AngularJS from npm or yarn
+  - Install AngularJS from `npm` or `yarn`
   - Download AngularJS script and include the script tag
   - Use the CDN to get the AngularJS script
 
-- To bootstrap AngularJS we need to include the `ng-app` directive as part of the HTML element such as body or the HTML page itself, so that AngularJS can start managing it.
+- To bootstrap AngularJS we need to include the `ng-app` directive as part of the HTML element such as body or the HTML page itself, so that AngularJS can start managing it
 
   ```html
   <!DOCTYPE html>
@@ -36,7 +36,7 @@ Features of AngularJS:
   </html>
   ```
 
-- Using double curly braces (binding expression) we can write AngularJS expression within the HTML.
+- Using double curly braces (binding expression) we can write AngularJS expression within the HTML
 
 ## Modules
 
@@ -52,7 +52,7 @@ A module is a container for different parts of the application i.e. controllers,
 
 ## Controller
 
-In AngularJS a controller is a JavaScript function. The job of the controller is to build a model for the view to display.
+In AngularJS a controller is a JavaScript function. The job of the controller is to build a model for the view to display
 
 - To create a controller function, just create a function and pass the `$scope` as parameter.
 
@@ -67,7 +67,7 @@ In AngularJS a controller is a JavaScript function. The job of the controller is
 
 ## Digest Cycle
 
-Digest cycle (digest phase or digest process or digest loop
+Digest cycle (digest phase or digest process or digest loop)
 
 - Responsible to walk-through entire watch list for modifications
 

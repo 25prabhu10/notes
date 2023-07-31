@@ -86,7 +86,9 @@ Failure to set up object level access control can leave records or other objects
 1. Test for API Input Fuzzing:
 
    - Fuzzing simply means **providing random data to the API until it spills something out** (some info, some error message or anything to imply that random data has been processed by the API)
-   - _Example:_ For numerical inputs, try: 0, -ve numbers or very large numbers. For string inputs, try: SQL queries or system commands or random characters.
+
+   - _Example:_ For numerical inputs, try: 0, -ve numbers or very large numbers. For string inputs, try: SQL queries or system commands or random characters
+
    - Fuzzapi: Automate testing
 
 2. Test for API Injection Attacks:

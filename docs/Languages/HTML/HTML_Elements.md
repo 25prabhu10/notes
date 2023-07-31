@@ -302,7 +302,7 @@ The above code will be rendered as:
 
 An HTML form is used to collect user input. The user input is most often sent to a server for processing.
 
-_Example_:
+_Example:_
 
 ```html
 <form action="" method="get" class="form-example">

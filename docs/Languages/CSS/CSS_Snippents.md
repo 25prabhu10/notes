@@ -284,6 +284,30 @@ description: Collection of CSS Snippets
   }
   ```
 
+- Blend Modes:
+
+  ```css
+  h1 {
+    background: black;
+    color: blue;
+    // mix-blend-mode: screen; // white is cutout and black is opaque
+    mix-blend-mode: multiply; // black is cutout and white is opaque
+  }
+  ```
+
+- Text (or any content) as background:
+
+  ```css
+  body {
+    background: url('data:image/svg+xml,\
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">\
+      <style>@keyframes foo %7Bto %7B transform: rotate(-20deg)}}</style>\
+      <text y="1em" font-size="100" style="animation: foo 1s infinite alternate">🚀</text>\
+      </svg>');
+    background-size: 100px 100px;
+  }
+  ```
+
 ## Carousel
 
 - Snap:
@@ -305,6 +329,19 @@ description: Collection of CSS Snippets
     align-items: center;
     scroll-snap-align: center;
   }
+  ```
+
+## SVG
+
+- Animated border:
+
+  ```css
+  <svg>
+  <style>
+  @keyframes marching-ants {to{stroke-dashoffset: -15px;}}
+  </style>
+  <rect width="100%" height="100%" style="stroke: black; stroke-widthL 4px; fill: none; stroke-dasharray: 10px 5px; animation: marching-ants 1s infintie linear;" />
+  </svg>
   ```
 
 ## References

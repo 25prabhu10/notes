@@ -33,11 +33,11 @@ It is Application Layer protocol.
 - WebSockets is a HTTP upgrade. Uses the same TCP connection over `ws://` or `wss://`
 - Easy to implement and standardised
 - Only sends header once
-- _Example_: Initial request header (sent only once)
+- _Example:_ Initial request header (sent only once)
 
   Request:
 
-  ```text
+  ```http
   ...
   Connection: upgrade
   Upgrade: websockets
@@ -46,7 +46,7 @@ It is Application Layer protocol.
 
   Response:
 
-  ```text
+  ```http
   Request URL: wss://...
   Request Method: GET
   Status Code: 101 Switching Protocols
@@ -110,7 +110,7 @@ socket.on("my_custom_event", (data) => {
 });
 ```
 
-### WebSockets Serverside Code
+### WebSocket Server-Side Code
 
 Using Native Flask WebSockets implementation: `flask_sockets` library:
 
@@ -139,7 +139,7 @@ def custome_event(sesstion_id, data):
 app = socketio.Middleware(socket, app)
 ```
 
-#### Python Servers w/WebSockets
+#### Python Servers w/WebSocket
 
 - SocketIO with python-socketio: Flask, Tornado, Pyramid, Bottle, Sanic, AioHTTP
 - Native WebSockets:
@@ -155,7 +155,7 @@ app = socketio.Middleware(socket, app)
 
 ## Deployment
 
-- `Eventlet` and `Gevent` to monkey patch async: or just use standard threading...
+- `Eventlet` and `Gevent` to monkey patch `async`: or just use standard threading...
 - Async web frameworks are ideal
 - Use message queue to run multiple instances behind load balancers with sticky sessions on workers
 

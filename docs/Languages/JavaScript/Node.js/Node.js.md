@@ -1,6 +1,6 @@
 ---
 title: Node.js
-description: A JavaScript runtime built on Google's V8 engine.
+description: A JavaScript runtime built on Google's V8 engine
 ---
 
 # Node.js
@@ -67,41 +67,33 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 
 5. **Building blocks**:
 
-   - A set of bindings responsible for wrapping and exposing libuv and other low-level functionalities to JavaScript.
+   - A set of bindings responsible for wrapping and exposing `libuv` and other low-level functionalities to JavaScript.
    - **V8**, the JavaScript engine.
    - A core JavaScript library containing Node.js API.
 
-## Modules
+## Module System in JavaScript and Node.js
 
-Modules allow us to divide the code-base into small units that can be developed and tested independently
-
-### Advantages
-
-- Code split into multiple files. Organized, easier to develop and test.
-- Code reuse across different projects.
-- Encapsulation (information hiding).
-- Managing dependencies.
-
-::: tip NOTE
-It is important to clarify the distinction between a **module** and a **module system**.
-
-We can define **a module as the actual unit of software**, while a module system is the syntax and the tooling that allows us to define modules and to use them within our projects.
-:::
-
-### Module system in JavaScript and Node.js
-
-JavaScript did not have a built-in module system.
+JavaScript did not have a built-in module system until 2015
 
 Two module systems became popular and were a community initiatives:
 
 - _asynchronous module definition_ (AMD)
 - _Universal Module Definition_ (UMD)
 
-Node.js came up with an implementation of the **[CommonJS specification (CJS)](#commonjs-modules)**, which was designed to provide a module system for JavaScript in browserless environments.
+Node.js came up with an implementation of the **[CommonJS specification (CJS)](#commonjs-modules)**, which was designed to provide a module system for JavaScript in browserless environments
 
 In 2015 _ECMAScript 6_ (ES6 or ES2015) proposed for a standard module system known as **[ESM (ECMAScript modules)](../JavaScript.md#esm-ecmascript-modules)**
 
-- Node.js ships with stable support for ESM starting from _v13.2_
+- Node.js has two module systems: CommonJS modules and **ESM** (support from _v13.2_):
+
+  - To use ESM in Node.js change `type` in `package.json` to `module`
+
+  ```json
+  // package.json
+  {
+    "type": "module"
+  }
+  ```
 
 ### Revealing Module Pattern
 
@@ -283,7 +275,7 @@ For file and package modules, both files and directories can match `moduleName`.
 Complete formal documentation of the resolving algorithm can be found at [Node.js Org](https://nodejs.org/api/modules.html#modules_all_together)
 :::
 
-#### The module cache
+#### The Module Cache
 
 - Every module is only loaded and evaluated the first time it is required.
 - Any subsequent call of `require()` will simply return the cached version.
@@ -295,7 +287,7 @@ Complete formal documentation of the resolving algorithm can be found at [Node.j
 `require.cache` variable is exposes the module cache.
 :::
 
-#### Circular dependencies
+#### Circular Dependencies
 
 - A module called `main.js` requires `a.js` and `b.js`.
 - In turn, `a.js` requires `b.js`.

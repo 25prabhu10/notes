@@ -32,6 +32,59 @@ What is web design?
 
 - The goal or purpose of web design is to create **informational user experiences**
 
+## 10 Rendering Patterns for Web Apps
+
+1. Static Website;
+
+   - Static HTML, CSS & JavaScript files
+   - Upload them into a storage bucket or CDN
+   - Point Domain name to the storage location
+   - Static Site Generators (SSG): Hugo, Jekyll, 11ty
+   - Not usful for dynamic content
+
+2. Multi-Page Application (MPA):
+
+   - Ruby on rails
+   - Django
+   - Larvel
+   - CMS: Wordpress
+   - Not app like
+
+3. Single-Page Application (SPA):
+
+   - React.js
+   - Angular
+   - Vue
+   - Huge bundle size
+
+4. Server-Side Rendering (SSR) with Hydration:
+
+   - MPA + SPA = SSR
+   - Metaframework: Next.js, Nuxt, Svelte-Kit
+   - Servers are required
+
+5. Static Site Generation (SSG) with Hydration:
+
+   - Jamstack site
+
+6. Incremental Static Regeneration:
+
+   - Complex to Self-host
+
+7. Partial Hydration:
+
+   - Code Splitting
+
+8. Islands:
+
+   - Astro
+
+9. Streaming SSR:
+
+10. Resumability:
+
+    - Qwik
+
 ## Web Design Process
 
 Starts from:

@@ -616,9 +616,9 @@ function Welcome({ name }) {
 <p>To the world of React</p>
 ```
 
-## React Strict Mode
+## React `StrictMode`
 
-StrictMode is a tool for highlighting potential problems in an application. Like Fragment, StrictMode does not render any visible UI. It activates additional checks and warnings for its descendants.
+`StrictMode` is a tool for highlighting potential problems in an application. Like Fragment, `StrictMode` does not render any visible UI. It activates additional checks and warnings for its descendants.
 
 - Strict mode checks are run in development mode only; they do not impact the production build.
 
@@ -639,14 +639,14 @@ function ExampleApplication() {
 }
 ```
 
-StrictMode currently helps with:
+`StrictMode` currently helps with:
 
 - Identifying components with unsafe life-cycles
-- Warning about legacy string ref API usage
-- Warning about deprecated findDOMNode usage
+- Warning about legacy string `ref` API usage
+- Warning about deprecated `findDOMNode` usage
 - Detecting unexpected side effects
 - Detecting legacy context API
-- Detecting unsafe effects
+- Ensuring reusable state
 
 ## Conditional Rendering
 
@@ -1246,11 +1246,11 @@ CSS-in-JS libraries:
 
 ## Keys
 
-Keys help React identify which items have changed, are added, or are removed.
+Keys help React identify which items have changed, are added, or are removed
 
-- Keys should be given to the elements inside the array to give the elements a stable identity:
+- Keys should be given to the elements inside the array to give the elements a stable identity
 
-- Keys are unique identifiers that allow for fast loop-ups between trees for the elements.
+- Keys are unique identifiers that allow for fast loop-ups between trees for the elements
 
 ```jsx
 const todoItems = todos.map((todo) => <li key={todo.id}>{todo.text}</li>);
@@ -1300,7 +1300,24 @@ When all of the below conditions are met, you may safely use the index as a key:
 
 Why Keys?
 
-React makes some assumptions and takes a naive approach in some cases. Also, it is very tricky when dealing with any list of repeating items.
+React makes some assumptions and takes a naive approach in some cases. Also, it is very tricky when dealing with any list of repeating items
+
+Key can be used on single element:
+
+```jsx
+const App = () => {
+  const [key, setKey] = useState("abc");
+
+  return (
+    <>
+      <SomeComponent key={key} />
+      <button onClick={() => setKey(id())}>Update</button>
+    </>
+  );
+};
+```
+
+- In the above example when the `key` changes, `SomeComponent` will be remounted
 
 ## Refs
 
@@ -1467,7 +1484,7 @@ The value of the ref differs depending on the type of the node:
 
 - **You may not use the ref attribute on function components** because they don't have instances.
 
-_Example_: Adding a ref to a DOM element
+_Example:_ Adding a ref to a DOM element
 
 ```jsx
 class CustomTextInput extends React.Component {
@@ -1501,7 +1518,7 @@ class CustomTextInput extends React.Component {
 }
 ```
 
-_Example_: Adding a Ref to a Class Component
+_Example:_ Adding a Ref to a Class Component
 
 - If we wanted to wrap the `CustomTextInput` above to simulate it being clicked immediately after mounting, we could use a ref to get access to the custom input and call its `focusTextInput` method manually:
 
@@ -1522,7 +1539,7 @@ class AutoFocusTextInput extends React.Component {
 }
 ```
 
-_Example_: Refs and Function Components
+_Example:_ Refs and Function Components
 
 - By default, **you may not use the ref attribute on function components** because they don't have instances:
 
@@ -1567,7 +1584,7 @@ function CustomTextInput(props) {
 
 ### Forwarding Refs
 
-In some cases we need to expose DOM refs to Parent Components. There are few ways to achieve this. It is recommended to use **ref forwarding** in React _v16.3_ or higher,
+In some cases we need to expose DOM refs to Parent Components. There are few ways to achieve this. It is recommended to use **ref forwarding** in React _v16.3_ or higher
 
 ::: danger ADD NOTES HERE
 Check this [Link](https://reactjs.org/docs/forwarding-refs.html).
@@ -1584,7 +1601,7 @@ For React _v16.2_ and earlier doesn't yet support ref forwarding. We can use the
 - This pattern is that it works several components deep.
 - Check out [DOM ref forwarding alternatives](https://gist.github.com/gaearon/1a018a023347fe1c2476073330cc5509)
 
-_Example_:
+_Example:_
 
 ```jsx
 function CustomTextInput(props) {
@@ -2529,7 +2546,7 @@ An input form element whose value is controlled by React is called a "controlled
 
 Lets create a simple input form which takes users first-name. Please find the code below:
 
-_Example_:
+_Example:_
 
 ```jsx
 class UserForm extends Component {
@@ -2642,7 +2659,7 @@ class UserForm extends Component {
 
 - This form is driven by the state and user actions update the state. `handleSubmit` method is used to handle the form submit event
 
-_Example_:
+_Example:_
 
 - If there are multiple input elements, there is not need to write separate `handleChange` method. We can modify the code shown in the previous example as:
 
@@ -2791,7 +2808,7 @@ const Form = () => {
 
 - We need to use the File API to interact with the files.
 
-_Example_: Using ref to the DOM node to access file(s) in submit handle:
+_Example:_ Using ref to the DOM node to access file(s) in submit handle:
 
 ```jsx
 class FileInput extends React.Component {
@@ -3076,6 +3093,26 @@ render() {
 
 Typical use case for portals is when a parent component has an `overflow: hidden` or `z-index` style, but you need the child to visually "break out" of its container. For example, **dialogs, hover-cards, and tooltips**
 
+## Other APIs
+
+1. `flushSync`: Lets you force React to flush any updates inside the provided callback synchronously. This ensures that the DOM is updated immediately
+
+   - Using flushSync is uncommon and **can hurt the performance** of your app
+
+   ```javascript
+   import { flushSync } from "react-dom";
+
+   socket.onMessage((message) => {
+     flushSync(() => {
+       setMessages((prevMessages) => [...prevMessages, message]);
+     });
+
+     scrollToLastMessage();
+   });
+   ```
+
+2. `findDOMNode`
+
 ## Client-Side Routing
 
 There are many libraries available:
@@ -3114,7 +3151,7 @@ Declaratively specify the loading UI for any part of the component tree, if it's
 
 - Initially was used for lazy loading
 
-- The lazy component should then be rendered inside a `Suspense` component, which allows us to show some fallback content (such as a loading indicator) while we're waiting for the lazy component to load.
+- The lazy component should then be rendered inside a `Suspense` component, which allows us to show some fallback content (such as a loading indicator) while we're waiting for the lazy component to load
 
 _Example:_
 
@@ -3176,10 +3213,20 @@ import OtherComponent from "./OtherComponent";
 const OtherComponent = React.lazy(() => import("./OtherComponent"));
 ```
 
+- Lazy loading named exports:
+
+```javascript
+const DetailPage = React.lazy(() =>
+  import("./OtherComponent").then((module) => ({
+    default: module.NamedComponent,
+  }))
+);
+```
+
 - Before React _v16.6_ we used [`react-loadable`](https://github.com/jamiebuilds/react-loadable): Recommended for server rendered apps
 
 ::: tip NAMED EXPORTS
-`React.lazy` currently only supports default exports.
+`React.lazy` currently **only supports default exports**
 :::
 
 #### Route Based Code-Splitting
@@ -3206,6 +3253,12 @@ const App = () => (
   </Router>
 );
 ```
+
+## React Server Components
+
+Server components are completely rendered on the server and do not require client-side JavaScript to render. In addition, server components allow developers to keep some logic on the server and only send the result of that logic to the client. This reduces the bundle size sent to the client and improves client-side rendering performance
+
+[Introducing Zero-Bundle-Size React Server Components](https://beta.reactjs.org/blog/2020/12/21/data-fetching-with-react-server-components)
 
 ## Deploying React App
 
@@ -3256,71 +3309,81 @@ export default App;
 
 ## Versions
 
-React _v18_:
+1. React _v18_:
 
-- March 29, 2022
-- `ReactDOM.render` is deprecated
-- Automatic batching
-- New Hooks:
+   - March 29, 2022
+   - `ReactDOM.render` is deprecated
+   - Automatic batching
+   - New Hooks:
 
-  - [`useDeferredValue`](#usedeferredvalue-hook)
-  - [`useTransition`](#usetransition-hook)
-  - [`useId`](#useid-hook)
-  - `usesyncexternalstore`
-  - `useinsertioneffect`
+     - [`useDeferredValue`](#usedeferredvalue-hook)
+     - [`useTransition`](#usetransition-hook)
+     - [`useId`](#useid-hook)
+     - `usesyncexternalstore`
+     - `useinsertioneffect`
 
-- Streaming SSR with [Suspense](#suspense)
-- Concurrent rendering: A behind-the-scenes
+   - Streaming SSR with [Suspense](#suspense)
+   - Concurrent rendering: A behind-the-scenes
 
-React _v17_:
+2. React _v17_:
 
-- October 20, 2020
-- React import is not required
-- New JSX transform:
+   - October 20, 2020
+   - React import is not required
+   - New JSX transform:
 
-  - Old transformation
+     - Old transformation
 
-    ```jsx
-    import React from "react";
+       ```jsx
+       import React from "react";
 
-    function App() {
-      return <h1>Hello World!</h1>;
-    }
+       function App() {
+         return <h1>Hello World!</h1>;
+       }
 
-    // Transformed code
-    import React from "react";
+       // Transformed code
+       import React from "react";
 
-    function App() {
-      return React.createElement("h1", null, "Hello World!");
-    }
-    ```
+       function App() {
+         return React.createElement("h1", null, "Hello World!");
+       }
+       ```
 
-  - New transformation
+     - New transformation
 
-    ```jsx
-    function App() {
-      return <h1>Hello World!</h1>;
-    }
+       ```jsx
+       function App() {
+         return <h1>Hello World!</h1>;
+       }
 
-    // Transformed code
-    import { jsx as _jsx } from "react/jsx-runtime";
+       // Transformed code
+       import { jsx as _jsx } from "react/jsx-runtime";
 
-    function App() {
-      return _jsx("h1", { children: "Hello World!" });
-    }
-    ```
+       function App() {
+         return _jsx("h1", { children: "Hello World!" });
+       }
+       ```
 
-- React will no longer attach event handlers at the `document` level. Instead, it will attach them to the root DOM container into which your React tree is rendered
+   - React will no longer attach event handlers at the `document` level. Instead, it will attach them to the root DOM container into which your React tree is rendered
 
-React _v16_:
+3. React _v16_:
 
-- Fibre
-- React _16.3_:
+   - Fibre
+   - React _16.3_:
 
-  - Marked for depreciation `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, `UNSAFE_componentWillUpdate`
+     - Marked for depreciation `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, `UNSAFE_componentWillUpdate`
 
-  - [`React.createContext`](#context-api)
-  - [`React.createRef`](#creating-refs)
+     - [`React.createContext`](#context-api)
+     - [`React.createRef`](#creating-refs)
+
+4. React _v15_
+
+5. React _v0.14_
+
+6. React _v0.13_
+
+7. React _v0.12_
+
+- Mixins (deprecated)
 
 ## References
 

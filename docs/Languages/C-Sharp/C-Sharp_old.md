@@ -1,9 +1,4 @@
----
-title: C#
-description: C# is a general-purpose, multi-paradigm programming language encompassing static typing, lexically scoped, imperative, declarative, functional, generic, object-oriented, and component-oriented programming disciplines.
----
-
-## Interfaces
+# Interfaces
 
 - An interface is like a class, except that it only describes members. The implementation for those members comes from types that implement the interface.
 

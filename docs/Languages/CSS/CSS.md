@@ -440,13 +440,13 @@ Media features describe specific characteristics of the [user agent](https://dev
    }
    ```
 
-3. `pointer`: tests whether the user has a pointing device (such as a mouse), and if so, how accurate the primary pointing device is.
+3. `pointer`: tests whether the user has a pointing device (such as a mouse), and if so, how accurate the primary pointing device is
 
 - `none`: The primary input mechanism does not include a pointing device
 
-- `coarse`: The primary input mechanism includes a pointing device of limited accuracy, such as mobile or remote pointer.
+- `coarse`: The primary input mechanism includes a pointing device of limited accuracy, such as mobile or remote pointer
 
-- `fine`:The primary input mechanism includes an accurate pointing device, such as mouse.
+- `fine`:The primary input mechanism includes an accurate pointing device, such as mouse
 
 ```css
 button {
@@ -460,23 +460,23 @@ button {
 
 ### Logical Operators
 
-The logical operators `not`, `and`, and `only` can be used to compose a complex media query.
+The logical operators `not`, `and`, and `only` can be used to compose a complex media query
 
-- `and`: It is used for combining multiple media features together into a single media query, requiring each chained feature to return true for the query to be true. It is also used for joining media features with media types.
+- `and`: It is used for combining multiple media features together into a single media query, requiring each chained feature to return true for the query to be true. It is also used for joining media features with media types
 
 - `not`: It is used to negate a media query
 
-- `only`: It is used to apply a style only if an entire query matches, and is useful for preventing older browsers from applying selected styles.
+- `only`: It is used to apply a style only if an entire query matches, and is useful for preventing older browsers from applying selected styles
 
-- `,` (comma): Commas are used to combine multiple media queries into a single rule. Each query in a comma-separated list is treated separately from the others. Thus, if any of the queries in a list is true, the entire media statement returns true. In other words, lists behave like a logical or operator.
+- `,` (comma): Commas are used to combine multiple media queries into a single rule. Each query in a comma-separated list is treated separately from the others. Thus, if any of the queries in a list is true, the entire media statement returns true. In other words, lists behave like a logical or operator
 
 ### Import
 
-`@import` helps in importing styles from a different style sheet.
+`@import` helps in importing styles from a different style sheet
 
 ### Supports
 
-`@supports` at-rule allows rules to be applied based upon specific support of CSS features by the user agent.
+`@supports` at-rule allows rules to be applied based upon specific support of CSS features by the user agent
 
 ```css
 p {
@@ -1024,6 +1024,10 @@ _Example:_
 
 - Extensions of CSS ([Sass](./Sass.md), Less, [Tailwind](https://tailwindcss.com))
 
+  - [Ready-to-use Tailwind CSS blocks](https://tailblocks.cc/)
+  - [Free Tailwind CSS Templates, Components and Resources](https://www.tailwindtoolbox.com/)
+  - [CSS to TailWind](https://transform.tools/css-to-tailwind)
+
 - behaviour Libraries ([HeadlessUI](https://headlessui.com), [Radix](https://www.radix-ui.com), React Aria, [MUI](https://mui.com/))
 
   - [Master.co](https://css.master.co/): A Virtual CSS language with enhanced syntax
@@ -1182,7 +1186,7 @@ module.exports = {
 
    - [Unicode Char Recognition from drawing](https://shapecatcher.com/)
 
-   - [SVG to JSX and other tools](https://transform.tools/)
+   - SVG to JSX and other tools
 
    - [px to em](http://pxtoem.com/)
 

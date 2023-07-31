@@ -80,3 +80,9 @@ Responsibilities:
 - Server-side scripting
 - Writing application code
 - Object-oriented design
+
+## Reference
+
+[Resume example](https://www.hireitpeople.com/resume-database/63-java-developers-architects-resumes/164084-angular-6-front-end-developer-resume-fl)
+
+[Resume Experience description](https://www.livecareer.com/resume-search/r/front-end-angular-developer-938873b9011f463783cb5b4c4a0b07f5)

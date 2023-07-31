@@ -37,9 +37,9 @@ Browser handles JavaScript, User Events, Render, Paint, Layout, and Reflow all i
 
 ## Background
 
-JavaScript was created by _Brendan Eich_.
+JavaScript was created by _Brendan Eich_
 
-It is one of the 3 core elements of the web.
+It is one of the 3 core elements of the web
 
 1. [HTML](../HTML): The content (Noun)
 2. [CSS](../CSS): Presentation of the content (Adjectives)
@@ -47,11 +47,11 @@ It is one of the 3 core elements of the web.
 
 ### JavaScript And ECMAScript
 
-_ECMAScript_ is the official name for JavaScript.
+_ECMAScript_ is the official name for JavaScript
 
 - JavaScript means the programming language
 
-- ECMAScript is the name used by the language specification. Therefore, whenever referring to versions of the language, people say ECMAScript (ES6).
+- ECMAScript is the name used by the language specification. Therefore, whenever referring to versions of the language, people say ECMAScript (ES6)
 
 - JavaScript is a trademark of Oracle Corporation, Mozilla has acquired a license to use the JavaScript name
 
@@ -164,21 +164,24 @@ function baz(a, b) {
 }
 ```
 
-### Statements And Expressions
+### Statements and Expressions
 
 JavaScript has two major syntactic categories, **statements** and **expressions**:
 
-- **Statements: do things**. A program is a sequence of statements. Here is an example of a statement, which declares (creates) a variable foo:
+- **Statements: do things**. A program is a sequence of statements. Here is an example of a statement, which declares (creates) a variable `foo`:
 
-```javascript
-var foo;
-```
+  ```javascript
+  var foo;
+  ```
 
 - **Expressions: produce values**. They are function arguments, the right side of an assignment, etc. Here's an example of an expression:
 
-```javascript
-3 * 7;
-```
+  ```javascript
+  3 * 7;
+  // produces the value: 21
+  ```
+
+  - An expression is any valid unit of code that resolves to a value
 
 The distinction between statements and expressions is best illustrated by the fact that JavaScript has two different ways to do **if-then-else** either:
 
@@ -288,6 +291,13 @@ There are two limitations on variable names in JavaScript:
 
 - A variable declared by `let` or `const` has a so-called _temporal dead zone (TDZ)_
 
+- Undeclared variables:
+
+  ```javascript
+  const bar = foo + 1;
+  // Uncaught ReferenceError: foo is not defined
+  ```
+
 ::: danger UNDECLARED VARIABLE
 
 If a value is assigned to an undeclared variable, then it will have a global scope even if it is done inside an enclosing function. **Please avoid this**.
@@ -305,11 +315,13 @@ console.log(l); // l has a global scope
 
 JavaScript **Hoisting** refers to the process whereby the interpreter appears to **move the declaration of functions, variables or classes to the top of their scope**, prior to execution of the code
 
-When JavaScript processes in execution context, it will put all the variables at the top i.e. hoist them to the top of the context.
+When JavaScript processes in execution context, it will put all the variables at the top i.e. hoist them to the top of the context
 
 - Hoisting allows functions to be safely used in code before they are declared
 
 - `var` variable that is hoisted is initialized by setting it to `undefined`
+
+_Example:_
 
 ```javascript
 // example 1
@@ -350,11 +362,25 @@ var myVar = "my value";
   let x = 3;
   ```
 
+```javascript
+// works in browsers and Node.js (no errors)
+function hoist(track) {
+  if (track === "Down With Disease") {
+    var action = "dance";
+  } else {
+    // eslint error: 'action' is already defined.  (no-redeclare)
+    var action = "skip";
+  }
+
+  return action;
+}
+```
+
 ## Data Types
 
-Primitives and Objects are the two lowest-level building blocks in JavaScript.
+Primitives and Objects are the two lowest-level building blocks in JavaScript
 
-Primitives are short-lived in most cases in the call stack, while objects are kept as references in the heap.
+Primitives are short-lived in most cases in the call stack, while objects are kept as references in the heap
 
 - To determine the data type use `typeof` operator:
 
@@ -368,7 +394,7 @@ typeof 10n; // "bigint"
 
 ### Primitive Data Types
 
-Primitives are immutable.
+Primitives are immutable
 
 There are 7 primitive data types in JavaScript:
 
@@ -420,10 +446,10 @@ There are 7 primitive data types in JavaScript:
    let phrase = `can embed another ${str}`;
    ```
 
-   - `startsWith`: Check if the string starts with the string passed as argument.
-   - `endsWith`: Check if the string ends with the string passed as argument.
-   - `includes`: Check if the string passed as argument is present.
-   - `repeat`: Repeat the string _n_ number of times.
+   - `startsWith`: Check if the string starts with the string passed as argument
+   - `endsWith`: Check if the string ends with the string passed as argument
+   - `includes`: Check if the string passed as argument is present
+   - `repeat`: Repeat the string _n_ number of times
 
 3. **Boolean**: Logical data type that can only be `true` or `false`
 
@@ -434,13 +460,14 @@ There are 7 primitive data types in JavaScript:
    let isGreater = 4 > 1; // true
    ```
 
-4. **Null**: It is an assignment value. Empty value assigned by the user. Also means 'non-existent', no value is present.
+4. **Null**: It is an assignment value. Empty value assigned by the user. Also means 'non-existent', no value is present
 
    ```javascript
    let age = null;
 
    typeof null;
    // 'object'
+   // :-(
    ```
 
 5. **Undefined**: The meaning of `undefined` is "value is not assigned". Default value of a variable until a value is assigned to it (Data type of a variable that has no value assigned to it)
@@ -494,11 +521,11 @@ There are 7 primitive data types in JavaScript:
 
    - Used as object keys, in [Iterators & Generators](#iterators-and-generators)
 
-   - Symbols are often used to add unique property keys to an object that won't collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object.
+   - Symbols are often used to add unique property keys to an object that won't collide with keys any other code might add to the object, and which are hidden from any mechanisms other code will typically use to access the object
 
    - Characteristics of Symbol:
 
-     - `Symbol.for("key")` call will always return the same Symbol for a given value of `"key"`.
+     - `Symbol.for("key")` call will always return the same Symbol for a given value of `"key"`
 
    ```javascript
    // create symbol via a factory function
@@ -1017,7 +1044,7 @@ Creating an object prototype:
 
 #### Proxy Object
 
-The `Proxy` object (ES6) enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object.
+The `Proxy` object (ES6) enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object
 
 - Proxy objects are commonly used to log property accesses, validate, format, or sanitize inputs, and so on.
 
@@ -1323,7 +1350,7 @@ undefined == 0; // false
 
 ### Spread Syntax
 
-- Spread Properties: Spread properties in object initializers copies own enumerable properties from a provided object onto the newly created object.
+- Spread Properties: Spread properties in object initializers copies own enumerable properties from a provided object onto the newly created object
 
 ```javascript
 let n = { x, y, ...z };
@@ -1353,7 +1380,7 @@ const isFullAge6 = (...years) =>
 isFullAge6(1990, 1999, 1960);
 ```
 
-- Rest Properties: Rest properties collect the remaining own enumerable property keys that are not already picked off by the destructuring pattern. Those keys and their values are copied onto a new object.
+- Rest Properties: Rest properties collect the remaining own enumerable property keys that are not already picked off by the destructuring pattern. Those keys and their values are copied onto a new object
 
 ```javascript
 let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
@@ -1481,6 +1508,26 @@ _Example:_
   var score = Math.random() * 10;
   console.log(score >= 5);
 })();
+
+// not an IIFE
+function foo() {
+  const x = 23;
+}();
+// Uncaught SyntaxError: Unexpected token ')'
+
+// JavaScript runs the above as
+// valid function definition
+function foo() {
+  const x = 23;
+}
+
+();
+// Uncaught SyntaxError: Unexpected token ')'
+
+// enclose the above function in `()` to make it an expression
+(function foo() {
+  const x = 23;
+})();
 ```
 
 - IIFE can be used for scoping in ES5:
@@ -1504,10 +1551,10 @@ _Example:_
   ```
 
 ::: tip Note
-`var` inside a block scope can be accessed outside the block as it only has function scope.
+`var` inside a block scope can be accessed outside the block as it only has function scope
 :::
 
-### Parameters And Arguments
+### Parameters and Arguments
 
 Function parameters:
 
@@ -1999,9 +2046,9 @@ console.log(namesItr.next()); // {done: true}
 
 ### Generator Function
 
-The `function*` declaration (`function` keyword followed by an asterisk) defines a _generator function_, which returns a **Generator object**.
+The `function*` declaration (`function` keyword followed by an asterisk) defines a _generator function_, which returns a **Generator object**
 
-- Generators can return ("yield") multiple values, one after another, on-demand.
+- Generators can return ("yield") multiple values, one after another, on-demand
 
 Syntax:
 
@@ -2050,6 +2097,37 @@ function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
 
   return iterationCount;
 }
+```
+
+- Provide input to the Generator function
+
+```javascript
+function* showNext() {
+  yield 1;
+  yield 2;
+
+  const customOutput = yield "enter custom output";
+  yield customOutput;
+
+  return 100;
+}
+
+console.log(showNext.next());
+// {value: 2, done: false}
+
+console.log(showNext.next());
+// {value: "enter custom output", done: false}
+
+console.log(showNext.next(52));
+// {value: 52, done: false}
+
+// or
+
+console.log(showNext.next());
+// {value: undefined, done: false}
+
+console.log(showNext.next());
+// {value: 100, done: true}
 ```
 
 ::: warning NOTE
@@ -2614,13 +2692,13 @@ The End
 Second
 ```
 
-This is because the `setTimeout()` function creates a Asynchronous call stack.
+This is because the `setTimeout()` function creates a Asynchronous call stack
 
 Key aspects of Asynchronous functions are:
 
-- Allow asynchronous functions to run in the background.
-- Callbacks are passed that run once the function has finished its work.
-- Move on immediately: Non-blocking code.
+- Allow asynchronous functions to run in the background
+- Callbacks are passed that run once the function has finished its work
+- Move on immediately: Non-blocking code
 
 ### The Event Loop
 
@@ -2628,9 +2706,9 @@ JavaScript has a runtime model based on an **event loop**, which is responsible 
 
 WEB API's are part of JavaScript Runtime but leave outside of the JavaScript engine. Like the DOM events, `setTimeout()`, `XMLHttpRequest()` etc.
 
-- Event loop monitors the Message Queue and Execution Stack so that the first callback function can be pushed into the Execution Stack if the Execution Stack is empty.
+- Event loop monitors the Message Queue and Execution Stack so that the first callback function can be pushed into the Execution Stack if the Execution Stack is empty
 
-- All callback wait in WEB API's till the event happens and then they move to the Message Queue, where they wait for their turn to be pushed into the Execution Stack.
+- All callback wait in WEB API's till the event happens and then they move to the Message Queue, where they wait for their turn to be pushed into the Execution Stack
 
 The call stack?
 
@@ -3104,15 +3182,30 @@ try {
 
 - When we want an event handler attached to an element that is not yet in the DOM when the page is loaded.
 
-**Event delegation** is a technique of delegating events to a single common ancestor.
+**Event delegation** is a technique of delegating events to a single common ancestor
 
-- Due to _event bubbling_, events "bubble" up the DOM tree by executing any handlers progressively on each ancestor element up to the root that may be listening to it
+- JavaScript event listeners fire not only on a single DOM element but also on all its descendants
+
+- Due to _event bubbling_, **events "bubble" up the DOM tree** by executing any handlers progressively on each ancestor element up to the root that may be listening to it
 
 ## ESM (ECMAScript Modules)
 
-JavaScript modules allow us to break up our code into separate files
+Modules allow us to divide the code-base into small units that can be developed and tested independently
+
+Advantages:
 
 - This makes it easier to maintain the code-base
+- Code reuse across different projects
+- Encapsulation (information hiding)
+- Managing dependencies
+
+::: tip NOTE
+It is important to clarify the distinction between a **module** and a **module system**
+
+We can define **a module as the actual unit of software**, while a module system is the syntax and the tooling that allows us to define modules and to use them within our projects
+:::
+
+ESM is the official standard format for JavaScript. [Module System in Node.js](./Node.js/Node.js.md#module-system-in-javascript-and-nodejs)
 
 - JavaScript modules rely on the [`import`](#import) and [`export`](#export) statements
 

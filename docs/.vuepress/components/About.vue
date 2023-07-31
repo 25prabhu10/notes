@@ -1,4 +1,4 @@
-// About.vue
+<!-- About.vue -->
 
 <template>
   <div>

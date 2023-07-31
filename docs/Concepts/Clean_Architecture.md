@@ -1,6 +1,21 @@
+---
+title: Clean Architecture
+description:
+---
+
 # Clean Architecture
 
+A domain-centric approach to organizing dependencies
+
+Formerly known as:
+
+- Onion Architecture
+- Hexagonal Architecture
+- Ports and Adapters
+
 With Clean Architecture, the **Domain** and **Application** layers are at the center of the design (**Core** of the system)
+
+- Dependence on infrastructure concerns is minimized; keeping focus on domain logic
 
 - **Core** should not be dependent on data access and other infrastructure. All dependencies point inwards
 
@@ -32,6 +47,62 @@ Layers:
 
   - Depend on Core system, But not on Presentation
 
+Clean Architecture Rules:
+
+1. Model all business rules and entities in the Core project
+2. All dependencies flow towards the Core project
+3. Inner projects define interfaces; outer projects implement them
+
+What belongs in the **Core project**:
+
+- Interfaces
+- Aggregates, Entities
+- Value Objects
+- Domain Services
+- Domain Exceptions
+- Domain Events, Event Handlers
+- Specifications
+- Validators
+- Enums
+- Custom Guards
+
+What belongs in the **Infrastructure project**:
+
+- Repositories, DbContext Classes, Cached Repositories
+- API Clients
+- File Systems Accessors, Azure Storage Accessors
+- Emailing Implementation, SMS Implementation
+- System Clock
+
+What belongs in the **Web/API** project:
+
+- API Endpoints, Razor Pages, Controllers, Views
+- API Models, ViewModels
+- Filters
+- Model Binders
+- Tag Helpers
+- **Composition Root**
+
+The "Shared Kernel":
+
+- Domain-Driven Design term
+- Holds common types shared between DDD apps
+- Typically referenced by Core projects
+- Ideally distributed as NuGet Packages
+
+What belongs in the **Shared Kernel** project:
+
+- Base Entity, Base Value Object, Base Domain Event, Base Specification
+- Common Interfaces, Common Exceptions
+- Common Auth
+- Common Guards
+- Common Libraries, DI, Logging, Validators
+- **No Infrastructure Dependencies**
+
+N-Tier/N-Layer Architecture:
+
+- UI --> Business --> Data Access --> DB
+
 ## T
 
 - src
@@ -57,3 +128,6 @@ Layers:
 
 - [Clean Architecture with .NET Core: Getting Started](https://jasontaylor.dev/clean-architecture-getting-started/)
 - [Clean Architecture with ASP.NET Core 2.1 | Jason Taylor](https://www.youtube.com/watch?v=_lwCVE_XgqI)
+
+- [Tiny Little Drawing app](https://www.tldraw.com/)
+- [Drawing app](https://excalidraw.com/)
