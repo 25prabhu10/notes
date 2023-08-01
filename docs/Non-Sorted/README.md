@@ -13,7 +13,6 @@ https://standardebooks.org/collections/modern-librarys-100-best-novels
 Victor Franki: "A Man's Search for Meaning" - It's not sex that brings up meaning. It's not power that brings us meaning. Suffering brings us meaning
 
 1. [Keyboards](./Keyboard.md): Keyboard types
-2. [Interview](./Interview/)
 3. [Aptitude](./Apti/Programs/)
 4. [Income Tax](./Finance/Income-Tax.md)
 5. [Math](./Math/)

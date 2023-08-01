@@ -9,6 +9,17 @@ lastmod: 2023-07-26
 
 All the best!
 
+The [International English Language Testing System](https://www.ielts.org/) (IELTS), is an international standardized test of English language proficiency for non-native English language speakers
+
+- Common European Framework of Reference for Languages (CEFR), also known as CEF
+
+## Condutors
+
+- [IDP: IELTS Australia](https://www.ieltsidpindia.com/)
+- [The British Council](https://www.britishcouncil.in/exam/ielts): **Not in India**
+
+Cost: ₹16,250
+
 ## Format
 
 - 4 equally graded parts scored 0-9 on a Rubric
@@ -20,8 +31,13 @@ All the best!
 
 - Tests English ability (not student intelligence)
 
-1. Academic Exam:
-2. General Exam
+1. Academic Exam: is for **Study abroad**, in a University or College
+
+   - At least 6.5
+
+2. General Exam: is for **work abroad, Immigration and Permanent Residence(PR)**
+
+3. UKVI Exam: is for anyone **immigrating to The United Kingdom**
 
 | Academic Exam     | General Exam                    |
 | ----------------- | ------------------------------- |

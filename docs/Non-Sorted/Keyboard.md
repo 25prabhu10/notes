@@ -57,7 +57,7 @@ description: Keyboard types
    - Roll-up Keyboards
    - Projection Keyboards
 
-## ???
+## Types
 
 1. Membrane Keyboard:
 
@@ -178,3 +178,4 @@ Types of plastic:
 
 7. Keychron Q1
 8. Keychron K2
+9. Keychron K8 Pro

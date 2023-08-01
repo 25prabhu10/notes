@@ -7,6 +7,31 @@ lastmod: 2023-07-30
 
 # Svelte
 
+[Svelte](https://svelte.dev/): cybernetically enhanced web apps
+
+Features:
+
+- Compiled
+- Compact
+- Complete
+
+[SvelteKit](https://kit.svelte.dev) is built on Svelte, a UI framework that uses a compiler to let you write breathtakingly concise components that do minimal work in the browser, using languages you already know - HTML, CSS and JavaScript
+
+## Routing
+
+At the heart of SvelteKit is a _filesystem-based router_. The routes of your app - i.e. the URL paths that users can access — are defined by the directories in your code-base:
+
+- `src/routes` is the root route
+- `src/routes/about` creates an `/about` route
+- `src/routes/blog/[slug]` creates a route with a _parameter_, `slug`, that can be used to load data dynamically when a user requests a page like `/blog/hello-world`
+
+> You can change `src/routes` to a different directory by editing the [project config](https://kit.svelte.dev/docs/configuration)
+
+- Each route directory contains one or more _route files_, which can be identified by their `+` prefix
+
+1. `+page`: 
+    1. `+page.svelte`: 
+
 ## React vs. Svelte
 
 [React](../React/React.md) is front-end UI library.
