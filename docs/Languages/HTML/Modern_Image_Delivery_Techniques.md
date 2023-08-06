@@ -324,7 +324,7 @@ gulp.task("default", () => {
         pngquant({ quality: [0.5, 0.5] }),
         mozjpeg({ quality: 50 }),
         imageminWebp({ quality: 50 }),
-      ])
+      ]),
     )
     .pipe(gulp.dest("images/"));
 });

@@ -2,7 +2,7 @@
 
 Full-Stack Developer
 
-Email: 25rabhu10@gmail.com
+Email: `25rabhu10@gmail.com`
 Phone: 9480580490
 Address: Bangalore, Karnataka, 560066
 

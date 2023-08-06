@@ -452,7 +452,7 @@ type ConversionResType = "as-number" | "as-text";
 function combine(
   inp1: Combinable,
   inp2: Combinable,
-  resultConversion: ConversionResType
+  resultConversion: ConversionResType,
 ) {
   // ...
 }
@@ -920,7 +920,12 @@ class Person {
   protected age: number;
 
   // userName will automatically assigned to this.userName
-  constructor(name: string, typ: string, age: number, public userName: string) {
+  constructor(
+    name: string,
+    typ: string,
+    age: number,
+    public userName: string,
+  ) {
     this.name = name;
     this.typ = typ;
     this.age = age;
@@ -938,7 +943,7 @@ class Person {
     public name: string,
     private typ: string,
     protected age: number,
-    public userName: string
+    public userName: string,
   ) {}
 }
 
@@ -949,7 +954,10 @@ const pers1 = new Person("Max", "admin", 27, "maxin");
 
 ```typescript
 class Car {
-  constructor(public readonly seats: number = 36, private color: string) {}
+  constructor(
+    public readonly seats: number = 36,
+    private color: string,
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -1037,7 +1045,10 @@ const newMax = new Max("maxin");
 
 ```typescript
 class Car {
-  constructor(public readonly seats: number = 36, private color: string) {}
+  constructor(
+    public readonly seats: number = 36,
+    private color: string,
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -1057,7 +1068,10 @@ console.log(newCar.colorValue);
 
 ```typescript
 class Car {
-  constructor(public readonly seats: number = 36, private color: string) {}
+  constructor(
+    public readonly seats: number = 36,
+    private color: string,
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -1085,7 +1099,10 @@ console.log(newCar.colorValue);
 
 ```typescript
 abstract class Car {
-  constructor(public readonly seats: number, private color: string) {}
+  constructor(
+    public readonly seats: number,
+    private color: string,
+  ) {}
 
   abstract printCar(this: Car): void;
 }
@@ -1097,7 +1114,10 @@ abstract class Car {
 class Car {
   private static instance: Car;
 
-  private constructor(public readonly seats: number, private color: string) {}
+  private constructor(
+    public readonly seats: number,
+    private color: string,
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -1221,7 +1241,7 @@ type P = keyof Point;
 // Example
 function extractAndConvert<T extends object, K extends keyof object>(
   obj: T,
-  key: K
+  key: K,
 ) {
   return obj[key];
 }
@@ -1403,11 +1423,11 @@ myColorNew.toUpperCase(); // valid operation as myColorNew is a string
 const getDeepValue = <
   TObj,
   TFirstKey extends keyof TObj,
-  TSecondKey extends keyof TObj[TFirstKey]
+  TSecondKey extends keyof TObj[TFirstKey],
 >(
   obj: TObj,
   firstKey: TFirstKey,
-  secondKey: TSecondKey
+  secondKey: TSecondKey,
 ) => {
   return obj[firstKey][secondKey];
 };
@@ -1449,9 +1469,9 @@ type RequiredInfoForHuman = GetRequiredInfo<Human>;
 ```
 
 ```typescript
-const deepEqualCompare = <Arg>(
+const deepEqualCompare = <Arg,>(
   a: Arg extends any[] ? `Don't pass an array!` : Arg,
-  b: Arg
+  b: Arg,
 ): boolean => {
   return a === b;
 };

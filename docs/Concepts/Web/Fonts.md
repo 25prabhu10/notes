@@ -16,16 +16,42 @@ You can use system fonts if you want to not load a separate font:
 
 ```css
 /*Sans-serif*/
-font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui,
-  helvetica neue, helvetica, Ubuntu, roboto, noto, arial, sans-serif;
+font-family:
+  -apple-system,
+  BlinkMacSystemFont,
+  avenir next,
+  avenir,
+  segoe ui,
+  helvetica neue,
+  helvetica,
+  Ubuntu,
+  roboto,
+  noto,
+  arial,
+  sans-serif;
 
 /*Serif*/
-font-family: Iowan Old Style, Apple Garamond, Baskerville, Times New Roman, Droid
-    Serif, Times, Source Serif Pro, serif, Apple Color Emoji, Segoe UI Emoji, Segoe
-    UI Symbol;
+font-family:
+  Iowan Old Style,
+  Apple Garamond,
+  Baskerville,
+  Times New Roman,
+  Droid Serif,
+  Times,
+  Source Serif Pro,
+  serif,
+  Apple Color Emoji,
+  Segoe UI Emoji,
+  Segoe UI Symbol;
 
 /*Mono*/
-font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+font-family:
+  Menlo,
+  Consolas,
+  Monaco,
+  Liberation Mono,
+  Lucida Console,
+  monospace;
 ```
 
 - Reference [SYSTEM FONT STACK](https://systemfontstack.com/)

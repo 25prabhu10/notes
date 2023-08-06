@@ -28,28 +28,28 @@ while (x == y) {
 }
 
 // GNU
-while (x == y) 
+while (x == y)
   {
     func1 ();
     func2 ();
   }
 
 // Whitesmiths
-while (x == y) 
+while (x == y)
     {
     func1();
     func2();
     }
 
 // Horstmann
-while (x == y) 
+while (x == y)
 {
   func1();
   func2();
 }
 
 // Haskell style
-while (x == y) 
+while (x == y)
   { func1()
   ; func2()
   ;

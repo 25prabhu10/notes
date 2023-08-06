@@ -88,9 +88,9 @@ Structure of Gulp file can be divided into 4 parts as shown below.
        .pipe(
          autoprefixer({
            cascade: false,
-         })
+         }),
        )
-       .pipe(gulp.dest("dist/"))
+       .pipe(gulp.dest("dist/")),
    );
    ```
 
@@ -155,7 +155,10 @@ Types of steams:
       const concat = require("gulp-concat");
 
       gulp.task("scripts", () =>
-        gulp.src("./lib/*.js").pipe(concat("all.js")).pipe(gulp.dest("./dist/"))
+        gulp
+          .src("./lib/*.js")
+          .pipe(concat("all.js"))
+          .pipe(gulp.dest("./dist/")),
       );
       ```
 
@@ -165,7 +168,7 @@ Types of steams:
       const useref = require("gulp-useref");
 
       gulp.task("useref", () =>
-        gulp.src("app/*.html").pipe(useref()).pipe(gulp.dest("dist"))
+        gulp.src("app/*.html").pipe(useref()).pipe(gulp.dest("dist")),
       );
       ```
 
@@ -180,7 +183,7 @@ Types of steams:
           .src("app/*.html")
           // Minifies only if it's a JavaScript file
           .pipe(gulpIf("*.js", uglify()))
-          .pipe(gulp.dest("dist"))
+          .pipe(gulp.dest("dist")),
       );
       ```
 
@@ -196,9 +199,9 @@ Types of steams:
           .pipe(
             babel({
               presets: ["@babel/preset-env"],
-            })
+            }),
           )
-          .pipe(gulp.dest("dist"))
+          .pipe(gulp.dest("dist")),
       );
       ```
 
@@ -213,7 +216,7 @@ Types of steams:
         gulp
           .src("css/*.css")
           .pipe(cleanCSS({ compatibility: "ie8" }))
-          .pipe(gulp.dest("./dist/"))
+          .pipe(gulp.dest("./dist/")),
       );
       ```
 
@@ -241,9 +244,9 @@ Types of steams:
           .pipe(
             autoprefixer({
               cascade: false,
-            })
+            }),
           )
-          .pipe(gulp.dest("dist/"))
+          .pipe(gulp.dest("dist/")),
       );
       ```
 
@@ -256,7 +259,7 @@ Types of steams:
         gulp
           .src("source-files")
           .pipe(sass()) // Using gulp-sass
-          .pipe(gulp.dest("destination"))
+          .pipe(gulp.dest("destination")),
       );
       ```
 
@@ -266,7 +269,7 @@ Types of steams:
       const csso = require("gulp-csso");
 
       gulp.task("default", () =>
-        gulp.src("./main.css").pipe(csso()).pipe(gulp.dest("./out"))
+        gulp.src("./main.css").pipe(csso()).pipe(gulp.dest("./out")),
       );
 
       gulp.task("development", () =>
@@ -277,9 +280,9 @@ Types of steams:
               restructure: false,
               sourceMap: true,
               debug: true,
-            })
+            }),
           )
-          .pipe(gulp.dest("./out"))
+          .pipe(gulp.dest("./out")),
       );
       ```
 
@@ -297,9 +300,9 @@ Types of steams:
             imagemin({
               // Setting interlaced to true
               interlaced: true,
-            })
+            }),
           )
-          .pipe(gulp.dest("dist/images"))
+          .pipe(gulp.dest("dist/images")),
       );
       ```
 
@@ -319,9 +322,9 @@ Types of steams:
             htmlmin({
               collapseWhitespace: true,
               removeComments: true,
-            })
+            }),
           )
-          .pipe(gulp.dest("./dist/"))
+          .pipe(gulp.dest("./dist/")),
       );
       ```
 
@@ -342,10 +345,10 @@ Types of steams:
               prependUnicode: true, // recommended option
               formats: ["ttf", "eot", "woff"], // default, 'woff2' and 'svg' are available
               timestamp: runTimestamp, // recommended to get consistent builds when watching files
-            })
+            }),
           )
           .on("glyphs", (glyphs, options) => console.log(glyphs, options))
-          .pipe(gulp.dest("www/fonts/"))
+          .pipe(gulp.dest("www/fonts/")),
       );
       ```
 
@@ -409,10 +412,10 @@ Types of steams:
             cache(
               imagemin({
                 interlaced: true,
-              })
-            )
+              }),
+            ),
           )
-          .pipe(gulp.dest("dist/images"))
+          .pipe(gulp.dest("dist/images")),
       );
       ```
 
@@ -426,7 +429,7 @@ Types of steams:
           .src("files/*.js")
           .pipe(cache("linting"))
           .pipe(jshint())
-          .pipe(jshint.reporter())
+          .pipe(jshint.reporter()),
       );
 
       gulp.task("watch", () => gulp.watch("files/*.js", ["lint"]));
@@ -449,7 +452,7 @@ Types of steams:
           .src(imgSrc)
           .pipe(newer(imgDest)) // Add the newer pipe to pass through newer images only
           .pipe(imagemin())
-          .pipe(gulp.dest(imgDest))
+          .pipe(gulp.dest(imgDest)),
       );
 
       gulp.task("default", () => gulp.watch(imgSrc, ["images"]));
@@ -467,7 +470,7 @@ Types of steams:
       const sass = require("gulp-sass");
 
       gulp.task("sass", () =>
-        gulp.src("source-files").pipe($.sass()).pipe(gulp.dest("destination"))
+        gulp.src("source-files").pipe($.sass()).pipe(gulp.dest("destination")),
       );
       ```
 
@@ -485,7 +488,7 @@ Types of steams:
           .pipe(plugin1())
           .pipe(plugin2())
           .pipe(sourcemaps.write())
-          .pipe(gulp.dest("dist"))
+          .pipe(gulp.dest("dist")),
       );
       ```
 
@@ -499,7 +502,7 @@ Types of steams:
           .src("./src/*.ext")
           .pipe(plumber())
           .pipe(plugin1())
-          .pipe(gulp.dest("./dist"))
+          .pipe(gulp.dest("./dist")),
       );
       ```
 

@@ -17,6 +17,9 @@
     },
     {
       "pattern": "^https://google-webfonts-helper.herokuapp.com"
+    },
+    {
+      "pattern": "^https://www.iana.org/assignments/jwt/jwt.xhtml"
     }
   ]
 }

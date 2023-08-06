@@ -391,7 +391,7 @@ app.get("/photos", async (req, res) => {
   const photos = await getOrSetCache(`photos?albumId=${albumId}`, async () => {
     const { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/photos",
-      { params: { albumId } }
+      { params: { albumId } },
     );
 
     return data;
@@ -404,7 +404,7 @@ app.get("photos/:id", async (req, res) => {
   const photo = await getOrSetCache(`photos:${req.params.id}`, async () => {
     const { data } = await axios.get(
       `https://jsonplaceholder.typicode.com/photos/${req.params.id}`,
-      { params: { albumId } }
+      { params: { albumId } },
     );
 
     return data;

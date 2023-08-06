@@ -252,7 +252,7 @@ Insert Options:
          { _id: "yoga", name: "Yoga" },
          { _id: "Cooking", name: "Cooking" },
        ],
-       { ordered: false }
+       { ordered: false },
      );
 
      // IN THIS EXAMPLE DOCUMENT WITH _id: "Cooking" WILL BE INSERTED EVEN THOUGH THERE WAS AN ERROR IN THE PREVIOUS DOCUMENT
@@ -333,7 +333,7 @@ Update Operators:
     // ALONG WITH "$each"
     db.movies.updateOne(
       { name: 1 },
-      { $addToSet: { genre: { $each: ["Comedy", "Drama", "Horror"] } } }
+      { $addToSet: { genre: { $each: ["Comedy", "Drama", "Horror"] } } },
     );
     ```
 
@@ -366,7 +366,7 @@ Update Operators:
     { $set: { "comments.$[elem].hidden": true } },
     {
       arrayFilters: [{ "elem.votes": { $lte: -5 } }],
-    }
+    },
   );
   ```
 

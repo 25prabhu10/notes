@@ -1,6 +1,6 @@
 ---
 title: C/C++ Concepts
-description: Introduction to C/CPP.
+description: Introduction to C/CPP
 ---
 
 # C/C++ Concepts
@@ -15,7 +15,7 @@ For Windows (uses [MinGW Compiler](https://osdn.net/projects/mingw/)):
 - [Visual Studio](https://visualstudio.microsoft.com/)
 - [Visual Studio Code](https://code.visualstudio.com/): Text editor
 - [Code::Blocks](http://www.codeblocks.org/downloads/binaries/)
-- [Dev-Cpp](https://github.com/Embarcadero/Dev-Cpp/releases/tag/v6.3): Download the **with Mingw/GCC** version so that compiler will also be included.
+- [Dev-Cpp](https://github.com/Embarcadero/Dev-Cpp/releases/tag/v6.3): Download the **with Mingw/GCC** version so that compiler will also be included
 
 _Dev-Cpp Setup:_
 

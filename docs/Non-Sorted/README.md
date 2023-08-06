@@ -6,18 +6,12 @@ sidebar: false
 
 # Table of Content
 
-Adversity Paradox: The idea that we get stronger from stresses in our lives
-http://gutenberg.net.au/plusfifty-n-z.html#orwell
-https://standardebooks.org/collections/modern-librarys-100-best-novels
-
-Victor Franki: "A Man's Search for Meaning" - It's not sex that brings up meaning. It's not power that brings us meaning. Suffering brings us meaning
-
 1. [Keyboards](./Keyboard.md): Keyboard types
-3. [Aptitude](./Apti/Programs/)
-4. [Income Tax](./Finance/Income-Tax.md)
-5. [Math](./Math/)
-6. [Nature](./Nature.md)
-7. [Chess](./Chess.md)
+2. [Aptitude](./Apti/Programs/)
+3. [Income Tax](./Finance/Income-Tax.md)
+4. [Math](./Math/)
+5. [Nature](./Nature.md)
+6. [Chess](./Chess.md)
 
 [Open Source SmartWatch](https://open-smartwatch.github.io/)
 

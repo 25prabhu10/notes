@@ -44,7 +44,7 @@ Block level contains:
      - [ ] something is not TODO.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <body>
     <h1>The *= Operator</h1>

@@ -194,7 +194,9 @@ Some Pseudo Classes:
   /* For buttons */
   button:focus {
     outline: none;
-    box-shadow: 0 0 0 2px var(--clr-bg), 0 0 0 4px var(--clr-primary);
+    box-shadow:
+      0 0 0 2px var(--clr-bg),
+      0 0 0 4px var(--clr-primary);
   }
   ```
 

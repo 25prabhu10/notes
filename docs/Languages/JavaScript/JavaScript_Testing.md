@@ -278,7 +278,7 @@ test("adds 1 + 2 to equal 3", () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
-    })
+    }),
   );
 
   beforeEach(() => {
@@ -300,7 +300,7 @@ test("adds 1 + 2 to equal 3", () => {
 
     expect(rate).toEqual(null);
     expect(fetch).toHaveBeenCalledWith(
-      "https://api.exchangeratesapi.io/latest?base=USD"
+      "https://api.exchangeratesapi.io/latest?base=USD",
     );
   });
   ```
@@ -312,7 +312,7 @@ test("adds 1 + 2 to equal 3", () => {
   async function convert(base, destination) {
     try {
       const result = await fetch(
-        `https://api.exchangeratesapi.io/latest?base=${base}`
+        `https://api.exchangeratesapi.io/latest?base=${base}`,
       );
 
       const data = await result.json();

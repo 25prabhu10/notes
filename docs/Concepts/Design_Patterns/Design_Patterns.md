@@ -817,14 +817,14 @@ let subscriptionID2 = publisherSubscriber.subscribe(
   "mouseHovered",
   function (data) {
     console.log("mouseHovered, data: " + JSON.stringify(data));
-  }
+  },
 );
 
 let subscriptionID3 = publisherSubscriber.subscribe(
   "mouseClicked",
   function (data) {
     console.log("second mouseClicked, data: " + JSON.stringify(data));
-  }
+  },
 );
 
 // When we publish an event, all callbacks should

@@ -98,7 +98,7 @@ export const useDarkMode = () => {
   const [mode, setMode] = useState(
     () =>
       window.localStorage.getItem("colorMode") ||
-      (window.matchMedia(preferDarkQuery).matches ? "dark" : "light")
+      (window.matchMedia(preferDarkQuery).matches ? "dark" : "light"),
   );
 
   useEffect(() => {
@@ -154,7 +154,7 @@ const matchDark = "(prefers-color-scheme: dark)";
 
 const useDarkMode = () => {
   const [isDark, setIsDark] = useState(
-    () => window.matchMedia(matchDark) && window.matchMedia(matchDark).matches
+    () => window.matchMedia(matchDark) && window.matchMedia(matchDark).matches,
   );
 
   useEffect(() => {

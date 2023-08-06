@@ -87,7 +87,7 @@ They are "proposed" to the committee by delegates, ideally with community suppor
    - Browsers read HTML document line by line and render it
 
    ```html
-   <!DOCTYPE html>
+   <!doctype html>
    <html>
      <body>
        <p>Before the script...</p>
@@ -1894,7 +1894,7 @@ var john = {
   presentation: function (style, timeOfDay) {
     if (style === "formal") {
       console.log(
-        "I'm " + this.name + " of age " + this.age + ". Good " + timeOfDay
+        "I'm " + this.name + " of age " + this.age + ". Good " + timeOfDay,
       );
     } else if (style === "casual") {
       console.log(
@@ -1903,7 +1903,7 @@ var john = {
           "here, of age " +
           this.age +
           ". Good " +
-          timeOfDay
+          timeOfDay,
       );
     }
   },
@@ -2223,7 +2223,7 @@ function calcAge(year) {
 
 // ES5
 console.log(
-  "I was born in the year " + year + " and my age is " + calcAge(year)
+  "I was born in the year " + year + " and my age is " + calcAge(year),
 );
 
 //ES6
@@ -2349,7 +2349,7 @@ let arr = [element0, element1, ..., elementN]
 
   ```javascript
   Array.from(boxes).forEach(
-    (cur) => (cur.style.backgroundColor = "dodgerblue")
+    (cur) => (cur.style.backgroundColor = "dodgerblue"),
   );
   ```
 
@@ -2552,7 +2552,7 @@ const question = new Map();
 
 question.set(
   "question",
-  "What is the official name of the latest major JavaScript version?"
+  "What is the official name of the latest major JavaScript version?",
 );
 question.set(1, "ES5");
 question.set(2, "ES2015");
@@ -2565,7 +2565,7 @@ question.get("correct"); // 2
 question.size; // 6
 
 question.forEach((value, key) =>
-  console.log(`This is ${key}, and it's set to ${value}`)
+  console.log(`This is ${key}, and it's set to ${value}`),
 );
 
 // loop through key-value pairs
@@ -2735,11 +2735,11 @@ function getRecipe() {
             console.log(recipe2);
           },
           1500,
-          recipe.publisher
+          recipe.publisher,
         );
       },
       1500,
-      recipeID[2]
+      recipeID[2],
     );
   }, 1500);
 }
@@ -2829,7 +2829,7 @@ const getRecipe = (recID) => {
         resolve(`${ID}: ${recipe.title}`);
       },
       1500,
-      recID
+      recID,
     );
   });
 };
@@ -2842,7 +2842,7 @@ const getRelated = (publisher) => {
         resolve(`${pub}: ${recipe2.title}`);
       },
       1500,
-      publisher
+      publisher,
     );
   });
 };
@@ -2953,7 +2953,7 @@ const getRecipe = (recID) => {
         resolve(`${ID}: ${recipe.title}`);
       },
       1500,
-      recID
+      recID,
     );
   });
 };
@@ -2966,7 +2966,7 @@ const getRelated = (publisher) => {
         resolve(`${pub}: ${recipe2.title}`);
       },
       1500,
-      publisher
+      publisher,
     );
   });
 };
@@ -3085,7 +3085,7 @@ fetch(resource, init);
 async function getTodo(id) {
   try {
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/todos/${id}`
+      `https://jsonplaceholder.typicode.com/todos/${id}`,
     );
     const data = await response.json();
     console.log(data);
@@ -3104,7 +3104,7 @@ Using Async and Await:
 async function getTodo(id) {
   try {
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/todos/${id}`
+      `https://jsonplaceholder.typicode.com/todos/${id}`,
     );
     const data = await response.json();
     console.log(data);
@@ -3158,7 +3158,7 @@ const response = await fetch("https://example.com/api", {
 ```javascript
 try {
   const response = await fetch(
-    `https://jsonplaceholder.typicode.com/todos/${id}`
+    `https://jsonplaceholder.typicode.com/todos/${id}`,
   );
 
   if (!response.ok) {

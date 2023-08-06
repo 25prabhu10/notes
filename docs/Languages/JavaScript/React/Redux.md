@@ -399,3 +399,9 @@ Watcher Saga --> Actions --> Worker Saga
 ## References
 
 - [react-redux history implementation](https://blog.isquaredsoftware.com/2018/11/react-redux-history-implementation/)
+
+- [Demystifying React Redux](https://blog.scottlogic.com/2020/05/01/demystifying-react-redux.html)
+
+- [Fundamentals of Redux Course from Dan Abramov](https://egghead.io/lessons/react-redux-the-single-immutable-state-tree)
+
+- [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)

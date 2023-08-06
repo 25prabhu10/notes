@@ -4,6 +4,24 @@ next: ./General.md
 sidebar: false
 ---
 
+# Table of Content
+
+"I have interviewed at a number of different companies for various positions. I received a written offer for one of the positions that would be an excellent fit for my qualifications and this offer was received after we scheduled this interview. The truth is, I believe the position you are offering me is an even better fit for my qualifications, but the salary you are offering is less than the other offer I have. This presents a challenging dilemma for me as you might imagine. Is there a possibility of meeting or improving upon the salary identified in this other offer? I can show you the other offer if that would be helpful."
+
+1. [General](./General.md)
+2. [Agile](./Agile.md)
+3. [ASP.NET](./ASP_NET.md)
+4. [BackEnd](./BackEnd.md)
+5. [C-Sharp](./C_Sharp.md)
+6. [Database](./Database.md)
+7. [FrontEnd](./FrontEnd.md)
+8. [Tools](./Tools.md)
+9. [Roles and Responsibilities](./Roles_and_Responsibilities.md)
+10. [LinkedIn](./LinkedIn.md)
+11. [Temp](./temp.md)
+
+## Temp
+
 Seeking an Onsite Opportunity (serving notice period)
 Dear All,
 
@@ -24,14 +42,14 @@ Regards,
 Prabhu Hiremath
 Grade : C2 (IT Analyst)
 Emp. Id: 1201094
-Email Id: prabhu.hiremath@tcs.com
+Email Id: `prabhu.hiremath@tcs.com`
 Contact No.: +91-9480580490
 
 Looking for Canada onsite opportunity
 getting released from current project by March end.
 |Skills: Selenium Java Automation, Manual testing | Exp. 8+ years.
 Please find the attached resume and let me know about open requirements in UK.
-Contact Details: Emp ID - 1747778|Email - suniti.pandey@tcs.com |Phone - +44-07771089293
+Contact Details: Emp ID - 1747778|Email - `suniti.pandey@tcs.com` |Phone - +44-07771089293
 
 Looking for immediate onsite opportunity in testing
 Skills : API Testing, Robot Framework, POSTMAN, Jenkins, JIRA, GIT Repo, Swagger, Basics in Selenium Automation with core Java, SQL.
@@ -40,7 +58,7 @@ Ready to learn and upskill new technologies as well.
 Contact:
 Emp id : 1815678
 Release Date : 28thFeb'23
-Mail id : ananchana.pk@tcs.com
+Mail id : `ananchana.pk@tcs.com`
 Contact:+91-8606739275
 
 Unalllocated || Immediate Joiner || Looking for a project || Onsite Opportunity
@@ -70,26 +88,10 @@ Kindly connect me if there is any requirement.
 Regards,
 Nishanth Hanumanthu
 
-Email Id: nishanth.h1@tcs.com
+Email Id: `nishanth.h1@tcs.com`
 contact1 : 9493283792,
 contact2 : 9398015417,
 teams: 1641829
-
-# Table of Content
-
-"I have interviewed at a number of different companies for various positions. I received a written offer for one of the positions that would be an excellent fit for my qualifications and this offer was received after we scheduled this interview. The truth is, I believe the position you are offering me is an even better fit for my qualifications, but the salary you are offering is less than the other offer I have. This presents a challenging dilemma for me as you might imagine. Is there a possibility of meeting or improving upon the salary identified in this other offer? I can show you the other offer if that would be helpful."
-
-1. [General](./General.md)
-2. [Agile](./Agile.md)
-3. [ASP.NET](./ASP_NET.md)
-4. [BackEnd](./BackEnd.md)
-5. [C-Sharp](./C_Sharp.md)
-6. [Database](./Database.md)
-7. [FrontEnd](./FrontEnd.md)
-8. [Tools](./Tools.md)
-9. [Roles and Responsibilities](./Roles_and_Responsibilities.md)
-10. [LinkedIn](./LinkedIn.md)
-11. [Temp](./temp.md)
 
 ## Questions
 

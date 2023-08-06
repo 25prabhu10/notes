@@ -416,7 +416,7 @@ Relation is a way in which one document interacts with another document.
    ```javascript
    db.customers.update(
      { first_name: "Prabhu" },
-     { first_name: "Prabhu", last_name: "Hiremath", age: 25 }
+     { first_name: "Prabhu", last_name: "Hiremath", age: 25 },
    );
 
    // or update a specific property
@@ -578,7 +578,7 @@ db.posts.find(
   {
     title: 1,
     author: 1,
-  }
+  },
 );
 ```
 
@@ -594,7 +594,7 @@ db.posts.update(
   },
   {
     upsert: true,
-  }
+  },
 );
 ```
 
@@ -608,7 +608,7 @@ db.posts.update(
       body: "Body for post 2",
       category: "Technology",
     },
-  }
+  },
 );
 ```
 
@@ -621,7 +621,7 @@ db.posts.update(
     $inc: {
       likes: 5,
     },
-  }
+  },
 );
 ```
 
@@ -634,7 +634,7 @@ db.posts.update(
     $rename: {
       likes: "views",
     },
-  }
+  },
 );
 ```
 
@@ -664,7 +664,7 @@ db.posts.update(
         },
       ],
     },
-  }
+  },
 );
 ```
 

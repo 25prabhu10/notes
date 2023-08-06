@@ -144,7 +144,7 @@ Steps to create a base React project without using any boilerplate tools:
 
    ```html
    <!-- sourced from https://raw.githubusercontent.com/reactjs/reactjs.org/master/static/html/single-file-example.html -->
-   <!DOCTYPE html>
+   <!doctype html>
    <html>
      <head>
        <meta charset="UTF-8" />
@@ -281,7 +281,7 @@ A simple web page will consist of an HTML file like `index.html`, this file will
 Similarly, a simple React application will have all these three thing. Just that instead of the normal JavaScript code React uses an extended version of JavaScript called [JSX](#javascript-xml-jsx). In the below example inside the script tag with type `text/babel` is the React code.
 
 ```html
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
@@ -472,8 +472,8 @@ Ways to create a React class component:
         "ul",
         { className: "ingredients" },
         this.props.items.map((ingredient, i) =>
-          React.createElement("li", { key: i }, ingredient)
-        )
+          React.createElement("li", { key: i }, ingredient),
+        ),
       );
     },
   });
@@ -494,8 +494,8 @@ Ways to create a React class component:
         "ul",
         { className: "ingredients" },
         this.props.items.map((ingredient, i) =>
-          React.createElement("li", { key: i }, ingredient)
-        )
+          React.createElement("li", { key: i }, ingredient),
+        ),
       );
     }
   }
@@ -677,7 +677,7 @@ function Greeting(props) {
 ReactDOM.render(
   // Try changing to isLoggedIn={true}:
   <Greeting isLoggedIn={false} />,
-  document.getElementById("root")
+  document.getElementById("root"),
 );
 ```
 
@@ -840,7 +840,7 @@ const Greeter = (props) => {
 
   if (typeof salutation !== "string") {
     console.warn(
-      `Expected type for salutation is a string, but a ${typeof salutation} was passed`
+      `Expected type for salutation is a string, but a ${typeof salutation} was passed`,
     );
   }
 
@@ -1744,7 +1744,7 @@ There are two common kinds of side effects in React components:
        return function cleanUp() {
          ChatAPI.unsubscribeFromFriendStatus(
            props.friend.id,
-           handleStatusChange
+           handleStatusChange,
          );
        };
      }, []);
@@ -3139,7 +3139,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 ```
 
@@ -3219,7 +3219,7 @@ const OtherComponent = React.lazy(() => import("./OtherComponent"));
 const DetailPage = React.lazy(() =>
   import("./OtherComponent").then((module) => ({
     default: module.NamedComponent,
-  }))
+  })),
 );
 ```
 
@@ -3386,6 +3386,12 @@ export default App;
 - Mixins (deprecated)
 
 ## References
+
+- [React as a UI Runtime](https://overreacted.io/react-as-a-ui-runtime/)
+
+- [Writing Resilient Components](https://overreacted.io/writing-resilient-components/#writing-resilient-components)
+
+- [A Complete Guide to useEffect](https://overreacted.io/a-complete-guide-to-useeffect/)
 
 - [How Are Function Components Different from Classes?](https://overreacted.io/how-are-function-components-different-from-classes/)
 

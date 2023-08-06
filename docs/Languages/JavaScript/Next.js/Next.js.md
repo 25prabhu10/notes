@@ -17,7 +17,7 @@ pnpm create next-app
 
 3 types of rendering methods are available:
 
-- [Server-Side Rendering](#server-side-rendering)
+- [Server-Side Rendering](#server-side-rendering-ssr)
 - Static Site Generation
 - Client-Side Rendering
 

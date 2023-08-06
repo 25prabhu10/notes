@@ -124,7 +124,7 @@ _Example:_
   ```javascript
   // Don't use string concatenation
   const url = `https://builder.io/api/v1/image?height=${encodeURIComponent(
-    height
+    height,
   )}&width=${encodeURIComponent(width)}`;
 
   // Instead use the global URL constructors

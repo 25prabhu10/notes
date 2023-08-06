@@ -51,7 +51,9 @@ Variables in Sass are used for reusing values
 
   ```css
   body {
-    font: 100% Helvetica, sans-serif;
+    font:
+      100% Helvetica,
+      sans-serif;
     color: #333;
   }
   ```
@@ -141,7 +143,9 @@ Resulting CSS:
 
 ```css
 body {
-  font: 100% Helvetica, sans-serif;
+  font:
+    100% Helvetica,
+    sans-serif;
   color: #333;
 }
 

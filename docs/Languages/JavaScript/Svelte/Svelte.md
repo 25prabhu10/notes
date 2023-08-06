@@ -19,18 +19,18 @@ Features:
 
 ## Routing
 
-At the heart of SvelteKit is a _filesystem-based router_. The routes of your app - i.e. the URL paths that users can access — are defined by the directories in your code-base:
+At the heart of SvelteKit is a *filesystem-based router*. The routes of your app - i.e. the URL paths that users can access — are defined by the directories in your code-base:
 
 - `src/routes` is the root route
 - `src/routes/about` creates an `/about` route
-- `src/routes/blog/[slug]` creates a route with a _parameter_, `slug`, that can be used to load data dynamically when a user requests a page like `/blog/hello-world`
+- `src/routes/blog/[slug]` creates a route with a *parameter*, `slug`, that can be used to load data dynamically when a user requests a page like `/blog/hello-world`
 
 > You can change `src/routes` to a different directory by editing the [project config](https://kit.svelte.dev/docs/configuration)
 
-- Each route directory contains one or more _route files_, which can be identified by their `+` prefix
+- Each route directory contains one or more *route files*, which can be identified by their `+` prefix
 
-1. `+page`: 
-    1. `+page.svelte`: 
+1. `+page`:
+   1. `+page.svelte`:
 
 ## React vs. Svelte
 
@@ -39,14 +39,14 @@ At the heart of SvelteKit is a _filesystem-based router_. The routes of your ap
 - State:
 
 ```jsx
-import { useState } from 'react'
+import { useState } from "react";
 
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <button onClick={() => setCount((c) => c + 1)}>Count is {count}</button>
-  )
+  );
 }
 ```
 
@@ -64,12 +64,12 @@ function Counter() {
 
 ```jsx
 function ColouredBox({ colour }) {
-  return <p>You picked: {colour}</p>
+  return <p>You picked: {colour}</p>;
 }
 
 function Parent() {
-  const colour = 'blue'
-  return <ColouredBox colour={colour} />
+  const colour = "blue";
+  return <ColouredBox colour={colour} />;
 }
 ```
 
@@ -90,7 +90,7 @@ const colour = 'blue';
 
 ```jsx
 function Navbar(props) {
-  return <nav>{props.chidren}</nav>
+  return <nav>{props.chidren}</nav>;
 }
 
 // Usage
@@ -100,7 +100,7 @@ function Parent() {
       <a href="/">Hi Mon!</a>
       <a href="/heaven">Hello, world</a>
     </Navbar>
-  )
+  );
 }
 ```
 
@@ -117,9 +117,9 @@ function Navbar() {
   useEffect(() => {
     const fun = async () => {
       // handle promise
-    }
-    fun()
-  }, [])
+    };
+    fun();
+  }, []);
 }
 ```
 
@@ -135,11 +135,11 @@ function Navbar() {
 
 ```jsx
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   useEffect(() => {
-    document.title = `count is ${count}`
-  }, [count])
+    document.title = `count is ${count}`;
+  }, [count]);
 }
 ```
 
@@ -155,13 +155,13 @@ function Counter() {
 
 ```jsx
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  const doubled = useMemo(() => count * 2, [count])
+  const doubled = useMemo(() => count * 2, [count]);
 
   useEffect(() => {
-    document.title = `count is ${count}`
-  }, [])
+    document.title = `count is ${count}`;
+  }, []);
 }
 ```
 
@@ -178,9 +178,9 @@ function Counter() {
 
 ```jsx
 function Counter() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
-  return <>{count > 100 ? <p>big</p> : <p>small</p>}</>
+  return <>{count > 100 ? <p>big</p> : <p>small</p>}</>;
 }
 ```
 
@@ -203,10 +203,10 @@ function Counter() {
 ```jsx
 function Counter() {
   const items = [
-    { id: 1, name: 'foo' },
-    { id: 2, name: 'bar' },
-    { id: 3, name: 'baz' },
-  ]
+    { id: 1, name: "foo" },
+    { id: 2, name: "bar" },
+    { id: 3, name: "baz" },
+  ];
 
   return (
     <>
@@ -214,7 +214,7 @@ function Counter() {
         <div key={item.id}>{item.name}</div>
       ))}
     </>
-  )
+  );
 }
 ```
 
@@ -235,19 +235,19 @@ function Counter() {
 - Shared State
 
 ```jsx
-import { atom } from 'jotai'
+import { atom } from "jotai";
 
-export const countAtom = atom(0)
+export const countAtom = atom(0);
 
-import { useAtom } from 'jotai'
-import { countAtom } from './atom'
+import { useAtom } from "jotai";
+import { countAtom } from "./atom";
 
 function Counter() {
-  const [count, setCount] = useAtom(countAtom)
+  const [count, setCount] = useAtom(countAtom);
 
   return (
     <button onClick={() => setCount((c) => c + 1)}>Count is {count}</button>
-  )
+  );
 }
 ```
 
@@ -267,9 +267,9 @@ export const countStore = writable(0)
 
 ```jsx
 function componentWithAsyncData() {
-  const number = use(Promise.resolve(69))
+  const number = use(Promise.resolve(69));
 
-  return <p>{number}</p>
+  return <p>{number}</p>;
 }
 
 function App() {
@@ -279,7 +279,7 @@ function App() {
         <componentWithAsyncData />
       </Suspense>
     </ErrorBoundary>
-  )
+  );
 }
 ```
 

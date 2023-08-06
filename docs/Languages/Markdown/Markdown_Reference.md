@@ -236,7 +236,7 @@ Typora allows you to insert URLs as links, wrapped by `<`brackets`>`.
 
 `<i@typora.io>` becomes <i@typora.io>.
 
-Typora will also automatically link standard URLs. e.g: www.google.com.
+Typora will also automatically link standard URLs. e.g: `www.google.com`
 
 ### Images
 
