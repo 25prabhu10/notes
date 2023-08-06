@@ -5,6 +5,23 @@ description: Searching Algorithms
 
 # Searching Algorithms
 
+## Linear Search
+
+```java
+public class Main {
+  public static void main(String[] args) {
+    int[] numbers = new int[] { 4, 7, 1, 9, 8, 6, 2, 0 };
+
+    for (int num: numbers) {
+      if (num == 8) {
+        System.out.println(num);
+        break;
+      }
+    }
+  }
+}
+```
+
 ## Simple Search
 
 Performance

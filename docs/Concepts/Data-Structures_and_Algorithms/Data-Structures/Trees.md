@@ -133,19 +133,19 @@ A Binary Tree is a Strict Binary Tree if every node has either degree 0 or 2. Sh
 
 Tree traversing means visiting all the nodes.
 
-1. Pre-order:
+1. Pre-order (VLR):
 
    - Visit (node)
    - Pre-order (left sub-tree)
    - Pre-order (right sub-tree)
 
-2. In-order:
+2. In-order (LVR):
 
    - In-order (left sub-tree)
    - Visit (node)
    - In-order (right sub-tree)
 
-3. Post-order:
+3. Post-order (LRV):
 
    - Post-order (left sub-tree)
    - Post-order (right sub-tree)

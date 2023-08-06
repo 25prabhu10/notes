@@ -86,8 +86,8 @@ How Claims Based Authentication works?
    app.use(
      basicAuth({
        users: { admin: "super secret" },
-       challenge: true, // <--- needed to actually show the login dialog!
-     }),
+       challenge: true, // <--- needed to actually show the login dialogue!
+     })
    );
    ```
 
@@ -228,7 +228,7 @@ app.use(
     httpOnly: true,
     secure: true,
     ephemeral: true, // destroy cookies when the browser closes
-  }),
+  })
 );
 
 app.post("/login", (req, res) => {

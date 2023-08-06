@@ -226,6 +226,14 @@ Good habits:
 - Section 2: 2 Minute presentation
 - Section 1: The follow-up
 
+Good habits:
+
+- Listen and Repeat Good Speakers
+- Transcription Programs:
+
+  - [otter.ai](https://otter.ai/)
+  - Google voice translating
+
 ## References
 
 - [Sample test questions](https://www.ielts.org/for-test-takers/sample-test-questions)

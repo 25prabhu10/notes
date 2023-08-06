@@ -26,7 +26,7 @@ Features of AngularJS:
 - To bootstrap AngularJS we need to include the `ng-app` directive as part of the HTML element such as body or the HTML page itself, so that AngularJS can start managing it
 
   ```html
-  <!doctype html>
+  <!DOCTYPE html>
   <html lang="en">
     <head>
       <script src="angular.min.js"></script>
