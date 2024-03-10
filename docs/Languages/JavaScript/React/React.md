@@ -1,6 +1,7 @@
 ---
 title: React.js
 description: A JavaScript library for building user interfaces
+lastmod: 2023-08-26
 ---
 
 # React.js
@@ -83,7 +84,7 @@ We can either:
      npm start
      ```
 
-   - [Vite js](https://vitejs.dev/guide/) is an opinionated built tool, it supports react template.
+   - [Vite.js](https://vitejs.dev/guide/) is an opinionated built tool, it supports react template.
 
      ```bash
      # npm 6.x
@@ -175,7 +176,7 @@ Steps to create a base React project without using any boilerplate tools:
      npm install webpack webpack-cli --save-dev
      ```
 
-   - Now create webpack config file at the root of the project called `webpack.config.js`
+   - Now create webpack configuration file at the root of the project called `webpack.config.js`
 
 10. Install [`babel`](#babel) and its dependencies as dev dependency:
 
@@ -3405,6 +3406,8 @@ export default App;
 
 - [React cheat-sheet](https://devhints.io/react)
 
+- [React+TypeScript Cheatsheets](https://github.com/typescript-cheatsheets/react)
+
 - [React hooks explained](https://wattenberger.com/blog/react-hooks)
 
 - [Hero35](https://hero35.com/topic/react)
@@ -3414,6 +3417,7 @@ export default App;
 - [react-redux-links](https://github.com/markerikson/react-redux-links)
 
 - [Very old React tutorial](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)
+
 
 ## Libraries
 

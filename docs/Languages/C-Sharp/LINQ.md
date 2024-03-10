@@ -94,14 +94,14 @@ There are 3-phases of a LINQ query:
 
 ## Parts of a Query
 
-What sources are queryable?
+What sources are query-able?
 
 - We need a pool of data to query
 - Pool of data in functional programming is called a _sequence_
-- In C# class represent data and for them to be queryable, they have to implement either of these interfaces:
+- In C# class represent data and for them to be query-able, they have to implement either of these interfaces:
 
   - `IEnumerable`
-  - `IQueryable`: Is an interface designed Queryable providers i.e. remote data sources, like database. It allows for more sophisticated query expressions and disparate data sources
+  - `IQueryable`: Is an interface designed `Queryable` providers i.e. remote data sources, like database. It allows for more sophisticated query expressions and disparate data sources
 
 1. `IEnumerable`:
 
@@ -523,18 +523,42 @@ var numbers = new List<int> { 50, 4, 10, 3 };
 
 numbers.First();  // 50
 numbers.Last();   // 3
+
+var emptyNumbers = new List<int>();
+
+numbers.First();
+numbers.Last();
 ```
 
 Use `FirstOrDefault`, `LastOrDefault`:
 
 ```csharp
-List<int> emptyNumbers = new List<int>();
-List<string> emptyStrings  = new List<string>();
-List<bool> emptyBools  = new List<bool>();
+var emptyNumbers = new List<int>();
+var emptyStrings  = new List<string>();
+var emptyBools  = new List<bool>();
+var emptyPerson  = new List<Person>();
 
 emptyNumbers.FirstOrDefault();  // 0
 emptyStrings.FirstOrDefault();  // null
 emptyBools.LastOrDefault();     // False
+
+emptyPerson.FirstOrDefault();
+```
+
+### Find
+
+Find() Method:
+
+- Purpose: The `Find()` method is designed for retrieving an entity by its primary key. It is a more efficient way to retrieve an entity when you know the primary key value
+
+- Performance: `Find()` can be more efficient for retrieving entities by primary key because it first checks if the entity is already in the context's change tracker. If it is, it returns the tracked entity without making a database query. If not, it fetches the entity from the database and adds it to the context's change tracker
+
+- No asynchronous version
+
+_Example:_
+
+```csharp
+var entity = dbContext.Set<TEntity>().Find(id);
 ```
 
 ### Index

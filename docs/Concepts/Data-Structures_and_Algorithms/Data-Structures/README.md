@@ -19,3 +19,10 @@ sidebar: false
 11. [Graph](./Graph.md)
 12. [Trie](./Trie.md)
 13. [Bloom Filter](./Bloom_Filter.md)
+
+- ART
+- B-Tree
+- JIN
+- SS-Table
+- Brin
+- LSM-Trees

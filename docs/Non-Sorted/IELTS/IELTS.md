@@ -2,7 +2,7 @@
 title: IELTS
 description: IELTS
 date: 2023-07-26
-lastmod: 2023-07-26
+lastmod: 2023-10-22
 ---
 
 # IELTS
@@ -58,11 +58,45 @@ Cost: ₹16,250
 
 ## Listening
 
-- 40 Total Questions
-- 30 Minutes Test/10 Minutes Transfer
-- 4 Alternative sections
+- **40 Total Questions**
+- **30 Minutes Test/10 Minutes Transfer**
+- **4 Alternative sections**
 - Conversations & solo presentations
 - Multiple choice or fill-blank
+
+- Recording Type 1: Everyday Conversations
+- Recording Type 2: Monologue
+- Recording Type 3: Conversation between people (up to 4 people)
+- Recording Type 4: Monologue (like lecture)
+
+Sharks
+old fishing village
+
+Water fountain
+student card
+50 minutes
+museum
+tourist office
+rain-ware
+e-ticket
+
+H
+G
+D
+F
+
+C
+A
+B
+A
+C
+B
+
+29000 years
+southern Europe
+water
+minerals
+white gold
 
 Good habits:
 
@@ -138,6 +172,10 @@ Good habits:
 - 14 Questions Types
 - In-order & Not In-order Questions
 
+- Question 1: Identify truth
+- Question 2: Matching features
+- Question 3: Summary completion
+
 Good habits:
 
 1. Synonym and Paraphrase Tables:
@@ -167,9 +205,16 @@ Good habits:
 
 ## Writing
 
-- Academic Task 1: Chart/Graph
-- General Task 1: Letter
+- Academic Task 1: Chart/Graph (summarize graph, table or diagram)
+- General Task 1: Letter (Write a letter)
+
+  - Word Count: 150
+  - Duration: 20 mins
+
 - Task 2: Standard Essay
+
+  - Word Count: 250
+  - Duration: 40 mins
 
 Good habits:
 
@@ -231,8 +276,12 @@ Good habits:
 - Listen and Repeat Good Speakers
 - Transcription Programs:
 
-  - [otter.ai](https://otter.ai/)
+  - [Otter.ai](https://otter.ai/)
   - Google voice translating
+
+## Words
+
+- [Words](./Words.md)
 
 ## References
 

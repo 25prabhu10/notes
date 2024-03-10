@@ -20,9 +20,9 @@ Also JavaScript is a:
 - [Prototype-Based Inheritance](#inheritance): Everything in JavaScript is an object. Each object holds a link to its prototype.
 
   ```javascript
-  const Dog = { barks: true };
-  const Pug = Object.create(Dog);
-  Pug.barks; // true
+  const Dog = { barks: true }
+  const Pug = Object.create(Dog)
+  Pug.barks // true
   ```
 
 - Multi-Paradigm: You can use the Declarative Functional or Imperative Object-Oriented approach.
@@ -93,7 +93,7 @@ They are "proposed" to the committee by delegates, ideally with community suppor
        <p>Before the script...</p>
 
        <script>
-         alert("Hello, world!");
+         alert('Hello, world!')
        </script>
 
        <p>...After the script.</p>
@@ -144,23 +144,23 @@ Syntactic principles of JavaScript:
 ```javascript
 // two slashes start single-line comments
 
-var x; // declaring a variable
+var x // declaring a variable
 
-x = 3 + y; // assigning a value to the variable `x`
+x = 3 + y // assigning a value to the variable `x`
 
-foo(x, y); // calling function `foo` with parameters `x` and `y`
+foo(x, y) // calling function `foo` with parameters `x` and `y`
 
-obj.bar(3); // calling method `bar` of object `obj`
+obj.bar(3) // calling method `bar` of object `obj`
 
 // a conditional statement
 // is `x` equal to zero?
 if (x === 0) {
-  x = 123;
+  x = 123
 }
 
 // defining function `baz` with parameters `a` and `b`
 function baz(a, b) {
-  return a + b;
+  return a + b
 }
 ```
 
@@ -171,13 +171,13 @@ JavaScript has two major syntactic categories, **statements** and **expressions*
 - **Statements: do things**. A program is a sequence of statements. Here is an example of a statement, which declares (creates) a variable `foo`:
 
   ```javascript
-  var foo;
+  var foo
   ```
 
 - **Expressions: produce values**. They are function arguments, the right side of an assignment, etc. Here's an example of an expression:
 
   ```javascript
-  3 * 7;
+  3 * 7
   // produces the value: 21
   ```
 
@@ -188,18 +188,18 @@ The distinction between statements and expressions is best illustrated by the fa
 - as a _statement_:
 
   ```javascript
-  var x;
+  var x
   if (y >= 0) {
-    x = y;
+    x = y
   } else {
-    x = -y;
+    x = -y
   }
   ```
 
 - or as an _expression_:
 
   ```javascript
-  var x = y >= 0 ? y : -y;
+  var x = y >= 0 ? y : -y
   ```
 
 ::: tip NOTE
@@ -207,7 +207,7 @@ The distinction between statements and expressions is best illustrated by the fa
 You can use the latter as a function argument (but not the former):
 
 ```javascript
-myFunction(y >= 0 ? y : -y);
+myFunction(y >= 0 ? y : -y)
 ```
 
 :::
@@ -215,7 +215,7 @@ myFunction(y >= 0 ? y : -y);
 Finally, wherever JavaScript expects a statement, you can also use an expression; for example:
 
 ```javascript
-foo(7, 1);
+foo(7, 1)
 ```
 
 - The whole line is a statement (a so-called _expression statement_), but the function call `foo(7, 1)` is an expression.
@@ -230,9 +230,9 @@ Semicolons terminate statements, but not blocks. There is one case where you wil
 
 ```javascript
 // pattern: var _ = ___;
-var x = 3 * 7;
+var x = 3 * 7
 
-var f = function () {}; // function expr. inside var decl.
+var f = function () {} // function expr. inside var decl.
 ```
 
 ## Variables
@@ -243,7 +243,7 @@ Variable is like a container that holds a value (a named storage for data)
 // variable with a name "age"
 // that holds the value 25
 
-let age = 25;
+let age = 25
 ```
 
 There are two limitations on variable names in JavaScript:
@@ -276,17 +276,17 @@ There are two limitations on variable names in JavaScript:
    - Properties of objects can be reassigned a new value
 
      ```javascript
-     const MY_OBJECT = { key: "value" };
-     MY_OBJECT.key = "otherValue";
+     const MY_OBJECT = { key: 'value' }
+     MY_OBJECT.key = 'otherValue'
      ```
 
    - The contents of an array are also not protected
 
      ```javascript
-     const MY_ARRAY = ["HTML", "CSS"];
-     MY_ARRAY.push("JAVASCRIPT");
+     const MY_ARRAY = ['HTML', 'CSS']
+     MY_ARRAY.push('JAVASCRIPT')
 
-     console.log(MY_ARRAY); // logs ['HTML','CSS','JAVASCRIPT'];
+     console.log(MY_ARRAY) // logs ['HTML','CSS','JAVASCRIPT'];
      ```
 
 - A variable declared by `let` or `const` has a so-called _temporal dead zone (TDZ)_
@@ -294,7 +294,7 @@ There are two limitations on variable names in JavaScript:
 - Undeclared variables:
 
   ```javascript
-  const bar = foo + 1;
+  const bar = foo + 1
   // Uncaught ReferenceError: foo is not defined
   ```
 
@@ -304,9 +304,9 @@ If a value is assigned to an undeclared variable, then it will have a global sco
 
 ```javascript
 function app() {
-  l = "global";
+  l = 'global'
 }
-console.log(l); // l has a global scope
+console.log(l) // l has a global scope
 ```
 
 :::
@@ -325,54 +325,54 @@ _Example:_
 
 ```javascript
 // example 1
-console.log(x === undefined); // true
-var x = 3;
+console.log(x === undefined) // true
+var x = 3
 
 // example 2
-var myVar = "my value";
+var myVar = 'my value'
 
-(function () {
-  console.log(myVar); // undefined
-  var myVar = "local value";
-})();
+;(function () {
+  console.log(myVar) // undefined
+  var myVar = 'local value'
+})()
 ```
 
 The above examples will be interpreted the same as:
 
 ```javascript
 // example 1
-var x;
-console.log(x === undefined); // true
-x = 3;
+var x
+console.log(x === undefined) // true
+x = 3
 
 // example 2
-var myVar = "my value";
+var myVar = 'my value'
 
-(function () {
-  var myVar;
-  console.log(myVar); // undefined
-  myVar = "local value";
-})();
+;(function () {
+  var myVar
+  console.log(myVar) // undefined
+  myVar = 'local value'
+})()
 ```
 
 - In ES6, `let` and `const` **are hoisted but not initialized**
 
   ```javascript
-  console.log(x); // ReferenceError
-  let x = 3;
+  console.log(x) // ReferenceError
+  let x = 3
   ```
 
 ```javascript
 // works in browsers and Node.js (no errors)
 function hoist(track) {
-  if (track === "Down With Disease") {
-    var action = "dance";
+  if (track === 'Down With Disease') {
+    var action = 'dance'
   } else {
     // eslint error: 'action' is already defined.  (no-redeclare)
-    var action = "skip";
+    var action = 'skip'
   }
 
-  return action;
+  return action
 }
 ```
 
@@ -385,11 +385,11 @@ Primitives are short-lived in most cases in the call stack, while objects are ke
 - To determine the data type use `typeof` operator:
 
 ```javascript
-typeof undefined; // "undefined"
+typeof undefined // "undefined"
 
-typeof 0; // "number"
+typeof 0 // "number"
 
-typeof 10n; // "bigint"
+typeof 10n // "bigint"
 ```
 
 ### Primitive Data Types
@@ -415,35 +415,35 @@ There are 7 primitive data types in JavaScript:
 
      ```javascript
      //
-     console.log(Infinity);
+     console.log(Infinity)
      ```
 
    - `NAN`: represents a computational error. It is a result of an incorrect or an undefined mathematical operation
 
      ```javascript
-     console.log("not a number" / 2); // NaN, such division is erroneous
+     console.log('not a number' / 2) // NaN, such division is erroneous
 
      // Result is NaN if somewhere in a mathematical expression NaN is produced
      // except when
-     NaN ** 0; // 1
+     NaN ** 0 // 1
      ```
 
    - `Number` object: has properties for numerical constants, such as maximum value, not-a-number, and infinity.
 
      ```javascript
-     const biggestNum = Number.MAX_VALUE; // ±1.7976931348623157e+308
-     const smallestNum = Number.MIN_VALUE; // ±5e-324
-     const infiniteNum = Number.POSITIVE_INFINITY;
-     const negInfiniteNum = Number.NEGATIVE_INFINITY;
-     const notANum = Number.NaN;
+     const biggestNum = Number.MAX_VALUE // ±1.7976931348623157e+308
+     const smallestNum = Number.MIN_VALUE // ±5e-324
+     const infiniteNum = Number.POSITIVE_INFINITY
+     const negInfiniteNum = Number.NEGATIVE_INFINITY
+     const notANum = Number.NaN
      ```
 
 2. **String**: Sequence of characters, used for text
 
    ```javascript
-   let str = "Hello";
-   let str2 = "Single quotes are ok too";
-   let phrase = `can embed another ${str}`;
+   let str = 'Hello'
+   let str2 = 'Single quotes are ok too'
+   let phrase = `can embed another ${str}`
    ```
 
    - `startsWith`: Check if the string starts with the string passed as argument
@@ -454,18 +454,18 @@ There are 7 primitive data types in JavaScript:
 3. **Boolean**: Logical data type that can only be `true` or `false`
 
    ```javascript
-   let nameFieldChecked = true; // yes, name field is checked
-   let ageFieldChecked = false; // no, age field is not checked
+   let nameFieldChecked = true // yes, name field is checked
+   let ageFieldChecked = false // no, age field is not checked
 
-   let isGreater = 4 > 1; // true
+   let isGreater = 4 > 1 // true
    ```
 
 4. **Null**: It is an assignment value. Empty value assigned by the user. Also means 'non-existent', no value is present
 
    ```javascript
-   let age = null;
+   let age = null
 
-   typeof null;
+   typeof null
    // 'object'
    // :-(
    ```
@@ -473,11 +473,11 @@ There are 7 primitive data types in JavaScript:
 5. **Undefined**: The meaning of `undefined` is "value is not assigned". Default value of a variable until a value is assigned to it (Data type of a variable that has no value assigned to it)
 
    ```javascript
-   let age; // undefined
+   let age // undefined
 
-   age = undefined; // undefined
+   age = undefined // undefined
 
-   typeof undefined;
+   typeof undefined
    // 'undefined'
    ```
 
@@ -485,9 +485,9 @@ There are 7 primitive data types in JavaScript:
 
    ```javascript
    // the "n" at the end means it's a BigInt
-   const hugeNum = 1234567890123456789012345678901234567890n;
+   const hugeNum = 1234567890123456789012345678901234567890n
 
-   typeof hugeNum;
+   typeof hugeNum
    // 'bigint'
    ```
 
@@ -502,21 +502,21 @@ There are 7 primitive data types in JavaScript:
    - Use symbols to create constants and be sure that they are always unique:
 
      ```javascript
-     const COLOR_RED = Symbol("Red");
-     const COLOR_ORANGE = Symbol("Orange");
+     const COLOR_RED = Symbol('Red')
+     const COLOR_ORANGE = Symbol('Orange')
 
      function getComplement(color) {
        switch (color) {
          case COLOR_RED:
-           return COLOR_GREEN;
+           return COLOR_GREEN
          case COLOR_ORANGE:
-           return COLOR_BLUE;
+           return COLOR_BLUE
          default:
-           throw new Exception("Unknown color: " + color);
+           throw new Exception('Unknown color: ' + color)
        }
      }
 
-     getComplement(COLOR_ORANGE);
+     getComplement(COLOR_ORANGE)
      ```
 
    - Used as object keys, in [Iterators & Generators](#iterators-and-generators)
@@ -529,21 +529,21 @@ There are 7 primitive data types in JavaScript:
 
    ```javascript
    // create symbol via a factory function
-   let id = Symbol();
+   let id = Symbol()
 
    // id is a symbol with the description "id"
-   id = Symbol("id");
+   id = Symbol('id')
 
    // Every symbol returned by Symbol() is unique
-   Symbol("foo") === Symbol("foo"); // false
+   Symbol('foo') === Symbol('foo') // false
 
-   Symbol.for("foo") === Symbol.for("foo"); // true
+   Symbol.for('foo') === Symbol.for('foo') // true
 
-   Symbol.keyFor(Symbol.for("tokenString"));
+   Symbol.keyFor(Symbol.for('tokenString'))
    // "tokenString"
 
    // Symbols are primitive
-   typeof Symbol("tokenString");
+   typeof Symbol('tokenString')
    // 'symbol'
    ```
 
@@ -557,8 +557,8 @@ An object is a data structure that associate **a collection of key-value pairs**
 
 ```javascript
 const obj = {
-  Name: "Value", // one property
-};
+  Name: 'Value', // one property
+}
 ```
 
 - _Name_ (Key) must be a unique name that looks like a string.
@@ -579,11 +579,11 @@ Everything is an object in JavaScript (well, almost everything), including:
    - Create an object using `new Object()`:
 
      ```javascript
-     const obj = new Object();
+     const obj = new Object()
 
      // two ways to set properties
-     obj.name = "Clown";
-     obj["face"] = "🤡";
+     obj.name = 'Clown'
+     obj['face'] = '🤡'
      ```
 
    - Using a constructor function one can customize the way the object is created. By convention the constructor function name is same as the object and is Capitalized. This function is similar to a class in other object-oriented programming languages. New object is created using the `new` keyword before the constructor function.
@@ -591,17 +591,17 @@ Everything is an object in JavaScript (well, almost everything), including:
      ```javascript
      // constructor function
      function Zombie(name) {
-       this.name = name || "Zombie";
-       this.reAnimated = Date.now();
+       this.name = name || 'Zombie'
+       this.reAnimated = Date.now()
 
        this.eatBrain = function () {
-         return `${this.name} is hungry for 🧠`;
-       };
+         return `${this.name} is hungry for 🧠`
+       }
      }
 
-     const obj = new Zombie("🧟‍♂️ Jeff");
+     const obj = new Zombie('🧟‍♂️ Jeff')
 
-     obj.eatBrain();
+     obj.eatBrain()
      // 🧟‍♂️ Jef is hungry for 🧠
      ```
 
@@ -611,23 +611,23 @@ Everything is an object in JavaScript (well, almost everything), including:
 
      ```javascript
      function Zombie(name) {
-       this.name = name || "Zombie";
-       this.reAnimated = Date.now();
+       this.name = name || 'Zombie'
+       this.reAnimated = Date.now()
      }
 
      Zombie.prototype.eatBrain = function () {
-       return `${this.name} is hungry for 🧠`;
-     };
+       return `${this.name} is hungry for 🧠`
+     }
 
-     const obj = new Zombie("🧟‍♂️ Jeff");
+     const obj = new Zombie('🧟‍♂️ Jeff')
 
-     obj.eatBrain();
+     obj.eatBrain()
      // 🧟‍♂️ Jef is hungry for 🧠
 
-     console.log(obj);
+     console.log(obj)
      // {name: "🧟‍♂️ Jeff", reAnimated: 1664716920669}
 
-     console.log(Object.getPrototypeOf(obj));
+     console.log(Object.getPrototypeOf(obj))
      // {eatBrain: ƒ ()}
      ```
 
@@ -637,43 +637,43 @@ Everything is an object in JavaScript (well, almost everything), including:
 
    ```javascript
    const obj = {
-     name: "Clown",
-     face: "🤡",
+     name: 'Clown',
+     face: '🤡',
      hello: function () {
-       console.log(`hello ${this.name}`);
+       console.log(`hello ${this.name}`)
      },
-   };
+   }
 
-   console.log(obj.name); // Clown
-   console.log(obj["face"]); // 🤡
+   console.log(obj.name) // Clown
+   console.log(obj['face']) // 🤡
    ```
 
    - We can add variables into the object directly:
 
      ```javascript
-     const spider = "🕷";
-     const legs = 8;
+     const spider = '🕷'
+     const legs = 8
 
      // old way
      const obj = {
        spider: spider,
        legs: legs,
-     };
+     }
 
      // new way (shorthand syntax)
      const obj = {
        spider,
        legs,
-     };
+     }
      ```
 
    - We can destructure the object into variable:
 
      ```javascript
-     const { spider, legs } = obj;
+     const { spider, legs } = obj
 
      // new variable names
-     const { spider: mySpider, legs: hasLegs } = obj;
+     const { spider: mySpider, legs: hasLegs } = obj
      ```
 
    - If there are multiple properties with same name (key), then the right most value will be assigned to the name (key):
@@ -684,24 +684,24 @@ Everything is an object in JavaScript (well, almost everything), including:
        legs,
        legs: 10,
        legs: 25,
-     };
+     }
 
-     console.log(obj.legs); // 25
+     console.log(obj.legs) // 25
      ```
 
    - Dynamically add property names by wrapping them in brackets `[]` and place an expression inside and it will compute that value when the object is created.
 
      ```javascript
-     const spider = "🕷";
-     const random = () => Math.random().toString(36).slice(-5);
+     const spider = '🕷'
+     const random = () => Math.random().toString(36).slice(-5)
 
      // shorthand syntax
      const obj = {
        spider,
        [random()]: true, // this name (key) is generated during object creation
-     };
+     }
 
-     console.log(obj); // { spider: '🕷', da9dl: true }
+     console.log(obj) // { spider: '🕷', da9dl: true }
      ```
 
    - When a function lives on an object it's called a _method_. We can use getters and setters.
@@ -710,17 +710,17 @@ Everything is an object in JavaScript (well, almost everything), including:
      const obj = {
        spider,
        makeWeb: function () {
-         console.log("Web Created");
+         console.log('Web Created')
        },
-     };
+     }
 
      // shorthand syntax
      const obj = {
        spider,
        makeWeb() {
-         console.log("Web Created");
+         console.log('Web Created')
        },
-     };
+     }
      ```
 
    - `this` inside an object method refers to that object. But if the object method uses arrow function, then `this` refers to the global `this` context.
@@ -729,16 +729,16 @@ Everything is an object in JavaScript (well, almost everything), including:
 
      ```javascript
      const obj = {
-       web: "",
+       web: '',
        makeWeb() {
-         this.web += "🕸🕸🕸";
-         return this;
+         this.web += '🕸🕸🕸'
+         return this
        },
-     };
+     }
 
-     obj.makeWeb().makeWeb().makeWeb();
+     obj.makeWeb().makeWeb().makeWeb()
 
-     console.log(obj.web); // 🕸🕸🕸🕸🕸🕸🕸🕸🕸
+     console.log(obj.web) // 🕸🕸🕸🕸🕸🕸🕸🕸🕸
      ```
 
 3. `create()` static method on `Object` class:
@@ -756,44 +756,44 @@ Everything is an object in JavaScript (well, almost everything), including:
      ```javascript
      const organism = {
        dna: Math.random(),
-     };
+     }
 
-     const obj = Object.create(organism);
+     const obj = Object.create(organism)
 
-     console.log(obj); // {}
-     console.log(obj.dna); // 0.18536405128609768
+     console.log(obj) // {}
+     console.log(obj.dna) // 0.18536405128609768
 
      // get all the properties on prototype
-     console.log(Object.getPrototypeOf(obj)); // { dna: 0.18536405128609768 }
+     console.log(Object.getPrototypeOf(obj)) // { dna: 0.18536405128609768 }
      ```
 
    - We can add a property to the object using Object Define property. Using this method we can add setters, getters and other advanced options.
 
      ```javascript
-     const obj = Object.create({});
+     const obj = Object.create({})
 
-     Object.defineProperty(obj, "unicorn", {
-       get: () => "🦄",
-       value: "value",
+     Object.defineProperty(obj, 'unicorn', {
+       get: () => '🦄',
+       value: 'value',
        writable: true,
        enumerable: false,
        configurable: true,
-     });
+     })
 
-     console.log(obj); // {}
-     console.log(obj.unicorn); // 🦄
+     console.log(obj) // {}
+     console.log(obj.unicorn) // 🦄
 
      // defining multiple properties with Object.defineProperties
      Object.defineProperties(obj, {
        firstKey: {
-         value: "first key value",
+         value: 'first key value',
          writable: true,
        },
        secondKey: {
-         value: "second key value",
+         value: 'second key value',
          writable: false,
        },
-     });
+     })
      ```
 
 #### Looping Through Objects
@@ -802,12 +802,12 @@ Everything is an object in JavaScript (well, almost everything), including:
 
    ```javascript
    const obj = {
-     comet: "☄",
-     trex: "🦖",
-   };
+     comet: '☄',
+     trex: '🦖',
+   }
 
    for (k in obj) {
-     console.log(k); // comet, trex
+     console.log(k) // comet, trex
    }
    ```
 
@@ -815,23 +815,23 @@ Everything is an object in JavaScript (well, almost everything), including:
 
    ```javascript
    const obj = {
-     comet: "☄",
-     trex: "🦖",
-   };
+     comet: '☄',
+     trex: '🦖',
+   }
 
    // loop through keys
    for (k of Object.keys(obj)) {
-     console.log(k); // comet, trex
+     console.log(k) // comet, trex
    }
 
    // loop through values
    for (v of Object.values(obj)) {
-     console.log(v); // ☄, 🦖
+     console.log(v) // ☄, 🦖
    }
 
    // loop through both keys and values at a time
    for (const [k, v] of Object.entries(obj)) {
-     console.log(k, v); // comet ☄, trex 🦖
+     console.log(k, v) // comet ☄, trex 🦖
    }
    ```
 
@@ -844,27 +844,27 @@ Everything is an object in JavaScript (well, almost everything), including:
 - Copying value from one primitive to another, will create a new primitive variable. Thus changing the value of the first variable will not effect the second variable .
 
   ```javascript
-  let a = "a";
-  let b = a;
+  let a = 'a'
+  let b = a
 
-  console.log(a, b); // a a
+  console.log(a, b) // a a
 
-  a = "b";
+  a = 'b'
 
-  console.log(a, b); // b a
+  console.log(a, b) // b a
   ```
 
 - If an object is copied into another object, the second object will simply make a reference to the first object. Thus changing the value of the first object will effect the second object as well.
 
   ```javascript
-  let a = { boo: "a" };
-  let b = a;
+  let a = { boo: 'a' }
+  let b = a
 
-  console.log(a, b); // { boo: 'a' } { boo: 'a' }
+  console.log(a, b) // { boo: 'a' } { boo: 'a' }
 
-  a.boo = "bb";
+  a.boo = 'bb'
 
-  console.log(a, b); // { boo: 'bb' } { boo: 'bb' }
+  console.log(a, b) // { boo: 'bb' } { boo: 'bb' }
   ```
 
 - To copy an object without effecting the original object use `Object.assign({}, obj)`. Using this we can only use internal and enumerable properties of the first object i.e. any properties that the first object has inherited higher up in the prototype will not be copied .
@@ -875,38 +875,38 @@ Everything is an object in JavaScript (well, almost everything), including:
 
   ```javascript
   const hal = {
-    name: "Halloween",
-  };
+    name: 'Halloween',
+  }
 
-  let a = Object.create(hal);
+  let a = Object.create(hal)
 
-  a.boo = "🎃";
+  a.boo = '🎃'
   a.trick = {
-    treat: "copied as reference!",
-  };
+    treat: 'copied as reference!',
+  }
 
-  let b = Object.assign({}, a);
+  let b = Object.assign({}, a)
 
-  console.log(a); // { boo: '🎃', trick: { treat: 'copied as reference!' } }
-  console.log(b); // { boo: '🎃', trick: { treat: 'copied as reference!' } }
+  console.log(a) // { boo: '🎃', trick: { treat: 'copied as reference!' } }
+  console.log(b) // { boo: '🎃', trick: { treat: 'copied as reference!' } }
 
-  a.boo = "a";
-  a.trick["treat"] = "only reference!";
+  a.boo = 'a'
+  a.trick['treat'] = 'only reference!'
 
-  console.log(a); // { boo: 'a', trick: { treat: 'only reference!' } }
-  console.log(b); // { boo: '🎃', trick: { treat: 'only reference!' } }
+  console.log(a) // { boo: 'a', trick: { treat: 'only reference!' } }
+  console.log(b) // { boo: '🎃', trick: { treat: 'only reference!' } }
 
-  console.log(Object.getOwnPropertyNames(a)); // [ 'boo', 'trick' ]
+  console.log(Object.getOwnPropertyNames(a)) // [ 'boo', 'trick' ]
   ```
 
 - Alternative way to copy objects is by using the `...` [Spread](#spread-syntax) Syntax, it's more cleaner. It is slightly different from `Object.assign({}, obj)`.
 
   ```javascript
   a.trick = {
-    treat: "copied as reference!",
-  };
+    treat: 'copied as reference!',
+  }
 
-  let b = { ...a };
+  let b = { ...a }
   ```
 
 #### Immutable Objects
@@ -920,14 +920,14 @@ To stop any changes being made to the object after its creation (make it immutab
    ```javascript
    // Mutable object
    const supportedLanguages = {
-     en: "English",
-     fr: "French",
-   };
+     en: 'English',
+     fr: 'French',
+   }
 
    // Immutable object
-   const frozenObject = Object.freeze(supportedLanguages);
+   const frozenObject = Object.freeze(supportedLanguages)
 
-   frozenObject === supportedLanguages; // true
+   frozenObject === supportedLanguages // true
    ```
 
    - For deep freeze, we can iterate through every property and recursively apply the freeze method:
@@ -935,12 +935,12 @@ To stop any changes being made to the object after its creation (make it immutab
    ```javascript
    const deepFreeze = (obj) => {
      Object.keys(obj).forEach((prop) => {
-       if (typeof obj[prop] === "object") deepFreeze(obj[prop]);
-     });
-     return Object.freeze(obj);
-   };
+       if (typeof obj[prop] === 'object') deepFreeze(obj[prop])
+     })
+     return Object.freeze(obj)
+   }
 
-   deepFreeze(config);
+   deepFreeze(config)
    ```
 
 2. `Object.seal`: We cannot add a new property or delete existing properties. But we can still update the value of existing properties
@@ -964,28 +964,30 @@ JavaScript is **Prototype** based language, hence the inheritance is achieved us
 _Example:_ Prototype based inheritance
 
 ```javascript
-let parent = { foo: "foo" };
-let child = {};
-Object.setPrototypeOf(child, parent);
+let parent = { foo: 'foo' }
+let child = {}
+Object.setPrototypeOf(child, parent)
 
-parent.isPrototypeOf(child); // true
+parent.isPrototypeOf(child) // true
 
-console.log(child.foo); // 'foo'
+console.log(child.foo) // 'foo'
 
-child.foo = "bar";
+child.foo = 'bar'
 
-console.log(child.foo); // 'bar'
+console.log(child.foo) // 'bar'
 
-console.log(parent.foo); // 'foo'
+console.log(parent.foo) // 'foo'
 
-delete child.foo;
+delete child.foo
 
-console.log(child.foo); // 'foo'
+console.log(child.foo) // 'foo'
 
-parent.foo = "baz";
+parent.foo = 'baz'
 
-console.log(child.foo); // 'baz'
+console.log(child.foo) // 'baz'
 ```
+
+- [Prototype vs Class Object-Oriented Programming](https://enlear.academy/prototype-vs-class-the-javascript-split-personality-20d984d2fe2)
 
 Prototype Chain:
 
@@ -1004,20 +1006,20 @@ Creating an object prototype:
    ```javascript
    // FUNCTION CONSTRUCTOR
    var Person = function (name, yearOfBirth, job) {
-     this.name = name;
-     this.yearOfBirth = yearOfBirth;
-     this.job = job;
-   };
+     this.name = name
+     this.yearOfBirth = yearOfBirth
+     this.job = job
+   }
 
    Person.prototype.calculateAge = function () {
-     console.log(2016 - this.yearOfBirth);
-   };
+     console.log(2016 - this.yearOfBirth)
+   }
 
-   Person.prototype.lastName = "smith";
+   Person.prototype.lastName = 'smith'
 
    // CREATE AN OBJECT (INSTANTIATE AN OBJECT)
-   var john = new Person("John", 1990, "teacher");
-   console.log(john.calculateAge()); // 26
+   var john = new Person('John', 1990, 'teacher')
+   console.log(john.calculateAge()) // 26
    ```
 
 2. Using `Object.create`:
@@ -1026,20 +1028,20 @@ Creating an object prototype:
    // Object.create
    var personProto = {
      calculateAge: function () {
-       console.log(2016 - this.yearOfBirth);
+       console.log(2016 - this.yearOfBirth)
      },
-   };
+   }
 
-   var mike = Object.create(personProto);
-   mike.name = "Mike";
-   mike.yearOfBirth = 1898;
-   mike.job = "jobless";
+   var mike = Object.create(personProto)
+   mike.name = 'Mike'
+   mike.yearOfBirth = 1898
+   mike.job = 'jobless'
 
    var jane = Object.create(personProto, {
-     name: { value: "Jane" },
+     name: { value: 'Jane' },
      yearOfBirth: { value: 1965 },
-     job: { value: "gamer" },
-   });
+     job: { value: 'gamer' },
+   })
    ```
 
 #### Proxy Object
@@ -1060,23 +1062,24 @@ You create a Proxy with two parameters:
 // target
 const person = {
   age: 20,
-  name: "everyone",
-};
+  name: 'everyone',
+}
 
+// handler
 const handler = {
   get(target, prop, receiver) {
-    if (prop === "name") {
-      return target[prop].toUpperCase();
+    if (prop === 'name') {
+      return target[prop].toUpperCase()
     }
 
-    return Reflect.get(...arguments);
+    return Reflect.get(...arguments)
   },
-};
+}
 
-const prx = new Proxy(person, handler);
+const prx = new Proxy(person, handler)
 
-console.log(prx.age); // 25
-console.log(prx.name); // EVERYONE
+console.log(prx.age) // 25
+console.log(prx.name) // EVERYONE
 ```
 
 ## Type Coercion
@@ -1085,16 +1088,16 @@ console.log(prx.name); // EVERYONE
 
   ```javascript
   // number to string
-  String(25); // "25"
+  String(25) // "25"
 
   // boolean to string
-  true + " value"; // "true value"
+  true + ' value' // "true value"
 
   // null to string
-  null + " is no value"; // "null is no value"
+  null + ' is no value' // "null is no value"
 
   // undefined to string
-  undefined + ", then define it"; // "undefined , then define it"
+  undefined + ', then define it' // "undefined , then define it"
   ```
 
   Coercion rules:
@@ -1110,46 +1113,39 @@ console.log(prx.name); // EVERYONE
 
   ```javascript
   // adding string to a number
-  1 + "2"; // "12"
+  1 + '2' // "12"
 
   // other mathematical operations
   // implicitly convert string to number
-  2 * "5"; // 10
-  2 * "a"; // NaN
+  2 * '5' // 10
+  2 * 'a' // NaN
 
-  Number("12.3"); // 12.3
-  +"12.3"; // 12.3
+  Number('12.3') // 12.3
+  ;+'12.3' // 12.3
 
-  Number("a"); // NaN
-  +"a"; // NaN
-
-  ("b" + "a" + +"a" + "a").toLowerCase();
+  Number('a') // NaN
+  ;+'a' // NaN
+  ;('b' + 'a' + +'a' + 'a').toLowerCase()
   // banana
+  ;+true // 1
+  ;+false // 0
 
-  +true; // 1
-  +false; // 0
-
-  true + 0; // 1
-  false + 7; // 7
-
-  +null; // 0
-  null + 7; // 7
-
-  +undefined; // NaN
-  undefined + 7; // NaN
-
-  +[]; // 0
-  -[]; // -0
+  true + 0 // 1
+  false + 7 // 7
+  ;+null // 0
+  null + 7 // 7
+  ;+undefined // NaN
+  undefined + 7 // NaN
+  ;+[] // 0
+  ;-[] // -0
   // result is string
-  [] + 36; // "36"
+  ;[] + 36 // "36"
   // result is number
-  [] - 36; // -36
-
-  +{}; // NaN
-  25 + {}; // "25[object Object]"
-  25 - {}; // NaN
-
-  [] + {}; // "[object Object]"
+  ;[] - 36 // -36
+  ;+{} // NaN
+  25 + {} // "25[object Object]"
+  25 - {} // NaN
+  ;[] + {} // "[object Object]"
   ```
 
   Coercion rules:
@@ -1165,16 +1161,16 @@ console.log(prx.name); // EVERYONE
 - Boolean Coercion:
 
   ```javascript
-  Boolean(1); // true
-  Boolean(0); // false
+  Boolean(1) // true
+  Boolean(0) // false
 
-  Boolean("A"); // true
-  Boolean(" "); // true
-  Boolean(""); // false
+  Boolean('A') // true
+  Boolean(' ') // true
+  Boolean('') // false
   // non-empty string is always true in JavaScript
 
-  Boolean(null); // false
-  Boolean(undefined); // false
+  Boolean(null) // false
+  Boolean(undefined) // false
   ```
 
   Coercion rules:
@@ -1194,25 +1190,25 @@ All the basic arithmetic operations can be used along with logical operators.
 - `~`: bitwise NOT operator
 
   ```javascript
-  const a = 5; // 00000000000000000000000000000101
-  const b = 3; // 00000000000000000000000000000011
+  const a = 5 // 00000000000000000000000000000101
+  const b = 3 // 00000000000000000000000000000011
 
-  console.log(a | b); // 00000000000000000000000000000111
+  console.log(a | b) // 00000000000000000000000000000111
   // expected output: 7
 
-  console.log(a & b); // 00000000000000000000000000000001
+  console.log(a & b) // 00000000000000000000000000000001
   // expected output: 1
 
-  console.log(a ^ b); // 00000000000000000000000000000110
+  console.log(a ^ b) // 00000000000000000000000000000110
   // expected output: 6
 
-  const a = 5; // 00000000000000000000000000000101
-  const b = -3; // 11111111111111111111111111111101
+  const a = 5 // 00000000000000000000000000000101
+  const b = -3 // 11111111111111111111111111111101
 
-  console.log(~a); // 11111111111111111111111111111010
+  console.log(~a) // 11111111111111111111111111111010
   // expected output: -6
 
-  console.log(~b); // 00000000000000000000000000000010
+  console.log(~b) // 00000000000000000000000000000010
   // expected output: 2
   ```
 
@@ -1220,7 +1216,7 @@ All the basic arithmetic operations can be used along with logical operators.
 - `&&`: logical AND operator:
 
   ```javascript
-  expr1 && expr2;
+  expr1 && expr2
   ```
 
   - Logical AND (`&&`) evaluates operands from left to right, returning immediately with the value of the first falsy operand it encounters; if all values are truthy, the value of the last operand is returned.
@@ -1228,7 +1224,7 @@ All the basic arithmetic operations can be used along with logical operators.
 - `||`: logical OR operator
 
   ```javascript
-  expr1 || expr2;
+  expr1 || expr2
   ```
 
   - If `expr1` can be converted to `true`, returns `expr1`; else, returns `expr2`.
@@ -1243,37 +1239,37 @@ All the basic arithmetic operations can be used along with logical operators.
   - `||` returns the first _truthy_ value
 
   ```javascript
-  null ?? "default string"; // "default string"
-  undefined ?? "default string"; // "default string"
+  null ?? 'default string' // "default string"
+  undefined ?? 'default string' // "default string"
 
-  0 ?? 25; // 0
-  0 || 25; // 25
+  0 ?? 25 // 0
+  0 || 25 // 25
 
-  "" ?? "default string"; // ""
-  "" || "default string"; // "default string"
+  '' ?? 'default string' // ""
+  '' || 'default string' // "default string"
   ```
 
 - `?.` (optional chaining): enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.
 
   ```javascript
   const adventurer = {
-    name: "Alice",
+    name: 'Alice',
     cat: {
-      name: "Dinah",
+      name: 'Dinah',
     },
-  };
+  }
 
-  const dogName = adventurer.dog?.name;
-  console.log(dogName);
+  const dogName = adventurer.dog?.name
+  console.log(dogName)
   // expected output: undefined
 
-  console.log(adventurer.someNonExistentMethod?.());
+  console.log(adventurer.someNonExistentMethod?.())
   // expected output: undefined
 
-  obj.val?.prop;
-  obj.val?.[expr];
-  obj.arr?.[index];
-  obj.func?.(args);
+  obj.val?.prop
+  obj.val?.[expr]
+  obj.arr?.[index]
+  obj.func?.(args)
   ```
 
 ::: danger NOTE
@@ -1302,24 +1298,24 @@ So:
 - All Objects are Truthy:
 
   ```javascript
-  console.log(!!{}); // true
-  console.log(!![]); // true
+  console.log(!!{}) // true
+  console.log(!![]) // true
   ```
 
 - A string is Truthy, but an empty string is a Falsy:
 
   ```javascript
-  console.log(!!""); // false
-  console.log(!!"a"); // true
-  console.log(!!" "); // true
+  console.log(!!'') // false
+  console.log(!!'a') // true
+  console.log(!!' ') // true
   ```
 
 - All numbers expect **0** are Truthy i.e. **0** is Falsy:
 
   ```javascript
-  console.log(!!1); // true
-  console.log(!!0); // false
-  console.log(!!-1); // true
+  console.log(!!1) // true
+  console.log(!!0) // false
+  console.log(!!-1) // true
   ```
 
 > For more information check out the links: [Truthy](https://developer.mozilla.org/en-US/docs/Glossary/Truthy) and [Falsy](https://developer.mozilla.org/en-US/docs/Glossary/Falsy)
@@ -1331,21 +1327,21 @@ String comparison: To see whether a string is greater than another, JavaScript u
 In other words, strings are compared letter-by-letter.
 
 ```javascript
-"Z" > "A"; // true
-"Glow" > "Glee"; // true
-"Bee" > "Be"; // true
+'Z' > 'A' // true
+'Glow' > 'Glee' // true
+'Bee' > 'Be' // true
 ```
 
 Comparisons for `null` and `undefined`:
 
 ```javascript
-null > 0; // false
-null == 0; // false
-null >= 0; // true
+null > 0 // false
+null == 0 // false
+null >= 0 // true
 
-undefined > 0; // false
-undefined < 0; // false
-undefined == 0; // false
+undefined > 0 // false
+undefined < 0 // false
+undefined == 0 // false
 ```
 
 ### Spread Syntax
@@ -1353,8 +1349,8 @@ undefined == 0; // false
 - Spread Properties: Spread properties in object initializers copies own enumerable properties from a provided object onto the newly created object
 
 ```javascript
-let n = { x, y, ...z };
-n; // { x: 1, y: 2, a: 3, b: 4 }
+let n = { x, y, ...z }
+n // { x: 1, y: 2, a: 3, b: 4 }
 ```
 
 ### Rest Syntax
@@ -1366,27 +1362,27 @@ n; // { x: 1, y: 2, a: 3, b: 4 }
 ```javascript
 // ES5
 function isFullAge5() {
-  var argsArr = Array.prototype.slice.call(arguments);
+  var argsArr = Array.prototype.slice.call(arguments)
 
   argsArr.forEach(function (cur) {
-    console.log(2016 - cur >= 18);
-  });
+    console.log(2016 - cur >= 18)
+  })
 }
 
 // ES6
 const isFullAge6 = (...years) =>
-  years.forEach((el) => console.log(2016 - el >= 18));
+  years.forEach((el) => console.log(2016 - el >= 18))
 
-isFullAge6(1990, 1999, 1960);
+isFullAge6(1990, 1999, 1960)
 ```
 
 - Rest Properties: Rest properties collect the remaining own enumerable property keys that are not already picked off by the destructuring pattern. Those keys and their values are copied onto a new object
 
 ```javascript
-let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 };
-x; // 1
-y; // 2
-z; // { a: 3, b: 4 }
+let { x, y, ...z } = { x: 1, y: 2, a: 3, b: 4 }
+x // 1
+y // 2
+z // { a: 3, b: 4 }
 ```
 
 ## Functions
@@ -1411,32 +1407,32 @@ A **function definition** (also called a **function declaration**, or **function
 // named function declaration or definition or statement
 function makeBread(qty) {
   // qty is the parameter
-  const bread = "🍞".repeat(qty);
+  const bread = '🍞'.repeat(qty)
 
   // task or side-effect
-  console.log(bread);
+  console.log(bread)
 
   // return value
-  return bread;
+  return bread
 }
 
 // function call
-const loaves = makeBread(7); // 7 is the argument passed
+const loaves = makeBread(7) // 7 is the argument passed
 ```
 
 **Anonymous functions** are functions with no name:
 
 ```javascript
-(function () {
+;(function () {
   // content
-})();
+})()
 
 // OR
 
 const temp = function () {
   // anonymous function
-  console.log("temp");
-};
+  console.log('temp')
+}
 ```
 
 ### Function Expression
@@ -1448,16 +1444,16 @@ Using function as a value:
 ```javascript
 // function expression
 const makeBeer = function (qty) {
-  return "🍺".repeat(qty);
-};
+  return '🍺'.repeat(qty)
+}
 
-const beers = makeBeer(7);
-console.log(beers); // 🍺🍺🍺🍺🍺🍺🍺
+const beers = makeBeer(7)
+console.log(beers) // 🍺🍺🍺🍺🍺🍺🍺
 
 // name can be provided, so that it can call itself
 const factorial = function fac(n) {
-  return n < 2 ? 1 : n * fac(n - 1);
-};
+  return n < 2 ? 1 : n * fac(n - 1)
+}
 ```
 
 _Function Declaration vs Function Expression_:
@@ -1470,18 +1466,18 @@ _Function Declaration vs Function Expression_:
 
   ```javascript
   // function declaration
-  const bread = makeBread(7);
+  const bread = makeBread(7)
 
   function makeBread(qty) {
-    return "🍞".repeat(qty);
+    return '🍞'.repeat(qty)
   }
 
   // function expression
-  const beers = makeBeer(7); // makeBeer is not defined
+  const beers = makeBeer(7) // makeBeer is not defined
 
   const makeBeer = function (qty) {
-    return "🍺".repeat(qty);
-  };
+    return '🍺'.repeat(qty)
+  }
   ```
 
 ::: tip
@@ -1533,20 +1529,20 @@ function foo() {
 - IIFE can be used for scoping in ES5:
 
   ```javascript
-  (function () {
-    var a = 1;
-    var b = 2;
-    console.log(a + b);
-  })();
+  ;(function () {
+    var a = 1
+    var b = 2
+    console.log(a + b)
+  })()
   ```
 
 - Using [ES6 modules](#esm-ecmascript-modules) for scoping:
 
   ```javascript
   {
-    const a = 10;
-    let b = 25;
-    console.log(a + b);
+    const a = 10
+    let b = 25
+    console.log(a + b)
   }
   ```
 
@@ -1562,25 +1558,25 @@ Function parameters:
 
    ```javascript
    function myConcat(separator) {
-     var result = ""; // initialize list
-     var i;
+     var result = '' // initialize list
+     var i
 
      // iterate through arguments
      for (i = 1; i < arguments.length; i++) {
-       result += arguments[i] + separator;
+       result += arguments[i] + separator
      }
 
-     return result;
+     return result
    }
 
    // returns "red, orange, blue, "
-   myConcat(", ", "red", "orange", "blue");
+   myConcat(', ', 'red', 'orange', 'blue')
 
    // returns "elephant; giraffe; lion; cheetah; "
-   myConcat("; ", "elephant", "giraffe", "lion", "cheetah");
+   myConcat('; ', 'elephant', 'giraffe', 'lion', 'cheetah')
 
    // returns "sage. basil. oregano. pepper. parsley. "
-   myConcat(". ", "sage", "basil", "oregano", "pepper", "parsley");
+   myConcat('. ', 'sage', 'basil', 'oregano', 'pepper', 'parsley')
    ```
 
 2. Positional Parameters: All the arguments must be passed and in the right order:
@@ -1588,11 +1584,11 @@ Function parameters:
    ```javascript
    // positional parameters
    function makeBreakfast(main, side, drink) {
-     console.log(arguments);
-     return `Breakfast includes ${main}, ${side}, ${drink}.`;
+     console.log(arguments)
+     return `Breakfast includes ${main}, ${side}, ${drink}.`
    }
 
-   console.log(makeBreakfast("🥞", "🥓", "🥛"));
+   console.log(makeBreakfast('🥞', '🥓', '🥛'))
 
    // arguments === [] --> ["🥞", "🥓", "🥛"]
    // Breakfast includes 🥞, 🥓, 🥛
@@ -1604,22 +1600,22 @@ Function parameters:
 
      ```javascript
      function multiply(a, b) {
-       b = typeof b !== "undefined" ? b : 1;
+       b = typeof b !== 'undefined' ? b : 1
 
-       return a * b;
+       return a * b
      }
 
-     multiply(5); // 5
+     multiply(5) // 5
      ```
 
    - With ES6, the nex syntax can be used to set default values:
 
      ```javascript
      function multiply(a, b = 1) {
-       return a * b;
+       return a * b
      }
 
-     multiply(5); // 5
+     multiply(5) // 5
      ```
 
 4. Named Parameters: Here the argument is a single object that can contain multiple values.
@@ -1630,12 +1626,12 @@ Function parameters:
    ```javascript
    // named parameters
    function makeBreakfast(opts) {
-     const { main, side, drink } = opts;
-     console.log(arguments);
-     return `Breakfast includes ${main}, ${side}, ${drink}.`;
+     const { main, side, drink } = opts
+     console.log(arguments)
+     return `Breakfast includes ${main}, ${side}, ${drink}.`
    }
 
-   console.log(makeBreakfast({ side: "🥓", main: "🥞", drink: "🥛" }));
+   console.log(makeBreakfast({ side: '🥓', main: '🥞', drink: '🥛' }))
 
    // arguments === [{}] --> [{ side: "🥞", main: "🥓", drink: "🥛" }]
    // Breakfast includes 🥞, 🥓, 🥛
@@ -1648,11 +1644,11 @@ Function parameters:
    ```javascript
    // rest parameters
    function makeBreakfast(...args) {
-     console.log(arguments);
-     return `Breakfast includes ${args.join(" ")}.`;
+     console.log(arguments)
+     return `Breakfast includes ${args.join(' ')}.`
    }
 
-   console.log(makeBreakfast("🥞", "🥓", "🥛"));
+   console.log(makeBreakfast('🥞', '🥓', '🥛'))
 
    // arguments === [] --> ["🥞", "🥓", "🥛"]
    // Breakfast includes 🥞, 🥓, 🥛
@@ -1677,17 +1673,17 @@ Arrow function syntax:
 
 ```javascript
 function app(input) {
-  return output;
+  return output
 }
 
 // above function as an arrow function
-const app = (input) => output;
+const app = (input) => output
 
-const makeWine = (qty) => "🍷".replace(qty);
+const makeWine = (qty) => '🍷'.replace(qty)
 
 const makeWine = (qty) => {
-  return "🍷".replace(qty);
-};
+  return '🍷'.replace(qty)
+}
 ```
 
 They don't have their own `this` object.
@@ -1695,25 +1691,25 @@ They don't have their own `this` object.
 ```javascript
 // ES5 Arrow 'this' example
 function Dog() {
-  var self = this;
-  this.breed = "Wolf 🐺";
+  var self = this
+  this.breed = 'Wolf 🐺'
 
   setTimeout(function () {
-    console.log(this.breed); // undefined
-    console.log(self.breed); // Wolf 🐺
-  }, 0);
+    console.log(this.breed) // undefined
+    console.log(self.breed) // Wolf 🐺
+  }, 0)
 }
 
 // With Arrow Function
 function Dog() {
-  this.breed = "Wolf 🐺";
+  this.breed = 'Wolf 🐺'
 
   setTimeout(() => {
-    console.log(this.breed);
-  }, 0);
+    console.log(this.breed)
+  }, 0)
 }
 
-Dog();
+Dog()
 ```
 
 > ES6 [in depth Arrow Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) - Mozilla
@@ -1733,16 +1729,16 @@ Pure functions always produce the same output given the same input
 - They help in composing your applications as a collection of Higher Order Functions.
 
 ```javascript
-let x = 0;
+let x = 0
 
 // impure function
 const impure = () => {
-  x++;
-  return x ** 2;
-};
+  x++
+  return x ** 2
+}
 
 // pure functions
-const pure = (x) => x ** 2;
+const pure = (x) => x ** 2
 ```
 
 ### Higher Order Functions
@@ -1783,44 +1779,44 @@ Closure is just a function within a function where inner function references a v
     // lexical env b
     const inner = () => {
       // lexical env c
-    };
-  };
+    }
+  }
   ```
 
 _Example:_
 
 ```javascript
 function useCat() {
-  let name = "baby kitten";
+  let name = 'baby kitten'
 
-  return [() => `Meow ${name}`, (newName) => (name = newName)];
+  return [() => `Meow ${name}`, (newName) => (name = newName)]
 }
 
-const [meow, setName] = useCat();
+const [meow, setName] = useCat()
 
-console.log(meow()); // Meow baby kitten
-setName("frank");
-console.log(meow()); // Meow frank
+console.log(meow()) // Meow baby kitten
+setName('frank')
+console.log(meow()) // Meow frank
 ```
 
 ```javascript
 function outer() {
-  const fish = "🐠";
-  let count = 0;
+  const fish = '🐠'
+  let count = 0
 
   function inner() {
-    count++;
-    return `${count} ${fish}`;
+    count++
+    return `${count} ${fish}`
   }
 
-  return inner;
+  return inner
 }
 
-const fun = outer();
+const fun = outer()
 
-console.log(fun()); // 1 🐠
-console.log(fun()); // 2 🐠
-console.log(fun()); // 3 🐠
+console.log(fun()) // 1 🐠
+console.log(fun()) // 2 🐠
+console.log(fun()) // 3 🐠
 ```
 
 - Closure can be used to create objects with public and private parts:
@@ -1831,34 +1827,34 @@ console.log(fun()); // 3 🐠
 // private parts
 let fruitsCollection = (() => {
   // private
-  let objects = [];
+  let objects = []
 
   // public
   return {
     addObject: (object) => {
-      objects.push(object);
+      objects.push(object)
     },
     removeObject: (object) => {
-      let index = objects.indexOf(object);
+      let index = objects.indexOf(object)
       if (index >= 0) {
-        objects.splice(index, 1);
+        objects.splice(index, 1)
       }
     },
     getObjects: () => JSON.parse(JSON.stringify(objects)),
-  };
-})(); // notice the execution
+  }
+})() // notice the execution
 
-fruitsCollection.addObject("apple");
-fruitsCollection.addObject("orange");
-fruitsCollection.addObject("banana");
+fruitsCollection.addObject('apple')
+fruitsCollection.addObject('orange')
+fruitsCollection.addObject('banana')
 
 // prints: ["apple", "orange", "banana"]
-console.log(fruitsCollection.getObjects());
+console.log(fruitsCollection.getObjects())
 
-fruitsCollection.removeObject("apple");
+fruitsCollection.removeObject('apple')
 
 // prints: ["orange", "banana"]
-console.log(fruitsCollection.getObjects());
+console.log(fruitsCollection.getObjects())
 ```
 
 - Closure is similar to a class from a conceptual standpoint:
@@ -1888,75 +1884,75 @@ console.log(instance.inner()); // 3 🐠
 
 ```javascript
 var john = {
-  name: "John",
+  name: 'John',
   age: 26,
-  job: "teacher",
+  job: 'teacher',
   presentation: function (style, timeOfDay) {
-    if (style === "formal") {
+    if (style === 'formal') {
       console.log(
-        "I'm " + this.name + " of age " + this.age + ". Good " + timeOfDay,
-      );
-    } else if (style === "casual") {
+        "I'm " + this.name + ' of age ' + this.age + '. Good ' + timeOfDay,
+      )
+    } else if (style === 'casual') {
       console.log(
-        "Whats up? " +
+        'Whats up? ' +
           this.name +
-          "here, of age " +
+          'here, of age ' +
           this.age +
-          ". Good " +
+          '. Good ' +
           timeOfDay,
-      );
+      )
     }
   },
-};
+}
 
-john.presentation("formal", "morning");
+john.presentation('formal', 'morning')
 
 var emily = {
-  name: "Emily",
+  name: 'Emily',
   age: 35,
-  job: "designer",
-};
+  job: 'designer',
+}
 
 // CALL
-john.presentation.call(emily, "casual", "evening");
+john.presentation.call(emily, 'casual', 'evening')
 
 // APPLY
-john.presentation.apply(emily, ["formal", "night"]);
+john.presentation.apply(emily, ['formal', 'night'])
 
 // BIND - PRESET AN ARGUMENT
-var johnFormal = john.presentation.bind(john, "formal");
+var johnFormal = john.presentation.bind(john, 'formal')
 
-johnFormal("morning");
-johnFormal("evening");
+johnFormal('morning')
+johnFormal('evening')
 ```
 
 _Example:_
 
 ```javascript
-var years = [1990, 1965, 1937, 2005, 1998];
+var years = [1990, 1965, 1937, 2005, 1998]
 
 function arrayCalc(arr, fn) {
-  var arrRes = [];
+  var arrRes = []
   for (var i = 0; i < arr.length; i++) {
-    arrRes.push(fn(arr[i]));
+    arrRes.push(fn(arr[i]))
   }
-  return arrRes;
+  return arrRes
 }
 
 function calculateAge(el) {
-  return 2016 - el;
+  return 2016 - el
 }
 
 function isFullAge(limit, el) {
-  return el >= limit;
+  return el >= limit
 }
 
-var ages = arrayCalc(years, calculateAge);
+var ages = arrayCalc(years, calculateAge)
 
-var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20));
+var fullJapan = arrayCalc(ages, isFullAge.bind(this, 20))
 
-console.log(ages);
-console.log(fullJapan);
+console.log(ages)
+console.log(fullJapan)
 ```
 
 ## Iterators and Generators
@@ -1978,26 +1974,26 @@ _Example:_
 ```javascript
 // iterator
 function nameIterator(names) {
-  let nextIndex = 0;
+  let nextIndex = 0
 
   return {
     next: function () {
       return nextIndex < names.length
         ? { value: names[nextIndex++], done: false }
-        : { done: true };
+        : { done: true }
     },
-  };
+  }
 }
 
 // iterator an array of names
-const namesArr = ["Aragorn", "Legolas", "Gimli"];
+const namesArr = ['Aragorn', 'Legolas', 'Gimli']
 
-const namesItr = nameIterator(namesArr);
+const namesItr = nameIterator(namesArr)
 
-console.log(namesItr.next()); // {value: "Aragorn", done: false}
-console.log(namesItr.next()); // {value: "Legolas", done: false}
-console.log(namesItr.next()); // {value: "Gimli", done: false}
-console.log(namesItr.next()); // {done: true}
+console.log(namesItr.next()) // {value: "Aragorn", done: false}
+console.log(namesItr.next()) // {value: "Legolas", done: false}
+console.log(namesItr.next()) // {value: "Gimli", done: false}
+console.log(namesItr.next()) // {done: true}
 ```
 
 - Use `Symbol.iterator` as key to enable `for..of`
@@ -2008,39 +2004,39 @@ console.log(namesItr.next()); // {done: true}
   function range(start = 0, end = Infinity, step = 1) {
     return {
       [Symbol.iterator]() {
-        return this;
+        return this
       },
 
       next() {
         if (start < end) {
-          start = start + step;
-          return { value: start, done: false };
+          start = start + step
+          return { value: start, done: false }
         }
 
-        return { value: end, done: true };
+        return { value: end, done: true }
       },
-    };
+    }
   }
 
   for (let num of range(0, 10)) {
-    console.log(num); // 1 2 3 4 5 6 7 8 9 10
+    console.log(num) // 1 2 3 4 5 6 7 8 9 10
   }
   ```
 
 - Calling an iterator manually:
 
   ```javascript
-  let str = "Hello";
+  let str = 'Hello'
 
   // for (let char of str) console.log(char);
 
   // does the same as for..of
-  let iterator = str[Symbol.iterator]();
+  let iterator = str[Symbol.iterator]()
 
   while (true) {
-    let result = iterator.next();
-    if (result.done) break;
-    console.log(result.value); // outputs characters one by one
+    let result = iterator.next()
+    if (result.done) break
+    console.log(result.value) // outputs characters one by one
   }
   ```
 
@@ -2054,15 +2050,15 @@ Syntax:
 
 ```javascript
 function* name(param0) {
-  statements;
+  statements
 }
 
 function* name(param0, param1) {
-  statements;
+  statements
 }
 
 function* name(param0, param1, /* … ,*/ paramN) {
-  statements;
+  statements
 }
 ```
 
@@ -2070,32 +2066,32 @@ _Example:_
 
 ```javascript
 function* generator(i) {
-  yield i;
-  yield i + 10;
+  yield i
+  yield i + 10
 }
 
-const gen = generator(10);
+const gen = generator(10)
 
-console.log(gen.next());
+console.log(gen.next())
 // {value: 10, done: false}
 
-console.log(gen.next());
+console.log(gen.next())
 // {value: 20, done: false}
 
-console.log(gen.next());
+console.log(gen.next())
 // {value: undefined, done: true}
 ```
 
 ```javascript
 function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
-  let iterationCount = 0;
+  let iterationCount = 0
 
   for (let i = start; i < end; i += step) {
-    iterationCount++;
-    yield i;
+    iterationCount++
+    yield i
   }
 
-  return iterationCount;
+  return iterationCount
 }
 ```
 
@@ -2103,30 +2099,30 @@ function* makeRangeIterator(start = 0, end = Infinity, step = 1) {
 
 ```javascript
 function* showNext() {
-  yield 1;
-  yield 2;
+  yield 1
+  yield 2
 
-  const customOutput = yield "enter custom output";
-  yield customOutput;
+  const customOutput = yield 'enter custom output'
+  yield customOutput
 
-  return 100;
+  return 100
 }
 
-console.log(showNext.next());
+console.log(showNext.next())
 // {value: 2, done: false}
 
-console.log(showNext.next());
+console.log(showNext.next())
 // {value: "enter custom output", done: false}
 
-console.log(showNext.next(52));
+console.log(showNext.next(52))
 // {value: 52, done: false}
 
 // or
 
-console.log(showNext.next());
+console.log(showNext.next())
 // {value: undefined, done: false}
 
-console.log(showNext.next());
+console.log(showNext.next())
 // {value: 100, done: true}
 ```
 
@@ -2142,16 +2138,16 @@ An object is _iterable_ if it defines its iteration behaviour (implement the `Sy
 
 ```javascript
 function* generateSequence() {
-  yield 1;
-  yield 2;
-  yield 3;
+  yield 1
+  yield 2
+  yield 3
   // return 3; // this will be ignored during iteration
 }
 
-let generator = generateSequence();
+let generator = generateSequence()
 
 for (let value of generator) {
-  console.log(value); // 1, 2, 3
+  console.log(value) // 1, 2, 3
 }
 ```
 
@@ -2164,16 +2160,16 @@ You can throw exceptions using the `throw` statement and handle them using the `
 Use the `throw` statement to throw an exception:
 
 ```javascript
-throw expression;
+throw expression
 
-throw "Error2"; // String type
-throw 42; // Number type
-throw true; // Boolean type
+throw 'Error2' // String type
+throw 42 // Number type
+throw true // Boolean type
 throw {
   toString: function () {
-    return "I'm an object!";
+    return "I'm an object!"
   },
-};
+}
 ```
 
 ### `try...catch` Statement
@@ -2182,10 +2178,10 @@ The `try...catch` statement marks a block of statements to try, and specifies on
 
 ```javascript
 try {
-  throw "myException"; // generates an exception
+  throw 'myException' // generates an exception
 } catch (err) {
   // statements to handle any exceptions
-  logMyErrors(err); // pass exception object to error handler
+  logMyErrors(err) // pass exception object to error handler
 }
 ```
 
@@ -2196,13 +2192,13 @@ The finally block contains statements to be executed after the try and catch blo
 - `finally` block will execute whether or not an exception is thrown.
 
 ```javascript
-openMyFile();
+openMyFile()
 try {
-  writeMyFile(theData); // This may throw an error
+  writeMyFile(theData) // This may throw an error
 } catch (e) {
-  handleError(e); // If an error occurred, handle it
+  handleError(e) // If an error occurred, handle it
 } finally {
-  closeMyFile(); // Always close the resource
+  closeMyFile() // Always close the resource
 }
 ```
 
@@ -2215,19 +2211,19 @@ Put strings inside back ticks (tilda) and use `${}` to put the variables, functi
 - This is alternative to the old string formatting
 
 ```javascript
-let year = 1996;
+let year = 1996
 
 function calcAge(year) {
-  return 2018 - year;
+  return 2018 - year
 }
 
 // ES5
 console.log(
-  "I was born in the year " + year + " and my age is " + calcAge(year),
-);
+  'I was born in the year ' + year + ' and my age is ' + calcAge(year),
+)
 
 //ES6
-console.log(`I was born in the year ${year} and my age is ${calcAge(year)}`);
+console.log(`I was born in the year ${year} and my age is ${calcAge(year)}`)
 ```
 
 - Line terminators in template literals are always _LF_ (`\n`)
@@ -2240,10 +2236,10 @@ Common ways of terminating lines are:
 
 ```javascript
 const str = `BEFORE
-AFTER`;
+AFTER`
 
 // On all OS
-console.log(str === "BEFORE\nAFTER"); // true
+console.log(str === 'BEFORE\nAFTER') // true
 ```
 
 ### Tagged Template Literals
@@ -2251,10 +2247,10 @@ console.log(str === "BEFORE\nAFTER"); // true
 _Tagged template literals_: are function calls whose **parameters are provided via template literals**
 
 ```javascript
-tagFunction`Hello ${firstName} ${lastName}!`;
+tagFunction`Hello ${firstName} ${lastName}!`
 
 // is equivalent to
-tagFunction(["Hello ", " ", "!"], firstName, lastName);
+tagFunction(['Hello ', ' ', '!'], firstName, lastName)
 ```
 
 - Tagged template literals allow you to implement custom embedded sub-languages (which are sometimes called _domain-specific languages_) with little effort, because JavaScript does much of the parsing for you.
@@ -2263,28 +2259,28 @@ _Example:_
 
 ```javascript
 function myTag(strings, personExp, ageExp) {
-  const str0 = strings[0]; // "That "
-  const str1 = strings[1]; // " is a "
-  const str2 = strings[2]; // "."
+  const str0 = strings[0] // "That "
+  const str1 = strings[1] // " is a "
+  const str2 = strings[2] // "."
 
-  const ageStr = ageExp > 99 ? "centenarian" : "youngster";
+  const ageStr = ageExp > 99 ? 'centenarian' : 'youngster'
 
   // We can even return a string built using a template literal
-  return `${str0}${personExp}${str1}${ageStr}${str2}`;
+  return `${str0}${personExp}${str1}${ageStr}${str2}`
 }
 
-const person = "Mike";
-const age = 28;
+const person = 'Mike'
+const age = 28
 
-const output = myTag`That ${person} is a ${age}.`;
+const output = myTag`That ${person} is a ${age}.`
 
-console.log(output);
+console.log(output)
 // That Mike is a youngster.
 ```
 
 ## Array
 
-An array is an ordered list of values that you refer to with a name and an index.
+An array is an ordered list of values that you refer to with a name and an index
 
 ```javascript
 // Using Array constructor
@@ -2295,40 +2291,55 @@ let arr = Array(element0, element1, ..., elementN)
 let arr = [element0, element1, ..., elementN]
 ```
 
+- Accessing array elements:
+
+  ```javascript
+  const arr = [1, 2, 3]
+
+  arr[0] // 1
+
+  // Using `at()`
+  arr.at(0) // 1
+  arr.at(-1) // 3 (get last element)
+
+  arr[10] // undeclared
+  arr.at(10) // undefined
+  ```
+
 - An array with non-zero length, but without any items:
 
   ```javascript
   // This...
-  let arr = new Array(arrayLength);
+  let arr = new Array(arrayLength)
 
   // ...results in the same array as this
-  let arr = Array(arrayLength);
+  let arr = Array(arrayLength)
 
   // This has exactly the same effect
-  let arr = [];
-  arr.length = arrayLength;
+  let arr = []
+  arr.length = arrayLength
   ```
 
 - Copy an array:
 
   ```javascript
   // Method 1
-  const newData = [];
+  const newData = []
   for (let i = 0; i < data.length; i++) {
-    newData.push(data[i]);
+    newData.push(data[i])
   }
 
   // Method 2
-  const newData = Array.from(data);
+  const newData = Array.from(data)
 
   // Method 3
-  const newData = data.slice();
+  const newData = data.slice()
 
   // Method 4
-  const newData = [...data];
+  const newData = [...data]
 
   // Method 5
-  const newData = data.map((x) => x);
+  const newData = data.map((x) => x)
   ```
 
 - Converting Node lists to Arrays:
@@ -2336,21 +2347,19 @@ let arr = [element0, element1, ..., elementN]
   - ES5
 
   ```javascript
-  const boxes = document.querySelectorAll(".box");
+  const boxes = document.querySelectorAll('.box')
 
-  var boxesArr5 = Array.prototype.slice.call(boxes);
+  var boxesArr5 = Array.prototype.slice.call(boxes)
 
   boxesArr5.forEach(function (cur) {
-    cur.style.backgroundColor = "dodgerblue";
-  });
+    cur.style.backgroundColor = 'dodgerblue'
+  })
   ```
 
   - ES6
 
   ```javascript
-  Array.from(boxes).forEach(
-    (cur) => (cur.style.backgroundColor = "dodgerblue"),
-  );
+  Array.from(boxes).forEach((cur) => (cur.style.backgroundColor = 'dodgerblue'))
   ```
 
 ### Typed Arrays
@@ -2365,17 +2374,17 @@ In JavaScript (ES6+) `class` is not a language feature, it's _syntactic obscuran
 
   ```javascript
   var Person5 = function (name, yearOfBirth, job) {
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
-  };
+    this.name = name
+    this.yearOfBirth = yearOfBirth
+    this.job = job
+  }
 
   Person5.prototype.calcAge = function () {
-    var age = new Date().getFullYear() - this.yearOfBirth;
-    console.log(age);
-  };
+    var age = new Date().getFullYear() - this.yearOfBirth
+    console.log(age)
+  }
 
-  var john = new Person5("John", 1996, "teacher");
+  var john = new Person5('John', 1996, 'teacher')
   ```
 
 - ES6 added class syntax:
@@ -2383,17 +2392,17 @@ In JavaScript (ES6+) `class` is not a language feature, it's _syntactic obscuran
   ```javascript
   class Person6 {
     constructor(name, yearOfBirth, job) {
-      this.name = name;
-      this.yearOfBirth = yearOfBirth;
-      this.job = job;
+      this.name = name
+      this.yearOfBirth = yearOfBirth
+      this.job = job
     }
 
     calcAge() {
-      let age = new Date().getFullYear() - this.yearOfBirth;
-      console.log(age);
+      let age = new Date().getFullYear() - this.yearOfBirth
+      console.log(age)
     }
   }
-  const emily = new Person6("Emily", 1994, "teacher");
+  const emily = new Person6('Emily', 1994, 'teacher')
   ```
 
 ES5 and ES6 versions:
@@ -2403,37 +2412,37 @@ ES5 and ES6 versions:
 var Car = /** @class */ (function () {
   function Car(seats, color) {
     if (seats === void 0) {
-      seats = 36;
+      seats = 36
     }
 
-    this.seats = seats;
-    this.color = color;
+    this.seats = seats
+    this.color = color
   }
 
   Car.prototype.printCar = function () {
-    console.log(this.seats + this.color);
-  };
+    console.log(this.seats + this.color)
+  }
 
-  return Car;
-})();
+  return Car
+})()
 
-var newCar = new Car(25, "Red");
+var newCar = new Car(25, 'Red')
 ```
 
 ```javascript
 // ES6
 class Car {
   constructor(seats = 36, color) {
-    this.seats = seats;
-    this.color = color;
+    this.seats = seats
+    this.color = color
   }
 
   printCar() {
-    console.log(this.seats + this.color);
+    console.log(this.seats + this.color)
   }
 }
 
-const newCar = new Car(25, "Red");
+const newCar = new Car(25, 'Red')
 ```
 
 - Static methods can be also be created. Static methods are those methods that cannot be inherited.
@@ -2441,24 +2450,24 @@ const newCar = new Car(25, "Red");
 ```javascript
 class Person6 {
   constructor(name, yearOfBirth, job) {
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
+    this.name = name
+    this.yearOfBirth = yearOfBirth
+    this.job = job
   }
 
   calcAge() {
-    let age = new Date().getFullYear() - this.yearOfBirth;
-    console.log(age);
+    let age = new Date().getFullYear() - this.yearOfBirth
+    console.log(age)
   }
 
   static greeting() {
-    console.log("Hey There!");
+    console.log('Hey There!')
   }
 }
 
-const emily = new Person5("Emily", 1994, "teacher");
+const emily = new Person5('Emily', 1994, 'teacher')
 
-Person6.greeting();
+Person6.greeting()
 ```
 
 - Access modifiers in Classes
@@ -2475,30 +2484,30 @@ ES5
 
 ```javascript
 var Person5 = function (name, yearOfBirth, job) {
-  this.name = name;
-  this.yearOfBirth = yearOfBirth;
-  this.job = job;
-};
+  this.name = name
+  this.yearOfBirth = yearOfBirth
+  this.job = job
+}
 
 Person5.prototype.calcAge = function () {
-  var age = new Date().getFullYear() - this.yearOfBirth;
-  console.log(age);
-};
+  var age = new Date().getFullYear() - this.yearOfBirth
+  console.log(age)
+}
 
 var Athlete5 = function (name, yearOfBirth, job, olympicGames, medals) {
-  Person5.call(this, name, yearOfBirth, job);
-  this.olympicGames = olympicGames;
-  this.medals = medals;
-};
+  Person5.call(this, name, yearOfBirth, job)
+  this.olympicGames = olympicGames
+  this.medals = medals
+}
 
-Athlete5.prototype = Object.create(Person5.prototype);
+Athlete5.prototype = Object.create(Person5.prototype)
 
 Athlete5.prototype.wonMedal = function () {
-  this.medals++;
-  console.log(this.medals);
-};
+  this.medals++
+  console.log(this.medals)
+}
 
-var johnAthlete5 = new Athlete5("John", 1996, "teacher", 3, 10);
+var johnAthlete5 = new Athlete5('John', 1996, 'teacher', 3, 10)
 ```
 
 ES6
@@ -2506,31 +2515,31 @@ ES6
 ```javascript
 class Person6 {
   constructor(name, yearOfBirth, job) {
-    this.name = name;
-    this.yearOfBirth = yearOfBirth;
-    this.job = job;
+    this.name = name
+    this.yearOfBirth = yearOfBirth
+    this.job = job
   }
 
   calcAge() {
-    let age = new Date().getFullYear() - this.yearOfBirth;
-    console.log(age);
+    let age = new Date().getFullYear() - this.yearOfBirth
+    console.log(age)
   }
 }
 
 class Athlete6 extends Person6 {
   constructor(name, yearOfBirth, job, olympicGames, medals) {
-    super(name, yearOfBirth, job);
-    this.olympicGames = olympicGames;
-    this.medals = medals;
+    super(name, yearOfBirth, job)
+    this.olympicGames = olympicGames
+    this.medals = medals
   }
 
   wonMedal() {
-    this.medals++;
-    console.log(this.medals);
+    this.medals++
+    console.log(this.medals)
   }
 }
 
-const emilyAthlete6 = new Athlete6("Emily", 1994, "Runner", 10, 25);
+const emilyAthlete6 = new Athlete6('Emily', 1994, 'Runner', 10, 25)
 ```
 
 ## Keyed Collections
@@ -2548,49 +2557,49 @@ A Map object (ES6) is a simple **key-value map** and can iterate its elements in
 _Example:_
 
 ```javascript
-const question = new Map();
+const question = new Map()
 
 question.set(
-  "question",
-  "What is the official name of the latest major JavaScript version?",
-);
-question.set(1, "ES5");
-question.set(2, "ES2015");
-question.set("correct", 2);
-question.set(true, "Correct Answer :D");
-question.set(false, "Wrong, please try again!");
+  'question',
+  'What is the official name of the latest major JavaScript version?',
+)
+question.set(1, 'ES5')
+question.set(2, 'ES2015')
+question.set('correct', 2)
+question.set(true, 'Correct Answer :D')
+question.set(false, 'Wrong, please try again!')
 
-question.get("correct"); // 2
+question.get('correct') // 2
 
-question.size; // 6
+question.size // 6
 
 question.forEach((value, key) =>
   console.log(`This is ${key}, and it's set to ${value}`),
-);
+)
 
 // loop through key-value pairs
 for (let [key, value] of question.entries()) {
   // of question) {
-  if (typeof key === "number") {
-    console.log(`This is ${key}, and it's set to ${value}`);
+  if (typeof key === 'number') {
+    console.log(`This is ${key}, and it's set to ${value}`)
   }
 }
 
 // loop through keys or values
-question.keys();
-question.values();
+question.keys()
+question.values()
 
-question.clear();
+question.clear()
 
-question.size; // 0
+question.size // 0
 ```
 
 - Create an array of key-value pairs:
 
   ```javascript
-  const keyValArr = Array.from(question);
+  const keyValArr = Array.from(question)
 
-  const valuesArr = Array.from(question.values());
+  const valuesArr = Array.from(question.values())
   ```
 
 ### Sets
@@ -2600,39 +2609,39 @@ question.size; // 0
 - A value in a `Set` may only occur once; it is **unique** in the Set's collection.
 
 ```javascript
-let mySet = new Set();
-mySet.add(1);
-mySet.add("foo");
+let mySet = new Set()
+mySet.add(1)
+mySet.add('foo')
 
-mySet.has(1); // true
+mySet.has(1) // true
 
-mySet.delete("foo");
+mySet.delete('foo')
 
-mySet.size; // 2
+mySet.size // 2
 
 for (let item of mySet) {
-  console.log(item); // 1
+  console.log(item) // 1
 }
 
 // Set object performs shallow comparison
 // to determine duplicate values
-mySet = new Set();
+mySet = new Set()
 
-mySet.add({ name: "A Set" });
-mySet.add({ name: "A Set" });
+mySet.add({ name: 'A Set' })
+mySet.add({ name: 'A Set' })
 
 // because
 // { name: "A Set" } !== { name: "A Set" }
-mySet.size; // 2
+mySet.size // 2
 
-const person = { name: "Bilbo" };
+const person = { name: 'Bilbo' }
 
-mySet.add(person);
-mySet.add(person);
+mySet.add(person)
+mySet.add(person)
 
 // because
 // person === person
-mySet.size; // 3 not 4
+mySet.size // 3 not 4
 ```
 
 Converting between Array and Set:
@@ -2640,10 +2649,10 @@ Converting between Array and Set:
 - `Set` objects store unique values-so any duplicate elements from an Array are deleted when converting!
 
 ```javascript
-Array.from(mySet);
-[...mySet2];
+Array.from(mySet)
+;[...mySet2]
 
-mySet2 = new Set([1, 2, 3, 4]);
+mySet2 = new Set([1, 2, 3, 4])
 ```
 
 ## Asynchronous Programming
@@ -2651,23 +2660,24 @@ mySet2 = new Set([1, 2, 3, 4]);
 Asynchronous programming is a technique that enables your program to start a potentially long-running task and still be able to be responsive to other events while that task runs, rather than having to wait until that task has finished. Once that task has finished, your program is presented with the result.
 
 - Tasks such as HTTP requests, file selection, etc. do not finish immediately
+- [Synchronous vs Asynchronous JavaScript – Call Stack, Promises, and More](https://www.freecodecamp.org/news/synchronous-vs-asynchronous-in-javascript/)
 
 Using `setTimeout()` to cause a delay in function execution:
 
 ```javascript
 const second = () => {
   setTimeout(() => {
-    console.log("Second");
-  }, 2000);
-};
+    console.log('Second')
+  }, 2000)
+}
 
 const first = () => {
-  console.log("Hey There");
-  second();
-  console.log("The End");
-};
+  console.log('Hey There')
+  second()
+  console.log('The End')
+}
 
-first();
+first()
 ```
 
 The expected result of the above code is:
@@ -2721,30 +2731,30 @@ The call stack?
 ```javascript
 function getRecipe() {
   setTimeout(() => {
-    const recipeID = [523, 883, 432, 978];
-    console.log(recipeID);
+    const recipeID = [523, 883, 432, 978]
+    console.log(recipeID)
 
     setTimeout(
       (id) => {
-        const recipe = { title: "French Tomato Pasta", publisher: "Jones" };
-        console.log(`${id}: ${recipe.title}`);
+        const recipe = { title: 'French Tomato Pasta', publisher: 'Jones' }
+        console.log(`${id}: ${recipe.title}`)
 
         setTimeout(
           (publisher) => {
-            const recipe2 = { title: "Italian Pizza", publisher: "Jones" };
-            console.log(recipe2);
+            const recipe2 = { title: 'Italian Pizza', publisher: 'Jones' }
+            console.log(recipe2)
           },
           1500,
           recipe.publisher,
-        );
+        )
       },
       1500,
       recipeID[2],
-    );
-  }, 1500);
+    )
+  }, 1500)
 }
 
-getRecipe();
+getRecipe()
 ```
 
 This way of calling Asynchronous Functions where each asynchronous function is inside another asynchronous function causing a **Call Back Hell**.
@@ -2778,7 +2788,7 @@ Promise States:
 - `Promise()` constructor:
 
   ```javascript
-  new Promise(executor);
+  new Promise(executor)
   ```
 
   - `executor`: A function to be executed by the constructor. It receives two functions as parameters: `resolutionFunc` and `rejectionFunc`
@@ -2788,9 +2798,9 @@ Promise States:
 ```javascript
 const myPromise = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve("foo");
-  }, 300);
-});
+    resolve('foo')
+  }, 300)
+})
 ```
 
 Promise Methods:
@@ -2817,47 +2827,47 @@ _Example:_
 ```javascript
 const getIDs = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve([145, 365, 394, 987]);
-  }, 1500);
-});
+    resolve([145, 365, 394, 987])
+  }, 1500)
+})
 
 const getRecipe = (recID) => {
   return new Promise((resolve, reject) => {
     setTimeout(
       (ID) => {
-        const recipe = { title: "French Tomato Pasta", publisher: "Jones" };
-        resolve(`${ID}: ${recipe.title}`);
+        const recipe = { title: 'French Tomato Pasta', publisher: 'Jones' }
+        resolve(`${ID}: ${recipe.title}`)
       },
       1500,
       recID,
-    );
-  });
-};
+    )
+  })
+}
 
 const getRelated = (publisher) => {
   return new Promise((resolve, reject) => {
     setTimeout(
       (pub) => {
-        const recipe2 = { title: "Italian Pizza", publisher: "Jones" };
-        resolve(`${pub}: ${recipe2.title}`);
+        const recipe2 = { title: 'Italian Pizza', publisher: 'Jones' }
+        resolve(`${pub}: ${recipe2.title}`)
       },
       1500,
       publisher,
-    );
-  });
-};
+    )
+  })
+}
 
 getIDs
   .then((IDs) => {
-    console.log(IDs);
-    return getRecipe(IDs[2]);
+    console.log(IDs)
+    return getRecipe(IDs[2])
   })
   .then((recipe) => {
-    console.log(recipe);
-    return getRelated("Jonas");
+    console.log(recipe)
+    return getRelated('Jonas')
   })
   .then((pub) => console.log(pub))
-  .catch((error) => console.log(error));
+  .catch((error) => console.log(error))
 ```
 
 - Resolve multiple promises:
@@ -2866,17 +2876,16 @@ getIDs
 // These 2 calls don't depend on each other
 // so getProducts has to wait until getUser
 // call has finished
-const user = await getUser();
-const products = await getProducts();
+const user = await getUser()
+const products = await getProducts()
 
 // Concurrent calls
 // errors not handled properly here
-const [user, products] = await Promise.all([getUser(), getProducts()]);
+const [user, products] = await Promise.all([getUser(), getProducts()])
 
 // Better error handling
-const results = await Promise.allSettled([getUser(), getProducts()]);
+const results = await Promise.allSettled([getUser(), getProducts()])
 
-console.log(results);
 // [
 //   {status: "fulfilled", value: ... },
 //   {status: "rejected", reason: Error }
@@ -2889,47 +2898,47 @@ console.log(results);
 class MyPromise {
   constructor(cb) {
     const resolve = (value) => {
-      setTimeout(() => this._then?.(value), 0);
-    };
+      setTimeout(() => this._then?.(value), 0)
+    }
 
     const reject = (value) => {
-      setTimeout(() => this._catch?.(value), 0);
-    };
+      setTimeout(() => this._catch?.(value), 0)
+    }
 
-    cb(resolve, reject);
+    cb(resolve, reject)
   }
 
   _wrap(cb, resolve, reject) {
     return (value) => {
       try {
-        const output = cb(value);
-        resolve(output);
+        const output = cb(value)
+        resolve(output)
       } catch (err) {
-        reject(err);
+        reject(err)
       }
-    };
+    }
   }
 
   then(cb) {
     return new MyPromise((resolve, reject) => {
-      console.log("binding then");
-      this._then = this._wrap(cb, resolve, reject);
-    });
+      console.log('binding then')
+      this._then = this._wrap(cb, resolve, reject)
+    })
   }
 
   catch(cb) {
     return new MyPromise((resolve, reject) => {
-      console.log("binding catch");
-      this._catch = this._wrap(cb, resolve, reject);
-    });
+      console.log('binding catch')
+      this._catch = this._wrap(cb, resolve, reject)
+    })
   }
 }
 
 const myPromise = new MyPromise((resolve, reject) => {
   setTimeout(() => {
-    resolve("foo");
-  }, 300);
-});
+    resolve('foo')
+  }, 300)
+})
 ```
 
 -[What is Promise?](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#.aa7ubggsy)
@@ -2941,48 +2950,48 @@ Its new feature provided by ES8.
 ```javascript
 const getIDs = new Promise((resolve, reject) => {
   setTimeout(() => {
-    resolve([145, 365, 394, 987]);
-  }, 1500);
-});
+    resolve([145, 365, 394, 987])
+  }, 1500)
+})
 
 const getRecipe = (recID) => {
   return new Promise((resolve, reject) => {
     setTimeout(
       (ID) => {
-        const recipe = { title: "French Tomato Pasta", publisher: "Jones" };
-        resolve(`${ID}: ${recipe.title}`);
+        const recipe = { title: 'French Tomato Pasta', publisher: 'Jones' }
+        resolve(`${ID}: ${recipe.title}`)
       },
       1500,
       recID,
-    );
-  });
-};
+    )
+  })
+}
 
 const getRelated = (publisher) => {
   return new Promise((resolve, reject) => {
     setTimeout(
       (pub) => {
-        const recipe2 = { title: "Italian Pizza", publisher: "Jones" };
-        resolve(`${pub}: ${recipe2.title}`);
+        const recipe2 = { title: 'Italian Pizza', publisher: 'Jones' }
+        resolve(`${pub}: ${recipe2.title}`)
       },
       1500,
       publisher,
-    );
-  });
-};
-
-async function getRecipeAW() {
-  const IDs = await getIDs;
-  console.log(IDs);
-
-  const recipe = await getRecipe(IDs[2]);
-  console.log(recipe);
-
-  const related = await getRelated("Jonas");
-  console.log(related);
+    )
+  })
 }
 
-getRecipeAW();
+async function getRecipeAW() {
+  const IDs = await getIDs
+  console.log(IDs)
+
+  const recipe = await getRecipe(IDs[2])
+  console.log(recipe)
+
+  const related = await getRelated('Jonas')
+  console.log(related)
+}
+
+getRecipeAW()
 ```
 
 ## AJAX (Asynchronous JavaScript And XML)
@@ -3015,19 +3024,19 @@ _Example:_
 
 ```javascript
 const getData = () => {
-  const xhr = new XMLHttpRequest();
+  const xhr = new XMLHttpRequest()
 
   // create a request
-  xhr.open("GET", "https://forkify-api.herokuapp.com/api/search?q=pizza");
+  xhr.open('GET', 'https://forkify-api.herokuapp.com/api/search?q=pizza')
 
   // parse json to javascript object
-  xhr.responseType = "json";
+  xhr.responseType = 'json'
 
   // optional, used for spinners/loaders
   xhr.onprogress = function () {
-    console.log(this.readyState);
+    console.log(this.readyState)
     // console.log(xhr.readyState);
-  };
+  }
 
   // // old way
   // xhr.onreadystatechange = function () {
@@ -3041,17 +3050,17 @@ const getData = () => {
     // if (this.status === 200) {
     // }
 
-    console.log(xhr.response);
-  };
+    console.log(xhr.response)
+  }
 
   // handle errors
   xhr.onerror = () => {
-    console.log("Something went wrong...");
-  };
+    console.log('Something went wrong...')
+  }
 
   // send the request
-  xhr.send();
-};
+  xhr.send()
+}
 ```
 
 ### Fetch API
@@ -3060,7 +3069,7 @@ The Fetch API provides an interface for fetching resources (including across the
 
 ```javascript
 // init is optional
-fetch(resource, init);
+fetch(resource, init)
 ```
 
 - An object containing any custom settings that you want to apply to the request. Options such as:
@@ -3086,16 +3095,16 @@ async function getTodo(id) {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/todos/${id}`,
-    );
-    const data = await response.json();
-    console.log(data);
+    )
+    const data = await response.json()
+    console.log(data)
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
-getTodo(1);
-getTodo(5);
+getTodo(1)
+getTodo(5)
 ```
 
 Using Async and Await:
@@ -3105,52 +3114,52 @@ async function getTodo(id) {
   try {
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/todos/${id}`,
-    );
-    const data = await response.json();
-    console.log(data);
+    )
+    const data = await response.json()
+    console.log(data)
   } catch (error) {
-    console.log(error);
+    console.log(error)
   }
 }
 
-getTodo(1);
-getTodo(5);
+getTodo(1)
+getTodo(5)
 ```
 
 - Set header values:
 
 ```javascript
-const response = await fetch("https://example.com/api", {
+const response = await fetch('https://example.com/api', {
   headers: {
-    Authorization: "Basic {token}",
+    Authorization: 'Basic {token}',
   },
-});
+})
 ```
 
 - GET with CORS:
 
 ```javascript
-const response = await fetch("https://example.com/api", {
-  mode: "cors",
-});
+const response = await fetch('https://example.com/api', {
+  mode: 'cors',
+})
 ```
 
 - POST request:
 
 ```javascript
-const response = await fetch("https://example.com/api", {
-  method: "post",
+const response = await fetch('https://example.com/api', {
+  method: 'post',
   body: formData,
-});
+})
 
 // JSON data
-const response = await fetch("https://example.com/api", {
-  method: "post",
+const response = await fetch('https://example.com/api', {
+  method: 'post',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
   body: JSON.stringify(formData),
-});
+})
 ```
 
 - The [Promise](#promise) returned from `fetch()` **won't reject on HTTP error status** even if the response is an HTTP `404` or `500`
@@ -3159,16 +3168,16 @@ const response = await fetch("https://example.com/api", {
 try {
   const response = await fetch(
     `https://jsonplaceholder.typicode.com/todos/${id}`,
-  );
+  )
 
   if (!response.ok) {
-    throw new Error("Network response was not OK");
+    throw new Error('Network response was not OK')
   }
 
-  const data = await response.json();
-  console.log(data);
+  const data = await response.json()
+  console.log(data)
 } catch (error) {
-  console.log(error);
+  console.log(error)
 }
 ```
 
@@ -3242,14 +3251,14 @@ Types of export:
   // person.js
 
   // in-line individual export
-  export const name = "Jesse";
-  export const age = 40;
+  export const name = 'Jesse'
+  export const age = 40
 
   // export all at once
-  const name = "Jesse";
-  const age = 40;
+  const name = 'Jesse'
+  const age = 40
 
-  export { name, age };
+  export { name, age }
   ```
 
 - Default export:
@@ -3259,13 +3268,13 @@ Types of export:
   ```javascript
   // person.js
   const person = {
-    name: "Jesse",
+    name: 'Jesse',
     age: 40,
 
     getInfo: () => `Name: ${this.name}, Age: ${this.age}`,
-  };
+  }
 
-  export default person;
+  export default person
   ```
 
 ### Import
@@ -3277,19 +3286,19 @@ There are 2 ways Based on if they are named exports or default exports:
 - Import from named exports:
 
   ```javascript
-  import { name, age } from "./person.js";
+  import { name, age } from './person.js'
 
   // or imports the module as an object
-  import * as person from "./person.js";
+  import * as person from './person.js'
 
   // rename named imports:
-  import { name as personName, age } from "./person.js";
+  import { name as personName, age } from './person.js'
   ```
 
 - Import from default exports:
 
   ```javascript
-  import person from "./person.js";
+  import person from './person.js'
   ```
 
 ### Module Pattern
@@ -3298,22 +3307,22 @@ Module pattern using [IIFE](#immediately-invoked-function-expression-iife):
 
 ```javascript
 var budgetController = (function () {
-  var x = 23;
+  var x = 23
   var add = function (a) {
-    return x + a;
-  };
+    return x + a
+  }
 
   return {
     publicTest: function (b) {
-      console.log(add(b));
+      console.log(add(b))
     },
-  };
-})();
+  }
+})()
 
-budgetController.x; // undefined
-budgetController.add(); // uncaught TypeError: budgetController.add is not a function
+budgetController.x // undefined
+budgetController.add() // uncaught TypeError: budgetController.add is not a function
 
-budgetController.publicTest(25); // 49
+budgetController.publicTest(25) // 49
 ```
 
 ## Local Storage
@@ -3335,10 +3344,10 @@ _Example:_
 
 ```javascript
 // set item
-localStorage.setItem("id", "123");
+localStorage.setItem('id', '123')
 
 // show all items
-console.log(localStorage);
+console.log(localStorage)
 ```
 
 The main features of `localStorage` are:
@@ -3371,7 +3380,7 @@ Properties and methods are the same as `localStorage`, but it's much more limite
 - The data survives page refresh, but not closing/opening the tab
 
 ```javascript
-sessionStorage.setItem("test", 1);
+sessionStorage.setItem('test', 1)
 ```
 
 ### Storage Event
@@ -3388,11 +3397,11 @@ When the data gets updated in `localStorage` or `sessionStorage`, storage event 
 // triggers on updates made to the same storage from other documents
 window.onstorage = (event) => {
   // can also use window.addEventListener('storage', event => {
-  if (event.key != "now") return;
-  alert(event.key + ":" + event.newValue + " at " + event.url);
-};
+  if (event.key != 'now') return
+  alert(event.key + ':' + event.newValue + ' at ' + event.url)
+}
 
-localStorage.setItem("now", Date.now());
+localStorage.setItem('now', Date.now())
 ```
 
 ## Date And Time
@@ -3408,67 +3417,67 @@ Handling date and time using browser-native `Intl` (International) object:
 - Number formatting:
 
   ```javascript
-  const formatter = Intl.NumberFormat("en", { notation: "compact" });
+  const formatter = Intl.NumberFormat('en', { notation: 'compact' })
 
-  let num = formatter.format(1_555_123_123);
+  let num = formatter.format(1_555_123_123)
   // '1.6B'
   ```
 
 - Currency formatting:
 
   ```javascript
-  const gasPrice = new Intl.NumberFormat("en-US", {
-    style: "currency",
-    currency: "USD",
+  const gasPrice = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
     minimumFractionDigits: 3,
-  });
+  })
 
-  gasPrice.format(5.259);
+  gasPrice.format(5.259)
   // $5.259
 
-  const hanDecimalRMBInChina = new Intl.NumberFormat("zh-CN-u-nu-hanidec", {
-    style: "currency",
-    currency: "CNY",
-  });
+  const hanDecimalRMBInChina = new Intl.NumberFormat('zh-CN-u-nu-hanidec', {
+    style: 'currency',
+    currency: 'CNY',
+  })
 
-  hanDecimalRMBInChina.format(1314.25);
+  hanDecimalRMBInChina.format(1314.25)
   // ￥ 一,三一四.二五
   ```
 
 - Date and time formatting:
 
   ```javascript
-  const msPerDay = 24 * 60 * 60 * 1000;
+  const msPerDay = 24 * 60 * 60 * 1000
 
   // July 17, 2014 00:00:00 UTC.
-  const july172014 = new Date(msPerDay * (44 * 365 + 11 + 197));
+  const july172014 = new Date(msPerDay * (44 * 365 + 11 + 197))
 
   const options = {
-    year: "2-digit",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-    timeZoneName: "short",
-  };
-  const americanDateTime = new Intl.DateTimeFormat("en-US", options).format;
+    year: '2-digit',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    timeZoneName: 'short',
+  }
+  const americanDateTime = new Intl.DateTimeFormat('en-US', options).format
 
-  americanDateTime(july172014);
+  americanDateTime(july172014)
   // 07/16/14, 5:00 PM PDT
   ```
 
 - Relative time and date:
 
   ```javascript
-  const str = `in ${num} days`;
+  const str = `in ${num} days`
 
-  const rtf = new Intl.RelativeTimeFormat("en", {
+  const rtf = new Intl.RelativeTimeFormat('en', {
     numeric: auto,
-  });
+  })
 
-  rtf.format(-1, "day"); // "yesterday"
-  rtf.format(-3, "day"); // "3 days ago"
-  rtf.format(2, "hour"); // "in 2 hours"
+  rtf.format(-1, 'day') // "yesterday"
+  rtf.format(-3, 'day') // "3 days ago"
+  rtf.format(2, 'hour') // "in 2 hours"
   ```
 
 ## Behind The Scenes
@@ -3490,7 +3499,7 @@ The default execution context is the _Global Execution Context_
 - In the browser, the **window object** is the _Global Object_
 
 ```javascript
-lastName === window.lastName; // true
+lastName === window.lastName // true
 ```
 
 Each execution context has:
@@ -3535,18 +3544,18 @@ JavaScript only has function scoping.
 
 ```javascript
 // GLOBAL SCOPE
-var a = "Hello!";
-first();
+var a = 'Hello!'
+first()
 
 // FIRST FUNCTION'S SCOPE (LOCAL SCOPE)
 function first() {
-  var b = "Hi!";
-  second();
+  var b = 'Hi!'
+  second()
 
   // SECOND FUNCTION'S SCOPE (LOCAL SCOPE)
   function second() {
-    var c = "Hey!";
-    console.log(a + b + c);
+    var c = 'Hey!'
+    console.log(a + b + c)
   }
 }
 ```
@@ -3561,43 +3570,43 @@ The `this` keyword is not assigned a value until a function where it is defined 
 
 ```javascript
 // Window is the default `this`
-console.log(this); // window
+console.log(this) // window
 
 // `this` inside a function that is called within the global object
 // will be the window (in case of browser)
-calculateAge(1985);
+calculateAge(1985)
 
 function calculateAge(year) {
-  console.log(2016 - year);
-  console.log(this); // window
+  console.log(2016 - year)
+  console.log(this) // window
 }
 
 // `this` inside an object is the object itself
 var john = {
-  name: "John",
+  name: 'John',
   yearOfBirth: 1990,
   calculateAge: function () {
-    console.log(this); // `john` object
-    console.log(this.yearOfBirth); // 1990
-    console.log(this.yearOfBirth); // 1990
+    console.log(this) // `john` object
+    console.log(this.yearOfBirth) // 1990
+    console.log(this.yearOfBirth) // 1990
 
     function innerFunction() {
-      console.log(this); // `this` is `window` object now as inner-function is not a method rather a regular function
+      console.log(this) // `this` is `window` object now as inner-function is not a method rather a regular function
     }
-    innerFunction();
+    innerFunction()
   },
-};
+}
 
-john.calculateAge(); // 26
+john.calculateAge() // 26
 
 // Method borrowing
 var mike = {
-  name: "Mike",
+  name: 'Mike',
   yearOfBirth: 1984,
-};
+}
 
-mike.calculateAge = john.calculateAge;
-mike.calculateAge(); // 32
+mike.calculateAge = john.calculateAge
+mike.calculateAge() // 32
 ```
 
 ## Versions
@@ -3607,22 +3616,22 @@ mike.calculateAge(); // 32
 1. `Array.prototype.includes()` checks if an Array contains a given value:
 
    ```javascript
-   let b = [1, "a"];
+   let b = [1, 'a']
 
-   b.includes(1);
+   b.includes(1)
    // true;
-   b.includes(3);
+   b.includes(3)
    // false;
    ```
 
 2. Exponentiation Operator:
 
    ```javascript
-   let cubed = 2 ** 3;
+   let cubed = 2 ** 3
    // same as: 2 * 2 * 2
 
-   let b = 3;
-   b **= 3;
+   let b = 3
+   b **= 3
    // same as: b = b * b * b;
    ```
 
@@ -3633,28 +3642,28 @@ mike.calculateAge(); // 32
 2. `Object.values()` returns an Array with the values of all enumerable string-keyed properties of a given object.
 
    ```javascript
-   let c = { a: "a", b: [2, 5], d: { e: 300 } };
+   let c = { a: 'a', b: [2, 5], d: { e: 300 } }
 
-   Object.values(c);
+   Object.values(c)
    // ['a', [2, 5], { e: 300 }]
    ```
 
 3. `Object.entries()` returns an Array with the key-value pairs of all enumerable string-keyed properties of a given object. Each pair is encoded as a two-element Array.
 
    ```javascript
-   let c = { a: "a", b: [2, 5], d: { e: 300 } };
+   let c = { a: 'a', b: [2, 5], d: { e: 300 } }
 
-   Object.values(c);
+   Object.values(c)
    // [["a", "a"], ["b", [2, 5]], [d, { e: 300 }]];
    ```
 
 4. String padding: The string methods `.padStart()` and `.padEnd()` insert padding text until the receivers are long enough:
 
    ```javascript
-   "7".padStart(3, "0");
+   '7'.padStart(3, '0')
    // '007'
 
-   "yes".padEnd(6, "!");
+   'yes'.padEnd(6, '!')
    // 'yes!!!'
    ```
 
@@ -3676,43 +3685,43 @@ New Features:
 
    ```javascript
    async function loadHugeLibrary() {
-     const lib = await import("huge");
+     const lib = await import('huge')
    }
 
    // lazy load on button click
-   btn.onclick = loadHugeLibrary;
+   btn.onclick = loadHugeLibrary
    ```
 
 2. Optional Chaining: Calling a deeply nested object property without throwing any error if parent property is undefined. By using an Elvis operator `?`. It is similar to the **lodash** `_.get()` function.
 
    ```javascript
-   const user = {};
+   const user = {}
 
    // no errors! even though these props don't exist
-   user?.shopping?.list?.["🍉"];
+   user?.shopping?.list?.['🍉']
    ```
 
 3. Nullish Coalescing: Setting a default value for a property when its undefined. The old way is to use a logical or `||`, but this will set the default value if the variable is a 0, empty string, null, or undefined. This might be problematic. The new `??` way, will assign default value if it's null or undefined.
 
    ```javascript
-   const duration = 0;
+   const duration = 0
 
    // old way to set default value as 400
-   const animationTime = duration || 400;
+   const animationTime = duration || 400
 
    // new and better way to set default value
-   const animationTime = duration ?? 400;
+   const animationTime = duration ?? 400
    ```
 
 4. `BIGINT`: New primitive data type. This will represent numbers beyond **9007199254740991** (`console.log(Number.MAX_SAFE_INTEGER)`) which is 64 bits. To create a BIGINT postfix a regular integer with `n` or use the `BigInt(number)` constructor.
 
    ```javascript
-   const largestNum = BigInt(Number.MAX_SAFE_INTEGER);
+   const largestNum = BigInt(Number.MAX_SAFE_INTEGER)
 
-   Number.MAX_SAFE_INTEGER;
+   Number.MAX_SAFE_INTEGER
    // 9007199254740991
 
-   const utterlyMassiveInt = largestNum ** 23n;
+   const utterlyMassiveInt = largestNum ** 23n
    // ... 155009387199006145641646091
    ```
 
@@ -3755,21 +3764,21 @@ DOM Objects:
   - Main JavaScript object root, aka the **global object**
 
   ```javascript
-  window.document === document; // true
+  window.document === document // true
 
-  window === document.defaultView; // true
+  window === document.defaultView // true
 
-  window.window === window; // true
+  window.window === window // true
 
   // global this
-  this === window; // true
+  this === window // true
 
   // all these point refer to window
   // object
-  top;
-  parent;
-  self;
-  globalThis;
+  top
+  parent
+  self
+  globalThis
   ```
 
 ### Accessing DOM
@@ -3783,38 +3792,38 @@ DOM Objects:
 - `Element.classList`: A read-only property that returns a live `DOMTokenList` collection of the class attributes of the element
 
   ```javascript
-  const div = document.createElement("div");
-  div.className = "foo";
+  const div = document.createElement('div')
+  div.className = 'foo'
 
   // our starting state: <div class="foo"></div>
-  console.log(div.outerHTML);
+  console.log(div.outerHTML)
 
   // use the classList API to remove and add classes
-  div.classList.remove("foo");
-  div.classList.add("anotherclass");
+  div.classList.remove('foo')
+  div.classList.add('anotherclass')
 
   // <div class="anotherclass"></div>
-  console.log(div.outerHTML);
+  console.log(div.outerHTML)
 
   // if visible is set remove it, otherwise add it
-  div.classList.toggle("visible");
+  div.classList.toggle('visible')
 
   // add/remove visible, depending on test conditional, i less than 10
-  div.classList.toggle("visible", i < 10);
+  div.classList.toggle('visible', i < 10)
 
-  console.log(div.classList.contains("foo"));
+  console.log(div.classList.contains('foo'))
 
   // add or remove multiple classes
-  div.classList.add("foo", "bar", "baz");
-  div.classList.remove("foo", "bar", "baz");
+  div.classList.add('foo', 'bar', 'baz')
+  div.classList.remove('foo', 'bar', 'baz')
 
   // add or remove multiple classes using spread syntax
-  const cls = ["foo", "bar"];
-  div.classList.add(...cls);
-  div.classList.remove(...cls);
+  const cls = ['foo', 'bar']
+  div.classList.add(...cls)
+  div.classList.remove(...cls)
 
   // replace class "foo" with class "bar"
-  div.classList.replace("foo", "bar");
+  div.classList.replace('foo', 'bar')
   ```
 
 ### DOM Elements
@@ -3823,16 +3832,16 @@ DOM Objects:
 
   ```javascript
   // replaces existing content inside <main>
-  document.querySelector("main").innerHTML = `<h1>Hello, World!</h1>`;
+  document.querySelector('main').innerHTML = `<h1>Hello, World!</h1>`
 
   // create an element and add it to <main> content
-  const headEl = document.createElement("h1");
+  const headEl = document.createElement('h1')
 
-  headEl.classList.add("header");
-  headEl.setAttribute("id", "mainHeader");
+  headEl.classList.add('header')
+  headEl.setAttribute('id', 'mainHeader')
 
-  document.querySelector("main").prepend(headEl);
-  document.querySelector("main").append(headEl);
+  document.querySelector('main').prepend(headEl)
+  document.querySelector('main').append(headEl)
   ```
 
 ## Service Worker
@@ -3875,29 +3884,30 @@ _Example:_
 // polyfill Array `forEach`
 if (Array.prototype.forEach != undefined) {
   Array.prototype.forEach = function (callback, thisArg) {
-    if (typeof callback !== "function") {
-      throw new TypeError(callback + " is not a function!");
+    if (typeof callback !== 'function') {
+      throw new TypeError(callback + ' is not a function!')
     }
 
-    const len = this.length;
+    const len = this.length
 
     for (let i = 0; i < len; i++) {
-      callback.call(thisArg, this[i], i, this);
+      callback.call(thisArg, this[i], i, this)
     }
-  };
+  }
 }
 ```
 
+- [core-js](https://github.com/zloirock/core-js): Modular standard library for JavaScript
 - [caniuse.com](http://caniuse.com): per-feature tables of support
 - [HTML5 Please: Look up HTML5, CSS3, etc features](https://html5please.com/)
 
 ## Do You Know
 
-- JavaScript did not have exception handling until ECMAScript 3, which explains why the language so often automatically converts values and so often fails silently: it initially couldn't throw exceptions.
+- JavaScript did not have exception handling until ECMAScript 3, which explains why the language so often automatically converts values and so often fails silently: it initially couldn't throw exceptions
 
-- JavaScript is said to be written in 10 days.
+- JavaScript is said to be written in 10 days
 
-> "There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors." - Jeff Atwood (@codinghorror)
+> "There are two hard things in computer science: cache invalidation, naming things, and off-by-one errors." - [Jeff Atwood](https://blog.codinghorror.com/) ([@codinghorror](https://twitter.com/codinghorror))
 
 ## Snippets
 

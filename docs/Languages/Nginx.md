@@ -21,7 +21,7 @@ error_log <file> <loglevel>
     error_log logs/error.log notice;
 ```
 
-basic listening ports:
+Basic listening ports:
 
 ```nginx
 listen <port> <options>
@@ -30,7 +30,7 @@ listen <port> <options>
         listen 443 http3 reuseport; (this is experimental!)
 ```
 
-header modifications:
+Header modifications:
 
 ```nginx
 add_header <header> <values>

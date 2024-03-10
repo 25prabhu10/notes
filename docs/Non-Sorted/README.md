@@ -12,10 +12,14 @@ sidebar: false
 4. [Math](./Math/)
 5. [Nature](./Nature.md)
 6. [Chess](./Chess.md)
+7. [Things](./Things.md)
 
 [Open Source SmartWatch](https://open-smartwatch.github.io/)
 
 ## Coding Challenges
+
+- [Advent of Code](https://adventofcode.com/)
+- [CodeKata: How It Started](http://codekata.com/kata/codekata-how-it-started/)
 
 - [LeetCode](https://leetcode.com)
 - [HackerRank](https://www.hackerrank.com)

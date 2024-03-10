@@ -1,6 +1,7 @@
 ---
 title: C/C++ Concepts
 description: Introduction to C/CPP
+lastmod: 2023-10-02
 ---
 
 # C/C++ Concepts
@@ -286,6 +287,22 @@ int main()
     p->breadth=10;
 }
 ```
+
+- Void Pointer: Type-less memory
+
+  ```c
+  int main()
+  {
+    int a=4;
+    int *pA = &a;
+
+    printf("%d\n", *pA);
+
+    void *vA = &a;
+
+    printf("%d\n", *vA); // Error
+  }
+  ```
 
 ## Reference
 

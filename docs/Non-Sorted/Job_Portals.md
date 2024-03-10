@@ -2,7 +2,7 @@
 title: Job Portals
 description: Job portals and channels
 date: 2023-03-08
-lastmod: 2023-03-08
+lastmod: 2023-08-15
 ---
 
 # Job Portals
@@ -15,5 +15,6 @@ lastmod: 2023-03-08
 6. [SimpyHired](https://www.simplyhired.co.in/)
 7. [It Jobs (not India)](https://it-jobs.de/)
 8. [JavaScriptBoard](https://platform.javascriptboard.com/)
+9. [KEYBOARD JOBS](https://keyboardjobs.com/jobs/tagged/remote)
 
 - Discord Channels

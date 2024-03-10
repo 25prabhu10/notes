@@ -1,6 +1,7 @@
 ---
 title: MySQL
 description: MySQL is an open-source RDBMS
+lastmod: 2023-08-13
 ---
 
 # MySQL
@@ -17,6 +18,14 @@ Features:
 - Ease of use
 - Speed
 - Scalability
+
+- `count(*)` is fast and good to be used
+
+  - Smallest secondary non-null index
+
+```sql
+EXPLAIN SELECT COUNT(*) FROM todos;
+```
 
 ## Data Types
 
@@ -132,6 +141,12 @@ Create temporary tables which will be deleted once the monitor connection is clo
 
 ```sql
 CREATE TEMPORARY TABLE
+```
+
+- Show table:
+
+```sql
+SHOW CREATE TABLE todos;
 ```
 
 ### Column Types

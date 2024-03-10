@@ -1,6 +1,7 @@
 ---
 title: RESTful Web Services
 description: Representational state transfer
+lastmod: 2023-08-14
 ---
 
 # RESTful Web Services
@@ -37,13 +38,85 @@ Because it has:
 
 REST vs RPC:
 
-| REST (REpresentational State Transfer)                                                                            | RPC (Remote Procedure Call)                                                                                      |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| Endpoints are nouns (resources): `api.example.com/users`                                                          | Endpoints are verbs (methods): `api.example.com/getUserInfo`                                                     |
-| Calling the endpoint is acting on the resource: `GET api.example.com/users/123`, `POST api.example.com/users/123` | Calling the endpoint is calling the method: `GET api.example.com/getUserInfo`, `POST api.example.com/updateUser` |
-| Returns resources that were acted upon                                                                            | Returns results of the function call                                                                             |
-| Resource oriented                                                                                                 | Function oriented                                                                                                |
-| Data driven                                                                                                       | Action driven                                                                                                    |
+| REST (REpresentational State Transfer)                   | RPC (Remote Procedure Call)                                  |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+| Endpoints are nouns (resources): `api.example.com/users` | Endpoints are verbs (methods): `api.example.com/getUserInfo` |
+| Calling the endpoint is acting on the resource:          | Calling the endpoint is calling the method:                  |
+| `GET api.example.com/users/123`                          | `GET api.example.com/getUserInfo`                            |
+| `POST api.example.com/users/123`                         | `POST api.example.com/updateUser`                            |
+| Returns resources that were acted upon                   | Returns results of the function call                         |
+| Resource oriented                                        | Function oriented                                            |
+| Data driven                                              | Action driven                                                |
+| Text based                                               | Binary serialized                                            |
+| Ease of use                                              | Storage efficient                                            |
+
+_Example:_ gRPC
+
+```rpc
+sytax = "proto3";
+
+package helloworld;
+
+service HelloWorld {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string name = 1;
+}
+```
+
+```javascript
+const grpc = require('@grpc/grpc-js')
+const protoLoader = require('@grpc/proto-loader')
+const packageDefinition = protoLoader.loadSync('./protos/helloworld.proto', {})
+
+const server = new grpc.Server()
+
+const helloProto = grpc.loadPackageDefinition(packageDefinition).helloworld
+
+// Define and register helloworld RPC handler
+function sayHello(call, callback) {
+  callback(null, { message: 'Hello ' + call.request.name })
+}
+sever.addService(helloProto.HelloWorld.service, {
+  sayHello: sayHello,
+})
+
+// Create a gRPC server and listen on port 50051
+server.bindAsync(
+  '0.0.0.0:50051',
+  grpc.ServerCredentials.createInsecure(),
+  () => {
+    serve.start()
+    console.log('Server running on port 50051')
+  },
+)
+```
+
+- Above as RESTful API
+
+```javascript
+const express = require('express')
+const app = express()
+app.use(express.json())
+
+// Define and register /sayHello REST endpoint
+app.post('/sayHello', (req, res) => {
+  const name = req.body.name
+
+  res.json({ message: 'Hello' + name })
+})
+
+// Create an HTTP server and listen on port 3000
+app.listen(3000, () => {
+  console.log('Server running on http://localhost:3000')
+})
+```
 
 REST APIs are not that useful for non-CRUD operations, such as:
 
@@ -162,10 +235,6 @@ _Example:_ The following shows a JSON representation of an order. It contains li
    - `accounts` is sub-collection of a particular `customer`
    - `/customers/{customerId}/accounts/{accountsId}`
    - `account` is a singleton inside a sub-collection
-
-N+1 Problem:
-
-- Include enough information in single resources inside collection resources
 
 #### Naming conventions
 
@@ -386,9 +455,9 @@ Common Update Semantics:
   204 No Content
   ```
 
-- Creates a new resource: it **returns HTTP status code 201** (Created), as with a POST method. If the method updates an existing resource, it **returns either 200 (OK) or 204 (No Content)**. In some cases, it might not be possible to update an existing resource. In that case, consider **returning HTTP status code 409** (Conflict).
+- Creates a new resource: it **returns HTTP status code 201** (Created), as with a POST method. If the method updates an existing resource, it **returns either 200 (OK) or 204 (No Content)**. In some cases, it might not be possible to update an existing resource. In that case, consider **returning HTTP status code 409** (Conflict)
 
-- Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance.
+- Consider implementing bulk HTTP PUT operations that can batch updates to multiple resources in a collection. The PUT request should specify the URI of the collection, and the request body should specify the details of the resources to be modified. This approach can help to reduce chattiness and improve performance
 
 - Similar to upsert behaviour in some databases
 
@@ -583,9 +652,9 @@ Give all optional parameters in query strings meaningful defaults. For example, 
 
   {
     status: 401,
-    message: "Authenticate",
+    message: 'Authenticate',
     code: 2003,
-    more_info: "https://www.twilio.com/docs/errors/20003",
+    more_info: 'https://www.twilio.com/docs/errors/20003',
   }
   ```
 
@@ -784,12 +853,12 @@ While Posting data, how do clients know which fields and types of data to submit
 
   ```json5
   {
-    href: "https://example.io/register",
-    rel: ["form"], // (or edit-form, create-form, query-form)
-    method: "POST",
+    href: 'https://example.io/register',
+    rel: ['form'], // (or edit-form, create-form, query-form)
+    method: 'POST',
     value: [
-      { name: "firstName", type: "string" },
-      { name: "lastName", type: "string", required: true },
+      { name: 'firstName', type: 'string' },
+      { name: 'lastName', type: 'string', required: true },
     ],
   }
   ```
@@ -879,6 +948,37 @@ Checkout notes about API Security here: [API Security Notes Link](./../Applicati
 
 - Course: _Web Security: OAuth and OpenID Connect with Keith Casey_
 - YouTube: _OAuth 2.0 and OpenID Connect (in plain English)_ with Nate Barbettini
+
+## API Performance
+
+- API documentation
+- Complex Database Queries
+- Cost
+- Security risk
+- Inefficient & Complex Code
+- Inadequate caching mechanism
+- Technological complexity
+
+Optimization techniques:
+
+1. Caching
+2. Connection pooling:
+
+   - Reduce number of connections created and destroyed
+   - But also maintain the number of connections open in order not to overwhelm the Database
+   - RDS Proxy: it sits between your application and database to efficiently manage DB connections
+
+3. Avoid N+1 Query Problem:
+
+   - N+1 Problem: Include enough information in single resources inside collection resources
+
+4. Pagination:
+5. Fast serialization libraries
+6. Compression:
+
+   - Brotli
+
+7. Asynchronous logging
 
 ## References
 

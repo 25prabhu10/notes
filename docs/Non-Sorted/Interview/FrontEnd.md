@@ -1,5 +1,7 @@
 # Frontend Questions
 
+[Front-end-Developer-Interview-Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/main)
+
 ## JavaScript
 
 1. What version of JavaScript are you using or typescript?
@@ -40,16 +42,16 @@
 
     ```javascript
     function test() {
-      console.log("test");
+      console.log('test')
     }
 
-    test();
+    test()
 
     setTimeout(() => {
-      console.log("hello world");
-    }, 0);
+      console.log('hello world')
+    }, 0)
 
-    test();
+    test()
     ```
 
     - 0 delay doesn't actually mean the callback will fire of after zero MS calling set time what with a delay 0 MS doesn't execute the callback function after the given interval.
@@ -125,14 +127,14 @@
     - the variable `x` under the function scope is hosted but not initialized
 
     ```javascript
-    var x = 19;
+    var x = 19
 
     var boy = function () {
-      console.log(x);
-      var x = 18;
-    };
+      console.log(x)
+      var x = 18
+    }
 
-    boy();
+    boy()
     ```
 
 34. The below code will return `1undefined`, because:
@@ -142,13 +144,13 @@
     - `typeof f` returns `undefined` because if statement code is executed at run time
 
     ```javascript
-    var y = 19;
+    var y = 19
 
     if (function f() {}) {
-      y += typeof f;
+      y += typeof f
     }
 
-    console.log(y);
+    console.log(y)
     ```
 
 35. The below code will return `false`, because:
@@ -160,12 +162,12 @@
     - `0.30000000000000004 == 0.3` --> `false`
 
     ```javascript
-    var a = 0.1;
-    var b = 0.2;
+    var a = 0.1
+    var b = 0.2
 
-    var c = a + b;
+    var c = a + b
 
-    console.log(c == 0.3);
+    console.log(c == 0.3)
     ```
 
 36. The below code will return `false`, because:
@@ -173,7 +175,7 @@
     - `"1"` is converted to number type which results in `0`
 
     ```javascript
-    console.log(isNaN("1"));
+    console.log(isNaN('1'))
     ```
 
 37. The below code will return `0`, because:
@@ -182,9 +184,9 @@
 
     ```javascript
     var output = (function (x) {
-      delete x;
-      return x;
-    })(0);
+      delete x
+      return x
+    })(0)
     ```
 
 38. What is tree shakeable in Javascript:

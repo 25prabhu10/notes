@@ -1,6 +1,7 @@
 ---
 title: Vim
 description: A free and open-source, screen-based text editor program
+lastmod: 2023-08-13
 ---
 
 # Vim - Neovim
@@ -314,3 +315,9 @@ Types of registers:
 10. `"0 to "9`: 10 _numbered registers_ (last yank)
 11. `"-`: _small delete register_
 12. `a-z or A-Z`: 26 _named registers_
+
+## Reference
+
+- [Build your own Vim statusline](https://shapeshed.com/vim-statuslines/)
+- [How to control/configure vim colors](https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax/#possible-highlight-groups)
+- [Vim productive commands](https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim)

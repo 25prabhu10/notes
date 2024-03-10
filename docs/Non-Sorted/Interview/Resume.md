@@ -6,6 +6,10 @@ Email: `25rabhu10@gmail.com`
 Phone: 9480580490
 Address: Bangalore, Karnataka, 560066
 
+- [Sample Resume: Senior Application Developer](https://www.dice.com/career-advice/sample-resume-senior-application-developer)
+
+- [Justen Robertson - A full-stack JavaScript](https://www.toptal.com/resume/justen-robertson#Employment)
+
 ## Summary
 
 5+ years of experience in front-end and back-end web development and working with team members to deliver high-quality products to customers. Building responsive, accessible, and secure web applications. Knowledgeable in maintenance, testing, and debugging processes and aiming to leverage development experience and skills in a challenging role as a Full-stack Developer.
@@ -14,7 +18,34 @@ Full Stack developer with 5+ years of experience designing, developing, and mana
 
 ## Skills
 
+| Categories | Technologies and Tools                                           |
+| ---------- | ---------------------------------------------------------------- |
+| Languages  | HTML, CSS, JavaScript, TypeScript, C#, Python, SQL, Sass         |
+| Libraries  | React, Redux, Bootstrap                                          |
+| Frameworks | AngularJS, Jest, ASP.NET Core, Express.js                        |
+| Tools      | Gulp.js, Git, Github, Postman, Zeplin, Checkmarx, TeamCity, Jira |
+| Tech       | Node.js, RESTful APIs, AWS, MongoDB, MySQL                       |
+| Concepts   | Object-Oriented Programming, Agile, Scrum Methodology            |
+
 ## Experience
+
+"I'm a fullstack developer with more than 3 years of experience, mostly in startups. I have a passion for learning new and innovative tools — particularly in the Python ecosystem."
+
+"I'm looking for a fullstack position with a focus on backend. I'm open to trying new technologies, but I'm highly experienced in Python and React. I am interested and experienced in the fintech domain."
+
+"I gained knowledge in Django and AWS working alongside senior colleagues and mentors in my current role. I have also worked with Go in personal projects. I am open to using this professionally."
+
+I learnt React.js, Node.js and Asp.Net Core working on client projects. I have also worked with Python in personal projects. I am open to using this professionally.
+
+I'm seeking a Fullstack position and open to exploring new technologies. I bring extensive experience in React.js, Node.js, and Asp.NET Core. I'm interested in roles that foster continuous learning and emphasize collaboration.
+
+I'm a Fullstack Web Developer with over 6+ years of experience, particularly in front-end. I have had the opportunity to work with a wide range of technologies and frameworks. In my current role, I am a senior full-stack developer at Deloitte. I am responsible for the development and maintenance of client's web applications. I work with a team of developers to deliver high-quality products.
+
+"I'm a Fullstack Web Developer with over 6 years of experience, specializing in front-end. I have worked with a wide variety of technologies and frameworks. Currently, I'm a Senior Full-Stack Developer, responsible for developing and maintaining client web applications."
+
+In my current role, I am a senior full-stack developer at Deloitte. I lead and contribute to cross-functional teams to deliver high-quality web applications. My responsibilities encompass designing, developing, and managing software solutions, implementing frontend and backend functionalities, optimizing performance, and ensuring security best practices.
+
+My adaptability and continuous learning mindset have enabled me to stay up-to-date with emerging technologies and industry trends. I thrive on solving complex problems and delivering user-centric web applications that meet both technical and business requirements.
 
 ## Education
 

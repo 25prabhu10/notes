@@ -16,7 +16,7 @@ Common Programming paradigms:
 
 - **Declarative**: in which the programmer merely declares properties of the desired result, but not how to compute it
 
-  1. Functional: in which the desired result is declared as the value of a series of function applications
+  1. [Functional](./Functional.md): in which the desired result is declared as the value of a series of function applications
 
   2. Logic: in which the desired result is declared as the answer to a question about a system of facts and rules
 

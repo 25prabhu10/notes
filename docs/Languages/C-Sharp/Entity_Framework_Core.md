@@ -150,6 +150,9 @@ EF Core Migrations: Provides a way to incrementally update the database schema t
    # string can be anything meaningful
    # old way: Enable migrations
    Add-Migration "initialSetup"
+
+   # using `dotnet` CLI
+   dotnet ef migrations add "initialSetup"
    ```
 
    - The above command create a directory called "Migrations" at the root of the project
@@ -164,6 +167,9 @@ EF Core Migrations: Provides a way to incrementally update the database schema t
 2. Update the database to the last migration or to a specified migration.
 
    ```bash
+   # using `dotnet` CLI
+   dotnet ef database update
+
    # update database to the last migration
    Update-Database
 
@@ -182,6 +188,9 @@ Removes the last migration (rolls back the code changes that were done for the m
 
 ```bash
 Remove-Migration
+
+# using `dotnet` CLI
+dotnet ef migrations remove
 ```
 
 - Removing migration that has already been applied to the database will throw error
@@ -264,6 +273,30 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
 
 On Update: default is No Action
 On Delete: default is Cascade
+
+## Model Class
+
+Class properties can have [annotations](#annotations)
+
+## Annotations
+
+- Annotations as derived from `System.ComponentModel.DataAnnotations`
+- Not all database related properties can be configured using annotations
+- For more control use `OnModelCreating` method
+
+  _Example:_
+
+  ```csharp
+  protected override void OnModelCreating(ModelBuilder modelBuilder)
+  {
+     modelBuilder.Entity<Blog>().Property(b => b.Title).HasMaxLength(50).IsRequired();
+  }
+
+  // we can achive the same using annotations on the property `Title` in model class `Blog`
+  [MaxLength(50)]
+  [Required]
+  public string Title { get; set; }
+  ```
 
 ## Fluent API
 

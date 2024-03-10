@@ -1102,7 +1102,7 @@ git merge-base master new_feature
 
 The Golden Rule of Rebasing:
 
-- **Thou shalt not rebase a public branch.**
+- **Thou shalt not rebase a public branch**
 - Rebase abandons existing, shared commits and creates new, similar commits instead
 - Collaborators would see the project history vanish
 - Getting all collaborators back in sync can be a nightmare

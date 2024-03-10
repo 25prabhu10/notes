@@ -1019,3 +1019,5 @@ const fruitsCollection = (() => {
 - [Source Making: Design Patterns](https://sourcemaking.com/design_patterns)
 
 - [Design Questions](https://www.geeksforgeeks.org/software-design-patterns/)
+
+- [design-patterns-JS](https://github.com/fbeline/design-patterns-JS)

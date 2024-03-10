@@ -405,3 +405,5 @@ Watcher Saga --> Actions --> Worker Saga
 - [Fundamentals of Redux Course from Dan Abramov](https://egghead.io/lessons/react-redux-the-single-immutable-state-tree)
 
 - [Building React Applications with Idiomatic Redux](https://egghead.io/courses/building-react-applications-with-idiomatic-redux)
+
+- [React & Redux in TypeScript - Complete Guide](https://github.com/piotrwitek/react-redux-typescript-guide)
