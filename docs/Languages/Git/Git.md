@@ -1,23 +1,23 @@
 ---
 title: Git
-description: Git is distributed version control system (VCS) for tracking changes in files and coordinating work on those files among multiple people.
+description: Git is distributed version control system (VCS) for tracking changes in files and coordinating work on those files among multiple people
 ---
 
 # Git
 
-It is a **distributed Version Control System (VCS)**. Version control is a way to save changes over time without overwriting previous versions (Version Control is a system which records the changes made to a file so that you can recall a specific version later).
+It is a **distributed Version Control System (VCS)**. Version control is a way to save changes over time without overwriting previous versions (Version Control is a system which records the changes made to a file so that you can recall a specific version later)
 
-It helps in **tracking changes in the project** and **coordinating work** on those files among multiple people.
+It helps in **tracking changes in the project** and **coordinating work** on those files among multiple people
 
-- VCS also know as Source Code Management (SCM)
+- VCS also know as _Source Code Management_ (SCM)
 
 Types of Version Control Systems:
 
-1. **Local**: It allows you to copy files into another directory and rename it (For example, project.1.1). This method is error-prone and introduces redundancy.
+1. **Local**: It allows you to copy files into another directory and rename it (For example, project.1.1). This method is error-prone and introduces redundancy
 
-2. **Centralized**: All version files are present in a single central server. For example, CVS, SVN, and Perforce.
+2. **Centralized**: All version files are present in a single central server. For example, CVS, SVN, and Perforce
 
-3. **Distributed**: All changes are available in the server as well as in local machines. Being distributed means that every developer working with a Git repository has a copy of that entire repository. For example, _Git_ and _Mercurial_.
+3. **Distributed**: All changes are available in the server as well as in local machines. Being distributed means that every developer working with a Git repository has a copy of that entire repository. For example, _Git_ and _Mercurial_
 
 ## History
 
@@ -26,20 +26,25 @@ Old VCS that predate Git:
 - Source Code Control System (SCCS):
   - 1972: closed source, free with Unix
   - Stored original version and sets of changes
+
 - Revision Control System (RCS):
   - 1982: open source
   - Stored latest version and sets of changes
+
 - Concurrent Version System (CVS):
   - 1986-1990: open source
   - Multiple files, entire project
   - Multi-user repositories
+
 - Apache Subversion (SVN):
   - 2000: open source
   - Track text and images
   - Track file changes collectively (track directory)
+
 - BitKeeper SCM:
   - 2000: closed source, proprietary
   - Distributed version control
+
 - Git:
   - April 2005
   - Linus Tovalds
@@ -104,6 +109,9 @@ The `objects` folder consists of 4 types of objects:
   ```bash
   # find the type of object
   git cat-file -t [commitSHA]
+
+  # see file content
+  git cat-file -p HEAD:"[filename]"
   ```
 
 ### Repositories
@@ -170,7 +178,7 @@ All the Git configurations are stored in a file:
 
 The **priority** in which these configuration files are used is: **local** > **global** > **system**
 
-Git config commands:
+Git configuration commands:
 
 ```bash
 # list all configurations
@@ -196,7 +204,7 @@ git config --show-origin user.name
   git config --global core.editor [editor name]
   git config --global core.editor vim
 
-  # colorize user interface (might be on by default) [true, auto]
+  # colourize user interface (might be on by default) [true, auto]
   git config --global color.ui true
   ```
 
@@ -212,6 +220,25 @@ We can modify configurations from the CLI or by directly modifying the configura
 In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER`).
 :::
 
+### Attributes
+
+A `.gitattributes` file is a simple text file that gives attributes to pathnames
+
+-  The `.gitattributes` file allows you to specify the files and paths attributes that should be used by git when performing git actions
+
+_Example:_
+
+- Use `exiftool` to diff metadata of `png` files:
+
+```bash
+# take every file that ends in png
+# and pre-process them with a strategy called `exif`
+echo '*.png diff=exif' >> .gitattributes
+
+# the `exif` strategy is to run exiftool on the file
+git config diff.exif.textconv exiftool
+```
+
 ### SSH
 
 Set-up SSH keys for authenticating to a remote repository hosting service:
@@ -224,9 +251,23 @@ ssh-keygen -t rsa -b 4096 -C "string"
 
 Git was initially a **toolkit for a VCS** and hence consists of a number of subcommands divided into:
 
-1. _Plumbing_: Subcommands that do low-level work and were designed to be chained together UNIX-style or called from scripts.
+1. _Plumbing_: Subcommands that do low-level work and were designed to be chained together UNIX-style or called from scripts
 
-2. _Porcelain_: More user-friendly commands.
+   - Around 63 commands
+   - 19 manipulators (`apply`, `commit-tree`, `update-ref`, ...)
+   - 21 interrogators (`cat-file`, `for-each-ref`, ...)
+   - 5 syncing (`fetch-pack`, `send-pack`, ...)
+   - 18 internal (`check-attr`, `sh-i18n`, ...)
+
+2. _Porcelain_: More user-friendly commands
+
+   - Around 82 commands
+   - 42 main commands (`add`, `commit`, `push`, `push`, ...)
+   - 11 manipulators (`config`, `reflog`, `replace`, ...)
+   - 17 interrogators (`blame`, `fsck`, `rerere`, ...)
+   - 10 inter-actors (`send-email`, `p4`, `svn`, ...)
+
+- There are around 145 commands
 
 ### Help
 
@@ -287,6 +328,18 @@ git clone --mirror
 
 # clone only a single branch
 git clone --single-branch
+
+# partial cloning
+# get only the last commit and the objects it needs
+git clone --depth=1
+
+# to get rest of the history later run
+git fetch --unshallow
+
+# if you want to do a blobless or treeless clone
+# it will bring data as needed (`git blame`, etc. will fetch data)
+git clone --filter=blob:none
+git clone --filter=tree:0
 ```
 
 `git init` vs `git clone`:
@@ -451,6 +504,18 @@ Git commit amend should be used only if:
 Amending commits is not advisable. It changes the commit-hash and hence changing the history.
 :::
 
+Fix-up commits:
+
+- You have 3 commits and you raised a pull request from that branch
+- There was a comment to make some changes in a file, suppose this file changes were part of first commit, you can either make the changes and create a new commit or modify the first commit
+- `commit --fixup` can help you with fix a particular commit
+
+```bash
+git commit --fixup=[commitSHA]
+
+git rebase --autosquash [branch]
+```
+
 Make Atomic commits:
 
 - Small commits
@@ -488,8 +553,8 @@ _Example:_ [Angular commit convention](https://github.com/angular/angular/blob/m
 
 Types:
 
-- `build`: Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)
-- `ci`: Changes to our CI configuration files and scripts (examples: CircleCi, SauceLabs)
+- `build`: Changes that affect the build system or external dependencies (example scopes: `gulp`, `broccoli`, `npm`)
+- `ci`: Changes to our CI configuration files and scripts (examples: `CircleCi`, `SauceLabs`)
 - `docs`: Documentation only changes
 - `feat`: A new feature
 - `fix`: A bug fix
@@ -499,9 +564,9 @@ Types:
 
 ### Pull
 
-It updates your current local working branch and all of the remote tracking branches.
+It updates your current local working branch and all of the remote tracking branches
 
-- `git pull` is a combination of `git fetch` + `git merge`, updates some parts of your local repository with the changes from the remote repository.
+- `git pull` is a combination of `git fetch` + `git merge`, updates some parts of your local repository with the changes from the remote repository
 
 ```bash
 # update local with commits from remote
@@ -545,7 +610,15 @@ Checking out pull requests locally:
 git fetch origin pull/ID/head:NewLocalBranchName
 
 # Switch to the newly created branch
-git checkout [branch name]
+git checkout [branch]
+```
+
+Issues:
+
+- `error: some local refs could not be updated`, to resolve this first [prune remote branches](#prune-stale-branches), then pull
+
+```bash
+git -c fetch.parallel=0 -c submodule.fetchJobs=0 pull --progress "origin" +ref/heads/master
 ```
 
 ### Merge
@@ -573,6 +646,16 @@ Merge Conflicts occur when contradictory changes happen:
 - `git stash apply`
 - `git cherry-pick`
 
+Git can remember the resolution for a given merge conflict if it was previously resolved
+
+```bash
+# git REuse REcorded REsolution
+git config --global rerere.enable true
+
+# you can further ask it to automatically stage it for you with
+git config --global rerere.autoUpdate true
+```
+
 ### Push
 
 It uploads all local branch commits to the corresponding remote branch.
@@ -586,9 +669,29 @@ git push -u origin [branch]
 # push all branches
 git push --all
 
-# force push
+# safe force pushing
+git push --force-with-lease
+
+# alias it with
+git config --global alias.fpush push --force-with-lease
+
+# force push (only if you want to override)
 git push -f
 ```
+
+Generally most of us don't love doing forced pushes, because there is always a chance that you're overwriting someone else's commits. Let's take a scenario:
+
+- You commit and push something to GitHub
+
+- Someone else pulls it down, commits something and pushes it back up.
+
+- You amend a commit, rewriting the history, and force push it, not knowing that anyone had based something off your work
+
+- This effectively removes what the other person had done
+
+- What you really want to do is check to see if anyone else had pushed and only force push if the answer is no. However, there is always a bit of a race condition here because even if you check first, in the second it takes you to then push, something else could have landed from elsewhere in the meantime
+
+So, Git has created a new force pushing option called `--force-with-lease` that will essentially check that what you last pushed is still what's on the server before it will force the new branch update
 
 Reasons to force push:
 
@@ -702,9 +805,22 @@ git clean -f
 git clean -fd
 ```
 
-### Restore File
+### Restore
 
-Restore a deleted file which was tracked by git.
+Restore specified paths in the working tree with some contents from a restore source. If a path is tracked but does not exist in the restore source, it will be removed to match the source
+
+```bash
+git restore [filename]
+
+# same as
+git checkout [filename]
+
+git restore --source HEAD@{10.minutes.ago} [filename]
+
+git restore -p [filename]
+```
+
+Restore a deleted file which was tracked by git
 
 - Find the commit where the file was deleted:
 
@@ -801,6 +917,12 @@ git log --patch
 
 # list edits to lines 100-150 in filename.txt
 git log -L 100,150:filename.txt
+
+# Use heuristics to get log of a certain function, class, etc...
+git log -L :funcName:filename.ts
+
+# get logs contains an expression
+git log -S some_word -p
 ```
 
 List version history for a file, including renames:
@@ -809,11 +931,19 @@ List version history for a file, including renames:
 git log --follow [filename]
 ```
 
+- Speed up the process of log by:
+
+```bash
+git commit-graph write
+
+# run it as part of maintenance
+git config --global fetch.writeCommitGraph true
+```
 ### Branch
 
 ```bash
 # create new branch
-git branch [branch name]
+git branch [branch]
 
 # list all branches
 git branch -a
@@ -822,19 +952,35 @@ git branch -a
 git branch -m [name]
 
 # delete a branch
-git branch -d [branch name]
-git branch -D [branch name]
+git branch -d [branch]
+git branch -D [branch]
 
 # delete branch from remote repo
-git push origin -d [remote] [branch name]           # git v2.8.0+
-git push origin --delete [remote] [branch name]     # git v1.7.0+
-git push origin :[remote branch name]               # old way
+git push origin -d [remote] [branch]           # git v2.8.0+
+git push origin --delete [remote] [branch]     # git v1.7.0+
+git push origin :[remote_branch]               # old way
 
 # see all the merged branches
 git branch --merged
 
 # merge branch (from the branch to merge into)
 git merge [other branch]
+
+# split into columns to make better use of the screen real estate
+git branch --column
+
+# sort by objectsize, authordate, committerdate, creatordate, or taggerdate
+git branch --sort committerdate
+```
+
+Git branch configurations:
+
+```bash
+# set column mode by default
+git config --global column.ui auto
+
+# sort branches by
+git config --global branch.sort -committerdate
 ```
 
 - To delete a branch, current must be on a different branch
@@ -968,6 +1114,9 @@ git diff
 
 # show words that changed
 git diff --color-words
+
+# get word diffs
+git diff --word-diff
 ```
 
 Compare staging to the HEAD of the branch of the repository:
@@ -1015,15 +1164,11 @@ git difftool --tool=[tool]
 
 ### Checkout
 
-Git checkout is **used to switch**. Switch between _branches_, _commits_, and _files_.
-
-Go back to the head:
+Git checkout is **used to switch**. Switch between _branches_, _commits_, and _files_ (it dose a lot, if you need is to switch branch use [`switch`](#switch))
 
 ```bash
-git checkout master
-
-# discard changes of a file in working area
-git checkout -- [filename]
+# checkout branch
+git checkout branch
 ```
 
 Go to a specific snapshot (commit).
@@ -1045,13 +1190,28 @@ git tag [tag name]
 # create a branch (HEAD detached)
 # but the detached HEAD needs to be reattached
 # to this new branch
-git branch [new branch name]
+git branch [new_branch]
 
 # better option is to create a branch and reattach HEAD
-git checkout -b [new branch name]
+git checkout -b [new_branch]
 ```
 
 Undo or revise old changes: You can pull a snapshot of a file from old commit and work on it with the intent to commit the new changes:
+
+- Go back to the head:
+
+```bash
+git checkout master
+
+# discard changes of a file in working area
+git checkout [filename]
+
+# checkout older version of the file
+git checkout HEAD@{10.minutes.ago} -- [filename]
+
+# interactive patch restore
+git checkout -p [filename]
+```
 
 - The file will be put into staging area
 
@@ -1063,6 +1223,28 @@ You can apply checkout command on:
 
 - Working file
 - Commit
+
+Git command commonalities: ![Git command commonalities](./git_command_commonality.png)
+
+### Switch
+
+Switch to a specified branch. The working tree and the index are updated to match the branch. All new commits will be added to the tip of this branch
+
+- Alternate commands to checkout
+
+```bash
+git switch branch
+
+# same as
+git checkout branch
+```
+
+```bash
+git switch -c [new_branch]
+
+# same as
+git checkout -b [new_branch]
+```
 
 ### Fetch File
 
@@ -1098,6 +1280,14 @@ git rebase master new_feature
 
 # return commit where topic branch diverges
 git merge-base master new_feature
+
+# interactive rebase
+git rebase -i
+
+# rebasing stacks
+git rebase --update-refs
+# make this option set globally
+git config rebase.updateRefs true
 ```
 
 The Golden Rule of Rebasing:
@@ -1313,6 +1503,8 @@ FILE PERMISSIONS / TYPE OF FILE / objectSHA / FILE NAME
 
 ```bash
 git reflog
+
+git for-each-ref --sort=-committerdate --format="%(color:blue)%(authordate:relative) %(color:red)%(authorname) %(color:white)%(color:bold)%(refname:short)" refs/remotes
 ```
 
 ### Blame
@@ -1328,12 +1520,21 @@ Shows what revision and author last modified each line of a file.
 # annotate file with commit details
 git blame [filename]
 
-# ignore whitespace
+# ignore white space
 git blame -w [filename]
 
 # annotate lines 100-105
 git blame -L 100,105 [filename]
 git blame -L 100,+5 [filename]
+
+# detect lines moved or copied in the same commit
+git blame -C [filename]
+
+# or the commit that created the file
+git blame -C -C [filename]
+
+# or any commit at all
+git blame -C -C -C [filename]
 
 # annotate file at revision commitSHA
 git blame [commitSHA] [filename]
@@ -1522,7 +1723,7 @@ Integrating changes and structuring releases:
 
 - Tags are not branches
 - Tags can be checked out, just like any commit
-- `git checkout -b [new branch name] [tag name]`
+- `git checkout -b [new_branch] [tag name]`
 - `git checkout [tag name]`: same as checking a commit
 
 ## Git Submodule
@@ -1560,9 +1761,10 @@ A `.gitmodules` file is created when we add a submodule to the project. This is 
 
 ## Git Hooks
 
-Git Hooks are shell scripts that get triggered when we perform a specific action in Git
+[Git Hooks](https://git-scm.com/docs/githooks) are shell scripts that get triggered when we perform a specific action in Git
 
 - Git hooks reside in the `[project-dir]/.git/hooks/` directory
+- There are around 28 hooks
 
 ![Git hooks](./git-hooks.jpg)
 
@@ -1572,33 +1774,185 @@ Based on the git operation, any one of the following `git hooks` will be trigger
 
    - Committing workflow hooks:
 
-     - pre-commit
-     - prepare-commit-msg
-     - commit-msg
-     - post-commit
+     - `pre-commit`
+     - `prepare-commit-msg`
+     - `commit-msg`
+     - `post-commit`
 
-   - Email workflow hooks
+   - Rewriting:
 
-     - applypatch-msg
-     - pre-applypatch
-     - post-applypatch
+     - `pre-rebase`
+     - `post-rewrite`
 
-   - Other client hooks
+   - Merging:
 
-     - pre-rebase
-     - post-rewrite
-     - post-checkout
-     - post-merge
+     - `post-merge`
+     - `pre-merge-commit`
+
+   - Switching/Pushing:
+
+     - `post-checkout`
+     - `reference-transaction`
+     - `pre-push`
+
+   - Email workflow hooks:
+
+     - `applypatch-msg`
+     - `pre-applypatch`
+     - `post-applypatch`
 
 2. **Server-side**:
 
-   - update
-   - pre-receive
-   - post-receive
+   - `update`
+   - `pre-receive`
+   - `post-receive`
 
-- Hooks are simple text files.
-- Hooks can be written in any _scripting language_ like python, Ruby, and so on.
-- The script **filename should match the hooks' name**. For `post-commit` hook the script filename should be `post-commit`.
+- Hooks are simple text files
+- Hooks can be written in any _scripting language_ like python, Ruby, and so on
+- The script **filename should match the hooks' name**. For `post-commit` hook the script filename should be `post-commit`
+
+List of other hooks:
+
+- `proc-receive`
+- `post-update`
+- `push-to-checkout`
+- `pre-auto-gc`
+- `sendemail-validate`
+- `fsmonitor-watchman`
+- `p4-changelist`
+- `p4-prepare-changelist`
+- `p4-post-chanagelist`
+- `p4-pre-submit`
+- `post-index-change`
+
+## Git Maintenance
+
+It essentially provides a way to add cron-jobs that run daily, hourly and weekly maintenance tasks on your Git repositories
+
+You can turn it on for your Git repository by simply running:
+
+```bash
+git maintenance start
+```
+
+This will modify your `.git/config` file to add a `maintenance.strategy` value set to `incremental` which is a shorthand for the following values:
+
+- `gc`: disabled
+- `commit-graph`: hourly
+- `prefetch`: hourly
+- `loose-objects`: daily
+- `incremental-repack`: daily
+
+This means that every hour it will rebuild your commit graph and do a prefetch, and once per day it will clean up loose objects and put them in pack-files and also repack the object directory using the multi-pack-index feature (read more about that in an incredible blog post from GitHub's Taylor Blau [here](https://github.blog/2021-04-29-scaling-monorepo-maintenance/?ref=blog.gitbutler.com#multi-pack-indexes))
+
+- This makes things like `git log --graph` or `git branch --contains` much, much faster
+
+File system monitor:
+
+- it could detect when virtual file contents were being requested and fetch them from a central server if needed
+
+```bash
+git config core.untrackedcache true
+git config core.fsmonitor true
+```
+
+## Signing
+
+Signing commits with SSH
+
+```bash
+# use SSH for signing
+git config gpg.format ssh
+
+# path to your public keys
+git config user.signingKey ~/.ssh/id_rsa.pub
+
+# try to sign commit with your keys
+git commit -S
+
+# sign the ref update on the server and
+#have the server save a transparency log with verifiable signatures somewhere
+git push --signed
+```
+
+## Other Git Commands
+
+```bash
+# show results in columns
+seq 1 24 | git column --mode=column --paddin=5
+```
+
+## Worktrees
+
+Working on more than one branch at a time
+
+- Provide a new working directory for each branch
+
+```bash
+git worktree add -b bugfix ../project-branches/bugfix
+
+cd ../project-branches/bugfix
+```
+
+## Scalar
+
+Git now (since Oct 2022, Git 2.38) ships with an _alternative_ command line invocation that wraps some of this stuff. Useful for huge projects
+
+```bash
+scalar
+
+# usage: scalar [-C <directory>] [-c <key>=<value>] <command> [<options>]
+#
+# Commands:
+#         clone
+#         list
+#         register
+#         unregister
+#         run
+#         reconfigure
+#         delete
+#         help
+#         version
+#         diagnose
+```
+
+- Scalar is mostly just used to clone with the correct defaults and config settings (blobless clone, no checkout by default, setting up maintenance properly, etc)
+
+- If you are managing large repositories, cloning with this negates the need to run `git maintenance start` and send the `--no-checkout` command and remember `--filter=tree:0` and whatnot
+
+Running `scalar clone [repo https url/ssh link]` will do the following:
+
+- prefetching
+- commit-graph
+- filesystem monitor
+- partial cloning
+- sparse checkout
+
+## Git Large File Storage
+
+An open source Git extension for versioning large files
+
+Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise
+
+```bash
+# install LFS
+git lfs install
+
+# select the file types you'd like Git LFS to manage
+git lfs track "*.psd"
+
+# make sure .gitattributes is tracked
+git add .gitattributes
+
+# now proceed with commit
+git add file.psd
+git commit -m "Add design file"
+git push origin master
+```
+
+## Smudge and Clean
+
+Git RCS keywords: `$Date$`
 
 ## Github Folder
 
