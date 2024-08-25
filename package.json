@@ -1,22 +1,21 @@
 {
   "name": "notes",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "Anthology of Snippets",
   "type": "module",
   "scripts": {
+    "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted",
+    "deploy": "npm run fetch && npm run docs:build && node deploy.js",
+    "dev": "npm run fetch && npm run docs:dev",
+    "docs:build": "vitepress build docs",
+    "docs:dev": "vitepress dev docs",
+    "docs:preview": "vitepress preview docs",
     "fetch": "sh utils/bash/sync.sh",
-    "dev": "npm run fetch && vuepress dev docs",
-    "docs:dev": "vuepress dev docs",
-    "build": "vuepress build docs",
-    "deploy": "npm run fetch && npm run build && node deploy.js",
-    "lint": "npm run lint:fix && npm run lint:md && npm run lint:links",
-    "lint:txt": "textlint",
-    "lint:prettier": "prettier --check './docs/**/*.md'",
-    "lint:fix": "prettier --write './docs/**/*.md'",
+    "fix": "prettier --write './docs/**/*.md'",
     "lint:md": "markdownlint-cli2 './docs/**/*.md' '#./docs/index.md' '#./docs/about.md'",
-    "lint:links": "git status --porcelain | grep '.md' | awk '{if($1==\"M\") {print \"./\"$2}}' | xargs markdown-link-check -c ./.markdownLinkCheck.json -q -p",
-    "lint:allLinks": "fd . ./docs -0 -e md | xargs -0 -n1 markdown-link-check -c ./.markdownLinkCheck.json -q -p",
-    "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted"
+    "lint:prettier": "prettier --check './docs/**/*.md'",
+    "lint:txt": "textlint",
+    "lint": "npm run fix && npm run lint:md"
   },
   "repository": {
     "type": "git",
@@ -34,21 +33,16 @@
   "homepage": "https://github.com/25prabhu10/notes#readme",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.2",
-    "@vuepress/plugin-pwa": "^2.0.0-rc.0",
-    "@vuepress/plugin-register-components": "^2.0.0-rc.0",
-    "@vuepress/plugin-search": "^2.0.0-rc.0",
-    "dictionary-en-gb": "^3.0.0",
-    "markdown-link-check": "^3.10.3",
-    "markdownlint-cli2": "^0.11.0",
-    "prettier": "^3.1.1",
-    "textlint": "^13.4.1",
+    "markdownlint-cli2": "^0.13.0",
+    "prettier": "^3.2.5",
+    "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
-    "textlint-rule-diacritics": "^1.0.0",
+    "textlint-rule-diacritics": "^2.1.4",
     "textlint-rule-en-capitalization": "^2.0.3",
     "textlint-rule-spelling": "^0.3.0",
-    "textlint-rule-terminology": "^4.0.1",
+    "textlint-rule-terminology": "^5.0.0",
     "textlint-rule-write-good": "^2.0.0",
-    "vuepress": "^2.0.0-rc.0"
+    "vitepress": "^1.1.3"
   }
 }
