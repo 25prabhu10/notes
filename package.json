@@ -33,7 +33,8 @@
   "homepage": "https://github.com/25prabhu10/notes#readme",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.2",
-    "markdownlint-cli2": "^0.13.0",
+    "markdown-it-mathjax3": "^4.3.2",
+    "markdownlint-cli2": "^0.14.0",
     "prettier": "^3.2.5",
     "textlint": "^14.0.4",
     "textlint-filter-rule-comments": "^1.2.2",
@@ -41,7 +42,7 @@
     "textlint-rule-diacritics": "^2.1.4",
     "textlint-rule-en-capitalization": "^2.0.3",
     "textlint-rule-spelling": "^0.3.0",
-    "textlint-rule-terminology": "^5.0.0",
+    "textlint-rule-terminology": "^5.2.7",
     "textlint-rule-write-good": "^2.0.0",
     "vitepress": "^1.1.3"
   }
