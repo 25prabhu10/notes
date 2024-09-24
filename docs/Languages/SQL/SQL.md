@@ -11,7 +11,7 @@ Structured Query Language
 - SQL implementations vary between systems
 - SQL can mainly be categorised as [declarative programming](../../Concepts/Programming_Paradigms/) (non-procedural)
 
-> Developed by Raymond Boyce and Donald Chamberlin
+Developed by _Raymond Boyce and Donald Chamberlin_
 
 Sub-Groups of SQL Commands (syntax):
 
@@ -46,6 +46,7 @@ Sub-Groups of SQL Commands (syntax):
      - [`COMMIT`](#commit): permanently save any transaction into the database
      - [`ROLLBACK`](#rollback): restores the database to last committed state. It is also used with save-point command to jump to a save-point in a transaction
      - `SAVEPOINT`: temporarily save a transaction so that you can rollback to that point whenever necessary
+     - `SET TRANSACTION`: places a name on a transaction
 
 4. DCL (Data Control Language)
 

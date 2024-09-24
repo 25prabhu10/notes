@@ -64,6 +64,8 @@ You can use the above tools to create a .NET project or use the dotnet CLI:
 # Create a console application
 dotnet new console -o MyApp
 
+# --use-program-main (do not use top-level statements)
+
 # Run the application
 cd MyApp
 # Build and run

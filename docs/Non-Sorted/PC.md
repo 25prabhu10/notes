@@ -2,7 +2,7 @@
 title: PC
 description: PC Building Guide
 date: 2023-07-05
-lastmod: 2023-07-05
+lastmod: 2024-09-06
 ---
 
 # PC Building Guide
@@ -29,7 +29,7 @@ The most common form factors:
 
 - **E-ATX (Extended ATX)** - One of the largest form factors available for mainstream use. It typically offers the most features and extensibility – giving you flexibility with regards to peripherals. These motherboards should come with 3 or more full-length PCI-E slots
 
-- **M-ATX (Micro ATX)** - A compact implementation of the ATX standard. It usually features 2 or 4-DIMM configurations for memory and very rarely features more than 2 full-length PCI-E slots. It’s an excellent choice for those wanting a reasonably compact build
+- **M-ATX (Micro ATX)** - A compact implementation of the ATX standard. It usually features 2 or 4-DIMM configurations for memory and very rarely features more than 2 full-length PCI-E slots. It's an excellent choice for those wanting a reasonably compact build
 
 - **M-ITX (Mini ITX)** - One of the most compact form factors widely available for mainstream computers. Although they have limited extensibility due to their diminutive size, they have no peer when it comes to building compact PCs
 
@@ -37,7 +37,7 @@ The most common form factors:
 
 Intel-compatible motherboard for an Intel CPU and an AMD-compatible motherboard for an AMD CPU
 
-Both brands use different socket types, and that is why **you can’t swap CPUs from different brands**. Sockets can even vary across processor generations from the same company
+Both brands use different socket types, and that is why **you can't swap CPUs from different brands**. Sockets can even vary across processor generations from the same company
 
 | Brand | Generation                                          | Socket         | Reason                                                          |
 | ----- | --------------------------------------------------- | -------------- | --------------------------------------------------------------- |

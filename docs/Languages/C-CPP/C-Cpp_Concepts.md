@@ -1,30 +1,31 @@
 ---
 title: C/C++ Concepts
 description: Introduction to C/CPP
-lastmod: 2023-10-02
 ---
 
 # C/C++ Concepts
+
+## Setup
 
 To start working with C/C++ you need to install few application in your system, such as IDE's or Text Editors, Compilers etc.
 
 You can use any IDE or Text editor, some of the are listed below:
 
-For Windows (uses [MinGW Compiler](https://osdn.net/projects/mingw/)):
+- For Windows (uses [MinGW Compiler](https://osdn.net/projects/mingw/)):
 
-- [Vim](https://www.vim.org/download.php): Text editor or [Neovim](https://neovim.io/): Vim-based text editor
-- [Visual Studio](https://visualstudio.microsoft.com/)
-- [Visual Studio Code](https://code.visualstudio.com/): Text editor
-- [Code::Blocks](http://www.codeblocks.org/downloads/binaries/)
-- [Dev-Cpp](https://github.com/Embarcadero/Dev-Cpp/releases/tag/v6.3): Download the **with Mingw/GCC** version so that compiler will also be included
+  - [Vim](https://www.vim.org/download.php): Text editor or [Neovim](https://neovim.io/): Vim-based text editor
+  - [Visual Studio](https://visualstudio.microsoft.com/)
+  - [Visual Studio Code](https://code.visualstudio.com/): Text editor
+  - [Code::Blocks](http://www.codeblocks.org/downloads/binaries/)
+  - [Dev-Cpp](https://github.com/Embarcadero/Dev-Cpp/releases/tag/v6.3): Download the **with Mingw/GCC** version so that compiler will also be included
 
 _Dev-Cpp Setup:_
 
 Make the below changes in **Tools** --> **Compiler Options**:
 
-1. In the **Compiler** section, tick mark **Add the following commands when calling compiler:** and add `-g` in the text available below. This helps while debugging the code.
+1. In the **Compiler** section, tick mark **Add the following commands when calling compiler:** and add `-g` in the text available below. This helps while debugging the code
 
-2. Now, in **Programs** section, append `-std=c++99` to **gcc:** and **g++:** like `gcc.exe -std=c++11` and `g++.exe -std=c++11`. To use the latest C++ 11 standards.
+2. Now, in **Programs** section, append `-std=c++99` to **gcc:** and **g++:** like `gcc.exe -std=c++11` and `g++.exe -std=c++11`. To use the C++ 11 standards (by default it will be set to latest)
 
 ## Memory
 

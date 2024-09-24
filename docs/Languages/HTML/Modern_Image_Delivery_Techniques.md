@@ -5,9 +5,9 @@ description: Modern Image Delivery Techniques
 
 # Modern Image Delivery Techniques
 
-You want your website to be blazing fast, so you have minified and compressed all the files delivered to the user. But still there is a significant delay in page loading time. This is because of the images being used on the web page.
+You want your website to be blazing fast, so you have minified and compressed all the files delivered to the user. But still there is a significant delay in page loading time. This is because of the images being used on the web page
 
-According to some analysis of website loading time, it was concluded that nearly 50% of the network traffic was being consumed by the images. Which requires is a lot of network bandwidth. So, to improve the page load time we need to optimize the images and the way they are being delivered.
+According to some analysis of website loading time, it was concluded that nearly 50% of the network traffic was being consumed by the images. Which requires is a lot of network bandwidth. So, to improve the page load time we need to optimize the images and the way they are being delivered
 
 As per google lighthouse, here are 4 Simple ways of Image Optimizations
 
@@ -18,13 +18,13 @@ As per google lighthouse, here are 4 Simple ways of Image Optimizations
 
 Websites to test web page performance:
 
-- [Google Lighthouse](https://web.dev/measure/) - Run tests on your web page online, you can use Chrome dev tools to run lighthouse locally.
+- [Google Lighthouse](https://web.dev/measure/) - Run tests on your web page online, you can use Chrome dev tools to run lighthouse locally
 
 - [WEBPAGETEST](https://www.webpagetest.org/) - Run tests on your web page
 
 - [httparchive](https://httparchive.org/) - Test reports of millions of pages
 
-Network Info can help in image optimization, like check if the user's network is slow, then we can send smaller images or less images.
+Network Info can help in image optimization, like check if the user's network is slow, then we can send smaller images or less images
 
 - `navigator.connection.type;` - Network type that browser uses
 
@@ -44,7 +44,7 @@ Avoid Base 64 Encoding (Images embedded as Base64 in HTML/CSS/JS) because:
 
 ## Quality
 
-Quality of the images matter, a blurry or pixelated image depletes the user experience. So, we want to delivery images which have the similar image quality of the original but are much smaller in size.
+Quality of the images matter, a blurry or pixelated image depletes the user experience. So, we want to delivery images which have the similar image quality of the original but are much smaller in size
 
 - Lighthouse Recommends 85% quality on all images
 
@@ -81,20 +81,41 @@ Quality of the images matter, a blurry or pixelated image depletes the user expe
 
 Some of the most commonly used image formats on web are:
 
-### **JPEG** - Most widely used
+## Comparison of Popular Image Formats
 
-### **PNG** - Used mainly for logos and place where image background transparency is needed
+| Format        | File Extension  | Lossy/Lossless    | Typical Uses                              | Advantages                                                                | Disadvantages                                                                   |
+| ------------- | --------------- | ----------------- | ----------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [JPEG](#jpeg) | `.jpg`, `.jpeg` | Lossy             | Photographs, images with continuous tones | High compression ratio, widely supported                                  | Can degrade image quality with repeated editing                                 |
+| [PNG](#png)   | `.png`          | Lossless          | Graphics with transparency, logos, icons  | Supports transparency, lossless compression, good color accuracy          | Larger file sizes than JPEG                                                     |
+| [WebP](#webp) | `.webp`         | Lossy or lossless | Web images, photographs                   | Smaller file sizes than JPEG and PNG, supports transparency and animation | Less widely supported than JPEG or PNG                                          |
+| [AVIF](#avif) | `.avif`         | Lossy or lossless | Web images, photographs                   | Smaller file sizes than JPEG and PNG, supports HDR, wider color gamut     | Less widely supported than JPEG or PNG                                          |
+| [GIF](#gif)   | `.gif`          | Lossless          | Animated images, simple graphics          | Supports animation, lossless compression, widely supported                | Limited color palette (256 colors), larger file sizes than PNG                  |
+| [SVG](#svg)   | `.svg`          | Lossless          | Vector graphics, logos, icons             | Scalable, high-quality graphics, small file sizes                         | Can be complex to edit, might not render consistently across different browsers |
 
-- Convert PNG to JPEG if no special requirement is there.
-- Use WebP image format if transparency is required, **Use a backup PNG `src` as WebP is not yet widely supported as of now**.
+::: info NOTE
+Lossy formats compress images by discarding some data, resulting in smaller file sizes but potential image quality degradation. Lossless formats compress images without losing any data, preserving the original image quality.
+:::
 
-### **WebP** - Alternative to _JPEG_/_PNG_
+### JPEG
 
-- Smaller file sizes compared to JPEG and PNG.
+- Most widely used
 
-- It can be used for both lossy (JPEG) and losses (PNG) image compression.
+### PNG
 
-- It also supports transparency like PNG.
+- Used mainly for logos and place where image background transparency is needed
+
+- Convert PNG to JPEG if no special requirement is there
+- Use WebP image format if transparency is required, **Use a backup PNG `src` as WebP is not yet widely supported as of now**
+
+### WebP
+
+- Alternative to _JPEG_/_PNG_
+
+- Smaller file sizes compared to JPEG and PNG
+
+- It can be used for both lossy (JPEG) and losses (PNG) image compression
+
+- It also supports transparency like PNG
 
 - _Less support as of now_, we can use JPEG/PNG as a fall back image:
 
@@ -105,19 +126,34 @@ Some of the most commonly used image formats on web are:
   </picture>
   ```
 
-### **GIF** - Short animations
+### AVIF
 
-According the GIF89a Specification the GIF is not intended for animations.
+AVIF is a newer format that offers superior compression compared to JPEG and PNG, especially for images with complex details or high dynamic range (HDR) content
 
-As a result when a video is converted to GIF the file size increase.
+```html
+<picture>
+  <source type="image/avif" srcset="snow.avif" />
+  <img alt="Hut in the snow" src="snow.jpg" />
+</picture>
+```
 
-So most of the websites like twitter, Facebook etc,. Use video files for animations as they are much smaller than GIF's. These video files can be of MP4 or WebM format.
+- [AVIF has landed](https://jakearchibald.com/2020/avif-has-landed/)
+
+### GIF
+
+- Short animations
+
+According the GIF89a Specification the GIF is not intended for animations
+
+As a result when a video is converted to GIF the file size increase
+
+So most of the websites like twitter, Facebook etc,. Use video files for animations as they are much smaller than GIF's. These video files can be of MP4 or WebM format
 
 Some tips to convert GIF to videos:
 
-- Reduce the video colours to 256 colours (GIF supports only 256 colours).
+- Reduce the video colours to 256 colours (GIF supports only 256 colours)
 
-- Remove audio.
+- Remove audio
 
 - Using [FFmpeg](https://www.ffmpeg.org/) tool to convert GIF to an MP4 or a WebM video, like:
 
@@ -132,9 +168,7 @@ Some tips to convert GIF to videos:
   > WebM is a relatively new file format and WebM videos are much smaller than MP4 videos
 
   ::: warning
-
-  Not all browsers support WebM so it makes sense to generate both.
-
+  Not all browsers support WebM so it makes sense to generate both
   :::
 
 - Usage:
@@ -162,19 +196,21 @@ Some tips to convert GIF to videos:
   </video>
   ```
 
-  > Mobile browsers won't auto play videos unless they are muted.
+  > Mobile browsers won't auto play videos unless they are muted
 
-### **SVG** - Vector images
+### SVG
 
-- As it made up of text, it can be compressed using `GZip` or `Brotli`.
+- Vector images
+
+- As it made up of text, it can be compressed using `GZip` or `Brotli`
 
 ## Sizing (Image Dimensions)
 
-Using responsive images decreases the page loading time.
+Using responsive images decreases the page loading time
 
-If the website is viewed on a desktop we need a large image, but if the same website is being viewed on a mobile phone then we can use the smaller image as the view-port is smaller. This will reduce the size of the image being delivered to the mobile, thus decreasing the page load time. Which will enhance the user experience.
+If the website is viewed on a desktop we need a large image, but if the same website is being viewed on a mobile phone then we can use the smaller image as the view-port is smaller. This will reduce the size of the image being delivered to the mobile, thus decreasing the page load time. Which will enhance the user experience
 
-We can load different images depending on the screen size using the `srcset` attribute of `img` tag. We will add all differently sized image sources and let the browser select the image according to the screen size or pixel density of the device.
+We can load different images depending on the screen size using the `srcset` attribute of `img` tag. We will add all differently sized image sources and let the browser select the image according to the screen size or pixel density of the device
 
 > `srcset` is a set of one or more strings separated by commas indicating a set of possible image sources for the user agent to use.
 

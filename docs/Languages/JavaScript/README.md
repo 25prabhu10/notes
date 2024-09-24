@@ -19,6 +19,7 @@ sidebar: false
 6. [React](./React/): A JavaScript library for building user interfaces
 
 7. [Next.js](./Next.js/Next.js.md): Web development framework enabling React-based web applications with server-side rendering and generating static websites
+
 8. [Svelte](./Svelte/Svelte.md): Cybernetically enhanced web apps
 
 9. [Angular](./Angular/Angular.md): TypeScript-based Open-Source Web Application Framework

@@ -112,7 +112,7 @@ The `WebHost.CreateDefaultBuilder()` (Core 2.x), `Host.CreateDefaultBuilder()` (
 
 _Example:_
 
-```csharp
+```cs
 // ASP.NET Core 2.x
 public class Program
 {
@@ -196,7 +196,7 @@ Methods present in the file:
 
 - Use the inbuilt ASP.NET Core's configuration library to create a configuration object
 
-  ```csharp
+  ```cs
   private readonly IConfiguration Configuration;
 
   public Startup(IConfiguration configuration)
@@ -226,7 +226,7 @@ Methods present in the file:
 
 - Access the configuration value, same as accessing an objects key-value:
 
-  ```csharp
+  ```cs
   Configuration["CustomConfigKey"]
 
   // Access nested configs : (colon) is used instead of a . (dot)
@@ -237,7 +237,7 @@ Methods present in the file:
 
 - Value in the right format:
 
-  ```csharp
+  ```cs
   Configuration.GetValue<bool>("CustomConfigKey")
   ```
 
@@ -249,7 +249,7 @@ Configuration management:
 
 ## Dependency Injection
 
-ASP.NET Core supports the [Dependency Injection](../../../Concepts/Design_Patterns/Design_Patterns.md) (DI) software design pattern, which is a technique for achieving _Inversion of Control_ (IoC) between classes and their dependencies.
+ASP.NET Core supports the [Dependency Injection](../../../Concepts/Designs/Design_Patterns.md) (DI) software design pattern, which is a technique for achieving _Inversion of Control_ (IoC) between classes and their dependencies.
 
 - Dependency injection, a development pattern which encourages loose coupling between components.
 
@@ -298,7 +298,7 @@ Registering middleware:
    - Will never call subsequent middleware
    - `Run` delegates don't receive a `next` parameter.
 
-   ```csharp
+   ```cs
    app.Run(async context =>
    {
        await context.Response.WriteAsync("Hello world!");
@@ -311,7 +311,7 @@ Registering middleware:
    - You can _short-circuit_ the pipeline by not calling the `next` parameter.
    - You can typically perform actions both before and after the `next` delegate
 
-   ```csharp
+   ```cs
    app.Use(async (context, next) =>
    {
        // Do work that doesn't write to the Response.
@@ -325,7 +325,7 @@ Registering middleware:
    - `Map` branches the request pipeline based on matches of the given request path.
    - If the request path starts with the given path, the branch is executed.
 
-   ```csharp
+   ```cs
    app.Map("/map1", HandleMapTest1);
 
    app.Map("/map2", HandleMapTest2);
@@ -366,7 +366,7 @@ _Example:_ ASP.NET Core MVC and Razor Pages apps request processing pipeline:
 
 _Example:_
 
-```csharp
+```cs
 // Middleware that is not added when creating a new web app with individual users accounts is commented out.
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
@@ -462,7 +462,7 @@ Types of Routing:
 
    - Routing Configuration:
 
-     ```csharp
+     ```cs
      app.UseEndpoints(endpoints =>
      {
          endpoints.MapControllerRoute(
@@ -482,7 +482,7 @@ Types of Routing:
 
    - Placing a route on the controller or action makes it attribute-routed.
 
-     ```csharp
+     ```cs
      public void ConfigureServices(IServiceCollection services)
      {
          services.AddControllers();
@@ -501,7 +501,7 @@ Types of Routing:
 
    - The `HomeController.Index` action is run for any of the URL paths `/`, `/Home`, `/Home/Index`, or `/Home/Index/3`:
 
-     ```csharp
+     ```cs
      public class HomeController : ControllerBase // Controller
      {
          [Route("")]
@@ -524,7 +524,7 @@ Types of Routing:
 
    - Using token replacement. The tokens `[action]`, `[area]`, and `[controller]` are replaced with the values of the action name, area name, and controller name from the action where the route is defined:
 
-     ```csharp
+     ```cs
      public class HomeController : Controller
      {
          [Route("")]
@@ -584,7 +584,7 @@ Route templates:
 
 _Example:_
 
-```csharp
+```cs
 [Route("api/[controller]")]
 [ApiController]
 public class Test2Controller : ControllerBase
@@ -623,7 +623,7 @@ Route name: can be used to generate a URL based on a specific route. Route names
 - Are only used for URL generation.
 - Route names must be unique application-wide
 
-```csharp
+```cs
 [HttpGet("/products2/{id}", Name = "Products_List")]
 
 // or using `nameof()`
@@ -649,7 +649,7 @@ Steps to add Identity to the application:
 
 1. Inherit from `IdentityDbContext` class instead of `DbContext`, as this class provides all the `DbSet` properties needed to manage the identity tables in the underlying data store
 
-   ```csharp
+   ```cs
    public class AppDbContext : IdentityDbContext<IdentityUser>
    {
        public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -660,7 +660,7 @@ Steps to add Identity to the application:
 
 2. Add ASP.NET Core Identity services to the application:
 
-   ```csharp
+   ```cs
    // IdentityUser and IdentityRole are built-in class
    // Here EntityFramework is used to handle the database
 
@@ -695,7 +695,7 @@ Steps to add Identity to the application:
 
 - `SignInManager<IdentityUser>`: Provides the APIs for user sign in.
 
-```csharp
+```cs
 [AllowAnonymous]
 public class CustomerController : Controller
 {
@@ -735,7 +735,7 @@ public class CustomerController : Controller
 
 ### Configure Identity Services
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     services.Configure<IdentityOptions>(options =>
@@ -829,7 +829,7 @@ Steps for the integration: In all cases, we must complete an application registr
 
 4. Optionally, configuring a sign-out URL to properly handle sign out in a Single Sign On (SSO) scenario
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     //...
@@ -862,7 +862,7 @@ Parse (de-serialize) JSON to object notations
 
 - De-serialize an Object:
 
-  ```csharp
+  ```cs
   public class Account
   {
       public string Email { get; set; }
@@ -889,7 +889,7 @@ Parse (de-serialize) JSON to object notations
 
 - Serialize an Object
 
-  ```csharp
+  ```cs
   Account account = new Account
   {
       Email = "james@example.com",
@@ -941,7 +941,7 @@ dotnet user-secrets set MongoDbSettings:Password Pass#word1
 - Prevents unsolicited emails
 - Easy to recover account
 
-```csharp
+```cs
 services.AddIdentity<IdentityUser, IdentityRole>(options =>
         {
             //...
@@ -952,13 +952,13 @@ services.AddIdentity<IdentityUser, IdentityRole>(options =>
 
 - Generate email confirmation token:
 
-  ```csharp
+  ```cs
   var token = await userManager.GenerateEmailConfirmationTokenAsync(user);
   ```
 
 - Generate email confirmation link:
 
-  ```csharp
+  ```cs
   var confirmationLink = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, token = token }, Request.Scheme);
   ```
 
@@ -1111,7 +1111,7 @@ Dependency injection is completely built in:
 
 _Example:_ Create a web host
 
-```csharp
+```cs
 public class Program
 {
   public static void Main(string[] args)
@@ -1143,7 +1143,7 @@ public class Program
 
    _Example:_
 
-   ```csharp
+   ```cs
    public void ConfigureServices(IServiceCollection services)
    {
      // services.AddMvc(options => options.SslPort = 44329);
@@ -1816,7 +1816,7 @@ EU General Data Protection Regulation (GDPR):
 
 - If your app does logging provider initialization, filtering, and configuration loading in the `Startup` class, move that code to `Program.Main`:
 
-  ```csharp
+  ```cs
   public static void Main(string[] args)
   {
       var webHost = new WebHostBuilder()

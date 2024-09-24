@@ -22,6 +22,14 @@ Steps:
 2. Agile is doing what is valuable
 3. Don't do what is not
 
+### Story
+
+Story in agile is a short narrative
+
+- A couple of sentences
+- Describes end user performing a domain-driven, result-oriented task
+- Describes your user's work
+
 ## Agile Frameworks and Methodologies
 
 - [Scrum](./Scrum.md)
@@ -64,11 +72,11 @@ What can be done better?
 
 - Don't Estimate (its very hard to be estimate)
   - If the cost of failure is less than the cost of planning you must not plan
-  - No Bullshit Estimatation: (1 point, TFB (Too Fucking Big), NFC (No Fucking Clue))
+  - No Bullshit Estimation: (1 point, TFB (Too Fucking Big), NFC (No Fucking Clue))
 - No Sprints, instead build something and show it to client frequently
 - The risk of metrics
 
-- A 5-minute standup in the morning
+- A 5-minute stand-up in the morning
 - Around a kanban board
 - With a WIP (Work in Progress) limit of team size/2: maximum amount of work that can exist in each status of a workflow
 - Demo as often as you can

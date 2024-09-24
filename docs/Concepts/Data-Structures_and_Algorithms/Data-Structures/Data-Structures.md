@@ -87,7 +87,7 @@ _Heap memory:_
 
 - Used as a resource
 
-- Programs cannot directly access Heap memory, to access it we use [Pointers](./C-Cpp_Concepts.md#pointers)
+- Programs cannot directly access Heap memory, to access it we use [Pointers](../../../Languages/C-CPP/C-Cpp_Concepts.md#pointers)
 
 - Memory allocation and de-allocation in Heap must be handled by the user
 

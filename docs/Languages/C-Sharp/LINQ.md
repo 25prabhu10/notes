@@ -33,7 +33,7 @@ When not to use LINQ?
 
 _Example:_
 
-```csharp
+```cs
 var results = new List<WebColor>();
 var colors = CourseLib.ColorSource.GetColors();
 
@@ -105,7 +105,7 @@ What sources are query-able?
 
 1. `IEnumerable`:
 
-   ```csharp
+   ```cs
    // Show all types that implement
    // the IEnumerable (LINQ) interface in msCorLib
 
@@ -120,7 +120,7 @@ What sources are query-able?
 
 2. `IQueryable`:
 
-   ```csharp
+   ```cs
    // Use in LINQ to Entities, LINQ to SQL etc.
 
    var temp = Assembly.Load("System.Data.Entity");
@@ -138,7 +138,7 @@ What sources are query-able?
    - But for a concrete array CLR alters it to inherit array, implements `IEnumerable<T>`, `ICollection<T>`, and `IList<T>`
    - Provided the array is single dimensional and 0-lower bound.
 
-     ```csharp
+     ```cs
      Double[] array = new Double[] { 4.4, 2.2, 6.6 };
 
      var q = from a in array
@@ -150,7 +150,7 @@ A Query consists of a source (sequence) and at least one Query Operator
 
 - All the Query operators are implemented as extension methods and are in the Enumerable class
 
-```csharp
+```cs
 // List all Query Operators
 
 var temp = Assembly.Load("System.Linq");
@@ -165,7 +165,7 @@ var q = from method in typeof(System.Linq.Enumerable).GetMethods()
 
 1. Using Enumerable static methods to query a sequence:
 
-   ```csharp
+   ```cs
    var colors = new List<string> { "Green", "Blush", "Yellow" };
 
    // Use static methods in Enumerable
@@ -175,7 +175,7 @@ var q = from method in typeof(System.Linq.Enumerable).GetMethods()
 
 2. Using Enumerable extension methods to query a sequence:
 
-   ```csharp
+   ```cs
    var colors = new List<string> { "Green", "Blush", "Yellow" };
 
    // Call the Where method using extension method syntax on an IEnumerable
@@ -185,7 +185,7 @@ var q = from method in typeof(System.Linq.Enumerable).GetMethods()
 
 3. Using Query Expression syntax:
 
-   ```csharp
+   ```cs
    var numbers = new List<int> { 1, 100, 98, 23, 55 };
 
    // Starts with
@@ -206,7 +206,7 @@ The execution of a query is distinct from the creation of the query.
 
 - You do not retrieve any data just by creating a query
 
-```csharp
+```cs
 var numbers = new List<int> { 1, 100, 98, 23, 55 };
 
 var q = from n in numbers
@@ -229,7 +229,7 @@ foreach (var item in q)
 
 Combine extension methods to create execution pipeline:
 
-```csharp
+```cs
 var colors = new List<string> { "Green", "Blush", "Yellow" };
 
 // Where returns IEnumerable<T>
@@ -253,7 +253,7 @@ Query syntax and method syntax are semantically identical, but many people find 
 
 _Example:_ To retrieve the number of elements that match a specified condition, we need to use `Count()` method:
 
-```csharp
+```cs
 var colors = new List<string> { "Green", "Blush", "Yellow" };
 
 var q = from color in colors
@@ -278,7 +278,7 @@ The Enumerable class contains methods to generate `IEnumerable` sources
    - Low memory usage
    - Useful for a starting value, or as a empty parameter for method
 
-   ```csharp
+   ```cs
    var listOfDates1 = Enumerable.Empty<DateTime>();
 
    listOfDates1.GetType().Name;
@@ -292,7 +292,7 @@ The Enumerable class contains methods to generate `IEnumerable` sources
 
 2. `DefaultIfEmpty`: When the source enumerable has no entries, it returns an enumerable with a single value; the default value of that Type
 
-   ```csharp
+   ```cs
    var numbers1 = new List<int> { 1, 2, 3, 5 };
    var numbers2 = Enumerable.Empty<int>().ToList();
 
@@ -305,7 +305,7 @@ The Enumerable class contains methods to generate `IEnumerable` sources
 
 3. `Repeat`: Adds a set of repeated items to `IEnumerable`
 
-   ```csharp
+   ```cs
    // statement based way to add items
    List<int> manyThrees = new List<int>();
    for (int i = 0; i < 128; i++)
@@ -320,7 +320,7 @@ The Enumerable class contains methods to generate `IEnumerable` sources
 
 4. `Range`: Generates a sequence of integral numbers within a specified range
 
-   ```csharp
+   ```cs
    var numbers = Enumerable.Range(start: 1000, count: 30);
 
    // skipping numbers
@@ -343,7 +343,7 @@ LINQ query expressions can be categorized into 3 areas:
    - Transforms the object into another type
    - Integers to Decimals, Products to Strings
 
-   ```csharp
+   ```cs
    IEnumerable<string> colors = new List<string> { "Green", "Blush", "Yellow" };
 
    // this query takes a list of strings and returns a list of integers
@@ -365,7 +365,7 @@ LINQ query expressions can be categorized into 3 areas:
      - Required, query expression must end with one of these clauses: `[select, group]`
      - Optional: `[where, orderby, join, let, from]`
 
-   ```csharp
+   ```cs
    IEnumerable<string> q1 = colors.select(c => c);
 
    // the above can be written using query expression
@@ -379,7 +379,7 @@ Select returns a sequence of the chosen type: `IEnumerable<string>, IOrderedEnum
 
 `SelectMany` flattens a one-many relationship or saying it another way , it can ungroup nested sequences
 
-```csharp
+```cs
 void Main()
 {
   HistoryCalendar cal;
@@ -417,7 +417,7 @@ public class HistoryCalendar
    - The predicate is applied to each element in the sequence
    - Define a predicate that uses a boolean expression to determine what to return in filtered sequence
 
-   ```csharp
+   ```cs
    var q = from color on colors
            where color.Length > 5
            select color;
@@ -433,13 +433,13 @@ public class HistoryCalendar
 4. `Max()`
 5. `Count()`: Can take a optional predicate lambda
 
-   ```csharp
+   ```cs
    var count = numbers.Count(n => n > 20);
    ```
 
 6. `Aggregate`: Define a function to call from custom aggregator
 
-   ```csharp
+   ```cs
    var setA = Enumerable.Range(1, 20).Where(x => x % 3 == 0);
 
    var multipleOf = setA.Aggregate((first, second) => first * second);
@@ -458,7 +458,7 @@ Group produces a sequence of groups, organized by a key.
 - GroupBy uses an expression to determine the group 'key' and which sequence items belong in that group
 - The 'value' is the sequence of items in the group
 
-```csharp
+```cs
 var colors = CourseLib.ColorSource.GetColors();
 
 var groupedResult = colors.GroupBy(c => c.ColorFamily );
@@ -469,7 +469,7 @@ var q = from color in colors
 
 Use `elementSelector` to specify what properties on the members of the group
 
-```csharp
+```cs
 var colors = CourseLib.ColorSource.GetColors();
 
 var groupedByColorFamily = colors.GroupBy(keySelector: x => x.ColorFamily, elementSelector: y => new { y.ColorName, y.HexValue });
@@ -482,7 +482,7 @@ var q = from color in colors
 
 Change the key name or value name with `resultSelector`:
 
-```csharp
+```cs
 var groupedByColorFamily = colors.GroupBy(keySelector: x => x.ColorFamily, elementSelector: y => new { y.ColorName, y.HexValue }, resultSelector: (key, value) => new {Family = key, Colors = value });
 
 // similarly
@@ -497,7 +497,7 @@ var q = from color in colors
 
 Join together two sequences
 
-```csharp
+```cs
 var setA = Enumerable.Range(2, 3);
 var setB = Enumerable.Range(5, 3);
 
@@ -518,7 +518,7 @@ var q2 = from a in setA
 
 Returns the first or last element of a sequence. `First()` and `Last()` will throw exception if the sequence is empty.
 
-```csharp
+```cs
 var numbers = new List<int> { 50, 4, 10, 3 };
 
 numbers.First();  // 50
@@ -532,7 +532,7 @@ numbers.Last();
 
 Use `FirstOrDefault`, `LastOrDefault`:
 
-```csharp
+```cs
 var emptyNumbers = new List<int>();
 var emptyStrings  = new List<string>();
 var emptyBools  = new List<bool>();
@@ -557,7 +557,7 @@ Find() Method:
 
 _Example:_
 
-```csharp
+```cs
 var entity = dbContext.Set<TEntity>().Find(id);
 ```
 
@@ -567,7 +567,7 @@ var entity = dbContext.Set<TEntity>().Find(id);
 
 `ElementAtOrDefault`: Returns the element at a specified index in a sequence or a default value if the index is out of range.
 
-```csharp
+```cs
 var fiveCount = new List<int> { 0, 5, 10, 15, 20, 25, 30};
 
 fiveCount.ElementAt(1);           // 5
@@ -580,7 +580,7 @@ fiveCount.ElementAtOrDefault(22); // 0
 
 `SingleOrDefault`: Returns a single, specific element of a sequence, or a default value if that element is not found.
 
-```csharp
+```cs
 var colors =  CourseLib.ColorSource.GetColors();
 
 colors.Single(x => x.ColorName =="SteelBlue");
@@ -591,7 +591,7 @@ colors.SingleOrDefault(x => x.ColorName =="DirtBrown");
 
 Select only distinct values
 
-```csharp
+```cs
 List<int> numbers = new List<int>{ 1, 2, 2, 1, 3, 5, 5, 6 };
 
 var q = numbers.Distinct();
@@ -604,7 +604,7 @@ var distinctColors = CourseLib.ColorSource.GetColors().Select(x=>x.HexValue).Dis
 
 `Intersect`: items that occur in both sets
 
-```csharp
+```cs
 var numbersA = new List<int>{ 0, 2, 4, 5, 6, 8, 9, 8};
 var numbersB = new List<int>{ 1, 3, 5, 7, 8, 9 };
 
@@ -615,7 +615,7 @@ var q = numbersA.Intersect(numbersB);
 
 `Union`: merge two sequences, remove all duplicates
 
-```csharp
+```cs
 var numbersA = new List<int> { 0, 2, 4, 5, 6, 8, 9, 8 }; // 8 items
 var numbersB = new List<int> { 1, 3, 5, 7, 8, 9 };       // 6 items
 
@@ -626,7 +626,7 @@ var q = numbersA.Union(numbersB);
 
 `Except`: returns members of the first set that don't appear in the second set.
 
-```csharp
+```cs
 var numbersA = new List<int> { 0, 2, 4, 5, 6, 8, 9, 8 }; // 8 items
 var numbersB = new List<int> { 1, 3, 5, 7, 8, 9 };       // 6 items
 
@@ -640,7 +640,7 @@ var q2 = numbersB.Except(numbersA);
 
   - Stops evaluation as soon as it find a item that satisfies
 
-  ```csharp
+  ```cs
   var colors = new List<string>
       { "Green", "Blush", "Yellow",  "Red", "Orange", "Burgandy","Purple",
          "White", "Black", "Blue" ,"Bronze"};
@@ -686,7 +686,7 @@ var q2 = numbersB.Except(numbersA);
   - Stops evaluation as soon as it find member that satisfies
   - Takes an predicate as a parameter
 
-  ```csharp
+  ```cs
   var colors = CourseLib.ColorSource.GetColors();
 
   bool hasMatchingItem = colors.Any(w => w.ColorName.StartsWith("C"));
@@ -702,7 +702,7 @@ var q2 = numbersB.Except(numbersA);
 
   - Takes a object as a parameter
 
-  ```csharp
+  ```cs
   var numbers = new List<int> { 24, 18, 16, 76, 14, 24, -10 };
   var containsNumber = numbers.Contains(14);
 
@@ -717,7 +717,7 @@ var q2 = numbersB.Except(numbersA);
 
 - `All`: returns whether all the elements in the input sequence match the given predicate
 
-  ```csharp
+  ```cs
   var colors = CourseLib.ColorSource.GetColors();
 
   var numbers = new List<int> { 25, 18, 16, 76, 140, 24 ,-10};
@@ -732,7 +732,7 @@ var q2 = numbersB.Except(numbersA);
 - `Take`: Get a consecutive subset of the sequence
 - `Skip`: Skip a consecutive subset of the sequence
 
-  ```csharp
+  ```cs
   var numbers = Enumerable.Range(1, 50);
 
   numbers.Take(5);
@@ -755,7 +755,7 @@ var q2 = numbersB.Except(numbersA);
   as long as a specified condition is true
   and then returns the remaining elements.
 
-  ```csharp
+  ```cs
   var numbers = new List<int> { 21, 32, 43, 54, 65, 201, 301, 401, 76, 87, 98 };
 
   numbers.TakeWhile(x => x <100 ).Dump();
@@ -765,7 +765,7 @@ var q2 = numbersB.Except(numbersA);
 
 Chunk a collection with LINQ:
 
-```csharp
+```cs
 // .NET 5 <
 public IEnumerable<IEnumerable<T>> ChunkBy<T>(IEnumerable<T> source, int chunkSize)
 {
@@ -804,7 +804,7 @@ LINQ provides many useful Enumerable methods.
 - _MoreLinq_ is available as a [NuGet package](https://morelinq.github.io/)
 - Examples at [Link](https://github.com/morelinq/examples):
 
-```csharp
+```cs
 var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
 
 // Returns a sequence with a range of elements in the source sequence moved to a new offset.

@@ -398,6 +398,12 @@ Recommended Cryptographic Algorithms:
 - Use Argon2bi, bycrpt or sycrpt
 - **Strong configuration is required**
 
+| AES Modes             | Confidentiality | Integrity | Authenticity |
+| --------------------- | --------------- | --------- | ------------ |
+| AES-CTR               | Yes             | -         | -            |
+| AES-CBC               | Yes             | -         | -            |
+| AES-GCM (recommended) | Yes             | Yes       | Yes          |
+
 ## Pinning & Certificate Transparency
 
 > "You should pin anytime you want to be relatively certain of the remote host's identity or when operating in a hostile environment. Since one or both are almost always true, you should probably pin all the time"

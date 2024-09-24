@@ -41,7 +41,7 @@ Data Access Object (DAO) (Old way):
 
 - Create the [DbContext class](#dbcontext-class):
 
-  ```csharp
+  ```cs
   public class AppDbContext : DbContext
   {
       public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -58,7 +58,7 @@ Data Access Object (DAO) (Old way):
   - `AddDbContextPool` has better performance than `AddDbContext`
   - Don't use `AddDbContextPool` if private properties are used
 
-  ```csharp
+  ```cs
   public void ConfigureServices(IServiceCollection services)
   {
       // In-memory
@@ -79,7 +79,7 @@ To use `DbContext` class in our application, create a class that derives from th
 - Pass configuration information to the `DbContext` using `DbContextOptions` instance
 - Think of it as the database
 
-```csharp
+```cs
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
@@ -122,6 +122,7 @@ Sample list:
 It is an abstraction of the data access layer, it hides the details of how exactly the data is saved or retrieved from the underlying data source (such as databases, flat files, web services, etc.)
 
 - The details of how the data is stored and retrieved is in the respective repository
+- It provides a single point of entry for retrieving and manipulating data, allowing the rest of the application to be decoupled from the specifics of the data storage layer
 
 ## Migrations
 
@@ -207,7 +208,7 @@ There are several ways this can be accomplished in EF Core:
 
 1. Model seed data:
 
-   ```csharp
+   ```cs
    protected override void OnModelCreating(ModelBuilder modelBuilder)
    {
        modelBuilder.Entity<Blog>().HasData(new Blog { BlogId = 1, Url = "http://sample.com" });
@@ -218,7 +219,7 @@ There are several ways this can be accomplished in EF Core:
 
 2. Manual migration customization:
 
-   ```csharp
+   ```cs
    protected override void OnModelCreating(ModelBuilder modelBuilder)
    {
        migrationBuilder.InsertData(
@@ -230,7 +231,7 @@ There are several ways this can be accomplished in EF Core:
 
 3. Custom initialization logic:
 
-   ```csharp
+   ```cs
    using (var context = new DataSeedingContext())
    {
        context.Database.EnsureCreated();
@@ -249,7 +250,7 @@ Perform migration and update database.
 
 _Example:_ Create an extension class for data seeding, this keeps the `DbContext` class clean:
 
-```csharp
+```cs
 public static class DataSeed(this ModelBuilder modelBuilder)
 {
     modelBuilder.Entity<Blog>().HasData(
@@ -286,7 +287,7 @@ Class properties can have [annotations](#annotations)
 
   _Example:_
 
-  ```csharp
+  ```cs
   protected override void OnModelCreating(ModelBuilder modelBuilder)
   {
      modelBuilder.Entity<Blog>().Property(b => b.Title).HasMaxLength(50).IsRequired();

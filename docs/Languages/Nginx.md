@@ -1,11 +1,13 @@
 ---
 title: Nginx
 description: Open source web and application server
+date: 2023-07-29
+lastmod: 2024-05-05
 ---
 
 # Nginx
 
-Open source web and application server
+A free, open-source web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache
 
 Project Homepage: [Nginx Homepage](https://www.nginx.com/)
 Documentation: [Nginx Unit Docs](https://unit.nginx.org/)

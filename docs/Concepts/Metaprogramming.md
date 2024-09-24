@@ -53,7 +53,7 @@ fetch("/foo.json")
 
 _Example:_
 
-```csharp
+```cs
 // Without reflection
 Foo foo = new Foo();
 foo.PrintHello();

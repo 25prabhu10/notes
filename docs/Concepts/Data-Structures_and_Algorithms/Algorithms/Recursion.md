@@ -5,11 +5,13 @@ description: Recursion is a method of solving a problem where the solution depen
 
 # Recursion
 
-Recursion is when a function calls itself.
+A **recurrence** is an equation that describes a function in terms of its value on other, typically smaller, arguments
 
-Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. Such problems can generally be solved by iteration, but this needs to identify and index the smaller instances at programming time.
+Recursion is when a function calls itself
 
-Lets us look at two approaches to find a key present in one of the boxes (arranged in _Matryoshka Dolls_ manner).
+Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem. Such problems can generally be solved by iteration, but this needs to identify and index the smaller instances at programming time
+
+Lets us look at two approaches to find a key present in one of the boxes (arranged in _Matryoshka Dolls_ manner)
 
 1. First approach uses `while` loop:
 
@@ -37,13 +39,13 @@ Lets us look at two approaches to find a key present in one of the boxes (arrang
                return "Found the key!"
    ```
 
-When a recursive function is written, we need to tell it to stop recursing.
-That's why _every recursive function has two parts: the base case, and the recursive case_.
+When a recursive function is written, we need to tell it to stop recursing. That's why _every recursive function has two parts: the base case, and the recursive case_
 
-- The recursive case is when the function calls itself.
-- The base case is when the function doesn't call itself (stop).
+- The **recursive case** is when the function calls itself
+- The **base case** is when it does not involve a recursive invocation
+- The recurrence is **well defined** if there is at least one function that satisfies it, and **ill defined** otherwise
 
-Recursive functions use the _call stack_ to keep track of function calls and function related variables.
+Recursive functions use the _call stack_ to keep track of function calls and function related variables
 
 ```python
 # Factorial Function
@@ -56,22 +58,29 @@ def factorial(x):
         return x * factorial(x - 1)
 ```
 
-- If written incorrectly recursive function results in **infinite loop**.
+- If written incorrectly recursive function results in **infinite loop**
 
-- Generally recursion is **less efficient than iteration (loops)**.
+- Generally recursion is **less efficient than iteration (loops)**
 
 - Recursive algorithms tend to be **very efficient when traversing tree like data structures**
 
-Using the stack takes up a lot of memory.
+Using the stack takes up a lot of memory
 
-- Rewrite the code to use loop instead, to save space.
-- Or use something called [_tail recursion_](#types-of-recursion). Which is only supported by some languages.
+- Rewrite the code to use loop instead, to save space
+- Or use something called [_tail recursion_](#types-of-recursion). Which is only supported by some languages
 
 > Quote by Leigh CaldWell on [Stack Overflow](http://stackoverflow.com/a/72694/139117)
 
 ::: warning NOTE
-**Excessive Recursion**: When a recursive function calls itself multiple times for the same parameters.
+**Excessive Recursion**: When a recursive function calls itself multiple times for the same parameters
 :::
+
+## Algorithmic Recurrences
+
+A recurrence `T(n)` is _algorithmic_ if, for every sufficiently large _threshold_ constant `n0 > 0`, the following two properties hold:
+
+1. For all `n < n0`, we have `T(n) = Θ(1)`
+2. For all `n ≥ n0`, every path of recursion terminates in a defined base case within a finite number of recursive invocations
 
 ## Tracing Tree of Recursive Function
 
@@ -85,28 +94,30 @@ Using the stack takes up a lot of memory.
 - Recurrence Relation:
   - Induction method or successive substitution method
 
+The recursion **bottoms out** when it reaches a base case and the sub-problem is small enough to solve directly without further recursing
+
 Global vs Static Variable:
 
-- They behave in the same way such as they are initialized once and the only case where they have default value as 0.
+- They behave in the same way such as they are initialized once and the only case where they have default value as 0
 
-- Global variable has global (that file) scope.
+- Global variable has global (that file) scope
 
 - Static variable are scoped where they are initialized
 
 ## Types of recursion
 
-1. **Tail Recursion**: When the function calls itself and there are no operations performed after the function call. No operation will be performed during descending phase, not even doing something to the result of the function like `func(n-1) + n`.
+1. **Tail Recursion**: When the function calls itself and there are no operations performed after the function call. No operation will be performed during descending phase, not even doing something to the result of the function like `func(n-1) + n`
 
    _Example:_
 
    ```c
    void func(int n)
    {
-   if (n > 0)
-   {
-       printf("%d\n", n);
-       func(n - 1); // NO OTHER OPERATION IS PERFORMED AFTER FUNCTION CALL
-   }
+     if (n > 0)
+     {
+         printf("%d\n", n);
+         func(n - 1); // NO OTHER OPERATION IS PERFORMED AFTER FUNCTION CALL
+     }
    }
 
    func(3);
@@ -122,11 +133,11 @@ Global vs Static Variable:
    ```c
    void func(int n)
    {
-   while (n > 0)
-   {
-       printf("%d\n", n);
-       n--;
-   }
+      while (n > 0)
+      {
+          printf("%d\n", n);
+          n--;
+      }
    }
 
    func(3);
@@ -142,22 +153,22 @@ Global vs Static Variable:
    | Tail Recursion   | `O(n)`          | `O(n)` - Creates a new function activation record for each recursion       |
    | Loop (while/for) | `O(n)`          | `O(1)` - Only one activation record of the function that contains the loop |
 
-   From the above table we can see that space complexity of Tail recursion is higher than loops, hence we can use loops instead of Tail recursion.
+   From the above table we can see that space complexity of Tail recursion is higher than loops, hence we can use loops instead of Tail recursion
 
    > Some compilers convert tail recursion into loops during compilation
 
-2. **Head Recursion**: When the function calls itself and there are no operations performed before the function call. No operation will be performed during ascending phase.
+2. **Head Recursion**: When the function calls itself and there are no operations performed before the function call. No operation will be performed during ascending phase
 
    _Example:_
 
    ```c
    void func(int n)
    {
-   if (n > 0)
-   {
-       func(n - 1); // NO OTHER OPERATION IS PERFORMED BEFORE FUNCTION CALL
-       printf("%d\n", n);
-   }
+     if (n > 0)
+     {
+         func(n - 1); // NO OTHER OPERATION IS PERFORMED BEFORE FUNCTION CALL
+         printf("%d\n", n);
+     }
    }
 
    func(3);
@@ -173,13 +184,13 @@ Global vs Static Variable:
    ```c
    void func(int n)
    {
-   int i = 1;
+     int i = 1;
 
-   while (i <= n)
-   {
-       printf("%d\n", i);
-       i++;
-   }
+     while (i <= n)
+     {
+         printf("%d\n", i);
+         i++;
+     }
    }
 
    func(3);
@@ -195,9 +206,9 @@ Global vs Static Variable:
    | Head Recursion   | `O(n)`          | `O(n)` - Creates a new function activation record for each recursion       |
    | Loop (while/for) | `O(n)`          | `O(1)` - Only one activation record of the function that contains the loop |
 
-   From the above table we can see that space complexity of Head recursion is higher than loops, hence we can use loops instead of Head recursion.
+   From the above table we can see that space complexity of Head recursion is higher than loops, hence we can use loops instead of Head recursion
 
-3. **Tree Recursion**: When the function is calling itself more than one time.
+3. **Tree Recursion**: When the function is calling itself more than one time
 
    _Example:_
 
@@ -228,9 +239,9 @@ Global vs Static Variable:
    | -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
    | Tree Recursion | O(2^n) - Sum of terms in Geometry Progression Series | O(n) - Creates and deletes function activation record for each recursion |
 
-   - It seems to have Time Complexity of _O(m^n)_, where _n_ is the size of data and _m_ is the number of time the function calls itself.
+   - It seems to have Time Complexity of _O(m^n)_, where _n_ is the size of data and _m_ is the number of time the function calls itself
 
-4. **Indirect Recursion**: When function A calls function B and function B in turn calls function A. It is a cyclic recursion.
+4. **Indirect Recursion**: When function A calls function B and function B in turn calls function A. It is a cyclic recursion
 
    _Example:_
 
@@ -267,7 +278,7 @@ Global vs Static Variable:
    // 1
    ```
 
-5. **Nested Recursion**: When a function calls itself and passes itself as parameter. A recursive call is taking recursive call as a parameter.
+5. **Nested Recursion**: When a function calls itself and passes itself as parameter. A recursive call is taking recursive call as a parameter
 
    _Example:_
 
@@ -641,7 +652,7 @@ Global vs Static Variable:
      // 0 1 1 2 3 5 8 13
      ```
 
-6. Combination Formula - `nCr = n!/r!(n-r)!`: A combination is a selection of items from a set that has distinct members, such that the order of selection does not matter. A combination is a mathematical technique that determines the number of possible arrangements in a collection of items where the order of the selection does not matter. In combinations, you can select the items in any order.
+6. Combination Formula - `nCr = n!/r!(n-r)!`: A combination is a selection of items from a set that has distinct members, such that the order of selection does not matter. A combination is a mathematical technique that determines the number of possible arrangements in a collection of items where the order of the selection does not matter. In combinations, you can select the items in any order
 
    - Using recursion: Pascal's triangle
 
@@ -709,7 +720,7 @@ Global vs Static Variable:
      // from 1 to 3
      ```
 
-8. Node.js traversing filesystem:
+8. Node.js traversing file-system:
 
    ```javascript
    const fs = require("fs");

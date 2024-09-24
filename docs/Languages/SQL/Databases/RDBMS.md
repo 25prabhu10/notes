@@ -2,7 +2,7 @@
 title: RDBMS
 description: Relational Database Management System (RDBMS)
 date: 2023-02-04
-lastmod: 2023-02-04
+lastmod: 2024-08-22
 ---
 
 # Relational Database Management System (RDBMS)
@@ -75,10 +75,10 @@ COMMIT TX1
 
 ### ACID
 
-1. Atomicity
-2. Isolation
-3.
-4.
+1. [Atomicity](#atomicity)
+2. [Isolation](#isolation)
+3. [Consistency](#consistency)
+4. [Durability](#durability)
 
 #### Atomicity
 
@@ -119,7 +119,7 @@ UPDATE ACCOUNT SET BALANCE = BALANCE - 100 WHERE ID = 1
 
 #### Isolation
 
-- Can my inflight transaction see changes made by other transactions?
+- Can my in-flight transaction see changes made by other transactions?
 
 Read phenomena: The ANSI/ISO standard SQL 92 refers to three different read phenomena when a transaction retrieves data that another transaction might have updated
 
@@ -215,7 +215,7 @@ _Example:_
   -- UPDATE in transaction was lost
   ```
 
-- Isolation Levels for inflight transactions:
+- Isolation Levels for in-flight transactions:
 
   - **Read uncommitted**: No Isolation, any change from the outside is visible to the transaction, committed or not
 

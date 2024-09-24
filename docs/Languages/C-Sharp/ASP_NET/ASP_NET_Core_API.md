@@ -11,7 +11,7 @@ Create Web APIs using ASP.NET Core
 
 ASP.NET Core Minimal API is a low footprint and super mini sized project type helps to develop an API with less code
 
-```csharp
+```cs
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
@@ -59,7 +59,7 @@ app.Run();
 
 Configure routing in your API application:
 
-```csharp
+```cs
  public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
  {
      // Matches request to an endpoint.
@@ -79,7 +79,7 @@ Configure routing in your API application:
 
 Register routing service:
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddRouting(options =>
@@ -98,7 +98,7 @@ A controller based web API consists of one or more controller classes that deriv
 
 _Example:_
 
-```csharp
+```cs
 [ApiController]
 [Route("api/[controller]")]
 public class WeatherForecastController : ControllerBase
@@ -123,7 +123,7 @@ public class WeatherForecastController : ControllerBase
 
 Register the Controller service:
 
-```csharp
+```cs
 public void ConfigureServices(IServiceCollection services)
 {
     services.AddControllers(options =>
@@ -172,7 +172,7 @@ The following binding source attributes exist:
 | `[FromRoute]`    | Route data from the current request                 |
 | `[FromServices]` | The request service injected as an action parameter |
 
-```csharp
+```cs
 [HttpGet]
 public ActionResult<List<Product>> Get([FromQuery] bool discontinuedOnly = false)
 ```
@@ -187,7 +187,7 @@ public ActionResult<List<Product>> Get([FromQuery] bool discontinuedOnly = false
 
 _Example:_
 
-```csharp
+```cs
 services.AddControllers()
     .ConfigureApibehaviourOptions(options =>
     {
@@ -213,7 +213,7 @@ services.AddControllers()
 
    - No need to use `Type` property of `[ProducesResponseType]`: `[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Product))]`
 
-```csharp
+```cs
 public ActionResult<Product> GetById(int id)
 ```
 
@@ -221,7 +221,7 @@ public ActionResult<Product> GetById(int id)
 
 A custom base controller class can be created, which will be annotated with attributes that will be used on most of the controllers defined in the application such as `[ApiController]`
 
-```csharp
+```cs
 [ApiController]
 public class MyControllerBase : ControllerBase
 {
@@ -258,7 +258,7 @@ Create `record` Types instead of `class` as they provide more features like:
 
 Using `init` instead of `set` or `private set`:
 
-```csharp
+```cs
 // You can do this
 Item item = new()
 {
@@ -324,7 +324,7 @@ Server can whitelist certain origins, HTTP methods, headers, and other element o
 
 - Add CORS middleware:
 
-  ```csharp
+  ```cs
   var  MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
   // Create CORS policy
@@ -375,7 +375,7 @@ Types of Health Checks:
 
 _Example:_
 
-```csharp
+```cs
 // Health checks can be chained
 services.AddHealthChecks()
         .AddCheck<ExampleHealthCheck>("example_health_check")
@@ -401,7 +401,7 @@ app.UseEndpoints(endpoints =>
 
 Create custom health checks:
 
-```csharp
+```cs
 // Create a new health check service
 public class ExampleHealthCheck: IHealthCheck
 {
@@ -450,7 +450,7 @@ _Example:_
 }
 ```
 
-```csharp
+```cs
 // Startup.cs from WebStatus(Watch Dog) service
 //
 public void ConfigureServices(IServiceCollection services)
@@ -494,7 +494,7 @@ Approaches to Restful Versioning:
    content-type: text/plain;v=1.0
    ```
 
-   ```csharp
+   ```cs
    services.AddApiVersioning(options =>
    {
        options.DefaultApiVersion = new ApiVersion(1, 0);
@@ -518,7 +518,7 @@ Approaches to Restful Versioning:
    - Least restful
    - But more explicit to the clients
 
-   ```csharp
+   ```cs
    [ApiVersion("1.0")]
    [ApiController]
    [Route("api/v{version:apiversion}/[controller]")]
@@ -529,7 +529,7 @@ Approaches to Restful Versioning:
 
    - `/api/test?api-version=1.0`, `/api/test?api-version=2.0`
 
-   ```csharp
+   ```cs
    [ApiVersion("1.0")]
    [ApiController]
    [Route("api/[controller]")]
@@ -538,7 +538,7 @@ Approaches to Restful Versioning:
 
    - Set default version:
 
-   ```csharp
+   ```cs
    services.AddApiVersioning(config =>
    {
        config.DefaultApiVersion = new ApiVersion(1, 0);
@@ -556,7 +556,7 @@ Approaches to Restful Versioning:
    custom-version-header: 1.0
    ```
 
-   ```csharp
+   ```cs
    services.AddApiVersioning(config =>
    {
        config.DefaultApiVersion = new ApiVersion(1, 0);
@@ -578,7 +578,7 @@ Swagger setup with Swashbuckle and NSwag:
 - Add API details
 - Add XML documentation
 
-```csharp
+```cs
 services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo
@@ -635,7 +635,7 @@ public IActionResult GetRoot()
 
    - ASP.NET Core uses the `ResponseCache` attribute to indicate that a particular response is cacheable.
 
-     ```csharp
+     ```cs
      public class RootController : ControllerBase
      {
          [HttpGet(Name = nameof(GetRoot))]
@@ -651,7 +651,7 @@ public IActionResult GetRoot()
 
    - Using cache profiles we can reuse the cache settings in many places:
 
-     ```csharp
+     ```cs
      services.AddMvc(options =>
          {
              options.CacheProfiles.Add("Static", new CacheProfile
@@ -678,7 +678,7 @@ public IActionResult GetRoot()
    - Add middleware: `services.AddResponseCaching()` and `app.UseResponseCaching()`
    - Add the Response cache attribute to the endpoints:
 
-     ```csharp
+     ```cs
      [HttpGet(Name = nameof(GetRoot))]
      [ResposeCache(Duration = 86400, VeryByQeryKeys = new[] { "offset", "limit", "orderBy", "search" })]
      public IActionResult GetRoot()
@@ -689,13 +689,13 @@ public IActionResult GetRoot()
 
 ### In-Memory Caching
 
-```csharp
+```cs
 services.AddMemoryCache();
 ```
 
 - Add `Microsoft.Extensions.Caching.Memory` package
 
-```csharp
+```cs
 // Use DI to inject the memoryCache into services that need it
 
 public SampleDataAccess(IMemoryCache memoryCache)

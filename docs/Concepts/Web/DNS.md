@@ -13,6 +13,12 @@ Domain Name Cost estimation:
 - [GoDaddy - Domain Appraisals](https://in.godaddy.com/domain-value-appraisal/appraisal/)
 - [namebio](https://namebio.com/)
 
+## DNS stub resolver
+
+[What is a DNS stub resolver?](https://www.nslookup.io/learning/what-is-a-dns-resolver/)
+
+- It is an operating system component that performs DNS name resolution for applications running on a computer, cell phone, or another Internet-connected device
+
 ## DNS Record Types
 
 Most common:

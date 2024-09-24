@@ -30,7 +30,7 @@ Assertion Libraries:
 
 - Setup:
 
-  ```csharp
+  ```cs
   class SomethingTests
   {
       [SetUp]
@@ -43,7 +43,7 @@ Assertion Libraries:
 
 - Test:
 
-  ```csharp
+  ```cs
   [Test]
   public void ShouldReturnSomething()
   {
@@ -76,7 +76,7 @@ Parametrized tests: Using `[Theory]`: represents a suite of tests that execute t
 
 _Example:_
 
-```csharp
+```cs
 [Theory]
 [InlineData(1, 2, 1)]
 [InlineData(1, 3, 2)]
@@ -93,7 +93,7 @@ public void DiffTest(int x, int y, int expectedValue)
 }
 ```
 
-```csharp
+```cs
 // Create test data
 public static IEnumerable<object[]> Data =>
         new List<object[]>
@@ -119,7 +119,7 @@ public void AddTest(int x, int y, int expectedValue)
 }
 ```
 
-```csharp
+```cs
 // Create test data
 public IEnumerator<object[]> GetEnumerator()
 {

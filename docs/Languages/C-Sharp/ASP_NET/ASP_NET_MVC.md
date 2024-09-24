@@ -23,7 +23,7 @@ Model represents the data and business logic.
 
 - To add model: `Right-Click on Models --> Add --> Class --> FilenameModel.cs`
 
-  ```csharp
+  ```cs
   // CustomerModel.cs
   public class CustomerModel
   {
@@ -52,7 +52,7 @@ Controller handles the user request. User interacts with View, which in-turn rai
 
   This automatically creates a empty folder called _FilenameController_ in _Views_.
 
-  ```csharp
+  ```cs
   // CustomerController.cs
   public class CustomerController : Controller
   {
@@ -86,7 +86,7 @@ Routes URL to pages.
 
 ## Error
 
-```csharp
+```cs
 // Web.config
 <system.web>
   <customErrors mode="RemoteOnly"></customErrors>
@@ -100,7 +100,7 @@ Controller inherit from `ApiController`
 
   - _Example:_
 
-    ```csharp
+    ```cs
     public class StudentsController : ApiController
     {
         public HttpResponseMessage Get()
@@ -132,7 +132,7 @@ Controller inherit from `ApiController`
 
   - _Example:_
 
-    ```csharp
+    ```cs
     public class StudentsController : ApiController
     {
         public IHttpActionResult Get()

@@ -40,7 +40,7 @@ npm install axios
 yarn install axios
 ```
 
-_Example:_ Using axios with [React](../React)
+_Example:_ Using axios with [React](../React/)
 
 ```javascript
 import axios from "axios";

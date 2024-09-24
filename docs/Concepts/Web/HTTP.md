@@ -5,19 +5,19 @@ description: Hypertext Transfer Protocol (HTTP) is an application-layer protocol
 
 # Hypertext Transfer Protocol (HTTP)
 
-**Hypertext Transfer Protocol (HTTP)** is an _application-layer_ protocol for transmitting hypermedia documents, such as HTML
+_Hypertext Transfer Protocol (HTTP)_ is an _application-layer_ protocol for transmitting hypermedia documents, such as HTML
 
-- HTTP is one of the main technologies used by the _World Wide Web_ (WWW)
+- HTTP is one of the essential technologies used by the _World Wide Web_ (WWW)
 
 The main features of HTTP are:
 
-- Uses **Client-Server model**: Client asks server for resource, server replies
+- Uses **Client-Server model**: The client asks the server for resources, and the server replies
 
 - Based on a **request** and a **response**
 
-- HTTP is **simple** - human-readable text protocol
+- HTTP is **simple**: human-readable text protocol
 
-- HTTP is **extendable** - easy to implement new features (just add headers)
+- HTTP is **extendable**: easy to implement new features (by adding headers)
 
 - HTTP is a **stateless protocol**:
 
@@ -25,17 +25,13 @@ The main features of HTTP are:
   - HTTP protocol itself does not store state
   - **Not session less**, HTTP Cookies allow the use of stateful sessions
 
-- **Transport protocol agnostic**: HTTP is often based on _TCP/IP_ layer, it can be used on any reliable transport layer
-
-::: tip Internet
-The internet is a collection of public computers through the shared use of the Internet Protocol (IP). It's made up of many services, including the WWW (or the web), email, file sharing, and internet telephony. The web, therefore, is but one part of the internet, though it's the most visible part
-:::
+- **Transport protocol agnostic**: HTTP is often based on _TCP/IP_ layer it can be used on any reliable transport layer
 
 ## What happens when you browse the web?
 
-1. The browser requests for the real address of [www.google.com](http://www.google.com/) from a Domain Name System (DNS) server
+1. The browser requests for the actual address of [www.google.com](http://www.google.com/) from a Domain Name System (DNS) server
 
-   - DNS might perform multiple steps, hence it is called recursive resolver
+   - DNS might perform multiple steps. Hence it is called a recursive resolver
    - DNS returns an IP address
    - This IP address can be in an IPv4 or the newer IPv6
 
@@ -45,7 +41,7 @@ The internet is a collection of public computers through the shared use of the I
 
    - TCP/IP together, they form the backbone of much of the internet
 
-3. When the browser has a connection to the web-server, it can start asking for the website. This step is where HTTP comes in, and the web browser uses HTTP to ask the Google server for the Google home page
+3. When the browser connects to the web-server, it can ask for the website. This step is where HTTP comes in, and the web browser uses HTTP to ask the Google server for the Google home page
 
    - The actual full URL includes the port and would be [http://www.google.com:80](http://www.google.com/), but if standard ports are being used (`80` for HTTP and `443` for HTTPS), the browser hides the port
 
@@ -53,21 +49,21 @@ The internet is a collection of public computers through the shared use of the I
 
 4. The Google server responds with whatever URL you asked for. Typically, what gets sent back from the initial page is the text that makes up the web page in HTML format
 
-   - Instead of an HTML page, however, the response may be an instruction to go to a different location. Google, for example, runs only on HTTPS, so if you go to [http://www.google.com](http://www.google.com/), the response is a special HTTP instruction (usually, a `301` or `302` response code) that redirects to a new location at [https://www.google.com](https://www.google.com/)
+   - Instead of an HTML page, the response may be an instruction to go to a different location. Google, for example, runs only on HTTPS, so if you go to [http://www.google.com](http://www.google.com/), the response is a special HTTP instruction (usually, a `301` or `302` response code) that redirects to a new location at [https://www.google.com](https://www.google.com/)
 
    - Similarly, if something goes wrong, you get back an HTTP response code, the best-known of which is the `404` Not Found response code
 
 5. The web browser processes the returned request. Assuming that the returned response is HTML, the browser starts to parse the HTML code and builds in memory the Document Object Model (DOM), which is an internal representation of the page
 
-6. The web browser requests any additional resources it needs. Each of these resources is requested similarly, following steps 1-6, and yes, that includes this step, because those resources may in turn request other resources. The average website isn't as lean as Google and needs 75 resources, often from many domains, so steps 1-6 must be repeated for all of them. This situation is one of the key things that makes web browsing slow and one of the key reasons for _HTTP/2_, the main purpose of which is to make requesting these additional resources more efficient
+6. The web browser requests any additional resources it needs. Each of these resources is requested similarly, following steps 1-6, and yes, that includes this step because those resources may, in turn, request other resources. The average website isn't as lean as Google and needs 75 resources, often from many domains, so steps 1-6 must be repeated for all of them. This situation is one of the key things that makes web browsing slow and one of the key reasons for _HTTP/2_, the primary purpose of which is to make requesting these additional resources more efficient
 
-7. When the browser has enough of the critical resources, it starts to render the page on-screen. Choosing when to start rendering the page is a challenging task and not as simple as it sounds. If the web browser waits until all resources are downloaded, it would take a long time to show web pages, and the web would be an even slower, more frustrating place. But if the web browser starts to render the page too soon, you end up with the page jumping around as more content downloads, which is irritating if you're in the middle of reading an article when the page jumps down. A firm understanding of the technologies that make up the web-especially HTTP and HTML/CSS/JavaScript-can help website owners reduce these annoying jumps while pages are being loaded, but far too many sites don't optimize their pages effectively to prevent these jumps
+7. The browser starts to render the page on-screen when it has enough critical resources. Choosing when to begin rendering the page is challenging and more complex than it sounds. If the web browser waits until all resources are downloaded, it will take a long time to show web pages, and the web will be an even slower, more frustrating place. But if the web browser starts to render the page too soon, you end up with the page jumping around as more content downloads, which is irritating if you're in the middle of reading an article when the page jumps down. A firm understanding of the technologies that make up the web-especially HTTP and HTML/CSS/JavaScript can help website owners reduce these annoying jumps while pages are being loaded, but far too many sites don't optimize their pages effectively to prevent these jumps
 
 8. After the initial display of the page, the web browser continues, in the background, to download other resources that the page needs and update the page as it processes them. These resources include non-critical items such as images and advertising tracking scripts. As a result, you often see a web page displayed initially without images (especially on slower connections), with images being filled in as more of them are downloaded
 
-9. When the page is fully loaded, the browser stops the loading icon (a spinning icon on or near the address bar for most browsers) and fires the _`onload` JavaScript_ event, which JavaScript code may use as a sign that the page is ready to perform certain actions
+9. When the page is fully loaded, the browser stops the loading icon (a spinning icon on or near the address bar for most browsers) and fires the _`onload` JavaScript_ event, which JavaScript code may use as a sign that the page is ready to perform specific actions
 
-10. At this point, the page is fully loaded, but the browser hasn't stopped sending out requests. We're long past the days when a web page was a page of static information. Many web pages are now feature-rich applications that continually communicate with various servers on the internet to send or load additional content. This content may be user-initiated actions, such as when you type requests in the search bar on Google's home page and instantly see search suggestions without having to click the Search button, or it may be application-driven actions, such as your Facebook or Twitter feed's automatically updating without your having to click a refresh button. These actions often happen in the background and are invisible to you, especially advertising and analytics scripts that track your actions on the site to report analytics to website owners and/or advertising networks
+10. The page is fully loaded at this point, but the browser hasn't stopped sending out requests. We're long past the days when a web page was a page of static information. Many web pages are now feature-rich applications that continually communicate with various servers on the internet to send or load additional content. This content may be user-initiated actions, such as when you type requests in the search bar on Google's home page and instantly see search suggestions without having to click the Search button, or it may be application-driven actions, such as your Facebook or Twitter feed's automatically updating without your having to click a refresh button. These actions often happen in the background and are invisible to you, especially advertising and analytics scripts that track your actions on the site to report analytics to website owners and/or advertising networks
 
 ![What happens when you browse the web](./what-happens-when-you-browse-the-web.jpg)
 
@@ -97,7 +93,7 @@ The first published specification for HTTP was version 0.9, issued in 1991
 
 1. Connection is made over **TCP/IP** or a similar connection-oriented service
 
-2. Optional port or **80** if no port is provided
+2. Optional port or **80** if no port is provided (allocated to HTTP by Jon Postel/ISI-24-Jan-92)
 
 3. A single line of ASCII text should be sent, consisting of **GET**, the document address (with no spaces), and a carriage return and line feed (the carriage return being optional)
 
@@ -435,7 +431,7 @@ SSL/TLS have 3 goals (CIA):
 
 CIA of security is used in any of the secure communication protocol such as TLS, IPsec, SSH, etc.
 
-History of HTTP encryption:
+#### History of HTTP encryption
 
 1. SSLv1 was never released outside Netscape
 

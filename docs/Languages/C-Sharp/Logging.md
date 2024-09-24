@@ -11,7 +11,7 @@ ASP.NET Core provides default logging
 
 _Example:_ `CreateHostBuilder` in `Program.cs` sets up default logging
 
-```csharp
+```cs
 public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
             .ConfigureLogging((context, logging) =>
@@ -97,7 +97,7 @@ In ASP.NET Core, by default `CreateBuilder` function adds the following logging 
 
 We can override the provider and provide our own configurations:
 
-```csharp
+```cs
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Logging.ClearProviders();
@@ -118,7 +118,7 @@ builder.Host.ConfigureLogging(logging =>
 
 2. Call `LogInformation` to log at the Information level. The Log level indicates the severity of the logged event.
 
-```csharp
+```cs
 public class AboutModel : PageModel
 {
     private readonly ILogger _logger;
@@ -196,7 +196,7 @@ public class AboutModel : PageModel
 
 - Update the `program.cs`: Or just add `logging.AddNLog()`
 
-  ```csharp
+  ```cs
   public class Program
     {
         public static void Main(string[] args)
@@ -255,7 +255,7 @@ public class AboutModel : PageModel
 
 - Write logs user logs:
 
-  ```csharp
+  ```cs
   public class HomeController : Controller
   {
       private readonly ILogger<HomeController> _logger;
@@ -278,7 +278,7 @@ public class AboutModel : PageModel
 
 - `Program.cs`
 
-```csharp
+```cs
 public class Program
 {
     public static void Main(string[] args)
@@ -391,7 +391,7 @@ HTTP Logging can potentially log personally identifiable information (PII). Cons
 
 Enabling HTTP logging:
 
-```csharp
+```cs
 app.UseHttpLogging();
 ```
 
@@ -419,7 +419,7 @@ HTTP logging configurations are present in the `appsettings.json`:
 
 HTTP Logging options:
 
-```csharp
+```cs
 builder.Services.AddHttpLogging(logging =>
 {
     logging.LoggingFields = HttpLoggingFields.All;

@@ -15,25 +15,42 @@
 
    - Pure functions can help in avoiding race condition issues
 
-4. Working set overflow: The "working set" is short hand for "parts of memory that the current algorithm is using" and is determined by which parts of memory the CPU just happens to access
+4. The 5 o'clock rule: The level of abstraction for solving a problem will bubble up until it allows the average developer to stop thinking about the problem
 
-5. P95 Latency (P% Latency): The P95 Threshold indicates that 5% of transaction durations are greater than the threshold. For example, if the P95 threshold is 50 milliseconds, then 5% of transactions exceeded that threshold, taking longer than 50 milliseconds
+5. Working set overflow: The "working set" is short hand for "parts of memory that the current algorithm is using" and is determined by which parts of memory the CPU just happens to access
 
-6. Software Rot
+6. P95 Latency (P% Latency): The P95 Threshold indicates that 5% of transaction durations are greater than the threshold. For example, if the P95 threshold is 50 milliseconds, then 5% of transactions exceeded that threshold, taking longer than 50 milliseconds
 
-7. Use-After-Free (UAF) is a vulnerability related to incorrect use of dynamic memory during program operation
+7. Software Rot
 
-8. Write-what-where Condition: Any condition where the attacker has the ability to write an arbitrary value to an arbitrary location, often as the result of a buffer overflow.
+8. Use-After-Free (UAF) is a vulnerability related to incorrect use of dynamic memory during program operation
 
-9. Global Offset Table (GOT): is a section of a computer program's (executables and shared libraries) memory used to enable computer program code compiled as an ELF file to run correctly, independent of the memory address where the program's code or data is loaded at runtime.
+9. Write-what-where Condition: Any condition where the attacker has the ability to write an arbitrary value to an arbitrary location, often as the result of a buffer overflow.
+
+10. Global Offset Table (GOT): is a section of a computer program's (executables and shared libraries) memory used to enable computer program code compiled as an ELF file to run correctly, independent of the memory address where the program's code or data is loaded at runtime.
+
+11. Convex hull
 
 RAII (Resource acquisition is initialization)
 
-Semantic Versioning:
+## Semantic Versioning (SemVer)
 
-- Major.Minor.Patch release
-- Caret (^): All minor and patches OK (^1.x.x)
-- Tilde (~): All patches only (~1.5.x)
+[Semantic Versioning 2.0.0](https://semver.org/): Under this scheme, version numbers and the way they change convey meaning about the underlying code and what has been modified from one version to the next
+
+Given a version number `MAJOR.MINOR.PATCH`, increment the:
+
+1. MAJOR version when you make incompatible API changes
+2. MINOR version when you add functionality in a backward compatible manner
+3. PATCH version when you make backward compatible bug fixes
+
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format
+
+- Caret (`^`): All minor and patches OK (`^1.x.x`)
+- Tilde (`~`): All patches only (`~1.5.x`)
+
+Not everyone follows SemVer:
+
+- TypeScript does not strictly adhere to Semantic Versioning (SemVer) for its language updates
 
 ## Floating Point Numbers
 

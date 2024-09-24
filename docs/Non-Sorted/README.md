@@ -13,6 +13,7 @@ sidebar: false
 5. [Nature](./Nature.md)
 6. [Chess](./Chess.md)
 7. [Things](./Things.md)
+8. [Camera](./Camera.md)
 
 [Open Source SmartWatch](https://open-smartwatch.github.io/)
 

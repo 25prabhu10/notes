@@ -22,7 +22,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
 1. General Development Skills
 
-   - [GIT](./../../Git)
+   - [GIT](../../Git/Git.md)
    - [HTTP/HTTPS](../../../Concepts/Web/HTTP.md) protocol
    - [dotnet CLI](../Dotnet_CLI.md)
    - [Data Structures and Algorithms](./../../../Concepts/Data-Structures_and_Algorithms/)
@@ -32,7 +32,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - [C# 10](./../C-Sharp.md)
    - .NET Core 6
 
-3. [SQL](./../../SQL) Fundamentals
+3. [SQL](../../SQL/SQL.md) Fundamentals
 
    - Fundamentals about database design and SQL Syntax
    - Stored Procedures
@@ -52,7 +52,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Application Settings & Configurations
    - Authentication & Authorization (Identity, IdentityServer, Auth0/OIDC, OWASP Top 10)
 
-5. [SOLID Principals](../../../Concepts/Design_Patterns/README.md#solid-principles)
+5. [SOLID Principals](../../../Concepts/Designs/README.md#solid-principles)
 
    - S: Single-responsiblity Principle (SRP)
    - O: Open-closed Principle (OCP)
@@ -111,7 +111,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 
    - Entity Framework 2nd Level Cache
 
-9. [Databases](./../../SQL)
+9. [Databases](../../SQL/SQL.md)
 
    - Relational
 
@@ -316,7 +316,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Jenkins
     - Circle CI
 
-21. [Design Patterns](../../../Concepts/Design_Patterns/)
+21. [Design Patterns](../../../Concepts/Designs/)
 
     - CQRS
     - Decorator

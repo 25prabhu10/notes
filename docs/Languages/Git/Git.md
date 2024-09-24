@@ -15,7 +15,7 @@ Types of Version Control Systems:
 
 1. **Local**: It allows you to copy files into another directory and rename it (For example, project.1.1). This method is error-prone and introduces redundancy
 
-2. **Centralized**: All version files are present in a single central server. For example, CVS, SVN, and Perforce
+2. **Centralised**: All version files are present in a single central server. For example, CVS, SVN, and Perforce
 
 3. **Distributed**: All changes are available in the server as well as in local machines. Being distributed means that every developer working with a Git repository has a copy of that entire repository. For example, _Git_ and _Mercurial_
 
@@ -24,24 +24,29 @@ Types of Version Control Systems:
 Old VCS that predate Git:
 
 - Source Code Control System (SCCS):
+
   - 1972: closed source, free with Unix
   - Stored original version and sets of changes
 
 - Revision Control System (RCS):
+
   - 1982: open source
   - Stored latest version and sets of changes
 
 - Concurrent Version System (CVS):
+
   - 1986-1990: open source
   - Multiple files, entire project
   - Multi-user repositories
 
 - Apache Subversion (SVN):
+
   - 2000: open source
   - Track text and images
   - Track file changes collectively (track directory)
 
 - BitKeeper SCM:
+
   - 2000: closed source, proprietary
   - Distributed version control
 
@@ -224,7 +229,7 @@ In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER
 
 A `.gitattributes` file is a simple text file that gives attributes to pathnames
 
--  The `.gitattributes` file allows you to specify the files and paths attributes that should be used by git when performing git actions
+- The `.gitattributes` file allows you to specify the files and paths attributes that should be used by git when performing git actions
 
 _Example:_
 
@@ -939,6 +944,7 @@ git commit-graph write
 # run it as part of maintenance
 git config --global fetch.writeCommitGraph true
 ```
+
 ### Branch
 
 ```bash

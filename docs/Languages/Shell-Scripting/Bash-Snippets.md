@@ -22,7 +22,7 @@ description: Collection of CLI applications and commands.
    curl --upload-file ./hello.txt https://transfer.sh/hello.txt
    ```
 
-3. Translate or delete charaters:
+3. Translate or delete characters:
 
    ```bash
    echo $PATH

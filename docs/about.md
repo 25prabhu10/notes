@@ -1,11 +1,30 @@
 ---
-sidebar: false
-footer: MIT Licensed | Copyright © 2020-present Prabhu K Hiremath
+aside: false
 ---
 
-<About title="about me" />
+# Notes
 
-- Written in **Markdown**
-- Accessible from anywhere, **PWA**
+Collection of all the information acquired from various sources in one place
 
-> Built with [VuePress](https://v2.vuepress.vuejs.org/)
+- Site is built with [VitePress](https://vitepress.dev)
+
+- Docs written in **Markdown**
+
+<script setup>
+import { VPTeamMembers } from 'vitepress/theme'
+
+const members = [
+  {
+    avatar: 'https://www.github.com/25prabhu10.png',
+    name: 'Prabhu Hiremath',
+    title: 'Developer',
+    links: [
+      { icon: 'github', link: 'https://github.com/25prabhu10' },
+    ],
+    desc: 'React',
+    // sponsor: 'Me'
+  },
+]
+</script>
+
+<VPTeamMembers size="small" :members="members" />

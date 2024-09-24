@@ -127,7 +127,7 @@ COLLATE utf8mb4_unicode_ci;
 
 Case mapping:
 
-```csharp
+```cs
 // Case mapping use these
 Regex.IsMatch(input, regex, RegexOptions.IgnoreCase);
 Regex.IsMatch("hac\u212A", "HACK", RegexOptions.IgnoreCase) == true
@@ -143,7 +143,7 @@ strings.ToUpper(input);
 
 Normalization:
 
-```csharp
+```cs
 input.Normalize(NormalizationForm.FormC);
 
 input.Normalize(NormalizationForm.FormKC);
@@ -151,7 +151,7 @@ input.Normalize(NormalizationForm.FormKC);
 
 Others:
 
-```csharp
+```cs
 IdnMapping().GetAscii(input)
 
 // Use these of URL

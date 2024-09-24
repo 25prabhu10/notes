@@ -1,12 +1,10 @@
 ---
 title: Vim
 description: A free and open-source, screen-based text editor program
-lastmod: 2023-08-13
+lastmod: 2024-09-02
 ---
 
 # Vim - Neovim
-
-- [dot-files configure - `init.lua`](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)
 
 [Vim](https://www.vim.org/) (a contraction of Vi IMproved) is a free and open-source, screen-based text editor program
 
@@ -316,8 +314,53 @@ Types of registers:
 11. `"-`: _small delete register_
 12. `a-z or A-Z`: 26 _named registers_
 
+## Common commands
+
+- `gw`: Format selected text content based on column text width
+
+Buffers:
+
+- `ls`: list all buffers
+- `bufdo g/function/d`: perform operations all open buffers
+- `args /src/*.js`
+- `argdo`
+
+Window split:
+
+- `<C-w>v`: split window vertically
+- `<C-w>s`: split window horizontally
+- `<C-w>=`: make split window equal width
+- `<C-w>q`: close the window
+- `<Cmd>close<CR>`: close current split window
+
+Edit:
+
+- `g/match/doSomething`: (ex. `go/var/d` deletes all lines containing `var`)
+
+Search:
+
+- `set gp=git\ grep\ -n` or `set grepprg=rg --vimgrep --no-heading`: set program to use for grep (search for text in files)
+- `:grep main()`: search for the text `main()`
+- Open [Quickfix](#quickfix): to open the search results
+
+- Magic mode (default): some characters in the pattern, such as letters, are taken literally (like `/.` will search all instead of `.`)
+- `\v`: Very Magic treat more characters as special (e.g. `+`)
+- `\V`: Very NO Magic treat almost all characters as non-special
+- `/\.`: use `\` to escape
+- `/var/e`: `/e` puts cursor at the end of the word
+
+Substitute:
+
+- `:%s/\<\w/\u&/g`: Upper case first letter of all words (`\<`: beginning of word, `\w`: regex - a single letter, `\u`: turn to upper case, `&`: the text that is replaced)
+- `:%s/Cats/Dogs/c`: `c` asks confirmation for substitution (`y` to confirm, `n` to ignore)
+
+## Quickfix
+
+- `:copen`
+
 ## Reference
 
 - [Build your own Vim statusline](https://shapeshed.com/vim-statuslines/)
 - [How to control/configure vim colors](https://alvinalexander.com/linux/vi-vim-editor-color-scheme-syntax/#possible-highlight-groups)
 - [Vim productive commands](https://stackoverflow.com/questions/1218390/what-is-your-most-productive-shortcut-with-vim)
+- [dot-files configure - `init.lua`](https://alpha2phi.medium.com/learn-neovim-the-practical-way-8818fcf4830f)

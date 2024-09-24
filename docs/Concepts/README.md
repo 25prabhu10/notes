@@ -8,25 +8,27 @@ sidebar: false
 
 # Table of Content
 
-1. [Agile](./Agile/Agile.md)
-2. [Design Patterns](./Design_Patterns/)
-3. [Application Security](./Application_Security/)
-4. [AWS](./AWS/)
-5. [Data Structures and Algorithms](./Data-Structures_and_Algorithms/)
-6. [Linux](./Linux.md)
-7. [Web](./Web/)
-8. [regex](./Regular_Expression/)
-9. [Logging](./Logging.md)
-10. [Artifactory](./Artifactory.md)
-11. [Clean Architecture](./Clean_Architecture.md)
-12. [Key Words](./Key_Words.md)
-13. [Programming Paradigms](./Programming_Paradigms/)
-14. [Object-Oriented Programming](./Programming_Paradigms/Object-Oriented_Programming.md)
-15. [Metaprogramming](./Metaprogramming.md)
+1. [Data Structures and Algorithms](./Data-Structures_and_Algorithms/)
+2. [Designs](./Designs/)
+3. [Architecture](./Architecture/)
+4. [Web](./Web/)
+5. [Application Security](./Application_Security/)
+6. [Programming Paradigms](./Programming_Paradigms/)
+7. [Object-Oriented Programming](./Programming_Paradigms/Object-Oriented_Programming.md)
+8. [Metaprogramming](./Metaprogramming.md)
+9. [Linux](./Linux.md)
+10. [AWS](./AWS/)
+11. [regex](./Regular_Expression/)
+12. [Logging](./Logging.md)
+13. [Agile](./Agile/Agile.md)
+14. [Artifactory](./Artifactory.md)
+15. [Key Words](./Key_Words.md)
+
+## References
 
 Books:
 
-Literate Programming by Donald E. Knuth (1992)
+- Literate Programming by Donald E. Knuth (1992)
 
-- Write for Humans 1st, computers 2nd
-- Code can be written in any order
+  - Write for Humans 1st, computers 2nd
+  - Code can be written in any order

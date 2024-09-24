@@ -113,7 +113,7 @@ class LinkedList:
 
 C#:
 
-```csharp
+```cs
 class LinkedList {
     Node head;
 

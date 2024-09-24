@@ -11,7 +11,7 @@ UML is a general-purpose, developmental modelling language that is intended to p
 
 Model is a partial abstract representation of a real-world system
 
-- An inexpensive way to analyze, communicate, test, and document our understanding of the system
+- An inexpensive way to analyse, communicate, test, and document our understanding of the system
 
 Types of Models:
 

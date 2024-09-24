@@ -2,7 +2,7 @@
 title: Mutual Funds
 description: An investment product
 date: 2023-04-16
-lastmod: 2023-04-16
+lastmod: 2024-09-06
 ---
 
 # Mutual Funds
@@ -58,7 +58,7 @@ Funds based on structure:
 
 2. Close-ended mutual funds: Close-ended funds come with a pre-defined maturity period. Investors can invest in the fund only when it is launched. And after investing, they can withdraw their money only at the time of maturity. These funds are listed just like shares in the stock market. However, they are not regarded as liquid because trading volumes are less
 
-3. Interval funds: Interval funds contain features of both close-ended and open-ended funds. These funds don’t permit investors to buy or sell units anytime. There are certain pre-decided time periods or intervals during which you can buy and redeem your funds. These funds invest in both debt and equity securities
+3. Interval funds: Interval funds contain features of both close-ended and open-ended funds. These funds don't permit investors to buy or sell units anytime. There are certain pre-decided time periods or intervals during which you can buy and redeem your funds. These funds invest in both debt and equity securities
 
 Funds based on investment objective:
 

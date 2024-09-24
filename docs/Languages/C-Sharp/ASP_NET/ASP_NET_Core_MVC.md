@@ -42,7 +42,7 @@ How website works:
 
 - Add the MVC middleware `app.UseMvc()`, along with route patterns that the ASP.NET Core MVC middleware should be listening to.
 
-  ```csharp
+  ```cs
   app.UseMvc(routes =>
   {
       routes.MapRoute("Default", "{controller=Home}/{actions=Index}/{id?}");
@@ -59,7 +59,7 @@ How website works:
 
   1. `AddMvcCore()`: Only adds core components of the MVC pipeline, requiring you to add any other middleware (needed for your project) by yourself.
 
-     ```csharp
+     ```cs
      // MVC Core
      public void ConfigureServices(IServiceCollection services)
      {
@@ -76,7 +76,7 @@ How website works:
      - everything that `AddControllersWithViews()` does
      - everything that `AddRazorPages()` does
 
-     ```csharp
+     ```cs
      public void ConfigureServices(IServiceCollection services)
      {
          services.AddMvc();

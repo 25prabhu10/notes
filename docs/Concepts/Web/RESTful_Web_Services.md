@@ -1,14 +1,12 @@
 ---
 title: RESTful Web Services
 description: Representational state transfer
-lastmod: 2023-08-14
+lastmod: 2024-08-23
 ---
 
 # RESTful Web Services
 
-**REpresentational State Transfer** is a de-facto standard for a **software architecture** for interactive applications that use multiple Web services.
-
-Ref: RESTful Web Services by Leonard Richardson & Sam Ruby
+**REpresentational State Transfer** is a de-facto standard for a **software architecture** for interactive applications that use multiple Web services
 
 > "HTTP and HTML have been called 'Whoopee Cushion and Joy Buzzer of the Internet protocols, only comprehensible as elaborate practical jokes'..."
 
@@ -35,88 +33,6 @@ Because it has:
 - Latency (Caching)
 - Security
 - Encapsulation
-
-REST vs RPC:
-
-| REST (REpresentational State Transfer)                   | RPC (Remote Procedure Call)                                  |
-| -------------------------------------------------------- | ------------------------------------------------------------ |
-| Endpoints are nouns (resources): `api.example.com/users` | Endpoints are verbs (methods): `api.example.com/getUserInfo` |
-| Calling the endpoint is acting on the resource:          | Calling the endpoint is calling the method:                  |
-| `GET api.example.com/users/123`                          | `GET api.example.com/getUserInfo`                            |
-| `POST api.example.com/users/123`                         | `POST api.example.com/updateUser`                            |
-| Returns resources that were acted upon                   | Returns results of the function call                         |
-| Resource oriented                                        | Function oriented                                            |
-| Data driven                                              | Action driven                                                |
-| Text based                                               | Binary serialized                                            |
-| Ease of use                                              | Storage efficient                                            |
-
-_Example:_ gRPC
-
-```rpc
-sytax = "proto3";
-
-package helloworld;
-
-service HelloWorld {
-  rpc SayHello (HelloRequest) returns (HelloResponse);
-}
-
-message HelloRequest {
-  string name = 1;
-}
-
-message HelloResponse {
-  string name = 1;
-}
-```
-
-```javascript
-const grpc = require('@grpc/grpc-js')
-const protoLoader = require('@grpc/proto-loader')
-const packageDefinition = protoLoader.loadSync('./protos/helloworld.proto', {})
-
-const server = new grpc.Server()
-
-const helloProto = grpc.loadPackageDefinition(packageDefinition).helloworld
-
-// Define and register helloworld RPC handler
-function sayHello(call, callback) {
-  callback(null, { message: 'Hello ' + call.request.name })
-}
-sever.addService(helloProto.HelloWorld.service, {
-  sayHello: sayHello,
-})
-
-// Create a gRPC server and listen on port 50051
-server.bindAsync(
-  '0.0.0.0:50051',
-  grpc.ServerCredentials.createInsecure(),
-  () => {
-    serve.start()
-    console.log('Server running on port 50051')
-  },
-)
-```
-
-- Above as RESTful API
-
-```javascript
-const express = require('express')
-const app = express()
-app.use(express.json())
-
-// Define and register /sayHello REST endpoint
-app.post('/sayHello', (req, res) => {
-  const name = req.body.name
-
-  res.json({ message: 'Hello' + name })
-})
-
-// Create an HTTP server and listen on port 3000
-app.listen(3000, () => {
-  console.log('Server running on http://localhost:3000')
-})
-```
 
 REST APIs are not that useful for non-CRUD operations, such as:
 
@@ -158,6 +74,8 @@ Disadvantages:
 
 REST APIs are best for APIs that expose CRUD like operations
 
+### REST vs. SOAP
+
 | SOAP                       | Rest                        |
 | -------------------------- | --------------------------- |
 | A fixed process            | Few requirements            |
@@ -165,26 +83,108 @@ REST APIs are best for APIs that expose CRUD like operations
 | Detailed scenarios         | Flexible, based on needs    |
 | Complex error handling     | Flexible, based on patterns |
 
-### Resource
+### REST vs. RPC
+
+| REST (REpresentational State Transfer)                   | RPC (Remote Procedure Call)                                  |
+| -------------------------------------------------------- | ------------------------------------------------------------ |
+| Endpoints are nouns (resources): `api.example.com/users` | Endpoints are verbs (methods): `api.example.com/getUserInfo` |
+| Calling the endpoint is acting on the resource:          | Calling the endpoint is calling the method:                  |
+| `GET api.example.com/users/123`                          | `GET api.example.com/getUserInfo`                            |
+| `POST api.example.com/users/123`                         | `POST api.example.com/updateUser`                            |
+| Returns resources that were acted upon                   | Returns results of the function call                         |
+| Resource oriented                                        | Function oriented                                            |
+| Data driven                                              | Action driven                                                |
+| Text based                                               | Binary serialized                                            |
+| Ease of use                                              | Storage efficient                                            |
+
+_Example:_ gRPC
+
+```rpc
+sytax = "proto3";
+
+package helloworld;
+
+service HelloWorld {
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string name = 1;
+}
+
+message HelloResponse {
+  string name = 1;
+}
+```
+
+```javascript
+const grpc = require("@grpc/grpc-js");
+const protoLoader = require("@grpc/proto-loader");
+const packageDefinition = protoLoader.loadSync("./protos/helloworld.proto", {});
+
+const server = new grpc.Server();
+
+const helloProto = grpc.loadPackageDefinition(packageDefinition).helloworld;
+
+// Define and register helloworld RPC handler
+function sayHello(call, callback) {
+  callback(null, { message: "Hello " + call.request.name });
+}
+sever.addService(helloProto.HelloWorld.service, {
+  sayHello: sayHello,
+});
+
+// Create a gRPC server and listen on port 50051
+server.bindAsync(
+  "0.0.0.0:50051",
+  grpc.ServerCredentials.createInsecure(),
+  () => {
+    serve.start();
+    console.log("Server running on port 50051");
+  },
+);
+```
+
+- Above as RESTful API
+
+```javascript
+const express = require("express");
+const app = express();
+app.use(express.json());
+
+// Define and register /sayHello REST endpoint
+app.post("/sayHello", (req, res) => {
+  const name = req.body.name;
+
+  res.json({ message: "Hello" + name });
+});
+
+// Create an HTTP server and listen on port 3000
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
+```
+
+## Resource
 
 RESTful APIs are designed around _resources_
 
-Resource is an **abstraction of information** in REST. Which are any kind of object, data, or service that can be accessed by the client.
+Resource is an **abstraction of information** in REST. Which are any kind of object, data, or service that can be accessed by the client
 
-A resource has an _identifier_, which is a URI that uniquely identifies that resource.
+A resource has an _identifier_, which is a URI that uniquely identifies that resource
 
 **URL** is subset of **URI**
 
 - URI is _Universal Resource Identifier_
 - URL is _Universal Resource Locator_
-- Your name is an Identifier, it's an URI.
-- But your address is both an Identifier and locator, it's both an URI and an URL.
+- Your name is an Identifier, it's an URI
+- But your address is both an Identifier and locator, it's both an URI and an URL
 - _Example:_ `https://adventure-works.com/orders/1`
 - Checkout notes about URL here: [URL Notes Link](./URL.md)
 
-Clients interact with a service by **exchanging _representations_ of resources**.
+Clients interact with a service by **exchanging _representations_ of resources**
 
-- Many web APIs use [JSON](#json) as the exchange format.
+- Many web APIs use [JSON](#json) as the exchange format
 
   _Example:_
 
@@ -198,7 +198,7 @@ The resource representations consist of:
 - the **metadata** describing the data
 - and the **hypermedia links** that can help the clients in transition to the next desired state
 
-_Example:_ The following shows a JSON representation of an order. It contains links to get or update the customer associated with the order.
+_Example:_ The following shows a JSON representation of an order. It contains links to get or update the customer associated with the order
 
 ```json
 {
@@ -221,9 +221,9 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 }
 ```
 
-> A REST API consists of an assembly of interlinked resources. This set of resources is known as the REST API's **resource model**.
+> A REST API consists of an assembly of interlinked resources. This set of resources is known as the REST API's **resource model**
 
-#### Types of Resources
+### Types of Resources
 
 1. **Singleton**: represents a single entity: `/customers/{customerId}`
 
@@ -236,7 +236,7 @@ _Example:_ The following shows a JSON representation of an order. It contains li
    - `/customers/{customerId}/accounts/{accountsId}`
    - `account` is a singleton inside a sub-collection
 
-#### Naming conventions
+### Naming conventions
 
 - **Lowercase** letters in URL
 
@@ -256,26 +256,26 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 
 - Query component to search, sort, filter, and paginate URI collection
 
-### Maturity Model
+## Maturity Model
 
 Maturity model for web APIs by Leonard Richardson (2008):
 
-- Level 0: Define one URI, and all operations are POST requests to this URI.
-- Level 1: Create separate URIs for individual resources.
-- Level 2: Use HTTP methods to define operations on resources.
-- Level 3: Use hypermedia ([HATEOAS](#hateoas), described below).
+- Level 0: Define one URI, and all operations are POST requests to this URI
+- Level 1: Create separate URIs for individual resources
+- Level 2: Use HTTP methods to define operations on resources
+- Level 3: Use hypermedia ([HATEOAS](#hateoas), described below)
 
-_Level 3_ corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around _level 2_.
+_Level 3_ corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around _level 2_
 
 ### Hypermedia
 
-The data format of representation is known as a **media type** and identifies a specification that defines how a representation is to be processed.
+The data format of representation is known as a **media type** and identifies a specification that defines how a representation is to be processed
 
-Hypertext (or hypermedia) means the **simultaneous presentation of information and controls**. It can be HTML or JSON or XML or any format.
+Hypertext (or hypermedia) means the **simultaneous presentation of information and controls**. It can be HTML or JSON or XML or any format
 
 ### JSON
 
-JSON is widely used as the exchange format.
+JSON is widely used as the exchange format
 
 Why JSON?
 
@@ -300,11 +300,11 @@ Popular REST and JSON approaches:
 - [JSON Schema](https://json-schema.org/)
 - [Collection+JSON](http://amundsen.com/media-types/collection/)
 
-## API
+## RESTful API
 
-**Application Programming Interface (API)** is a connection between computers or between computer programs.
+**Application Programming Interface (API)** is a connection between computers or between computer programs
 
-API defines a contract on how to interact with the application.
+API defines a contract on how to interact with the application
 
 For an **API to be RESTful** it should comply with the following constraints:
 
@@ -322,7 +322,7 @@ For an **API to be RESTful** it should comply with the following constraints:
 
 All the above constraints help you build a truly RESTful API, and you should follow them. Still, at times, you may find yourself violating one or two constraints. Do not worry; you are still making a RESTful API - but not "truly RESTful"
 
-## API Design
+### API Design
 
 1. Entity-oriented:
 
@@ -543,13 +543,13 @@ Response:
 
 ### HTTP Semantics
 
-Considerations for designing an API that conforms to the HTTP specification.
+Considerations for designing an API that conforms to the HTTP specification
 
 #### Media Types
 
 - Format specification + Parsing rules
 - `Content-Type`: header in a request or response specifies the format of the representation
-- If the server doesn't support the media type, it should **return HTTP status code 415** (Unsupported Media Type).
+- If the server doesn't support the media type, it should **return HTTP status code 415** (Unsupported Media Type)
 - JSON: `application/json`
 - XML: `application/xml`
 - `application/ion+json`, `application/ion+json;v=2`
@@ -562,8 +562,8 @@ Considerations for designing an API that conforms to the HTTP specification.
   {"Id":1,"Name":"Gizmo","Category":"Widgets","Price":1.99}
   ```
 
-- A client request can include an `Accept` header that contains a list of media types the client will accept from the server in the response message.
-- If the server cannot match any of the media type(s) listed, it should **return HTTP status code 406** (Not Acceptable).
+- A client request can include an `Accept` header that contains a list of media types the client will accept from the server in the response message
+- If the server cannot match any of the media type(s) listed, it should **return HTTP status code 406** (Not Acceptable)
 
   ```http
   GET https://adventure-works.com/orders/2 HTTP/1.1
@@ -572,20 +572,20 @@ Considerations for designing an API that conforms to the HTTP specification.
 
 ### Asynchronous Operations
 
-- Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes a while to complete.
+- Sometimes a POST, PUT, PATCH, or DELETE operation might require processing that takes a while to complete
 
-- If you wait for completion before sending a response to the client, it may cause unacceptable latency. If so, consider making the operation asynchronous.
+- If you wait for completion before sending a response to the client, it may cause unacceptable latency. If so, consider making the operation asynchronous
 
-- **Return HTTP status code 202** (Accepted) to indicate the request was accepted for processing but is not completed.
+- **Return HTTP status code 202** (Accepted) to indicate the request was accepted for processing but is not completed
 
-- You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response.
+- You should expose an endpoint that returns the status of an asynchronous request, so the client can monitor the status by polling the status endpoint. Include the URI of the status endpoint in the Location header of the 202 response
 
   ```http
   HTTP/1.1 202 Accepted
   Location: /api/status/12345
   ```
 
-- If the client sends a GET request to this endpoint, the response should contain the current status of the request. Optionally, it could also include an estimated time to completion or a link to cancel the operation.
+- If the client sends a GET request to this endpoint, the response should contain the current status of the request. Optionally, it could also include an estimated time to completion or a link to cancel the operation
 
   ```http
   HTTP/1.1 200 OK
@@ -617,19 +617,19 @@ _Example:_ Query strings that specify the maximum number of items to retrieve an
 /orders?limit=25&offset=50
 ```
 
-Also consider imposing an upper limit on the number of items returned, to help prevent Denial of Service attacks. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection.
+Also consider imposing an upper limit on the number of items returned, to help prevent Denial of Service attacks. To assist client applications, GET requests that return paginated data should also include some form of metadata that indicate the total number of resources available in the collection
 
-You can use a similar strategy to sort data as it is fetched, by providing a sort parameter that takes a field name as the value, such as /orders?sort=ProductID. However, this approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data.
+You can use a similar strategy to sort data as it is fetched, by providing a sort parameter that takes a field name as the value, such as `/orders?sort=ProductID`. However, this approach can have a negative effect on caching, because query string parameters form part of the resource identifier used by many cache implementations as the key to cached data
 
-You can extend this approach to limit the fields returned for each item, if each item contains a large amount of data. For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as /orders?fields=ProductID,Quantity.
+You can extend this approach to limit the fields returned for each item, if each item contains a large amount of data. For example, you could use a query string parameter that accepts a comma-delimited list of fields, such as `/orders?fields=ProductID,Quantity`
 
-Give all optional parameters in query strings meaningful defaults. For example, set the limit parameter to 10 and the offset parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the fields parameter to all fields in the resource if you support projections.
+Give all optional parameters in query strings meaningful defaults. For example, set the limit parameter to 10 and the offset parameter to 0 if you implement pagination, set the sort parameter to the key of the resource if you implement ordering, and set the fields parameter to all fields in the resource if you support projections
 
-## Sorting
+### Sorting
 
-## Searching
+### Searching
 
-## Error Handling
+### Error Handling
 
 1. Use HTTP status codes:
 
@@ -652,13 +652,13 @@ Give all optional parameters in query strings meaningful defaults. For example, 
 
   {
     status: 401,
-    message: 'Authenticate',
+    message: "Authenticate",
     code: 2003,
-    more_info: 'https://www.twilio.com/docs/errors/20003',
+    more_info: "https://www.twilio.com/docs/errors/20003",
   }
   ```
 
-## API Versioning
+### API Versioning
 
 APIs need to be versioned if breaking changes need to be implemented
 
@@ -710,7 +710,7 @@ HATEOAS: Everything that is required to understand is within the document exchan
 - Application
 - State
 
-The responses from the API tell the client what it can do.
+The responses from the API tell the client what it can do
 
 - Responses should include links to the actions available
 - Single (root) entry point
@@ -838,7 +838,7 @@ While Posting data, how do clients know which fields and types of data to submit
 - This can be solved using ION forms
 
 - ION form is very similar to an HTML form
-- ION forms are modeled on an ION collection of form fields objects
+- ION forms are modelled on an ION collection of form fields objects
 
 - HTML Form:
 
@@ -853,17 +853,17 @@ While Posting data, how do clients know which fields and types of data to submit
 
   ```json5
   {
-    href: 'https://example.io/register',
-    rel: ['form'], // (or edit-form, create-form, query-form)
-    method: 'POST',
+    href: "https://example.io/register",
+    rel: ["form"], // (or edit-form, create-form, query-form)
+    method: "POST",
     value: [
-      { name: 'firstName', type: 'string' },
-      { name: 'lastName', type: 'string', required: true },
+      { name: "firstName", type: "string" },
+      { name: "lastName", type: "string", required: true },
     ],
   }
   ```
 
-- The ION form describes the metadata about what can be submitted to a particular endpoint. To submit a form, a client will read that metadata and create a request with the proper method and parameters.
+- The ION form describes the metadata about what can be submitted to a particular endpoint. To submit a form, a client will read that metadata and create a request with the proper method and parameters
 
 ### Example
 
@@ -917,12 +917,12 @@ Employee resource API:
 
    - API or mobile-first mindset
    - Benefits: takes advantage of new technologies and architectures and may reinvigorate the team
-   - Drawback: often requires massive uppfront investment before any Benefits appear
+   - Drawback: often requires massive upfront investment before any Benefits appear
 
 3. Facade Strategy: replacing piece by piece
 
    - Benefit: ideal for legacy systems as the application is always functional
-   - Drawback: multiple mindsts in the system
+   - Drawback: multiple mindsets in the system
    - Drawback: hard to replicate behaviour for a full one-on-one conversion
 
 ## OpenAPI
@@ -934,20 +934,17 @@ It is RESTful API specification (AKA Swagger Specification)
 - Allow humans to read and generate API documentation and test cases
 - Latest version 3.0
 
-OpenAPI is a format for describing restful APIs, but it isn't quite a schema like HAL or Ion.
+OpenAPI is a format for describing restful APIs, but it isn't quite a schema like HAL or Ion
 
 The API description is saved in a file called `swagger.json`:
 
-- You can build a `swagger.json` file by hand or generate it automatically.
-- `swagger.json` can be processed to automatically to create a strongly typed client for your API or to generate API tests.
-- `swagger.json` also enables a web tool called _Swagger UI_, which allows a human to browse to your API definition and documentation and interact with the API in real time.
+- You can build a `swagger.json` file by hand or generate it automatically
+- `swagger.json` can be processed to automatically to create a strongly typed client for your API or to generate API tests
+- `swagger.json` also enables a web tool called _Swagger UI_, which allows a human to browse to your API definition and documentation and interact with the API in real time
 
 ## API Security
 
 Checkout notes about API Security here: [API Security Notes Link](./../Application_Security/API.md)
-
-- Course: _Web Security: OAuth and OpenID Connect with Keith Casey_
-- YouTube: _OAuth 2.0 and OpenID Connect (in plain English)_ with Nate Barbettini
 
 ## API Performance
 
@@ -981,6 +978,14 @@ Optimization techniques:
 7. Asynchronous logging
 
 ## References
+
+- RESTful Web Services by Leonard Richardson & Sam Ruby
+
+- [Hypermedia Systems by Carson Gross, Adam Stepinski, Deniz Akşimşek](https://hypermedia.systems/introduction/)
+
+- Course: _Web Security: OAuth and OpenID Connect with Keith Casey_
+
+- YouTube: _OAuth 2.0 and OpenID Connect (in plain English)_ with Nate Barbettini
 
 - RESTful Web APIs: Services for a Changing World - by Leonard Richardson
 

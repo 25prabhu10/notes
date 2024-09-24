@@ -20,14 +20,14 @@
 
 - And when calling a method with multiple out parameters, you can discard ones you're uninterested in with the underscore character:
 
-  ```csharp
+  ```cs
   SomeBigMethod (out _, out _, out _, out int x, out _, out _, out _);
   Console.WriteLine (x);
   ```
 
 ### Enumerations
 
-```csharp
+```cs
 public enum Directions
 {
  East = 1,
@@ -78,7 +78,7 @@ description: C# and Angular interview questions.
 
   File1.cs
 
-  ```csharp
+  ```cs
   namespace Pets {
       partial class Cat {
           public void Purr() {
@@ -90,7 +90,7 @@ description: C# and Angular interview questions.
 
   File2.cs
 
-  ```csharp
+  ```cs
   namespace Pets {
       partial class Cat {
           public void Meow() {
@@ -116,14 +116,14 @@ description: C# and Angular interview questions.
 
 - Changing an expression from one data type to another.
 
-  ```csharp
+  ```cs
   decimal myDecimal = 10;
   int myInt = (int)myDecimal;
   ```
 
 - When a big value is cast into smaller one, C# will automatically wrap the value around.
 
-  ```csharp
+  ```cs
   int myDecimal = 365;
   byte myInt = (byte)myDecimal;
   // myInt will become 109 instead of 365, as byte can only hold upto 256
@@ -141,7 +141,7 @@ description: C# and Angular interview questions.
 
 - for loop is used when the number of **iterations** are **known**.
 
-  ```csharp
+  ```cs
   // initialization; condition; iteration
   for (int i = 0; i < length; i++) {
       // statements
@@ -152,7 +152,7 @@ description: C# and Angular interview questions.
 
 - while loop is used when the number of **iterations** are **unknown**.
 
-  ```csharp
+  ```cs
   // check the condition first
   while (x > 5) {
       // statements
@@ -163,7 +163,7 @@ description: C# and Angular interview questions.
 
 - do-while executes statements **at least once** and afterwards it behaves like _while_ loop.
 
-  ```csharp
+  ```cs
   // execute at least once
   do {
       // statements
@@ -178,7 +178,7 @@ description: C# and Angular interview questions.
 
 - It is used to execute certain statements only when the **conditions** that are set up **true**.
 
-  ```csharp
+  ```cs
   // if someValue is 24 then execute statement-1 else execute statement-2
   if (someValue == 24){
       // statement-1

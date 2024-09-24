@@ -1,36 +1,47 @@
 ---
 title: Sorting Algorithms
 description: Sorting Algorithms
-lastmod: 2023-08-15
+lastmod: 2024-09-06
 ---
 
 # Sorting Algorithms
 
+Here is how we formally define the sorting problem:
+
+- **Input**: A sequence of $n$ numbers $(a1, a2, ..., an)$
+- **Output**: A permutation (reordering) $(a'1, a'2, ..., a'n)$ of the input sequence such that $a'1 <= a'2 <= ... <= a'n$
+
+List of sorting algorithms:
+
 1. [Bubble](#bubble-sort): `O(n^2)` (also known as Simple Sort)
 2. [Insertion](#insertion-sort): `O(n^2)`
 3. [Selection](#selection-sort): `O(n^2)`
-4. [Heap Sort]: `O(n log n)`
+4. Heap Sort: `O(n log n)`
 5. [Merge Sort](#merge-sort): `O(n log n)`
 6. [Quick Sort](#quick-sort): `O(n log n)`
-7. [Tree Sort]: `O(n log n)`
+7. Tree Sort: `O(n log n)`
 8. [Shell Sort](#shell-sort): `O(n^(3/2))`
 9. [Count Sort](#count-sort): `O(n)`
-10. [Bucket/Bin Sort] : `O(n)`
-11. [Radix Sort] : `O(n)`
+10. Bucket/Bin Sort : `O(n)`
+11. Radix Sort : `O(n)`
 
 In the above list 1-8 are called **Comparison based Sorts**, And 9-11 are called **Index based Sorts**
 
-- Go to [Overview](#overview)
+Go to [sorting overview](#overview)
 
-Criteria For Analysis:
+## Criteria For Analysis
 
 1. Number of Comparisons
 
 2. Number of Swaps
 
-3. Adaptive: Less time to sort an already sorted list. An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
+3. **Adaptive**: Less time to sort an already sorted list. An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
 
-4. Stability: A sorting algorithm is stable if it maintains the relative order of equal elements in the sorted output as they were in the original input. In other words, if you have two equal elements A and B, and A appears before B in the input, a stable sorting algorithm will ensure that A still appears before B in the sorted output
+   - Efficient for data sets that are already substantially sorted
+
+4. **Stability**: A sorting algorithm is stable if it maintains the relative order of equal elements in the sorted output as they were in the original input. In other words, if you have two equal elements A and B, and A appears before B in the input, a stable sorting algorithm will ensure that A still appears before B in the sorted output
+
+   - Does not change the relative order of elements with equal keys
 
 5. Extra Memory
 
@@ -40,7 +51,7 @@ It is also known as **Simple Sort**
 
 Bubble Sort is a straightforward sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted
 
-**Steps**:
+Steps:
 
 1. Start with an unsorted list of elements
 
@@ -50,7 +61,7 @@ Bubble Sort is a straightforward sorting algorithm that repeatedly steps through
 
 4. Continue this process for all adjacent pairs of elements in the list, comparing and swapping as necessary. After the first pass, the largest element will have "bubbled up" to the end of the list
 
-5. Repeat steps 2-4 for a total of n-1 passes, where n is the number of elements in the list. On each pass, the largest unsorted element will move to the end of the list
+5. Repeat steps 2-4 for a total of `n-1` passes, where n is the number of elements in the list. On each pass, the largest unsorted element will move to the end of the list
 
 6. After completing all passes, the list will be sorted
 
@@ -60,7 +71,7 @@ _Pseudocode_:
 procedure bubbleSort(list)
     n = length(list)
     for i from 0 to n - 1
-        for j from 0 to n - i - 2
+        for j from 0 to n - i - 1
             if list[j] > list[j + 1]
                 swap(list[j], list[j + 1])
             end if
@@ -104,38 +115,34 @@ It can be used to get some number of elements sorted, like **finding the largest
 _Implementations:_
 
 ```c
-void Bubble_Sort(int A[], int n)
-{
-    int i, j, temp = 0;
-    int flag;                           // For making the sort Adaptive
+void Bubble_Sort(int A[], int n) {
+  int i, j, temp = 0;
+  int flag; // makes the sort Adaptive
 
-    for (i = 0; i < n - 1; i++)
-    {
-        flag = 0;
+  for (i = 0; i < n - 1; i++) {
+    flag = 0;
 
-        for (j = 0; j < n - i - 1; j++)
-        {
-            if (A[j] > A[j + 1])
-            {
-                temp = A[j + 1];
-                A[j + 1] = A[j];
-                A[j] = temp;
+    for (j = 0; j < n - i - 1; j++) {
+      if (A[j] > A[j + 1]) {
+        temp = A[j + 1];
+        A[j + 1] = A[j];
+        A[j] = temp;
 
-                flag = 1;
-            }
-        }
-
-        if (flag == 0)
-            break;
+        flag = 1;
+      }
     }
+
+    if (flag == 0)
+      break;
+  }
 }
 ```
 
 ## Insertion Sort
 
-Insertion Sort is a simple sorting algorithm that builds the final sorted array one element at a time. It's based on the idea of iteratively inserting elements from the unsorted portion of the array into their correct positions within the sorted portion. This process continues until all elements have been inserted and the entire array becomes sorted
+Insertion Sort is a simple sorting algorithm that builds the final sorted array one element at a time. It's based on the idea of iteratively inserting elements from the unsorted portion of the array into their correct positions within the sorted portion. This process continues until all elements are inserted and the entire array is sorted
 
-**Steps**:
+Steps:
 
 1. Initial State: The algorithm considers the first element as the initially sorted portion and the remaining elements as the unsorted portion
 
@@ -148,18 +155,20 @@ Insertion Sort is a simple sorting algorithm that builds the final sorted array 
 _Pseudocode_:
 
 ```text
-function insertionSort(arr):
-    n = length(arr)
-    for i from 1 to n-1:
-        currentElement = arr[i]
-        j = i - 1
-        while j >= 0 and arr[j] > currentElement:
-            arr[j + 1] = arr[j]
-            j = j - 1
-        arr[j + 1] = currentElement
+// A is 0 indexed array
+for i = 1 to A.length:
+    key = A[i]
+    // Insert A[i] into the sorted sequence A[1..i-1]
+    j = i - 1
+    while j > 0 and A[j] > key:
+        A[j + 1] = A[j]
+        j = j - 1
+    A[j + 1] = key
 ```
 
-_Example:_
+_Examples:_
+
+![Insertion Sort animation](./insertion-sort.gif)
 
 Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
 
@@ -168,36 +177,81 @@ Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
 3. Pass 3: `[1, 2, 5, 9, 5]`
 4. Pass 4: `[1, 2, 5, 5, 9]`
 
-For an array of size `n` at worst case:
+Analysis:
 
-- Number of Passes: `n-1`
-- Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
-- Max Number of Swaps: `(n * (n - 1)) / 2` --> `O(n^2)`
+1. Best Case Scenario:
 
-If the list is already sorted:
+   - **Input**: The input array is already sorted
+   - **Time Complexity**: `O(n)`
+   - **Explanation**: Each element is already in its correct position, so the algorithm only compares each element with the one before it and makes no swaps. The inner loop of the insertion sort algorithm will only execute once for each element. Therefore, it only performs `n-1` comparisons, resulting in a _linear time complexity_
+   - Max Number of Comparisons: `n - 1` --> `O(n)`
+   - Max Number of Swaps: `0` --> `O(1)`
 
-- Max Number of Comparisons: `n - 1` --> `O(n)`
-- Max Number of Swaps: `0` --> `O(1)`
+2. Worst Case Scenario:
 
-|                | Bubble Sort | Insertion Sort |             Cases |
-| -------------- | ----------: | -------------: | ----------------: |
-| Min Comparison |      `O(n)` |         `O(n)` |    Already Sorted |
+   - **Input**: The input array is sorted in reverse order
+   - **Time Complexity**: `O(n^2)`
+   - **Explanation**: In the worst case, each new element is smaller than all the elements already sorted. This requires the algorithm to compare the new element with all previous elements and shift them to the right, leading to a quadratic number of comparisons and swaps
+
+   For an array of size `n` at worst case:
+
+   - Number of Passes: `n-1`
+   - Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
+   - Max Number of Swaps: `(n * (n - 1)) / 2` --> `O(n^2)`
+
+3. Average-Case Scenario:
+
+   - **Input**: The input array is in a random order
+   - **Time Complexity**: `O(n^2)`
+   - **Explanation**:
+
+     - On average, each element in the array is compared and potentially swapped with about half of the elements before it.
+     - Specifically, for each element, about half of the previous elements are expected to be larger and need to be shifted to make room for the new element.
+     - Since this happens for each of the `n` elements, the total number of comparisons and shifts sums to about $\frac{n^2}{4}$, which still results in a quadratic time complexity, `O(n^2)`
+
+|                | Bubble Sort | Insertion Sort | Cases             |
+| -------------- | ----------: | -------------: | ----------------- |
+| Min Comparison |      `O(n)` |         `O(n)` | Already Sorted    |
 | Max Comparison |    `O(n^2)` |       `O(n^2)` | Sorted in Reverse |
-| Min Swap       |      `O(1)` |         `O(1)` |    Already Sorted |
+| Min Swap       |      `O(1)` |         `O(1)` | Already Sorted    |
 | Max Swap       |    `O(n^2)` |       `O(n^2)` | Sorted in Reverse |
 | Adaptive       |         Yes |            Yes |                   |
 | Stable         |         Yes |            Yes |                   |
 | Linked List    |           - |            Yes |                   |
 | k Passes       |         Yes |             No |                   |
 
-- Insertion Sort is particularly efficient when dealing with small arrays or partially sorted arrays, as the number of comparisons and shifts is relatively small in those cases
+Characteristics:
 
-- It's an in-place sorting algorithm, meaning it doesn't require additional memory space proportional to the input size for sorting
+- Insertion Sort is particularly **efficient when dealing with small arrays or partially sorted arrays**, as the number of comparisons and shifts is relatively small in those cases
 
-- Insertion is better for Linked List than Arrays
+- More efficient in practice than most other simple quadratic algorithms such as [selection sort](#selection-sort) or [bubble sort](#bubble-sort)
+
+- It's an **in-place sorting algorithm**, meaning it doesn't require additional memory space proportional to the input size for sorting and with, at most, a constant number of them stored outside the array at any time
+
+- Although the best-case time complexity of Insertion Sort is `O(n)` and the worst-case is `O(n^2)`, the average-case also falls into `O(n^2)`, reflecting that Insertion Sort **generally performs similarly to its worst-case** on typical, randomly ordered inputs
+
+- This quadratic time complexity means that Insertion Sort is less efficient on average compared to more advanced sorting algorithms like [Merge Sort](#merge-sort) or [Quick Sort](#quick-sort), especially as the input size grows
+
+- Insertion is **better for Linked List than Arrays**
 
 - By **nature it is Adaptive**
+
 - It is **Stable**
+
+- **Online**: can sort a list as it receives it
+
+### Loop Invariant
+
+Loop invariant: At the start of each iteration of the for loop of lines 1–8, the subarray `A[1..j-1]` consists of the elements originally in `A[1..j-1]`, but in sorted order
+
+We use loop invariants to help us understand why an algorithm is correct. We must show three things about a loop invariant:
+
+1. **Initialization**: It is true prior to the first iteration of the loop
+2. **Maintenance**: If it is true before an iteration of the loop, it remains true before the next iteration
+3. **Termination**: When the loop terminates, the invariant gives us a useful property that helps show that the algorithm is correct
+
+When the first two properties hold, the loop invariant is true prior to every iteration
+of the loop
 
 ## Selection Sort
 
@@ -295,17 +349,93 @@ def selection_sort(arr):
 
 ## Merge Sort
 
-Merge Sort is a popular comparison-based sorting algorithm that follows the [Divide & Conquer](./Algorithms.md#divide--conquer) strategy to efficiently sort an array or list of elements. It works by recursively dividing the array into smaller sub-arrays, sorting those sub-arrays, and then merging them back together to create a sorted final array
+Merge Sort is a popular comparison-based sorting algorithm that follows the [Divide-and-Conquer Algorithm](./Algorithms.md#divide-and-conquer-algorithm) strategy to efficiently sort an array or list of elements. It works by recursively dividing the array into smaller sub-arrays, sorting those sub-arrays, and then merging them back together to create a sorted final array
 
-**Steps**:
+Steps:
 
-1. Divide: The original array is recursively divided into smaller sub-arrays until each sub-array contains only one element or is empty
+1. **Divide**: The original array is recursively divided into smaller sub-arrays until each sub-array contains only one element or is empty
 
-2. Conquer: The individual elements or small sub-arrays are already sorted by definition. This is the base case of the recursion
+2. **Conquer**: The individual elements or small sub-arrays are already sorted by definition. This is the base case of the recursion
 
-3. Merge: The sorted sub-arrays are then merged back together in a way that maintains their order. This merging process combines two sorted arrays into a single sorted array
+3. **Merge**: The sorted sub-arrays are then merged back together in a way that maintains their order. This merging process combines two sorted arrays into a single sorted array
+
+In each step, it sorts a sub-array `A[p:r]` starting with the entire array `A[1:n]` and recursing down to smaller and smaller sub-arrays:
+
+1. **Divide** the sub-array `A[p:r]` to be sorted into two adjacent sub-arrays, each of half the size. To do so, compute the midpoint `q` of `A[p:r]` (taking the average of `p` and `r`), and divide `A[p:r]` into sub-arrays `A[p:q]` and `A[q+1:r]`
+
+2. **Conquer** by sorting each of the two sub-arrays `A[p:q]`and `A[q+1:r]` recursively using merge sort
+
+3. **Combine** by merging the two sorted sub-arrays `A[p:q]` and `A[q+1:r]` back into `A[p:r]`, producing the sorted answer
+
+- The recursion "bottoms out" - it reaches the base case - when the sub-array `A[p:r]` to be sorted has just 1 element, that is, when `p` equals `r`
+
+- The **key operation of the merge sort** algorithm occurs in the **"combine" step**, which merges two adjacent, sorted sub-arrays
+
+- The merge operation is performed by the auxiliary procedure `MERGE(A, p, q, r)`, where `A` is an array and `p`, `q`, and `r` are indices into the array such that `p <= q < r`
+
+- The procedure assumes that the adjacent sub-arrays `A[p:q]` and `A[q+1:r]` were already recursively sorted
+
+- It **merges** the two sorted sub-arrays to form a single sorted sub-array that replaces the current sub-array `A[p:r]`
 
 _Pseudocode_:
+
+```text
+Merge(A, p, q, r):
+    nl = q - p + 1  // length of A[p:q]
+    nr = r - q      // length of A[q+1:r]
+
+    let L[0:nl - 1] and R[0:nr - 1] be new arrays
+
+    for i = 0 to nl - 1:    // copy A[p:q] into L[0:nl - 1]
+        L[i] = A[p + i]
+
+    for j = 0 to nr - 1:    // copy A[q+1:r] into R[0:nl - 1]
+        L[j] = A[q + j + 1]
+
+    i = 0   // i indexes the smallest remaining element in L
+    j = 0   // j indexes the smallest remaining element in R
+    k = p   // k indexes the location in A to fill
+
+    // As long as each of the arrays L and R contains an unmerged element,
+    // copy the smallest unmerged element back into A[p:r]
+
+    while i < nl and j < nr:
+        if L[i] <= R[j]:
+            A[k] = L[i]
+            i = i + 1
+
+        else:
+            A[k] == R[j]
+            j = j + 1
+        k = k + 1
+
+    // Having gone through on of L and R entirely, copy the
+    // remainder of the other to the end of A[p:r]
+
+    while i < nl:
+        A[k] = L[i]
+        i = i + 1
+        k = k + 1
+    while j < nr:
+        A[k] = R[j]
+        j = j + 1
+        k = k + 1
+
+// A is an array, p is starting index (0), r is the length of array - 1
+Merge-Sort(A, p, r):
+    if p >= r:                  // zero or one element?
+        return
+
+    q = floor((p + r)/2)        // midpoint of A[p:r]
+
+    Merge-Sort(A, p, q)         // recursively sort A[p:q]
+    Merge-Sort(A, q + 1, r)     // recursively sort A[q+1:r]
+
+    // Merge A[p:q] and A[q+1:r] into A[p:r]
+    Merge(A, p, q, r)
+```
+
+- Alternative, creating a new array:
 
 ```text
 function mergeSort(arr):
@@ -351,14 +481,69 @@ function merge(left, right):
     return result
 ```
 
-Time complexity:
+Analysis:
 
-- Best case: **`O(n log n)`**
-- Worst case: **`O(n log n)`**
+The running time of an algorithm on an input of size `n` by `T(n)`, worst-case running time:
 
-Merging 2 Sorted Arrays to create a new sorted array
+- Divide: The divide step just computes the middle of the sub-array, which takes constant time. Thus, `D(n) = θ(1)`
 
-- `O(n log n)`
+- Conquer: Recursively solving two sub-problems, each of size `n/2`, contributes `2T(n/2)` to the running time (ignoring the floors and ceilings)
+
+- Combine: Since the MERGE procedure on an _n-element_ sub-array takes `θ(n)` time, we have `C(n) = θ(n)`
+
+- Adding `θ(n)` to the `2T(n/2)` term from the conquer step gives the recurrence for the worst-case running time `T(n)` of merge sort:
+
+```text
+T(n) = 2T(n/2) + θ(n)
+
+T(n) = {
+    c1                  if n <= 1
+    2T(n/2) + (c2 * n)  if n > 1
+}
+
+c1 > 0, represents the time required to solve a problem of size 1
+c2 > 0, time per array element of the divide and combine steps
+```
+
+Using the Master Theorem, we can solve this recurrence relation to obtain the time complexity:
+
+- `a = 2`: The number of sub-problems
+- `b = 2`: The size of each sub-problem
+- `c = 1`: The work done in combining the sub-problems
+
+Since `log_b(a) = log_2(2) = 1` and `c = 1`, the case of the Master Theorem that applies is:
+
+```text
+T(n) = O(n^log_b(a) * log^k(n))
+     = O(n^1 * log^0(n))
+     = O(n log n)
+```
+
+1. Best Case Scenario:
+
+   - **Input**: The input array is already sorted
+   - **Time Complexity**: `O(n log n)`
+   - Explanation: Merge sort still divides the array into smaller sub-arrays and merges them back together, but since the sub-arrays are already sorted, the merging process is very efficient
+
+2. Worst Case Scenario:
+
+   - **Input**: The input array is sorted in reverse order
+   - **Time Complexity**: `O(n log n)`
+   - Explanation: This results in the maximum number of comparisons and merges during the algorithm. However, the time complexity remains `O(n log n)` because the merging process is still efficient even in the worst case.
+
+3. Average Case Scenario:
+
+   - **Input**: The input array is in a random order
+   - **Time Complexity**: `O(n log n)`
+   - Explanation: On average, Merge Sort also requires `O(n log n)` time. The average case behaves similarly to the best and worst cases due to the algorithm's consistent approach of dividing and merging
+
+Characteristics:
+
+- Merge Sort is **stable and consistent**, and its performance does not degrade with input order
+
+- Making it **reliable and efficient** sorting algorithm, particularly for **large datasets**
+
+- The **merging process is the key** to Merge sort's efficiency, regardless of the input array's order
 
 - It is **Stable**: During the merging step, when two elements are compared and inserted into the merged array, if they are equal, the element from the left sub-array is inserted before the element from the right sub-array. This maintains the relative order of equal elements, making Merge Sort a stable sorting algorithm
 

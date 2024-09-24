@@ -147,7 +147,7 @@ To add these files: These settings will be included in every publish profile
 
      - (v3+) The `ConfigureWebHostDefaults` method calls `UseKestrel` internally:
 
-       ```csharp
+       ```cs
        public static void Main(string[] args) {
           CreateHostBuilder(args).Build().Run();
        }
@@ -161,7 +161,7 @@ To add these files: These settings will be included in every publish profile
 
      - (v6+) The `WebApplication.CreateBuilder` method calls `UseKestrel` internally:
 
-       ```csharp
+       ```cs
        var builder = WebApplication.CreateBuilder(args);
        var app = builder.Build();
 
@@ -186,7 +186,7 @@ To add these files: These settings will be included in every publish profile
 
    2. Add SSL configurations:
 
-      ```csharp
+      ```cs
       public class Program {
 
          public static void Main(string[] args) {
@@ -225,7 +225,7 @@ To add these files: These settings will be included in every publish profile
 
    - For other proxies: **Forwarded Headers Middleware should run before other middleware**.
 
-     ```csharp
+     ```cs
      public void ConfigureServices(IServiceCollection services)
        {
          services.Configure<ForwardedHeadersOptions>(options =>
