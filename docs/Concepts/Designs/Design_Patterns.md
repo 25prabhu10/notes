@@ -15,6 +15,16 @@ Quote from the book:
 
 > A design pattern systematically names, motivates, and explains a general design that addresses a recurring design problem in object-oriented systems. It describes the problem, the solution,, when to apply the solution, and its consequences. It also gives implementation hints and examples. The solution is a general arrangement of objects and classes that solve the problem. The solution is customized and implemented to solve the problem in a particular context.
 
+Why use design patterns?
+
+- Reusable solutions to common problems
+- Standardized terminology
+- Scalability
+- Maintainability
+- Performance
+- Documentation
+- Best practices
+- Cross-Domain Applicability
 - They are just guidelines that help us avoid bad design that are:
 
   - Rigid
@@ -23,9 +33,9 @@ Quote from the book:
 
 - Some design patterns tend to **cause more problems** than they solve, and are thus commonly referred to as **anti-patterns**
 
-> Prerequisite: Knowing [OOPs concepts](../Programming_Paradigms/Object-Oriented_Programming.md)
+**Prerequisite**: Knowing [OOPs concepts](./Programming_Paradigms/Object-Oriented_Programming.md)
 
-## Todo
+## Need to Know
 
 - [ ] SAGA
 - [ ] 2-way pattern
@@ -45,17 +55,24 @@ Quote from the book:
 
   > If all you have is a hammer, everything looks like a nail.
 
+## Elements of a Pattern
+
+- **Pattern Name**: A meaningful name that describes the pattern
+- **Problem**: Describes the problem and its context
+- **Solution**: Describes the elements that make up the design, their relationships, responsibilities, and collaborations
+- **Consequences**: Describes the results and trade-offs of applying the pattern
+
 ## Classification of Patterns
 
-All patterns can be categorized by their _intent_ or _purpose_:
+All patterns can be categorized by their **purpose** or _know how_:
 
-1. [Creational Patterns](#creational-patterns)
+1. [Creational Patterns](#creational-patterns): Deal with object creation mechanisms, trying to create objects in a manner suitable to the situation
 
-2. [Structural Patterns](#structural-patterns)
+2. [Structural Patterns](#structural-patterns): Deal with object composition, and typically identify simple ways to realize relationships between different objects
 
-3. [Behavioural Patterns](#behavioural-patterns)
+3. [Behavioural Patterns](#behavioural-patterns): Deal with object communication, how objects interact with each other and how to assign responsibilities between them
 
-These pattern can also be divided based on their _scope_:
+These pattern can also be divided based on their **scope**:
 
 - Class:
 
@@ -68,11 +85,13 @@ These pattern can also be divided based on their _scope_:
   - Deal with object relationships
   - Which can be changed at run-time and are more dynamic
 
-- The most **basic and low-level patterns** are often called **idioms**. They usually apply only to a single programming language
+The most **basic and low-level patterns** are often called **idioms**. They usually apply only to a single programming language
 
-- The most **universal and high-level patterns** are **architectural patterns**. Developers can implement these patterns in virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application
+The most **universal and high-level patterns** are **architectural patterns**. Developers can implement these patterns in virtually any language. Unlike other patterns, they can be used to design the architecture of an entire application
 
-Other Types of Patterns:
+![Design Pattern Relationships](./design-pattern-relationships.jpg)
+
+### Other Types of Patterns
 
 - Concurrency design patterns: When you are dealing with multi threading programming these are the patterns that you will want to use
 
@@ -98,10 +117,9 @@ Patterns:
 
 ### Abstract Factory
 
-_Popularity:_ Important
-_Complexity:_ 2
-_Scope:_ Object
-_AKA:_ Kit
+| Popularity | Complexity | Scope  | AKA |
+| ---------- | ---------- | ------ | --- |
+| Important  | 2          | Object | Kit |
 
 _Intent:_ Provide an interface for creating families of related or dependent objects without specifying their concrete classes
 
@@ -109,9 +127,9 @@ _Intent:_ Provide an interface for creating families of related or dependent obj
 
 ### Builder Pattern
 
-_Popularity:_ Common
-_Complexity:_ 2
-_Scope:_ Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Common     | 2          | Object |
 
 _Intent:_ Separate the construction of a complex object from its representation so that the same
 construction process can create different representations
@@ -167,10 +185,9 @@ _Usage_:
 
 ### Factory Method
 
-_Popularity:_ Important
-_Complexity:_ 2
-_Scope:_ Class
-_AKA:_ Virtual Constructor
+| Popularity | Complexity | Scope | AKA                 |
+| ---------- | ---------- | ----- | ------------------- |
+| Important  | 2          | Class | Virtual Constructor |
 
 _Intent:_ The Factory Method pattern defines an interface for creating objects, but lets subclasses decide which class to instantiate
 
@@ -277,9 +294,9 @@ _Usage:_
 
 ### Prototype Pattern
 
-_Popularity:_ Not Common
-_Complexity:_ 1
-_Scope:_ Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Not Common | 1          | Object |
 
 _Intent:_ Lets you copy existing objects without making your code dependent on their classes
 
@@ -340,9 +357,9 @@ genericZombie.canRun();
 
 ### Singleton Pattern
 
-_Popularity:_ Not Common
-_Complexity:_ 1
-_Scope:_ Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Important  | 1          | Object |
 
 _Intent:_ Ensure a class only has one instance, and provide a global point of access to it
 
@@ -441,9 +458,9 @@ Design Patterns:
 
 ### Adapter Pattern
 
-_Popularity:_ Important
-_Complexity:_ 1
-_Scope:_ Class & Object
+| Popularity | Complexity | Scope          |
+| ---------- | ---------- | -------------- |
+| Important  | 1          | Class & Object |
 
 This pattern converts the interface of a class into another interface that clients expect. It allows classes to work together that couldn't otherwise because of incompatible interfaces
 
@@ -459,21 +476,21 @@ _Applicability:_
 
 ### Bridge Pattern
 
-_Popularity:_ Rare
-_Complexity:_ 3
-_Scope:_ Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Rare       | 3          | Object |
 
 ### Composite Pattern
 
-_Popularity:_ Important
-_Complexity:_ 2
-_Scope:_ Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Important  | 2          | Object |
 
-### Decorator (Wrapper) Pattern
+### Decorator Pattern
 
-_Popularity:_ Important
-Scope: Object
-Complexity: 2
+| Popularity | Complexity | Scope  | AKA     |
+| ---------- | ---------- | ------ | ------- |
+| Important  | 2          | Object | Wrapper |
 
 This pattern attaches additional responsibilities to an object dynamically. Decorators provide a flexible alternative to sub-classing for extending functionality
 
@@ -487,7 +504,9 @@ _Applicability:_
 
 ### Facade Pattern
 
-Scope: Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Important  | 1          | Object |
 
 The facade design pattern is used when we want to create an abstraction layer between what is show publicly and the internal implementation. It is used when we want to have a simpler interface.
 
@@ -540,15 +559,23 @@ client.turnOnSystems();
 
 ### Flyweight Pattern
 
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+|            |            | Object |
+
 ### Proxy Pattern
 
-Scope: Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Important  | 2          | Object |
 
 ## Behavioural Patterns
 
 Behavioural patterns take care of effective communication and the assignment of responsibilities between objects: **How objects communicate with each other**
 
 - They help to guarantee that unrelated parts of the application have a synchronized information
+- These patterns address communication, responsibility, and algorithmic issues in object-oriented software design
+- They help in making the design more flexible, extensible, and maintainable by promoting better communication and separation of concerns between objects and classes in the system
 
 Design Patterns:
 
@@ -576,17 +603,62 @@ Design Patterns:
 
 ### Chain of Responsibility
 
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+|            |            | Object |
+
 ### Command Pattern
 
-Scope: Object
+| Popularity | Complexity | Scope  | AKA    |
+| ---------- | ---------- | ------ | ------ |
+| 3          | 1          | Object | Action |
+
+Command is behavioural design pattern that converts requests or simple operations into objects
 
 Encapsulate a call as an object
 
 - It is a way to keep **separated the caller's context from the called**
-
 - An abstraction layer to separate the objects that call the API from the objects that determine when to call it
 
+It encapsulates a request as an object, allowing you to parametrize clients with queues, requests, and operations
+
+- It enables you to decouple the sender from the receiver, providing flexibility in the execution of commands and supporting undoable operations
+
+Cons:
+
 A problem that arises with this pattern is that it **creates an additional abstraction layer**, and it may **impact the performance** of an app. It is important to know how to balance performance and code legibility.
+
+_Example:_ Let us consider a simple `Ligth` class that has two methods: `TurnOn` and `TurnOff`. To control the light, we can create a `RemoteControl` class that has a `PressButton` method that receives a command to on or off the light
+
+- The `RemoteControl` class is tightly coupled with the `Light` class, and if we want to add a new command like `Dim` the light, we would have to change the `RemoteControl` class
+
+To solve this problem, we can create a `Command` interface that has an `Execute` method. We can then create a `TurnOnCommand` and `TurnOffCommand` classes that implement the `Command` interface
+
+- The `RemoteControl` class can then receive a `Command` object and call the `Execute` method
+- This way, we can add new commands without changing the `RemoteControl` class
+
+```text
++------------------------+                  +--------------------------------+
+| RemoteControl          |                  | Command                        |
++------------------------+                  +--------------------------------+
+| PressButton()          | <>-------------> | execute()                      |
++------------------------+                  +--------------------------------+
+                                                             |
+                                                             |
+                                              +----------------------------+
+                                              |                            |
+                                              |                            |
+                                              V                            V
++----------------+                    +----------------+           +----------------+
+| Light          |                    | TurnOnCommand  |           | TurnOffCommand |
++----------------+                    +----------------+           +----------------+
+| TurnOnCommand  |                    | execute()      |           | execute()      |
+| TurnOffCommand |                    +----------------+           +----------------+
++----------------+                            |                            |
+        ^                                     |                            |
+        |                                     |                            |
+        +-------------------------------------+----------------------------+
+```
 
 ```javascript
 // The object that knows how to execute the command
@@ -618,40 +690,51 @@ console.log(manager.execute("subtract", 5, 3));
 
 ### Interpreter Pattern
 
+| Popularity | Complexity | Scope |
+| ---------- | ---------- | ----- |
+|            |            | Class |
+
 ### Iterator Pattern
 
-Scope: Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| 3          | 2          | Object |
 
 This pattern provides a way to access the elements of an aggregate object sequentially without exposing its underlying representation
+
+- It provides a way of iterating over an object without having to expose the object's internal structure, which may change in the future
+- Changing the internals of an object should not effect its consumers
 
 _Intent:_ Iterator is a behavioural design pattern that lets you traverse elements of a collection without exposing its underlying representation (_list_, _stack_, _tree_, etc.)
 
 - Iterate pattern allows to traverse through a collection of object
-
-Some languages provide built-in iterators:
-
-```java
-for (Animal a : animals) {
-  a.describe();
-}
-```
-
-```python
-for el in [9, 8, 7, 6, 5]:
-  print(el)
-```
-
-```javascript
-for (let val of aggregate) {
-  console.log(val);
-}
-```
 
 _Applicability:_
 
 - Use the Iterator pattern when your collection has a complex data structure under the hood, but you want to hide its complexity from clients (either for convenience or security reasons)
 
 - Use the pattern to reduce duplication of the traversal code across your app
+
+```text
++------------------------+                  +--------------------------------+
+| Aggregate              |                  | Iterator                       |
++------------------------+                  +--------------------------------+
+| createIterator()       | <>------------>  | next()                         |
++------------------------+                  | currentItem()                  |
+                                            | hasNext()                      |
+                                            +--------------------------------+
+```
+
+The Iterator pattern defines an interface for accessing the elements of a collection. The Iterator object keeps track of the current element and can compute the next element in the collection
+
+- The 3 new methods help consumers to iterate over the object, without knowing the internal data structure
+- The `next()` method returns the next element in the collection
+- The `currentItem()` method returns the current element in the collection
+- The `hasNext()` method returns `true` if there are more elements in the collection
+
+The `Aggregate` class is the object that holds the collection of elements. It has a method called `createIterator()` that returns an instance of the `Iterator` class
+
+- This complies with the _Single Responsibility Principle_ (SRP) as the `Aggregate` class is responsible for managing the collection of elements, while the `Iterator` class is responsible for traversing the collection
 
 _Example:_
 
@@ -682,9 +765,30 @@ for (let num of range(0, 10)) {
 console.log(sum);
 ```
 
+Some languages provide built-in iterators:
+
+```java
+for (Animal a : animals) {
+  a.describe();
+}
+```
+
+```python
+for el in [9, 8, 7, 6, 5]:
+  print(el)
+```
+
+```javascript
+for (let val of aggregate) {
+  console.log(val);
+}
+```
+
 ### Mediator Pattern
 
-Scope: Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+|            |            | Object |
 
 - Used a lot on decoupled system
 
@@ -726,11 +830,158 @@ const air69 = new Airplane();
 
 ### Memento Pattern
 
+Without violating encapsulation, capture and externalize an object's internal state so that the object can be restored to this state later
+
+| Popularity | Complexity | Scope  | AKA      |
+| ---------- | ---------- | ------ | -------- |
+| 1          | 3          | Object | Snapshot |
+
+_Intent:_ Memento is a behavioural design pattern that lets you **save and restore** the previous state of an object **without revealing** the details of its **implementation**
+
+It is used to **restore state of an object to a previous state**
+
+- It delegates **creating the state** snapshots to the actual **owner of that state**
+- Hence, the **original class** can make the snapshots since it has full access to its own state
+- This pattern makes **full copies** of an object's state, which can be **expensive** in terms of memory
+
+The Memento design pattern defines three distinct roles:
+
+1. **Originator**: the object that knows how to save itself
+
+   - **Produces snapshots** of its own state, and **restores its state** from snapshots
+   - Sets and Gets values from the currently targeted Memento. Creates new Mementos and assigns current values to them
+
+2. **Caretaker**: the object that knows why and when the Originator needs to save and restore itself
+
+   - Responsible for **capturing** and **restoring** the Originator's state
+   - Holds a list that contains all previous versions of the Memento. It can store and retrieve Mementos
+
+3. **Memento**: the lock box that is written and read by the Originator, and shepherded by the Caretaker
+
+   - Acts as a **snapshot** of the Originator's state
+   - The basic object that is stored in different states
+
+_Motivation:_
+
+_Applicability_:
+
+- Use the Memento pattern when you want to produce snapshots of the object's state to be able to restore a previous state of the object
+
+- Consider a text editor that has an undo feature. The editor can save the state of the text editor at any point in time and restore it later. Undo feature is an example of the memento pattern
+
+- Use the pattern when direct access to the object's fields/getters/setters violates its encapsulation
+
+_Structure:_
+
+_Participants:_
+
+_Collaborations:_
+
+_Consequences:_
+
+- Pros:
+
+  - You can produce snapshots of the object's state without violating its encapsulation
+  - You can simplify the originator's code by letting the caretaker maintain the history of the originator's state
+
+- Cons:
+
+  - The app might **consume lots of RAM** if clients create mementos too often
+  - Caretakers should track the originator's lifecycle to be able to destroy obsolete mementos
+  - Most dynamic programming languages, such as JavaScript, Python, and Ruby, can implement the Memento pattern without the memento classes
+
+_Implementation:_
+
+_Known Uses:_
+
+_Related Patterns:_
+
+_Example:_ Consider the following user interactions with a text editor:
+
+1. Add a title to the document: "The Memento Pattern"
+2. Add a paragraph: "The memento pattern is..."
+3. Change the title to: "The Behavioural Design Pattern"
+
+To implement the undo feature, a single `Editor` class can be used to save the state of the document at each step. It can have a `title` and `content` properties and also fields that store each previous values for each of these properties
+
+```text
++------------------------+
+| Editor                 |
++------------------------+
+| title : string         |
+| content : string       |
+| previousTitle : List   |
+| previousContent : List |
++------------------------+
+```
+
+Problem with this approach:
+
+- It is not scalable (if more properties are added to the `Editor` class, the number of fields to store previous values will increase)
+- How would we implement the undo feature?
+- If the user changed the title and then the content, then pressed undo, the current implementation has no knowledge of the order of changes
+
+Finding a solution:
+
+- Instead of having multiple fields in the `Editor` class, we can create a `EditorState` class that stores the state of the `Editor` class at a given point in time
+
+```text
++------------------------+                  +--------------------------------+
+| Editor                 |                  | EditorState                    |
++------------------------+                  +--------------------------------+
+| title : string         | <*>------------> | title : string                 |
+| content : string       |                  | content : string               |
+| previousStates : List  |                  +--------------------------------+
++------------------------+
+```
+
+- Composite relationship: `Editor` is composed of, or has a field of, the `EditorState` class
+
+This is a good solution as we can undo multiple times and we don't pollute the `Editor` class with many fields. However, this solution is violating the SRP, as the `Editor` class currently has multiple responsibilities:
+
+- State management
+- Providing the features that we need from an editor
+
+We can move state management to a separate class, `History`, which will be responsible for managing the state of the `Editor` class
+
+```text
++------------------------+                  +--------------------------------+
+| Editor                 |                  | EditorState                    |
++------------------------+                  +--------------------------------+
+| title : string         | ---------------> | title : string                 |
+| content : string       |                  | content : string               |
++------------------------+                  +--------------------------------+
+| createState()          |                          ^
+| restore(state)         |                          |
++------------------------+                          |
+                                                    |
+                                                    ^
+                                                    *
+                                                    V
+                                            +------------------------+
+                                            | History                |
+                                            +------------------------+
+                                            | states : List          |
+                                            | editor : Editor        |
+                                            +------------------------+
+                                            | push(state)            |
+                                            | pop()                  |
+                                            +------------------------+
+```
+
+- The `createState()` method returns an `EditorState` object, hence the dotted line arrow (dependency relationship). `History` has a field with a list of `EditorState`, hence the diamond arrow (composition relationship)
+
+This is the Memento pattern in action:
+
+- The `Editor` class is the _originator_
+- The `EditorState` class is the _memento_
+- The `History` class is the _caretaker_
+
 ### Observer Pattern
 
-_Popularity:_ Important
-Complexity: 2
-Scope: Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| Important  | 2          | Object |
 
 The _observer pattern_ is very useful when we want to **optimize the communication between separated parts of the system**
 
@@ -748,7 +999,7 @@ _Intent:_ Observer is a behavioural design pattern that lets you define a subscr
 
 - Different ways to implement this pattern, but the **simpler case** is when we have **1 emitter and lots of observers**
 
-One variant to this pattern is the **publisher/subscriber pattern**
+One variant to this pattern is the **[publisher/subscriber pattern](#publish-subscribe-pattern)**
 
 - Parts of Subject:
 
@@ -844,71 +1095,81 @@ publisherSubscriber.publish("mouseHovered", { data: "data2" });
 
 ### State Pattern
 
-```typescript
-// using switch statements
-// class Human {
-//   think(mood) {
-//     switch (mood) {
-//       case "happy":
-//         return "I am happy 🙂";
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| 2          | 1          | Object |
 
-//       case "sad":
-//         return "I am sad 🙁";
+_Intent:_ State is a behavioural design pattern that lets an object alter its behaviour when its internal state changes. It appears as if the object changed its class
 
-//       default:
-//         return "I am neutral 😐";
-//     }
-//   }
-// }
+- The state pattern allows an object to behave differently depending on the state that it is in
+- The state pattern is a solution to the problem of how to make behaviour dependent on state
+- The state pattern suggests that you create a separate class for each possible state of an object and extract all state-specific behaviours into those classes
 
-interface State {
-  think(): string;
-}
+Classes and objects participating in the pattern:
 
-class HappyState implements State {
-  think() {
-    return "I am happy 🙂";
-  }
-}
+- The _context_ is a class that has a field for storing a reference to one of the state objects
+- The _state_ is an interface that defines a common method for all concrete states
+- The _concrete states_ implement the state interface and provide their own implementations for the state-specific behaviours
 
-class SadState implements State {
-  think() {
-    return "I am sad 🙁";
-  }
-}
+The State pattern is closely related to the concept of a [Finite-State Machine](./Finte_State_Machine.md)
 
-class NeutralState implements State {
-  think() {
-    return "I am neutral 😐";
-  }
-}
+_Example:_ When writing a blog post, the post can be in different states:
 
-class Human {
-  state: State;
+1. Draft
+2. Moderation (under review by an admin)
+3. Published
 
-  constructor() {
-    this.state = new NeutralState();
-  }
+There are 3 types of users:
 
-  think() {
-    return this.state.think();
-  }
+1. Author
+2. Admin
+3. Reader
 
-  changeState(state: State) {
-    this.state = state;
-  }
-}
+Only the author can change the state of the post from draft to moderation, and only the admin can change the state from moderation to published
+
+First, let's create a simple solution that uses `if-else` statements to check the current state of the document to see whether the state of the document should be changed and by whom
+
+- This solution is not scalable and violates the Open/Closed principle as we need to modify the `Document` class every time we add a new state or a new user type
+
+The state pattern suggests that we should create a separate class for each state of the `Document` object, and extract all state-specific behaviours into those classes
+
+- The `Document` class will store a reference to one of the state classes to represent the current state
+- Then, instead of `Document` implementing state-specific behaviour by itself, it delegates all the state-related work to the state object that has a reference to
+
+```text
++------------------------+                  +--------------------------------+
+| Document               |                  | State                          |
++------------------------+                  +--------------------------------+
+| state:State            | <>-------------> | publish()                      |
+| currentUserRole:Roles  |                  +--------------------------------+
++------------------------+                          ^
+| publish()              |                          |
++------------------------+                          |
+                                                    |
+                                            +------------------------+
+                                            | DraftState             |
+                                            +------------------------+
+                                            | document               |
+                                            +------------------------+
+                                            | publish()              |
+                                            +------------------------+
 ```
+
+- `Document` keeps reference to (is composed of) a `State` object (using polymorphism)
+- In `Document`, the `publish()` method calls the `publish()` method of the `State` object - delegates the work to the concrete state object
+- This satisfies the Open/Closed principle as we can add new states without modifying the `Document` class
 
 ### Strategy Pattern
 
-_Popularity:_ Important
-Complexity: 2
-Scope: Object
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+| 3          | 1          | Object |
 
 This pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable. This lets the algorithm vary independently from clients that use it
 
-_Intent:_ Strategy is a behavioural design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable.
+_Intent:_ Strategy is a behavioural design pattern that lets you define a family of algorithms, put each of them into a separate class, and make their objects interchangeable
+
+- The Strategy pattern is used to pass different algorithms, or behaviours, to an object
 
 The Strategy pattern suggests that you take **a class that does something specific in a lot of different ways** and extract all of these algorithms into **separate classes called _strategies_**
 
@@ -918,17 +1179,74 @@ _Applicability:_
 
 - Use the Strategy pattern when you want to use different variants of an algorithm within an object and be able to switch from one algorithm to another during runtime
 
-_Example:_
+_Example:_ Lets consider an application that stores videos. Before storing a video, the video needs to be compressed using a specific compression algorithm, such as `MOV` or `MP4`. Then, if necessary, apply an overlay to the video, such as black and white or blur. Create a `VideoStorage` class that can store videos using different compression and overlay algorithms
+
+- When a new compression or overlay algorithm is added, the `VideoStorage` class should be modified to support the new algorithm. This violates the Open/Closed principle
+- The Strategy pattern suggests that we should extract the compression and overlay algorithms into separate classes and pass them to the `VideoStorage` class
+- When we create a `VideoStorage` object, we pass it the concrete compressor and overlay objects that we want it to use
+- This is polymorphism in action: `VideoStorage` can accept many different forms of compressor and overlay objects
+
+```text
++------------------------+                  +--------------------------------+
+| VideoStorage           |                  | CompressionStrategy            |
++------------------------+                  +--------------------------------+
+| compressionStrategy    | <*>------------> | compress()                     |
+| overlayStrategy        |                  +--------------------------------+
++------------------------+                          ^                ^
+| store()                |                          |                |
++------------------------+                          |                |
+                                                    |                |
+                                            +------------+    +------------+
+                                            | MP4        |    | MOV        |
+                                            +------------+    +------------+
+                                            | compress() |    | compress() |
+                                            +------------+    +------------+
+
+-- Same for overlay strategy
+```
+
+- The `VideoStorage` class is known as the _context_ class
+- The `CompressionStrategy` class is known as the _strategy_ interface
+
+Other examples:
 
 - Ducks
 - Algorithms used to show a route in map for different mode of transport differ
 
+[State Pattern](#state-pattern) vs. Strategy Pattern:
+
+- The two patterns are similar in practice, but they have different intents
+
+  - States store a reference to the context object that contains them, but strategies don't
+  - States are allowed to replace themselves (i.e., to change the state of the context object to something else), but strategies don't
+  - Strategies only handle a single, specific task, while states provide the underlying implementation for everything (or most things) that the context object does
+
+- State can be considered as an extension of the Strategy pattern
+- Both are based on composition: they change the behaviour of the context by delegating some work to helper objects
+- _Strategy_ makes these objects completely independent and unaware of each other
+- However, _State_ doesn't restrict dependencies between concrete states, letting them alter the state of the context at will
+
+Pros:
+
+- Satisfies the Open/Closed principle
+- Eliminates conditional statements
+
+Cons:
+
+- Clients must be aware of the differences between strategies to choose the right one
+- If you only have a couple of algorithms and they rarely change, there's no real reason to overcomplicate the program with new classes and interfaces
+
 ### Template Method Pattern
 
-_Popularity:_ Important
-Complexity: 2
+| Popularity | Complexity | Scope |
+| ---------- | ---------- | ----- |
+| Important  | 2          | Class |
 
 ### Visitor Pattern
+
+| Popularity | Complexity | Scope  |
+| ---------- | ---------- | ------ |
+|            |            | Object |
 
 ## Constructor Pattern
 
@@ -1011,6 +1329,16 @@ const fruitsCollection = (() => {
   };
 })();
 ```
+
+## Publish-Subscribe Pattern
+
+Messaging pattern where senders of messages, called publishers, do not program the messages to be sent directly to specific receivers, called subscribers
+
+- Messaging pattern, provides framework for exchanging of messages
+- Publisher publishes messages to channels/topics
+- No constant polling for information, updates are pushed to subscribers
+- Publishers do not send messages directly to subscribers, there is a message broker
+- Loose coupling between publishers and subscribers
 
 ## References
 

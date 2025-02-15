@@ -23,7 +23,36 @@ C# is primarily a type-safe language, meaning that instances of types can intera
 C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-type) keyword. However, C# remains a predominantly statically typed language
 :::
 
-## Compilation
+## Introduction
+
+- Developed by **Microsoft**
+- **Anders Hejlsberg** is the lead architect of C#
+- **[.NET](./Dotnet_CLI.md)** is a software framework developed by Microsoft that runs primarily on Microsoft Windows
+
+Source code for a simple console application:
+
+```csharp
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");
+    }
+  }
+}
+```
+
+In C# 9 or later we can just write:
+
+```csharp
+Console.WriteLine("Hello World!");
+```
+
+### Compilation
 
 C# has 2-step compilation process:
 
@@ -38,33 +67,8 @@ C# has 2-step compilation process:
    - To create the _IL_ we can use any language as source code for example, C#, F#, or Visual Basic.
 
 ::: tip NOTE
-You can examine and disassemble the contents of an IL assembly with Microsoft's _ildasm_ tool. And with tools such as _ILSpy_, _dotPeek_ (JetBrains), or _Reflector_ (Red Gate), you can go further and decompile the IL to C#. Because IL is higher-level than native machine code, the decompiler can do quite a good job of reconstructing the original C#.
+You can examine and disassemble the contents of an IL assembly with Microsoft's _ildasm_ tool. And with tools such as _ILSpy_, _dotPeek_ (JetBrains), or _Reflector_ (Red Gate), you can go further and decompile the IL to C#. Because IL is higher-level than native machine code, the decompiler can do quite a good job of reconstructing the original C#
 :::
-
-## Introduction
-
-_Example:_ Simple console application
-
-```cs
-using System;
-
-namespace HelloCS
-{
-  class Program
-  {
-    static void Main(string[] args)
-    {
-      Console.WriteLine("Hello World!");
-    }
-  }
-}
-```
-
-In C# 9 or later we can just write:
-
-```cs
-Console.WriteLine("Hello World!");
-```
 
 ### Syntax
 
@@ -76,145 +80,17 @@ Console.WriteLine("Hello World!");
 - Operators: `+`, `*`, `==`, ...
 - Comments: `//`, `/* ... */`
 
-### Versions
-
-1. C# 1.0: Statically typed object-oriented language
-
-   - Visual Studio .NET 2002 (.NET Framework 1.0/1.1)
-   - Classes
-   - Structs
-   - Interfaces
-   - Events
-   - Properties
-   - Delegates
-   - Operators and expressions
-   - Statements
-   - Attributes
-
-2. C# 2.0:
-
-   - Visual Studio 2005 (.NET Framework 2.0/3.0)
-   - Generics
-   - Partial types
-   - Anonymous methods
-   - Nullable value types
-   - Iterators
-   - Covariance and Contravariance
-
-3. C# 3.0:
-
-   - Visual Studio 2008 (.NET Framework 3.0/3.5)
-   - Declarative coding with **Language INtegrated Queries (LINQ)**
-   - Auto-implemented properties
-   - Anonymous types
-   - Query expressions
-   - Lambda expressions
-   - Expression trees
-   - Extension methods
-   - Implicitly typed local variables
-   - Partial methods
-   - Object and collection initializers
-
-4. C# 4.0:
-
-   - Visual Studio 2010 (.NET Framework 4.0)
-   - Dynamic bindings (types)
-   - Named/optional arguments
-   - Generic convariant and contravariant
-   - Embedded interop types
-
-5. C# 5.0:
-
-   - Visual Studio 2012 (.NET Framework 4.5)
-   - Simplified asynchronous tasks (Asynchronous members)
-   - Caller info attributes
-
-6. C# 6.0:
-
-   - Visual Studio 2015 (.NET Framework 4.6 / .NET Core 1.0/1.1)
-   - Static imports
-   - Exception filters
-   - Auto-property initializers
-   - Null propagator
-   - String interpolation
-   - `nameof` operator
-
-   - Expression bodied members: read-only properties
-
-7. C# 7.0:
-
-   - Visual Studio 2017 (.NET Framework 4.7 / .NET Core 2.0)
-
-   - Binary literals and digit separators: storing whole numbers
-
-   - Pattern matching
-
-   - `out` variables
-
-   - Tuples and deconstruction
-
-   - Local functions
-
-   - Expanded expression bodied members
-
-   - Ref locals and returns
-
-   1. C# 7.1:
-
-      - Default literal expressions
-      - Inferred tuple element names
-      - `async` Main method
-      - Pattern matching on generic type parameters
-
-   2. C# 7.2:
-
-      - Leading underscores in numeric literals
-      - Non-trailing named arguments
-      - `private protected` access modifier
-      - Testing `==` and `!=` with tuple types
-
-   3. C# 7.3:
-
-      - .NET Framework 4.8 / .NET Core 2.1/2.2
-      - Performance-oriented safe code that improves `ref` variables, pointers, and `stackalloc`
-
-8. C# 8:
-
-   - Visual Studio 2019 (.NET Core 3.0)
-   - `Readonly` members
-   - Default interface methods
-   - Switch expressions
-   - Nullable reference types
-
-9. C# 9:
-
-   - Visual Studio 2019 (.NET 5.0)
-   - Records
-   - Target-typed new
-   - Top-level statements (minimal-code console apps)
-   - Enhanced pattern matching
-
-10. C# 10:
-
-    - Visual Studio 2022 (.NET 6.0)
-    - Global `namespace` imports (global `using` Directives)
-    - `using static` directive
-    - Constant string literals: Formatting using interpolated strings
-    - File-scoped namespaces
-    - Required properties: Requiring properties to be set during instantiation
-    - Record `structs`
-    - Null parameter checks
-
 ## Namespaces
 
 Namespaces are used:
 
 - To organize many classes
 - To declare your own namespaces, this helps you control the scope of class and method names in larger programming projects. Avoiding name clashes
+- In C# 10, you can use a file-scoped namespace declaration. This means that you can declare a namespace at the top of a file without enclosing the entire file in a namespace block
 
-_Example:_
+_Example:_ Using namespaces
 
-```cs
+```csharp
 namespace SampleNamespace
 {
     class SampleClass
@@ -227,7 +103,7 @@ namespace SampleNamespace
     }
 }
 
-// In C# 10
+// In C# 10, you can use a file-scoped namespace declaration
 namespace SampleNamespace;
 
 class AnotherSampleClass
@@ -242,7 +118,7 @@ class AnotherSampleClass
 
 _Example:_
 
-```cs
+```csharp
 using System;
 using System.Linq;
 using System.Reflection;
@@ -297,17 +173,39 @@ namespace HelloCS
 
 ### Top-Level Statements
 
-Top-level statements enable you to avoid the extra ceremony required by placing your program's entry point in a static method in a class
+Top-level statements (C# 9.0) enable you to avoid the extra ceremony required by placing your program's entry point in a static method in a class
 
-```cs
+- You can write a simple console application with just a single file and a single line of code
+
+```csharp
 // Program.cs
-// C# 9.0
-using System;
+// Before
+static class Program
+{
+    static void Main(string[] args)
+    {
+        Console.WriteLine("The answer is " + UltimateAnswer());
+    }
 
-Console.WriteLine("Hello World!");
+    static int UltimateAnswer()
+    {
+        return 42;
+    }
+}
+
+// C# 9.0: Top-level statement
+// No need to define a `Program` class or a `Main` method
+Console.WriteLine("The answer is " + UltimateAnswer());
+
+static int UltimateAnswer()
+{
+    return 42;
+}
 ```
 
 - Top-level statements are executed in the order they appear in the file
+- The compiler will generate the necessary boilerplate code for you
+- All code in a top-level statement file is considered to be inside the `Main` method
 - Top-level statements can **only be used in one source file** in your application
 - The compiler generates an error if you use them in more than one file
 
@@ -317,7 +215,7 @@ The .NET 6 SDK also adds a set of implicit `global using` directives:
 
 - A _global `using` directive_ imports a namespace for your whole application instead of a single file
 
-```cs
+```csharp
 // C# 10.0
 Console.WriteLine("Hello World!");
 ```
@@ -329,7 +227,7 @@ Remove an implicit imported namespace:
 - We can remove a specific implicit `using` directive
 - The following entry in the project file removes `System`
 
-```cs
+```csharp
 <ImplicitUsings>enable</ImplicitUsings>
 
 <ItemGroup>
@@ -369,7 +267,7 @@ There are 2 kinds of types in C#:
 
 _Unified Type System_:
 
-The fundamental building block in C# is an encapsulated unit of data and functions called a type. C# has a unified type system, where all types ultimately share a common base type and can be treated as an `object`. This means that all types, whether they represent business objects or are primitive types such as `numbers`, share the same basic functionality. For example, an instance of any type can be converted to a string by calling its `ToString` method
+The fundamental building block in C# is an encapsulated unit of data and methods called a type. C# has a unified type system, where all types ultimately share a common base type and can be treated as an `object`. This means that all types, whether they represent business objects or are primitive types such as `numbers`, share the same basic functionality. For example, an instance of any type can be converted to a string by calling its `ToString` method
 
 Naming conventions:
 
@@ -380,7 +278,7 @@ Naming conventions:
 
 Get name of the variable using `nameof`:
 
-```cs
+```csharp
 int age = 30;
 
 Console.WriteLine(nameof(age));
@@ -398,14 +296,14 @@ Reserved keywords can be used as variable name but they have to be prefixed with
 
 - Single quotes is used
 
-  ```cs
+  ```csharp
   char letter = 'A';
   char digit = '1';
   ```
 
 - Default value:
 
-  ```cs
+  ```csharp
   //
   Console.WriteLine($"default(string) = {default(char)}");
   ```
@@ -420,7 +318,7 @@ Reserved keywords can be used as variable name but they have to be prefixed with
 
 - Not a primitive data-type
 
-```cs
+```csharp
 // Double quotes
 string firstName = "Bob";
 
@@ -437,13 +335,13 @@ string welcome = "Hello, " + name;
 
 - Empty string:
 
-  ```cs
+  ```csharp
   string emptyString = string.Empty;
   ```
 
 - Default value:
 
-  ```cs
+  ```csharp
   Console.WriteLine($"default(string) = {default(string)}");
   ```
 
@@ -454,7 +352,7 @@ Using `System.Text.StringBuilder` we can create mutable strings. The string valu
 - It is memory efficient
 - They offer better performance than string objects of type `System.String`, when heavy string manipulation is involved
 
-```cs
+```csharp
 // Create a StringBuilder with max string capacity of 200
 StringBuilder sb = new StringBuilder("Optional Initial String", 200);
 
@@ -466,7 +364,7 @@ sb[0] = 'P';
 
 - Strings can be appended:
 
-  ```cs
+  ```csharp
   sb.Append("The quick brown fox ");
   sb.Append("jumps over the lazy dog.");
 
@@ -486,7 +384,7 @@ sb[0] = 'P';
 
   - `Convert.ToString()` handles `null`, while `object.ToString()` doesn't, and throws a NULL Reference exception
 
-  ```cs
+  ```csharp
   sb.ToString();
 
   Convert.ToString(sb);
@@ -496,7 +394,7 @@ sb[0] = 'P';
 
 - Basic formatting
 
-  ```cs
+  ```csharp
   Console.WriteLine("Hello, {0} -  {1}", firstName, secondName);
   ```
 
@@ -505,7 +403,7 @@ sb[0] = 'P';
   - General format: `{index[, alignment]:[format]}`
   - Common types: N (Number), G (General), F (Fixed-point), E (Exponential), D (Decimal), P (Percent), X (Hexadecimal), C (Currency in local format)
 
-  ```cs
+  ```csharp
   int val1 = 1234;
   decimal val2 = 1234.5678m;
 
@@ -519,7 +417,7 @@ sb[0] = 'P';
 
 - Specify precision:
 
-  ```cs
+  ```csharp
   // Add a number after the format to specify precision
   Console.WriteLine("{0:D6}, {0:N3}, {0:F1}, {0:G3}", val1);
 
@@ -529,7 +427,7 @@ sb[0] = 'P';
 
 - Formatting with alignment and spacing:
 
-  ```cs
+  ```csharp
   // Format in a column of 5 chars width
   int[] quarters = { 1, 2, 3, 4 };
   Console.WriteLine("{0,5} {1,5} {2,5} {3,5}", quarters[0], quarters[1], quarters[2], quarters[3]);
@@ -553,7 +451,7 @@ sb[0] = 'P';
 
 - **String interpolation** using `$`
 
-```cs
+```csharp
 string welcome = $"Hello, {firstName}";
 
 Console.WriteLine($"This car costs {price:C2}, Age: {25 + 30} with {{{odometer}}} KMs");
@@ -623,7 +521,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 - `byte`, `sbyte`, `short`, `ushort`, `int`, `uint`, `long`, `ulong`
 
-  ```cs
+  ```csharp
   // numbers from 0 to 127
   byte bits = 8;
 
@@ -638,7 +536,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
   - It is mostly used in graphics libraries (high demands for processing power)
 
-    ```cs
+    ```csharp
     // float means single-precision floating point
     // f/F suffix makes it a float literal
     // if f/F is missing compiler will throw error
@@ -650,7 +548,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
   - It is mostly used for real world values (expect money calculations)
 
-    ```cs
+    ```csharp
     // double means double-precision floating point
     // it dose not need any suffix
     // 15-digit precision
@@ -662,7 +560,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
   - It is mostly used in financial applications (high level of accuracy)
   - No (less) round-off errors
 
-    ```cs
+    ```csharp
     // more precision floating point
     // m/M suffix makes it a decimal literal
     // 28-29 decimal digits
@@ -671,7 +569,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 - Default value:
 
-  ```cs
+  ```csharp
   // 0 for all number data-types
   Console.WriteLine(default(byte));
   Console.WriteLine(default(int));
@@ -680,20 +578,20 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 - Binary literals can be specified with the `0b` prefix:
 
-  ```cs
+  ```csharp
   int binaryNotation = 0b1010;
   ```
 
 - Hexadecimal literals can be specified with the `0x` prefix:
 
-  ```cs
+  ```csharp
   int hexadecimalNotation = 0x001E;
   ```
 
 - `_` (underscore) can be used as digit separator (C# 7.0)
 - These are called digit separators and are ignored by the compiler
 
-  ```cs
+  ```csharp
   int decimalNotation = 2_000_000;
   int binaryNotation = 0b_0001_1110_1000_0100_1000_0000;
   int hexadecimalNotation = 0x_001E_8480;
@@ -719,7 +617,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 - Use `checked` block to raise exceptions when overflow happens during any arithmetic operation.
 
-  ```cs
+  ```csharp
   int result = checked(a + b) + c;
 
   checked
@@ -747,7 +645,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 Storing `true` or `false`:
 
-```cs
+```csharp
 bool happy = true;
 bool sad = false;
 
@@ -759,7 +657,7 @@ In C# numbers are not considered as Booleans, like `0` as `false` and reset as `
 
 So, the below code will not work:
 
-```cs
+```csharp
 // Will throw error: Cannot implicitly convert to bool
 if(something)
 
@@ -778,7 +676,7 @@ Every type in C# directly or indirectly derives from the `object` class type, an
 - The code will be messier
 - Possibly poor performance due to [boxing and unboxing operations](#boxing-and-unboxing-operations)
 
-```cs
+```csharp
 // storing a double in an object
 object height = 1.88;
 
@@ -809,7 +707,7 @@ Special type named `dynamic` (C# 4.0) can store any data, even more than `object
 - Poor performance
 - It dose implicit type conversion when using the methods of the stored value.
 
-```cs
+```csharp
 // storing a string in a dynamic object
 // string has a Length property
 dynamic something = "Ahmed";
@@ -834,7 +732,7 @@ Anonymous types provide a convenient way to encapsulate a set of read-only prope
 - Use `{}` to initialize properties
 - Use name-value pair within initializers to declare the property name
 
-```cs
+```csharp
 var temp = new { Color = "Red", Price = 40M };
 ```
 
@@ -842,7 +740,7 @@ var temp = new { Color = "Red", Price = 40M };
 
 Constants are immutable values which are known at compile time and do not change during runtime
 
-```cs
+```csharp
 const double PI = 3.14159265359;
 const int WeekDays = 7;
 const string HomePlanet = "Earth";
@@ -868,7 +766,7 @@ It will have the same properties of the inferred data-type
 
 - Changing an expression from one data type to another.
 
-  ```cs
+  ```csharp
   // it will not round up or down, just discards the decimal places
   decimal myDecimal = 123.987M;
   int myInt = (int)myDecimal;
@@ -876,9 +774,9 @@ It will have the same properties of the inferred data-type
   // 123
   ```
 
-- When a big value is cast into smaller one, C# will automatically wrap the value around.
+- When a big value is cast into smaller one, C# will automatically wrap the value around
 
-  ```cs
+  ```csharp
   int myDecimal = 365;
   byte myInt = (byte)myDecimal;
   // myInt will become 109 instead of 365, as byte can only hold up to 256
@@ -889,7 +787,7 @@ It will have the same properties of the inferred data-type
 To get wrapped value. Open calculator, switch to Scientific mode, and calculate 365 _Mod_ 256
 :::
 
-- **+** (plus) operator when used between a _string_ and any _other type_, it converts the **other type** to **string**.
+- **+** (plus) operator when used between a _string_ and any _other type_, it converts the **other type** to **string**
 
 ### Parsing
 
@@ -899,7 +797,7 @@ For parsing `int` data from `string` use `int.TryParse()`:
 - It is more efficient
 - It returns `true` if parsing was successful
 
-  ```cs
+  ```csharp
   if (Int32.TryParse(numStr1, out targetNum)) {
       Console.WriteLine($"{targetNum}");
   }
@@ -910,7 +808,7 @@ For parsing `int` data from `string` use `int.TryParse()`:
 
 - Other parsing options:
 
-  ```cs
+  ```csharp
   string numStr2 = "2.00";
   string numStr3 = "3,000";
   string numStr4 = "3,000.00";
@@ -954,7 +852,7 @@ Values of value types are treated as objects by performing _boxing_ and _unboxin
 
 - Boxing is implicit; unboxing is explicit.
 
-```cs
+```csharp
 int i = 123;
 object o = i;    // Boxing
 int j = (int)o;  // Unboxing
@@ -970,7 +868,7 @@ All primitive types except `string` are **value types**.
 
 - Default value can be set:
 
-  ```cs
+  ```csharp
   // 0
   int number = default;
 
@@ -1004,7 +902,7 @@ The null-coalescing operator `??` returns the value of its left-hand operand if 
 
 - The `??` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.
 
-```cs
+```csharp
 int? TicketsOnSale = null;
 
 int AvailableTickets;
@@ -1033,7 +931,7 @@ The null-coalescing assignment operator `??=` (C# 8.0) assigns the value of its 
 
 - The `??=` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.
 
-```cs
+```csharp
 if (variable is null)
 {
     variable = expression;
@@ -1045,7 +943,7 @@ variable ??= expression;
 
 _Example:_
 
-```cs
+```csharp
 List<int> numbers = null;
 int? a = null;
 
@@ -1063,14 +961,47 @@ Console.WriteLine(a);  // output: 0
 The operators `??` and `??=` cannot be overloaded.
 :::
 
+#### Null-Conditional Operator `?.`
+
+The null-conditional operator `?.` (C# 6.0) is used to check for `null` before accessing a member or a method of a variable
+
+- It is used to avoid `NullReferenceException` when accessing members of a `null` object
+
+```csharp
+string[] names = new string[3];
+names[0] = "Ahmed";
+
+// Without null-conditional operator
+int length = (names != null) ? names[0].Length : 0;
+
+// With null-conditional operator
+int length = names?[0]?.Length ?? 0;
+```
+
+#### Null-Forgiving Operator `!`
+
+The null-forgiving, or null-suppression operator `!` (C# 8.0) suppresses warnings about nullable value types
+
+- It tells the compiler that you are sure that the expression will not be `null`
+- It is used to suppress warnings about nullable value types
+- At runtime, expression `x!` is equivalent to `x`
+- At runtime, if the expression is `null`, a `NullReferenceException` will be thrown
+
+```csharp
+int? a = null;
+
+// Suppresses warning
+int b = a!;
+```
+
 ### Tuples
 
 The tuple (C# 7.0) feature provides concise syntax to group multiple data elements in a lightweight data structure.
 
 - Tuple values are **mutable**
-- They are the recommended way to return multiple values from a function
+- They are the recommended way to return multiple values from a method
 
-```cs
+```csharp
 // <type> <variable name>
 (int X, int Y) point = (10, 5);
 Console.WriteLine($"X: {point.X}, Y: {point.Y}");
@@ -1089,7 +1020,7 @@ point.x;
 
 - Tuple member names can be ignored, and the default names such as `Item1`, `Item2` ... can be used:
 
-  ```cs
+  ```csharp
   (int, int) point = (10, 5);
 
   Console.WriteLine($"X: {point.Item1}, Y: {point.Item2}");
@@ -1097,16 +1028,16 @@ point.x;
 
 - Deconstructing tuples:
 
-  ```cs
+  ```csharp
   (int x, int y) = point1;
 
   // x and y already exist
   (x, y) = point2;
   ```
 
-- Function returning a Tuple (multiple values):
+- Method returning a Tuple (multiple values):
 
-  ```cs
+  ```csharp
   static (int, int) PlusTimes(int a, int b) {
     return (a+b, a*b);
   }
@@ -1120,7 +1051,7 @@ Multiple variables of the same type can be stored in an array data structure.
 
 - To store elements of any type in an array, we can specify `object` as its type.
 
-```cs
+```csharp
 type[] arrayName;
 
 class TestArraysClass
@@ -1162,7 +1093,7 @@ If a program uses set of integral numbers, consider replacing them with enums, w
 
 - The member names must be distinct
 
-```cs
+```csharp
 enum Season
 {
     // names of enum members
@@ -1179,7 +1110,7 @@ enum Season
 
 - We can explicitly specify any integral numeric type as an underlying type of an enum type.
 
-```cs
+```csharp
 enum ErrorCode : ushort
 {
     None = 0,
@@ -1197,7 +1128,7 @@ If you want an enumeration type to represent a combination of choices, define en
 
 - To indicate that an enumeration type declares bit fields, apply the `Flags` attribute to it
 
-```cs
+```csharp
 [Flags]
 public enum Days
 {
@@ -1261,7 +1192,7 @@ They're also similar to the concept of function pointers found in some other lan
 
 _Example:_
 
-```cs
+```csharp
 // Create a delegate
 public delegate void Delg(string message);
 
@@ -1301,7 +1232,7 @@ A multicast delegate, invokes the methods in the invocation list, in the same or
 
 - **Multicast delegate makes implementation of observer design pattern (publish/subscribe pattern)** very simple.
 
-```cs
+```csharp
 public class MethodClass
 {
     public void Method1(string message) { }
@@ -1335,15 +1266,19 @@ int invocationCount = d1.GetInvocationList().GetLength(0);
 
 ### Records
 
-- Records (C# 9) as a reference type (instead of classes)
-- Record structs (C# 10) as value types
+Records (C# 9) are a reference type that provides built-in functionality for encapsulating data
 
 - Records are distinct from classes in that record types **use value-based equality**
 - Create record types with **immutable properties** by using positional parameters or standard property syntax
 - Positional properties are **immutable** in a `record class` and a `readonly record struct`. They're _mutable_ in a `record struct`
+- Records (C# 9) as a reference type (instead of classes)
+- Record structs (C# 10) as value types
 
-```cs
+_Example:_
+
+```csharp
 // reference type (`class` keyword is optional)
+// public record class Person(string FirstName, string LastName);
 public record Person(string FirstName, string LastName);
 
 // same as above
@@ -1362,11 +1297,7 @@ public record DailyTemperature(double HighTemp, double LowTemp)
 
 // value type (record struct)
 public readonly record struct Point(double X, double Y, double Z);
-```
 
-_Example:_
-
-```cs
 Person person = new("Nancy", "Davolio");
 
 Console.WriteLine(person);
@@ -1378,6 +1309,13 @@ Console.WriteLine(person == newPerson); // true
 Console.WriteLine(ReferenceEquals(person, newPerson)); // false
 ```
 
+When declaring a record the compiler also produces support for:
+
+- Cloning via `with` expression
+- A default implementation of `ToString` that prints the value of each member
+- A new `EqualityContract` property that allows you to specify which members should be used in equality comparisons
+- A `Deconstruct` method that allows you to deconstruct a record into its individual members
+
 ### `with` Expression
 
 A `with` expression (C# 9) produces a copy of its operand with the specified properties and fields modified:
@@ -1385,7 +1323,7 @@ A `with` expression (C# 9) produces a copy of its operand with the specified pro
 - A left-hand operand of a `with` expression (C# 9) must be of a [record type](#records)
 - From C# 10, it can also be of a [structure type](#structure) or an [anonymous type](#anonymous-types)
 
-```cs
+```csharp
 public record Point(int X, int Y);
 public record NamedPoint(string Name, int X, int Y) : Point(X, Y);
 
@@ -1401,34 +1339,37 @@ public static void Main()
 
 ## Conditional
 
-- Run a set of statements only if certain condition is met
+Run a set of statements only if certain condition is met
+
 - They create branches
 
-### If Else
+### If-Else
 
-- It is used to execute certain statements only when the **conditions** that are set up **true**.
+It is used to execute certain statements only when the **conditions** that are set up **true**
 
-  ```cs
-  // if someValue is 24 then execute statement-1 else execute statement-2
-  if (someValue == 24)
-  {
-      // statement-1
-  }
-  else if (someValue > 100)
-  {
-      // statement-2
-  }
-  else
-  {
-      // statement-3
-  }
-  ```
+```csharp
+// if `someValue` is 24 then execute statement-1 else execute statement-2
+if (someValue == 24)
+{
+    // statement-1
+}
+else if (someValue > 100)
+{
+    // statement-2
+}
+else
+{
+    // statement-3
+}
+```
 
-### Ternary Operator
+### Ternary Operator (Conditional expression)
 
 Can be used as a concise way to write if else statement:
 
-```cs
+- Conditional operator cannot be overloaded
+
+```csharp
 {
   // condition ? true_statement : false_statement
   var name = age > 18 ? "old" : "new";
@@ -1439,13 +1380,41 @@ Can be used as a concise way to write if else statement:
 }
 ```
 
-- Conditional operator cannot be overloaded
+Rules about type conversion:
+
+- If both types are the same no problem or if one side supports an implicit conversion to the other but not vice-versa then that is used
+- If neither of these cases were true you had to specify the desired type such as by casting the second argument
+
+Target-typed conditional expression (C# 9.0) (relaxed about type conversion rules):
+
+- The type of the conditional expression is inferred from the type of the variables that are assigned to
+
+```csharp
+// Before
+// Inferring from declared variable type
+IList<int> list = capacity > 0 ? new List<int>(capacity) : (IList<int>)Array.Empty();
+
+// Inferring from return type
+IList<int> GetList(int capacity) {
+    return capacity > 0 ? new List<int>(capacity) : (IList<int>)Array.Empty();
+}
+
+// C# 9.0
+IList<int> list = capacity > 0 ? new List<int>(capacity) : Array.Empty();
+
+// Inferring from return type
+IList<int> GetList(int capacity) {
+    return capacity > 0 ? new List<int>(capacity) : Array.Empty();
+}
+```
 
 ### Switch
 
+It is used to execute one statement from multiple conditions
+
 - `default:` case is optional
 
-```cs
+```csharp
 switch (someValue)
 {
   case 1:
@@ -1461,7 +1430,7 @@ switch (someValue)
 
 - Control cannot fall through from one case label ('case 2:') (Error CS0163)
 
-  ```cs
+  ```csharp
   switch (someValue)
   {
     // This will throw error as case 1 is missing break;
@@ -1476,7 +1445,7 @@ switch (someValue)
 
 - This is valid:
 
-  ```cs
+  ```csharp
   switch (someValue)
   {
     // If case 1 or case 2 is matched the statement will execute
@@ -1489,49 +1458,142 @@ switch (someValue)
   }
   ```
 
+- `switch` statement can be used with `when` keyword to add additional conditions
+
+  ```csharp
+  switch (someValue)
+  {
+    case 1 when someValue > 0:
+        Console.WriteLine("Hello, {0}");
+        break;
+    case 2:
+        Console.WriteLine("Hello, {0}");
+        break;
+    default:
+        break;
+  }
+  ```
+
+- `switch` statement can be used with `goto` keyword to jump to a specific case
+
+  ```csharp
+  switch (someValue)
+  {
+    case 1:
+        Console.WriteLine("Hello, {0}");
+        goto case 2;
+    case 2:
+        Console.WriteLine("Hello, {0}");
+        break;
+    default:
+        break;
+  }
+  ```
+
+#### Switch Expression
+
+Switch expressions (C# 8.0) are a more concise way to write switch statements
+
+- The final `_` case is a _discard pattern_ that matches all values
+
+```csharp
+int GetDayNumber(string day)
+{
+  return day switch
+  {
+      "Sunday" => 1,
+      "Monday" => 2,
+      "Tuesday" => 3,
+      "Wednesday" => 4,
+      "Thursday" => 5,
+      "Friday" => 6,
+      "Saturday" => 7,
+      _ => 0
+  };
+}
+```
+
+- Use _relational patterns_ to match a range of values
+
+  ```csharp
+  string WaterState(int tempInFahrenheit) =>
+    tempInFahrenheit switch
+    {
+        (> 32) and (< 212) => "liquid",
+        < 32 => "solid",
+        > 212 => "gas",
+        32 => "solid/liquid transition",
+        212 => "liquid / gas transition",
+    };
+  ```
+
+- Compare multiple properties of an object
+
+  ```csharp
+  public record Order(int Items, decimal Cost);
+
+  public decimal CalculateDiscount(Order order) =>
+    order switch
+    {
+        { Items: > 10, Cost: > 1000.00m } => 0.10m,
+        { Items: > 5, Cost: > 500.00m } => 0.05m,
+        { Cost: > 250.00m } => 0.02m,
+        null => throw new ArgumentNullException(nameof(order), "Can't calculate discount on null order"),
+        var someObject => 0m,
+    };
+  ```
+
 ## Loops
 
 They help to run a set of statements repeatedly based on some conditions
 
-### for
+| Use Case                      | Loop Type       |
+| ----------------------------- | --------------- |
+| Known number of iterations    | `for` loop      |
+| Unknown number of iterations  | `while` loop    |
+| Execute at least once         | `do-while` loop |
+| Iterate through an enumerable | `foreach` loop  |
 
-- for loop is used when the number of **iterations** are **known**.
+### `for`
 
-  ```cs
-  // initialization; condition; iteration
-  for (int i = 0; i < length; i++) {
-    // statements
-  }
-  ```
+`for` loop is used when the number of **iterations** are **known**
 
-### While
+```csharp
+// initialization; condition; iteration
+for (int i = 0; i < length; i++) {
+  // statements
+}
+```
 
-- while loop is used when the number of **iterations** are **unknown**.
+### `while`
 
-  ```cs
-  // check the condition first
-  while (x > 5) {
-    // statements
-  }
-  ```
+`while` loop is used when the number of **iterations** are **unknown**
 
-### do-while
+```csharp
+// check the condition first
+while (x > 5) {
+  // statements
+}
+```
 
-- do-while executes statements **at least once** and afterwards it behaves like _while_ loop.
+### `do-while`
 
-  ```cs
-  // execute at least once
-  do {
-    // statements
-  } while (x > 5); // now check condition
-  ```
+`do-while` executes statements **at least once** and afterwards it behaves like _while_ loop
 
-### foreach
+```csharp
+// execute at least once
+do {
+  // statements
+} while (x > 5); // now check condition
+```
 
-- Iterate through an array
-- runs as long as there is content in the array
+### `foreach`
 
-```cs
+Iterate through an array
+
+- Runs as long as there is content in the array
+
+```csharp
 int[] collection = { 1, 2, 3 };
 
 foreach (var item in collection)
@@ -1542,7 +1604,9 @@ foreach (var item in collection)
 
 ### Break And Continue
 
-```cs
+`break` statement is used to exit the loop
+
+```csharp
 while (x > 5) {
   // statements
 
@@ -1553,7 +1617,9 @@ while (x > 5) {
 }
 ```
 
-```cs
+`continue` statement is used to skip the current iteration and move to the next iteration
+
+```csharp
 while (x > 5) {
   // statements
 
@@ -1566,271 +1632,22 @@ while (x > 5) {
 }
 ```
 
-## Functions
-
-Functions are known as Methods in context of OOP.
-
-- A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments.
-
-- In C#, every executed instruction is performed in the context of a method.
-
-- The `Main` method is the entry point for every C# application and it is called by the CLR when the program is started.
-
-_Syntax:_
-
-```cs
-// <Access Specifier> <Return Type> <Method Name>(Parameter List)
-public void Main(string[] args)
-{
-  // Method Body
-  Console.WriteLine("Hello, World");
-}
-```
-
-- Access Specifier: It determines the visibility of a variable or a method from another class
-
-- Return Type: A method may return a value. The return type is the data type of that value. If the method is not returning any values, then the return type is `void`
-
-- Method Name: It is a unique identifier and it is case sensitive. It cannot be same as any other identifier declared in the class
-
-- Parameter List (optional): Enclosed between parentheses, the parameters are used to pass and receive data from a method. The parameter list refers to the type, order, and number of parameters of a method. Parameters are optional.
-
-- Method Body: This contains the set of instructions needed to be complete the required activity
-
-A method signature is a unique identification of a method for the C# compiler:
-
-- Method name
-- The type and kind (value, reference, or output) of each of its formal parameters
-- Method signature does not include the return type.
-
-```cs
-DoSomething(int, int)
-```
-
-### Parameters
-
-- Functions can have two types of parameters: required and optional.
-
-- Function call will fail if required arguments are not passed during function call
-
-- Optional parameters have a default value. The method that has optional parameters could be called without those arguments. If we provide the values as arguments for optional parameters then the default values will be overridden.
-
-- **Optional parameters must appear after all required parameters** (Error CS1737):
-
-  ```cs
-  public void Print(int sum, string name = "SUM")
-  {
-    Console.WriteLine(name + sum);
-  }
-  ```
-
-- `OptionalAttribute` can also be used to specify a parameter as optional
-
-  ```cs
-  public void Print(int sum, [Optional] string name)
-  {
-    Console.WriteLine(sum);
-  }
-  ```
-
-- Call with named argument (C# 4.0), arguments can be passed out of order
-
-  ```cs
-  Print(name: "ADD", sum: 230);
-
-  // error CS8323: Named argument 'name' is used out-of-position but is followed by an unnamed argument
-  Print(name: "ADD", 230);
-  ```
-
-- `params`: a method parameter that takes a variable number of arguments. The parameter type must be a single dimensional array
-
-  - It makes the parameter optional
-  - It must be the last parameter
-
-  ```cs
-  public class Algebra
-  {
-    public int Sum(params int[] numbers)
-    {
-      int total = 0;
-
-      foreach (int num in numbers)
-      {
-        total += num;
-      }
-
-      return total;
-    }
-  }
-
-  private static void Main(string[] args)
-  {
-    Algebra alg = new Algebra();
-
-    alg.Sum(1, 2, 3, 4, 5);
-  }
-  ```
-
-### Pass By Reference
-
-When primitive data-types are passed as arguments to a method, the argument value gets copied. So changes made to the value inside the method will not reflect in the original variable.
-
-- If the argument needs to be modified in the function, it needs to be passed by reference
-
-Arguments can be passed by reference using parameter modifiers:
-
-- `ref`: Keyword indicates that a value is passed by reference.
-
-  - Variables passed as `ref` arguments must be initialized before being passed in a method call.
-  - **Arguments can be modified**
-
-- `out`: Keyword causes arguments to be passed by reference.
-
-  - Variables passed as `out` arguments don't have to be initialized before being passed in a method call.
-  - **Arguments must be modified**: Value must be assigned before the method returns
-  - Enables a function to return multiple values (old way). [Tuples](#tuples) are recommended for this.
-  - Cannot be used on the first argument of an extension method
-
-- `in`: Keyword causes arguments to be passed by reference but ensures the argument is not modified.
-
-  - Variables passed as `in` arguments must be initialized before being passed in a method call.
-  - **Arguments cannot be modified**
-  - C# 7.2+
-
-  ```cs
-  public static void ChangeRef(ref int numberRef)
-  {
-      numberRef = 25;
-      Console.WriteLine($"Inside the ChangeRef method the numberRef is {numberRef}");
-  }
-
-  public static void ChangeOut(out int numberOut)
-  {
-      // numberOut must be assigned with a value before the function returns
-      numberOut = 60;
-      Console.WriteLine($"Inside the ChangeOut method the numberOut is {numberOut}");
-  }
-
-  static void Main(string[] args)
-  {
-      int numberRef = 15;
-
-      Console.WriteLine($"Before calling the ChangeRef method the numberRef is {numberRef}");
-      ChangeRef(ref numberRef);
-      Console.WriteLine($"After calling the ChangeRef method the numberRef is {numberRef}");
-
-
-      // No need to declare numberOut before calling the method
-      Console.WriteLine("Before calling the ChangeOut method the numberOut is unassigned");
-      ChangeOut(out int numberOut);
-      Console.WriteLine($"After calling the ChangeOut method the numberOut is {numberOut}");
-  }
-  ```
-
-Function overloading:
-
-- The `in`, `ref`, `out`, and `params` keywords are not considered part of the method signature for the purpose of overload resolution:
-
-  ```cs
-  class CS0663_Example
-  {
-      // Compiler error CS0663: "Cannot define overloaded
-      // methods that differ only on ref and out".
-      public void SampleMethod(out int i) { }
-      public void SampleMethod(ref int i) { }
-  }
-  ```
-
-For reference types `ref` can be used:
-
-```cs
-public static void ChangeColor(Pen pen)
-{
-    pen.Color = Color.Green;
-    Console.WriteLine($"Inside the ChangeColor method the color is {pen.Color}");
-}
-
-public static void CreateNewObjectWithoutRef(Pen pen)
-{
-    pen = new Pen(Color.Red);
-    Console.WriteLine($"Inside the CreateNewObjectWithoutRef method the color of new pen object is {pen.Color}");
-}
-
-public static void CreateNewObjectWithRef(ref Pen pen)
-{
-    pen = new Pen(Color.Yellow);
-    Console.WriteLine($"Inside the CreateNewObjectWithRef method the color of new pen object is {pen.Color}");
-}
-
-static void Main(string[] args)
-{
-    Pen pen = new Pen(Color.Blue);
-
-    Console.WriteLine($"Before ChangeColor method: {pen.Color}");
-    ChangeColor(pen);
-    Console.WriteLine($"After the ChangeColor method: {pen.Color}");
-
-    Console.WriteLine($"Before CreateNewObjectWithoutRef method: {pen.Color}");
-    CreateNewObjectWithoutRef(pen);
-    Console.WriteLine($"After CreateNewObjectWithoutRef method: {pen.Color}");
-
-    Console.WriteLine($"Before CreateNewObjectWithRef method: {pen.Color}");
-    CreateNewObjectWithRef(ref pen);
-    Console.WriteLine($"After CreateNewObjectWithRef method: {pen.Color}");
-}
-```
-
-The `in`, `ref`, and `out` keywords can't be used for the following kinds of methods:
-
-- Async methods, defined using `async` modifier
-- Iterator methods, which include a `yield return` or `yield break` statement
-
-### Partial Methods
-
-A partial class or struct may contain a partial method.
-
-- The definition: One part of the class contains the signature of the method.
-- The implementation: An implementation can be defined in the same part or another part.
-
-- If the implementation is not supplied, then the method and all calls to the method are removed at compile time.
-- Implementation may be required depending on method signature.
-
-A partial method isn't required to have an implementation in the following cases:
-
-- It doesn't have any accessibility modifiers (including the default `private`).
-- It returns `void`.
-- It doesn't have any `out` parameters.
-- It doesn't have any of the following modifiers `virtual`, `override`, `sealed`, `new`, or `extern`.
-
-_Example:_
-
-```cs
-// Definition in file1.cs
-partial void OnNameChanged();
-
-// Implementation in file2.cs
-partial void OnNameChanged()
-{
-  // method body
-}
-```
-
 ## Class
 
-A `class` type defines a data structure that contains data members (fields) and function members (methods, properties, and others).
-
-Class types support single inheritance and polymorphism, mechanisms whereby derived classes can extend and specialize base classes.
+A `class` type defines a data structure that contains data members (fields) and function members (methods, properties, and others)
 
 - A class is a blue print of an Object
 
 It has code and data:
 
 - Properties (data): member variables
-- It has actions/abilities: member functions or methods
+- It has actions/abilities: member methods
+
+C# class types support **single inheritance** and **polymorphism**, mechanisms whereby derived classes can extend and specialize base classes
 
 _Example:_
 
-```cs
+```csharp
 // <Access Specifier> class <Class Name>
 public class Counter
 {
@@ -1844,13 +1661,15 @@ public class Counter
 }
 ```
 
-The `new` operator is used to create new instances of a class
+The `new` operator is used to create new instances of a class:
 
-```cs
+```csharp
 static void Main()
 {
-  var c1 = new Counter();
-  var c2 = new Counter();
+  // Syntax: new <Class Name>()
+  // <reference type> <variable name> = new <type>();
+  Counter c1 = new Counter();
+  Counter c2 = new Counter();
 
   Console.Write(c1.GetNextValue());
   Console.Write(c1.GetNextValue());
@@ -1865,12 +1684,12 @@ static void Main()
 // 1 2 3 1 4
 ```
 
-- In C#, every class implicitly inherits from the base `Object` class. Because of this inheritance, every class, both built-in and the user created inherit the `ToString` method from the `Object` class.
+- In C#, every class implicitly inherits from the base `Object` class. Because of this inheritance, every class, both built-in and the user created inherit the `ToString` method from the `Object` class
 
-  - `ToString` should return a string representation of the object that is suitable for display.
+  - `ToString` should return a string representation of the object that is suitable for display
   - It's good idea to override this method and generate your own string representation of your class
 
-  ```cs
+  ```csharp
   public class Car
   {
     public string Name { get; set; }
@@ -1881,22 +1700,25 @@ static void Main()
   }
   ```
 
-New way to instantiate objects (C# 9: Target-Typed):
+New way to instantiate objects (C# 9: Target-Typed `new` Expressions):
 
-```cs
-XmlDocument xml3 = new();
+- The type of the variable is inferred from the type of the object being created
 
+```csharp
 // old way
 XmlDocument xml3 = new XmlDocument();
+
+// new way
+XmlDocument xml3 = new();
 ```
 
 ### Reference Types
 
-Any type defined with the `class` keyword will be a _reference type_, meaning that a variable of that type will not contain the data that makes up an instance of the type; instead, it can contain a _reference_ to an instance of the type.
+Any type defined with the `class` keyword will be a _reference type_, meaning that a variable of that type will not contain the data that makes up an instance of the type; instead, it can contain a _reference_ to an instance of the type
 
 - In C# classes are all reference-types
 
-```cs
+```csharp
 Counter c1 = new Counter();
 Counter c2 = c1;
 
@@ -1920,10 +1742,9 @@ Reference types can contain `null`, makes it hard to know whether it's safe to a
 
 - C# 8.0 added _nullable references_ to make a distinction between references that may be null, and ones that must not be
 - This feature is disabled by default
-
 - `#nullable`: allows fine-grained control of the nullable annotation context
 
-```cs
+```csharp
 string? mayBeNull = null;
 
 if (mayBeNull != null)
@@ -1951,7 +1772,7 @@ There are 4 types and 2 combined types:
 
    - Method or class member can be accessed by any other code within your program
 
-   ```cs
+   ```csharp
    public class Car
    {
      public string name = "Jeep";
@@ -1972,7 +1793,7 @@ There are 4 types and 2 combined types:
 
    - Method or class member can be accessed by any other code within your program
 
-   ```cs
+   ```csharp
    public class Car
    {
      string name = "Jeep";
@@ -1994,7 +1815,7 @@ There are 4 types and 2 combined types:
 
    - Method or class member can only be accessed by code within the class definition itself
 
-   ```cs
+   ```csharp
    public class Car
    {
        public string name;
@@ -2023,7 +1844,7 @@ There are 4 types and 2 combined types:
 
 4. `internal`: The type or member can be accessed by any code in the same assembly, but not from another assembly. In other words, `internal` types or members can be accessed from code that is part of the same compilation
 
-   ```cs
+   ```csharp
    // First project (ASSEMBLY)
    public class Car
    {
@@ -2055,7 +1876,7 @@ There are 4 types and 2 combined types:
 
 5. `protected internal`: The type or member can be accessed by any code in the assembly in which it's declared, or from within a derived `class` in another assembly.
 
-   ```cs
+   ```csharp
    //First Project (ASSEMBLY)
    public class NumberClassInFirstProject
    {
@@ -2122,7 +1943,7 @@ Non-static class can contain static:
 
 _Example:_
 
-```cs
+```csharp
 public class Counter
 {
     private int _count;
@@ -2206,17 +2027,17 @@ Property accessors:
 - `set`: property accessor is used to assign a new value
 - `init`: (C# 9) property accessor is used to assign a new value only during object construction
 
-- The `value` keyword is used to define the value being assigned by the `set` or `init` accessor.
+The `value` keyword is used to define the value being assigned by the `set` or `init` accessor
 
 Properties can be:
 
 - _Read-write_: if they have both `get` and `set` accessor
-- _Read-only_: if they have a `get` accessor but no `set` accessor. The value of the Property can be set in the constructor.
+- _Read-only_: if they have a `get` accessor but no `set` accessor. The value of the Property can be set in the constructor
 - _Write-only_: if they have a `set` accessor, but no `get` accessor
 
 _Example:_
 
-```cs
+```csharp
 public class Car
 {
   private string _name;
@@ -2253,7 +2074,7 @@ public class Car
 
 - A shorthand way to write a Property is using `=>` operator to create "expression-bodied" properties:
 
-  ```cs
+  ```csharp
   private string _name;
 
   public string Name {
@@ -2264,7 +2085,7 @@ public class Car
 
 - Auto (properties) setter and getter: The above code can be written as (syntactic sugar provided by C# 3.0 compiler)
 
-  ```cs
+  ```csharp
   public class Car
   {
     public string Name { get; set; }
@@ -2273,7 +2094,7 @@ public class Car
 
 - Create a "computed property" from other fields (setter is not needed):
 
-  ```cs
+  ```csharp
   public class Car
   {
     public string Description {
@@ -2282,42 +2103,53 @@ public class Car
   }
   ```
 
-- _Example:_
+- `required` modifier (C# 11) indicates that the field or property it's applied to must be initialized by an object initializer
 
-  ```cs
+  ```csharp
   public class Car
   {
-    public string Name {
-      get { return Name; }
-      set {
-        if (string.IsNullOrEmpty(value)) {
-          throw new ArgumentException("Name cannot be empty");
-        }
+    public required string Name { get; set; }
+  }
 
-        Name = value;
+  var car = new Car { Name = "Jeep" };
+  ```
+
+_Example:_
+
+```csharp
+public class Car
+{
+  public string Name {
+    get { return Name; }
+    set {
+      if (string.IsNullOrEmpty(value)) {
+        throw new ArgumentException("Name cannot be empty");
       }
+
+      Name = value;
     }
   }
-  ```
+}
+```
 
 ### Indexers
 
 Indexers allow instances of a class or struct to be indexed just like arrays
 
-- The indexed value can be set or retrieved without explicitly specifying a type or instance member.
+- The indexed value can be set or retrieved without explicitly specifying a type or instance member
 
-- Indexers resemble properties except that their accessors take parameters.
+- Indexers resemble properties except that their accessors take parameters
 
 - The `this` keyword is used to define the indexer
-- The `value` keyword is used to define the value being assigned by the set accessor.
+- The `value` keyword is used to define the value being assigned by the set accessor
 
-- Indexers do not have to be indexed by an integer value; it is up to you how to define the specific look-up mechanism.
+- Indexers do not have to be indexed by an integer value; it is up to you how to define the specific look-up mechanism
 
 - Indexers can be overloaded
 
 - Indexers can have more than one formal parameter
 
-```cs
+```csharp
 // Indexer declaration
 public int this[int index]
 {
@@ -2347,20 +2179,20 @@ class Program
    }
 }
 // The example displays the following output:
-//       Hello, World.
+//       Hello, World
 ```
 
 ### Constructor and Destructor (Finalizers)
 
-A constructor is a special method of the class or struct which gets automatically invoked whenever a class or struct is created.
+A constructor is a special method of the class or struct which gets automatically invoked whenever a class or struct is created
 
-- A class or struct may have multiple constructors that take different arguments.
+- A class or struct may have multiple constructors that take different arguments
 
 - Constructors enable the programmer to set default values, limit instantiation, and other instructions
 
-- Constructor of a class must have the **same name as the class name** in which it resides.
+- Constructor of a class must have the **same name as the class name** in which it resides
 
-- A constructor doesn't have any return type, not even void.
+- A constructor doesn't have any return type, not even void
 
 #### Types of Constructors
 
@@ -2368,7 +2200,7 @@ A constructor is a special method of the class or struct which gets automaticall
 
   - Unless the class is static, classes without constructors are given a public parameterless constructor by the C# compiler in order to enable class instantiation.
 
-  ```cs
+  ```csharp
   class Geek {
 
     int num;
@@ -2388,9 +2220,9 @@ A constructor is a special method of the class or struct which gets automaticall
   // "Constructor Called"
   ```
 
-- Parameterized Constructor: A constructor having at least one parameter
+- Parametrized Constructor: A constructor having at least one parameter
 
-  ```cs
+  ```csharp
   class Geek {
 
     int num;
@@ -2406,7 +2238,7 @@ A constructor is a special method of the class or struct which gets automaticall
 
   - Its main use is to initialize a new instance to the values of an existing instance.
 
-  ```cs
+  ```csharp
   class Geek {
 
     int num;
@@ -2441,7 +2273,7 @@ A constructor is a special method of the class or struct which gets automaticall
   - If the class only contains private constructors, then instances of this class cannot be created
   - It is the implementation of a singleton class pattern
 
-  ```cs
+  ```csharp
   class NLog
   {
       // Private Constructor:
@@ -2460,7 +2292,7 @@ A constructor is a special method of the class or struct which gets automaticall
 
   - **Cannot be a parameterized** constructor
 
-  ```cs
+  ```csharp
   class SimpleClass
   {
       // Static variable that must be initialized at run time.
@@ -2492,7 +2324,7 @@ Destructors (Finalizers) are used to perform any necessary final clean-up when a
 - Finalizers cannot be called. They are invoked automatically.
 - A finalizer does not take modifiers or have parameters.
 
-```cs
+```csharp
 class Car
 {
     ~Car()  // finalizer
@@ -2502,9 +2334,324 @@ class Car
 }
 ```
 
+### Methods
+
+Functions are known as _methods_ in context of OOP
+
+- A method is a code block that contains a series of statements. A program causes the statements to be executed by calling the method and specifying any required method arguments
+
+- In C#, every executed instruction is performed in the context of a method
+
+- The `Main` method is the entry point for every C# application and it is called by the CLR when the program is started
+
+_Syntax:_
+
+```csharp
+// <Access Specifier> <Return Type> <Method Name>(Parameter List)
+public void Main(string[] args)
+{
+  // Method Body
+  Console.WriteLine("Hello, World");
+}
+```
+
+- Access Specifier: It determines the visibility of a variable or a method from another class
+
+- Return Type: A method may return a value. The return type is the data type of that value. If the method is not returning any values, then the return type is `void`
+
+- Method Name: It is a unique identifier and it is case sensitive. It cannot be same as any other identifier declared in the class
+
+- Parameter List (optional): Enclosed between parentheses, the parameters are used to pass and receive data from a method. The parameter list refers to the type, order, and number of parameters of a method. Parameters are optional.
+
+- Method Body: This contains the set of instructions needed to be complete the required activity
+
+A method signature is a unique identification of a method for the C# compiler:
+
+- Method name
+- The type and kind (value, reference, or output) of each of its formal parameters
+- Method signature does not include the return type
+
+```csharp
+DoSomething(int, int)
+```
+
+#### Parameters
+
+Methods can have two types of parameters: required and optional
+
+- Method call will fail if required arguments are not passed during method call
+
+- Optional parameters have a default value. The method that has optional parameters could be called without those arguments. If we provide the values as arguments for optional parameters then the default values will be overridden.
+
+- **Optional parameters must appear after all required parameters** (Error CS1737):
+
+  ```csharp
+  public void Print(int sum, string name = "SUM")
+  {
+    Console.WriteLine(name + sum);
+  }
+  ```
+
+- `OptionalAttribute` can also be used to specify a parameter as optional
+
+  ```csharp
+  public void Print(int sum, [Optional] string name)
+  {
+    Console.WriteLine(sum);
+  }
+  ```
+
+- Call with named argument (C# 4.0), arguments can be passed out of order
+
+  ```csharp
+  Print(name: "ADD", sum: 230);
+
+  // error CS8323: Named argument 'name' is used out-of-position but is followed by an unnamed argument
+  Print(name: "ADD", 230);
+  ```
+
+- `params`: a method parameter that takes a variable number of arguments. The parameter type must be a single dimensional array
+
+  - It makes the parameter optional
+  - It must be the last parameter
+
+  ```csharp
+  public class Algebra
+  {
+    public int Sum(params int[] numbers)
+    {
+      int total = 0;
+
+      foreach (int num in numbers)
+      {
+        total += num;
+      }
+
+      return total;
+    }
+  }
+
+  private static void Main(string[] args)
+  {
+    Algebra alg = new Algebra();
+
+    alg.Sum(1, 2, 3, 4, 5);
+  }
+  ```
+
+#### Pass By Reference
+
+When primitive data-types are passed as arguments to a method, the argument value gets copied. So changes made to the value inside the method will not reflect in the original variable.
+
+- If the argument needs to be modified in the method, it needs to be passed by reference
+
+Arguments can be passed by reference using parameter modifiers:
+
+- `ref`: Keyword indicates that a value is passed by reference.
+
+  - Variables passed as `ref` arguments must be initialized before being passed in a method call.
+  - **Arguments can be modified**
+
+- `out`: Keyword causes arguments to be passed by reference.
+
+  - Variables passed as `out` arguments don't have to be initialized before being passed in a method call.
+  - **Arguments must be modified**: Value must be assigned before the method returns
+  - Enables a method to return multiple values (old way). [Tuples](#tuples) are recommended for this.
+  - Cannot be used on the first argument of an extension method
+
+- `in`: Keyword causes arguments to be passed by reference but ensures the argument is not modified.
+
+  - Variables passed as `in` arguments must be initialized before being passed in a method call.
+  - **Arguments cannot be modified**
+  - C# 7.2+
+
+  ```csharp
+  public static void ChangeRef(ref int numberRef)
+  {
+      numberRef = 25;
+      Console.WriteLine($"Inside the ChangeRef method the numberRef is {numberRef}");
+  }
+
+  public static void ChangeOut(out int numberOut)
+  {
+      // numberOut must be assigned with a value before the method returns
+      numberOut = 60;
+      Console.WriteLine($"Inside the ChangeOut method the numberOut is {numberOut}");
+  }
+
+  static void Main(string[] args)
+  {
+      int numberRef = 15;
+
+      Console.WriteLine($"Before calling the ChangeRef method the numberRef is {numberRef}");
+      ChangeRef(ref numberRef);
+      Console.WriteLine($"After calling the ChangeRef method the numberRef is {numberRef}");
+
+
+      // No need to declare numberOut before calling the method
+      Console.WriteLine("Before calling the ChangeOut method the numberOut is unassigned");
+      ChangeOut(out int numberOut);
+      Console.WriteLine($"After calling the ChangeOut method the numberOut is {numberOut}");
+  }
+  ```
+
+Function overloading:
+
+- The `in`, `ref`, `out`, and `params` keywords are not considered part of the method signature for the purpose of overload resolution:
+
+  ```csharp
+  class CS0663_Example
+  {
+      // Compiler error CS0663: "Cannot define overloaded
+      // methods that differ only on ref and out".
+      public void SampleMethod(out int i) { }
+      public void SampleMethod(ref int i) { }
+  }
+  ```
+
+For reference types `ref` can be used:
+
+```csharp
+public static void ChangeColor(Pen pen)
+{
+    pen.Color = Color.Green;
+    Console.WriteLine($"Inside the ChangeColor method the color is {pen.Color}");
+}
+
+public static void CreateNewObjectWithoutRef(Pen pen)
+{
+    pen = new Pen(Color.Red);
+    Console.WriteLine($"Inside the CreateNewObjectWithoutRef method the color of new pen object is {pen.Color}");
+}
+
+public static void CreateNewObjectWithRef(ref Pen pen)
+{
+    pen = new Pen(Color.Yellow);
+    Console.WriteLine($"Inside the CreateNewObjectWithRef method the color of new pen object is {pen.Color}");
+}
+
+static void Main(string[] args)
+{
+    Pen pen = new Pen(Color.Blue);
+
+    Console.WriteLine($"Before ChangeColor method: {pen.Color}");
+    ChangeColor(pen);
+    Console.WriteLine($"After the ChangeColor method: {pen.Color}");
+
+    Console.WriteLine($"Before CreateNewObjectWithoutRef method: {pen.Color}");
+    CreateNewObjectWithoutRef(pen);
+    Console.WriteLine($"After CreateNewObjectWithoutRef method: {pen.Color}");
+
+    Console.WriteLine($"Before CreateNewObjectWithRef method: {pen.Color}");
+    CreateNewObjectWithRef(ref pen);
+    Console.WriteLine($"After CreateNewObjectWithRef method: {pen.Color}");
+}
+```
+
+The `in`, `ref`, and `out` keywords can't be used for the following kinds of methods:
+
+- Async methods, defined using `async` modifier
+- Iterator methods, which include a `yield return` or `yield break` statement
+
+#### Partial Methods
+
+A partial class or struct may contain a partial method.
+
+- The definition: One part of the class contains the signature of the method.
+- The implementation: An implementation can be defined in the same part or another part.
+
+- If the implementation is not supplied, then the method and all calls to the method are removed at compile time.
+- Implementation may be required depending on method signature.
+
+A partial method isn't required to have an implementation in the following cases:
+
+- It doesn't have any accessibility modifiers (including the default `private`).
+- It returns `void`.
+- It doesn't have any `out` parameters.
+- It doesn't have any of the following modifiers `virtual`, `override`, `sealed`, `new`, or `extern`.
+
+_Example:_
+
+```csharp
+// Definition in file1.cs
+partial void OnNameChanged();
+
+// Implementation in file2.cs
+partial void OnNameChanged()
+{
+  // method body
+}
+```
+
+#### Extension Methods
+
+Extension methods enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type
+
+- Extension methods are a special kind of static method, but they are called as if they were instance methods on the extended type
+- They are defined in a static class
+- The first parameter of the method specifies which type the method operates on, and the parameter is preceded by the `this` modifier
+
+_Example:_
+
+```csharp
+public static class StringExtension
+{
+  public static string ToUpperCase(this string str)
+  {
+    return str.ToUpper();
+  }
+}
+
+public class Program
+{
+  static void Main()
+  {
+    string name = "John";
+
+    // The `ToUpperCase` method is called as if it were an instance method on the string type
+    Console.WriteLine(name.ToUpperCase());
+  }
+}
+```
+
+- Extension methods are only in scope when you explicitly import the namespace into your source code with a `using` directive
+
+#### Anonymous Methods
+
+An anonymous method is a method without a name
+
+- It is defined using the [`delegate`](#delegate) keyword and can be assigned to a variable of delegate type
+- Anonymous methods are used to pass a code block as a delegate parameter
+
+_Example:_
+
+```csharp
+delegate void PrintDelegate(string message);
+
+class Program
+{
+  static void Main()
+  {
+    PrintDelegate print = delegate (string message)
+    {
+      Console.WriteLine(message);
+    };
+
+    print("Hello, World");
+  }
+}
+```
+
+- Static anonymous methods (C# 9) can be used to indicate no references to variables is intended
+
+```csharp
+const int y = 10;
+someMethod(static x => x + y);
+```
+
 ### Object Oriented Programming
 
-C# is an object-oriented programming language.
+C# is an [Object-Oriented Programming](../../Concepts/Designs/Programming_Paradigms/Object-Oriented_Programming.md) language
 
 The four basic principles of object-oriented programming are:
 
@@ -2513,36 +2660,49 @@ The four basic principles of object-oriented programming are:
 - [Inheritance](#inheritance)
 - [Polymorphism](#polymorphism)
 
-Checkout [Object Oriented Programming](../../Concepts/Programming_Paradigms/Object-Oriented_Programming.md)
-
 #### Inheritance
 
 Inheritance allows you to define a child class that reuses (inherits), extends, or modifies the behaviours of a parent class.
 
-- Base Class: The class whose members are inherited
-- Derived Class: The class that inherits the members of the base class
+- **Base Class**: The class whose members are inherited
+- **Derived Class**: The class that inherits the members of the base class
 
 Inheritance applies only to classes and interfaces, not structs, delegates and enums
 
-**C# and .NET support single inheritance only**: a class can only inherit from a single class.
+**C# and .NET support single inheritance only**: a class can only inherit from a single class
 
 - However, inheritance is transitive (multi-level inheritance)
 - C# supports multiple interface inheritance
-- Multiple class inheritance problem is called as Diamond problem
+- Multiple class inheritance problem is called as _Diamond problem_
 
 Not all members of a base class are inherited:
 
-- _Static constructors_, which initialize the static data of a class.
+- **Static constructors**: which initialize the static data of a class
 
-- _Instance constructors_, which you call to create a new instance of the class. Each class must define its own constructors.
+- **Instance constructors**: which you call to create a new instance of the class. Each class must define its own constructors
 
-- _Finalizers_, which are called by the runtime's garbage collector to destroy instances of a class.
+- **Finalizers**: which are called by the runtime's garbage collector to destroy instances of a class
 
 ##### Method Hiding
 
 Derived classes can hide the inherited members by providing an alternate implementation:
 
-- If the derived class has a method of same signature as the parent then the derived class method hides the base class method. To make the hiding explicit add the `new` keyword: `public new void PrintFullName()`
+- If the derived class has a method of same signature as the parent then the derived class method hides the base class method
+
+- To make the hiding explicit add the **`new` keyword**: `public new void PrintFullName()` in the derived class
+
+- If the `new` keyword is not used, the compiler will issue a warning
+
+Working with method hiding:
+
+- The runtime will determine which method to call based on the reference type of the object rather than the object type
+- If interface is used, the method of the class that actually inherits and implements the interface will be called
+
+So, there is a difference how method hiding works with class and interface
+
+- **Avoid using method hiding** as it can lead to confusion
+- Just implement the interface instead of deriving from a class and hiding the method
+- Also, you can use different method names or use `virtual` and `override` keywords for different implementations
 
 #### Polymorphism
 
@@ -2553,23 +2713,29 @@ Two distinct aspects of Polymorphism are:
 
 ##### Method Overriding
 
-It is the ability to redefine the implementation of a method in a Derived class that inherits from a Base Class.
+It is the ability to redefine the implementation of a method in a Derived class that inherits from a Base Class
 
-When a method is overridden, the name and the parameters stay the same, but the implementation that gets called depends on the type of the object that's calling it.
+When a method is overridden, the name and the parameters stay the same, but the implementation that gets called depends on the type of the object that's calling it
 
-Overriding is known as runtime (or dynamic) polymorphism because the type of the calling object is not known until runtime, and therefore the method implementation that runs is determined at runtime.
+Overriding is known as _runtime (or dynamic) polymorphism_ because the type of the calling object is not known until runtime, and therefore the method implementation that runs is determined at runtime
 
 Base class can mark its methods that can be overridden, there are two types:
 
-- Base class members must be marked as `virtual` for them to be overridden. Can be overridden.
+- Base class members must be marked as `virtual` for them to be overridden. **Can be overridden**
 
-- If the Base class members are marked as `abstract`, those members must be overridden by the derived class. Must be overridden.
+  - The derived class wants to extend the base class method implementation, the base class method must be called from the derived class method
+
+- If the Base class members are marked as `abstract`, those members **must be overridden** by the derived class
+
+  - If a method is marked as `abstract`, the class must be marked as [`abstract`](#abstract-class) as well
+
+The runtime determines which method to call based on the type of the object that invokes the method when the method is marked as `virtual`
 
 ##### Method Overriding vs Method Hiding
 
 In method overriding a base class reference variable pointing to a child class object, will invoke the overridden method in the Child class
 
-```cs
+```csharp
 public class BaseClass
 {
   public virtual void Print()
@@ -2600,7 +2766,7 @@ public class Program
 
 In method hiding a base class reference variable pointing to a child class object, will invoke the hidden method in the Base class
 
-```cs
+```csharp
 public class BaseClass
 {
   public virtual void Print()
@@ -2631,11 +2797,22 @@ public class Program
 
 ##### Method Overloading
 
-It is the ability to have multiple methods within the same class with the same name, but with different parameters or different parameter order (signature).
+It is the ability to have multiple methods within the same class with the same name, but with different parameters or different parameter order (signature)
 
-Overloading is known as compile-time (or static) polymorphism because each of the different overloaded methods is resolved when the application is compiled.
+Overloading is known as compile-time (or static) polymorphism because each of the different overloaded methods is resolved when the application is compiled
 
 ### Sealed Class
+
+A sealed class is a class that cannot be inherited from and serves as the final class in the inheritance hierarchy
+
+- The `sealed` keyword is used to define a class as sealed
+
+```csharp
+public sealed class SealedClass
+{
+    // Class members
+}
+```
 
 ### Abstract Class
 
@@ -2647,9 +2824,39 @@ An abstract class is an **incomplete class** and hence **cannot be instantiated*
 - An abstract class _may contain abstract members_
 - A **non-abstract class** derived from an abstract class **must provide implementations for all inherited abstract members**
 
+_Example:_
+
+```csharp
+public abstract class Shape
+{
+    public abstract double Area();
+    public abstract double Perimeter();
+}
+
+public class Circle : Shape
+{
+    public double Radius { get; set; }
+
+    public override double Area()
+    {
+        return Math.PI * Radius * Radius;
+    }
+
+    public override double Perimeter()
+    {
+        return 2 * Math.PI * Radius;
+    }
+}
+```
+
 Abstract class vs Interface:
 
--
+- Abstract class can have fields, constructors, and destructors but an interface cannot
+- An abstract class can have access modifiers but an interface cannot
+- An abstract class can have method implementations but an interface cannot
+- An abstract class can have constructors but an interface cannot
+
+_Example:_ A `Car` and a `Truck` share a lot of core properties and behaviour of an `Automobile` abstract class, but they also share some peripheral behaviour like Generate exhaust which even non automobile classes like `Drillers` or `PowerGenerators` share and doesn't necessarily defines a `Car` or a `Truck`, so `Car`, `Truck`, `Driller` and `PowerGenerator` can all share the same interface `IExhaust`
 
 ### Partial Classes
 
@@ -2659,7 +2866,7 @@ Each source file contains a section of the type or method definition, and all pa
 
 _Example:_
 
-```cs
+```csharp
 public partial class Employee
 {
     public void DoWork()
@@ -2685,7 +2892,7 @@ public partial class Employee
 - If any part is declared `sealed`, then the whole type is considered `sealed`
 - If any part declares a base type, then the whole type inherits that class.
 
-- All partial-type definitions meant to be parts of the same type must be defined in the same assembly and the same module (.exe or .dll file)
+- All partial-type definitions meant to be parts of the same type must be defined in the same assembly and the same module (`.exe` or `.dll` file)
 
 ## Structure
 
@@ -2699,7 +2906,7 @@ Struct types don't support user-specified inheritance, and all struct types impl
 
 - A struct can have most of the same features as a class; it can contain methods, fields, properties, constructors, and any of the other member types supported by classes, and we can use the same accessibility keywords, such as `public` and `internal`.
 
-  ```cs
+  ```csharp
   public struct Point
   {
       private double _x;
@@ -2718,7 +2925,7 @@ Struct types don't support user-specified inheritance, and all struct types impl
 - C# does not automatically support `==` for a `struct`
 - If `==` is implemented then, `!=`, `Equals`, and `GetHashCode` must be implemented
 
-  ```cs
+  ```csharp
   public static bool operator ==(Point p1, Point p2)
   {
       return p1.X == p2.X && p1.Y == p2.Y;
@@ -2774,7 +2981,7 @@ C# 7.2. it is possible to declare a `struct` as readonly (immutable) by adding t
 
 Read-only struct:
 
-```cs
+```csharp
 public readonly struct Point
 {
     public Point(double x, double y)
@@ -2800,29 +3007,31 @@ public readonly struct Point
 
 ## Interface
 
-An `interface` type defines a contract as a named set of public members
+An interface is a reference type in C# that is similar to an abstract class because it contains only the declaration of the members, but not the implementation
 
-- Just like classes, interfaces also contain properties, methods, delegates, or events.
+- An `interface` type defines a contract as a named set of public members
+
+- Just like classes, interfaces also contain properties, methods, delegates, or events
 
 - But only declarations and no implementations. Beginning with C# 8.0 we can define an implementation when you declare a member of an interface (usually a default implementation)
 
 - Interface members are `public` by default. (C# 8.0 members can have access modifiers)
 
-- Interface cannot contain instance data such as fields, auto-implemented properties, or property-like events.
+- Interface cannot contain instance data such as fields, auto-implemented properties, or property-like events
 
-- A `class` or `struct` that implements an `interface` must provide implementations of the interface's members.
+- A `class` or `struct` that implements an `interface` must provide implementations of the interface's members
 
-- An `interface` may inherit from multiple base interfaces, and a `class` or `struct` may implement multiple interfaces.
+- An `interface` may inherit from multiple base interfaces, and a `class` or `struct` may implement multiple interfaces
 
 - Interfaces can inherit from other interfaces. A class or struct that inherits from this interface must provide implementation for all interface members in the entire interface inheritance chain
 
-- Instances of an interface cannot be created.
+- Instances of an interface cannot be created
 
 - An interface reference variable can point to a derived class object
 
 - Interface Naming Convention: Interface names are prefixed with _capital I_
 
-```cs
+```csharp
 interface IEquatable<T>
 {
     bool Equals(T obj);
@@ -2831,11 +3040,15 @@ interface IEquatable<T>
 
 ### Explicit Interface Implementation
 
-- If a class implements two interfaces that contain a member with the same signature, then implementing that member on the class will cause both interfaces to use that member as their implementation.
+A class or struct can implement multiple interfaces, and it can implement an interface multiple times
+
+- If a class implements two interfaces that contain a member with the same signature, then implementing that member on the class will cause both interfaces to use that member as their implementation
 
 - An explicit interface implementation doesn't have an access modifier since it isn't accessible as a member of the type it's defined in
 
-```cs
+_Example:_
+
+```csharp
 public interface IControl
 {
     void Paint();
@@ -2871,7 +3084,7 @@ surface.Paint();
 
 Explicit implementation:
 
-```cs
+```csharp
 public class SampleClass : IControl, ISurface
 {
     void IControl.Paint()
@@ -2899,9 +3112,83 @@ surface.Paint();  // Calls ISurface.Paint on SampleClass.
 // ISurface.Paint
 ```
 
+### Marker Interface
+
+A marker interface is an interface that has no methods or properties declared in it
+
+- It is used to mark a class so that it can be identified by the compiler
+- It is used to provide metadata to the class
+- It is used to provide run-time information about the object
+
+_Example:_
+
+- Enabling type-checking at runtime
+
+```csharp
+public interface IMyInterface;
+
+public class MyClass : IMyInterface
+{
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        MyClass obj = new MyClass();
+        if (obj is IMyInterface)
+        {
+            Console.WriteLine("Object is of IMyInterface type");
+        }
+    }
+}
+```
+
+- The `IAggregateRoot` marker interface restricts the `DemoRepository<T>` to only accept types that represent aggregate roots, ensuring type safety and alignment with domain design principles
+
+```csharp
+using Demo.Data;
+using Demo.Models;
+using Demo.Common;
+
+var booksRepo = new DemoRepository<Book>(new DemoDatatSource().Books);
+bookspRepo.GetAll().ForEach(Console.WriteLine);
+
+// releasesRepo is not needed as it should be used in the same way as booksRepo
+// To prevent this, we can use an marker interface to restrict the usage
+// of the repository to only aggregate roots
+// All models that are aggregate roots should implement `IAggregateRoot`
+var releasesRepo = new DemoRepository<Release>(new DemoDatatSource().Releases);
+
+// defining a generic type constraint
+interface IRepository<T> where T : IAggregateRoot
+{
+  IEnumerable<T> GetAll();
+}
+
+class DemoRepository<T>(IEnumerable<T> data) : IRepository<T> where T : IAggregateRoot
+{
+  public IEnumerable<T> GetAll() => data;
+}
+
+// IAggregateRoot is a marker interface
+interface IAggregateRoot;
+
+class Book : IAggregateRoot
+{
+  public string Title { get; set; }
+}
+
+// As Release does not implement `IAggregateRoot`, you cannot use it with `DemoRepository`
+class Release
+{
+  public string Title { get; set; }
+}
+```
+
 ## Attributes
 
-Attributes provide a powerful method of associating metadata, or declarative information, with code (assemblies, types, methods, properties, and so forth). After an attribute is associated with a program entity, the attribute can be queried at run time by using a technique called [reflection](#reflection).
+Attributes provide a powerful method of associating metadata, or declarative information, with code (assemblies, types, methods, properties, and so forth). After an attribute is associated with a program entity, the attribute can be queried at run time by using a technique called [reflection](#reflection)
 
 An attribute is a class that inherits from `System.Attribute` base class
 
@@ -2917,7 +3204,7 @@ There are several Pre-defined Attributes provided by .NET such as:
 - `WebMethod`: To expose a method as an XML Web service method
 - `Serializable`: Indicates that a class can be serialized
 
-```cs
+```csharp
 [Serializable]
 public class SampleClass
 {
@@ -2932,7 +3219,7 @@ The target of an attribute is the entity which the attribute applies to (such as
 - By default, an attribute applies to the element that follows it
 - To explicitly identify, whether an attribute is applied to a method, or to its parameter, or to its return value:
 
-  ```cs
+  ```csharp
   [target : attribute-list]
   ```
 
@@ -2950,7 +3237,7 @@ The target of an attribute is the entity which the attribute applies to (such as
 
 _Example:_
 
-```cs
+```csharp
 // default: applies to method
 [ValidatedContract]
 int Method1() { return 0; }
@@ -2971,7 +3258,7 @@ int Method4() { return 0; }
 
 Create a class that derives directly or indirectly from `System.Attribute`
 
-```cs
+```csharp
 [System.AttributeUsage(System.AttributeTargets.Class |
                        System.AttributeTargets.Struct,
                        AllowMultiple = true)  // multiuse attribute
@@ -3026,7 +3313,7 @@ Reflection enables to access attributes
 
 _Example:_
 
-```cs
+```csharp
 // Using Reflection to get information of an Assembly:
 Assembly info = typeof(int).Assembly;
 Console.WriteLine(info);
@@ -3044,7 +3331,7 @@ The C# keywords `protected` and `internal` have no meaning in Intermediate Langu
 
 _Example:_
 
-```cs
+```csharp
 private static void Main()
 {
   Assembly executingAssembly = Assembly.GetExecutingAssembly();
@@ -3092,7 +3379,7 @@ Exception handling uses the `try`, `catch`, and `finally` keywords to try action
 
 _Syntax:_
 
-```cs
+```csharp
 try
 {
   // expressions that could cause an exception
@@ -3110,7 +3397,7 @@ finally
 
 Catch specific exceptions:
 
-```cs
+```csharp
 public static void Main()
 {
     try
@@ -3150,7 +3437,7 @@ Throw exceptions when:
 
 - The method can't complete its defined functionality:
 
-  ```cs
+  ```csharp
   static void CopyObject(SampleClass original)
   {
       _ = original ?? throw new ArgumentException("Parameter cannot be null", nameof(original));
@@ -3159,7 +3446,7 @@ Throw exceptions when:
 
 - An inappropriate call to an object is made, based on the object state:
 
-  ```cs
+  ```csharp
   public class ProgramLog
   {
       FileStream logFile = null!;
@@ -3178,7 +3465,7 @@ Throw exceptions when:
 
 - When an argument to a method causes an exception:
 
-  ```cs
+  ```csharp
   static int GetValueFromArray(int[] array, int index)
   {
       try
@@ -3204,7 +3491,7 @@ Create custom Exception filter class:
 
 - New exception classes should be serializable.
 
-```cs
+```csharp
 [Serializable]
 public class InvalidDepartmentException : Exception
 {
@@ -3221,7 +3508,7 @@ public class InvalidDepartmentException : Exception
 
 Re-throwing an exception:
 
-```cs
+```csharp
 try
 {
     return Value[0];
@@ -3234,7 +3521,7 @@ catch (NullReferenceException e)
 
 ## Pre-Processing Directives
 
-C# doesn't have a full pre-processing stage like C, it has limited pre-processor directives.
+C# doesn't have a full pre-processing stage like C, it has limited pre-processor directives
 
 ### Compilation Symbols
 
@@ -3242,7 +3529,7 @@ C# doesn't have a full pre-processing stage like C, it has limited pre-processor
 
 - These symbols are commonly used in conjunction with the `#if` directive to compile code in different ways for different situations.
 
-  ```cs
+  ```csharp
   #if DEBUG
       Console.WriteLine("Starting work");
   #endif
@@ -3256,7 +3543,7 @@ C# doesn't have a full pre-processing stage like C, it has limited pre-processor
 
 There is another (better) way to handle which code to run during which mode of compilation, that is using an attribute defined by .NET class library called `ConditionalAttribute`
 
-```cs
+```csharp
 [System.Diagnostics.Conditional("DEBUG")]
 static void ShowDebugInfo(object o)
 {
@@ -3274,7 +3561,7 @@ The compiler ignores these and throws error if a `#region` dose not have a corre
 
 - `#errors` and `#warnings` can be used to throw errors and warnings during compilation if certain criteria is met.
 
-  ```cs
+  ```csharp
   #if NETSTANDARD
     #error .NET Standard is not a supported target for this source file
   #endif
@@ -3282,7 +3569,7 @@ The compiler ignores these and throws error if a `#region` dose not have a corre
 
 - `#line`: specifics the line number at which the actual error occurred
 
-  ```cs
+  ```csharp
   #line 123 "Foo.cs"
       intt x;
   ```
@@ -3292,7 +3579,7 @@ The compiler ignores these and throws error if a `#region` dose not have a corre
   - Disable selected compiler warnings
   - And also override the checksum values the compiler puts into the `.pdb` file
 
-  ```cs
+  ```csharp
   #pragma warning disable CS0168
       int a;
   ```
@@ -3307,7 +3594,7 @@ Generic (C# 2.0) is a class which allows the user to define classes and methods 
 
 By using a generic type parameter `T`, we can write a single class that other client code can use without incurring the cost or risk of runtime casts or boxing operations:
 
-```cs
+```csharp
 // Declare the generic class.
 public class GenericList<T>
 {
@@ -3336,30 +3623,30 @@ class TestGenericList
 ```
 
 - Generic classes are extensively used by collection classes available in `System.Collections.Generic` namespace
-- We can create generic interfaces, classes, methods, events, and delegates.
+- We can create generic interfaces, classes, methods, events, and delegates
 
 They provide:
 
-- Reusability
+- Re-usability
 - Type safety
 - Efficiency
 
-## Generic Collections
+### Generic Collections
 
-Generic collections allow users to create strongly typed collections that provide better type safety and performance than non-generic strongly typed collections.
+Generic collections allow users to create strongly typed collections that provide better type safety and performance than non-generic strongly typed collections
 
-### List Collection
+#### List Collection
 
-Represents a strongly typed list of objects that can be accessed by index.
+Represents a strongly typed list of objects that can be accessed by index
 
-- Provides methods to search, sort, and manipulate lists.
+- Provides methods to search, sort, and manipulate lists
 - Unlike arrays, lists can grow in size automatically
 
-```cs
+```csharp
 using System.Collections.Generic;
 
-// Simple business object. A PartId is used to identify the type of part
-// but the part name can change.
+// Simple business object. A `PartId` is used to identify the type of part
+// but the part name can change
 public class Part : IEquatable<Part>
 {
     public string PartName { get; set; }
@@ -3390,7 +3677,7 @@ public class Part : IEquatable<Part>
 }
 
 
-// Create a list of parts.
+// Create a list of parts
 List<Part> parts = new List<Part>();
 
 // Add parts to the list.
@@ -3404,8 +3691,8 @@ parts.Add(new Part() { PartName = "shift lever", PartId = 1634 });
 parts.Count;
 // 6
 
-// Write out the parts in the list. This will call the overridden ToString method
-// in the Part class.
+// Write out the parts in the list. This will call the overridden `ToString` method
+// in the Part class
 foreach (Part aPart in parts)
 {
     Console.WriteLine(aPart);
@@ -3421,7 +3708,7 @@ ID: 1634   Name: shift lever
 */
 
 // Check the list for part #1734. This calls the IEquatable.Equals method
-// of the Part class, which checks the PartId for equality.
+// of the Part class, which checks the PartId for equality
 bool doseItContain = parts.Contains(new Part { PartId = 1734, PartName = "" }));
 // Contains("1734"): False
 
@@ -3437,7 +3724,7 @@ parts[3];
 // 1434
 
 // This will remove part 1534 even though the PartName is different,
-// because the Equals method only checks PartId for equality.
+// because the Equals method only checks PartId for equality
 parts.Remove(new Part() { PartId = 1534, PartName = "cogs" });
 
 // This will remove the part at index 3.
@@ -3452,7 +3739,7 @@ parts.GetRange(2, 4);
 
 - Sort, reverse a list of simple types
 
-  ```cs
+  ```csharp
   List<int> numbers = new List<int> { 1, 8, 7, 5, 2 };
   numbers.Sort();
 
@@ -3467,7 +3754,7 @@ parts.GetRange(2, 4);
     - `< 0`: The current instance is less than the object being compared with
     - `0`: The current instance is equal to the object being compared with
 
-  ```cs
+  ```csharp
   // public class Temperature : IComparable<Temperature>
   public class Temperature : IComparable
   {
@@ -3516,7 +3803,7 @@ parts.GetRange(2, 4);
 
   - Exposes a method that compares two objects
 
-  ```cs
+  ```csharp
   using System.Collections;
 
   public class Example
@@ -3597,7 +3884,7 @@ parts.GetRange(2, 4);
 
 - One of the overloads of the `Sort()` method in `List` class expects `Comparison` delegate to be passed as an argument:
 
-  ```cs
+  ```csharp
   using System.Collections.Generic;
 
   public class Example
@@ -3702,9 +3989,9 @@ parts.GetRange(2, 4);
   */
   ```
 
-### Dictionary
+#### Dictionary
 
-A dictionary represents a collection of keys and values.
+A dictionary represents a collection of keys and values
 
 - Dictionary class is present in `System.Collections.Generic` namespace
 
@@ -3720,21 +4007,20 @@ A dictionary represents a collection of keys and values.
 
 - LINQ can be used on a dictionary
 
-```cs
-// Create a new dictionary of strings, with string keys.
-//
+```csharp
+// Create a new dictionary of strings, with string keys
 Dictionary<string, string> openWith =
     new Dictionary<string, string>();
 
 // Add some elements to the dictionary. There are no
-// duplicate keys, but some of the values are duplicates.
+// duplicate keys, but some of the values are duplicates
 openWith.Add("txt", "notepad.exe");
 openWith.Add("bmp", "paint.exe");
 openWith.Add("dib", "paint.exe");
 openWith.Add("rtf", "wordpad.exe");
 
 // The Add method throws an exception if the new key is
-// already in the dictionary.
+// already in the dictionary
 try
 {
     openWith.Add("txt", "winword.exe");
@@ -3745,22 +4031,22 @@ catch (ArgumentException)
 }
 
 // The Item property is another name for the indexer, so you
-// can omit its name when accessing elements.
+// can omit its name when accessing elements
 Console.WriteLine("For key = \"rtf\", value = {0}.",
     openWith["rtf"]);
 
 // The indexer can be used to change the value associated
-// with a key.
+// with a key
 openWith["rtf"] = "winword.exe";
 Console.WriteLine("For key = \"rtf\", value = {0}.",
     openWith["rtf"]);
 
 // If a key does not exist, setting the indexer for that key
-// adds a new key/value pair.
+// adds a new key/value pair
 openWith["doc"] = "winword.exe";
 
 // The indexer throws an exception if the requested key is
-// not in the dictionary.
+// not in the dictionary
 try
 {
     Console.WriteLine("For key = \"tif\", value = {0}.",
@@ -3773,7 +4059,7 @@ catch (KeyNotFoundException)
 
 // When a program often has to try keys that turn out not to
 // be in the dictionary, TryGetValue can be a more efficient
-// way to retrieve values.
+// way to retrieve values
 string value = "";
 if (openWith.TryGetValue("tif", out value))
 {
@@ -3785,7 +4071,7 @@ else
 }
 
 // ContainsKey can be used to test keys before inserting
-// them.
+// them
 if (!openWith.ContainsKey("ht"))
 {
     openWith.Add("ht", "hypertrm.exe");
@@ -3794,7 +4080,7 @@ if (!openWith.ContainsKey("ht"))
 }
 
 // When you use foreach to enumerate dictionary elements,
-// the elements are retrieved as KeyValuePair objects.
+// the elements are retrieved as KeyValuePair objects
 Console.WriteLine();
 foreach( KeyValuePair<string, string> kvp in openWith )
 {
@@ -3802,31 +4088,31 @@ foreach( KeyValuePair<string, string> kvp in openWith )
         kvp.Key, kvp.Value);
 }
 
-// To get the values alone, use the Values property.
+// To get the values alone, use the Values property
 Dictionary<string, string>.ValueCollection valueColl =
     openWith.Values;
 
 // The elements of the ValueCollection are strongly typed
-// with the type that was specified for dictionary values.
+// with the type that was specified for dictionary values
 Console.WriteLine();
 foreach( string s in valueColl )
 {
     Console.WriteLine("Value = {0}", s);
 }
 
-// To get the keys alone, use the Keys property.
+// To get the keys alone, use the Keys property
 Dictionary<string, string>.KeyCollection keyColl =
     openWith.Keys;
 
 // The elements of the KeyCollection are strongly typed
-// with the type that was specified for dictionary keys.
+// with the type that was specified for dictionary keys
 Console.WriteLine();
 foreach( string s in keyColl )
 {
     Console.WriteLine("Key = {0}", s);
 }
 
-// Use the Remove method to remove a key/value pair.
+// Use the Remove method to remove a key/value pair
 Console.WriteLine("\nRemove(\"doc\")");
 openWith.Remove("doc");
 
@@ -3837,11 +4123,11 @@ if (!openWith.ContainsKey("doc"))
 
 /* This code example produces the following output:
 
-An element with Key = "txt" already exists.
-For key = "rtf", value = wordpad.exe.
-For key = "rtf", value = winword.exe.
-Key = "tif" is not found.
-Key = "tif" is not found.
+An element with Key = "txt" already exists
+For key = "rtf", value = wordpad.exe
+For key = "rtf", value = winword.exe
+Key = "tif" is not found
+Key = "tif" is not found
 Value added for key = "ht": hypertrm.exe
 
 Key = txt, Value = notepad.exe
@@ -3866,13 +4152,13 @@ Key = doc
 Key = ht
 
 Remove("doc")
-Key "doc" is not found.
+Key "doc" is not found
 */
 ```
 
 - Convert an array or list into dictionary:
 
-  ```cs
+  ```csharp
   Customer[] customer = new Customer[3];
 
   // 3 customers are added to the array
@@ -3882,29 +4168,29 @@ Key "doc" is not found.
   Dictionary<int, Customer> dict = customer.ToDictionary(cust => cust.ID, cust => cust);
   ```
 
-### Queue
+#### Queue
 
-Represents a first-in, first-out (FIFO) collection of objects.
+Represents a first-in, first-out (FIFO) collection of objects
 
 - This class implements a generic queue as a circular array
 
-- Queues and stacks are useful when you need temporary storage for information; that is, when you might want to discard an element after retrieving its value.
+- Queues and stacks are useful when you need temporary storage for information; that is, when you might want to discard an element after retrieving its value
 
-- Objects stored in a `Queue<T>` are inserted at one end and removed from the other.
+- Objects stored in a `Queue<T>` are inserted at one end and removed from the other
 
-- `Queue<T>` accepts `null` as a valid value for reference types and allows duplicate elements.
+- `Queue<T>` accepts `null` as a valid value for reference types and allows duplicate elements
 
 The 3 main operations performed on a `Queue<T>`:
 
-- `Enqueue` adds an element to the end of the `Queue<T>`.
+- `Enqueue` adds an element to the end of the `Queue<T>`
 
-- `Dequeue` removes the oldest element from the start of the `Queue<T>`.
+- `Dequeue` removes the oldest element from the start of the `Queue<T>`
 
-- `Peek` peek returns the oldest element that is at the start of the `Queue<T>` but does not remove it from the `Queue<T>`.
+- `Peek` peek returns the oldest element that is at the start of the `Queue<T>` but does not remove it from the `Queue<T>`
 
 _Example:_
 
-```cs
+```csharp
 Queue<string> numbers = new Queue<string>();
 numbers.Enqueue("one");
 numbers.Enqueue("two");
@@ -3912,7 +4198,7 @@ numbers.Enqueue("three");
 numbers.Enqueue("four");
 numbers.Enqueue("five");
 
-// A queue can be enumerated without disturbing its contents.
+// A queue can be enumerated without disturbing its contents
 foreach( string number in numbers )
 {
     Console.WriteLine(number);
@@ -3941,12 +4227,12 @@ Queue<string> queueCopy = new Queue<string>(numbers.ToArray());
 
 // Create an array twice the size of the queue and copy the
 // elements of the queue, starting at the middle of the
-// array.
+// array
 string[] array2 = new string[numbers.Count * 2];
 numbers.CopyTo(array2, numbers.Count);
 
 // Create a second queue, using the constructor that accepts an
-// IEnumerable(Of T).
+// IEnumerable(Of T)
 Queue<string> queueCopy2 = new Queue<string>(array2);
 
 // Contents of the second copy, with duplicates and nulls
@@ -3965,36 +4251,129 @@ queueCopy.Count
 // 0
 ```
 
-### Stack
+#### Stack
 
-Stack is a generic LIFO (Last In First Out) collection class.
+Stack is a generic LIFO (Last In First Out) collection class
 
 - To insert an item at the top of the stack, use `Push()` method
 
 - To remove and return the item that is present at the top of the stack, use `Pop()` method
 
-## Asynchronous Programming
+## Pattern Matching
 
-Using `Task` present in `System.Threading`:
+Pattern matching is a technique where you test an expression to determine if it has certain characteristics
 
-- Instead of `void` return `Task`
+Supported patterns:
 
-- If some value is returned then return Task with that type, `string` will be written as `Task<string>`
+- `is` expression
 
-- Methods that are async then append Async to the name of the function
+  - Null check:
 
-- `Task.Run` makes methods async
+  ```csharp
+  int? maybe = 12;
 
-  ```cs
-  public async Task DoSomethingAsync()
+  // declaration pattern
+  if (maybe is int number)
   {
-    var data = await Task.Run(() => RunAndReturnSomething());
+      Console.WriteLine($"The nullable int 'maybe' has the value {number}");
+  }
+  else
+  {
+      Console.WriteLine("The nullable int 'maybe' doesn't hold a value");
   }
   ```
 
-- You can combine all async calls and wait for all of them to resolve. Parallel async:
+  ```csharp
+  string? message = ReadMessageOrDefault();
 
-  ```cs
+  // constant pattern (to compare the variable with `null`)
+  // the `not` is a logical pattern
+  if (message is not null)
+  {
+      Console.WriteLine(message);
+  }
+  ```
+
+  - Type check:
+
+  ```csharp
+  public static T MidPoint<T>(IEnumerable<T> sequence)
+  {
+      if (sequence is IList<T> list)
+      {
+          return list[list.Count / 2];
+      }
+      else if (sequence is null)
+      {
+          throw new ArgumentNullException(nameof(sequence), "Sequence can't be null.");
+      }
+      else
+      {
+          int halfLength = sequence.Count() / 2 - 1;
+          if (halfLength < 0) halfLength = 0;
+          return sequence.Skip(halfLength).First();
+      }
+  }
+  ```
+
+- [`switch`](#switch) expression
+
+## Asynchronous Programming
+
+Asynchronous (async) programming is a means of parallel programming in which a unit of work runs separately from the main application thread and notifies the calling thread of its completion, failure, or progress
+
+- It is a way to achieve parallelism in a program
+- It is used to improve the responsiveness of the application
+
+Old .NET Framework used Asynchronous Programming Model (APM), with .NET Core and .NET 4.5, Task-based Asynchronous Pattern (TAP) was introduced
+
+### Task-based Asynchronous Pattern (TAP)
+
+To create an asynchronous method:
+
+- Return `Task` or `Task<T>` from the method
+- Use `async` modifier in the method signature
+- Append `Async` to the method name (not mandatory)
+- Use `await` expression to call asynchronous methods
+
+```csharp
+using System.Threading;
+
+public async Task DoSomethingAsync()
+{
+  await SomeTimeConsumingMethodAsync();
+}
+```
+
+What happens in an async method?
+
+```csharp
+// 1. The method is called and awaits the async method
+public async Task<int> GetUrlContentLengthAsync()
+{
+  var client = new HttpClient();
+
+  // 2. Call the async method
+  Task<string> getStringTask = client.GetStringAsync("https://en.wikipedia.org/wiki/Main_Page");
+
+  // 3. Do some independent work as the GetStringAsync is not awaited yet
+  DoIndependentWork();
+
+  // 4. Await the async to complete and get the result
+  string content = await getStringTask;
+
+  return content.Length;
+}
+
+void DoIndependentWork()
+{
+  Console.WriteLine("Working...");
+}
+```
+
+- You can combine all `async` calls and wait for all of them to resolve using `Task.WhenAll()`:
+
+  ```csharp
   public async Task DoSomethingAsync(List<string> input)
   {
     List<Task<string>> tasks = new List<Task<string>>();
@@ -4010,7 +4389,7 @@ Using `Task` present in `System.Threading`:
 
 - Get the progress of tasks using `IProgress`:
 
-  ```cs
+  ```csharp
   public class ProgressReportModel {
     public int PercentageComplete { get; set; }
     public List<string> ResultList { get; set; }
@@ -4072,7 +4451,7 @@ Disadvantages:
 - Start a thread by supplying a delegate that represents the method the thread is to execute in its class constructor
 - Call `Start()` to begin execution
 
-```cs
+```csharp
 Public void btnTimeConsumingWork_Click()
 {
   // create thread
@@ -4087,13 +4466,13 @@ The `Thread` constructor can take either:
 
 - If the method has no arguments, you pass a `ThreadStart` delegate to the constructor:
 
-  ```cs
+  ```csharp
   public delegate void ThreadStart()
   ```
 
 - If the method has an argument, you pass a `ParameterizedThreadStart` delegate to the constructor:
 
-  ```cs
+  ```csharp
   public delegate void ParameterizedThreadStart(object obj)
   ```
 
@@ -4104,7 +4483,7 @@ The `Thread` constructor can take either:
 
 _Example:_
 
-```cs
+```csharp
 using System;
 using System.Threading;
 
@@ -4161,7 +4540,7 @@ Protecting shared resources:
 
 - Using `Interlocked.Increment()` method: increments a specified variable and stores the result, as an atomic operation
 
-  ```cs
+  ```csharp
   public void AddOneMillion()
   {
     for (int i = 1; i <= 100000; i++)
@@ -4173,7 +4552,7 @@ Protecting shared resources:
 
 - `lock` statement: a mechanism that synchronizes access to objects
 
-  ```cs
+  ```csharp
   object _lockObject = new object();
 
   lock(_lockObject)
@@ -4185,7 +4564,7 @@ Protecting shared resources:
   - less performant than `Interlocked`
   - `lock` is the shortcut for `Monitor.Entry` with try and finally
 
-    ```cs
+    ```csharp
     Monitor.Enter(_lockObject);
 
     try
@@ -4206,21 +4585,44 @@ Resolving Deadlocks:
 - Mutex class
 - `Monitor.TryEnter()` method
 
+### Asynchronous Streams
+
+Async streams model a streaming source of data. Data streams often retrieve or generate elements asynchronously
+
+- `IAsyncEnumerable<T>`: Represents a sequence of elements that can be enumerated asynchronously
+- `IAsyncEnumerator<T>`: Supports a simple asynchronous iteration over a collection of a specified type
+
+```csharp
+public async IAsyncEnumerable<int> GenerateSequence()
+{
+    for (int i = 0; i < 20; i++)
+    {
+        await Task.Delay(100);
+        yield return i;
+    }
+}
+
+await foreach (var number in GenerateSequence())
+{
+    Console.WriteLine(number);
+}
+```
+
 ## Yield
 
-When you use the `yield` contextual keyword in a statement, you indicate that the method, operator, or `get` accessor in which it appears is an iterator.
+When you use the `yield` contextual keyword in a statement, you indicate that the method, operator, or `get` accessor in which it appears is an iterator
 
 - It returns an object that implements the `IEnumerable<T>` interface
 - It helps to do stateful iteration.
 
-```cs
+```csharp
 yield return <expression>;
 yield break;
 ```
 
 _Example:_
 
-```cs
+```csharp
 public class PowersOf2
 {
     static void Main()
@@ -4271,6 +4673,17 @@ public IEnumerable<int> Integers()
 
 Commonly used built-in classes
 
+### Unique IDs
+
+- `Guid`: Represents a globally unique identifier (GUID)
+
+  - `Guid.NewGuid()`: Creates a new GUID (UUID V4)
+  - `Guid.CreateVersion7()`: Creates a new GUID (UUID V7)
+
+- `Random`: Represents a pseudo-random number generator
+
+  - `Random.Next()`: Returns a non-negative random integer
+
 ### Console Class
 
 - `Console.Write("text")`: Prints and keeps cursor on the same line
@@ -4279,20 +4692,21 @@ Commonly used built-in classes
 - `Console.ReadLine()`: Takes a string or integer input and returns it as the output value
 - `Console.ReadKey()`: Takes a single input of type string and it returns the Key info
 
-- Change console colour:
+Change console colour:
 
-```cs
+```csharp
 // clear the console so that the colours are applied to the whole console
-Console.Clear()
 Console.ForegroundColor = ConsoleColor.Red;
 Console.BackgroundColor = ConsoleColor.DarkGreen;
+Console.WriteLine("Hello World");
+Console.ResetColor();
 ```
 
-### DateTime
+### Date Time
 
 - Working with date and time
 
-  ```cs
+  ```csharp
   // 10/18/2021 11:43:01 PM
   DateTime dateTime = DateTime.Now;
   ```
@@ -4301,19 +4715,163 @@ Console.BackgroundColor = ConsoleColor.DarkGreen;
 
   - `DateOnly`:
 
-    ```cs
+    ```csharp
     // 10/18/2021
     DateOnly dateOnly = DateOnly.FromDateTime(DateTime.Now);
     ```
 
   - `TimeOnly`:
 
-    ```cs
+    ```csharp
     // 11:45 PM
     TimeOnly timeOnly = TimeOnly.FromDateTime(DateTime.Now);
     ```
 
-## Code Style
+## Miscellaneous
+
+### Versions
+
+C# has evolved over the years with [different versions](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history) ([C# Evolution](https://csharp-evolution.com/)):
+
+1. C# 1.0: Statically typed object-oriented language
+
+   - Visual Studio .NET 2002 (.NET Framework 1.0/1.1)
+   - Classes
+   - Structs
+   - Interfaces
+   - Events
+   - Properties
+   - Delegates
+   - Operators and expressions
+   - Statements
+   - Attributes
+
+2. C# 2.0:
+
+   - Visual Studio 2005 (.NET Framework 2.0/3.0)
+   - Generics
+   - Partial types
+   - Anonymous methods
+   - Nullable value types
+   - Iterators
+   - Covariance and Contravariance
+
+3. C# 3.0:
+
+   - Visual Studio 2008 (.NET Framework 3.0/3.5)
+   - Declarative coding with **Language INtegrated Queries (LINQ)**
+   - Auto-implemented properties
+   - Anonymous types
+   - Query expressions
+   - Lambda expressions
+   - Expression trees
+   - Extension methods
+   - Implicitly typed local variables
+   - Partial methods
+   - Object and collection initializers
+
+4. C# 4.0:
+
+   - Visual Studio 2010 (.NET Framework 4.0)
+   - Dynamic bindings (types)
+   - Named/optional arguments
+   - Generic convariant and contravariant
+   - Embedded interop types
+
+5. C# 5.0:
+
+   - Visual Studio 2012 (.NET Framework 4.5)
+   - Simplified asynchronous tasks (Asynchronous members)
+   - Caller info attributes
+
+6. C# 6.0:
+
+   - Visual Studio 2015 (.NET Framework 4.6 / .NET Core 1.0/1.1)
+   - Static imports
+   - Exception filters
+   - Auto-property initializers
+   - Null propagator
+   - String interpolation
+   - `nameof` operator
+
+   - Expression bodied members: read-only properties
+
+7. C# 7.0:
+
+   - Visual Studio 2017 (.NET Framework 4.7 / .NET Core 2.0)
+   - Binary literals and digit separators: storing whole numbers
+   - Pattern matching
+   - `out` variables
+   - Tuples and deconstruction
+   - Local functions
+   - Expanded expression bodied members
+   - Ref locals and returns
+
+   1. C# 7.1:
+
+      - Default literal expressions
+      - Inferred tuple element names
+      - `async` Main method
+      - Pattern matching on generic type parameters
+
+   2. C# 7.2:
+
+      - Leading underscores in numeric literals
+      - Non-trailing named arguments
+      - `private protected` access modifier
+      - Testing `==` and `!=` with tuple types
+
+   3. C# 7.3:
+
+      - .NET Framework 4.8 / .NET Core 2.1/2.2
+      - Performance-oriented safe code that improves `ref` variables, pointers, and `stackalloc`
+
+8. C# 8:
+
+   - Visual Studio 2019 (.NET Core 3.0)
+   - `Readonly` members: members that can be assigned a value only once
+   - [Nullable reference types](#nullable-types): Avoid null reference exceptions
+   - [Null-coalescing assignment](#null-coalescing-operator-and): Assigning a value to a variable only if it is null
+   - Switch expressions (pattern matching): Simplified switch statements
+   - Default interface methods: Interface members can have implementations
+   - Using declarations: Simplified resource management
+   - Static local functions: Functions that can be declared within other functions
+   - Indices and ranges: Indexing and slicing arrays
+   - Asynchronous streams: Asynchronous streams of data
+   - Asynchronous disposable: Asynchronous clean-up
+
+9. C# 9:
+
+   - Visual Studio 2019 (.NET 5.0)
+   - [Records](#records): Immutable data types
+   - `init` only setters: Setters that can be called only during initialization
+   - [Top-level statements](#top-level-statements) (minimal-code `Program.cs` file): Simplified entry point
+   - Pattern matching enhancements
+   - Target-typed `new` expressions: `new()` instead of `new List<string>()`
+   - Native sized integers: `nint`, `nuint`
+   - [Function pointers](#delegate): `delegate*<T>`
+   - Suppress emitting localsinit flag: Performance improvement
+   - static anonymous functions: `static` modifier for local functions
+   - Target-typed `conditional` expressions
+   - Covariant return types: Return types that are more derived than the overridden method
+   - Extension `GetEnumerator` support for `foreach` loops
+   - Lambda discard parameters: `_` in lambda expressions
+
+10. C# 10:
+
+    - Visual Studio 2022 (.NET 6.0)
+    - Global `namespace` imports (global `using` Directives)
+    - `using static` directive
+    - Constant string literals: Formatting using interpolated strings
+    - File-scoped namespaces
+    - Record `structs`
+    - Null parameter checks
+
+11. C# 11:
+
+    - Required properties: Requiring properties to be set during instantiation
+
+### Code Style
 
 [Framework Design Guidelines](https://docs.microsoft.com/en-us/dotnet/standard/design-guidelines/)
 
@@ -4370,33 +4928,11 @@ Steps in .NET 5+:
    dotnet_diagnostic.CA1303.severity = Silent;
    ```
 
-## References
-
-- Coding standard: [dofactory webpage](https://www.dofactory.com/csharp-coding-standards)
-
-### Best Practices
-
-Usefulness:
-
-- Standards and conventions
-- Consistent look to code
-- Understand code quickly (by assumptions made based on previous experience)
-- Facilitate copying, changing, and maintaining the code
-
-Project Setup:
-
-- UI Layer --> Business Logic Layer --> Data Layer
-
-Class:
-
-- Pascal Case naming convention
-- Add XML documentation
-
 ### Useful Libraries
 
 - `BenchmarkDotNet`: Powerful .NET library for benchmarking
 
-- `Entity Framework` (write using this):
+- `Entity Framework` (write using this): Object-relational mapping (ORM) framework for .NET
 
   - `Dapper` (read using this): A simple object mapper for .Net
 
@@ -4454,3 +4990,7 @@ Class:
 - `EPPlus`: Excel spreadsheets
 
 - `MassTransit`: Distributed application framework
+
+## References
+
+- Coding standard: [dofactory webpage](https://www.dofactory.com/csharp-coding-standards)

@@ -25,13 +25,13 @@ Server-Side Rendering and Static Site Generation are also referred to as **Pre-R
 
 ## Server-Side Rendering (SSR)
 
-[Server-Side Rendering (SSR)](../../../Concepts/Web/Web.md#server-side-rendering-ssr) with Hydration can be done using Next.js
+[Server-Side Rendering (SSR)](../../../Concepts/Web/World_Wide_Web.md#server-side-rendering-ssr) with Hydration can be done using Next.js
 
 - Use `getServerSideProps` for SSR in Next.js
 
 ## Static Site Generation (SSG)
 
-[Static Site Generation (SSG)](../../../Concepts/Web/Web.md#static-site-generation-ssg) can be done with Next.js
+[Static Site Generation (SSG)](../../../Concepts/Web/World_Wide_Web.md#static-site-generation-ssg) can be done with Next.js
 
 To statically generate pages use `getStaticProps`
 

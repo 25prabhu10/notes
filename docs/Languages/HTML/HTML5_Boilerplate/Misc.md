@@ -23,7 +23,7 @@ For example, add the following to your `~/.gitconfig`, where the `.gitignore`
 in your HOME directory contains the files and directories you'd like to
 globally ignore:
 
-```gitignore
+```ini
 [core]
     excludesfile = ~/.gitignore
 ```

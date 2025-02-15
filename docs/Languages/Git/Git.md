@@ -104,9 +104,9 @@ The `.git` folder contains different files and folders:
 
 The `objects` folder consists of 4 types of objects:
 
-1. _Blob_ (Binary large object): Copy of contents of the file.
+1. _Blob_ (Binary large object): Copy of contents of the file
 2. _Tree_
-3. _Commit_: Creates a snapshot of the project at a given point.
+3. _Commit_: Creates a snapshot of the project at a given point
 4. _Annotated tag_
 
 - `git cat-file`: Provide content or type and size information for repository objects:
@@ -123,13 +123,13 @@ The `objects` folder consists of 4 types of objects:
 
 When working on a Git project most of the time the user will have to deal with two repositories:
 
-- _Remote Repository_: They are versions of your project that are hosted on the Internet or network somewhere.
+- _Remote Repository_: They are versions of your project that are hosted on the Internet or network somewhere
 
-- _Local Repository_: It is a copy of the remote repository that exists on the user's workstation. This is the repository where the user works on the project.
+- _Local Repository_: It is a copy of the remote repository that exists on the user's workstation. This is the repository where the user works on the project
 
 ### Head
 
-**HEAD** is a reference variable that always **points to the tip of your current (working) branch, that is, recent commit of your current branch**.
+**HEAD** is a reference variable that always **points to the tip of your current (working) branch, that is, recent commit of your current branch**
 
 - The `HEAD` file inside the `.git/` directory holds the reference value
 
@@ -155,13 +155,13 @@ Usage:
 - **HEAD^:** parent of HEAD
 - **HEAD~4:** the great-great grandparent of HEAD
 
-The git commands that require commit-hash will default to HEAD if no commit-hash is provided.
+The git commands that require commit-hash will default to HEAD if no commit-hash is provided
 
 ### Dot Operators
 
 ## Installation
 
-Git can be installed on the most common operating systems like Windows, Mac, and Linux.
+Git can be installed on the most common operating systems like Windows, Mac, and Linux
 
 Download Git from this [link](https://git-scm.com/downloads) and install it
 
@@ -169,17 +169,17 @@ Download Git from this [link](https://git-scm.com/downloads) and install it
 
 All the Git configurations are stored in a file:
 
-1. The **configurations specific to the users** resides in home directory as `~/.gitconfig` or `~/.config/git/config` file.
+1. The **configurations specific to the users** resides in home directory as `~/.gitconfig` or `~/.config/git/config` file
 
-   - To add configurations to this file we pass `--global` option in the CLI.
+   - To add configurations to this file we pass `--global` option in the CLI
 
-2. The **configurations specific to a repository** resides as `.git/config` file.
+2. The **configurations specific to a repository** resides as `.git/config` file
 
-   - To add configurations to this file we pass `--local` option or just `git config` in the CLI.
+   - To add configurations to this file we pass `--local` option or just `git config` in the CLI
 
-3. The **configurations specific to that machine** resides as `/etc/gitconfig` file.
+3. The **configurations specific to that machine** resides as `/etc/gitconfig` file
 
-   - To add configurations to this file we pass `--system` option in the CLI.
+   - To add configurations to this file we pass `--system` option in the CLI
 
 The **priority** in which these configuration files are used is: **local** > **global** > **system**
 
@@ -198,7 +198,7 @@ git config --show-origin [config name]
 git config --show-origin user.name
 ```
 
-- For the **initial setup** the user must provide their identity such as full name and email address, this is required as it helps in identifying the person making the commits (saving changes).
+- For the **initial setup** the user must provide their identity such as full name and email address, this is required as it helps in identifying the person making the commits (saving changes)
 
   ```bash
   # add username and email
@@ -213,7 +213,7 @@ git config --show-origin user.name
   git config --global color.ui true
   ```
 
-We can modify configurations from the CLI or by directly modifying the configuration file.
+We can modify configurations from the CLI or by directly modifying the configuration file
 
 - Add this to automatically create a new upstream branch for your local branch
 
@@ -222,7 +222,7 @@ We can modify configurations from the CLI or by directly modifying the configura
   ```
 
 ::: tip WINDOWS
-In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER`).
+In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER`)
 :::
 
 ### Attributes
@@ -314,13 +314,13 @@ git init --bare
 git init --bare --shared=all
 ```
 
-The above command creates a hidden `.git` folder. That directory stores all of the [objects and refs](#git-internals) that Git uses and creates as a part of your project's history.
+The above command creates a hidden `.git` folder. That directory stores all of the [objects and refs](#git-internals) that Git uses and creates as a part of your project's history
 
-This hidden `.git` directory is what separates a regular directory from a Git repository.
+This hidden `.git` directory is what separates a regular directory from a Git repository
 
 ### Clone Repository
 
-Git clone gets the complete project from remote to your local machine (used to create a copy of a specific repository or branch within a repository).
+Git clone gets the complete project from remote to your local machine (used to create a copy of a specific repository or branch within a repository)
 
 ```bash
 git clone [repo https url/ssh link]
@@ -355,7 +355,7 @@ git clone --filter=tree:0
 
 ### Remote Repository
 
-When we clone a remote repository, a reference of that remote repository will be added to your local repository configuration. This reference is used to communicate changes between the local repository and the remote repository.
+When we clone a remote repository, a reference of that remote repository will be added to your local repository configuration. This reference is used to communicate changes between the local repository and the remote repository
 
 - URL can be HTTPS or SSH
 
@@ -379,23 +379,23 @@ git remote set-url [URL]
 git remote rename [old-name] [new-name]
 ```
 
-When a repo is clone a default remote URL is added with the name `origin`. And if the repository has multiple remotes then typically the new URL is added with the name `upstream`.
+When a repo is clone a default remote URL is added with the name `origin`. And if the repository has multiple remotes then typically the new URL is added with the name `upstream`
 
 ### Remove Git Tracking
 
-To remove Git tracking from the project, just delete the hidden `.git` folder.
+To remove Git tracking from the project, just delete the hidden `.git` folder
 
 ```bash
 rm -rf .git
 ```
 
 ::: danger NOTE
-If you remove this folder you will permanently loose the project history, unless you have a remote copy.
+If you remove this folder you will permanently loose the project history, unless you have a remote copy
 :::
 
 ### Status
 
-Displays the current state of the staging area and the working directory, that is, which files are added/removed/modified in the working directory and which files are staged.
+Displays the current state of the staging area and the working directory, that is, which files are added/removed/modified in the working directory and which files are staged
 
 ```bash
 git status
@@ -412,18 +412,18 @@ git status -sb
 
 ### Add File
 
-Adds new or changed files in your working directory to the Git staging area. If you have added a new file, Git starts tracking that file.
+Adds new or changed files in your working directory to the Git staging area. If you have added a new file, Git starts tracking that file
 
 - Staging area is like a rough draft space, where files are placed for the next [commit](#commit)
 
-- You can select all files, a directory, specific files, or even specific parts of a file for staging and committing.
+- You can select all files, a directory, specific files, or even specific parts of a file for staging and committing
 
 ```bash
 git add [filename]
 
 # add the entire directory recursively,
 # including files whose names begin with a dot
-git add .
+git add 
 git add -A
 
 # stage modified and deleted files only, not new files
@@ -468,17 +468,17 @@ Edit a Hunk (split manually):
 
 ### Commit
 
-Create a commit, which is like a snapshot of your repository. These commits are snapshots of your entire repository at specific times.
+Create a commit, which is like a snapshot of your repository. These commits are snapshots of your entire repository at specific times
 
-- Make new commits often, based around logical units of change.
+- Make new commits often, based around logical units of change
 
-- Over time, commits should tell a story of the history of your repository and how it came to be the way that it currently is.
+- Over time, commits should tell a story of the history of your repository and how it came to be the way that it currently is
 
-- Commits include lots of metadata in addition to the contents and message, like the author, timestamp, and more.
+- Commits include lots of metadata in addition to the contents and message, like the author, timestamp, and more
 
-- Each commit contains an unique hash number.
+- Each commit contains an unique hash number
 
-- To view the details of a commit including the metadata and the changes made in the commit use the [git show](#show) command.
+- To view the details of a commit including the metadata and the changes made in the commit use the [git show](#show) command
 
 ```bash
 # start commit process
@@ -506,7 +506,7 @@ Git commit amend should be used only if:
 - It doesn't contain the changes that you'd like to contain
 
 ::: danger NOTE
-Amending commits is not advisable. It changes the commit-hash and hence changing the history.
+Amending commits is not advisable. It changes the commit-hash and hence changing the history
 :::
 
 Fix-up commits:
@@ -545,7 +545,7 @@ _Example:_ [Angular commit convention](https://github.com/angular/angular/blob/m
 ```text
 <type>(<scope>): <short summary>
   │       │             │
-  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end.
+  │       │             └─⫸ Summary in present tense. Not capitalized. No period at the end
   │       │
   │       └─⫸ Commit Scope: animations|bazel|benchpress|common|compiler|compiler-cli|core|
   │                          elements|forms|http|language-service|localize|platform-browser|
@@ -663,7 +663,7 @@ git config --global rerere.autoUpdate true
 
 ### Push
 
-It uploads all local branch commits to the corresponding remote branch.
+It uploads all local branch commits to the corresponding remote branch
 
 ```bash
 git push
@@ -688,7 +688,7 @@ Generally most of us don't love doing forced pushes, because there is always a c
 
 - You commit and push something to GitHub
 
-- Someone else pulls it down, commits something and pushes it back up.
+- Someone else pulls it down, commits something and pushes it back up
 
 - You amend a commit, rewriting the history, and force push it, not knowing that anyone had based something off your work
 
@@ -705,12 +705,12 @@ Reasons to force push:
 - Versions have diverged and merging is undesirable
 
 ::: danger NOTE
-Use force push with extreme caution. Disruptive for others using the remote branch. Commits disappear. Subsequent local commits are orphaned for others.
+Use force push with extreme caution. Disruptive for others using the remote branch. Commits disappear. Subsequent local commits are orphaned for others
 :::
 
 ### Rename File
 
-Change file name or file path and prepare it for commit.
+Change file name or file path and prepare it for commit
 
 ```bash
 git mv [original filename] [new filename]
@@ -718,7 +718,7 @@ git mv [original filename] [new filename]
 
 ### Delete Files
 
-Delete the file from the _working area_ or _staging area_ and add the deletion to the _staging area_.
+Delete the file from the _working area_ or _staging area_ and add the deletion to the _staging area_
 
 ```bash
 git rm [filename]
@@ -841,7 +841,7 @@ Restore a deleted file which was tracked by git
 
 ### Ignoring File
 
-Untracked files or folders can be ignored so that Git dose not track them. For that create a file named `.gitignore` and add all the file or folder listing patterns.
+Untracked files or folders can be ignored so that Git dose not track them. For that create a file named `.gitignore` and add all the file or folder listing patterns
 
 We can use:
 
@@ -858,7 +858,7 @@ We can use:
 
 Example:
 
-```gitignore
+```bash
 # ignore all .a files
 *.a
 
@@ -923,7 +923,7 @@ git log --patch
 # list edits to lines 100-150 in filename.txt
 git log -L 100,150:filename.txt
 
-# Use heuristics to get log of a certain function, class, etc...
+# Use heuristics to get log of a certain function, class, etc..
 git log -L :funcName:filename.ts
 
 # get logs contains an expression
@@ -1043,7 +1043,7 @@ git config --global fetch.prune true
 
 ### Reset
 
-Git reset as the name suggests resets things. Reset the working area to a specific commit.
+Git reset as the name suggests resets things. Reset the working area to a specific commit
 
 It can **undo the changes that are already committed**
 
@@ -1076,11 +1076,11 @@ git reset -p
 
 Reset commit with the following options:
 
-- `--soft`: **Moves the commit changes into staging area** and does not affect the current working area.
+- `--soft`: **Moves the commit changes into staging area** and does not affect the current working area
 
-- `--hard`: **Deletes all the commit changes. Be cautious with this flag**. Might lose all changes from both staging and working area to match the commit.
+- `--hard`: **Deletes all the commit changes. Be cautious with this flag**. Might lose all changes from both staging and working area to match the commit
 
-- `--mixed`: Default operation. Moves commit changes to the _working area_.
+- `--mixed`: Default operation. Moves commit changes to the _working area_
 
 Apply reset command on:
 
@@ -1101,11 +1101,11 @@ Use revert whenever possible
 
 ### Revert
 
-Undo changes made in a commit (revert a commit).
+Undo changes made in a commit (revert a commit)
 
-Git revert is similar to reset however, **`git revert` inverses the changes from that old commit and creates a new revert commit**.
+Git revert is similar to reset however, **`git revert` inverses the changes from that old commit and creates a new revert commit**
 
-- A new commit is made which contains the changes needed to revert a commit.
+- A new commit is made which contains the changes needed to revert a commit
 
 ```bash
 git revert [commitSHA]
@@ -1113,7 +1113,7 @@ git revert [commitSHA]
 
 ### Diff
 
-Compares contents of the working directory with the staging area.
+Compares contents of the working directory with the staging area
 
 ```bash
 git diff
@@ -1151,7 +1151,7 @@ git diff [first branch]...[second branch]
 ```
 
 ::: tip TOOL
-We can use a GUI tool or an external diff viewing program.
+We can use a GUI tool or an external diff viewing program
 
 ```bash
 git difftool
@@ -1177,9 +1177,9 @@ Git checkout is **used to switch**. Switch between _branches_, _commits_, and _f
 git checkout branch
 ```
 
-Go to a specific snapshot (commit).
+Go to a specific snapshot (commit)
 
-- This command **creates a detached head**, meaning, this will **give a temporary branch to work and debug**. Line being on an unnamed branch.
+- This command **creates a detached head**, meaning, this will **give a temporary branch to work and debug**. Line being on an unnamed branch
 - **Do not commit in this temporary branch**. As new commits will not belong to any branch
 - Detached commits will be garbage collected (~2 weeks)
 
@@ -1395,6 +1395,8 @@ Squash Commits:
 
 ### Cherry-Pick
 
+The cherry-pick command takes changes from a specified commit and places them on the HEAD of the currently checked-out branch
+
 - Apply the changes from one or more existing commits
 - Can be used to apply commit from one branch to another
 - Each existing commit is recorded as a new commit on the current branch
@@ -1404,14 +1406,26 @@ Squash Commits:
 ```bash
 git cherry-pick [commitSHA]
 
+# cherry-pick multiple commits
+git cherry-pick [commitSHA1] [commitSHA2]
+
 # cherry-pick range of commits
 git cherry-pick [commitSHA-of-3]..[commitSHA-of-5]
 
 # edit the commit message
 git cherry-pick [commitSHA] --edit
+
+# cherry-pick without committing
+git cherry-pick [commitSHA] --no-commit
+
+# add the changes to the staging area and continue with the cherry-pick
+git cherry-pick --continue
+
+# abort the cherry-pick
+git cherry-pick --abort
 ```
 
-- Cannot cherry pick a merge commit as merge commits have two parents
+- Cannot cherry pick a _merge commit_ as merge commits have two parents
 - Use `-m` flag to specify the parent if cherry-picking merge commit
 
   ```bash
@@ -1422,7 +1436,7 @@ git cherry-pick [commitSHA] --edit
 
 ### Stash
 
-Git stash temporarily saves the changes made in working directory and work on some other changes.
+Git stash temporarily saves the changes made in working directory and work on some other changes
 
 ```bash
 # save current changes
@@ -1448,7 +1462,7 @@ git stash -p
 ```
 
 ::: tip NOTE
-Git stash is branch agnostic. All branches use the same stash list. This is helpful when moving the changes from one branch to another branch.
+Git stash is branch agnostic. All branches use the same stash list. This is helpful when moving the changes from one branch to another branch
 :::
 
 ::: warning UNTRACKED FILES
@@ -1463,7 +1477,7 @@ git stash -u or --include-untracked [filename]
 
 ### Show
 
-Outputs metadata and content changes of the specified commit.
+Outputs metadata and content changes of the specified commit
 
 ```bash
 git show [commitSHA]
@@ -1497,15 +1511,15 @@ FILE PERMISSIONS / TYPE OF FILE / objectSHA / FILE NAME
 
 ### Reflog
 
-- Git reflog has the superpower to **track the head**.
+- Git reflog has the superpower to **track the head**
 
 - The difference between log and reflog is that:
 
-  - `git log` will track every commit that you make and record it as a snapshot at a particular time, whereas `git reflog` will keep track of commits that are made as well as the commits that are discarded.
+  - `git log` will track every commit that you make and record it as a snapshot at a particular time, whereas `git reflog` will keep track of commits that are made as well as the commits that are discarded
 
 - This is provided in a rolling buffer for 30 days
 
-- The `git reflog` command will list down the logs whenever the HEAD changes like the branch was created, cloned, checked-out, renamed, or any commits made on the branch.
+- The `git reflog` command will list down the logs whenever the HEAD changes like the branch was created, cloned, checked-out, renamed, or any commits made on the branch
 
 ```bash
 git reflog
@@ -1515,7 +1529,7 @@ git for-each-ref --sort=-committerdate --format="%(color:blue)%(authordate:relat
 
 ### Blame
 
-Shows what revision and author last modified each line of a file.
+Shows what revision and author last modified each line of a file
 
 - Browse annotated file
 - Determine who changed which lines in a file and why
@@ -1552,12 +1566,14 @@ git annotate [filename]
 
 Options:
 
-- `-s`: to suppress the author's name and time stamp from the output.
-- `-e`: to show the author's email instead of the author's name.
-- `-f`: to show the filename in the original commit.
-- `-n`: to show the line number in the original commit.
+- `-s`: to suppress the author's name and time stamp from the output
+- `-e`: to show the author's email instead of the author's name
+- `-f`: to show the filename in the original commit
+- `-n`: to show the line number in the original commit
 
 ### Bisect
+
+Use binary search to find the commit that introduced a bug
 
 - Find the commit that introduced a bug or regression
 - Mark last good revision and first bad revision
@@ -1567,38 +1583,45 @@ Options:
 
 Git bisect will:
 
-1. Perform a binary search in the commits.
-2. Allow us to check it manually.
-3. Allow us to declare its status as good or bad.
+1. Perform a binary search in the commits
+2. Allow us to check it manually
+3. Allow us to declare its status as good or bad
 
-Start bisecting:
+Steps: `start`, `bad`, `good`
 
-```bash
-# start bisect session
-git bisect start
-```
+1. Start bisecting:
 
-Provide a commit/branch/tag to start from:
+    ```bash
+    # start bisect session
+    git bisect start
+    ```
 
-```bash
-git bisect good [treeish]
-```
+2. Mark the current commit as bad:
 
-Now add the current commit as bad, Git will go through all the commits between the start commit and the current bad commit.
+    ```bash
+    git bisect bad
+    ```
 
-```bash
-git bisect bad
+2. Provide a commit/branch/tag to start from:
 
-or
+    ```bash
+    git bisect good [treeish]
+    ```
 
-git bisect bad [treeish]
-```
+3. Now add the current commit as bad, Git will go through all the commits between the start commit and the current bad commit
 
-From now check the application and verify if the application has the bug or not,
-if the commit dose not have bug then mark it as good and if you find the commit that has the bug then mark it as bad. Repeat this process till the tool narrows down to the commit that introduced the bug.
+    ```bash
+    git bisect bad
 
-- `git bisect log`: To find the flow of Git Bisect, that is, to see what has been done so far.
-- `git bisect reset`: To reset if something went wrong.
+    or
+
+    git bisect bad [treeish]
+    ```
+
+From now check the application and verify if the application has the bug or not, if the commit dose not have bug then mark it as good and if you find the commit that has the bug then mark it as bad. Repeat this process till the tool narrows down to the commit that introduced the bug
+
+- `git bisect log`: To find the flow of Git Bisect, that is, to see what has been done so far
+- `git bisect reset`: To reset if something went wrong
 
 ### Prune
 
@@ -1658,15 +1681,15 @@ Integrating changes and structuring releases:
 
 ## Tagging
 
-- Tag allows you to capture a reference point in your project history, such as release versions.
+- Tag allows you to capture a reference point in your project history, such as release versions
 
 - Tags allow making points in history as important
 
 - A **named reference** to a commit
 
-- An **annotated tag** (most common) contains additional information such as name, message, and email of the person who created the tag.
+- An **annotated tag** (most common) contains additional information such as name, message, and email of the person who created the tag
 
-- A **lightweight tag** points to just a commit hash.
+- A **lightweight tag** points to just a commit hash
 
 - Create a tag (lightweight):
 
@@ -1734,26 +1757,26 @@ Integrating changes and structuring releases:
 
 ## Git Submodule
 
-It often happens that while working on one project, you need to use another project from within it. Git addresses this issue using submodules.
+It often happens that while working on one project, you need to use another project from within it. Git addresses this issue using submodules
 
-Submodules allow you to keep a Git repository as a subdirectory of another Git repository. This lets you clone another repository into your project and keep your commits separate.
+Submodules allow you to keep a Git repository as a subdirectory of another Git repository. This lets you clone another repository into your project and keep your commits separate
 
 ```bash
 git submodule add [url of repo]
 
-# view status (working, staging, or indexed files) of all the submodules.
+# view status (working, staging, or indexed files) of all the submodules
 git submodule status
 
-# updates submodules after switching branches.
+# updates submodules after switching branches
 git submodule update
 
-# after cloning a new repo, if you need to add submodules to it from .gitmodules file, use this command.
+# after cloning a new repo, if you need to add submodules to it from .gitmodules file, use this command
 git submodule update --init
 
-# if the submodules inside a newly cloned repo are nested, then use this.
+# if the submodules inside a newly cloned repo are nested, then use this
 git submodule update --init --recursive
 
-# pulls all changes in the submodules.
+# pulls all changes in the submodules
 git submodule update --remote
 ```
 
@@ -1774,7 +1797,7 @@ A `.gitmodules` file is created when we add a submodule to the project. This is 
 
 ![Git hooks](./git-hooks.jpg)
 
-Based on the git operation, any one of the following `git hooks` will be triggered.
+Based on the git operation, any one of the following `git hooks` will be triggered
 
 1. **Client-side**:
 
@@ -1964,19 +1987,19 @@ Git RCS keywords: `$Date$`
 
 The below mentioned files can be created in the `.github` folder:
 
-- `CODE_OF_CONDUCT.md`: Defines standards for how to engage in a community.
+- `CODE_OF_CONDUCT.md`: Defines standards for how to engage in a community
 
 - `CONTRIBUTING.md`: Communicates how people should contribute to your project. (making pull request, setting development environment...)
 
-- `FUNDING.yml`: Displays a sponsor button in your repository to increase the visibility of funding options for your open source project.
+- `FUNDING.yml`: Displays a sponsor button in your repository to increase the visibility of funding options for your open source project
 
 - `ISSUE_TEMPLATE`: Folder that contains a templates of possible issues user can use to open issue (such as if issue is related to documentation, if it's a bug, if user wants new feature etc)
 
-  - `config.yml`: Customize the issue template chooser that people see when creating a new issue in your repository by adding a `config.yml` file to the .`github/ISSUE_TEMPLATE` folder.
+  - `config.yml`: Customize the issue template chooser that people see when creating a new issue in your repository by adding a `config.yml` file to the .`github/ISSUE_TEMPLATE` folder
 
 - `PULL_REQUEST_TEMPLATE.md`: How to make a pull request to project
 
-- `stale.yml`: Probot configuration to close stale issues. There are many other apps on Github Marketplace that place their configurations inside .github folder because they are related to GitHub specifically.
+- `stale.yml`: Probot configuration to close stale issues. There are many other apps on Github Marketplace that place their configurations inside .github folder because they are related to GitHub specifically
 
 - `SECURITY.md`: Gives instructions for how to report a security vulnerability in your project
 
@@ -1984,9 +2007,9 @@ The below mentioned files can be created in the `.github` folder:
 
 - `workflows`: Configuration folder containing yaml files for GitHub Actions
 
-- `CODEOWNERS`: Pull request reviewer rules. More info here.
+- `CODEOWNERS`: Pull request reviewer rules. More info here
 
-- `dependabot.yml`: Configuration options for dependency updates. More info here.
+- `dependabot.yml`: Configuration options for dependency updates. More info here
 
 ## References and Guides
 

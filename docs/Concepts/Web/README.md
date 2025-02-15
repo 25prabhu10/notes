@@ -6,11 +6,11 @@ sidebar: false
 
 # Table of Content
 
-1. [Web](./Web.md)
+1. [World Wide Web](./World_Wide_Web.md)
 2. [URL](./URL.md)
 3. [HTTP](./HTTP.md)
 4. [RESTful Web Services](./RESTful_Web_Services.md)
-5. [Network](./Network.md)
+5. [Networking](./Networking.md)
 6. [WebSocket](./WebSocket.md)
 7. [DNS](./DNS.md)
 8. [SMTP](./SMTP.md)

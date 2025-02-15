@@ -1,7 +1,7 @@
 ---
 title: HTML
 description: Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser
-lastmod: 2024-09-24
+lastmod: 2025-02-15
 ---
 
 # HTML
@@ -13,6 +13,8 @@ HTML (HyperText Markup Language) (1993) is the standard markup language for docu
 - It structures the content on the web, providing a foundation for the text, images, and forms displayed in browsers
 
 - _"Hypertext"_ refers to links that connect web pages to one another, either within a single website or between websites
+
+- HTML, [CSS](../CSS/CSS.md), and [JavaScript](../JavaScript/JavaScript.md) are the three core technologies of the [World Wide Web](../../Concepts/Web/World_Wide_Web.md)
 
 ## Document Type Declaration (DTD)
 
@@ -593,7 +595,35 @@ The structure of an HTML document consists of a series of nested elements that d
     <meta charset="UTF-8" />
     <title>Document</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <h1>My Website</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2>Section Title</h2>
+        <p>Section content...</p>
+      </section>
+      <article>
+        <h2>Article Title</h2>
+        <p>Article content...</p>
+      </article>
+    </main>
+    <aside>
+      <h2>News</h2>
+      <p>Latest news...</p>
+    </aside>
+    <footer>
+      <p>&copy; 2022 My Website</p>
+    </footer>
+  </body>
 </html>
 ```
 
@@ -672,8 +702,10 @@ The `<head>` element contains machine-readable information (metadata) about the 
     <!-- Prevent search engines from indexing the page -->
     <meta name="robots" content="noindex, nofollow" />
 
-    <!-- Set the theme colour for the browser -->
+    <!-- Set the theme colour for the safari, android, ios -->
     <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
 
     <!-- Set the colour scheme for the document -->
     <meta name="color-scheme" content="light dark" />
@@ -774,6 +806,28 @@ The `<head>` element contains machine-readable information (metadata) about the 
   </head>
   ```
 
+  - If JavaScript is disabled, show a message to the user to enable JavaScript
+
+  ```html
+  <noscript
+    >JavaScript is disabled in your browser. Enable JavaScript to view this
+    page.</noscript
+  >
+  ```
+
+- `<style>`: Contains CSS code to style the document
+
+  ```html
+  <head>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+    </style>
+  </head>
+  ```
+
 - `<base>`: Specifies the base URL for all relative URLs in the document
 
   ```html
@@ -781,18 +835,6 @@ The `<head>` element contains machine-readable information (metadata) about the 
     <base href="https://example.com/" />
   </head>
   ```
-
-#### SEO
-
-Search Engine Optimization (SEO) is the practice of increasing the quantity and quality of traffic to your website through organic search engine results
-
-- **On-Page SEO**: Refers to the practice of optimizing web pages to improve a website's search engine rankings and earn organic traffic
-- **Off-Page SEO**: Refers to actions taken outside of your own website to impact your rankings within search engine results pages (SERPs)
-- **Technical SEO**: Refers to the process of optimizing your website for the crawling and indexing phase
-- **Local SEO**: Refers to the process of optimizing your online presence to attract more business from relevant local searches
-- **Mobile SEO**: Refers to the practice of optimizing your website for users on smartphones and tablets
-
-The [`<head>`](#head) element is where you can add metadata that helps search engines understand the content of your page
 
 ### Body
 
@@ -1763,7 +1805,7 @@ Attributes:
 
 ::: tip NOTE
 
-- Setting `target="\_blank"` on `<form>` elements implicitly provides the same `rel` behaviour as setting `rel="noopener"` which does not set window.opener
+- Setting `target="_blank"` on `<form>` elements implicitly provides the same `rel` behaviour as setting `rel="noopener"` which does not set window.opener
 
 - It is possible to use the `:valid` and `:invalid` CSS pseudo-classes to style a `<form>` element based on whether or not the elements inside the form are valid
 
@@ -1915,7 +1957,7 @@ How an `<input>` works varies considerably depending on the value of its `type` 
 
 - Default is `type="text"`
 
-Some input types:
+Common input types:
 
 1. `text`: Single line text input
 2. `textarea`: Multi-line text input
@@ -2440,14 +2482,12 @@ Attributes:
   - `allow-top-navigation-by-custom-protocols`
 
 ::: warning
-Because each browsing context is a complete document environment, every `<iframe>` in a page requires increased memory and other computing resources. While theoretically you can use as many `<iframe>s` as you like, check for performance problems
+Because each browsing context is a complete document environment, every `<iframe>` in a page requires increased memory and other computing resources. While theoretically you can use as many `<iframe>` as you like, check for performance problems
 :::
 
 ### Empty Elements
 
-The elements that do not have any words between an opening and closing tag are called empty elements
-
-Elements like `<br>`, `<hr>`
+The elements that do not have any words between an opening and closing tag are called empty elements, such as `<br>`, `<hr>`
 
 ### Other Elements
 
@@ -2499,6 +2539,12 @@ Characters that have a special meaning in HTML are called _"reserved characters"
 Comments are used to add notes to the code, which are not displayed in the browser
 
 - `<!-- comment goes here -->` for comments
+
+Conditional comments are used to target specific versions of Internet Explorer, and are only supported in IE 5-9
+
+```html
+<!--[if IE]> Internet Explorer <![endif]-->
+```
 
 ### Accessible Design
 
@@ -3058,6 +3104,14 @@ The simplified DOCTYPE for HTML5 is:
 
 ```html
 <!doctype html>
+```
+
+HTML5 shiv (or shim) is a JavaScript workaround, created by Sjoerd Visscher, to enable styling of HTML5 elements in versions of Internet Explorer prior to version 9
+
+```html
+<!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<![endif]-->
 ```
 
 ### HTML Living Standard (Current)

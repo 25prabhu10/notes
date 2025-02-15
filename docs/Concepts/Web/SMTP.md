@@ -25,13 +25,13 @@ SMTP is an Internet standard communication protocol for electronic mail transmis
 
 3. Send Extended Hello:
 
-   ```smtp
+   ```http
    EHLO
    ```
 
 4. Authenticate:
 
-   ```smtp
+   ```http
    AUTH LOGIN
    <your-encoded-username>
    <your-encoded-password>

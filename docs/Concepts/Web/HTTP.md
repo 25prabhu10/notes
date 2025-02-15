@@ -29,6 +29,24 @@ The main features of HTTP are:
 
 ## What happens when you browse the web?
 
+Short version:
+
+1. **Client** asks **DNS Recursive Resolver** to lookup a hostname (`stanford.edu`)
+
+2. **DNS Recursive Resolver** sends DNS query to **Root Nameserver**
+
+   - **Root Nameserver** responds with IP address of **TLD Nameserver** (`.edu`, etc.)
+
+3. **DNS Recursive Resolver** sends DNS query to **TLD Nameserver**
+
+4. **DNS Recursive Resolver** sends DNS query to **Domain Nameserver**
+
+   - **Domain Nameserver** is authoritative, sp replies with server IP address
+
+5. **DNS Recursive Resolver** finally responds to Client, sending server IP address (`171.67.215.200`)
+
+Detailed version:
+
 1. The browser requests for the actual address of [www.google.com](http://www.google.com/) from a Domain Name System (DNS) server
 
    - DNS might perform multiple steps. Hence it is called a recursive resolver
@@ -66,22 +84,6 @@ The main features of HTTP are:
 10. The page is fully loaded at this point, but the browser hasn't stopped sending out requests. We're long past the days when a web page was a page of static information. Many web pages are now feature-rich applications that continually communicate with various servers on the internet to send or load additional content. This content may be user-initiated actions, such as when you type requests in the search bar on Google's home page and instantly see search suggestions without having to click the Search button, or it may be application-driven actions, such as your Facebook or Twitter feed's automatically updating without your having to click a refresh button. These actions often happen in the background and are invisible to you, especially advertising and analytics scripts that track your actions on the site to report analytics to website owners and/or advertising networks
 
 ![What happens when you browse the web](./what-happens-when-you-browse-the-web.jpg)
-
-Short version:
-
-1. **Client** asks **DNS Recursive Resolver** to lookup a hostname (`stanford.edu`)
-
-2. **DNS Recursive Resolver** sends DNS query to **Root Nameserver**
-
-   - **Root Nameserver** responds with IP address of **TLD Nameserver** (`.edu`, etc.)
-
-3. **DNS Recursive Resolver** sends DNS query to **TLD Nameserver**
-
-4. **DNS Recursive Resolver** sends DNS query to **Domain Nameserver**
-
-   - **Domain Nameserver** is authoritative, sp replies with server IP address
-
-5. **DNS Recursive Resolver** finally responds to Client, sending server IP address (`171.67.215.200`)
 
 ## HTTP Versions
 

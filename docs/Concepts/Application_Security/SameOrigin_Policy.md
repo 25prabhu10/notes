@@ -39,7 +39,7 @@ Two URIs are part of the same origin, if they have the same `scheme`, `host` and
 
 _Example:_
 
-```url
+```html
 <!-- SCHEME + HOST (Domain) + PORT (Implicit)-->
 https://example.org:443
 
@@ -61,29 +61,17 @@ function isSameOrigin(url1, url2) {
 
 - Same Origin:
 
-  ```url
-  https://foo.example.org
-  https://foo.example.org/mypage
+  ```html
+  https://foo.example.org https://foo.example.org/mypage
   ```
 
 - Cross Origin:
 
-  ```url
-  // Hostname don't match
-  https://foo.github.io
-  https://bar.github.io
-
-  // Hostname don't match
-  https://example.org
-  https://www.example.org
-
-  // Protocol don't match
-  https://example.org
-  http://example.org
-
-  // Port don't match
-  https://example.org:81/
-  https://example.org:80/
+  ```html
+  // Hostname don't match https://foo.github.io https://bar.github.io //
+  Hostname don't match https://example.org https://www.example.org // Protocol
+  don't match https://example.org http://example.org // Port don't match
+  https://example.org:81/ https://example.org:80/
   ```
 
 ## Applicable
@@ -109,22 +97,22 @@ Which is blocked?
 
   - Scripts, images, etc. which remain constant:
 
-    ```url
+    ```html
     <script src="https://cross-origin/my.js">
     ```
 
   - Cross-origin web forms:
 
-    ```url
-    <form action="https://cross-origin/getmyval" method="GET">
+    ```html
+    <form action="https://cross-origin/getmyval" method="GET"></form>
     ```
 
 - **JavaScript: SOP applies**
 
   - Content operated via XMLHTTPRequest or Fetch (APIs):
 
-    ```url
-    fetch("https://cross-origin/getmyval")
+    ```javascript
+    fetch("https://cross-origin/getmyval");
     ```
 
 ### iframe

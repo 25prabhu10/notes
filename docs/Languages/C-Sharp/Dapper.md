@@ -1,8 +1,8 @@
 ---
 title: Dapper
-description: A simple object mapper for .Net
+description: A simple object mapper for .Net Core applications
 date: 2024-08-22
-lastmod: 2024-08-22
+lastmod: 2024-10-03
 ---
 
 # Dapper
@@ -408,7 +408,7 @@ lastmod: 2024-08-22
     });
     ```
 
-## CRUD – Create, Read, Update, Delete
+## CRUD (Create, Read, Update, Delete)
 
 Common Dapper extension methods:
 

@@ -1,7 +1,7 @@
 ---
 title: React.js
 description: A JavaScript library for building user interfaces
-lastmod: 2023-08-26
+lastmod: 2025-02-08
 ---
 
 # React.js
@@ -127,7 +127,7 @@ Steps to create a base React project without using any boilerplate tools:
 
 4. Create `.gitignore` file at the root of the project to exclude all the files and directories that should not be committed, such as `/node_modules`, `/dist` directory:
 
-   ```gitignore
+   ```bash
    # dependencies
    /node_modules
 

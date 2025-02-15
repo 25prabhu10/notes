@@ -40,7 +40,7 @@ int main()
 }
 ```
 
-- Size of an array can be dynamically provided, but during declaration the items cannot be initialized.
+- Size of an array can be dynamically provided, but during declaration the items cannot be initialized
 
 ```cpp
 int main()
@@ -54,22 +54,14 @@ int main()
 }
 ```
 
-::: warning NOTE
-Only in new C compiler dynamic size declaration is available.
-:::
-
 ## Header Files
 
 - Mathematical Programming
 - Logical Programming
-
-## Visual Studio
-
-- New project --> Empty Project
 
 ## Virtual Functions
 
 - Dynamic Dispatch
 - V Table
 
-Pure Virtual Functions are similar to Interface or Abstract Class.
+Pure Virtual Functions are similar to Interface or Abstract Class

@@ -7,7 +7,7 @@ description: The protective measures and protocols that organizations adopt to p
 
 The protective measures and protocols that organizations adopt to protect the organization from, cyber criminals and threats that use the web channel.
 
-Using Defense In Depth approach: By increasing the number of layers, an attacker's chance of success is decreased. For example an applications which contains:
+Using Defence In Depth approach: By increasing the number of layers, an attacker's chance of success is decreased. For example an applications which contains:
 
 1. Sensitive data is encrypted when stored in the database
 2. Application has an extensive input validation
@@ -125,7 +125,7 @@ The browser has a seemingly impossible task:
 - Open sockets to a server, or even to another user's browser
 - Display media in huge number of formats
 - Run custom code on the GPU
-- Save/read data from the filesystem
+- Save/read data from the file-system
 
 > "It's all too easy to criticize, lament, and create paranoid scenarios about the 'unsound security foundations' of the web. Truth is, all of that criticism is true, and yet the web has proven to be an incredibly robust platform."
 >
@@ -227,21 +227,21 @@ Site vs Origin:
 
 - Same Site:
 
-  ```url
+  ```text
   https://foo.example.org
   https://bar.example.org
   ```
 
 - Cross Site:
 
-  ```url
+  ```text
   https://foo.github.io
   https://bar.github.io
   ```
 
 - Same Site:
 
-  ```url
+  ```text
   https://foo.bar.example.org
   https://bar.example.org
   ```
@@ -254,22 +254,22 @@ Which is blocked?
 
   - Scripts, images, etc. which remain constant:
 
-    ```url
+    ```html
     <script src="https://cross-origin/my.js">
     ```
 
   - Cross-origin web forms:
 
-    ```url
-    <form action="https://cross-origin/getmyval" method="GET">
+    ```html
+    <form action="https://cross-origin/getmyval" method="GET"></form>
     ```
 
 - **JavaScript: applies**
 
   - Content operated via XMLHTTPRequest or Fetch (APIs):
 
-    ```url
-    fetch("https://cross-origin/getmyval")
+    ```javascript
+    fetch("https://cross-origin/getmyval");
     ```
 
 ## Security Headers
@@ -384,6 +384,108 @@ Examples of extensions to cache:
 Check if regex is safe:
 
 - [safe-regex](https://github.com/davisjam/safe-regex)
+
+## Unique Identifiers
+
+Unique Identifiers are used to identify any entity uniquely. They are used in various places like:
+
+- Session ID
+- CSRF Token
+- API Key
+- User ID
+- Order ID
+
+You can use sequential identifiers (like auto-incrementing integers) to identify entities. In a database, you can use a primary key to identify entities. But, sequential identifiers are predictable and can be easily guessed
+
+For example, if you are using sequential identifiers for session IDs (`sessionID: 123`), an attacker can easily guess the next session ID (`sessionID: 124`) and hijack the session
+
+- To avoid this, you can use random identifiers (like UUIDs or GUIDs) to identify entities
+- They are hard to guess and are more secure
+
+Why do we need unique identifiers?
+
+- To identify entities uniquely
+- To avoid conflicts
+- Increase security
+
+What makes a good unique identifier?
+
+- Secure
+- Collision-resistant
+- Horizontally scalable
+- Offline generation
+- Identifiable
+- Unpredictable
+
+Common forms of unique identifiers:
+
+- URI (Uniform Resource Identifier)
+- UUID (Universally Unique Identifier)
+- GUID (Globally Unique Identifier)
+- CUID (Collision-resistant Unique Identifier)
+- BIC (Bank Identifier Code)
+- UDID (Unique Device Identifier)
+- SSID (Service Set Identifier)
+
+### UUID
+
+**Universally Unique Identifier (UUID)** is a 128-bit label that can be used across all computers and networks wherever a unique identifier is required. Such an identifier has a very low probability of being duplicated
+
+- Odds of collision for UUIDs are supposed to be one in a `1.7-quintillion` (1.7 x 10^18)
+- [RFC 4122](https://datatracker.ietf.org/doc/html/rfc4122) defines the UUID
+- UUIDs are also known as [GUIDs](#guid) (Globally Unique Identifier) as per RFC 4122
+
+#### Format
+
+A UUID is a 128-bit in size, in which 2-4 bits are used to indicate the format's variant. The most common variant in use, OSF DCE
+
+Different versions of UUID:
+
+1. **V1 and V6** (date-time and MAC address): Based on the current time and MAC address
+2. **V2** (date-time and MAC address, DCE Security verion): Based on the POSIX UID/GID
+3. **V3 and V5** (namespace name-based): Based on a hash of a name
+4. **V4** (random): Generated randomly
+5. **V7** (timestamp and random): Designed for keys in high-load databases and distributed systems
+6. **V8** (custom): Custom version
+
+Due to some older implementations of V4 UUID can't generate more than 10k ids without generating a collision
+
+### GUID
+
+**Globally Unique Identifier (GUID)** is a 128-bit integer (16 bytes) that can be used across all computers and networks wherever a unique identifier is required. Such an identifier has a very low probability of being duplicated
+
+- Odds of collision for GUIDs are supposed to be one in a `5.3-quintillion` (5.3 x 10^18)
+
+There are two types of unique identifiers:
+
+- **Sequential**: Generated in sequence
+- **Random**: Generated randomly
+
+### CUID
+
+**Collision-resistant Unique Identifier (CUID)** is a 128-bit integer (16 bytes) that can be used across all computers and networks wherever a unique identifier is required. Such an identifier has a very low probability of being duplicated
+
+### Snowflake ID
+
+Twitter's Snowflake ID is a 64-bit unique identifier that is used to generate unique IDs at high scale. It is composed of:
+
+- 41 bits for timestamp
+- 10 bits for machine ID
+- 12 bits for sequence number
+
+Snowflake ID is used to generate unique IDs at high scale
+
+Every snowflake ID has a unique structure, hence called snowflake ID
+
+_Example:_ Tweet by Wikipedia has a snowflake ID `1541815603606036480`
+
+### Database Unique Identifier
+
+When storing data into a database, you can use a unique identifier as primary key. You can use sequential identifiers (like auto-incrementing integers) or random identifiers (like UUIDs or GUIDs) to identify entities
+
+If we use sequential identifiers, it is good for performance but it is predictable and can be easily guessed. Also in a distributed system, different nodes can generate the same identifier which can cause conflicts
+
+If we use random identifiers, it is secure but it is bad for performance.
 
 ## Resources
 

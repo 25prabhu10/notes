@@ -240,6 +240,103 @@ An exception filter that catches any unhandled exceptions and send the error mes
 - Create a class to model exception response
 - Create a filter: Filter runs before or after ASP.NET Core processes a request
 
+You can use the new `ProblemDetails` class to return error responses:
+
+- It follows the [RFC 9457 - Problem Details for HTTP APIs (2023)](https://datatracker.ietf.org/doc/html/rfc7807) standard for problem details
+
+```cs
+// register problem details filter
+app.AddProblemDetailsExceptionHandler(options =>
+{
+    options.CustomizeProblemDetails = context =>
+    {
+        context.ProblemDetails.Instance = $"{context.HttpContext.Request.Method} {context.HttpContext.Request.Path}";
+        context.ProblemDetails.Extensions.TryAdd("requestId", context.HttpContext.TraceIdentifier);
+
+        var activity = context.HttpContext.Features.Get<IHttpActivityFeature>()?.Activity;
+        context.ProblemDetails.Extensions.TryAdd("traceId", activity?.Id);
+    };
+});
+
+// sample API endpoint
+app.MapGet("/weather", asycn (string city, string units, OpenWeatherMapService weatherMapService) =>
+{
+    if (["f", "k", "c"].Contains(units.ToLower()) == false)
+    {
+        return Results.Problem(type: "Bad Request", title: "Invalid units", statusCode: StatusCodes.Status400BadRequest, detail: "Units must be 'f', 'k', or 'c'");
+    }
+
+    return Results.Ok(await weatherMapService.GetWeatherAsync(city, units));
+});
+```
+
+You can also create a global ProblemDetails filter:
+
+```cs
+// Program.cs
+builder.Services.AddExceptionHandler<ProblemExceptionHandler>();
+app.UseExceptionHandler();
+
+// ProblemExceptionHandler.cs
+namespace Problems;
+
+[Serializable]
+public class ProblemException : Exception
+{
+    public string Error { get; }
+    public string Message { get; }
+
+    public ProblemException(string error, string message) : base(message)
+    {
+        Error = error;
+        Message = message;
+    }
+}
+
+public class ProblemExceptionHandler : IExceptionHandler
+{
+    private readonly IProblemDetailsService _problemDetailsService;
+
+    public ProblemExceptionHandler(IProblemDetailsService problemDetailsService)
+    {
+        _problemDetailsService = problemDetailsService;
+    }
+
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
+    {
+        if (exception is not ProblemException problemException)
+        {
+            return true;
+        }
+
+        var problemDetails = new ProblemDetails
+        {
+            Title = problemException.Error,
+            Detail = problemException.Message,
+            Status = StatusCodes.Status400BadRequest,
+            Type = "https://tools.ietf.org/html/rfc7807", // "Bad Request"
+        };
+
+        httpContext.Response.StatusCode = problemDetails.Status.Value;
+        return await _problemDetailsService.TryWriteAsync(new ProblemDetailsContext{
+            HttpContext = httpContext,
+            ProblemDetails = problemDetails
+        });
+    }
+}
+
+// now the endpoint can be simplified
+app.MapGet("/weather", asycn (string city, string units, OpenWeatherMapService weatherMapService) =>
+{
+    if (["f", "k", "c"].Contains(units.ToLower()) == false)
+    {
+        throw new ProblemException("Invalid Units", "Units must be 'f', 'k', or 'c'");
+    }
+
+    return Results.Ok(await weatherMapService.GetWeatherAsync(city, units));
+});
+```
+
 ## Resources
 
 [RESTful APIs](./../../../Concepts/Web/RESTful_Web_Services.md) are all about returning and manipulating resources.

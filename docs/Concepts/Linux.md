@@ -1,15 +1,33 @@
 ---
 title: Linux
-description: Linux is a OS
+description: GNU Linux is a family of OS
 ---
 
 # Linux
 
 Linux is a family of open-source Unix-like operating systems based on the Linux kernel
 
-## Filesystem
+Common CLI programs:
 
-Typical Filesystem Hierarchy Standard (FHS): To get more information checkout `man hier`
+- `rm`: remove files or directories
+- `cp`: copy files or directories
+- `mv`: move files or directories
+- `ls`: list directory contents
+- `cat`: concatenate and display files
+- `man`: display manual pages
+- `sed` (1974): stream editor for filtering and transforming text
+- `diff` (1974): compare files line by line
+- `bc` (1975): arbitrary-precision calculator language
+- `make` (1976): build automation tool
+- `awk` (1977): pattern scanning and processing language
+- `vi` (1976): text editor
+- `vim` (1991): text editor
+- `grep` (1974): search text for patterns
+- `ssh` (1995): secure shell
+
+## File-system
+
+Typical File-system Hierarchy Standard (FHS): To get more information checkout `man hier`
 
 1. `/bin`:
 
@@ -114,11 +132,11 @@ Typical Filesystem Hierarchy Standard (FHS): To get more information checkout `m
 
     - It is the mount mount for file systems stored on removable media
 
-## grep
+## `grep`
 
 Grep is a command-line utility for searching plain-text data sets for lines that match a regular expression. Its name comes from the ed command g/re/p (globally search for a regular expression and print matching lines), which has the same effect. grep was originally developed for the Unix operating system like Linux, but later available for all Unix-like systems and some others such as OS-9
 
-## sed
+## `sed`
 
 sed ("stream editor") is a Unix utility that parses and transforms text, using a simple, compact programming language
 
@@ -378,7 +396,7 @@ Either one will work
 | `sudo usermod -aG groupname username` | Add a user to group        |
 | `sudo deluser username groupname`     | Remove a user from a group |
 
-## cron
+## `cron`
 
 A cron expression is simply a string consisting of six fields that each define a specific unit of time
 
@@ -467,7 +485,7 @@ gpg --decrypt directory.tar.gpg > directory.tar
 tar -xvf directory.tar
 ```
 
-## iptables
+## `iptables`
 
 Iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. The filters are organized in different tables, which contain chains of rules for how to treat network traffic packets. Different kernel modules and programs are currently used for different protocols; iptables applies to IPv4, ip6tables to IPv6, arptables to ARP, and ebtables to Ethernet frames
 

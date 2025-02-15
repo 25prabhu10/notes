@@ -1,7 +1,6 @@
 ---
 title: Vim
 description: A free and open-source, screen-based text editor program
-lastmod: 2024-09-02
 ---
 
 # Vim - Neovim
@@ -10,7 +9,77 @@ lastmod: 2024-09-02
 
 And [Neovim](https://github.com/neovim/neovim): A Vim-fork focused on extensibility and usability
 
-Once Vim is opened Ex commands are executed
+- Most of the commands that work in Vim work in Neovim
+- Once Vim is opened Ex commands are executed
+
+## Setup
+
+Install Vim or Neovim:
+
+```bash
+sudo apt install vim
+
+# or
+sudo pacman -S vim
+```
+
+- Vim uses `` for configuration
+- Neovim uses `` for configuration
+
+## Starting Vim
+
+| Command            | Description                                         |
+| ------------------ | --------------------------------------------------- |
+| `vim`              | Start Vim with an empty buffer                      |
+| `vim file.txt`     | Start Vim with a file `file.txt` opened in a buffer |
+| `vim +23 file.txt` | Start Vim with a file `file.txt` opened at line 23  |
+| `vim + file`       | Start Vim with the cursor at the end of the file    |
+| `vim -u file`      | Start Vim with a specific configuration file        |
+| `vim -`            | Start Vim with a file from standard input           |
+
+To learn more about Vim, run `vimtutor`
+
+| Options | Description                                                |
+| ------- | ---------------------------------------------------------- |
+| `-u`    | Use a specific configuration file (e.g. `vim -u ~/.vimrc`) |
+| `-o`    | Open multiple files in horizontal tiled windows            |
+| `-O`    | Open multiple files in vertical tiled windows              |
+| `-p`    | Open multiple files in separate tabs                       |
+
+## Quitting Vim
+
+How do you generate a random string?
+
+- Put a Windows user in front of vi, and tell them to exit
+
+| Command | Description                                                                                  |
+| ------- | -------------------------------------------------------------------------------------------- |
+| `:q`    | Quit the current window (or editor if you're out of windows) if there are no unsaved changes |
+| `:q!`   | Quit the current window even if there are unsaved changes                                    |
+| `:qa`   | Quit all windows unless there are unsaved changes                                            |
+| `:qa!`  | Quit all windows even if there are unsaved changes                                           |
+| `:wq`   | Save changes and quit the current window                                                     |
+| `ZZ`    | Save changes and quit current window                                                         |
+
+## Modes
+
+Vim has different modes:
+
+1. **Normal mode**: The mode where you can navigate through the file
+2. **Insert mode**: The mode where you can insert text
+3. **Visual mode**: The mode where you can select text
+4. **Command-line mode**: The mode where you can enter commands
+
+## Searching
+
+| Command | Description                                                                                               |
+| ------- | --------------------------------------------------------------------------------------------------------- |
+| `/`     | search forward: will prompt for a pattern                                                                 |
+| `?`     | search backward: will prompt for a pattern                                                                |
+| `n`     | repeat last search (like dot for searches!)                                                               |
+| `N`     | repeat last search but in the opposite direction                                                          |
+| `tx`    | Move "to" letter 'x' (any letter will do), stopping just before the 'x'. Handy for change/delete commands |
+| `fx`    | "Find" letter 'x' (any letter will do), stopping on the letter 'x'. Also handy for change/delete commands |
 
 ## Initialization
 

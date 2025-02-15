@@ -14,14 +14,17 @@ description: The .NET command-line interface (CLI) is a cross-platform toolchain
 To check what all options are available in `dotnet` CLI:
 
 ```bash
-# Help
+# basic syntax
+dotnet [command] [arguments] [options]
+
+# help
 dotnet help new
 
-# Specific command help
+# specific command help
 dotnet new console -h
 ```
 
-## Versions
+## Installation
 
 | Tech           | Description                  | Host OS                             |
 | -------------- | ---------------------------- | ----------------------------------- |
@@ -34,17 +37,17 @@ dotnet new console -h
 List all the .NET SDK and Runtime installed:
 
 ```bash
-# Lists all installed SDKs and runtimes
+# lists all installed SDKs and runtimes
 dotnet --info
 
-# Lists all installed SDKs
+# lists all installed SDKs
 dotnet --list-sdks
 
-# Lists all installed runtimes
+# lists all installed runtimes
 dotnet --list-runtimes
 ```
 
-To remove SDK:
+Remove SDK:
 
 ```bash
 dotnet-core-uninstall remove --all-previews-but-latest --sdk
@@ -58,63 +61,104 @@ You can use any tool to write the source code, some of the IDE's:
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [JetBrains Rider](https://www.jetbrains.com/rider/)
 
-You can use the above tools to create a .NET project or use the dotnet CLI:
+You can use the above tools to create a .NET project or use the `dotnet` CLI:
 
 ```bash
-# Create a console application
+# create a console application
 dotnet new console -o MyApp
 
 # --use-program-main (do not use top-level statements)
 
-# Run the application
+# run the application
 cd MyApp
-# Build and run
+# build and run
 dotnet run
 
-# Clean build artefacts
+# clean build artefacts
 # - obj
 # - bin
 dotnet clean
 ```
 
+Common project types:
+
 - Solution: `dotnet new sln -o solution-name`
 - Web API: `dotnet new webapi -o project-name`
 - Class Library: `dotnet new classlib -o project-name`
+- Unit Test: `dotnet new xunit -o project-name`
+- Console App: `dotnet new console -o project-name`
+- MVC: `dotnet new mvc -o project-name`
+- Razor Pages: `dotnet new webapp -o project-name`
+- Blazor: `dotnet new blazorserver -o project-name`
+- Worker Service: `dotnet new worker -o project-name`
+- Web App: `dotnet new web -o project-name`
 
 _Example:_ Creating a Web API solution
 
 ```bash
-# Create a empty solution
+# create a empty solution
 dotnet new sln -o Library
 
 cd Library
 
-# Create project as per requirements
+# create project as per requirements
 dotnet new webapi -o Library.WebAPI
 dotnet new classlib -o Library.DAL
 dotnet new classlib -o Library.DTO
 dotnet new xunit -o Library.UnitTest
 
-# Add all the projects to the solution
+# add all the projects to the solution
 dotnet sln add Library.WebAPI/Library.WebAPI.csproj
 dotnet sln add Library.DAL/Library.DAL.csproj
 dotnet sln add Library.DTO/Library.DTO.csproj
 dotnet sln add Library.UnitTest/Library.UnitTest.csproj
 
-# Build solution
+# add reference to the projects
+dotnet add Library.WebAPI/Library.WebAPI.csproj reference Library.DAL/Library.DAL.csproj
+dotnet add Library.WebAPI/Library.WebAPI.csproj reference Library.DTO/Library.DTO.csproj
+dotnet add Library.UnitTest/Library.UnitTest.csproj reference Library.WebAPI/Library.WebAPI.csproj
+
+# add package reference
+dotnet add Library.WebAPI/Library.WebAPI.csproj package Microsoft.EntityFrameworkCore
+dotnet add Library.WebAPI/Library.WebAPI.csproj package Microsoft.EntityFrameworkCore.SqlServer
+
+# check the solution
+dotnet sln list
+
+# build solution
 dotnet build
 
-# Run solution
+# run solution
 dotnet run --project Library.WebAPI/Library.WebAPI.csproj
 ```
 
-## Commands
+## Common Commands
+
+`dontet` CLI has a lot of commands, some of the common commands are:
 
 ### `new`
 
 ```bash
-# List all installed templates
+# list all installed templates
 dotnet new list
+
+# create a solution file
+dotnet new sln -o MySolution
+
+# create a new project
+dotnet new console -o MyApp
+
+# create .gitignore file
+dotnet new gitignore
+
+# create a EditorConfig file
+dotnet new editorconfig
+
+# create a global.json file
+dotnet new globaljson --roll-forward latestMinor --sdk-version 8.0.100
+
+# create a NuGet.Config file
+dotnet new nugetconfig
 ```
 
 ### `build`

@@ -16,26 +16,24 @@ sidebar: false
 
 5. [CSS](./CSS/): Cascading Style Sheets
 
-6. [Databases](./SQL/Databases/): An organized collection of data stored and accessed electronically
+6. [Docker](./CI-CD/Docker/Docker.md): Container
 
-7. [Docker](./CI-CD/Docker/Docker.md): Container
+7. [Git](./Git/): A Distributed Version-Control System
 
-8. [Git](./Git/): A Distributed Version-Control System
+8. [HTML](./HTML/): Hypertext Markup Language
 
-9. [HTML](./HTML/): Hypertext Markup Language
+9. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
 
-10. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
+10. [Markdown](./Markdown/): A Lightweight Markup Language
 
-11. [Markdown](./Markdown/): A Lightweight Markup Language
+11. [Python](./Python/): A high-level, interpreted, general-purpose programming language
 
-12. [Python](./Python/): A high-level, interpreted, general-purpose programming language
+12. [Shell Scripting](./Shell-Scripting/): Shell Programming
 
-13. [Shell Scripting](./Shell-Scripting/): Shell Programming
+13. [SQL](./SQL/SQL.md): A domain-specific language used in programming
 
-14. [SQL](./SQL/SQL.md): A domain-specific language used in programming
+14. [Makefile](./Makefile.md): A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
 
-15. [Makefile](./Makefile.md): A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
-
-16. [Nginx](./Nginx.md): Open source web and application server
+15. [Nginx](./Nginx.md): Open source web and application server
 
 [Same problem solved in different languages](https://rosettacode.org/wiki/Rosetta_Code)

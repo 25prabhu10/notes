@@ -2,14 +2,48 @@
 title: Makefile
 description: A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
 date: 2024-05-05
-lastmod: 2024-05-05
 ---
 
 # Makefile
 
-A Makefile is a configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files. It contains a list of source files to be compiled, as well as configuration options for the compiler. Makefiles also set rules to determine which parts of a program need to be recompiled, and issue commands to do so.
+A Makefile is a configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files. It contains a list of source files to be compiled, as well as configuration options for the compiler. Makefiles also set rules to determine which parts of a program need to be recompiled, and issue commands to do so
 
 > If recursive Make is considered evil, `Autotools` is literally the devil.
+
+The file is named `Makefile` or `makefile` and is located in the root directory of the project. The make utility reads the file to determine how to compile the program and which files to compile
+
+## Syntax and Rules
+
+- Comments are lines that start with a `#`
+- Variables are defined with `VAR = value`
+- Variables are accessed with `$(VAR)`
+- Variables can be assigned with `:=` for simple expansion
+- Tabs are used to indent recipes (not spaces)
+- Targets are the files to be built
+- Recipes (actions) are shell commands to run
+
+```make
+# -*- Makefile -*-
+
+target: dependencies
+    recipe
+```
+
+Run `make` to build the target:
+
+```bash
+make
+```
+
+`make` will look for a file named `Makefile` in the current directory and execute the first target in the file if none are specified
+
+- If the first target has not changed since the last build, `make` will not run the recipe
+- To run a specific target, use `make [target]`
+- If you want to run multiple targets then define `all` as the first target
+
+```make
+all: target1 target2 target3
+```
 
 ## Assignment Operators
 

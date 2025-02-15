@@ -1,9 +1,19 @@
 ---
 title: Logging
-description: Logging
+description: Logging is process of recording events that happen in a computer system
 ---
 
 # Logging
+
+Logging is the process of recording events that happen in a computer system. These events can be used for monitoring, alerting, and analysis. Logging is used in many different fields, including software development, security, and compliance
+
+- Designed for humans
+
+Useful for:
+
+- Access logs
+- Audit logs
+- Debugging [tracing](./Telemetry.md#trace)
 
 Why is logging needed?
 

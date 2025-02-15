@@ -2,7 +2,7 @@
 title: Job Portals
 description: Job portals and channels
 date: 2023-03-08
-lastmod: 2023-08-15
+lastmod: 2024-10-05
 ---
 
 # Job Portals

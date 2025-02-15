@@ -13,16 +13,18 @@ sidebar: false
 3. [Architecture](./Architecture/)
 4. [Web](./Web/)
 5. [Application Security](./Application_Security/)
-6. [Programming Paradigms](./Programming_Paradigms/)
-7. [Object-Oriented Programming](./Programming_Paradigms/Object-Oriented_Programming.md)
-8. [Metaprogramming](./Metaprogramming.md)
-9. [Linux](./Linux.md)
-10. [AWS](./AWS/)
-11. [regex](./Regular_Expression/)
-12. [Logging](./Logging.md)
-13. [Agile](./Agile/Agile.md)
-14. [Artifactory](./Artifactory.md)
-15. [Key Words](./Key_Words.md)
+6. [Programming Paradigms](./Designs/Programming_Paradigms/)
+7. [Object-Oriented Programming](./Designs/Programming_Paradigms/Object-Oriented_Programming.md)
+8. [Databases](./Databases/): An organized collection of data stored and accessed electronically
+9. [Metaprogramming](./Metaprogramming.md)
+10. [Linux](./Linux.md)
+11. [AWS](./AWS/)
+12. [regex](./Regular_Expression/)
+13. [Logging](./Logging.md)
+14. [Telemetry](./Telemetry.md)
+15. [Agile](./Agile/Agile.md)
+16. [Artifactory](./Artifactory.md)
+17. [Key Words](./Key_Words.md)
 
 ## References
 

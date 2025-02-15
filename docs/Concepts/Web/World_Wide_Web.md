@@ -9,12 +9,11 @@ The World Wide Web (WWW) or web is a system of interlinked hypertext documents a
 
 - It is but one part of the internet, though it's the most visible part
 
-Small History:
+Brief History:
 
 - 1989-91: The idea of the web (Sir Tim Berners-Lee, CERN)
 
-  - He published "Information Management: A Proposal"
-  - [Tim Berners-Lee's proposal](https://info.cern.ch/Proposal.html)
+  - He published ["Information Management: A Proposal"](https://info.cern.ch/Proposal.html)
   - He wrote `TCPServer.c` (initial port `2784`) and `WorldWideWen.app` (browser)
 
 - 1991: Line-mode browser (Nicola Pellow, CERN)
@@ -179,6 +178,157 @@ In Static Site Generation, the HTML is generated on the server, but unlike serve
 
 - Qwik
 
+## Web Technologies
+
+### Web Standards
+
+Web standards are guidelines and specifications that define best practices for building and maintaining websites and web applications
+
+- They ensure that web content is accessible, usable, and interoperable across different browsers and devices
+- Web standards are developed and maintained by organizations such as the World Wide Web Consortium (W3C) and the Internet Engineering Task Force (IETF)
+
+Key Web Standards:
+
+- **HTML (HyperText Markup Language)**: Defines the structure and content of web pages
+- **CSS (Cascading Style Sheets)**: Controls the presentation and layout of web pages
+- **JavaScript**: Enables interactive and dynamic behavior on web pages
+- **HTTP (Hypertext Transfer Protocol)**: Defines how web browsers and servers communicate
+- **URL (Uniform Resource Locator)**: Specifies the address of web resources
+- **Web APIs (Application Programming Interfaces)**: Provide access to browser functionality and services
+- **WebRTC (Real-Time Communication)**: Enables real-time communication between browsers
+- **WebAssembly**: A binary instruction format for a stack-based virtual machine that runs in web browsers
+- **Web Accessibility**: Ensures that web content is accessible to people with disabilities
+- **Web Security**: Protects web applications and users from security threats
+- **Web Performance**: Optimizes the speed and efficiency of web applications
+
+## Real-Time Communication (RTC)
+
+Real-time communication (RTC) refers to the transmission of data between two or more endpoints in real-time
+
+- It is the near simultaneous exchange of information over any type of telecommunications service from the sender to the receiver in a connection with negligible latency (e.g., VoIP, instant messaging, video conferencing, online gaming)
+
+### WebRTC
+
+Real-Time Communication for the Web (WebRTC):
+
+- With WebRTC, you can add real-time communication capabilities to your application that works on top of an open standard
+- It supports video, voice, and generic data to be sent between peers, allowing developers to build powerful communication solutions
+- The technology is available on all modern browsers and platforms
+
+## Web Design
+
+What is web design?
+
+- Web Design:
+
+  - Appearance
+  - Forward-facing functionality
+
+  - Web graphic design
+  - Interface design
+  - Authoring
+  - User experience design (UX)
+  - SEO
+
+- Web Development:
+
+  - Behind the scenes
+  - Code
+  - Content Strategy
+  - Information architecture
+  - Front-end and Back-end development
+  - Infrastructure
+  - system architecture
+
+- Web design can be taken as whole refereeing to web design and web development
+
+- The goal or purpose of web design is to create **informational user experiences**
+
+Web design process starts from:
+
+1. Per-process
+2. Planning Content Strategy
+3. Pre-build Testing
+4. Content, Design, Development, and Build
+5. Post-build Testing
+6. Optimization (Content, Design, and Development)
+7. Launch and Reset
+
+### Site Map
+
+A site map is a visual or textual model of a website's content that allows users and search engines to navigate the site's structure and find information quickly
+
+_Example:_
+
+```text
+Home
+├── About Us
+│   ├── Our Team
+│   └── Our Story
+├── Services
+│   ├── Web Development
+│   ├── Mobile App Development
+│   └── SEO Services
+├── Blog
+│   ├── Latest Posts
+│   └── Categories
+└── Contact Us
+    ├── Contact Form
+    └── Location
+```
+
+### Wireframe
+
+A wireframe is a visual representation of a website's layout that outlines the structure and content of each page without design elements such as colors, images, or typography
+
+- It helps designers and developers plan the site's layout, navigation, and functionality before adding visual design elements
+
+_Example:_
+
+```text
++------------------------------------------------+
+|                    Header                      |
+|  Logo      Home  About Us  Services  Contact   |
++------------------------------------------------+
+|                  Hero Section                  |
+|  Headline                                      |
+|  Subheadline                                   |
+|  [Call to Action Button]                       |
++------------------------------------------------+
+|                About Us Section                |
+|  Brief Description                             |
+|  [Link to About Us Page]                       |
++------------------------------------------------+
+|                Services Section                |
+|  Service 1 | Service 2 | Service 3             |
+|  Web Dev   | Mobile App | SEO                  |
++------------------------------------------------+
+|                  Blog Section                  |
+|  Featured Blog Post                            |
+|  [Link to Blog Page]                           |
++------------------------------------------------+
+|                    Footer                      |
+|  Social Media Links | Contact Info | Copyright |
++------------------------------------------------+
+```
+
+### SEO
+
+Search Engine Optimization (SEO) is the practice of increasing the quantity and quality of traffic to your website through organic search engine results
+
+- **On-Page SEO**: Refers to the practice of optimizing web pages to improve a website's search engine rankings and earn organic traffic
+
+  - Includes optimizing content, HTML source code, and images
+  - Focuses on improving the relevance and quality of the content on the page
+  - Page title, meta description, headings, URL structure, alt text for images, internal linking, and keyword optimization
+
+- **Off-Page SEO**: Refers to actions taken outside of your own website to impact your rankings within search engine results pages (SERPs)
+- **Technical SEO**: Refers to the process of optimizing your website for the crawling and indexing phase
+- **Local SEO**: Refers to the process of optimizing your online presence to attract more business from relevant local searches
+- **Mobile SEO**: Refers to the practice of optimizing your website for users on smartphones and tablets
+
+The [`<head>`](#head) element is where you can add metadata that helps search engines understand the content of your page
+
 ## Key Metrics
 
 Key metrics for web pages are essential for understanding and improving website performance
@@ -287,42 +437,3 @@ Common Web Crawlers:
 
   - The first wave requests source code, crawls and indexes any present HTML and CSS, add any present links to the crawl queue, and downloads page response codes
   - The second wave can occur a few hours to even a few weeks later; Google returns to the page when additional resources are available to render fully and index the JS-generated content
-
-## Web Design
-
-What is web design?
-
-- Web Design:
-
-  - Appearance
-  - Forward-facing functionality
-
-  - Web graphic design
-  - Interface design
-  - Authoring
-  - User experience design (UX)
-  - SEO
-
-- Web Development:
-
-  - Behind the scenes
-  - Code
-  - Content Strategy
-  - Information architecture
-  - Front-end and Back-end development
-  - Infrastructure
-  - system architecture
-
-- Web design can be taken as whole refereeing to web design and web development
-
-- The goal or purpose of web design is to create **informational user experiences**
-
-Web design process starts from:
-
-1. Per-process
-2. Planning Content Strategy
-3. Pre-build Testing
-4. Content, Design, Development, and Build
-5. Post-build Testing
-6. Optimization (Content, Design, and Development)
-7. Launch and Reset

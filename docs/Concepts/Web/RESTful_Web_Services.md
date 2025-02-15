@@ -1,7 +1,7 @@
 ---
 title: RESTful Web Services
 description: Representational state transfer
-lastmod: 2024-08-23
+lastmod: 2025-02-08
 ---
 
 # RESTful Web Services
@@ -9,6 +9,8 @@ lastmod: 2024-08-23
 **REpresentational State Transfer** is a de-facto standard for a **software architecture** for interactive applications that use multiple Web services
 
 > "HTTP and HTML have been called 'Whoopee Cushion and Joy Buzzer of the Internet protocols, only comprehensible as elaborate practical jokes'..."
+
+- Roy Fielding (2000) - Ph.D. dissertation defines REST
 
 Other protocols built on top of HTTP, designed for building Web Services are:
 
@@ -20,7 +22,7 @@ Other protocols built on top of HTTP, designed for building Web Services are:
 Request-Response API Paradigms:
 
 - RESTful API
-- Remote Procedure Call (RPC)
+- [Remote Procedure Call (RPC)](./RPC.md)
 - GraphQL
 
 ## Why REST?
@@ -99,7 +101,7 @@ REST APIs are best for APIs that expose CRUD like operations
 
 _Example:_ gRPC
 
-```rpc
+```proto
 sytax = "proto3";
 
 package helloworld;
@@ -242,7 +244,7 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 
 - No trailing forward slash (`/`):
 
-  ```url
+  ```text
   // avoid
   http://api.example.com/device-management/
 
@@ -250,7 +252,7 @@ _Example:_ The following shows a JSON representation of an order. It contains li
   http://api.example.com/device-management
   ```
 
-- **Use hyphens** (-) and Do not use underscores (\_) in URL
+- **Use hyphens** (`-`) and don't use underscores (`_`) in URL
 
 - Do not use file extensions
 
@@ -260,12 +262,31 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 
 Maturity model for web APIs by Leonard Richardson (2008):
 
-- Level 0: Define one URI, and all operations are POST requests to this URI
-- Level 1: Create separate URIs for individual resources
-- Level 2: Use HTTP methods to define operations on resources
-- Level 3: Use hypermedia ([HATEOAS](#hateoas), described below)
+1. **Level 0**: Define **one URI**, and all operations are POST requests to this URI
+
+   - XML-RPC, most SOAP, and WSDL are examples of Level 0 APIs
+
+2. **Level 1**: **Multiple URIs** for individual resources, but **one HTTP method** for all operations (usually POST)
+
+   - Most "RESTful" services that aren't
+   - _Example:_ `POST /dogs` (retrieve), `POST /dogs/123` (update)
+
+3. **Level 2**: Use HTTP methods to define operations on resources
+
+   - Many URIs each supporting multiple HTTP methods
+   - Most published web APIs are at this level
+   - _Example:_ `GET /dogs`, `POST /dogs`, `PUT /dogs/123`, `DELETE /dogs/123`
+
+4. **Level 3**: Hypermedia Controls
+
+   - Resources describe their own capabilities and interconnections
+   - Use hypermedia [HATEOAS](#hateoas)
+   - Used very rarely
+   - _Example:_ `GET /dogs` returns a list of dogs with links to each dog
 
 _Level 3_ corresponds to a truly RESTful API according to Fielding's definition. In practice, many published web APIs fall somewhere around _level 2_
+
+[Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html)
 
 ### Hypermedia
 
@@ -310,6 +331,11 @@ For an **API to be RESTful** it should comply with the following constraints:
 
 1. **Uniform Design (interface)**: Once a developer becomes familiar with one of your APIs, he should be able to follow a similar approach for other APIs
 
+   - Resource identification in requests
+   - Resource manipulation through representations
+   - Self-descriptive messages
+   - [Hypermedia as the engine of application state (HATEOAS)](#hateoas)
+
 2. **Client-Server Architecture**: Servers and clients may also be replaced and developed independently, as long as the interface between them is not altered
 
 3. **Stateless**: No client context shall be stored on the server between requests. The client is responsible for managing the state of the application
@@ -333,6 +359,7 @@ All the above constraints help you build a truly RESTful API, and you should fol
    - Examples: `GET /dogs`, `POST /dogs`
 
 2. Procedure-oriented:
+
    - code calls procedure/function/method
    - similar to learning the libraries of a programming language
    - Their APIs are all different
@@ -343,11 +370,19 @@ Power of web:
 - Links: link pages
 - State Transitions: send data
 
-API endpoint conventions follow same guidelines as resource naming:
+API endpoint conventions and best practices:
 
 - Use nouns to describe the API endpoint
+- Use plural nouns
+- Use sub-resources for relations
+- Nested resources: avoid many levels of nesting, it makes the API hard to understand. _Example:_ `/customers/1/orders/2/products/3`
 - Collection Resource: `/applications`
 - Instance (Singleton) Resource: `/applications/a1b2c3`
+- Consistent naming conventions
+- Use query parameters for filtering, sorting, and pagination
+- Use HTTP headers for metadata
+- Use HTTP status codes for errors
+- Use versioning in the URI or headers
 
 ### HTTP Methods
 
@@ -364,9 +399,9 @@ Checkout notes about HTTP here: [HTTP Notes Link](./HTTP.md)
 | `PATCH`  | Partial update                 | No          | No    | No             | No                  |
 | `DELETE` | Delete a resource              | Yes         | No    | No             | No                  |
 
-- Post can only be cached if it contains what's called freshness information or headers that describe its cache ability.
+- Post can only be cached if it contains what's called _freshness information_ or headers that describe its cache ability
 
-| Verb    | Full update? | Partial update? | Idempotent> | Response body? |
+| Verb    | Full update? | Partial update? | Idempotent? | Response body? |
 | ------- | ------------ | --------------- | ----------- | -------------- |
 | `POST`  | Yes          | Yes             | No          | Yes??          |
 | `PUT`   | Yes          | No              | Yes         | No             |
@@ -379,7 +414,7 @@ Common Update Semantics:
    - POST to create
    - PUT for full updates
    - PATCH for partial updates
-   - Most spec compliant but also more complex
+   - Most specification compliant but also more complex
 
 2. Approach 2:
 
@@ -631,7 +666,14 @@ Give all optional parameters in query strings meaningful defaults. For example, 
 
 ### Error Handling
 
-1. Use HTTP status codes:
+[RFC 9457 - Problem Details for HTTP APIs (2023)](https://datatracker.ietf.org/doc/html/rfc7807) defines a "problem detail" as a way to carry machine-readable details of errors in a HTTP response to avoid the need to define new error response formats for HTTP APIs
+
+- Be consistent in error responses
+- Provide a unique error code for each error type, this helps in debugging and troubleshooting
+- Include a human-readable error message in the response body
+- Include a link to more information about the error
+
+Use HTTP status codes:
 
 - Status codes for scenarios:
 
@@ -643,11 +685,11 @@ Give all optional parameters in query strings meaningful defaults. For example, 
 - Netflix: `200, 201, 304, 400, 401, 403, 404, 412, 500`
 - Digg: `200, 400, 401, 403, 404, 410, 500, 503`
 
-- On an average 8 codes: `200, 201, 304, 400, 401, 403, 404, 500`
+On an average 8 codes: `200, 201, 304, 400, 401, 403, 404, 500`
 
 - Twilio:
 
-  ```json5
+  ```json
   // HTTP Status Code: 401
 
   {
@@ -700,15 +742,7 @@ Approaches to Restful Versioning:
 
 ## HATEOAS
 
-HATEOAS: Everything that is required to understand is within the document exchanged through REST API. The client dose not need any out-of-band information, just the API responses
-
-- Hypermedia
-- As
-- The
-- Engine
-- Of
-- Application
-- State
+**Hypermedia As The Engine Of Application State (HATEOAS)**: Everything that is required to understand is within the document exchanged through REST API. The client dose not need any out-of-band information, just the API responses
 
 The responses from the API tell the client what it can do
 
@@ -716,11 +750,72 @@ The responses from the API tell the client what it can do
 - Single (root) entry point
 - Self-documentation: No need for out-of-band information or documentation
 
+Features:
+
+- **Self-descriptive messages**: Each message includes enough information to describe how to process the message
+- **Resource state**: The client can transition between application states by following links in the responses
+- **Hypermedia links**: The client can navigate the API by following links in the responses
+- **Stateless communication**: The client can interact with the API without needing to store application state on the server
+- **Uniform interface**: The client can interact with the API using a consistent set of methods
+
+_Example:_ The below object must be parsed as a collection
+
+```json
+{
+  "href": "https://example.io/people/123",
+  "rel": ["collection"],
+  "value": [
+    { "href": "https://example.io/users/123", "login": "ddata" },
+    { "href": "https://example.io/users/456", "login": "ttester" }
+  ]
+}
+```
+
+### HAL Specification
+
+HAL (Hypertext Application Language) is a simple format that gives a consistent and easy way to hyperlink between resources in your API
+
+- [HAL Specification](https://stateless.group/hal_specification.html)
+- Mime type: `application/hal+json`
+
+The structure of a HAL document:
+
+- Minimum valid document: `{}`
+
+- Resources: should have a self URI
+
+  ```json
+  {
+    "_links": {
+      "self": { "href": "https://example.io/people/123" }
+    },
+    "firstName": "Godzilla",
+    "birthDay": "1970-02-31"
+  }
+  ```
+
+- Links: must be contained directly within a resource
+
+  ```json
+  {
+    "_links": {
+      "self": { "href": "https://example.io/people/123" },
+      "friends": [
+        { "href": "https://example.io/people/456" },
+        { "href": "https://example.io/people/789" }
+      ]
+    }
+  }
+  ```
+
+  - Link relations: Links have a relation (aka. 'rel'). This indicates the semantic - the meaning - of a particular link
+
 ### ION Specification
 
-HATEOAS in JSON: Ion
+Ion (Interconnected Object Notation) is a JSON-based format that includes hypermedia links (HATEOAS in JSON)
 
 - [ION Working Group](https://ionspec.org/)
+- Mime type: `application/ion+json`
 
 Ion objects contain:
 
@@ -736,7 +831,7 @@ Ion objects contain:
 
 - Resources in ION: Include a self-referential link
 
-  ```json5
+  ```json
   {
     "self": {
       "href": "https://example.io/people/123"
@@ -756,7 +851,7 @@ Ion objects contain:
 
 - `value` object: property. Models a collection of resources
 
-  ```json5
+  ```json
   // no context of the language
   {
       "greeting": "Hola"
@@ -786,7 +881,7 @@ Ion objects contain:
 
 - Collection: Meta-data can contain info relevant to each element of the collection (no need to repeat this info in each element) or the property of the collection (length, max-size...)
 
-  ```json5
+  ```json
   // no info about the collection
   "value": []
 
@@ -799,7 +894,7 @@ Ion objects contain:
 
 - Linking:
 
-  ```json5
+  ```json
   // links
   {
       "href": "https://example.io/users/a1b2c3c"
@@ -851,7 +946,7 @@ While Posting data, how do clients know which fields and types of data to submit
 
 - As ION collection:
 
-  ```json5
+  ```json
   {
     href: "https://example.io/register",
     rel: ["form"], // (or edit-form, create-form, query-form)
@@ -991,15 +1086,13 @@ Optimization techniques:
 
 - _Learning RESTful APIs_
 
-- [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html)
-
 - _Rest in Practice_
 
 - _RESTful Web Services Cookbook_
 
 - Nate Barbettini: building-and-securing-restful-apis-in-asp-dot-net-core-2018
 
-## Queries
+## TODO
 
 - Base URL
 - URL versioning

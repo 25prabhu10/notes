@@ -5,9 +5,383 @@ description: Collection of CSS Snippets
 
 # CSS Snippets
 
+## Forms
+
+- Form validation:
+
+  ```html
+  <form>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Enter your name"
+        required
+        aria-errormessage="name-error"
+      />
+      <div class="error" id="name-error" aria-live="polite">
+        Please enter your name.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Enter your email"
+        required
+        aria-errormessage="email-error"
+      />
+      <div class="error" id="email-error" aria-live="polite">
+        Please enter a valid email.
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password"
+        minlength="8"
+        araia-errormessage="password-error"
+        required
+      />
+      <div class="hint">Password must be at least 8 characters.</div>
+      <div class="error" id="password-error" aria-live="polite">
+        Please enter a valid password.
+      </div>
+    </div>
+
+    <div>
+      <label for="items">How many tickets? <span>(max 5)</span></label>
+      <input
+        type="number"
+        id="items"
+        value="1"
+        min="1"
+        max="5"
+        placeholder="Enter number of tickets"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="color-picker">Choose a color</label>
+      <input type="color" id="color-picker" required />
+    </div>
+
+    <div>
+      <label for="toggle">Toggle</label>
+      <input type="checkbox" id="toggle" switch required />
+    </div>
+  </form>
+
+  <style>
+    input {
+      outline: 3px solid hsl(203, 30%, 262);
+    }
+
+    input:focus:valid,
+    input:valid:not(:placeholder-shown) {
+      outline-color: green;
+    }
+
+    input:invalid:not(:placeholder-shown) {
+      outline-color: red;
+    }
+
+    input:foucs:invalid:not(:placeholder-shown) {
+      outline-color: yellow;
+    }
+
+    .error {
+      color: red;
+    }
+
+    .hint {
+      color: gray;
+    }
+
+    .error,
+    .hint {
+      display: none;
+    }
+
+    input:not(:focus):invalid:not(:placeholder-shown) ~ .error {
+      display: block;
+
+      @media (prefers-reduced-motion: no-preference) {
+        animation: form-error 200ms 3;
+      }
+    }
+
+    input:focus:invalid:not(:placeholder-shown) ~ .hint {
+      display: block;
+    }
+
+    input[type="number"]:not(:in-range) {
+      background-color: hsl(348, 55%, 93%);
+      outline: 3px solid hsl(348, 55%, 93%);
+    }
+
+    input[type="color"] {
+      width: 4rem;
+      height: 4rem;
+    }
+
+    #toggle {
+      appearance: none;
+      width: 4rem;
+      height: 2rem;
+      padding: 0rem;
+      background: black;
+      border-radius: 100vw;
+      border: 5px solid white;
+      position: relative;
+    }
+
+    #toggle::before {
+      content: "";
+      position: absolute;
+      inset: 5px;
+      width: calc(2rem - 20px);
+      height: calc(2rem - 20px);
+      background: white;
+      border-radius: 50%;
+      transition: 200ms;
+    }
+
+    #toggle:checked {
+      background: green;
+    }
+
+    #toggle:checked::before {
+      translate: 2rem;
+    }
+
+    @keyframes form-error {
+      25% {
+        translate: -5px;
+      }
+      75% {
+        translate: 5px;
+      }
+    }
+  </style>
+  ```
+
+- Custom Radio:
+
+  ```html
+  <input type="radio" id="radio" name="radio" />
+  <label for="radio">Radio</label>
+  ```
+
+  ```css
+  input[type="radio"] {
+    display: none;
+  }
+
+  input[type="radio"] + label {
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+  }
+
+  input[type="radio"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: #fff;
+  }
+
+  input[type="radio"]:checked + label::before {
+    background-color: #333;
+  }
+  ```
+
+- Custom Checkbox:
+
+  ```html
+  <input type="checkbox" id="checkbox" /> <label for="checkbox">Checkbox</label>
+  ```
+
+  ```css
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 2rem;
+    cursor: pointer;
+  }
+
+  input[type="checkbox"] + label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid #333;
+    background-color: #fff;
+  }
+
+  input[type="checkbox"]:checked + label::before {
+    background-color: #333;
+  }
+  ```
+
+- Custom Select:
+
+  ```html
+  <select>
+    <option value="1">Option 1</option>
+    <option value="2">Option 2</option>
+    <option value="3">Option 3</option>
+  </select>
+
+  <style>
+    select {
+      appearance: none;
+      padding: 0.5rem;
+      border: 1px solid #333;
+      border-radius: 0.25rem;
+    }
+  </style>
+  ```
+
+- Form with floating label:
+
+  ```html
+  <div class="form-group white">
+    <input type="text" id="name" required />
+    <label for="name">Name</label>
+  </div>
+
+  <style>
+    .form-group {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    input {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid #333;
+      border-radius: 0.25rem;
+    }
+
+    label {
+      position: absolute;
+      top: 0.5rem;
+      left: 0.5rem;
+      color: #333;
+      pointer-events: none;
+      transition: 0.3s;
+    }
+
+    input:focus + label,
+    input:valid + label {
+      top: -0.5rem;
+      left: 0;
+      font-size: 0.75rem;
+      color: #333;
+    }
+  </style>
+  ```
+
+## Scroll
+
+- Smooth Scroll:
+
+  ```css
+  html {
+    @media (prefers-reduced-motion: no-preference) {
+      /* styles to apply if a user's device settings are set to reduced motion */
+      scroll-behavior: smooth;
+    }
+  }
+  ```
+
+- Scroll margin and padding:
+
+  ```css
+  .container {
+    scroll-margin: 100px; /* top */
+    scroll-padding: 100px; /* top */
+  }
+  ```
+
+- Scroll with animation:
+
+  ```css
+  :target {
+    scroll-margin: 10rem;
+
+    h2 {
+      animation: target 1s;
+    }
+  }
+
+  @keyframes target {
+    0% {
+      background-color: transparent;
+    }
+    100% {
+      background-color: yellow;
+    }
+  }
+  ```
+
+- Scroll Snap:
+
+  ```css
+  .container {
+    display: flex;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+
+  .item {
+    scroll-snap-align: start;
+  }
+  ```
+
+- Custom Scrollbar:
+
+  ```css
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+  ```
+
 ## Display
 
-- Centered always:
+- Centred always:
 
   ```html
   <div class="parent blue">

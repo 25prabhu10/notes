@@ -10,6 +10,39 @@ Address: Bangalore, Karnataka, 560066
 
 - [Justen Robertson - A full-stack JavaScript](https://www.toptal.com/resume/justen-robertson#Employment)
 
+## Format
+
+```text
+Name (big and bold)
+
+Bio (1-2 sentences)
+
+   - How are you
+   - What are solving?
+
+Experience (3-5 bullet points)
+
+   - Relevant experience
+   - Chronological order
+   - What have you done
+   - What have you built
+   - What have you learned
+
+Skills (3-5 bullet points)
+
+   - What are you good at
+   - What technologies do you know
+   - What tools do you use
+
+Training (Education)
+
+   - What have you studied
+   - Where have you studied
+   - What have you learned
+
+C
+```
+
 ## Summary
 
 5+ years of experience in front-end and back-end web development and working with team members to deliver high-quality products to customers. Building responsive, accessible, and secure web applications. Knowledgeable in maintenance, testing, and debugging processes and aiming to leverage development experience and skills in a challenging role as a Full-stack Developer.

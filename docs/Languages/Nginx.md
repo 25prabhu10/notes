@@ -2,17 +2,143 @@
 title: Nginx
 description: Open source web and application server
 date: 2023-07-29
-lastmod: 2024-05-05
 ---
 
 # Nginx
 
-A free, open-source web server that can also be used as a reverse proxy, load balancer, mail proxy, and HTTP cache
+[nginx](https://www.nginx.com/) ("engine x") is a free, open-source HTTP web server that can also be used as:
 
-Project Homepage: [Nginx Homepage](https://www.nginx.com/)
-Documentation: [Nginx Unit Docs](https://unit.nginx.org/)
+- Reverse proxy
+- Content cache
+- Load balancer
+- TCP/UDP proxy server
+- Mail proxy
 
-## Basic configuration arguments and examples
+[Nginx Unit Docs](https://unit.nginx.org/)
+
+## Architecture
+
+nginx has one master process and several worker processes
+
+- **Master process**: Reads and evaluates [configuration](#configuration), maintains worker processes
+- **Worker processes**: Do the actual processing of requests
+
+nginx uses an event-based model and OS-dependent mechanisms to efficiently distribute requests among worker processes
+
+## Setup
+
+Start, stop, restart, reload, and check the status of the Nginx service:
+
+```bash
+sudo systemctl start nginx
+sudo systemctl stop nginx
+sudo systemctl restart nginx
+sudo systemctl reload nginx
+sudo systemctl status nginx
+```
+
+Using command line arguments:
+
+```bash
+nginx -s <signal>
+
+# signal can be:
+# stop: fast shutdown
+# quit: graceful shutdown
+# reopen: reloading the configuration file
+# reload: reopening the log files
+
+# Example:
+nginx -s start
+
+# signal can also be sent using the kill command
+kill -s QUIT <pid>
+```
+
+## Configuration
+
+The default configuration file is named `nginx.conf` and is located in the `/usr/local/nginx/conf`, `/etc/nginx`, or `/usr/local/etc/nginx` directory
+
+nginx consists of modules that are controlled by directives specified in the configuration file
+
+Directives are divided into simple directives and block directives
+
+- A simple directive consists of the name and parameters separated by spaces and ends with a semicolon (`;`)
+- A block directive has the same structure as a simple directive, but instead of the semicolon, it ends with a set of additional directives enclosed in braces (`{}`)
+
+If a directive is placed outside of any block, it is considered a part of the `main` context
+
+- `#` (hash) is used for comments
+
+### Serving Static Content
+
+The `http` block is the main context and is used to configure how nginx handles HTTP requests
+
+- `server` block is used to define the settings for a virtual server (there can be multiple `server` blocks, distinguished by ports and server names)
+- `location` block is used to define how nginx should handle requests for different URIs
+
+  - `/` is used to match any request, `/path` is used to match requests for a specific path, and `~` is used for case-sensitive regular expression matching
+
+- `root` directive is used to define the root directory where nginx should look for files to serve
+
+  - `/var/www/html` can be used as the root directory for serving static content or `/data/www` for a custom directory
+
+```nginx
+http {
+    server {
+        listen 80; # listen on port 80
+
+        location / {
+            root /var/www/html;
+        }
+
+        location /images/ {
+            root /data/www;
+        }
+    }
+}
+```
+
+### Proxy Server
+
+The `proxy_pass` directive is used to define the URL of the proxied server
+
+```nginx
+http {
+    server {
+        location / {
+            proxy_pass http://localhost:8080/;
+        }
+
+        location ~ \.(gif|jpg|png)$ {
+            root /data/images;
+        }
+    }
+}
+```
+
+```nginx
+user www-data;
+worker_processes auto;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 768;
+}
+
+http {
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 65;
+    types_hash_max_size 2048;
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+}
+```
 
 Logging and debugging:
 

@@ -1,18 +1,14 @@
 ---
 title: React Router
-description: React Router enables "client side routing"
+description: React Router is a multi-strategy router for React
 ---
 
 # React Router
 
-React Router enables "client side routing"
+React Router is a multi-strategy router for React
 
 - `react-router` core library
-- BaseName
-- v6
-- `GetUserConfirmation`
-- `forceRefresh`
-- `useRouteMatch`
+- Use it as a React framework or minimal routing library
 
 ## Routes
 
