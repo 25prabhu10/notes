@@ -43,8 +43,8 @@ export default defineConfig({
   markdown: {
     math: true,
     theme: {
-      light: "ayu-dark",
-      dark: "ayu-dark",
+      light: "github-light",
+      dark: "vitesse-dark",
     },
   },
   head: [
