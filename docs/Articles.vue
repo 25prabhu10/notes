@@ -100,8 +100,8 @@ const languages = [
     title: "MongoDB",
     href: "/Concepts/Databases/MongoDB/MongoDB",
     imgPath: "/mongodb.svg",
-    shadowColor: "#01ec64",
-    borderColor: "#01ec64",
+    shadowColor: "#00ED64",
+    borderColor: "#00ED64",
   },
   {
     title: "Redis",
@@ -116,6 +116,13 @@ const languages = [
     imgPath: "/c.svg",
     shadowColor: "#669ad2fe",
     borderColor: "#669ad2fe",
+  },
+  {
+    title: "Docker",
+    href: "/Languages/CI-CD/Docker/Docker",
+    imgPath: "/docker.svg",
+    shadowColor: "#1d63ed",
+    borderColor: "#1d63ed",
   },
   {
     title: "Bash",
