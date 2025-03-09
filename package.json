@@ -44,6 +44,6 @@
     "textlint-rule-spelling": "^0.3.0",
     "textlint-rule-terminology": "^5.2.7",
     "textlint-rule-write-good": "^2.0.0",
-    "vitepress": "^2.0.0-alpha.2"
+    "vitepress": "^2.0.0-alpha.3"
   }
 }
