@@ -14,7 +14,7 @@
     "fix": "prettier --write './docs/**/*.md'",
     "lint:md": "markdownlint-cli2 './docs/**/*.md' '#./docs/index.md' '#./docs/about.md'",
     "lint:prettier": "prettier --check './docs/**/*.md'",
-    "lint:txt": "textlint",
+    "lint:text": "textlint -f pretty-error './docs/**/*.md'",
     "lint": "npm run fix && npm run lint:md"
   },
   "repository": {
@@ -36,7 +36,7 @@
     "markdown-it-mathjax3": "^4.3.2",
     "markdownlint-cli2": "^0.17.2",
     "prettier": "^3.5.1",
-    "textlint": "^14.4.2",
+    "textlint": "^14.5.0",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^2.1.4",
@@ -44,6 +44,6 @@
     "textlint-rule-spelling": "^0.3.0",
     "textlint-rule-terminology": "^5.2.7",
     "textlint-rule-write-good": "^2.0.0",
-    "vitepress": "^2.0.0-alpha.3"
+    "vitepress": "^2.0.0-alpha.4"
   }
 }
