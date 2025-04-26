@@ -1,7 +1,21 @@
 {
   "name": "notes",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Anthology of Snippets",
+  "keywords": [
+    "notes",
+    "documents"
+  ],
+  "homepage": "https://github.com/25prabhu10/notes#readme",
+  "bugs": {
+    "url": "https://github.com/25prabhu10/notes/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/25prabhu10/notes.git"
+  },
+  "license": "MIT",
+  "author": "Prabhu K Hiremath",
   "type": "module",
   "scripts": {
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted",
@@ -11,32 +25,19 @@
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
     "fetch": "sh utils/bash/sync.sh",
-    "fix": "prettier --write './docs/**/*.md'",
+    "format": "prettier --write .",
+    "lint": "npm run fix && npm run lint:md",
     "lint:md": "markdownlint-cli2 './docs/**/*.md' '#./docs/index.md' '#./docs/about.md'",
-    "lint:prettier": "prettier --check './docs/**/*.md'",
-    "lint:text": "textlint -f pretty-error './docs/**/*.md'",
-    "lint": "npm run fix && npm run lint:md"
+    "lint:prettier": "prettier --check .",
+    "lint:text": "textlint -f pretty-error './docs/**/*.md'"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/25prabhu10/notes.git"
-  },
-  "keywords": [
-    "notes",
-    "documents"
-  ],
-  "author": "Prabhu K Hiremath",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/25prabhu10/notes/issues"
-  },
-  "homepage": "https://github.com/25prabhu10/notes#readme",
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.2",
     "markdown-it-mathjax3": "^4.3.2",
     "markdownlint-cli2": "^0.17.2",
     "prettier": "^3.5.1",
-    "textlint": "^14.5.0",
+    "prettier-plugin-packagejson": "^2.5.10",
+    "textlint": "^14.6.0",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
     "textlint-rule-diacritics": "^2.1.4",
@@ -44,6 +45,6 @@
     "textlint-rule-spelling": "^0.3.0",
     "textlint-rule-terminology": "^5.2.7",
     "textlint-rule-write-good": "^2.0.0",
-    "vitepress": "^2.0.0-alpha.4"
+    "vitepress": "^2.0.0-alpha.5"
   }
 }
