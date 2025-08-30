@@ -27,14 +27,11 @@ Data Access Object (DAO) (Old way):
 ## Setup
 
 - Few Packages are need to work with EF Core:
-
   - [DB Provider](#database-providers) Package: Specific to the DB that is being used:
-
     - `Microsoft.EntityFrameworkCore.SqlServer` if the DB is SQL Server
     - The other dependent packages are installed automatically such as `Relational`, `EntityFrameworkCore`
 
   - Type of DB: Relational, NoSQL, etc.
-
     - `Microsoft.EntityFrameworkCore.Relational` as SQL Server is RDBMS
 
   - `Microsoft.EntityFrameworkCore` package contains the EF Core functionality
@@ -54,7 +51,6 @@ Data Access Object (DAO) (Old way):
   ```
 
 - Register and configure the `DbContext` class with a DB provider to the DI system in the `Startup.cs` file:
-
   - `AddDbContextPool` has better performance than `AddDbContext`
   - Don't use `AddDbContextPool` if private properties are used
 
@@ -95,7 +91,6 @@ public class AppDbContext : DbContext
 - Think of it as the table in the database
 
 - This `DbSet` property `Books` will be used to query and save instances of the Book class
-
   - The name of this `DbSet` property corresponds to the table name EF Core will create
 
   - The columns of this table will correspond to the properties of `Books` class
@@ -158,7 +153,6 @@ EF Core Migrations: Provides a way to incrementally update the database schema t
 
    - The above command create a directory called "Migrations" at the root of the project
    - Inside this directory a new files are created:
-
      - `XXXXX_[name of migration].cs-`: The main migrations file. It contains the operations necessary to apply the migration (in `Up`) and to revert it (in `Down`).
 
      - `XXXXX_[name of migration].Designer.cs`: The migrations metadata file. Contains information used by EF.

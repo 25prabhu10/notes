@@ -92,7 +92,7 @@ function square(x: number): NumberWithLogs {
 
 function runWithLogs(
   input: NumberWithLogs,
-  transform: (_: number) => NumberWithLogs,
+  transform: (_: number) => NumberWithLogs
 ): NumberWithLogs {
   const newNumberWithLogs = transform(input.result);
   return {
@@ -109,7 +109,6 @@ const b = runWithLogs(b, square);
 ```
 
 - **Option** (also know as Maybe):
-
   - `number = a number`
   - `Option<number> = a number OR nothing`
   - `Option<User> = a User OR nothing`

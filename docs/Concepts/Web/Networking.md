@@ -16,23 +16,19 @@ Types of networks:
 - Local Area Network (LAN): A network that is confined to a relatively small area, such as a single building or a campus
 - Metropolitan Area Network (MAN): A network that covers a city or a large campus
 - [Wide Area Network (WAN)](#wan): A network that covers a broad area, such as a city, country, or the world
-
   - Leased Line: A dedicated connection between two points
   - Circuit Switching: Establishes a dedicated communication path between two points for the duration of the communication
-
     - A method of implementing a telecommunications network in which two network nodes establish a dedicated communications channel (circuit) through the network before the nodes may communicate
     - Like a telephone call, where a connection is established between two parties for the duration of the call
     - Asynchronous serial. ISDN Layer 1
 
   - Frame Relay: A packet-switching technology that uses a virtual circuit identifier to identify the connection between two points
-
     - A packet-switching protocol that operates at the data link layer (layer 2) of the OSI model
     - It is used to connect LANs over a wide area network (WAN)
     - Frame relay is a cost-effective way to connect LANs over a WAN
     - Synchronous serial
 
   - Broadband: A high-speed Internet connection that is always on
-
     - A type of high-speed Internet connection that is always on and provides faster data transmission rates than traditional dial-up connections
     - Broadband connections are typically faster and more reliable than dial-up connections
     - Cable, DSL, Fiber, Satellite, Wireless WAN
@@ -60,7 +56,6 @@ Types of networks:
 A network topology is the arrangement of a network, including its nodes and connecting lines. There are several different types of network topologies, including:
 
 1. **Bus Topology**: All devices are connected to a single cable, called **the bus or backbone**. When one device sends data, all other devices receive it
-
    - Pros: Simple and inexpensive to set up and maintain
    - Cons: Single point of failure, limited scalability, and performance issues as the network grows
 
@@ -79,7 +74,6 @@ A network topology is the arrangement of a network, including its nodes and conn
    ```
 
 2. **Ring Topology**: All devices are connected in a circular fashion. Each device is connected to two other devices, forming a ring. Data travels around the ring until it reaches its destination
-
    - Pros: Fast and efficient data transfer, no collisions. More reliable than bus topology (if one link fails, the rest of the network is unaffected)
    - Cons: Difficult to troubleshoot and expand, limited scalability
 
@@ -94,7 +88,6 @@ A network topology is the arrangement of a network, including its nodes and conn
    ```
 
 3. **Star Topology**: All devices are connected to a central [hub](#hub) or [switch](#switch). When one device sends data, it goes through the hub or switch to reach its destination
-
    - Pros: Easy to install, troubleshoot, and expand. No collisions, high performance
    - Cons: Single point of failure (hub or switch), expensive
 
@@ -135,7 +128,6 @@ A network topology is the arrangement of a network, including its nodes and conn
      ```
 
 4. **Mesh Topology**: Every device is connected to every other device in the network
-
    - Pros: High reliability, fault tolerance, and performance. No single point of failure
    - Cons: Expensive, difficult to install and manage, and limited scalability
 
@@ -154,7 +146,6 @@ A network topology is the arrangement of a network, including its nodes and conn
    ```
 
 5. **Hybrid Topology**: A combination of two or more different network topologies
-
    - Pros: Balances the advantages and disadvantages of different topologies
    - Cons: Complex, expensive, and difficult to manage
 
@@ -230,7 +221,6 @@ End-to-End Connections:
 The Transport layer is charge of the reliable/unreliable transport of data. It can be implemented as TCP or UDP
 
 - **TCP (Transmission Control Protocol)**: A connection-oriented protocol that provides reliable, ordered, and error-checked delivery of data. It is used for applications that require high reliability, such as web browsing, email, and file transfer
-
   - Connection-oriented
   - Reliable
   - Error-checked
@@ -239,7 +229,6 @@ The Transport layer is charge of the reliable/unreliable transport of data. It c
   - Congestion control
 
 - **UDP (User Datagram Protocol)**: A connectionless protocol that provides fast, unreliable, and unordered delivery of data. It is used for applications that require low latency, such as online gaming, video streaming, and voice over IP (VoIP)
-
   - Connectionless
   - Unreliable
   - Unordered delivery
@@ -271,7 +260,6 @@ Data Delivery:
 Standard Protocols:
 
 - IP (Internet Protocol): IP is a standard that defines the manner in which the network layers of two hosts interact. IP addresses are 32 bit long, hierarchical addressing scheme
-
   - IPv4: 32-bit address, 4.3 billion addresses
   - IPv6: 128-bit address, 340 undecillion addresses
   - IP addresses are divided into classes: A, B, C, D, E
@@ -330,7 +318,6 @@ Binary Transmission:
 Physical media refers to the physical materials used to transmit data between devices. There are several different types of physical media, including:
 
 1. **Copper**: Copper cables are the most common type of physical media used in networking. They are inexpensive, easy to install, and can carry data over long distances. Copper cables are used in Ethernet networks, telephone systems, and other applications
-
    - **Twisted Pair**: Twisted pair cables are made of pairs of insulated wires that are twisted together. They are used in Ethernet networks, telephone systems, and other applications
 
      ```text
@@ -344,7 +331,6 @@ Physical media refers to the physical materials used to transmit data between de
      ```
 
 2. **Fiber Optic**: Fiber optic cables are made of glass or plastic fibers that transmit data using light. They are faster and more reliable than copper cables, but they are also more expensive and difficult to install. Fiber optic cables are used in high-speed networks, long-distance connections, and other applications
-
    - **Single-mode**: Single-mode fiber optic cables use a single beam of light to transmit data. They are used in long-distance connections and high-speed networks
    - **Multi-mode**: Multi-mode fiber optic cables use multiple beams of light to transmit data. They are used in short-distance connections and lower-speed networks
 

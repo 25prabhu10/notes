@@ -261,7 +261,6 @@ They can take functions in as arguments or return functions or both
 A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment)
 
 - A closure may be described as a combination of a function and the lexical environment in which it was declared
-
   - The lexical environment consists of any local variables in the function's scope when the function is created
 
 - You have a closure when a function accesses variables defined outside of it

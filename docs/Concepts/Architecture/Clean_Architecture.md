@@ -20,7 +20,6 @@ With Clean Architecture, the **Domain** and **Application** layers are at the ce
 - Dependence on infrastructure concerns is minimized; keeping focus on domain logic
 
 - **Core** should not be dependent on data access and other infrastructure. All dependencies point inwards
-
   - This is achieved by adding interfaces or abstractions within **Core** that are implemented by layers outside of **Core**.
 
 - Independent of frameworks
@@ -32,21 +31,17 @@ With Clean Architecture, the **Domain** and **Application** layers are at the ce
 Layers:
 
 - Domain Layer:
-
   - Contains enterprise logic and types
   - Can be shared across many systems
 
 - Application Layer:
-
   - Contains business logic and types
   - Specific to that system
 
 - Presentation Layer:
-
   - Depend on Core system, But not on Infrastructure
 
 - Infrastructure Layer:
-
   - Depend on Core system, But not on Presentation
 
 Clean Architecture Rules:
@@ -108,9 +103,7 @@ N-Tier/N-Layer Architecture:
 ## T
 
 - src
-
   - Domain:
-
     - Types, Entities, Exceptions
     - Domain specific: Such as Finance domain will have finance specific things like currency, rates, currency representation etc..
     - Less application logic
@@ -122,7 +115,6 @@ N-Tier/N-Layer Architecture:
   - WebUI
 
 - tests
-
   - Unit Tests
   - Integration Tests
 

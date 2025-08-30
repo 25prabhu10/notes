@@ -10,7 +10,6 @@ A **data structure is a data organization, management, and storage format** that
 A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
 
 - Data can always be represented in many different ways. However, depending on:
-
   - what that data is and what you need to do with it,
 
   - one representation will be a better choice than the others
@@ -18,17 +17,13 @@ A data structure is a way to store and organize data in order to facilitate acce
 Data-structures can be envisioned as:
 
 1. Mathematical / Logical models / Abstract data-types (ABTs): Define data and operations but no implementation details. Abstract view.
-
    - _Example:_ An abstract data-type: _List_
-
      - Store a given number of elements of a given data-type
      - Write/Modify elements at a position (index)
      - Read elements by position (index)
 
 2. Implementation: Concrete implementation
-
    - _Example:_ For the above mentioned _List_ ABT, it can be implemented using:
-
      - Arrays
      - Linked Lists
 
@@ -37,7 +32,6 @@ Data-structures can be envisioned as:
 There are two types of Data structures:
 
 1. Physical: They define how the **data is arranged** in memory
-
    - [Arrays](./Arrays.md): Fixed length, Can be created in Stack or Heap memory
 
    - [Linked List](./Linked_List.md): Variable length, Created in Heap memory
@@ -45,19 +39,15 @@ There are two types of Data structures:
    - Matrices
 
 2. Logical: They define how the **data can be utilized**
-
    - Linear Data Structures:
-
      - [**Stack**](./Stack.md) (LIFO)
      - [**Queues**](./Queue.md) (FIFO)
 
    - Non-Linear Data Structures:
-
      - [**Tress**](./Trees.md)
      - [**Graph**](./Graph.md)
 
    - Tabular (linear/non-linear):
-
      - [**Hash Table**](./Hash_Table.md)
 
 ## Stack vs Heap

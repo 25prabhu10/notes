@@ -358,7 +358,6 @@ Relation is a way in which one document interacts with another document.
 ## Practices
 
 1. First create a schema for the collection
-
    1. The schema is stored in a separate file for each collection. Use singular noun for file names
 
    2. Import mongoose module: `const mongoose = require("mongoose");`
@@ -378,7 +377,6 @@ Relation is a way in which one document interacts with another document.
    6. Export this schema to use it other places to create **Student**
 
 2. Now lets make a connection to the MongoDB
-
    1. Import **mongoose**, then connect to the database: `mongoose.connect("mongodb://localhost/<databaseName>", {useNewUrlParser: true});`
 
 ## Example
@@ -393,40 +391,40 @@ Relation is a way in which one document interacts with another document.
 
    ```javascript
    db.createUser({
-     user: 'accountUser',
+     user: "accountUser",
      pwd: passwordPrompt(), // Or  "password"
-     roles: ['readWrite', 'dbAdmin'],
+     roles: ["readWrite", "dbAdmin"],
    });
    ```
 
 3. Add collections (similar to tables):
 
    ```javascript
-   db.createCollection('customers');
+   db.createCollection("customers");
    ```
 
 4. Add document to the collection:
 
    ```javascript
-   db.customers.insert({ first_name: 'Prabhu', last_name: 'Hiremath' });
+   db.customers.insert({ first_name: "Prabhu", last_name: "Hiremath" });
    ```
 
 5. Now update the document:
 
    ```javascript
    db.customers.update(
-     { first_name: 'Prabhu' },
-     { first_name: 'Prabhu', last_name: 'Hiremath', age: 25 }
+     { first_name: "Prabhu" },
+     { first_name: "Prabhu", last_name: "Hiremath", age: 25 }
    );
 
    // or update a specific property
-   db.customers.update({ first_name: 'Prabhu' }, { $set: { age: 25 } });
+   db.customers.update({ first_name: "Prabhu" }, { $set: { age: 25 } });
    ```
 
 6. Remove a field:
 
    ```javascript
-   db.customers.update({ first_name: 'Prabhu' }, { $unset: { age: 1 } });
+   db.customers.update({ first_name: "Prabhu" }, { $unset: { age: 1 } });
    ```
 
 > Keys in MongoDB need not be enclosed within "".
@@ -460,7 +458,7 @@ db.dropDatabase();
 ### Create Collection
 
 ```javascript
-db.createCollection('posts');
+db.createCollection("posts");
 ```
 
 ### Show Collections
@@ -473,13 +471,13 @@ show collections
 
 ```javascript
 db.posts.insert({
-  title: 'Post One',
-  body: 'Body of post one',
-  category: 'News',
-  tags: ['news', 'events'],
+  title: "Post One",
+  body: "Body of post one",
+  category: "News",
+  tags: ["news", "events"],
   user: {
-    name: 'John Doe',
-    status: 'author',
+    name: "John Doe",
+    status: "author",
   },
   date: Date(),
 });
@@ -490,21 +488,21 @@ db.posts.insert({
 ```javascript
 db.posts.insertMany([
   {
-    title: 'Post Two',
-    body: 'Body of post two',
-    category: 'Technology',
+    title: "Post Two",
+    body: "Body of post two",
+    category: "Technology",
     date: Date(),
   },
   {
-    title: 'Post Three',
-    body: 'Body of post three',
-    category: 'News',
+    title: "Post Three",
+    body: "Body of post three",
+    category: "News",
     date: Date(),
   },
   {
-    title: 'Post Four',
-    body: 'Body of post three',
-    category: 'Entertainment',
+    title: "Post Four",
+    body: "Body of post three",
+    category: "Entertainment",
     date: Date(),
   },
 ]);
@@ -525,7 +523,7 @@ db.find().pretty();
 ### Find Rows
 
 ```javascript
-db.posts.find({ category: 'News' });
+db.posts.find({ category: "News" });
 ```
 
 ### Sort Rows
@@ -541,7 +539,7 @@ db.posts.find().sort({ title: -1 }).pretty()
 
 ```javascript
 db.posts.find().count();
-db.posts.find({ category: 'news' }).count();
+db.posts.find({ category: "news" }).count();
 ```
 
 ### Limit Rows
@@ -560,21 +558,21 @@ db.posts.find().limit(2).sort({ title: 1 }).pretty();
 
 ```javascript
 db.posts.find().forEach(function (doc) {
-  print('Blog Post: ' + doc.title);
+  print("Blog Post: " + doc.title);
 });
 ```
 
 ### Find One Row
 
 ```javascript
-db.posts.findOne({ category: 'News' });
+db.posts.findOne({ category: "News" });
 ```
 
 ### Find Specific Fields
 
 ```javascript
 db.posts.find(
-  { title: 'Post One' },
+  { title: "Post One" },
   {
     title: 1,
     author: 1,
@@ -586,10 +584,10 @@ db.posts.find(
 
 ```javascript
 db.posts.update(
-  { title: 'Post Two' },
+  { title: "Post Two" },
   {
-    title: 'Post Two',
-    body: 'New body for post 2',
+    title: "Post Two",
+    body: "New body for post 2",
     date: Date(),
   },
   {
@@ -602,11 +600,11 @@ db.posts.update(
 
 ```javascript
 db.posts.update(
-  { title: 'Post Two' },
+  { title: "Post Two" },
   {
     $set: {
-      body: 'Body for post 2',
-      category: 'Technology',
+      body: "Body for post 2",
+      category: "Technology",
     },
   }
 );
@@ -616,7 +614,7 @@ db.posts.update(
 
 ```javascript
 db.posts.update(
-  { title: 'Post Two' },
+  { title: "Post Two" },
   {
     $inc: {
       likes: 5,
@@ -629,10 +627,10 @@ db.posts.update(
 
 ```javascript
 db.posts.update(
-  { title: 'Post Two' },
+  { title: "Post Two" },
   {
     $rename: {
-      likes: 'views',
+      likes: "views",
     },
   }
 );
@@ -641,25 +639,25 @@ db.posts.update(
 ### Delete Row
 
 ```javascript
-db.posts.remove({ title: 'Post Four' });
+db.posts.remove({ title: "Post Four" });
 ```
 
 ### Sub-Documents
 
 ```javascript
 db.posts.update(
-  { title: 'Post One' },
+  { title: "Post One" },
   {
     $set: {
       comments: [
         {
-          body: 'Comment One',
-          user: 'Mary Williams',
+          body: "Comment One",
+          user: "Mary Williams",
           date: Date(),
         },
         {
-          body: 'Comment Two',
-          user: 'Harry White',
+          body: "Comment Two",
+          user: "Harry White",
           date: Date(),
         },
       ],
@@ -674,7 +672,7 @@ db.posts.update(
 db.posts.find({
   comments: {
     $elemMatch: {
-      user: 'Mary Williams',
+      user: "Mary Williams",
     },
   },
 });
@@ -683,7 +681,7 @@ db.posts.find({
 ### Add Index
 
 ```javascript
-db.posts.createIndex({ title: 'text' });
+db.posts.createIndex({ title: "text" });
 ```
 
 ### Text Search

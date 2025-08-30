@@ -54,11 +54,6 @@ int main()
 }
 ```
 
-## Header Files
-
-- Mathematical Programming
-- Logical Programming
-
 ## Virtual Functions
 
 - Dynamic Dispatch

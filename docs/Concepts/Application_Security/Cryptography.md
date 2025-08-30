@@ -93,7 +93,6 @@ Hashing is used to provide data integrity
 - Provides _Integrity_ and _Authentication_ for bulk data transfer
 
 - Industry standard implementation of MAC: HAMC (RFC 2104)
-
   - A hash that requires a password (shared key)
 
 - Example is JWT
@@ -132,7 +131,6 @@ Symmetric encryption uses a single key to encrypt and decrypt.
 2 Types:
 
 - Block ciphers encrypt a fixed size of n-bits of data at a time (e.g. DES, 3DES, AES)
-
   - AES (Advanced Encryption Standard)
 
 - Stream ciphers encrypt 1 byte of data at a time
@@ -140,7 +138,6 @@ Symmetric encryption uses a single key to encrypt and decrypt.
 Block ciphers support different modes of operation:
 
 - Electronic Code Block (ECB):
-
   - Less secure than others
   - Android uses ECB by default when using AES:
 
@@ -239,14 +236,12 @@ openssl genrsa
 Protecting Data in Transit:
 
 - For iOS 9 and above:
-
   - Enabled by default
   - Blocks HTTP resource load
   - Uses URL Loading System (NSAppTransportSecurity) which add further transport layer checks
   - Highly recommended to disallow turning off the strict checks
 
 - For Android 9 and above:
-
   - Enabled by default
   - Blocks HTTP resource load
   - Uses SSLSocketFactory to add further transport layer checks
@@ -283,14 +278,12 @@ const isVerified = verifier.verify(publicKey, signature, "hex");
 - Provides good compromise between performance and security
 
 - Symmetric Cryptography:
-
   - Secret key used to encrypt and decrypt data
   - Typically 128 bits in length but 256 bit is secure
   - Fast and efficient
   - Sharing the secret key is hard
 
 - Asymmetric Cryptography:
-
   - Public/Private key pairs that are mathematically related
   - Public key to encrypt data and private key to decrypt data
   - Requires minimum of 1024 bit key but 2048 bit is preferred
@@ -311,7 +304,6 @@ TLS Protocols & Cipher Suites:
 
 - Contains the public key of the web server
 - Certificate is digitally signed by the CBA
-
   - Authenticity of the public key and that the owner controls the domain ("Common Name") being secured by the certificate
   - Allows clients to authenticate the web server
   - Must be a SHA-2 certificate
@@ -322,7 +314,6 @@ TLS Protocols & Cipher Suites:
 - Validates that an entity (e.g. person, company) submitting a certificate request for a web site is authorised to do so
 - May also validate organisation information ("Extended Validation Certificates")
 - CA must be trusted by all participants
-
   - Internet browsers embed public certificates of recognised certification authorities
   - Organisations can embed their own RootCA as a trusted certificate. Limited to internal network only
 
@@ -332,7 +323,6 @@ TLS Protocols & Cipher Suites:
 - Central idea of PKI is that some trusted keys can delegate their trust to other un-trusted keys.
 - Instead of just keys, certificates hold more personal information like domain name, organization, etc
 - Primarily made up of:
-
   - Certificate Authority (CA): An entity that issues digital certificates to websites
   - Registration Authority
   - Certificate Databases
@@ -354,19 +344,15 @@ TLS Protocols & Cipher Suites:
 - HSTS dose not allow a user to override the invalid certificate message
 - **Warning**: Once implemented cannot go back to HTTP without breaking application
 - HSTS Directives:
-
   - `max-age`: Time in seconds for browser to remember HSTS
   - `includeSubDomains`: HSTS rule applies to all of the site's subdomains
   - `preload`:
-
     - Good:
-
       - Google maintained list
       - Currently supported by all major browsers
       - Defends against first-time SSL strip attacks
 
     - Bad:
-
       - Not an official HSTS spec
       - Sending preload directive can have permanent consequences
       - Preload can only be used with adding all subdomains

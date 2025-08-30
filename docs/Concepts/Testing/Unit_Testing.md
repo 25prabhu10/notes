@@ -85,7 +85,6 @@ BDD emerged from TDD
 - In BDD, tests are written first as in TDD, but **focuses on tests which describe behaviour**, rather than tests which test a unit of implementation
 
 - The **Given-When-Then** approach is used for writing test cases:
-
   - **Given** the user has entered valid login credentials
   - **When** a user clicks on the login button
   - **Then** display the successful validation message
@@ -103,7 +102,6 @@ Benefits of BDD approach:
 BDD is very explicitly defined:
 
 - Involves collaboration between lots of roles
-
   - Developers, QA, business partners, etc.
 
 - Defines process for different groups to interact
@@ -136,7 +134,6 @@ Unit tests should not be the only means to test an application, as:
 - **Fast**: It is not uncommon for mature projects to have thousands of unit tests. Unit tests should take very little time to run (in _milliseconds_)
 
 - **Isolated**: Unit tests are standalone, can be run in isolation, and have no dependencies on any outside factors such as a file system or database
-
   - Mock dependencies
   - Test internals
 
@@ -174,7 +171,6 @@ Arranging your tests: **Arrange, Act, Assert** is a common pattern when unit tes
 ### Naming conventions
 
 - Roy Osherove's naming strategy for unit tests: `[UnitOfWork_StateUnderTest_ExpectedBehaviour]`
-
   - E.g. `Divide_PositiveNumbers_ReturnsPositiveQuotient`
 
 ### Code Coverage
@@ -223,13 +219,11 @@ A Test Double is an object that can stand-in for a real object in a test. Used i
 Types of Test Doubles:
 
 1. **Dummy**: A dummy is the simplest form of a test double. It facilitates linker time substitution by providing a default return value where required.
-
    - It is used as a placeholder when an argument needs to be filled in.
    - Objects that the SUT (System Under Test) depends but they are never used.
    - Not relevant to the test scope.
 
 2. **Stub**: Generates predefined outputs. It provides fake data to the SUT.
-
    - A stub is a controllable replacement for an existing dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly.
    - Programmed Stub to return a Success, Failure or Exception
    - A stub adds simplistic logic to a dummy, providing different outputs
@@ -237,7 +231,6 @@ Types of Test Doubles:
 3. **Spy**: It records information about how the class is being used
 
 4. **Mock**: Mocks replace external interface
-
    - A mock object is a fake object in the system that decides whether or not a unit test has passed or failed. A mock starts out as a Fake until it's **asserted** against.
    - They have the same signature of the function
    - We can check if the function is being called or not
@@ -247,7 +240,6 @@ Types of Test Doubles:
    - **Right call, Right Number of times with Right set of Parameter and in the Right order**
 
 5. **Fake**: Almost working implementation. It is an actual implementation of the contract but is unsuitable for production.
-
    - Connect to a local HTTP server
    - Instead of actually going to the internet it connects to a local (limited) implementation
    - Check the behaviour with respect to the actual data it receives from the server
@@ -256,7 +248,6 @@ Types of Test Doubles:
 ## Tools
 
 1. Test Runners:
-
    - Find tests
    - Run tests
    - Determine whether tests pass or fail

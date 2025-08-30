@@ -32,11 +32,9 @@ A font is a particular size, weight, and style of a typeface. Each font was a ma
 Font families are divided into different types based on their appearance. The most common font types are:
 
 1. **Serif**: These have extra details on the ends of the main strokes of the letters. They are considered more traditional and are often used in print. Examples include Times New Roman and Georgia
-
    - Easier to read
 
 2. **Sans-serif**: They have straight ends to letters, and therefore have much cleaner design. They are considered more modern and are often used on the web. Examples include Arial, Verdana, and Helvetica
-
    - Low resolution screens
    - Small font sizes
 

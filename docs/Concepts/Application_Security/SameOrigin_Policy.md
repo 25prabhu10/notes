@@ -22,7 +22,6 @@ Assume the web is an operating system:
 - An **origin** is analogous to an OS process
 - The **web browser** itself is analogous to an OS **kernel**
 - Sites rely on the browser to enforce all the system's security rules:
-
   - Just like in OSes, if there's a bug in the browser itself then all these rules go out the window
 
 The basic rule:
@@ -81,12 +80,10 @@ function isSameOrigin(url1, url2) {
 HTTP Method behaviour for SOP:
 
 - `HEAD`, `GET`, `POST` Methods:
-
   - Request reaches server
   - Response comes back but Browser blocks it
 
 - `PUT`, `DELETE`, `PATCH`, ... Methods:
-
   - Request is blocked by Browser
 
 ### JavaScript
@@ -94,7 +91,6 @@ HTTP Method behaviour for SOP:
 Which is blocked?
 
 - **Web Forms: SOP does not apply**
-
   - Scripts, images, etc. which remain constant:
 
     ```html
@@ -108,7 +104,6 @@ Which is blocked?
     ```
 
 - **JavaScript: SOP applies**
-
   - Content operated via XMLHTTPRequest or Fetch (APIs):
 
     ```javascript
@@ -159,7 +154,6 @@ iframe.contentDocument
 Methods to work around SOP restrictions in ajax
 
 - `JSONP`: (JSON with Padding) provides work-around for this SOP problem:
-
   - Run JavaScript code inside HTML file with `<script>` tag
   - Script tag can reference URL that doesn't have a js extension
   - Code inside JavaScript file has access to everything that is in scope
@@ -190,7 +184,6 @@ Methods to work around SOP restrictions in ajax
     ```
 
 - `document.domain`:
-
   - Need a way around SOP to allow two different origins to communicate
   - Two cooperating sites can agree that for the purpose of SOP checks, they want to be considered equivalent
   - Sites must share a common top-level domain
@@ -222,7 +215,6 @@ Methods to work around SOP restrictions in ajax
     ```
 
   - This allows anyone to join the party:
-
     - `https://attacker.example.org` can also set `document.domain` to `example.org` to become same origin with the others
 
   - This is a opt-in:
@@ -235,21 +227,17 @@ Methods to work around SOP restrictions in ajax
     | `http://www.example.org`      | (not set)         | `http://www.example.org`       | `example.com`     |    No    |
 
 - `iframe`:
-
   - Send message from a parent page to a child iframe
   - Need a way around SOP to allow two different origins to communicate
   - What if we encoded data in URL fragment identifiers?
-
     - Gap in SOP
     - Parent is allowed to navigate child iframes
     - Child can poll for changes to the fragment identifier
 
 - **The `postMessage` API**:
-
   - Secure cross-origin communications between cooperating origins
   - Send strings and arbitrarily complicated data cross-origin
   - Useful features:
-
     - "Structured clone" algorithm used for complicated objects. Handles cycles. Can't handle object instances, functions, DOM nodes.
     - "Transferable objects" allow transferring ownership of an object. It becomes unusable (neutered) in the context it was sent from.
 

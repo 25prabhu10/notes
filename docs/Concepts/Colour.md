@@ -201,14 +201,12 @@ Colour psychology is the study of how colours affect human behaviour and emotion
 ## Terms
 
 - Hue: The colour of an object
-
   - It is determined by the wavelength of light that is reflected by the object
   - It is the most basic property of colour
   - It is what we typically think of as the colour of an object
   - It is the position of a colour on the colour wheel
 
 - Saturation: The intensity of a colour
-
   - It is determined by the purity of the colour, with more saturated colours being more intense
   - It is also known as chroma or colourfulness
   - The amount of grey in a colour
@@ -217,7 +215,6 @@ Colour psychology is the study of how colours affect human behaviour and emotion
   - It is the distance of a colour from the grey axis
 
 - Brightness: The lightness of a colour
-
   - It is determined by the amount of light that is reflected by an object
   - It is also known as value or lightness
   - How much black is in a colour
@@ -226,19 +223,16 @@ Colour psychology is the study of how colours affect human behaviour and emotion
   - It is the position of a colour on the lightness axis
 
 - Tint: A colour that has been lightened by adding white
-
   - It is a mixture of a colour with white
   - It is a lighter version of the original colour
   - It is used to create pastel colours
 
 - Shade: A colour that has been darkened by adding black
-
   - It is a mixture of a colour with black
   - It is a darker version of the original colour
   - It is used to create deep colours
 
 - Tone: A colour that has been muted by adding grey
-
   - It is a mixture of a colour with grey
   - It is a less intense version of the original colour
   - It is used to create neutral colours
@@ -255,7 +249,6 @@ Colour depth is the number of bits used to represent the colour of a pixel. It d
 
 - 1 subpixel = 1-bit/channel (0 or 1)
 - 1 pixel = 3 subpixels (RGB) = 3-bits (RGB) - 8 colours
-
   - 1-bit/channel (3-bits in total) can represent 8 colours
 
   ```text
@@ -313,13 +306,11 @@ High Definition (HD) is a standard for high-quality video and audio. It is defin
 - Supports about 35% of the visible colours
 - Image Resolution: 1920x1080 pixels
 - Frame Rate:
-
   - 24/P, 24/PsF, 23.976/P, 23.976/PsF (for motion pictures)
   - 50/P, 25/P, 25/PsF, 50/I (for regions with 50 Hz systems like PAL/SECAM)
   - 60/P, 59.94/P, 30/P, 30/PsF, 29.97/P, 29.97/PsF, 60/I, 59.94/I (for regions using 60 Hz systems like NTSC)
 
 - Primary Chromaticities:
-
   - White Point: D65 (0.3127, 0.3290)
   - Red: (0.640, 0.330)
   - Green: (0.300, 0.600)
@@ -332,56 +323,48 @@ A colour profile is a set of data that describes the colour characteristics of a
 ### Types of Displays
 
 1. CRT (Cathode Ray Tube): Older technology, bulky, heavy, low resolution
-
    - Very high refresh rate
    - High contrast ratio
    - High colour accuracy
    - High power consumption
 
 2. LCD (Liquid Crystal Display): Thin, lightweight, high resolution
-
    - Low contrast ratio
    - Low colour accuracy
    - Low power consumption
    - Slow response time
 
 3. LED (Light Emitting Diode): Bright, energy-efficient, high resolution
-
    - Good contrast ratio
    - Good colour accuracy
    - Low power consumption
    - Low pixel density
 
 4. OLED (Organic Light Emitting Diode): Thin, flexible, high contrast
-
    - Very high contrast ratio
    - Very high colour accuracy
    - Low power consumption
    - High pixel density
 
 5. AMOLED (Active Matrix Organic Light Emitting Diode): Bright, energy-efficient, high contrast
-
    - Very high contrast ratio
    - Very high colour accuracy
    - Low power consumption
    - High pixel density
 
 6. QLED (Quantum Dot Light Emitting Diode): Bright, energy-efficient, high contrast
-
    - Very high contrast ratio
    - Very high colour accuracy
    - Low power consumption
    - High pixel density
 
 7. QD-OLED (Quantum Dot Organic Light Emitting Diode): Bright, energy-efficient, high contrast
-
    - Very high contrast ratio
    - Very high colour accuracy
    - Low power consumption
    - High pixel density
 
 8. MicroLED: Bright, energy-efficient, high contrast
-
    - Very high contrast ratio
    - Very high colour accuracy
    - Low power consumption

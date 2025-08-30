@@ -28,26 +28,35 @@ Audio:
 
 ## Audio
 
-Audio conversion:
+- Audio conversion:
 
-```bash
-ffmpeg -i audio.mka -acodec libmp3lame audio.mp3
-```
+  ```bash
+  ffmpeg -i audio.mka -acodec libmp3lame audio.mp3
+  ```
 
-Extract audio:
+- Extract audio:
 
-```bash
-# -map channel
-ffmpeg -i movie.mkv -vn -map 0:4 -acodec copy output.mka
-```
+  ```bash
+  # -map channel
+  ffmpeg -i movie.mkv -vn -map 0:4 -acodec copy output.mka
+  ```
 
 ## Video
 
-Extract video:
+- Extract video:
 
-```bash
-ffmpeg -i movie.mkv -an -map 0:0 -vcodec copy video.mkv
-```
+  ```bash
+  ffmpeg -i movie.mkv -an -map 0:0 -vcodec copy video.mkv
+  ```
+
+- Record Video:
+
+  ```bash
+  ffmpeg -f x11grab -i :0.0 test.mkv
+
+  #
+  ffmpeg -f x11grab -s 854x480 -i :0.0 test.mkv
+  ```
 
 ## x265
 
@@ -66,7 +75,6 @@ An application for encoding video streams into the H.265/MPEG-H HEVC compression
    > Only _`yuv`_ or _`y4m`_ can be used as input!
 
 2. Encoding Statistics:
-
    - CLI log:
 
      ```bash

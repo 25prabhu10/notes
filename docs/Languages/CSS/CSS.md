@@ -1,7 +1,6 @@
 ---
 title: CSS - Cascading Style Sheets
 description: CSS is a style sheet language used for describing the presentation of a document written in HTML or XML
-lastmod: 2025-01-14
 ---
 
 # CSS
@@ -34,7 +33,6 @@ For styling the HTML document, we can add CSS in two ways:
    ```
 
 3. **External stylesheet**: The CSS is written in a separate file, which is then referenced by the HTML document through the use of `<link>` element. The external file has a file extension as `.css`
-
    - CSS inside external file, like `styles.css`:
 
    ```css
@@ -100,7 +98,6 @@ This is the HTML element name at the start of the rule-set. It defines the eleme
    ```
 
 3. **Class Selector**: Matches elements whose class attribute has a value that matches the one specified after the period (`.`)
-
    - Class names have to be prefixed with a dot `.` and as HTML element can have multiple classes, multiple class selectors may be combined
 
    ```css
@@ -110,7 +107,6 @@ This is the HTML element name at the start of the rule-set. It defines the eleme
    ```
 
 4. **ID Selector**: Matches an element whose id attribute has a value that matches the one specified after the pound or hash symbol (`#`)
-
    - As all ids inside a HTML are unique, avoid using same id for multiple elements
 
    ```css
@@ -168,7 +164,6 @@ Combinators help in combing different selectors. They also provide a hierarchica
 | Adjacent Sibling | `+`         | `h2 + p`        | All paragraphs that immediately follow an `<h2>` tag on the same hierarchy          |
 
 1. **Descendant Selector**: Matches an element that is a descendant of another specified element (not just a direct child)
-
    - The descendant combinator (` `) is placed between two CSS selectors. It matches those elements matched by the second selector that are descendants of an element matched by the first
 
    ```css
@@ -180,7 +175,6 @@ Combinators help in combing different selectors. They also provide a hierarchica
    ```
 
 2. **Child Selector**: Matches an element that is a direct child of another
-
    - The child combinator (`>`) is placed between two CSS selectors. It matches only those elements matched by the second selector that are the direct children of elements matched by the first
 
    ```css
@@ -192,7 +186,6 @@ Combinators help in combing different selectors. They also provide a hierarchica
    ```
 
 3. **Adjacent Sibling Selector**: Matches an element that is the adjacent sibling of another
-
    - The adjacent sibling combinator (`+`) is placed between two CSS selectors. It matches only those elements matched by the second selector that are immediately preceded by an element matched by the first
 
    ```css
@@ -203,7 +196,6 @@ Combinators help in combing different selectors. They also provide a hierarchica
    ```
 
 4. **General Sibling Selector**: Matches an element that is a sibling of another, although not necessarily immediately
-
    - The general sibling combinator (`~`) is placed between two CSS selectors. It matches those elements matched by the second selector that are siblings of an element matched by the first
 
    ```css
@@ -249,15 +241,15 @@ Best practice is to use two-colon prefix for two reasons:
 
 ### Pseudo Classes
 
-Pseudo-Class is a keyword added to a selector that specifies a special state of the selected element(s). For example, `:hover` can be used to change a button's colour when the user's pointer hovers over it
+Pseudo-Class is a keyword added to a selector that specifies a special state of the selected element(s)
+
+- For example, `:hover` can be used to change a button's colour when the user's pointer hovers over it
 
 Some Pseudo Classes:
 
 - `:hover`: Match when an element is being hovered over (such as using the mouse)
 
 - `:focus`: Match an element selected with the keyboard (by tabbing), or with the mouse (by clicking the element)
-
-  - Example:
 
   ```css
   /* For links and other elements */
@@ -275,9 +267,7 @@ Some Pseudo Classes:
   }
   ```
 
-- `:focus-visible`: Matches the `:focus` pseudo-class and the UA (User Agent) determines via heuristics that the focus should be made evident on the element
-
-  - Example:
+- `:focus-visible` (new): Matches the `:focus` pseudo-class and the UA (User Agent) determines via heuristics that the focus should be made evident on the element
 
   ```css
   .element:focus-visible {
@@ -286,8 +276,6 @@ Some Pseudo Classes:
   ```
 
 - `:active`: Match an element in the process of being activated (such as clicking, while the mouse button is depressed)
-
-  - Example:
 
   ```css
   button:active {
@@ -298,6 +286,15 @@ Some Pseudo Classes:
   ```
 
 - `:target`: Select an element that has an ID matching the URL's fragment (the portion after the #)
+
+- `:has()`: It represents an element if any of the selectors passed as parameters represent at least one element
+
+  ```css
+  /* selects any <li> element that contains an <a> element */
+  li:has(a) {
+    background-color: yellow;
+  }
+  ```
 
 ## Properties
 
@@ -310,7 +307,6 @@ The properties in CSS refer to the various aspects of layout and style that can 
 Types of units:
 
 1. Absolute:
-
    - `px`: Unit of measure for computer graphics; this is only suitable for screen-based displays
    - `in`: Inch. _1in. = 6pc = 72pt = 2.54cm_. This will be a true inch on printers, but defined relative to a reference pixel for screens which is _96px_ regardless of the screen resolution
    - `pc`: Pica. Unit of measure in typography
@@ -319,14 +315,12 @@ Types of units:
    - `mm`: Millimetre
 
 2. Font-Relative:
-
    - `ch`: Represents the width of the **0** character in the element's font (consisting of both typeface and size)
    - `ex`: Represents the height of the **x** character in the element's font (consisting of both typeface and size)
    - `em`: The calculated font-size of the element. If this unit is used on the font-size property, it will be relative to the inherited font-size
    - `rem`: Exactly the same as `em`, but always relative to the font-size of the root element (which is the `<html>` for HTML documents). This is the preferred default unit for many web designers as it allows for manageable fluid layouts while addressing accessibility concerns
 
 3. Viewport-Relative:
-
    - `vh`: Equal to _1%_ of the height of the viewport
    - `vw`: Equal to _1%_ of the width of the viewport
 
@@ -340,7 +334,6 @@ Types of units:
    - `dvh` and `dvw`: The dynamic viewport-percentage units are defined with respect to the dynamic viewport size: the viewport sized with dynamic consideration of any UA interfaces that are dynamically expanded and retracted. This allows authors to size content such that it can exactly fit within the viewport whether or not such interfaces are present
 
 4. Percentage:
-
    - Many CSS properties will accept a _percentage_ or a _length-percentage_ (meaning either a length or a percentage). While the rem is the best choice for many purposes, especially those relating to content and accessibility, percentage works relative to any inherited size including font-relative, view-relative, or even absolute units
 
 ## How CSS Rules Cascade
@@ -387,7 +380,6 @@ CSS priority scheme (highest to lowest):
    | `style=" "`                         | 1, 0, 0, 0  |
 
    How to calculate specificity:
-
    1. Count the number of ID selectors in the selector, and record the number (N) as `a`
    2. Count the number of class selectors, attributes selectors, and pseudo-classes in the selector, and record the number (N) as `b`
    3. Count the number of type selectors and pseudo-elements in the selector, and record the number (N) as `c`
@@ -494,7 +486,6 @@ If one block-level element sits inside another block-level element, the outer bo
 The `display` property specifies the display behaviour (the type of rendering box) of an element
 
 - The `display` property can have the following values:
-
   - `block`: Displays an element as a block element (like `<p>`)
   - `inline`: Displays an element as an inline element (like `<span>`)
   - `inline-block`: Displays an element as an inline-level block container. The element itself is formatted as an inline element, but you can apply block properties to it
@@ -515,7 +506,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
 - By default a box's size is determined by its content, but the `width` and `height` properties can be used to set the size of the box
 
 - Size of the box can be specified in different units like `px`, `em`, `rem`, `vh`, `vw`, etc.
-
   - When using pixels, the size of the box is fixed and does not change when the window is resized
   - When using percentage, the size of the box is relative to the size of the parent element
   - When using `em`, the size of the box is relative to the font-size of text in the box
@@ -542,7 +532,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
 #### Box Model Properties
 
 1. **Width and Height**: The `width` and `height` properties are used to set the width and height of an element
-
    - The `width` and `height` properties include the content, padding, and border, but not the margin
    - `min-(width,height)` and `max-(width,height)` properties are used to set the minimum and maximum width of an element
 
@@ -557,7 +546,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
    ```
 
 2. **Padding**: The `padding` property is used to generate space around an element's content, inside of any defined borders
-
    - The padding clears an area around the content (inside the border) of an element. The padding is affected by the background colour of the box
 
    ```css
@@ -567,7 +555,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
    ```
 
 3. **Border**: The `border` property is used to set the width of the border around an element
-
    - The border properties allow you to specify the style, width, and colour of an element's border
 
    ```css
@@ -594,7 +581,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
    ```
 
 4. **Margin**: The `margin` property is used to generate space around an element's content, outside of any defined borders
-
    - The margin clears an area around the border (outside the border) of an element. The margin does not have a background colour, and is completely transparent
 
    ```css
@@ -604,7 +590,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
    ```
 
 5. **Outline**: The `outline` property is a shorthand property for setting one or more of the individual outline properties `outline-style`, `outline-width`, and `outline-color` in a single declaration
-
    - The outline property is a line that is drawn around elements (outside the borders) to make the element "stand out"
 
    ```css
@@ -614,10 +599,8 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
    ```
 
 6. **Box-Sizing**: The `box-sizing` property is used to tell the browser what the sizing properties (`width` and `height`) should include
-
    - The `box-sizing` property allows you to define certain elements to fit an area in a certain way. This can be used to create a responsive design
    - The `box-sizing` property can have one of the following values:
-
      - `content-box`: Default value. The width and height properties include the content, but not the padding or border
      - `border-box`: The width and height properties include the padding and border, but not the margin
 
@@ -632,7 +615,6 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
 The `visibility` property specifies whether an element is visible or hidden
 
 - The `visibility` property can have the following values:
-
   - `visible`: Default value. The element is visible
   - `hidden`: The element is hidden (but still takes up space)
   - `collapse`: Only for table elements. It removes a row or column, but it does not affect the table layout. The space taken up by the row or column will be available for other content
@@ -648,7 +630,6 @@ div {
 The `position` property specifies the type of positioning method used for an element
 
 - The `position` property can have the following values:
-
   - `static` (default): The element is positioned according to the normal flow of the document
 
   - `relative`: The element is positioned according to the normal flow of the document, and then offset relative to itself based on the values of `top`, `right`, `bottom`, and `left`
@@ -704,7 +685,6 @@ Stacking context is a three-dimensional conceptualization of HTML elements along
 The `overflow` property specifies what should happen if content overflows an element's box
 
 - The `overflow` property can have the following values:
-
   - `visible`: Default value. The content is not clipped, it renders outside the element's box
   - `hidden`: The content is clipped and no scrollbars are provided
   - `scroll`: The content is clipped and desktop browsers use scrollbars, whether or not any content is clipped
@@ -755,7 +735,6 @@ Flexbox is a layout model that allows elements to align and distribute space wit
 - A **1-dimensional layout system**
 
 - `display: inline-flex`: makes the _flex container_ display in-line
-
   - does not make _flex items_ display in-line
 
 [A complete guide to `flexbox`](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
@@ -787,7 +766,7 @@ _Example:_
 
 ## Typography
 
-[Typography]() is if not the most important part of the web page. As even today most of the content on the page is presented in the form of text. So, focusing on the usual aspects of the text is very important
+[Typography](../HTML/Typography/Typography.md) is if not the most important part of the web page. As even today most of the content on the page is presented in the form of text. So, focusing on the usual aspects of the text is very important
 
 Specifying typefaces and sizes for the text on a web page is a crucial part of the design process. The choice of font can set the tone for the entire page, and the size of the text can make the content more readable
 
@@ -989,6 +968,25 @@ div {
 
 - TODO: Create a doc on [Typography](https://careerfoundry.com/en/blog/ui-design/beginners-guide-to-typography)
 
+### Text Wrap
+
+The `text-wrap` property specifies how the text should be wrapped when it reaches the end of a line
+
+- The `text-wrap` property can have the following values:
+  - `wrap` (default): Text is wrapped across lines at appropriate characters (for example spaces, in languages like English that use space separators) to minimize overflow
+
+  - `nowrap`: Text is not wrapped across lines. It only wraps at line breaks
+
+  - `balance` (new): Text is wrapped across lines to minimize the number of lines, and the length of each line is balanced as much as possible
+
+  - `pretty`: Text is wrapped across lines to minimize the number of lines, and the length of each line is balanced as much as possible. This value is similar to `balance`, but it is more concerned with the visual appearance of the text than the number of lines
+
+```css
+p {
+  text-wrap: unrestricted;
+}
+```
+
 ### Fluid Font Sizes
 
 Fluid typography is the idea that `font-size` (and perhaps other attributes of type, like `line-height`) change depending on the screen size (or perhaps container queries if we had them)
@@ -1162,7 +1160,6 @@ There are several ways to set colours in CSS, each with its advantages and use c
    ```
 
 3. **RGB/RGBA Colours:** RGB stands for Red, Green, Blue. This method defines colours using a combination of three values (`0-255` or `0%-100%`) representing the intensity of each colour channel. It offers precise colour control. `rgba` is an extension of `rbg` that includes a fourth value (`0-1`) for transparency (alpha channel). This allows you to set colours with varying opacity levels
-
    - `0` opacity is fully transparent
    - `1` opacity is fully opaque
    - First three values are for red, green, and blue (`0-255`), and the fourth value is for opacity (`0-1`)
@@ -1179,9 +1176,7 @@ There are several ways to set colours in CSS, each with its advantages and use c
    ```
 
 4. **HSL/HSLA Colours:** This method defines colours based on hue (colour angle), saturation (colour intensity), and lightness (brightness). It can be more intuitive for some users. Similar to RGBA, HSLA adds an alpha channel for transparency to HSL colours
-
    - In `hsl(H S L)` or `hsla(H S L / a)` each item corresponds as follows:
-
      - `H` is the hue angle (`0-360`)
      - `S` is saturation (`0%-100%`)
      - `L` is lightness (`0%-100%`)
@@ -1198,9 +1193,7 @@ There are several ways to set colours in CSS, each with its advantages and use c
    ```
 
 5. **`hwb()`:** which specifies an sRGB colour by hue, whiteness, and blackness using the HWB cylindrical coordinate model
-
    - `hwb()` is a new way to define CSS colour. In `hwb(H W B)` or `hwb(H W B / a)` each item corresponds as follows:
-
      - `H` is the hue angle (`0-360`)
      - `W` is whiteness (`0%-100%`)
      - `B` is blackness (`0%-100%`)
@@ -1215,9 +1208,7 @@ There are several ways to set colours in CSS, each with its advantages and use c
    ```
 
 6. **`lab()`:** which specifies a CIELAB colour by CIE Lightness and its a- and b-axis hue coordinates (red/green-ness, and yellow/blue-ness) using the CIE LAB rectangular coordinate model
-
    - `lab()` is a new way to define CSS colour. In `lab(L A B)` or `lab(L A B / a)` each item corresponds as follows:
-
      - `L` is perceived lightness (`0-100` or 0%-100%`). "Perceived" means that it has consistent lightness for our eyes, unlike `L`in`hsl()`
      - `A` is the a-axis hue coordinate (`-125-125` or `-100%-100%`)
      - `B` is the b-axis hue coordinate (`-125-125` or `-100%-100%`)
@@ -1232,9 +1223,7 @@ There are several ways to set colours in CSS, each with its advantages and use c
    ```
 
 7. **`lch()`:** which specifies a CIELAB colour by CIE Lightness, Chroma, and hue using the CIE LCH cylindrical coordinate model
-
    - `lch()` is a new way to define CSS colour. In `lch(L C H)` or `lch(L C H / a)` each item corresponds as follows:
-
      - `L` is perceived lightness (`0%-100%`). "Perceived" means that it has consistent lightness for our eyes, unlike `L` in `hsl()`
      - `C` is chroma, from grey to the most saturated colour (`0%-100%` or `0-230`)
      - `H` is the hue angle (`0-360`)
@@ -1251,9 +1240,7 @@ There are several ways to set colours in CSS, each with its advantages and use c
 8. **`oklab()`:** which specifies an Oklab colour by Oklab Lightness and its a- and b-axis hue coordinates (red/green-ness, and yellow/blue-ness) using the Oklab rectangular coordinate model
 
 9. **`oklch()`:** which specifies an Oklab colour by Oklab Lightness, Chroma, and hue using the Oklch cylindrical coordinate model
-
    - `oklch()` is a new way to define CSS colour. In `oklch(L C H)` or `oklch(L C H / a)` each item corresponds as follows:
-
      - `L` is perceived lightness (`0%-100%`). "Perceived" means that it has consistent lightness for our eyes, unlike `L` in `hsl()`
      - `C` is chroma, from grey to the most saturated colour
      - `H` is the hue angle (`0-360`)
@@ -1315,7 +1302,6 @@ But, that being said, alongside OKLCH comes two challenges:
 - With OKLCH and LCH, not all combinations of `L`, `C`, and `H` will result in colours that are supported by every monitor. Although browsers will try to find the closest supported colour
 
 - OKLCH is a new colour space. At the time of this writing in 2023, its ecosystem is still limited
-
   - [Colour picker](https://oklch.com/)
   - [Palette generator](https://huetone.ardov.me/)
 
@@ -1401,7 +1387,6 @@ button {
 The `box-shadow` property adds shadow effects around an element's frame. You can set multiple effects separated by commas. A box shadow is described by X and Y offsets relative to the element, blur and spread radii, and colour
 
 - The `box-shadow` property can have the following values:
-
   - `h-shadow`: Required. The horizontal offset of the shadow. A positive value puts the shadow on the right side of the box, a negative value puts the shadow on the left side of the box
   - `v-shadow`: Required. The vertical offset of the shadow. A positive value puts the shadow below the box, a negative value puts the shadow above the box
   - `blur`: Optional. The blur radius. The larger the value, the more blurred the shadow will be. Negative values are not allowed. If not specified, it will be `0` (the shadow's edge is sharp)
@@ -1425,7 +1410,6 @@ The `list-style-type` property specifies the type of list-item marker in a list
 - Unordered lists use `list-style-type` to set the style of the bullet point, and ordered lists use `list-style-type` to set the style of the numbering
 
 - Partial Unordered list:
-
   - `none`: No marker
   - `disc`: A filled circle
   - `circle`: An empty circle
@@ -1434,7 +1418,6 @@ The `list-style-type` property specifies the type of list-item marker in a list
   - `kannada`: A Kannada script number
 
 - Ordered list:
-
   - `decimal`: A number (default) (`1, 2, 3, 4, ...`)
   - `decimal-leading-zero`: A number with leading zero (`01, 02, 03, 04, ...`)
   - `lower-roman`: A lowercase roman number (`i, ii, iii, iv, ...`)
@@ -1497,7 +1480,6 @@ ul {
 Styling tables can be a bit tricky, but with CSS, you can style your tables to look great
 
 - The `border-collapse` property sets whether table borders should collapse into a single border or be separated
-
   - `separate`: Default. Borders are separated (space is left between the cells)
   - `collapse`: Borders are collapsed into a single border
 
@@ -1511,7 +1493,6 @@ table {
 ```
 
 - The `caption-side` property specifies the placement of a table caption
-
   - `top`: The caption is above the table
   - `bottom`: The caption is below the table
 
@@ -1522,7 +1503,6 @@ table {
 ```
 
 - The `empty-cells` property specifies how to display empty cells in a table
-
   - `show`: Show a border around empty cells
   - `hide`: Do not show a border around empty cells
 
@@ -1533,7 +1513,6 @@ table {
 ```
 
 - The `table-layout` property sets the layout algorithm to be used for a table
-
   - `auto`: Default. The table layout algorithm is automatic
   - `fixed`: The table and column widths are set by the widths of table and col elements or by the width of the first row of cells. Cells in subsequent rows do not affect column widths
 
@@ -1607,27 +1586,23 @@ img {
 Background images are used to set the background of an element, and can be repeated or positioned in a variety of ways
 
 - `background-size` property specifies the size of the background images
-
   - `auto`: Default. The background image is displayed in its original size
   - `cover`: The background image is scaled to be as large as possible so that the background area is completely covered by the background image
   - `contain`: The background image is scaled to maintain its aspect ratio while ensuring that it is fully contained within the background positioning area
   - `length`: Sets the width and height of the background image in px, cm, etc. The first value sets the width, the second value sets the height. If only one value is given, the second is set to `auto`
 
 - `background-repeat` property sets how a background image will be repeated
-
   - `repeat`: The background image will be repeated both vertically and horizontally
   - `repeat-x`: The background image will be repeated only horizontally
   - `repeat-y`: The background image will be repeated only vertically
   - `no-repeat`: The background-image will not be repeated
 
 - `background-attachment` sets whether a background image is fixed or scrolls with the rest of the page
-
   - `scroll` (default): The background image will scroll with the page
   - `fixed`: The background image will not scroll with the page
   - `local`: The background image will scroll within the element's content, and will not scroll with the page
 
 - `background-position` sets the starting position of a background image
-
   - `top left`
   - `top center`
   - `top right`
@@ -1695,7 +1670,6 @@ Sprites are a way to combine multiple images into a single image. This is done t
 CSS has support for variables
 
 - **Custom properties**: These variables are defined much like any other CSS property and can contain any value that would be valid in CSS. They can then be referenced later in a style sheet using the `var()` function
-
   - CSS variables can be consumed using `var()`, which takes CSS variable as the first argument and an optional default value
 
   ```css
@@ -1759,7 +1733,6 @@ CSS has a large number of available functions to perform a variety of tasks. But
 - **Effects**: There are other visual effects beyond just gradients. The `blur()` function will produce a Gaussian blur on the selected element, even an image. This can be useful for the backdrop of a modal dialogue. The `drop-shadow()` adds some dimension to a theme. And `opacity()` allows elements to be somewhere between fully opaque and fully transparent, to allow dimensional overlays. (Note that if you want opaque text but a semitransparent background, you may want to consider using the `rgba()` or `hsla()` colour functions as described in the following text.)
 
 - **Colour**: The most common way of specifying colour in CSS is with the 3- or 6-digit hex code preceded by a hash symbol, such as `#FF0000` for the colour red. Colours can also be specified by hue, saturation, and lightness using the `hsl()` and `hsla()` functions, or as RGB (red, green, blue) using `rgb()` or `rgba()`. The _`a`_ in each of these function sets refers to the alpha channel which specifies level of opacity or transparency
-
   - **Colours**: also be manipulated in a consistent fashion using the filter property with alterations such as `contrast()`, `saturate()`, and `hue-rotate()` and effects applied such as `grayscale()` or `sepia()`. These functions are particularly useful because they can apply to an image as well as text on the page
 
 - **Resources**: The `url()` function is used to add image resources to a design through CSS. This allows the `<img>` tag in HTML to be reserved for images that are relevant to the content, rather than to the layout and design
@@ -1794,7 +1767,6 @@ Responsive web design is about using CSS and HTML to resize, hide, shrink, enlar
 | 27" iMac    | 2560 x 1440 px |
 
 - Common Screen Sizes:
-
   - `320px`: Smartphones
   - `768px`: Tablets
   - `1024px`: Laptops
@@ -1816,7 +1788,6 @@ Media features describe specific characteristics of the [user agent](https://dev
 - Visit [MDN - Media features](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#media_features) for the list of all media features expression
 
 1. Prefers-Colour-Scheme: The prefers-colour-scheme CSS media feature is used to detect if the user has requested the system to use a light or dark colour theme
-
    - `no-preference`: Indicates that the user has made no preference known to the system. This keyword value evaluates as false in the boolean context
 
    - `light`: Indicates that the user has notified the system that they prefer an interface that has a light theme
@@ -1843,7 +1814,6 @@ Media features describe specific characteristics of the [user agent](https://dev
    ```
 
 2. Prefers-Reduced-Motion: The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of animation or motion it uses
-
    - `no-preference`: Indicates that the user has made no preference known to the system
 
    - `reduce`: Indicates that the user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where all non-essential movement is removed
@@ -1904,7 +1874,6 @@ Media features describe specific characteristics of the [user agent](https://dev
    ```
 
 3. `pointer`: tests whether the user has a pointing device (such as a mouse), and if so, how accurate the primary pointing device is
-
    - `none`: The primary input mechanism does not include a pointing device
 
    - `coarse`: The primary input mechanism includes a pointing device of limited accuracy, such as mobile or remote pointer
@@ -1960,6 +1929,91 @@ p {
     text-decoration: none;
     border-bottom: solid 3px orange;
   }
+}
+```
+
+### Layers
+
+`@layer` at-rule is used to define the layer of a CSS file
+
+```css
+@layer components {
+  .button {
+    background-color: #f1f1f1;
+    padding: 20px;
+  }
+}
+
+@layer utilities {
+  .button {
+    color: #333;
+  }
+}
+```
+
+### Scoped Styles
+
+`@scope` at-rule is used to apply styles to a specific element and its descendants
+
+```css
+@scope .container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+@scope .container h1 {
+  color: #333;
+}
+```
+
+### Container Queries
+
+Container queries are a way to apply styles to an element based on the size of its parent container, rather than the size of the viewport
+
+- `@container` at-rule is used to apply styles based on the size of the parent container
+
+```css
+.parent {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+
+  @container (max-width: 20em) {
+    .child {
+      font-size: 1.5em;
+    }
+  }
+}
+```
+
+### `@property`
+
+`@property` at-rule is used to define custom properties
+
+```css
+@property --main-bg-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: white;
+}
+
+body {
+  --main-bg-color: white;
+  background-color: var(--main-bg-color);
+}
+```
+
+### Starting Styles
+
+`@starting-style` at-rule is used to define the starting styles for an element
+
+```css
+@starting-style .container {
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+@starting-style .container h1 {
+  color: #333;
 }
 ```
 
@@ -2023,18 +2077,15 @@ _Example:_
 ## Styling Techniques
 
 1. Global CSS:
-
    - Good for small applications but is not scalable
    - Naming becomes hard, can use naming conventions like BEM
 
 2. [CSS Modules](#css-modules):
-
    - Scoped to individual component
    - File name should contain `module` like `button.module.css`
    - **No name collisions**
 
 3. Preprocessor:
-
    - [Sass](https://sass-lang.com/) (superset of CSS) (`.scss`), Less
    - [Master.co](https://css.master.co/): A Virtual CSS language with enhanced syntax
    - Do programmatic stuff
@@ -2042,7 +2093,6 @@ _Example:_
    - Decoupled from JavaScript
 
 4. CSS-In-JS:
-
    - [StyleX](https://stylexjs.com/), [Styled components](https://styled-components.com/), [Emotion](https://emotion.sh/), [Styled JSX](https://github.com/vercel/styled-jsx) (Next.js)
    - Write CSS in JS
    - Do programmatic stuff
@@ -2050,7 +2100,6 @@ _Example:_
    - Scoped styles
 
 5. Utility Class Library:
-
    - [tailwindcss](https://tailwindcss.com/), [UnoCSS](https://unocss.dev/), [Open Props](https://open-props.style/)
    - [Ready-to-use Tailwind CSS blocks](https://tailblocks.cc/)
    - [Free Tailwind CSS Templates, Components and Resources](https://www.tailwindtoolbox.com/)
@@ -2060,11 +2109,9 @@ _Example:_
    - No components
 
 6. CSS Frameworks:
-
    - [Bootstrap](https://getbootstrap.com/), [Bulma](https://bulma.io/), [Pico CSS](https://picocss.com/)
 
 7. Component Library:
-
    - Style systems ([TailwindUI](https://tailwindui.com), [DaisyUI](https://daisyui.com), [Mantine](https://mantine.dev))
    - React Bootstrap, ANT, Material Design, Rebase, chakra, tamagui
    - Behaviour Libraries ([HeadlessUI](https://headlessui.com), [Radix](https://www.radix-ui.com), React Aria, [MUI](https://mui.com/))
@@ -2248,7 +2295,6 @@ h6 {
 
    - Properties are grouped (clustered) into buckets by a sense
    - The ordering principle is known as "Outside-in":
-
      - Layout Properties (`position`, `float`, `clear`, `display`)
      - Box Model Properties (`width`, `height`, `margin`, `padding`)
      - Visual Properties (`color`, `background`, `border`, `box-shadow`)
@@ -2307,7 +2353,7 @@ function stripCSS() {
     2. `<style></style>` elements collocated in HTML document
   */
   Array.from(document.styleSheets).forEach(
-    (stylesheet) => (stylesheet.disabled = true),
+    (stylesheet) => (stylesheet.disabled = true)
   );
 
   /*
@@ -2315,7 +2361,7 @@ function stripCSS() {
     1. `style` attribute applied to HTML elements
   */
   Array.from(document.querySelectorAll("*")).forEach((element) =>
-    element.removeAttribute("style"),
+    element.removeAttribute("style")
   );
 }
 ```
@@ -2357,16 +2403,13 @@ module.exports = {
 Using these tools you can determine, How large is your CSS? How repetitive is it? What about your CSS specificity score? Can you safely remove some declarations and vendor prefixes, and if so, how do you spot them quickly?
 
 - [CSS Stats](https://cssstats.com): runs a thorough audit of the CSS files requested on a page
-
   - Provides a dashboard-alike view of rules, selectors, declarations and properties, along with pseudo-classes and pseudo-elements
   - It also breaks down all styles into groups, from layout and structure to spacing, typography, font stacks and colours
 
 - [Yellow auditing web performance](https://yellowlab.tools/): auditing web performance, but it also includes some very helpful helpers for measure the complexity of your CSS
-
   - Highlights duplicated selectors and properties, old IE fixes, old vendor prefixes and redundant selectors, along with complex selectors and syntax errors
 
 - [CSS Specificity Visualizer](https://isellsoap.github.io/specificity-visualizer/): Provides an overview of CSS selectors and their specificities across a CSS file
-
   - The x-axis shows the physical location of selectors in the CSS, laid out from left to right, with the first one on the left, and the last one on the right
   - The y-axis shows the actual specificity of selectors, starting with the least specific at the bottom and ending with the most specific at the top
   - High specificity is usually a red flag
@@ -2383,7 +2426,6 @@ Using these tools you can determine, How large is your CSS? How repetitive is it
 1. [Browserslist](https://github.com/browserslist/browserslist) - Helps to share target browsers and Node.js versions between different front-end tools
 
 2. [CSS Generators](https://www.smashingmagazine.com/2021/03/css-generators/):
-
    - [Shadow Generator](https://shadows.brumm.af/)
 
    - [CSS Scroll Shadows!](https://css-scroll-shadows.vercel.app/?bgColor=c4c5fc&shadowColor=222222&pxSize=15)

@@ -92,7 +92,6 @@ _Example:_
 Installation:
 
 1. Check the Execution Policy:
-
    - Run `Get-ExecutionPolicy`
    - If it returns `Restricted`, then run `Set-ExecutionPolicy AllSigned` or `Set-ExecutionPolicy Bypass -Scope Process`
 

@@ -216,7 +216,6 @@ ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
 
 - 1963
 - 7-Bit character set
-
   - only 128 characters
   - 0000000 - 1111111
 
@@ -227,7 +226,6 @@ ruby -e 'File.rename("backdoor_ppt.exe", "resume\xe2\x80\xaetpp.exe")'
 
 - ASCII compatible
 - 8-Bit character set
-
   - 256 characters
   - 00000000 - 11111111
 

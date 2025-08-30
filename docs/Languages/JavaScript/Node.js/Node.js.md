@@ -16,7 +16,6 @@ Node.js is a JavaScript runtime built on Google's open-source _V8 JavaScript eng
 2. **Small modules**: A _module_ is the fundamental means for structuring the code of a program
 
    Unix Philosophy:
-
    - Small is beautiful
    - Make each program do one thing well
 
@@ -35,7 +34,6 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 2. **Non-blocking I/O**: In this way, the system call always returns immediately without waiting for the data to be read or written
 
    The most basic pattern for dealing with this type of non-blocking I/O is to actively poll the resource within a loop until some actual data is returned. This is called **busy-waiting**. This method consumes precious CPU time and results in a huge amount of wasted CPU time
-
    - Event-Driven
    - Non-Blocking
 
@@ -46,7 +44,6 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 4. **The reactor pattern**: The main idea behind the reactor pattern is to have a handler associated with each I/O operation. A handler in Node.js is represented by a callback (or cb for short) function
 
    This is what happens in an application using the reactor pattern:
-
    - The application generates a new I/O operation by submitting a request to the Event Demultiplexer. The application also specifies a handler, which will be invoked when the operation completes. Submitting a new request to the Event Demultiplexer is a non-blocking call and it immediately returns control to the application
 
    - When a set of I/O operations completes, the Event Demultiplexer pushes a set of corresponding events into the Event Queue
@@ -66,7 +63,6 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
    :::
 
 5. **Building blocks**:
-
    - A set of bindings responsible for wrapping and exposing `libuv` and other low-level functionalities to JavaScript
    - **V8**, the JavaScript engine
    - A core JavaScript library containing Node.js API
@@ -85,7 +81,6 @@ Node.js came up with an implementation of the **[CommonJS specification (CJS)](#
 In 2015 _ECMAScript 6_ (ES6 or ES2015) proposed for a standard module system known as **[ESM (ECMAScript modules)](../JavaScript.md#esm-ecmascript-modules)**
 
 - Node.js has two module systems: CommonJS modules and **ESM** (support from _v13.2_):
-
   - To use ESM in Node.js change `type` in `package.json` to `module`
 
   ```json
@@ -360,4 +355,3 @@ Create heroku application
 ```bash
 heroku create app-name
 ```
-

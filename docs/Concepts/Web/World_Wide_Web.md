@@ -12,7 +12,6 @@ The World Wide Web (WWW) or web is a system of interlinked hypertext documents a
 Brief History:
 
 - 1989-91: The idea of the web (Sir Tim Berners-Lee, CERN)
-
   - He published ["Information Management: A Proposal"](https://info.cern.ch/Proposal.html)
   - He wrote `TCPServer.c` (initial port `2784`) and `WorldWideWen.app` (browser)
 
@@ -26,14 +25,12 @@ Brief History:
 - 1995: Personal Home Page (PHP) Tools, 1.0 (Rasmus Lerdorf)
 - 1996: JavaScript (Brendan Eich), CSS (Håkon Wium Lie), Microsoft FrontPage, Macromedia Flash
 - 1998: Accessibility (Section 508 update, WAI, WCAG)
-
   - 2008: WCAG 2.0
   - 2018: WCAG 2.1
 
 - 2000-02: ASP.NET 1.0 (Scott Guthrie, Mark Anders)
 - 2004: Ruby on Rails (David Heinemeier Hansson (DHH))
 - 2005-06: JavaScript ascend - Web 2.0
-
   - 2005: [AJAX: A new approach to web applications](https://designftw.mit.edu/lectures/apis/ajax_adaptive_path.pdf) by by Jesse James Garrett
   - 2006: jQuery (John Resig)
 
@@ -41,7 +38,6 @@ Brief History:
 - 2009: Node.js (Ryan Dahl)
 - 2010: SPA frameworks
 - 2012-15:
-
   - 2012: TypeScript
   - 2013: Webpack
   - 2014: Kubernetes
@@ -123,14 +119,12 @@ Advantages:
 
 - Improved SEO
 - Faster time-to-content (faster load times):
-
   - Server-rendered HTML doesn't need to wait until all JavaScript has been downloaded and executed to be displayed, so the user will see a fully-rendered page sooner
   - For initial visit, data fetching is done on the server side, which likely has a faster connection to your database than the client
   - Improved Core Web Vitals metrics
   - Better initial User Experience
 
 - Time-to-Interactive is equal to First-Contentful-Paint
-
   - We do not need to execute the JS code to make the page interactive because the page is fully pre-rendered on the server side
 
 - Additional budget for client-side JavaScript, as there is JS needed to render the page
@@ -138,7 +132,6 @@ Advantages:
 Disadvantages:
 
 - Slow Time-to-First-Byte: Since the rendering is happening on the server side, the response from the server may be delayed because of:
-
   - Multiple simultaneous users cause excess load on the server
   - Slow network
   - Server code not optimised
@@ -220,7 +213,6 @@ Real-Time Communication for the Web (WebRTC):
 What is web design?
 
 - Web Design:
-
   - Appearance
   - Forward-facing functionality
 
@@ -231,7 +223,6 @@ What is web design?
   - SEO
 
 - Web Development:
-
   - Behind the scenes
   - Code
   - Content Strategy
@@ -317,7 +308,6 @@ _Example:_
 Search Engine Optimization (SEO) is the practice of increasing the quantity and quality of traffic to your website through organic search engine results
 
 - **On-Page SEO**: Refers to the practice of optimizing web pages to improve a website's search engine rankings and earn organic traffic
-
   - Includes optimizing content, HTML source code, and images
   - Focuses on improving the relevance and quality of the content on the page
   - Page title, meta description, headings, URL structure, alt text for images, internal linking, and keyword optimization
@@ -338,49 +328,41 @@ Key metrics for web pages are essential for understanding and improving website 
 Here are some of the most important metrics:
 
 1. **Traffic Metrics**:
-
    - **Page Views**: The total number of times a page has been viewed
    - **Unique Visitors**: The number of distinct individuals visiting the site during a given period
    - **Sessions**: A group of interactions by a user within a specific timeframe
 
 2. **Engagement Metrics**:
-
    - **Bounce Rate**: The percentage of visitors who leave the site after viewing only one page
    - **Average Session Duration**: The average time a user spends on the site
    - **Pages per Session**: The average number of pages viewed during a session
    - **Time on Page**: The average time spent on a particular page
 
 3. **Acquisition Metrics**:
-
    - **Traffic Sources**: Where visitors are coming from (e.g., search engines, direct traffic, social media, referral sites)
    - **New vs. Returning Visitors**: The ratio of first-time visitors to returning visitors
 
 4. **Conversion Metrics**:
-
    - **Conversion Rate**: The percentage of visitors who complete a desired action (e.g., making a purchase, signing up for a newsletter)
    - **Goal Completions**: The number of times visitors complete a specific goal (e.g., form submissions, downloads)
    - **Sales and Revenue**: Total sales and revenue generated from the website
 
 5. **SEO Metrics**:
-
    - **Organic Search Traffic**: The number of visitors coming from search engine results
    - **Keyword Rankings**: The position of the website in search engine results for specific keywords
    - **Backlinks**: The number and quality of external links pointing to the website
 
 6. **Technical Performance Metrics**:
-
    - **Page Load Time**: The time it takes for a page to fully load
    - **Mobile Responsiveness**: How well the website performs on mobile devices
    - **Site Uptime**: The percentage of time the website is operational and accessible
 
 7. **Content Metrics**:
-
    - **Top Landing Pages**: Pages through which visitors most often enter the site
    - **Top Exit Pages**: Pages from which visitors most often leave the site
    - **Popular Content**: Content that receives the most views and engagement
 
 8. **User Behaviour Metrics**:
-
    - **Click-Through Rate (CTR)**: The percentage of users who click on a specific link out of the total users who view a page or ad
    - **Scroll Depth**: How far down a page visitors scroll
 
@@ -429,11 +411,9 @@ Common Web Crawlers:
 - CSR is bad for SEO, as web crawlers didn't execute JS code they are faced with a blank page from which they cannot extract too much SEO related information
 
 - Many modern web crawlers:
-
   - Can execute JS code
   - Have JS budget. If your JS bundle is too big, they may not execute or complete it. As a result, your web page may not look like you want it to look
 
 - Google revealed some information on Google I/O:
-
   - The first wave requests source code, crawls and indexes any present HTML and CSS, add any present links to the crawl queue, and downloads page response codes
   - The second wave can occur a few hours to even a few weeks later; Google returns to the page when additional resources are available to render fully and index the JS-generated content

@@ -90,7 +90,6 @@ Colon `:` is also used instead of $|$
 4. **Transitive Property**: If $S \subseteq T$ and $T \subseteq C$, then $S \subseteq C$
 
    $$ S \subseteq T \subseteq C \implies S \subseteq C $$
-
    - Also, if $S \nsupseteq T$ and $T \nsupseteq C$, then $S \nsupseteq C$
 
 5. **Anti-Symmetric Property**: If $S \subseteq T$ and $T \subseteq S$, then $S = T$

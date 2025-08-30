@@ -12,13 +12,11 @@ Standardized notation for diagrams to visualize object-oriented systems
 Below are the types of UML diagrams:
 
 1. [Class Diagram](#class-diagram): Describes the structure of a system by showing the system's classes, their attributes, and the relationships between the classes
-
    - Name
    - Attributes
    - behaviours
 
 2. Structural diagrams:
-
    - Class diagram
    - Component diagram
    - Deployment diagram
@@ -27,7 +25,6 @@ Below are the types of UML diagrams:
    - Profile diagram
 
 3. Behavioural diagrams:
-
    - Use case diagram
    - Activity diagram
    - State machine diagram
@@ -44,11 +41,9 @@ To represent class members, such as attributes and methods, and additional infor
 
 1. **Class Name**: At the top of the box
 2. **Attributes**: Below the class name
-
    - Attribute type is after the colon `:` (e.g., `name: string`)
 
 3. **Operations**: Below the attributes
-
    - Return type is after the colon `:` (e.g., `void`)
    - If method returns a pointer to another object, `*` is used after the return type (e.g., `-op1(in int) : Class5*`)
 
@@ -132,17 +127,13 @@ Class can be represented with or without signatures (data types)
   ```
 
   Parameter direction (not necessary):
-
   - **In parameter**: Input parameter
-
     - Parameter is passed into the method
 
   - **Out parameter**: Output parameter
-
     - Parameter is returned from the method
 
   - **InOut parameter**: Input/output parameter
-
     - Parameter is passed into the method and possibly modified and is returned back
 
   _Example:_
@@ -162,17 +153,14 @@ Class can be represented with or without signatures (data types)
 The class diagram can be viewed from three different perspectives:
 
 1. **Conceptual Perspective**: Describes the concepts in the system
-
    - Focuses on the concepts in the system and their relationships
    - Designing Domain Model
 
 2. **Specification Perspective**: Describes the specifications of the system
-
    - Focuses on the specifications of the system and the constraints on the system
    - Analysing the requirements
 
 3. **Implementation Perspective**: Describes the implementation of the system
-
    - Focuses on the implementation of the system and the details of the system
    - Designing the system
 
@@ -228,7 +216,6 @@ When you model a system, certain objects will be related to each other, and thes
 There are five types of associations:
 
 1.  **Bi-directional Association**: Represented by a solid line connecting two classes
-
     - **Association Name**: Describes the relationship between the classes
     - **Association [Multiplicity](#multiplicity)**: The number of instances of one class related to one instance of the other class
 
@@ -242,7 +229,6 @@ There are five types of associations:
     - Plane has 0 or 1 assigned flights
 
 2.  **Uni-directional Association**: Two classes are related, but only once class knows that the relationship exists
-
     - [Dependency](#dependency) between two classes
 
     ```text
@@ -273,7 +259,6 @@ There are five types of associations:
     - Because the relationship role of "manages" has a multiplicity of `0..*`, an employee might not have any other employees to manage
 
 4.  **Binary and Ternary Association**: When a class is related to two or three classes
-
     - Represented as a diamond connected with a solid line to each of the associated classes
 
 5.  **N-ary Association**: When a class is related to multiple classes
@@ -288,7 +273,6 @@ Types of Associations:
 2. **Shared Association**:
 
 3. **Composite Association**:
-
    - A stronger form of aggregation where the part cannot exist without the whole
 
 _Example:_
@@ -470,19 +454,15 @@ Model is a partial abstract representation of a real-world system
 Types of Models:
 
 1. Computational
-
    - Computer simulations representing time-varying behaviour of a system
 
 2. Analytical:
-
    - Mathematical models of relationships among variables in a system
 
 3. Non-Analytical/descriptive:
-
    - Describe components and their relationships in a system
 
    - Models in Software can be categorized into 2 groups:
-
      1. Data Models: like Entity Relationship models,etc.
 
      2. Application Models: UML models, SysML models, BPMN models, etc.
@@ -490,7 +470,6 @@ Types of Models:
 ## Types of UML
 
 1. _Structure_: Represents static view of the system and its components
-
    1. Class diagram
    2. Component diagram
    3. Object diagram
@@ -499,28 +478,22 @@ Types of Models:
    6. Deployment diagram
 
 2. _behaviour_: Represents dynamic view of the system and its components
-
    1. Use case diagram:
-
       - Capture high-level functionality of a system using notations for actors, use cases, and relationships among them
 
       - Often drawn by business analysts to depict the summary all use cases in a system
 
       - Key elements:
-
         - Use cases:
-
           - Notation is a bubble that carries use case title
 
         - Systems
         - Actors:
-
           - A user's role with respect to the system
           - Maybe a human or another system
           - _Primary actor_: whose goal is fulfilled by the use case
 
           - _Secondary actor_: who is involved in the use case
-
             - Often an external system
 
         - Associations
@@ -530,7 +503,6 @@ Types of Models:
    4. Interaction
 
 3. _Interaction_ (part of _behaviour_): Represents interaction, among components of the system and between system and external actors
-
    1. Sequence diagram
    2. Communication diagram
    3. Timing diagram
@@ -545,7 +517,6 @@ Types of Models:
 ## References
 
 - [Unified Modelling Language (UML) specification 2.5](https://www.omg.org/spec/UML/)
-
   - controlled by Object Management Group (OMG)
   - Releases: UML-1 (1997), UML-2 (2005), UML-2.5 (2015)
 

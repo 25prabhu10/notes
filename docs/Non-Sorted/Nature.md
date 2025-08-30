@@ -29,19 +29,15 @@ Moons:
 79 Moons:
 
 - Io:
-
   - 3643km
 
 - Europa
-
   - 3121km
 
 - Ganymede
-
   - 5268km
 
 - Callisto
-
   - 4820km
 
 ### Saturn

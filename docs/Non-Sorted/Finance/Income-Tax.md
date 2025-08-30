@@ -9,12 +9,10 @@ Forms Needed for ITR:
 1. Form16: If you are salaried and the company. Ask the company for form
 
 2. Interest Certificate: Needs to be obtained from Bank or Organization where these accounts are present
-
    - Interest Gained: Interest Gained on RD etc. This will be Taxable
    - Interest Paid: Interest Paid on Home Loan etc. This will be refunded
 
 3. Form26AS: Tax Passbook. Who (organizations) cut your Tax at source. Example:
-
    - TDS deducted by your employer
    - TDS deducted by banks (if parents have kept RD in you name and the bank is deducting the tax on that)
    - TDS deducted by any other organizations from payments made to you
@@ -22,11 +20,9 @@ Forms Needed for ITR:
    - Self-assessment taxes
 
 4. Capital Gains: Selling or buying shares
-
    - Contract Note (Brokers note)
    - Statement from the broker
    - P & L Tab: You should separate the total Gain into:
-
      1. Long Term Capital Gain
      2. Short Term Capital Gain
 
@@ -72,36 +68,29 @@ Earning - Exemptions = Taxable Income
 
 - Code on Wages: minimum 50% should be basic pay
 - Allowance Limit:
-
   - HRA (House Rent Allowance): 10-13A
-
     - 80GG
 
     - Least Amount of these three will be considered for exemption:
-
       1. Actual HRA Received
       2. Basic: 50% (Metro) or 40% (Non-Metro)
       3. Rent: 10% of Basic
 
     _Example:_
-
     - Basic: 5 Lakh
     - Annual Rent: 3 Lakh
     - Benefit = 3 - 10 % of 5 = 3 Lakh - 50000 = 2.5 Lakh
 
   - LTA (Leave Travel Allowance): 10(5)
-
     - 2 Trips in 4 Years
     - Travel Charges
     - If unable to travel, so 1/3 amount spent on goods and services can be be Exempted (upto ₹15,000)
 
   - Children Education (CEA) and Hostel Allowance (HA): 10(14)
-
     - Up to 2 kids
     - Max ₹9600 annually
 
   - Reimbursement: 17(2)(vii)
-
     - Expenses made on behalf of business and business reimburses the expense
 
     - Such as Internet Expense, Food Coupons (per meal max ₹50 for 2 meal a day i.e. max ₹2600 per month for 26 working days)
@@ -115,21 +104,17 @@ Taxable Income - Deductions = Net Taxable Income
 - Standard Deduction: ₹50000
 
 - 80C:
-
   - Two sections:
-
     - Invest money
     - Spend some money
 
   - ELSS (Equity-Linked Savings Scheme):
-
     - Invest min 65% in equity
     - 3 years lock in period
     - LTCG taxable @10% only if above ₹1,00,000
     - Min investment ₹500
 
   - SSY (Sukanya Samriddhi Yojana):
-
     - 1 account per girl child & 2 accounts per family
     - Lock in period of 21 years age or marriage, whichever is earlier
     - No tax
@@ -137,7 +122,6 @@ Taxable Income - Deductions = Net Taxable Income
     - min ₹1000
 
   - PPF (Public Provident Fund):
-
     - 8% of PPF is better than 30% of Equity mutual funds
     - Interest Earned is tax free
     - Lock-in period of 15 years, can be further extended by 5 years
@@ -145,7 +129,6 @@ Taxable Income - Deductions = Net Taxable Income
     - Min. ₹500
 
   - NSC (National Savings Certificate):
-
     - 6.8%
     - Tax free
     - Lock-in period of 5 years
@@ -154,7 +137,6 @@ Taxable Income - Deductions = Net Taxable Income
     - Min. ₹1000
 
   - 5 year Bank Deposit:
-
     - Lock-in period of 5 years
     - Interest earned is taxable
     - 5.5%: Subject to TDS
@@ -165,11 +147,9 @@ Taxable Income - Deductions = Net Taxable Income
 - 80C + 80CCC + 80CCD(1) = Total Deductions up to 1,50,000
 
 - 80CCD (NPS, APY): Less liquidity
-
   - 80CCD(1B): NPS: ₹50,000 (Tier 1 account only) (applicable if above deductions is 1,50,000)
 
 - Health Insurance: 80D
-
   - Personal: ₹25000 (max)
   - Family: ₹50000 (max)
   - Full body Health Check-up: ₹5000
@@ -190,14 +170,12 @@ Taxable Income - Deductions = Net Taxable Income
 - Health Checkup (preventive): ₹5000
 
 - Savings A/C & FD Interest:
-
   - ₹10000 Deduction
   - ₹50000 Deduction (Senior Citizen)
 
 - Tax Harvesting
 
 - Carry Forward of Losses:
-
   - Set off
 
 ## CTC (Cost To Company)

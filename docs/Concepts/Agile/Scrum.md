@@ -21,7 +21,6 @@ In Scrum, you break down the phases of your project into smaller pieces that can
 - Prioritized Backlog (PO discuss with Developers)
 - Sprint Planning Meeting (Run by Scrum Master attended by PO, Developers): Team pulls a small chunk from the top of Product backlog work items to work on during the sprint. That chunk becomes the Sprint Backlog
 - Daily Scrum (meeting to access the progress): Scrum board is used as a visual representation of the workflow. Scrum board:
-
   - To Do
   - Build
   - Test

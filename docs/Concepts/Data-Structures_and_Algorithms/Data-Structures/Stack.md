@@ -341,7 +341,6 @@ The stack can be implemented using:
 - In browsers: Store history of the tab
 
 - **Parenthesis Matching**:
-
   - Every opening parenthesis must have a matching closing parenthesis. Add condition to check multiple types of parenthesis.
 
 ```c

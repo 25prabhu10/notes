@@ -24,7 +24,6 @@ Techniques:
 Painters:
 
 1. Caspar David Friedrich (1774 - 1840)
-
    - Landscape painting
    - Wintry
    - The sublime
@@ -37,7 +36,6 @@ Painters:
    - "The Sea Of Ice" - 1823
 
 2. Asher Brown Durand (1796 - 1886)
-
    - American
    - Hudson River School
    - "Pastoral Landscape" - 1861
@@ -47,7 +45,6 @@ Painters:
    - "The Catskills" - 1859
 
 3. Thomas Cole (1801 - 1848)
-
    - American
    - Hudson River School
    - "The Titan's Goblet" - 1833
@@ -57,7 +54,6 @@ Painters:
    - "The Arcadian Or Pastoral State" - 1836
 
 4. Claude Lorrain (1600 - 1682)
-
    - French
    - Baroque
    - Landscape painting
@@ -66,7 +62,6 @@ Painters:
    - "Pastoral Landscape" - 1646
 
 5. Giorgio De Chirico (1888 - 1978)
-
    - Italian
    - Metaphysical Art Movement
    - Metaphysical Town Squares - Series
@@ -75,7 +70,6 @@ Painters:
    - "The Disquieting Muses" - 1916
 
 6. Philipp Otto Runge (1777 - 1810)
-
    - German
    - Romanticism
    - "The Nightingale's Lesson" - 1804-05
@@ -85,7 +79,6 @@ Painters:
    - "The Hulsenbeck Children" - 1805
 
 7. Johannes Vermeer (1632 - 1675)
-
    - Dutch
    - Dutch Golden Age
    - Baroque
@@ -112,17 +105,14 @@ Inventions:
 Photographers:
 
 1. Kimbei Kusakabe (1841 - 1934)
-
    - Japanese
    - "Country children" - 1890
 
 2. Helen Messinger Murdoch (1862 - 1956)
-
    - American
    - "Taj Mahal" - 1921
 
 3. Louis Arthur Ducos du Hauron (1837 - 1920)
-
    - French
    - "View of Agen, France" - 1877
    - "Still life with dahlias" - 1869

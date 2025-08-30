@@ -184,5 +184,3 @@ Remember: Please ask me for assistance when necessary.
 Thank You
 
 Presentation By Nathan Abourbih, not to be posted anywhere or used without explicit permission from the author.
-
-

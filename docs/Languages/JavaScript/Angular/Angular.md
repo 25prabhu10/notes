@@ -94,7 +94,6 @@ They are the basic building blocks.
 2. Create a new folder with the component name.
 
 3. **`name.component.ts`** is the main component file.
-
    - **export class** that is created inside this file and add **Component decorator** to it:
 
      ```typescript

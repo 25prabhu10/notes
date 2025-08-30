@@ -85,7 +85,6 @@ A recurrence `T(n)` is _algorithmic_ if, for every sufficiently large _threshold
 ## Tracing Tree of Recursive Function
 
 - Ascending Phase
-
   - Loops only has ascending phase
 
 - Descending Phase
@@ -238,7 +237,6 @@ Global vs Static Variable:
    | Type           | Time Complexity                                      | Space Complexity                                                         |
    | -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
    | Tree Recursion | O(2^n) - Sum of terms in Geometry Progression Series | O(n) - Creates and deletes function activation record for each recursion |
-
    - It seems to have Time Complexity of _O(m^n)_, where _n_ is the size of data and _m_ is the number of time the function calls itself
 
 4. **Indirect Recursion**: When function A calls function B and function B in turn calls function A. It is a cyclic recursion
@@ -316,7 +314,6 @@ Global vs Static Variable:
 ## Use Cases
 
 1. Sum of first _n_ natural numbers:
-
    - _Using recursion:_ O(n)
 
      ```c
@@ -368,7 +365,6 @@ Global vs Static Variable:
      ```
 
 2. Factorial of a number:
-
    - _Using recursion:_
 
      ```c
@@ -406,7 +402,6 @@ Global vs Static Variable:
      ```
 
 3. Power or Exponent (m^n):
-
    - _Using recursion:_ O(n)
 
      ```c
@@ -487,7 +482,6 @@ Global vs Static Variable:
      ```
 
 4. Taylor Series: Finding value of `e^x`
-
    - Using recursion: O(n^2)
 
      ```c
@@ -580,7 +574,6 @@ Global vs Static Variable:
      ```
 
 5. Fibonacci Series:
-
    - Using recursion: O(2^n)
 
      ```c
@@ -653,7 +646,6 @@ Global vs Static Variable:
      ```
 
 6. Combination Formula - `nCr = n!/r!(n-r)!`: A combination is a selection of items from a set that has distinct members, such that the order of selection does not matter. A combination is a mathematical technique that determines the number of possible arrangements in a collection of items where the order of the selection does not matter. In combinations, you can select the items in any order
-
    - Using recursion: Pascal's triangle
 
      ```c
@@ -694,7 +686,6 @@ Global vs Static Variable:
      ```
 
 7. Tower of Hanoi:
-
    - Using recursion: O(2^n)
 
      ```c

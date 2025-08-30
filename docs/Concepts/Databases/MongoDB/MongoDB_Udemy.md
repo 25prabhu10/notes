@@ -143,7 +143,6 @@ Commands:
 MongoDB groups collections into _databases_
 
 - Database names:
-
   - The **empty string** ("") is not valid
 
   - Special characters such as `/`, `*`, `.`, `"*`, `**`, `<`, `>`, `:`, `|`, `?`, `$`, (a single space), or `\0` (the `null` character) should not be used in database names
@@ -174,7 +173,6 @@ Some reserved database names:
 2. **Boolean**: `true` and `false`.
 
 3. **Number**: By default all numeric values are stored as (in mongo shell) _64-bit floating-point numbers_, which have much less precision than decimal numbers.
-
    - **Integer** (int32): `55` written using `NumberInt(55)`.
    - **NumberLong** (int64): `10000000000`
    - **NumberDecimal** Doubles (64bit): `12.99`
@@ -183,7 +181,6 @@ Some reserved database names:
 4. **ObjectID**: Unique 12-byte IDs (temporal component) - `ObjectID("UUID")`.
 
 5. **Date**: Stores dates in ISO format - `ISODate("2018-09-09")` and `{"today" : new Date()}`.
-
    - **Timestamp**: It is a special type for internal MongoDB use and not directly associated with the regular Date type.
 
 6. **Embedded Documents**: Documents can contain entire documents embedded as values in a parent document:
@@ -240,7 +237,6 @@ Some reserved database names:
 Insert Options:
 
 1. **Ordered Insert**: MongoDB by default inserts documents in a Ordered Insert method i.e. While inserting multiple documents, each document is processed and inserted separately. If one of the document insertion fails, MongoDB stops insertion of rest of the documents. All the documents before the error were inserted.
-
    - **MongoDB will not rollback** documents inserted before the error.
 
    - Ordered insert can be disabled, so that the documents after the error are also inserted.
@@ -252,14 +248,13 @@ Insert Options:
          { _id: "yoga", name: "Yoga" },
          { _id: "Cooking", name: "Cooking" },
        ],
-       { ordered: false },
+       { ordered: false }
      );
 
      // IN THIS EXAMPLE DOCUMENT WITH _id: "Cooking" WILL BE INSERTED EVEN THOUGH THERE WAS AN ERROR IN THE PREVIOUS DOCUMENT
      ```
 
 2. **Write Concern**: Write concern describes the level of acknowledgment requested from MongoDB for write operations.
-
    - Here, **`w: 1`** is acknowledgment is requested on a write operation and it is **`w: 0`** if no acknowledgment is needed. If `w` is **greater than 1** then it requires acknowledgment from the primary and as many data-bearing secondaries as needed to meet the specified write concern. Specifying `w: 2` would require acknowledgment from the primary and one of the secondaries. Specifying `w: 3` would require acknowledgment from the primary and both secondaries.
 
    - The `j` option requests acknowledgment from MongoDB that the write operation has been written to the [on-disk journal](https://docs.mongodb.com/manual/core/journaling/).
@@ -316,7 +311,6 @@ Update Operators:
 ##### Array Operations
 
 - `$push`: Adds elements to the end of an array if the array exists and creates a new array if it does not.
-
   - If you want to add or append an array, use `$each`. `db.movies.updateOne({"genre" : "horror"}, {"$push" : {"hourly" : {"$each" : [562.776, 562.790, 559.123]}}})`
 
   - If you want to limit the size of an array, use `$slice`. It will replace old values to fit the new ones. `db.movies.updateOne({"genre" : "horror"}, {"$push" : {"top10" : {"$each" : ["Nightmare on Elm Street", "Saw"], "$slice" : -10}}})`.
@@ -333,17 +327,15 @@ Update Operators:
     // ALONG WITH "$each"
     db.movies.updateOne(
       { name: 1 },
-      { $addToSet: { genre: { $each: ["Comedy", "Drama", "Horror"] } } },
+      { $addToSet: { genre: { $each: ["Comedy", "Drama", "Horror"] } } }
     );
     ```
 
 - `$pop`: Remove elements from an array,
-
   - `{"$pop": {"key": 1}}`: Removes an element from the end of an array.
   - `{"$pop": {"key": -1}}`: Removes an element from the beginning.
 
 - Updates on an array element can be done through:
-
   - The index value of the element. MongoDB uses 0-based indexing. We can directly reference the required element in an array. `db.tv.findOne({"genres.2": "Family"})`.
 
   - If the index of an element is unknown, then the position operator `$` can be used. `db.tv.findOne({"reviews.$.author": "Jim"})`.
@@ -366,7 +358,7 @@ Update Operators:
     { $set: { "comments.$[elem].hidden": true } },
     {
       arrayFilters: [{ "elem.votes": { $lte: -5 } }],
-    },
+    }
   );
   ```
 

@@ -42,7 +42,6 @@ local nothing = nil
 
 - Lua is dynamically typed
 - Lua's only data structure is a table
-
   - It can be used as an array, maps, hash table, dictionary, collection, stack, queue, etc.
 
 ```lua

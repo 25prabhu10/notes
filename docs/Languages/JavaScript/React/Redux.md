@@ -313,7 +313,6 @@ Usage:
    ```
 
 3. `configureStore`:
-
    - Simplified configuration options and good defaults
    - Includes `redux-thunk` middleware
    - Enables Redux DevTools Extension

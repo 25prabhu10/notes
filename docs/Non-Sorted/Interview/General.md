@@ -100,19 +100,15 @@ the goal here are:
 ## Other Questions
 
 1. Will AI ever replace developers?
-
    - No, But will help in removing repetitive tasks. Less typing. Be more efficient. It will be great assistant.
 
 2. Best way to learn programming?
-
    - Learning by yourself (Book, Docs, etc.), Courses (will be more structured), Projects
 
 3. What if everyone was a programming?
-
    - Everyone should learn to code,
 
 4. Is a CS degree worth it?
-
    - Depends
 
 Richard Feynman:
@@ -127,7 +123,6 @@ Richard Feynman:
 - Before I came in for interview, I did some research to assess the average salary range for this position within this industry, and the average salary range was between 30 and 37000 dollars. Although I feel I am worth the higher salary range of 37000 dollars. I understand that you don't know me, and I have a responsibility to prove to you my worth. So, on that basis, I would be comfortable with a salary of 35000 and I believe, based on my hard-working nature, my ability to get up and running quickly in the role, and my commitment to your company brand, you will soon see a positive return on your investment
 
 - Research the average salary range:
-
   - [PayScale](https://www.payscale.com/)
   - [Glassdoor](https://www.glassdoor.co.in/)
 

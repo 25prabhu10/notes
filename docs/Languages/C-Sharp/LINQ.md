@@ -8,7 +8,6 @@ description: LINQ enables us to query any type of data store (SQL Server, XML do
 Language Integrated Query (LINQ) enables us to query any type of data store (SQL Server, XML documents, Objects in memory etc.)
 
 - LINQ enables us to work with different data sources using a similar coding style without having the need to know the syntax specific to the data source.
-
   - .NET app --> ADO.NET SQL --> Databases
   - .NET app --> XPATH, XSLT --> XML Documents
   - .NET app --> Arrays, Generics --> In Memory Objects
@@ -70,24 +69,19 @@ The provider is responsible for turning your query intent into domain-specific c
 There are 3-phases of a LINQ query:
 
 1. Set up a data source
-
    - Initialize the source
    - Use the appropriate LINQ provider
-
      - The default provider is LINQ to Objects
 
 2. Define the Query:
-
    - Write the query code
    - Query is converted to an expression tree
 
 3. Execute the Query:
-
    - Query runs and returns the result data
 
 - It is also called deferred execution
 - **Sequences** are the source of data for a query
-
   - In LINQ, a sequence is any type that implements `IEnumerable<T>`
 
 **Query Operator**: A method that transforms a sequence
@@ -99,7 +93,6 @@ What sources are query-able?
 - We need a pool of data to query
 - Pool of data in functional programming is called a _sequence_
 - In C# class represent data and for them to be query-able, they have to implement either of these interfaces:
-
   - `IEnumerable`
   - `IQueryable`: Is an interface designed `Queryable` providers i.e. remote data sources, like database. It allows for more sophisticated query expressions and disparate data sources
 
@@ -274,7 +267,6 @@ var count = (from color in colors
 The Enumerable class contains methods to generate `IEnumerable` sources
 
 1. `Empty`: Returns a `0` length `Array<T>`
-
    - Low memory usage
    - Useful for a starting value, or as a empty parameter for method
 
@@ -334,12 +326,10 @@ The Query expression syntax is a substitute for calling the query operator exten
 LINQ query expressions can be categorized into 3 areas:
 
 1. Takes a sequence, returns a new sequence containing the same element type
-
    - Doubles to Doubles, Strings to Strings, Products to Products, etc.
    - Elements are the same, but may be sorted, grouped, filtered
 
 2. Takes a sequence, returns a new sequence containing a different type of element
-
    - Transforms the object into another type
    - Integers to Decimals, Products to Strings
 
@@ -352,15 +342,12 @@ LINQ query expressions can be categorized into 3 areas:
    ```
 
 3. Takes a sequence, returns a single value
-
    - AKA (reduce, fold, aggregate, accumulate, etc.)
    - Reduces a list of data to a aggregate value min, max, sum
    - They require use to extension methods to perform these operations along with query expression
 
    Query Expression Clauses:
-
    - There are additional words (other than extension methods) needed for a valid query expression know as Clauses
-
      - Required in all query expressions: `[from, in]`
      - Required, query expression must end with one of these clauses: `[select, group]`
      - Optional: `[where, orderby, join, let, from]`
@@ -413,7 +400,6 @@ public class HistoryCalendar
 ### Filters
 
 1. `Where`: The Where clause filters the sequence based on a predicate function
-
    - The predicate is applied to each element in the sequence
    - Define a predicate that uses a boolean expression to determine what to return in filtered sequence
 
@@ -637,7 +623,6 @@ var q2 = numbersB.Except(numbersA);
 ### Quantify
 
 - `Any`: Check for empty list
-
   - Stops evaluation as soon as it find a item that satisfies
 
   ```cs
@@ -682,7 +667,6 @@ var q2 = numbersB.Except(numbersA);
   ```
 
 - `Any([predicate])`: Determines whether any element of a sequence exists or satisfies a condition.
-
   - Stops evaluation as soon as it find member that satisfies
   - Takes an predicate as a parameter
 
@@ -699,7 +683,6 @@ var q2 = numbersB.Except(numbersA);
   ```
 
 - `Contains`: return whether a specified item is contained in the sequence.
-
   - Takes a object as a parameter
 
   ```cs

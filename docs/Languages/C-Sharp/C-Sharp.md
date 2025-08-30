@@ -57,12 +57,10 @@ Console.WriteLine("Hello World!");
 C# has 2-step compilation process:
 
 1. C# source code is compiled into managed code, which is represented in **Intermediate Language (IL)** and is stored in an **assembly** (a DLL or EXE file)
-
    - **Roslyn compiler** is used by `dotnet` CLI tool
    - _IL_ code statements are like assembly language instructions, which are executed by **.NET's virtual machine**, known as **CLR (Common Language Runtime)**
 
 2. At runtime, CoreCLR (core version) loads the IL code from the assembly, the **just-in-time (JIT)** compiler compiles it into native CPU instructions, and then it is executed by the CPU.
-
    - Benefit of this 2-step process is that the same _IL_ code can run everywhere (Windows, Linux or macOS)
    - To create the _IL_ we can use any language as source code for example, C#, F#, or Visual Basic.
 
@@ -244,9 +242,7 @@ Remove an implicit imported namespace:
 There are 2 kinds of types in C#:
 
 1. Value Types: They store data directly
-
    - Built-in Value types:
-
      - Simple types: types such as numeric, floats, `bool`, and `char`
      - `enum` type
      - `struct` type
@@ -254,10 +250,8 @@ There are 2 kinds of types in C#:
      - `tuple` value type
 
 2. Reference Types: They store references to their data
-
    - They are also known as _objects_
    - Built-in Reference Types:
-
      - `string` type
      - `class`, `object` type
      - `interface` type
@@ -381,7 +375,6 @@ sb[0] = 'P';
   ```
 
 - Convert to a single string:
-
   - `Convert.ToString()` handles `null`, while `object.ToString()` doesn't, and throws a NULL Reference exception
 
   ```csharp
@@ -399,7 +392,6 @@ sb[0] = 'P';
   ```
 
 - Specifying numerical formatting and other formatting specifiers:
-
   - General format: `{index[, alignment]:[format]}`
   - Common types: N (Number), G (General), F (Fixed-point), E (Exponential), D (Decimal), P (Percent), X (Hexadecimal), C (Currency in local format)
 
@@ -474,7 +466,6 @@ Console.WriteLine($"This car costs {price:C2}, Age: {25 + 30} with {{{odometer}}
 All these methods do not modify the original string, some of them return a new modified string:
 
 - `string.Compare(str1, str2)`: Compare will perform an ordinal comparison and return:
-
   - `< 0`: if first string comes before second in sort order
   - `0`: if first and second strings are same position in sort order
   - `> 0`: if first string comes after second in sort order
@@ -533,7 +524,6 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
   ```
 
 - `float`:
-
   - It is mostly used in graphics libraries (high demands for processing power)
 
     ```csharp
@@ -545,7 +535,6 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
     ```
 
 - `double`:
-
   - It is mostly used for real world values (expect money calculations)
 
     ```csharp
@@ -556,7 +545,6 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
     ```
 
 - `decimal`:
-
   - It is mostly used in financial applications (high level of accuracy)
   - No (less) round-off errors
 
@@ -1685,7 +1673,6 @@ static void Main()
 ```
 
 - In C#, every class implicitly inherits from the base `Object` class. Because of this inheritance, every class, both built-in and the user created inherit the `ToString` method from the `Object` class
-
   - `ToString` should return a string representation of the object that is suitable for display
   - It's good idea to override this method and generate your own string representation of your class
 
@@ -1769,7 +1756,6 @@ Classes offer a mechanism for _encapsulation_ through access modifiers
 There are 4 types and 2 combined types:
 
 1. `public`: The type or member can be accessed by any other code in the same assembly or another assembly that references it. The accessibility level of public members of a type is controlled by the accessibility level of the type itself
-
    - Method or class member can be accessed by any other code within your program
 
    ```csharp
@@ -1790,7 +1776,6 @@ There are 4 types and 2 combined types:
    ```
 
 2. `private`: Types or members that implement private access modifiers are accessible only inside the same `class` or `struct`. As a result, we can't access them outside the `class` or `struct` they are created
-
    - Method or class member can be accessed by any other code within your program
 
    ```csharp
@@ -1812,7 +1797,6 @@ There are 4 types and 2 combined types:
    ```
 
 3. `protected`: The type or member can be accessed only by code in the same `class`, or in a `class` that is derived from that `class`.
-
    - Method or class member can only be accessed by code within the class definition itself
 
    ```csharp
@@ -1967,7 +1951,6 @@ Console.WriteLine(Counter.TotalCount);
 - The code that is declared static can only access other static members
 - Static methods can be overloaded but not overridden, because they belong to the class, and not to any instance of the class.
 - A `const` field behaves like `static`, as it belongs to the type, not to instances of the type
-
   - Because of this we cannot use `static const`
   - A `const` field can be accessed the same way `static` fields are accessed: `ClassName.MemberName`
 
@@ -2197,7 +2180,6 @@ A constructor is a special method of the class or struct which gets automaticall
 #### Types of Constructors
 
 - Default Constructor: It is a parameterless constructor
-
   - Unless the class is static, classes without constructors are given a public parameterless constructor by the C# compiler in order to enable class instantiation.
 
   ```csharp
@@ -2235,7 +2217,6 @@ A constructor is a special method of the class or struct which gets automaticall
   ```
 
 - Copy Constructor: This constructor creates an object by copying variables from another object.
-
   - Its main use is to initialize a new instance to the values of an existing instance.
 
   ```csharp
@@ -2268,7 +2249,6 @@ A constructor is a special method of the class or struct which gets automaticall
   ```
 
 - Private Constructor: A constructor with private access modifier
-
   - It is generally used in classes that contain static members only
   - If the class only contains private constructors, then instances of this class cannot be created
   - It is the implementation of a singleton class pattern
@@ -2285,7 +2265,6 @@ A constructor is a special method of the class or struct which gets automaticall
   ```
 
 - Static Constructor: A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed only once
-
   - It is called automatically before the first instance is created or any static members are referenced.
 
   - There can be **only one static constructor**
@@ -2411,7 +2390,6 @@ Methods can have two types of parameters: required and optional
   ```
 
 - `params`: a method parameter that takes a variable number of arguments. The parameter type must be a single dimensional array
-
   - It makes the parameter optional
   - It must be the last parameter
 
@@ -2448,19 +2426,16 @@ When primitive data-types are passed as arguments to a method, the argument valu
 Arguments can be passed by reference using parameter modifiers:
 
 - `ref`: Keyword indicates that a value is passed by reference.
-
   - Variables passed as `ref` arguments must be initialized before being passed in a method call.
   - **Arguments can be modified**
 
 - `out`: Keyword causes arguments to be passed by reference.
-
   - Variables passed as `out` arguments don't have to be initialized before being passed in a method call.
   - **Arguments must be modified**: Value must be assigned before the method returns
   - Enables a method to return multiple values (old way). [Tuples](#tuples) are recommended for this.
   - Cannot be used on the first argument of an extension method
 
 - `in`: Keyword causes arguments to be passed by reference but ensures the argument is not modified.
-
   - Variables passed as `in` arguments must be initialized before being passed in a method call.
   - **Arguments cannot be modified**
   - C# 7.2+
@@ -2722,11 +2697,9 @@ Overriding is known as _runtime (or dynamic) polymorphism_ because the type of t
 Base class can mark its methods that can be overridden, there are two types:
 
 - Base class members must be marked as `virtual` for them to be overridden. **Can be overridden**
-
   - The derived class wants to extend the base class method implementation, the base class method must be called from the derived class method
 
 - If the Base class members are marked as `abstract`, those members **must be overridden** by the derived class
-
   - If a method is marked as `abstract`, the class must be marked as [`abstract`](#abstract-class) as well
 
 The runtime determines which method to call based on the type of the object that invokes the method when the method is marked as `virtual`
@@ -2948,10 +2921,8 @@ Struct types don't support user-specified inheritance, and all struct types impl
   ```
 
 - `GetHashCode`: returns an `int` that in some sense represents the value of the type.
-
   - Useful when using hash tables
   - `GetHashCode` must fulfil 2 requirements:
-
     1. It should return the same value if called n number of times when its own value dose not change
     2. Two instances that have equal values according to their `Equals` methods, they must return the same hash code
 
@@ -3300,7 +3271,6 @@ Reflection provides objects (of type Type) that describe assemblies, modules, an
 You can use reflection to:
 
 - Dynamically create an instance of a type
-
   - Late binding can be achieved by using reflection. We can use reflection to dynamically create an instance of a type, about which we don't have any information at compile time. So, reflection enables us to use code that is not available at compile time.
 
 - Bind the type to an existing object
@@ -3358,7 +3328,6 @@ An exception is an unforeseen error that occurs when a program is running
 An exception is actually a class that derives from `System.Exception` class
 
 - This class has several useful properties:
-
   - `Message`: Gets a message that describes that current exception
 
   - `StackTrace`: Provides the call stack to the line number in the method where the exception occurred
@@ -3374,7 +3343,6 @@ Exception handling uses the `try`, `catch`, and `finally` keywords to try action
 - A `try` block without a `catch` or `finally` block causes a compiler error.
 
 - `finally`: block run when control leaves a `try` statement.
-
   - The transfer of control can occur as a result of normal execution, of execution of a `break`, `continue`, `goto`, or `return` statement, or of propagation of an exception out of the `try` statement.
 
 _Syntax:_
@@ -3483,7 +3451,6 @@ Create custom Exception filter class:
 
 - Derive from `Exception` class
 - The derived classes should define at least 4 constructors:
-
   - one parameterless constructor
   - one that sets the message property
   - one that sets both the Message and InnerException properties
@@ -3575,7 +3542,6 @@ The compiler ignores these and throws error if a `#region` dose not have a corre
   ```
 
 - `#pragma`: provides 2 features:
-
   - Disable selected compiler warnings
   - And also override the checksum values the compiler puts into the `.pdb` file
 
@@ -3747,9 +3713,7 @@ parts.GetRange(2, 4);
   ```
 
 - To use `Sort`, `Reverse` on collection of complex type we need to implement `IComparable` interface that tells .NET on what bases to sort the items
-
   - The `CompareTo()` can return:
-
     - `> 0`: The current instance is greater than the object being compared with
     - `< 0`: The current instance is less than the object being compared with
     - `0`: The current instance is equal to the object being compared with
@@ -3800,7 +3764,6 @@ parts.GetRange(2, 4);
   ```
 
 - Write custom `Sort` functionality by implementing `IComparer` interface
-
   - Exposes a method that compares two objects
 
   ```csharp
@@ -4266,7 +4229,6 @@ Pattern matching is a technique where you test an expression to determine if it 
 Supported patterns:
 
 - `is` expression
-
   - Null check:
 
   ```csharp
@@ -4529,7 +4491,6 @@ public class ThreadExample {
 ```
 
 - `Thread.Join`: Blocks the calling thread until the thread represented by this instance terminates, while continuing to perform standard COM and `SendMessage` pumping.
-
   - Join is particularly useful when we need to wait and collect result from a thread execution or if we need to do some clean-up after the thread has completed
 
 - `IsAlive`: Gets a value indicating the execution status of the current thread.
@@ -4676,12 +4637,10 @@ Commonly used built-in classes
 ### Unique IDs
 
 - `Guid`: Represents a globally unique identifier (GUID)
-
   - `Guid.NewGuid()`: Creates a new GUID (UUID V4)
   - `Guid.CreateVersion7()`: Creates a new GUID (UUID V7)
 
 - `Random`: Represents a pseudo-random number generator
-
   - `Random.Next()`: Returns a non-negative random integer
 
 ### Console Class
@@ -4712,7 +4671,6 @@ Console.ResetColor();
   ```
 
 - New in C# 10.0:
-
   - `DateOnly`:
 
     ```csharp
@@ -4734,7 +4692,6 @@ Console.ResetColor();
 C# has evolved over the years with [different versions](https://learn.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-version-history) ([C# Evolution](https://csharp-evolution.com/)):
 
 1. C# 1.0: Statically typed object-oriented language
-
    - Visual Studio .NET 2002 (.NET Framework 1.0/1.1)
    - Classes
    - Structs
@@ -4747,7 +4704,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Attributes
 
 2. C# 2.0:
-
    - Visual Studio 2005 (.NET Framework 2.0/3.0)
    - Generics
    - Partial types
@@ -4757,7 +4713,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Covariance and Contravariance
 
 3. C# 3.0:
-
    - Visual Studio 2008 (.NET Framework 3.0/3.5)
    - Declarative coding with **Language INtegrated Queries (LINQ)**
    - Auto-implemented properties
@@ -4771,7 +4726,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Object and collection initializers
 
 4. C# 4.0:
-
    - Visual Studio 2010 (.NET Framework 4.0)
    - Dynamic bindings (types)
    - Named/optional arguments
@@ -4779,13 +4733,11 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Embedded interop types
 
 5. C# 5.0:
-
    - Visual Studio 2012 (.NET Framework 4.5)
    - Simplified asynchronous tasks (Asynchronous members)
    - Caller info attributes
 
 6. C# 6.0:
-
    - Visual Studio 2015 (.NET Framework 4.6 / .NET Core 1.0/1.1)
    - Static imports
    - Exception filters
@@ -4797,7 +4749,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Expression bodied members: read-only properties
 
 7. C# 7.0:
-
    - Visual Studio 2017 (.NET Framework 4.7 / .NET Core 2.0)
    - Binary literals and digit separators: storing whole numbers
    - Pattern matching
@@ -4806,28 +4757,23 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Local functions
    - Expanded expression bodied members
    - Ref locals and returns
-
    1. C# 7.1:
-
       - Default literal expressions
       - Inferred tuple element names
       - `async` Main method
       - Pattern matching on generic type parameters
 
    2. C# 7.2:
-
       - Leading underscores in numeric literals
       - Non-trailing named arguments
       - `private protected` access modifier
       - Testing `==` and `!=` with tuple types
 
    3. C# 7.3:
-
       - .NET Framework 4.8 / .NET Core 2.1/2.2
       - Performance-oriented safe code that improves `ref` variables, pointers, and `stackalloc`
 
 8. C# 8:
-
    - Visual Studio 2019 (.NET Core 3.0)
    - `Readonly` members: members that can be assigned a value only once
    - [Nullable reference types](#nullable-types): Avoid null reference exceptions
@@ -4841,7 +4787,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Asynchronous disposable: Asynchronous clean-up
 
 9. C# 9:
-
    - Visual Studio 2019 (.NET 5.0)
    - [Records](#records): Immutable data types
    - `init` only setters: Setters that can be called only during initialization
@@ -4858,7 +4803,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Lambda discard parameters: `_` in lambda expressions
 
 10. C# 10:
-
     - Visual Studio 2022 (.NET 6.0)
     - Global `namespace` imports (global `using` Directives)
     - `using static` directive
@@ -4868,7 +4812,6 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
     - Null parameter checks
 
 11. C# 11:
-
     - Required properties: Requiring properties to be set during instantiation
 
 ### Code Style
@@ -4933,7 +4876,6 @@ Steps in .NET 5+:
 - `BenchmarkDotNet`: Powerful .NET library for benchmarking
 
 - `Entity Framework` (write using this): Object-relational mapping (ORM) framework for .NET
-
   - `Dapper` (read using this): A simple object mapper for .Net
 
 - `Newtonsoft.Json`: Popular high-performance JSON framework for .NET
@@ -4941,20 +4883,17 @@ Steps in .NET 5+:
 - `xUnit.net`: Unit testing tool for the .NET Framework
 
 - `Fluent Assertions`: Assertion framework
-
   - `Shouldly`
 
 - `AutoMapper`: A convention-based object-object mapper in .NET.
 
 - `Moq`: The most popular and friendly mocking framework for .NET
-
   - `NSubstitute`: A friendly substitute for .NET mocking libraries
   - `FakeItEasy`: The easy mocking library for .NET
 
 - `FluentValidation`: A popular .NET validation library for building strongly-typed validation rules.
 
 - `Autofac`: is an addictive Inversion of Control container
-
   - `Scrutor`: Assembly scanning and decoration extensions for Microsoft.Extensions.DependencyInjection. (Alternative to `autofac` register by convention)
 
 - `Polly`: Resilience and transient-fault-handling library that allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback in a fluent and thread-safe manner.
@@ -4968,11 +4907,9 @@ Steps in .NET 5+:
 - `Noda Time`: A better date and time API for .NET
 
 - `MediatR`: Simple, unambitious mediator implementation in .NET
-
   - `Brighter`: Command Processor & Dispatcher implementation with support for task queues that can be used as a lightweight library.
 
 - `refit`: The automatic type-safe REST library
-
   - `RestSharp`: REST API client library for .NET
 
 - `Quartz.NET`: Open-source job scheduling system for .NET
@@ -4981,7 +4918,6 @@ Steps in .NET 5+:
 - `SharpZibLib`: Working with **Zip**, **GZip**, **Tar** and **BZip2**
 
 - `FluentEmail`: All in one email sender
-
   - `MailKit`: For **IMAP**, **POP3**, and **SMTP**
   - `Papercut-SMTP`: The simple Desktop Email Server. Test email system in local
 

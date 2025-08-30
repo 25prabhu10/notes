@@ -270,11 +270,9 @@ Quality of the images matter, a blurry or pixelated image depletes the user expe
   ```
 
 - Online tools can also be used like:
-
   - [Cloudinary Image Optimization](https://res.cloudinary.com/demo/image/upload/q_60/sample.jpg)
 
 - Instead of setting the quality to fixed, we can use automated quality finders like:
-
   - Butteraugli
 
   - SSIM: Structural SIMilarity
@@ -288,7 +286,6 @@ Quality of the images matter, a blurry or pixelated image depletes the user expe
   - [Cloudinary Auto Quality](https://res.cloudinary.com/demo/image/upload/q_auto/sample.jpg)
 
 - Pages to refer:
-
   - [Lighthouse Optimize Images](https://developers.google.com/web/tools/lighthouse/audits/optimize-images)
   - [Google Insights Optimize Images](https://developers.google.com/speed/docs/insights/OptimizeImages)
 
@@ -409,7 +406,6 @@ Steps to integrate `lazysizes`:
    ```
 
 2. Add `class="lazyload"` and add `data-src` instead of `src` to all `<img>` and `<picture>` tags:
-
    - **Add the `lazyload` class**: This indicates to lazysizes that the image should be lazy loaded.
    - **Change the `src` attribute to `data-src`**: When it is time to load the image, the lazysizes code sets the image `src` attribute using the value from the `data-src` attribute.
 
@@ -457,7 +453,7 @@ gulp.task("default", () => {
         pngquant({ quality: [0.5, 0.5] }),
         mozjpeg({ quality: 50 }),
         imageminWebp({ quality: 50 }),
-      ]),
+      ])
     )
     .pipe(gulp.dest("images/"));
 });
@@ -466,26 +462,21 @@ gulp.task("default", () => {
 ### JPEG Tools
 
 1. [openjpeg](https://github.com/uclouvain/openjpeg)
-
    - `opj_compress`
    - Converts `*.pnm, *.pgm, *.ppm, *.pgx, *png, *.bmp, *.tif, *.raw or *.tga` formats into `jpeg`.
 
 2. [libjpeg-turbo](https://github.com/libjpeg-turbo/libjpeg-turbo)
-
    - Used by `mozjpeg`
    - `cjpeg [options] [filename] > [output filename]`
 
 3. [guetzli](https://github.com/google/guetzli)
-
    - Slow
 
 4. [mozjpeg](https://github.com/mozilla/mozjpeg)
-
    - Based on `libjpeg-turbo`.
    - Good quality and fast.
 
 5. [imagemagick](https://github.com/imagemagick/imagemagick)
-
    - All in one image converter
    - `convert [options] [filename]`
    - `magick` alias

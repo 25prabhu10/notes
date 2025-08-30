@@ -62,13 +62,11 @@ TODO: Check mocha's execution context being reset after each test case execution
 Jest is a JavaScript unit testing framework, used by Facebook to test services and React applications
 
 - It is a test runner that lets us access the DOM via [js-dom](https://github.com/jsdom/jsdom)
-
   - js-dom is a JavaScript implementation of various web standards, for use with [Node.js](./Node.js/Node.js.md)
 
   - js-dom is only an approximation of how the browser works, it is often good enough for testing React components
 
 - Test runner that:
-
   - Finds tests
   - Runs tests
   - Determines whether tests pass or fail
@@ -116,7 +114,6 @@ test("adds 1 + 2 to equal 3", () => {
 #### Tests
 
 - Global `test` or `it` method has 2 required and 1 optional argument: creates a test closure
-
   - `name`: The name of your test
 
   - `fn`: The function for your test
@@ -136,11 +133,9 @@ it("adds 1 + 2 to equal 3", () => {
 ```
 
 - Test fails if error is thrown when running function
-
   - Assertions throw errors when expectation fails
 
 - No error --> tests pass
-
   - Empty test passes!
 
 - Run only this test:
@@ -200,7 +195,6 @@ describe("matching cities to foods", () => {
 Commonly used matchers:
 
 - Truthiness:
-
   - `toBeNull` matches only `null`
   - `toBeUndefined` matches only `undefined`
   - `toBeDefined` is the opposite of `toBeUndefined`
@@ -208,7 +202,6 @@ Commonly used matchers:
   - `toBeFalsy` matches anything that an `if` statement treats as `false`
 
 - Numbers:
-
   - `toBeGreaterThan()`
   - `toBeGreaterThanOrEqual()`
   - `toBeLessThan()`
@@ -217,7 +210,6 @@ Commonly used matchers:
   - For **floating point** equality, use `toBeCloseTo` instead of `toEqual`, because you don't want a test to depend on a tiny rounding error
 
 - Strings:
-
   - `toMatch`: check strings against regular expressions
 
   ```javascript
@@ -231,11 +223,9 @@ Commonly used matchers:
   ```
 
 - Arrays and iterables:
-
   - `toContain`: array or iterable contains a particular item
 
 - Exceptions:
-
   - `toThrow`: test whether a particular function throws an error when it's called
 
   ```javascript
@@ -278,7 +268,7 @@ test("adds 1 + 2 to equal 3", () => {
   global.fetch = jest.fn(() =>
     Promise.resolve({
       json: () => Promise.resolve({ rates: { CAD: 1.42 } }),
-    }),
+    })
   );
 
   beforeEach(() => {
@@ -300,7 +290,7 @@ test("adds 1 + 2 to equal 3", () => {
 
     expect(rate).toEqual(null);
     expect(fetch).toHaveBeenCalledWith(
-      "https://api.exchangeratesapi.io/latest?base=USD",
+      "https://api.exchangeratesapi.io/latest?base=USD"
     );
   });
   ```
@@ -312,7 +302,7 @@ test("adds 1 + 2 to equal 3", () => {
   async function convert(base, destination) {
     try {
       const result = await fetch(
-        `https://api.exchangeratesapi.io/latest?base=${base}`,
+        `https://api.exchangeratesapi.io/latest?base=${base}`
       );
 
       const data = await result.json();

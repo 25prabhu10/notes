@@ -33,13 +33,13 @@ module.exports = {
     //},
     "en-capitalization": true,
     terminology: {
-      defaultTerms: true
+      defaultTerms: true,
     },
     "write-good": {
-      severity: "warning"
-    }
+      severity: "warning",
+    },
   },
   filters: {
-    comments: true
-  }
+    comments: true,
+  },
 };

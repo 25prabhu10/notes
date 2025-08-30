@@ -39,38 +39,31 @@ Inferential statistics is the branch of statistics that deals with making predic
 - **Absolute Value**: The absolute value of a number is the distance of the number from zero on the number line. It is always positive or zero
 
   $$ |x| \equiv \begin{cases} x, & x \geq 0 \\ -x, & x < 0 \end{cases} $$
-
   - The absolute value of `5` is `5` and `-5` is `5`
 
   $$ |5| = 5 $$
   $$ |-5| = 5 $$
 
 - **Factorials**: The factorial of a non-negative integer `n` is the product of all positive integers less than or equal to `n`
-
   - It is defined only for integers greater than or equal to zero:
 
   $$ n! \equiv \begin{cases} n \cdot (n - 1)!, & n \geq 1 \\ 1, & n = 0 \end{cases} $$
-
   - Defined as:
 
   $$ n! = n \times (n-1) \times (n-2) \times \ldots \times 3 \times 2 \times 1 $$
-
   - The factorial of `5` is `120`
 
   $$ 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 $$
 
 - **Summation** (_series_): The summation of a sequence of numbers is the total of all the numbers in the sequence. It is denoted by the Greek letter sigma (upper-case sigma) `Σ`
-
   - It is a method of representing addition over lots of values without putting `+` after each one
 
   $$ \sum\_{i=0}^{n} x_i = x_0 + x_1 + x_2 + \ldots + x_n $$
-
   - Here, the expression below the `Σ` symbol (`i=0`) represents the index variable and what its starting value is, and the expression above the `Σ` symbol (`n`) represents the upper limit of the summation
 
   _Example:_ The summation of the first `n` natural numbers is given by:
 
   $$ \sum\_{i=1}^{n} i = 1 + 2 + 3 + \ldots + n = \frac{n \cdot (n + 1)}{2} $$
-
   - The summation of the first `5` natural numbers is `15`
 
   $$ \sum\_{i=1}^{5} i = 1 + 2 + 3 + 4 + 5 = 15 $$
@@ -118,7 +111,6 @@ Different ways to classify data (typologies):
 - **[Levels of measurement](#level-of-measurement)**
 
 - Mosteller and Tukey's typology (1977):
-
   1. Names
   2. Grades (ordered labels like beginner, intermediate, advanced)
   3. Ranks (orders with 1 being the smallest or largest, 2 the next smallest or largest, and so on)
@@ -214,14 +206,12 @@ Quantitative data is also known as numerical data which represents the numerical
 AKA: **numeric data**
 
 - _Discrete_ data: Data that can only take specific values (e.g. `number of students in a class`)
-
   - Its values are distinct and separate
   - It **can't be measured but it can be counted**
   - Data that can only take on integer values, such as counts
   - AKA: **meristic**
 
 - _Continuous_ data: Data that can take any value within a range (e.g. `temperature range`)
-
   - It **can't be counted but they can be measured**
   - Data that can take on any value in an interval, such as weight or length
   - The precision of the measurement is limited only by the precision of the measuring equipment

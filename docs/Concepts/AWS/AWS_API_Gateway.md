@@ -91,18 +91,15 @@ _Example:_ Building a Serverless API
 ## Integration Types
 
 - Integration Type **MOCK**
-
   - API Gateway returns a response without sending the request to the backend
 
 - Integration Type **HTTP / AWS (Lambda & AWS Services)**
-
   - you must configure both the integration request and integration response
   - Setup data mapping using **mapping templates** for the request & response
 
 - Client --REST API--> API Gateway + Mapping Templates --AWS Service Integration--> SQS Queue
 
 - Integration Type **AWS_PROXY (Lambda Proxy)**:
-
   - incoming request from the client is the input to Lambda
   - The function is responsible for the logic of request / response
   - **No mapping template, headers, query string parameters, as arguments**
@@ -139,7 +136,6 @@ _Example:_ Building a Serverless API
   ```
 
 - Integration Type **HTTP_PROXY**
-
   - No mapping template
   - The HTTP request is passed to the backend
   - The HTTP response from the backend is forwarded by API Gateway
@@ -368,11 +364,9 @@ WebSocket URL: `wss://[some-uniqueid].execute-api.[region].amazonaws.com/[stage-
 ### Client to Server Messaging
 
 - ConnectionID is re-used:
-
   - WebSocket URL: `wss://abcdef.execute-api.us-west-1.amazonaws.com/dev`
 
 - Server to Client Messaging
-
   - WebSocket URL: `wss://abcdef.execute-api.us-west-1.amazonaws.com/dev`
 
 - Connection URL Operations

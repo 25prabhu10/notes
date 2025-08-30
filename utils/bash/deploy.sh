@@ -3,7 +3,10 @@
 # ---------------------------------------------------------------------------------
 # Abort on errors
 # ---------------------------------------------------------------------------------
+# Stop script on NZEC
 set -e
+# Stop script if unbound variable found (use ${var:-} if intentional)
+set -u
 
 # ---------------------------------------------------------------------------------
 # Variable declarations
@@ -19,11 +22,14 @@ cd "$DIST"
 # ---------------------------------------------------------------------------------
 # Commit
 # ---------------------------------------------------------------------------------
-echo "INITILIZING GIT..."
+echo "INITIALIZING GIT..."
 git init
 git add -A
 echo "COMMITTING..."
-git commit -m 'deploy'
+git commit -m 'deploy' || {
+  echo "No changes to commit or commit failed"
+  exit 0
+}
 
 # ---------------------------------------------------------------------------------
 # Push
@@ -33,5 +39,5 @@ echo "DEPLOYING..."
 git push -f git@github.com:25prabhu10/25prabhu10.github.io.git master
 
 # Navigate back to previous directory
-echo "DONE"
+echo "DEPLOYMENT COMPLETE"
 cd -

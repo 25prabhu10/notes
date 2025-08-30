@@ -45,7 +45,6 @@ References:
 
 - [CQRS, Task Based UIs, Event Sourcing agh!](https://web.archive.org/web/20190211113420/http://codebetter.com/gregyoung/2010/02/16/cqrs-task-based-uis-event-sourcing-agh/)
 - [Greg Young's Blog](https://web.archive.org/web/20160729165044/https://goodenoughsoftware.net/2012/03/02/cqrs/): CQRS
-
   - CQRS is not a silver bullet
   - CQRS is not a top level architecture
   - CQRS is not new

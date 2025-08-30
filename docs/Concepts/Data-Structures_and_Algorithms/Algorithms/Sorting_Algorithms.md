@@ -36,11 +36,9 @@ Go to [sorting overview](#overview)
 2. Number of Swaps
 
 3. **Adaptive**: Less time to sort an already sorted list. An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
-
    - Efficient for data sets that are already substantially sorted
 
 4. **Stability**: A sorting algorithm is stable if it maintains the relative order of equal elements in the sorted output as they were in the original input. In other words, if you have two equal elements A and B, and A appears before B in the input, a stable sorting algorithm will ensure that A still appears before B in the sorted output
-
    - Does not change the relative order of elements with equal keys
 
 5. Extra Memory
@@ -103,7 +101,6 @@ Time complexity:
 
 - By using a flag we can make it Adaptive
 - For an Adaptive sort it will perform:
-
   - Comparisons: `n-1`
   - Swaps: `0`
   - Performance: `O(n)`
@@ -180,7 +177,6 @@ Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
 Analysis:
 
 1. Best Case Scenario:
-
    - **Input**: The input array is already sorted
    - **Time Complexity**: `O(n)`
    - **Explanation**: Each element is already in its correct position, so the algorithm only compares each element with the one before it and makes no swaps. The inner loop of the insertion sort algorithm will only execute once for each element. Therefore, it only performs `n-1` comparisons, resulting in a _linear time complexity_
@@ -188,23 +184,19 @@ Analysis:
    - Max Number of Swaps: `0` --> `O(1)`
 
 2. Worst Case Scenario:
-
    - **Input**: The input array is sorted in reverse order
    - **Time Complexity**: `O(n^2)`
    - **Explanation**: In the worst case, each new element is smaller than all the elements already sorted. This requires the algorithm to compare the new element with all previous elements and shift them to the right, leading to a quadratic number of comparisons and swaps
 
    For an array of size `n` at worst case:
-
    - Number of Passes: `n-1`
    - Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
    - Max Number of Swaps: `(n * (n - 1)) / 2` --> `O(n^2)`
 
 3. Average-Case Scenario:
-
    - **Input**: The input array is in a random order
    - **Time Complexity**: `O(n^2)`
    - **Explanation**:
-
      - On average, each element in the array is compared and potentially swapped with about half of the elements before it.
      - Specifically, for each element, about half of the previous elements are expected to be larger and need to be shifted to make room for the new element.
      - Since this happens for each of the `n` elements, the total number of comparisons and shifts sums to about $\frac{n^2}{4}$, which still results in a quadratic time complexity, `O(n^2)`
@@ -520,19 +512,16 @@ T(n) = O(n^log_b(a) * log^k(n))
 ```
 
 1. Best Case Scenario:
-
    - **Input**: The input array is already sorted
    - **Time Complexity**: `O(n log n)`
    - Explanation: Merge sort still divides the array into smaller sub-arrays and merges them back together, but since the sub-arrays are already sorted, the merging process is very efficient
 
 2. Worst Case Scenario:
-
    - **Input**: The input array is sorted in reverse order
    - **Time Complexity**: `O(n log n)`
    - Explanation: This results in the maximum number of comparisons and merges during the algorithm. However, the time complexity remains `O(n log n)` because the merging process is still efficient even in the worst case.
 
 3. Average Case Scenario:
-
    - **Input**: The input array is in a random order
    - **Time Complexity**: `O(n log n)`
    - Explanation: On average, Merge Sort also requires `O(n log n)` time. The average case behaves similarly to the best and worst cases due to the algorithm's consistent approach of dividing and merging

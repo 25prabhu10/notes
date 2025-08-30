@@ -93,7 +93,6 @@ pstree -p process_id
 Different Bash shebang:
 
 - `#!/usr/bin/env bash`: Flexibility on different systems (protability)
-
   - Different `*nixes` put `bash` in different places
 
 - `#!/usr/bin/bash`: Explicit control on a given system of what executable is called
@@ -499,7 +498,6 @@ $number # is unset or empty,
 - `[[` is more powerful than `[` because it supports additional operators like `&&`, `||`, `==`, `=~`, `<=`, `>=`
 
 - The `==` and `!=` operators in `[[` perform pattern matching, while in `[` they perform string comparison
-
   - This makes `[[` useful for evaluating file and path names.
 
 _Example:_

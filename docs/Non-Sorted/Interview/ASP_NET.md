@@ -7,34 +7,27 @@ title: ASP.NET
 ## MVC
 
 1. What is MVC Design pattern?
-
    - Software architectural pattern for implementing user interfaces.
    - It divides a given software application into three interconnected parts, so as to separate internal representation of information from the way that information is presented to or accepted from the user.
 
 2. What is Model, View, and Controller?
-
    - The Model represents the application core (for instance a list of database records).
-
      - Classes that represent the data of the application and that use validation logic to enforce business rules for that data.
 
    - The View displays the data (the database records).
-
      - Template files that your application uses to dynamically generate HTML responses.
 
    - The Controller handles the input (to the database records).
-
      - Classes that handle incoming browser requests, retrieve model data, and then specify view templates that return a response to the browser.
 
 ### Model
 
 1. What is Model Validation? how will you achieve it in ASP.NET Core?
-
    - using Data Annotations
 
    - Validation attributes let us specify validation rules for model properties. Model state represents errors that come from two sub systems: model binding and model validation.
 
    - There are in-built attributes in ASP.NET MVC core,
-
      - CreditCard: This validates that the property has a credit card format.
 
      - Compare: This attribute validates that two property in model class match like password and compare password.
@@ -58,20 +51,16 @@ title: ASP.NET
 ### View
 
 1. How data is passed from controller to a view?
-
    - `TempData`: The dictionary for temporary data. Initialize a TempData and then use it in your view. TempData keeps data for the time of HTTP Request, which means that it holds data between two consecutive requests. TempData helps us to transfer data between controllers or between actions. TempData internally use Session variables.
-
      - `TempData["UserName"] = model.UserName;`
      - In the view, You can either store the value to a variable and then display the variable value or display the tempData value directly
      - `var UserName = TempData["UserName"] as string;`
 
    - `ViewData`: ViewData also behaves and operates like a TempData.
-
      - `ViewData["UserName"] = model.UserName;`
      - ViewData is Faster than ViewBag
 
    - `ViewBag`: ViewBag is very similar to ViewData. ViewBag is a dynamic property
-
      - ViewBag is able to set and get value dynamically
      - Add any number of additional fields without converting it to strongly typed.
      - ViewBag is just a wrapper around the ViewData.
@@ -79,7 +68,6 @@ title: ASP.NET
    - Simple sessions: `Session["UserName"] = model.UserName;`
 
 2. What is a `ViewModel`?
-
    - It is a model that is specifically designed for use within a view. It provides a simplified interface on top of the domain model that keeps decision-making in the view to a minimum.
 
 ### Controller
@@ -87,7 +75,6 @@ title: ASP.NET
 1. Action Methods and Types of Result Types?
 
 2. Properties of Routes?
-
    - Route Name: A route is a URL pattern that is mapped to a handler. A handler can be a controller in the MVC application that processes the request. A route name may be used as a specific reference to a given route.
 
    - URL Pattern: A URL pattern can contain literal values and variable placeholders (referred to as URL parameters). The literals and placeholders are located in segments of the URL that are delimited by the slash (/) character.
@@ -105,7 +92,6 @@ title: ASP.NET
    | `http://localhost:4736/Book/Edit/2` | BookController | Edit   |
 
 4. What is a Middleware?
-
    - software which is injected into the application pipeline to handle request and responses.
    - they are just like chained to each other and form as a pipeline.
 
@@ -134,7 +120,6 @@ title: ASP.NET
 26. How to render a Grid in MVC using Entity Framework?
 27. CSRF attack and using `AntiForgery` token for security purposes?
 28. What are Action Filters?
-
     - Filters allow us to run custom code before or after executing the action method.
     - They provide ways to do common repetitive tasks on our action method. The filters are invoked on certain stages in the request processing pipeline.
 
@@ -145,7 +130,6 @@ title: ASP.NET
 33. Performance improvement: the use of Bundling and `Minification`?
 
 34. What are the different filter types?
-
     - Authorization filters
       The Authorization filters are executed first. This filter helps us to determine whether the user is authorized for the current request. It can short-circuit a pipeline if a user is unauthorized for the current request. We can also create custom authorization filter.
 
@@ -164,22 +148,18 @@ title: ASP.NET
 ## Core
 
 1. What is the of `StartUp.cs` class? Its methods and their purposes
-
    - Middleware services and components integration and pipeline building
 
 2. Authorization (role-based access control)
 
 3. REST concepts:
-
    - HTTP Methods
    - HTTP Status Codes
 
 4. Dependency Registration and Injection?
-
    - ASP.NET Core comes with a built-in Dependency Injection framework that makes configured services available throughout the application. You can configure the services inside the ConfigureServices method as below.
 
 5. Describe the Service Lifetimes?
-
    - Transient Service: Services are created each time they are requested.
 
    - Scoped Service: Services are created on each request (once per request).
@@ -191,11 +171,9 @@ title: ASP.NET
 ## Entity Framework
 
 1. What is Entity Framework?
-
    - ORM (Object-Relational Mapper)
 
 2. What are different types of Entity framework approaches?
-
    - Code First Approach: The Code First approach primarily uses classes to create the model and its relations, which are then used to create a database. This way, developers can work in an object-oriented manner without considering the database structure. By following this model, developers first write POCO classes and then use these classes to create the database. Code First is the method used by most developers using Domain-Driven Design (DDD).
 
    - Model First Approach: In contrast, the Model First approach uses ORM to build model classes and their relationships. Following the successful creation of the model classes and relationships, the physical database is created using these models.

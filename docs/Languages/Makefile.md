@@ -209,7 +209,6 @@ $(DIR):
 Make integrates with the compiler
 
 - Dependency files contain information
-
   - `-MT`: name of the target
   - `-MMD`: list user header files
   - `-MP`: add phony targets

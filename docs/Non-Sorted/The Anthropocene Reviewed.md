@@ -15,14 +15,12 @@ What I want to remember from this podcast
 Date: 2018-01-29
 
 1. [Canada Goose](https://en.wikipedia.org/wiki/Canada_goose):
-
    - Disdain humans;
    - US Airways Flight 1549 (2009), Sully
    - Growth due to human activity
    - 3
 
 2. [Diet Dr Pepper](https://en.wikipedia.org/wiki/Dr_Pepper):
-
    - 1885 (1 year before Coca-Cola), Waco, Texas
    - 23 Flavours
    - Forgotten soda flavours
@@ -44,7 +42,6 @@ Date: 2018-01-29
 Date: 2018-02-21
 
 1. [Halley's Comet](https://en.wikipedia.org/wiki/Halley%27s_Comet):
-
    - Naked eye
    - 74-79 years
    - Mark Twain
@@ -58,7 +55,6 @@ Date: 2018-02-21
    - 5
 
 2. [Cholera](https://en.wikipedia.org/wiki/Cholera):
-
    - The blue death
    - Indian subcontinent
    - 1817 - 1824

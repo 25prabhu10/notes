@@ -7,13 +7,11 @@ One formula you can use for this is to say "[action verb such as created, wrote,
 Responsibilities:
 
 1. Developed web applications using React, Redux, and ASP.NET.
-
    - Created website layouts/user interfaces using HTML and CSS/Sass
 
 2. Built REST API services using ASP.NET Core and integrated various back-end services.
 
 3. Participated in the whole process of development: planning, analysis, estimation, development, product launch and maintenance.
-
    - SDLC
 
 4. Gathered and analyzed user specifications and software requirements to determine technical needs and design feasibility within time and cost constraints. Provide accurate estimates for the development effort for new features.
@@ -23,7 +21,6 @@ Responsibilities:
 6. Assisted in A/B testing of different UX components.
 
 7. Cooperated with web designers to match visual design intent
-
    - Translated design team's UX wireframes and mockups into responsive, interactive features, using HTML/CSS and JavaScript
 
 8. Mentored junior developers and helped new hires onboard // and be successful.
@@ -47,7 +44,6 @@ Responsibilities:
 B
 
 1. Worked in an agile and collaborative environment to develop web applications.
-
    - Worked with agile team to develop web applications.
 
 2. Developed user interfaces using AngularJS, JavaScript, HTML, and CSS.
@@ -81,7 +77,6 @@ B
 ## Day To Day
 
 - React, Redux, AngularJS
-
   - JavaScript (jQuery, AngularJS, React, Bootstrap), HTML/CSS, Git, Mocha, Jasmine
   - Expert in responsive, mobile-first development
   - Expert in HTML/CSS, JavaScript, jQuery, AngularJS, React
@@ -95,7 +90,6 @@ B
 - Git (Version control system), Github, Postman, Zeplin (Design Handoff), Checkmarx
 
 - SQL, MongoDB, MySQL
-
   - Knowledge of Python, Ruby, SQL, C#
 
 - TeamCity, AWS

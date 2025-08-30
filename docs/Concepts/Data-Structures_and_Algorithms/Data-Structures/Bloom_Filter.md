@@ -10,11 +10,9 @@ It is a space-efficient probabilistic data structure, conceived by _Burton Howar
 Outcome of a Bloom filter:
 
 1. Firm No
-
    - As **false negative are not possible**
 
 2. Probably Yes
-
    - As false positives are possible
    - So, it is probabilistic
 

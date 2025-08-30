@@ -21,26 +21,22 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 - [Proto Hackers](https://protohackers.com/)
 
 1. General Development Skills
-
    - [GIT](../../Git/Git.md)
    - [HTTP/HTTPS](../../../Concepts/Web/HTTP.md) protocol
    - [dotnet CLI](../Dotnet_CLI.md)
    - [Data Structures and Algorithms](./../../../Concepts/Data-Structures_and_Algorithms/)
 
 2. C#
-
    - [C# 10](./../C-Sharp.md)
    - .NET Core 6
 
 3. [SQL](../../SQL/SQL.md) Fundamentals
-
    - Fundamentals about database design and SQL Syntax
    - Stored Procedures
    - Constraints
    - Triggers
 
 4. ASP.NET Core Basics
-
    - MVC
    - RESTful API
    - Routing
@@ -53,7 +49,6 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Authentication & Authorization (Identity, IdentityServer, Auth0/OIDC, OWASP Top 10)
 
 5. [SOLID Principals](../../../Concepts/Designs/README.md#solid-principles)
-
    - S: Single-responsiblity Principle (SRP)
    - O: Open-closed Principle (OCP)
    - L: Liskov Substitution Principle (LSP)
@@ -64,9 +59,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - YAGNI
 
 6. ORM
-
    - [Entity Framework Core](./../Entity_Framework_Core.md)
-
      - Basic
      - Code First + Migrations
      - Lazy Loading, Eager Loading, Explicit Loading
@@ -78,9 +71,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - NHibernate
 
 7. Dependency Injection
-
    - DI Containers
-
      - `Microsoft.Extensions.DependencyInjection`
      - AutoFac
 
@@ -91,19 +82,15 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Scrutor
 
    - Life Cycles
-
      - Scoped
      - Transient
      - Singleton
 
 8. Caching
-
    - Memory Cache
 
    - Distributed Cache
-
      - Redis
-
        - StackExchange.Redis
        - EasyCaching
 
@@ -112,9 +99,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Entity Framework 2nd Level Cache
 
 9. [Databases](../../SQL/SQL.md)
-
    - Relational
-
      - SQLite
      - PostgreSQL
      - MariaDB
@@ -122,18 +107,15 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
      - MySQL
 
    - Cloud Databases
-
      - Azure CosmoDB
      - [Amazon DynamoDB](./../../../Concepts/AWS/AWS_DynamoDB.md)
 
    - Search Engines
-
      - ElasticSearch
      - Solr
      - Sphinx
 
    - NoSQL
-
      - Redis
      - MongoDB
      - LiteDB
@@ -142,12 +124,10 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
      - CouchDB
 
 10. [Logging](./../Logging.md) Frameworks
-
     - Serilog
     - NLog
 
     - Log Management System
-
       - ELK Stack
       - Datadog
       - loggly.com
@@ -155,63 +135,51 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
       - elmah.io
 
 11. Metrics
-
     - OpenTelemetry
     - Prometheus
     - Grafana
     - ELK Stack
 
 12. Distributed Tracing
-
     - Datadoog
     - Lightstep
     - Jeager
 
 13. API Clients & Communications
-
     - [REST](../../../Concepts/Web/RESTful_Web_Services.md)
-
       - OData
       - Sieve
 
     - gRPC
 
     - GraphQL
-
       - HotChocolate
       - GraphQL-dotnet
 
 14. Real-Time Communication
-
     - SignalR Core
     - [Web Sockets](./../../../Concepts/Web/WebSocket.md)
 
 15. Object Mapping
-
     - AutoMapper
     - Mapster
     - ExpressMapper
     - AgileMapper
 
 16. Task Scheduling
-
     - Native BackgroundService
     - HangFire
     - Quartz
     - Coravel
 
 17. [Testing](./../../../Concepts/Testing/)
-
     - [Unit Testing](./../../../Concepts/Testing/Unit_Testing.md)
-
       - Frameworks
-
         - xUnit
         - NUnit
         - MSTest
 
       - Mocking
-
         - Moq
         - NSubstitute
         - FakeItEasy
@@ -221,42 +189,34 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
         - Shouldly
 
     - Integration Testing
-
       - WebApplicationFactory
       - TestServer
 
     - Behaviour Testing
-
       - SpecFlow
       - BDDfy
       - LightBDD
 
     - E2E Testing
-
       - Selenium
       - Playwright
       - Puppeteer Sharp
 
 18. API SDK Libraries
-
     - Refit
     - RestSharp
 
 19. Micro-Services
-
     - Cloud Provider
-
       - [AWS](../../../Concepts/AWS/)
       - Azure
       - GCP
 
     - Serverless
-
       - [AWS Lambda](./../../../Concepts/AWS/AWS_Lambda.md)
       - Azure Functions
 
     - Message-Broker
-
       - RabbitMQ
       - Apache Kafka
       - ActiveMQ
@@ -265,7 +225,6 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
       - NetMQ
 
     - Message-Bus
-
       - MassTransit
       - [AWS SQS](./../../../Concepts/AWS/AWS_Integration_and_Messaging.md)
       - NServiceBus
@@ -273,41 +232,34 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
       - CAP
 
     - Event Streaming
-
       - Apache Kafka
       - [AWS Kinesis](./../../../Concepts/AWS/AWS_Integration_and_Messaging.md)
       - Azure Event Hubs
 
     - API Gateway
-
       - Ocelot
       - [AWS API Gateway](./../../../Concepts/AWS/AWS_API_Gateway.md)
       - Azure
       - GCP
 
     - Containerization
-
       - [Docker](./../../CI-CD/Docker/Docker.md)
 
     - Orchestration
-
       - Kubernetes
       - Docker Swarm
 
     - Reverse Proxy
-
       - YARP
       - Trefik
 
     - Other
-
       - Orleans
       - SteelToe
       - Dapr
       - Tye
 
 20. CI/CD
-
     - GitHub Actions
     - Azure Pipelines
     - TeamCity
@@ -317,7 +269,6 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Circle CI
 
 21. [Design Patterns](../../../Concepts/Designs/)
-
     - CQRS
     - Decorator
     - Strategy
@@ -326,18 +277,15 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
     - Facade
 
 22. Client-Side Libraries
-
     - Blazor
 
 23. Template Engines
-
     - Razor
     - DotLiquid
     - Scriban
     - Fluid
 
 24. Good to Know Libraries
-
     - Polly
     - MediatR
     - FluentValidation

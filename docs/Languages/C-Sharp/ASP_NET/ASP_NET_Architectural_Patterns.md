@@ -18,7 +18,6 @@ A domain-centric approach to organizing dependencies
 1. N-Tier / N-Layer: UI --> Business --> Data Access --> DB
 
 2. Clean Architecture:
-
    - UI --> Domain (Business)
    - Infrastructure (including Data Access) --> Domain (Business)
    - Infrastructure (including Data Access) --> DB

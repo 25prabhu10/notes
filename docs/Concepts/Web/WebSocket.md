@@ -81,11 +81,11 @@ See SocketIO Docs and WebSocket JavaScript Library
 Native WebSockets support using JavaScript:
 
 ```javascript
-const socket = new WebSocket('ws://localhost:8080');
+const socket = new WebSocket("ws://localhost:8080");
 
 socket.onopen = (event) => {
   // on connection, do something...
-  socket.send('PyCon AU!!');
+  socket.send("PyCon AU!!");
 };
 
 socket.onmessage = (event) => {
@@ -97,13 +97,13 @@ socket.onmessage = (event) => {
 Using SocketIO:
 
 ```javascript
-var socket = io('http://localthost:8000/<MY_NAMESPACE>');
+var socket = io("http://localthost:8000/<MY_NAMESPACE>");
 
-socket.on('connect', () => {
-  socket.emit('event_on_my_server', (data = 'PyConAU!!'));
+socket.on("connect", () => {
+  socket.emit("event_on_my_server", (data = "PyConAU!!"));
 });
 
-socket.on('my_custom_event', (data) => {
+socket.on("my_custom_event", (data) => {
   // do something
 });
 ```

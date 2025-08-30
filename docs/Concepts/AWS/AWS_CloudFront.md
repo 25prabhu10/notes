@@ -53,7 +53,6 @@ Steps:
 
 1. Goto CloudFront
 2. Create Distribution:
-
    - Origin:
      - Origin domain: (your S3 bucket)
      - Origin path (optional):

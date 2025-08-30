@@ -26,7 +26,6 @@ Why use design patterns?
 - Best practices
 - Cross-Domain Applicability
 - They are just guidelines that help us avoid bad design that are:
-
   - Rigid
   - Fragile
   - Immobile
@@ -44,7 +43,6 @@ Why use design patterns?
 ## Criticism of Patterns
 
 - Kludges for a weak programming language: [Revenge of the Nerds](http://www.paulgraham.com/icad.html)
-
   - [Are Design Patterns Missing Language Features](http://wiki.c2.com/?AreDesignPatternsMissingLanguageFeatures)
 
   - For example, the [Strategy pattern](#strategy-pattern) can be implemented with a simple anonymous (lambda) function in most modern programming languages
@@ -75,13 +73,11 @@ All patterns can be categorized by their **purpose** or _know how_:
 These pattern can also be divided based on their **scope**:
 
 - Class:
-
   - Deal with relationships between classes and their subclasses
   - These relationships are established through inheritance
   - So they are static, fixed at compile-time
 
 - Object:
-
   - Deal with object relationships
   - Which can be changed at run-time and are more dynamic
 
@@ -847,17 +843,14 @@ It is used to **restore state of an object to a previous state**
 The Memento design pattern defines three distinct roles:
 
 1. **Originator**: the object that knows how to save itself
-
    - **Produces snapshots** of its own state, and **restores its state** from snapshots
    - Sets and Gets values from the currently targeted Memento. Creates new Mementos and assigns current values to them
 
 2. **Caretaker**: the object that knows why and when the Originator needs to save and restore itself
-
    - Responsible for **capturing** and **restoring** the Originator's state
    - Holds a list that contains all previous versions of the Memento. It can store and retrieve Mementos
 
 3. **Memento**: the lock box that is written and read by the Originator, and shepherded by the Caretaker
-
    - Acts as a **snapshot** of the Originator's state
    - The basic object that is stored in different states
 
@@ -880,12 +873,10 @@ _Collaborations:_
 _Consequences:_
 
 - Pros:
-
   - You can produce snapshots of the object's state without violating its encapsulation
   - You can simplify the originator's code by letting the caretaker maintain the history of the originator's state
 
 - Cons:
-
   - The app might **consume lots of RAM** if clients create mementos too often
   - Caretakers should track the originator's lifecycle to be able to destroy obsolete mementos
   - Most dynamic programming languages, such as JavaScript, Python, and Ruby, can implement the Memento pattern without the memento classes
@@ -990,7 +981,6 @@ _Intent:_ Observer is a behavioural design pattern that lets you define a subscr
 - This pattern exemplifies loose coupling
 
 - It promotes an integration of the parts **without making then too coupled**
-
   - Subjects and observers interact, but have little knowledge of each other
 
 - It has **one-to-many relationship**
@@ -1002,7 +992,6 @@ _Intent:_ Observer is a behavioural design pattern that lets you define a subscr
 One variant to this pattern is the **[publisher/subscriber pattern](#publish-subscribe-pattern)**
 
 - Parts of Subject:
-
   - `registerObserver` or `subscribe`
   - `removeObserver` or `unsubscribe`
   - `notifyObserver` or `notifySubscribers`
@@ -1070,14 +1059,14 @@ let subscriptionID2 = publisherSubscriber.subscribe(
   "mouseHovered",
   function (data) {
     console.log("mouseHovered, data: " + JSON.stringify(data));
-  },
+  }
 );
 
 let subscriptionID3 = publisherSubscriber.subscribe(
   "mouseClicked",
   function (data) {
     console.log("second mouseClicked, data: " + JSON.stringify(data));
-  },
+  }
 );
 
 // When we publish an event, all callbacks should
@@ -1216,7 +1205,6 @@ Other examples:
 [State Pattern](#state-pattern) vs. Strategy Pattern:
 
 - The two patterns are similar in practice, but they have different intents
-
   - States store a reference to the context object that contains them, but strategies don't
   - States are allowed to replace themselves (i.e., to change the state of the context object to something else), but strategies don't
   - Strategies only handle a single, specific task, while states provide the underlying implementation for everything (or most things) that the context object does

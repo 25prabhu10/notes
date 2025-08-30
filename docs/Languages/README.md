@@ -6,34 +6,36 @@ sidebar: false
 
 # Table of Content
 
-1. [C](./C-CPP/C.md): A general-purpose programming language
+1. [Programming Languages](./Programming-Languages.md): Programming Languages
 
-2. [C++](./C-CPP/CPP.md): A general-purpose programming language ("C with Classes")
+2. [C](./C-CPP/): A general-purpose programming language
 
 3. [C#](./C-Sharp/): A general-purpose, multi-paradigm programming language
 
-4. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
+4. [HTML](./HTML/): Hypertext Markup Language
 
 5. [CSS](./CSS/): Cascading Style Sheets
 
-6. [Docker](./CI-CD/Docker/Docker.md): Container
+6. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
 
-7. [Git](./Git/): A Distributed Version-Control System
+7. [TypeScript](./JavaScript/TypeScript/TypeScript.md): A strict syntactical superset of JavaScript
 
-8. [HTML](./HTML/): Hypertext Markup Language
+8. [Python](./Python/): A high-level, interpreted, general-purpose programming language
 
-9. [JavaScript](./JavaScript/): A programming language that is one of the core technologies of the World Wide Web
+9. [SQL](./SQL/SQL.md): A domain-specific language used in programming
 
 10. [Markdown](./Markdown/): A Lightweight Markup Language
 
-11. [Python](./Python/): A high-level, interpreted, general-purpose programming language
+11. [Lua](./Lua.md): A powerful, efficient, lightweight, embeddable scripting language
 
 12. [Shell Scripting](./Shell-Scripting/): Shell Programming
 
-13. [SQL](./SQL/SQL.md): A domain-specific language used in programming
+13. [Git](./Git/): A Distributed Version-Control System
 
-14. [Makefile](./Makefile.md): A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
+14. [Docker](./CI-CD/Docker/Docker.md): Container
 
-15. [Nginx](./Nginx.md): Open source web and application server
+15. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
 
-[Same problem solved in different languages](https://rosettacode.org/wiki/Rosetta_Code)
+16. [Makefile](./Makefile.md): A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
+
+17. [Nginx](./Nginx.md): Open source web and application server

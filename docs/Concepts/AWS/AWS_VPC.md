@@ -32,14 +32,12 @@ prev: ./AWS
 ## Network ACL & Security Groups
 
 - NACL (Network ACL)
-
   - A firewall which controls traffic from and to subnet
   - Can have ALLOW and DENY rules
   - Are attached at the Subnet level
   - Rules only include IP addresses
 
 - Security Groups
-
   - Act as virtual firewall that controls traffic to and from an ENI / an EC2 Instance
   - Can have only ALLOW rules
   - Rules include IP addresses and other security groups

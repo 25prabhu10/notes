@@ -102,12 +102,10 @@ Steps:
 1. Goto RDS
 2. Create database
 3. Choose a database creation method:
-
    - Standard create
    - Easy create (uses predefined configurations)
 
 4. Engine options:
-
    - Amazon Aurora (not available in Free-tier)
    - MySQL
    - MariaDB
@@ -117,31 +115,26 @@ Steps:
 
 5. Select the edition and version of the database
 6. Templates:
-
    - Production
    - Dev/Test
    - Free tier
 
 7. Settings:
-
    - DB instance identifier (unique name)
    - Credentials Settings: Master username and password
 
 8. DB Instance class:
-
    - Standard classes (includes m classes)
    - Memory optimized classes (includes r and x classes)
    - Burstable classes (includes t classes): db.t2.micro (1 vCPUs, 1 GiB RAM, Not EBS Optimized)
 
 9. Storage:
-
    - Storage type (General Purpose (SSD), Provisioned IOPS (SSD), Magnetic)
    - Allocated storage (20 GiB)
    - Storage autoscaling (increase storage when specified threshold is exceeded)
 
 10. Availability & durability: Multi-AZ deployment
 11. Connectivity:
-
     - VPC
     - Subnet Group
     - Public access
@@ -149,13 +142,11 @@ Steps:
     - Port: 3306
 
 12. Database authentication:
-
     - Password authentication (using database passwords as created in step 7)
     - Password and IAM database authentication
     - Password and Kerberos authentication
 
 13. Additional configuration:
-
     - Database options: Initial database name
     - Backup: Enable automated backups (snapshots)
     - Backup retention period (0 - 35 days)
@@ -278,35 +269,29 @@ Steps:
 1. Goto RDS
 2. Create database
 3. Choose a database creation method:
-
    - Standard create
    - Easy create (uses predefined configurations)
 
 4. Engine options: Amazon Aurora (not available in Free-tier)
 5. Select the edition and version of the database
-
    - Capacity type:
      - Provisioned (you provision and manage the server instance sizes)
      - Serverless (you specify the minimum and maximum amount of resources needed, and Aurora scales the capacity)
 
 6. Templates:
-
    - Production
    - Dev/Test
 
 7. Settings:
-
    - DB cluster identifier
    - Credentials Settings: Master username and password
 
 8. DB Instance class:
-
    - Memory optimized classes (includes r and x classes)
    - Burstable classes (includes t classes): db.t3.small (2 vCPUs, 2 GiB RAM, Netword: 2,085 Mbps)
 
 9. Availability & durability: Multi-AZ deployment: Create an Aurora Replica or Reader node in a different AZ (recommended for scaled availability)
 10. Connectivity:
-
     - VPC
     - Subnet Group
     - Public access
@@ -314,12 +299,10 @@ Steps:
     - Port: 3306
 
 11. Database authentication:
-
     - Password authentication (using database passwords as created in step 7)
     - Password and IAM database authentication
 
 12. Additional configuration:
-
     - Database options: Initial database name
     - Backup: Enable automated backups (snapshots)
     - Backup retention period (0 - 35 days)
@@ -408,7 +391,6 @@ Steps:
 - Which caching design pattern is the most appropriate?
 
 1. Lazy Loading / Cache-Aside / Lazy Population
-
    - Pros
      - Only requested data is cached (the cache isn't filled up with unused data)
      - Node failures are not fatal (just increased latency to warm the cache)
@@ -437,7 +419,6 @@ Steps:
    ```
 
 2. Write Through - Add or Update cache when database is updated
-
    - Pros:
      - Data in cache is never stale, reads are quick
      - Write penalty vs Read penalty (each write requires 2 calls)
@@ -460,7 +441,6 @@ Steps:
    ```
 
 3. Cache Evictions and Time-to-live (TTL)
-
    - Cache eviction can occur in three ways:
      - You delete the item explicitly in the cache
      - Item is evicted because the memory is full and it's not recently used (LRU)

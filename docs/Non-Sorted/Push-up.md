@@ -8,7 +8,7 @@ Endurance: Normal weights and more reps.
 1. Dumbbell inclined bench press (3 x 10): dumbbell in-line with chest. Breath out when going up.
 2. Machine chest fly (3 x 10): hands parallel to ground. Breath out when closing.
 3. Push ups (50): Breath in when coming down. Touch the nose to ground. Tighten ABS.
-4. Flat barbell bench press (3 x 10): 
+4. Flat barbell bench press (3 x 10):
 5. ABS
 6. Cardio
 
@@ -24,7 +24,7 @@ Dumbles
 5. ABS
 6. Cardio
 
-Dumbles 
+Dumbles
 Chest pull from bottom
 Pulldown
 
@@ -54,6 +54,7 @@ Dumbles front up
 1. Dumb
 
 ## Triceps
+
 Push-up
 Pull-up
 Top pull
@@ -64,4 +65,3 @@ Back push up
 ## ABS
 
 ## Cardio
-

@@ -264,7 +264,6 @@ When we create a multi-dimensional array, during runtime the actual array create
 There are two ways to do this mapping or representation:
 
 1. **Row-major:** The elements of multi-dimensional array are mapped row by row. If we stack all elements of an array as `(1,1),(1,2)...,(1,n),(2,1),(2,2)...,(2,n)...,` the **column values change** rapidly, hence _Row-Major_.
-
    - Formula for `m x n` metrics:
 
      `Address(A[i][j] = L0 + ((i * n) + j) * w`
@@ -286,7 +285,6 @@ There are two ways to do this mapping or representation:
    - Here the number of multiplications are reduced to `n-1` and hence `O(n)`.
 
 2. **Column-major:** The elements of multi-dimensional array are mapped column by column. If we stack all elements of an array as `(1,1),(2,1)...,(n,1),(1,2),(2,2)...,(n,2)...,` the **row values change** rapidly, hence _Column-Major_.
-
    - Formula for `m x n` metrics: `Address(A[i][j] = L0 + (i + (j * m)) * w`
 
    - Formula for `d1 x d2 x d3 x d4` metrics: `Address(A[i1][i2][i3][i4]) = L0 + ((i4 * d3 * d2 * d1) + (i3 * d2 * d1) + (i2 * d1) + i1) * w`
@@ -474,7 +472,6 @@ int Delete(struct Array *arr, int index)
 ### Search
 
 1. Linear search:
-
    - The elements must be unique for that array else only the first found element will be used even if the same value is present at different locations of that array
 
    - Operations: Best: `O(1)`, Worst: `O(n)`, Average: `O(n)`
@@ -537,7 +534,6 @@ int Delete(struct Array *arr, int index)
      ```
 
 2. Binary Search: The array must be sorted.
-
    - Operations: Best: `O(1)`, Worst: `O(log2 n)`
 
      ```c

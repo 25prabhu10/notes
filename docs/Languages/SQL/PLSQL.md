@@ -9,7 +9,6 @@ description: Procedural Structured Query Language
 
 - Wrapping is the process of hiding PL/SQL source code
 - Wrapping helps to protect your source code by converting it into an intermediate form of object code. By hiding application internals, the wrapper prevents:
-
   - misuse of your application by other developers
   - exposure of your algorithms to business competitors
 

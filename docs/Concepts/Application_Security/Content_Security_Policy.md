@@ -10,7 +10,6 @@ CSP provides additional layer of protection by enforcing loading of resources (s
 - It's very effective against XSS, Clickjacking etc.
 - Visibility on attacks on app using CSP reporting directive
 - Options to deliver CSP:
-
   - `Content-Security-Policy` header is preferred technique
   - `<meta>` HTML element with `http-equiv` with attribute set to `Content-Security-Policy`
   - `Content-Security-Policy-Report-Only` header used only for monitoring and not enforcing
@@ -79,7 +78,6 @@ Order of priority: `default-src` --> `script-src` --> `script-src-elem` | `scrip
 ## Locking Down JavaScript
 
 1. **Hash Method**:
-
    - Calculate the hash of the script or script file
 
    - Following changes to application is required:
@@ -100,14 +98,12 @@ Order of priority: `default-src` --> `script-src` --> `script-src-elem` | `scrip
    ```
 
 2. **Nonce**:
-
    - Nonce is arbitrary number that can be used just once
    - Nonce is composed of `base64` values
    - Nonce attributes are added to script tags
    - Nonce is verified against the nonce sent in the CSP header
 
    - Following changes to application is required:
-
      - Add nonce attribute to all trusted `<script>` elements
      - For every page load, generate a new nonce and use that in CSP header
 

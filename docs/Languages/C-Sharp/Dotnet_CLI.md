@@ -171,7 +171,6 @@ Build command results in 2 folders:
 Build artefacts:
 
 - `.pdb`: Program-Debug Data Base
-
   - It is helps in debugging C# code
   - Provides stack trace info when an exceptions occurs
   - It stores information such as line numbers, where break points are added

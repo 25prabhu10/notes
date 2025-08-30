@@ -33,17 +33,14 @@ SQL is a declarative language, meaning that it describes the results that you wa
 Even though there is a standard SQL, every database system has its own dialect. The SQL syntax is similar, but not identical. Each database system has its own set of extensions and enhancements. Refer to the documentation of the database system you are using for the syntax of SQL
 
 - SQL is **case-insensitive** language
-
   - All identifiers, commands and keywords can be written in any case
   - Usually, SQL commands and keywords are written in upper-case like `SELECT`
 
 - Identifiers are the names of tables, columns, etc.
-
   - Identifiers must start with a letter or an underscore (`_`)
   - Can be enclosed in double quotes (`"`) to allow the inclusion of spaces or other non-standard characters
 
 - SQL is white-space insensitive
-
   - Spaces, tabs, and newlines are used to separate keywords and identifiers
   - Multiple spaces are treated as a single space
 
@@ -51,7 +48,6 @@ Even though there is a standard SQL, every database system has its own dialect. 
 - SQL comments start with `--` for single-line comments and `/* */` for multi-line comments
 - Numeric literals can be written in integer `453`, real `10.5`, or scientific notation `1.05e1`
 - Text literals are written in single quotes `'` (`'Hello'`)
-
   - If a string contains a single quote, it must be escaped with another single quote (`'It''s'`)
   - Double quotes (`"`) are reserved for identifiers and are not used for string literals
 
@@ -156,11 +152,9 @@ SQL commands are divided into 4 major categories, or _languages_
 - Each language is used for a specific purpose
 
 1. **DDL (Data Definition Language)**:
-
    - Commands that can be used to define the database schema
    - A set of statements that allow the user to define or modify data structures and objects, such as tables, views, indexes, etc.
    - Some commands:
-
      - [`CREATE`](#create-ddl): to create entire databases and objects in database
      - [`ALTER`](#alter): alters the structure of existing objects such as database
      - [`DROP`](#drop-ddl): delete objects from database
@@ -168,25 +162,21 @@ SQL commands are divided into 4 major categories, or _languages_
      - [`TRUNCATE`](#truncate)
 
 2. **DML (Data Manipulation Language)**:
-
    - Commands that deal with the manipulation of data present in database
    - Getting data into and out of the database
    - Statement allow us to manipulation the data in the tables of a database
    - Some commands:
-
      - [`SELECT`](#select-dml): retrieve data from the database objects, like tables (DQL (Data Query Language))
      - [`INSERT`](#insert-dml): insert data into a table
      - [`UPDATE`](#update-dml): update existing data within a table
      - [`DELETE`](#delete-dml): deletes all records from a table, space for the records remain
 
 3. **TCL (Transaction control language)**:
-
    - Commands which mainly deal with the transaction of database
    - A transaction is a sequence of operations performed as a single logical unit of work
    - If one part of the transaction fails, the entire transaction fails
    - TCL ensures that the database remains ACID compliant
    - Some commands:
-
      - [`BEGIN`](#begin): start a transaction
      - [`COMMIT`](#commit): permanently save any transaction into the database
      - [`ROLLBACK`](#rollback): restores the database to last committed state. It is also used with save-point command to jump to a save-point in a transaction
@@ -194,10 +184,8 @@ SQL commands are divided into 4 major categories, or _languages_
      - `SET TRANSACTION`: places a name on a transaction
 
 4. **DCL (Data Control Language)**:
-
    - Commands which deal with the rights, permissions and other controls of the database system
    - Some commands:
-
      - [`GRANT`](#grant): allow specified users to perform specified tasks
      - [`REVOKE`](#revoke): cancel previously granted or denied permissions
 
@@ -506,7 +494,6 @@ Joins are used to combine rows from two or more tables based on a common field b
 4 types of joins:
 
 1. `LEFT JOIN`:
-
    - Select **all records** from the **left table** (`table1`), and the **matching records** from the **right table** (`table2`)
    - The result is **0 records** from the **right side**, if there is **no match**
 
@@ -518,7 +505,6 @@ Joins are used to combine rows from two or more tables based on a common field b
    ```
 
 2. `RIGHT JOIN`:
-
    - Select **all records** from the **right table** (`table2`), and the **matching records** from the **left table** (`table1`)
    - The result is **0 records** from the **left side**, if there is **no match**
 
@@ -530,7 +516,6 @@ Joins are used to combine rows from two or more tables based on a common field b
    ```
 
 3. `INNER JOIN`: just known as `JOIN`
-
    - Select records that have **matching values in both tables**
 
    ```sql
@@ -548,7 +533,6 @@ Joins are used to combine rows from two or more tables based on a common field b
    ```
 
 4. `OUTER JOIN` (`FULL OUTER JOIN`):
-
    - Select **all records** when there is a **match in left (`table1`) or right (`table2`)** table records
    - Not supported in MySQL
 
@@ -561,7 +545,6 @@ Joins are used to combine rows from two or more tables based on a common field b
    ```
 
 - Self `JOIN`:
-
   - A self join is a regular join, but the table is joined with itself
 
   ```sql
@@ -693,7 +676,6 @@ Insert data into a table
 - If any column is not specified, it will be set to the default value as specified in the table definition
 - If no default value is specified, the column will be set to `NULL`
 - If no explicit list of columns is provided, the `INSERT` statement will assume that you are providing values for all columns in the table
-
   - The number of values must match the number of columns in the table
   - The values must be in the same order as the columns are defined in the table
 
@@ -717,7 +699,6 @@ INSERT INTO artist
 ```
 
 - `INSERT OR REPLACE INTO`: If a `UNIQUE` constraint violation occurs, it will replace the row
-
   - It is also written as `REPLACE INTO`
 
 ```sql

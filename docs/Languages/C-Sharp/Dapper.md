@@ -103,7 +103,6 @@ lastmod: 2024-10-03
    ```
 
 5. Create the Customer Table and Initially Seed the Data:
-
    - Create a folder called 'Database' and within the folder a file called `DatabaseUtilities.cs`
 
    ```bash
@@ -197,7 +196,6 @@ lastmod: 2024-10-03
 7. Run the application...again
 
 8. Build a Repository For Crud Methods (using Repository Pattern):
-
    - Create all files and folders: `ICustomerRepository.cs`, `IGenericRepository.cs`, `IUnitOfWork.cs`, `UnitOfWork.cs`, `CustomerRepsository.cs`
 
    ```bash
@@ -301,7 +299,6 @@ lastmod: 2024-10-03
    ```
 
 9. Dependency Injection - Registering The Interfaces:
-
    - Create a file called `ServiceRegistration.cs` in the root directory of the project:
 
    ```cs

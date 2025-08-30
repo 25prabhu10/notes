@@ -103,7 +103,6 @@ Traces are used to capture the flow of requests through a distributed system. A 
 A span represents a single operation within a trace. It contains metadata about the operation, such as the start time, end time, duration, and tags. Spans are linked together to form a trace, which represents the flow of a request through a distributed system
 
 - Structured Blob of data that also has:
-
   - Unique ID (span ID)
   - Correlation ID (trace ID)
   - Duration (start time, end time)

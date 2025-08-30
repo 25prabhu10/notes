@@ -62,7 +62,6 @@ Steps:
 1. Goto ECS --> Clusters --> Create Cluster
 2. Select EC2 Linux + Newtworking (old way)
 3. Configure cluster:
-
    - Cluster name:
    - Provisioning Model: (On-Demand Instance) (Spot)
    - EC2 instance type: `t2.micro`
@@ -96,7 +95,6 @@ Steps:
 
 1. Goto ECS --> Task Definitions
 2. Create new Task Definition:
-
    - Select launch type compatibility: (FARGATE) (EC2)
    - Task Definition Name:
    - Task Role: (optional IAM role that tasks can use to make API requests to authorized AWS services...)
@@ -124,7 +122,6 @@ Steps:
 
 1. Goto Clusters and select a cluster --> Services
 2. Configure service:
-
    - Launch type: (FARGATE) (EC2)
    - Task Definition: Select a task
    - Cluster: Select a cluster
@@ -181,7 +178,6 @@ To add a Load balancer you need to set it during the creation of the service.
 Steps:
 
 1. Repository access and tags:
-
    - Repository name:
    - Tag immutability: (cannot push new images with the same tag)
 
@@ -228,7 +224,6 @@ Steps:
 ## ECS Task Placement Strategies
 
 - Binpack
-
   - Place tasks based on the least available amount of CPU or memory
   - This minimizes the number of instances in use (cost savings)
 
@@ -244,7 +239,6 @@ Steps:
   ```
 
 - Random
-
   - Place the task randomly
 
   ```json
@@ -258,7 +252,6 @@ Steps:
   ```
 
 - Spread
-
   - Place the task evenly based on the specified value
   - Example: instanceId, attribute:ecs.availability-zone
 
@@ -320,7 +313,6 @@ Steps:
   ```
 
 - memberOf: places task on instances that satisfy an expression
-
   - Uses the Cluster Query Language (advanced)
 
   ```json

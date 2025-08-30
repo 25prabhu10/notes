@@ -29,14 +29,12 @@ app.Run();
    ```
 
 2. The above command scaffolds these files and folder (Check [Core Project Structure](./ASP_NET_Core.md#aspnet-core-project-structure.md)):
-
    - `Controller/`
    - `Properties/launchSettings.json`: Visual Studio will use the profiles defined here to run the project
    - `appsettings.json`: Application configuration file, it store details such as database connection strings, API keys, etc.
    - `[project name].csproj`: Defines how the project will be built
    - `Program.cs`: Entry point of the .NET Core applications. Host configuration.
    - `Startup.cs`: Configures services and application request pipelines (middle-ware)
-
      - `public IConfiguration Configuration { get; }`: Read configuration settings from multiple sources like `appsettings.json`, Environment variables, files...
 
 3. Trust the development certificate provided by dotnet:
@@ -210,7 +208,6 @@ services.AddControllers()
 1. Specific Type: Return the data with no HttpStatus code
 2. `IActionResult`: Return data with HttpStatus code
 3. `ActionResult<T>`: Implements IActionResult and extends the return type
-
    - No need to use `Type` property of `[ProducesResponseType]`: `[ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Product))]`
 
 ```cs
@@ -398,14 +395,11 @@ Working with Database using:
 Checkout [Application Security](./../../../Concepts/Application_Security/).
 
 1. Transport security: Add security settings to Reverse Proxies as well
-
    - Turn oh HTTPS (enabled by default)
    - Reject HTTP, by using HTTP Strict Transport Security (HSTS):
-
      - Useful for browsers, but an edge case for API projects
      - Do not use `[RequireHttpsAttribute]` in API projects
      - Don't redirect `app.UseHttpsRedirection()`, instead APIs should either:
-
        - Not listen on HTTP
        - Close the connection with status code 400 (Bad Request) and not serve the request
 
@@ -610,7 +604,6 @@ Approaches to Restful Versioning:
    ```
 
 3. URL prefix (path) versioning:
-
    - `/api/v1/test`, `/api/v2/test`
    - Least restful
    - But more explicit to the clients
@@ -623,7 +616,6 @@ Approaches to Restful Versioning:
    ```
 
 4. Query String:
-
    - `/api/test?api-version=1.0`, `/api/test?api-version=2.0`
 
    ```cs
@@ -729,7 +721,6 @@ public IActionResult GetRoot()
 ## Caching Response
 
 1. Client-side caching:
-
    - ASP.NET Core uses the `ResponseCache` attribute to indicate that a particular response is cacheable.
 
      ```cs
@@ -771,7 +762,6 @@ public IActionResult GetRoot()
    - ASP.NET Core doesn't handle the `ETag` header by default
 
 2. Server-side caching:
-
    - Add middleware: `services.AddResponseCaching()` and `app.UseResponseCaching()`
    - Add the Response cache attribute to the endpoints:
 

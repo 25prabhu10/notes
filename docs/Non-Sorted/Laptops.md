@@ -23,13 +23,11 @@ Cinebench 2024 Multicore scores:
 New processor naming convention:
 
 1. Portfolio model year:
-
    - `7`: 2023
    - `8`: 2024
    - `9`: 2025
 
 2. Market segment:
-
    - `x1xx`: Athlon Silver
    - `x2xx`: Athlon Gold
    - `x3xx`: Ryzen 3
@@ -41,7 +39,6 @@ New processor naming convention:
    - `x9xx`: Ryzen 9
 
 3. Architecture:
-
    - `1`: Zen 1 or Zen+
    - `2`: Zen 2
    - `3`: Zen 3 or Zen 3+
@@ -49,12 +46,10 @@ New processor naming convention:
    - `5`: Zen 5
 
 4. Feature isolation:
-
    - `0`: Lower model within segment
    - `5`: Upper model within segment
 
 5. Form factor/TDP:
-
    - `HX`: 55W+ (Max Performance)
    - `HS`: 35W+ (Thin Gaming/Creator)
    - `U`: 15-28W (Premium Ultra-thin)
@@ -68,18 +63,15 @@ Old processor naming convention:
 1. First digit: Generation
 
 2. Second digit: Performance level
-
    - 7, 8: Enthusiast / Prosumer
    - 4, 5, 6: High Performance
    - TBA: Mainstream
 
 3. Third number: Model Number
-
    - Leaves option for speed bump or sku differentiator
    - 00, 20, 50 etc.
 
 4. Power Suffix
-
    - X: High Performance, with XFR
    - "": Standard Desktop CPU
    - G: DT with GFX
@@ -202,27 +194,21 @@ Laptop time-spy graphics score:
 |               | $1100                |                | $4200               |
 
 1. MSI Katana 15
-
    - Pros:
-
      - Exceptional performance for price
      - Upgradeable RAM, Storage and WiFi
      - High Refresh Rate Display
 
    - Cons:
-
      - Small trackpad
      - Small 53.3Wh battery
 
    - Perfect for:
-
      - Gamers, engineers, or creators that need lots of power
      - Willing to sacrifice battery life
 
 2. Asus TUF Gaming A14
-
    - Pros:
-
      - New Ryzen AI 300 Processor
      - Fantastic display, 2.5K @165Hz w G-Sync
      - Excellent build quality, keyboard and tracpad
@@ -230,30 +216,24 @@ Laptop time-spy graphics score:
      - Good value
 
    - Cons:
-
      - 16GB RAM max, no ability to upgrade
      - Still a bit pricey when not on sale
 
    - Perfect for:
-
      - Solid all around laptop that doesn't want to spend Asus G14 Money
 
 3. Acer Nitro V15 ($779.99)
-
    - Pros:
-
      - Excellent price to performance, regularly on sale
      - High refresh rate display
      - Upgradeable RAM and SSD
 
    - Cons:
-
      - Display colours not great
      - Small 57.4Wh battery
      - 5h battery endurance
 
    - Perfect for:
-
      - Gamer looking for the best bang for the buck
 
 4. Dell G16 Gaming ($949.99)
@@ -276,9 +256,7 @@ Asus G16, Intel 185H
 ### Lenovo
 
 1. Legion 9i Gen 9
-
    - Pros:
-
      - 16" 2.5K @165Hz display
      - 32GB DDR5 RAM
      - 1TB SSD
@@ -290,18 +268,14 @@ Asus G16, Intel 185H
      - Quiet
 
    - Cons:
-
      - Expensive
      - Heavy
 
    - Perfect for:
-
      - Gamers, creators, or engineers that need lots of power
 
 2. Legion Pro 7
-
    - Pros:
-
      - 16" 2.5K @165Hz display
      - 32GB DDR5 RAM
      - 1TB SSD
@@ -313,18 +287,14 @@ Asus G16, Intel 185H
      - Quiet
 
    - Cons:
-
      - Expensive
      - Heavy
 
    - Perfect for:
-
      - Gamers, creators, or engineers that need lots of power
 
 3. Legion 7
-
    - Pros:
-
      - 16" 2.5K @165Hz display
      - 32GB DDR5 RAM
      - 1TB SSD
@@ -336,7 +306,6 @@ Asus G16, Intel 185H
      - Quiet
 
    - Cons:
-
      - Expensive
      - Heavy
 
@@ -352,7 +321,6 @@ Asus G16, Intel 185H
 1. ROG Strix
 
 2. G14
-
    - 14" 2.8K @120Hz/0.9ms
    - OLED, 99% DCI, 438 nits
    - G-Sync
@@ -361,12 +329,10 @@ Asus G16, Intel 185H
    - $2100+
 
    - Cons:
-
      - Soldered RAM
      - Proprietary Power Connector
 
 3. G16
-
    - 16" QHD+ @240Hz/0.6ms
    - OLED, 99% DCI, 421 nits
    - Up to RTX 4090 (115W)
@@ -374,12 +340,10 @@ Asus G16, Intel 185H
    - G-Sync
 
    - Cons:
-
      - Soldered RAM
      - Proprietary Power Connector
 
 4. TUF 15.6"
-
    - Intel Core i7
    - 16GB
    - RTX 4070
@@ -391,35 +355,29 @@ Asus G16, Intel 185H
 ### Razer
 
 1. Blade 14
-
    - Up to RTX 4090 (175W)
    - $2600+
 
 2. Blade 16
-
    - 16" QHD+ @240Hz/0.4ms
    - OLED, 99% DCI, 417 nits
    - G-Sync
 
 3. Blade 18
-
    - **Thunderbolt 5**: 120Gbps, Three 4k @144Hz
 
 ### Dell
 
 1. XPS 14
-
    - 14" 3.2K @120Hz/1.4ms
    - OLED, 96% DCI, 312 nits
    - Up to RTX 4050 (40W)
    - $1500+
 
    - Cons:
-
      - No dedicated Function row
 
 2. XPS 16
-
    - 16" 4K @120Hz/1.6ms
    - OLED, 98% DCI, 372 nits
    - Up to RTX 4090 (60W)
@@ -430,7 +388,6 @@ Asus G16, Intel 185H
 4. Alienware x16
 
 5. Alienware M16 R2
-
    - 16" QHD+ @240Hz/8.1ms
    - 69% DCI, 319 nits
    - Up to RTX 4070 (140W)
@@ -439,7 +396,6 @@ Asus G16, Intel 185H
 ### Acer
 
 1. Predator Helios Neo 14
-
    - Up to RTX 4070 (125W)
    - $1800+
 
@@ -448,7 +404,6 @@ Asus G16, Intel 185H
 ### HP
 
 1. OMEN 14
-
    - 14" 2.8K @120Hz/1.9ms
    - OLED, 97% DCI, 377 nits
    - Up to RTX 4070 (80W)

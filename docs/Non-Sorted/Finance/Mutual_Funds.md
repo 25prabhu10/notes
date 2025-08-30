@@ -37,7 +37,6 @@ Funds based on asset class:
 2. Equity funds: In contrast, equity funds invest a primary portion of your money in stocks. Capital appreciation is an essential objective for these funds. But since the returns on equity funds are linked to market movements, they hold **higher risk**. Equity funds can be a right choice for **long-term goals** - retirement planning or buying a house - due to its risk with the investment spread over a long period of time
 
 3. Hybrid funds: If you want equity as well as debt in your investment, hybrid funds can be the answer. They invest in a mix of equity and fixed-income securities. Based on their asset allocation, hybrid funds are further classified into six categories:
-
    - **Conservative hybrid fund**: The scheme invests around 75-90% of assets in debt instruments and just about 10-25% in equity or equity related instruments
 
    - **Balanced hybrid fund**: The scheme invests about 40-60% in equity and 40-60% in debt instruments
@@ -76,7 +75,6 @@ Funds based on investment objective:
    | Long duration fund           | greater than 7 years          |
 
 3. Liquid funds: Liquid funds aim to provide liquidity to the investor. These funds put money in short-term money-market instruments like treasury bills, Certificate of Deposits (CDs), term deposits, commercial papers, and so on. Liquid funds can be an option if you want to park your surplus money for the short term or create an emergency fund
-
    - Overnight funds are another interesting option you can consider if liquidity is your priority. These are open-ended debt mutual funds that invest in securities having a maturity of just one day. This makes overnight funds highly liquid. These funds come with very low risk as they are not impacted by changes in interest rates. Overnight funds are suitable for those investors who want to park a large sum of money for a short period.
 
 4. **Tax-saving funds**: Tax-saving funds offer tax benefits in the form of tax rebates under Section 80C of the Income Tax Act. When you invest in these funds, you can claim deductions up to Rs 1.5 Lakh each year. Tax-saving funds can be suitable if your primary investment goal is to save tax. Equity Linked Saving Scheme (ELSS) funds are an example of tax-saving funds
@@ -84,48 +82,39 @@ Funds based on investment objective:
 ## Portfolio
 
 - Large-cap mutual funds
-
   - Low Risk
   - Long-Term (5+ years)
   - Reliance, Tata, Infosys, Wipro, Asian paints, Big companies
 
 - Mid-cap mutual funds
-
   - Medium Risk
   - Long-Term (5+ years)
 
 - Small-cap mutual funds
-
   - High Rish
   - Long-Term (5+ years)
 
 - Balanced Large-cap mutual funds
-
   - Low Risk
   - Mid-Term (2-5 years)
 
 - Balanced/Hybrid Large-cap mutual funds
-
   - Medium Risk
   - Mid-Term (2-5 years)
 
 - Multi-cap mutual funds
-
   - High Risk
   - Mid-Term (2-5 years)
 
 - Debt mutual funds
-
   - Low Risk
   - Short-Term (0.5-2 years)
 
 - Liquid funds
-
   - Medium Risk
   - Short-Term (0.5-2 years)
 
 - Hybrid funds
-
   - High Risk
   - Short-Term (0.5-2 years)
 

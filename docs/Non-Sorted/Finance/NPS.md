@@ -31,23 +31,18 @@ The subscriber can choose to invest either, wholly or in combination, in 4 types
 Choices:
 
 1. Active Choice:
-
    - Max equity allocation allowed is 75% till 50 years of age and reduces by 2.5% per year after that. Finally settles at 50% equity allocation when you reach 60 years of age
 
    - Percentage can be changed twice in a year
 
 2. Auto Choice:
-
    1. Aggressive life cycle fund (for High Risk Takers):
-
       - Max equity allocation 75% if you're 35 or below and reduces by 4% per year till you reach 55 age (15% allocation finally)
 
    2. Moderate life cycle fund:
-
       - Max equity allocation 50% if you're 35 or below and reduces by 2% per year till you reach 55 age (10% allocation finally)
 
    3. Conservative life cycle fund:
-
       - Max equity allocation 25% if you're 35 or below and reduces by 1% per year till you reach 55 age (5% allocation finally)
 
 ## Withdrawal

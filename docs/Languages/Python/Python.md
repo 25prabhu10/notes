@@ -115,6 +115,8 @@ python
    # Output: Hello, World!
    ```
 
+#### Setup Using [uv](https://docs.astral.sh/uv/)
+
 ### Python 2 vs. Python 3
 
 Python 2 and Python 3 are two versions of the Python programming language. Python 3 introduced many **backwards-incompatible** changes to the language, so code written in Python 2 may not work under Python 3 and vice versa. For example, Python 3 removed the `print` statement and replaced it with a `print()` function
@@ -263,7 +265,6 @@ y = 'Hello, World!'
   ```
 
 - You can return a range of characters by using the _slice syntax_
-
   - `string[start:end]`: Get the characters from position `start` to position `end` (not included)
 
   ```python
@@ -427,7 +428,6 @@ print("A") if a > b else print("B")
 Truthy and falsy values:
 
 - In Python, the following values are considered `False`:
-
   - `False`
   - `None`
   - `0`
@@ -835,7 +835,6 @@ new_year = dt.datetime(2025, 1, 1, 0, 0, 0) # 2025-01-01 00:00:00
 ```
 
 - The `datetime` module has classes for manipulating dates and times
-
   - `datetime.date`: An idealized naive date, assuming the current Gregorian calendar always was, and always will be, in effect
   - `datetime.time`: An idealized time, independent of any particular day, assuming that every day has exactly 24*60*60 seconds
   - `datetime.datetime`: A combination of a date and a time
@@ -933,23 +932,18 @@ print(locale.currency(amount, grouping=True))
 ## Packages
 
 - [appdirs](https://github.com/ActiveState/appdirs):
-
   - A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir"
 
 - [asn1crypto](https://github.com/wbond/asn1crypto):
-
   - A fast, pure Python library for parsing and serializing ASN.1 structures.
 
 - [astroid](https://github.com/PyCQA/astroid):
-
   - A common base representation of python source code for pylint and other projects
 
 - [attrs](https://www.attrs.org/en/stable/):
-
   - attrs is the Python package that will bring back the joy of writing classes by relieving you from the drudgery of implementing object protocols (aka dunder methods).
 
 - [Automat](https://github.com/glyph/Automat):
-
   - Automat is a library for concise, idiomatic Python expression of finite-state automata (particularly deterministic finite-state transducers).
 
 ## Python Everything

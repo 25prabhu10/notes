@@ -38,26 +38,21 @@ DROP TABLE Students;
 ### Types of SQL Injection
 
 1. **Error-Based SQL Injection**: The attacker relies on detailed error messages from the database to learn about the database structure
-
    - In order to prevent this, only generic error messages should be shown
 
 2. **Blind SQL Injection**: When the web application is configured to show generic error messages, but has not mitigated the code that is vulnerable to SQL injection
 
    The attacker doesn't receive direct error messages or query results from the database. Instead an attacker may verify whether a sent request returned true or false in a few ways:
-
    1. _Content-based attacks_
 
    2. _Time-based attacks_ (where the attacker measures the time it takes for the application to respond to different queries)
-
    - When the database does not output data to the web page, an attacker is forced to steal data by asking the database a series of true or false questions
    - This makes exploiting the SQL Injection vulnerability more difficult, but not impossible
 
 3. **UNION SQL Injection**:
-
    - Leverages the UNION operator to retrieve data from multiple tables in the database
 
 4. **Out of Band SQL Injection**: (more advanced and sophisticated, relatively uncommon) When an attacker can't receive a response to their command in the same channel they submitted it
-
    - Instead, it relies upon a server's ability to use another protocol (like HTTP or DNS) to deliver the responses to an attacker's query
    - Instead, they force the database to make external connections to deliver the results of the query
 
@@ -122,7 +117,6 @@ _Example:_ Vulnerable URL: `http://testphp.vulnweb.com/listproducts.php?cat=1`
 
 - Use **parametrized queries or prepared statements**
 - Use **Stored Procedures**
-
   - The difference between stored procedures and prepared statements is that stored procedures are defined and stored within the database, but called from the application
 
 - Allow-list Input Validation: Use all or left validation on all user inputs. This ensures all input is checked against and allowed list of input parameters before they are processed in the code

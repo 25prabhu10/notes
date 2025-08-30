@@ -2,7 +2,7 @@
 title: IELTS
 description: IELTS
 date: 2023-07-26
-lastmod: 2023-10-22
+lastmod: 2025-04-26
 ---
 
 # IELTS
@@ -25,14 +25,12 @@ Cost: ₹16,250
 - 4 equally graded parts scored 0-9 on a Rubric
 - [Listening](#listening), [Reading](#reading) and [Writing](#writing) occur on the same day
 - [Speaking](#speaking) Exam:
-
   1. 1-5 Days before Exam date
   2. 1-2 Days after Exam date
 
 - Tests English ability (not student intelligence)
 
 1. Academic Exam: is for **Study abroad**, in a University or College
-
    - At least 6.5
 
 2. General Exam: is for **work abroad, Immigration and Permanent Residence(PR)**
@@ -58,17 +56,26 @@ Cost: ₹16,250
 
 ## Listening
 
-- **40 Total Questions**
-- **30 Minutes Test/10 Minutes Transfer**
-- **4 Alternative sections**
+- **4 parts**
+- **40 Total Questions**: 1 mark per question (no negative marking)
+- **30 Minutes Test**
+  - IELTS on paper:
+    - **10 Minutes to transfer answers**
+
+  - IELTS on computer:
+    - **2 Minutes to review answers**
+
 - Conversations & solo presentations
 - Multiple choice or fill-blank
 
-- Recording Type 1: Everyday Conversations
-- Recording Type 2: Monologue
-- Recording Type 3: Conversation between people (up to 4 people)
-- Recording Type 4: Monologue (like lecture)
+### Parts
 
+- Recording Type 1: Everyday Conversations (Social conversation between 2 people)
+- Recording Type 2: Monologue (Social situation)
+- Recording Type 3: Conversation between people (up to 4 people)
+- Recording Type 4: Academic lecture (Monologue)
+
+```text
 Sharks
 old fishing village
 
@@ -97,11 +104,11 @@ southern Europe
 water
 minerals
 white gold
+```
 
 Good habits:
 
 1. Synonym and Paraphrase Tables:
-
    - This practice habit helps you to get better at recognising how they disguise answers so that you can select the correct answer
    - Also, this habit helps you avoid picking the wrong answer choice
 
@@ -124,7 +131,6 @@ Good habits:
    | Q.9 making         | Starting with                              |
 
 2. Tracking and Analysing Mistakes:
-
    - This practice habit helps you to get better at your application of proper strategy
    - It also helps you to stop making the same mistakes over and over again
 
@@ -132,7 +138,6 @@ Good habits:
    - When analysing explain hoe you answered incorrectly. What was the trap or incorrect application of strategy?
 
 3. Vocabulary - New and Misspelled:
-
    - Every time you do a listening practice do two activities:
      - Put any words in the questions that are new
      - Put any words that are new from the audio
@@ -160,15 +165,14 @@ Good habits:
    | Anxeity                           | Anxiety          |
 
 4. Transcript Usage:
-
    - Notice the structure and how answers are given in proximity, and how they shift the language to go to a different answer choice
    - Read through it and become familiar with how the different parts are structured and how answers are delivered
    - This will help with understanding the timing between answers and lead ins
 
 ## Reading
 
-- 40 Questions/60 Minutes
 - 3 Sections (Progressive Difficulty)
+- 40 Questions/60 Minutes
 - 14 Questions Types
 - In-order & Not In-order Questions
 
@@ -178,7 +182,12 @@ Good habits:
 
 Good habits:
 
-1. Synonym and Paraphrase Tables:
+1. Divide and Conquer:
+   - Section 1: 15 minutes (descriptive, less complex)
+   - Section 2: 20-23 minutes
+   - Section 3: 20-23 minutes
+
+2. Synonym and Paraphrase Tables:
 
    | Keywords in the questions   | Similar words in the passage                |
    | --------------------------- | ------------------------------------------- |
@@ -186,12 +195,11 @@ Good habits:
    | when and in which direction | at the right time... in the right direction |
    | learn from the herd         | learning from one another                   |
 
-2. Tracking and Analysing Mistakes:
+3. Tracking and Analysing Mistakes:
 
-3. Vocabulary - New and Misspelled:
+4. Vocabulary - New and Misspelled:
 
-4. Timed Scanning Practice:
-
+5. Timed Scanning Practice:
    - Choose a Reading Passage, I like to use passages from older books
    - Run through the questions to pull out the question keywords
    - Place them on the left side of the table
@@ -207,30 +215,25 @@ Good habits:
 
 - Academic Task 1: Chart/Graph (summarize graph, table or diagram)
 - General Task 1: Letter (Write a letter)
-
   - Word Count: 150
   - Duration: 20 mins
 
 - Task 2: Standard Essay
-
   - Word Count: 250
   - Duration: 40 mins
 
 Good habits:
 
 1. Re-Write Old Essays:
-
    - Improve sentence variety
    - Paraphrase and Synonym verbs and nouns
    - Replace Weak and Replace Language
 
 2. Grammarly (Premium Version)
-
    - The premium version of this tool locates and makes suggestions on all grammar and lexical mistakes that an examiner would notice when scoring a paper
    - Make you OWN corrections and then re-check if you have done it correctly
 
 3. Outline Essay Questions:
-
    - Gather a list of 10-20 Essay Questions per week
    - Outline each one in under 3 minutes
    - Outlining includes: controlling idea, details, and thesis statements
@@ -275,7 +278,6 @@ Good habits:
 
 - Listen and Repeat Good Speakers
 - Transcription Programs:
-
   - [Otter.ai](https://otter.ai/)
   - Google voice translating
 

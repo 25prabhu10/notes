@@ -31,6 +31,5 @@ sidebar: false
 Books:
 
 - Literate Programming by Donald E. Knuth (1992)
-
   - Write for Humans 1st, computers 2nd
   - Code can be written in any order

@@ -241,7 +241,7 @@ Annotations will often use the `:` character, this is used to tell TypeScript th
 
 ```typescript
 // TypeScript annotation
-let name: string = 'Max';
+let name: string = "Max";
 ```
 
 ### Type Annotations
@@ -250,7 +250,7 @@ Type annotations are used to explicitly specify the type of a variable, function
 
 ```typescript
 // variable annotation
-let name: string = 'Max';
+let name: string = "Max";
 let age: number = 27;
 
 // function annotation
@@ -267,7 +267,7 @@ TypeScript can infer the type of a variable based on its value
 - If you don't initialize a variable with a value, TypeScript will infer the type of the variable as `any`
 
 ```typescript
-let name = 'Max'; // TypeScript infers the type of name as `string`
+let name = "Max"; // TypeScript infers the type of name as `string`
 let age; // TypeScript infers the type of age as `any`
 ```
 
@@ -279,10 +279,10 @@ A set of rules that a type checker uses to assign types to your program
 
 ```typescript
 // array of heterogeneous data
-let arr: any[] = ['a', 25];
+let arr: any[] = ["a", 25];
 
 // tuples
-let tup: [string, number] = ['yes', 99];
+let tup: [string, number] = ["yes", 99];
 
 // enum
 enum Color {
@@ -301,29 +301,29 @@ Type casting is a way to tell TypeScript that you know more about the type of a 
 - Type casting is also known as _type assertion_
 
 ```typescript
-const userInp = document.getElementById('username');
+const userInp = document.getElementById("username");
 
 // Type: HTMLElement
 // Error: as HTMLElement is generic, hence
 // not all HTML elements have the 'value' property
-userInp.value = 'hello';
+userInp.value = "hello";
 
 // Type Casting
-const userInp = <HTMLInputElement>document.getElementById('username')!;
+const userInp = <HTMLInputElement>document.getElementById("username")!;
 
 // alternative syntax
-const userInp = document.getElementById('username') as HTMLInputElement;
+const userInp = document.getElementById("username") as HTMLInputElement;
 
-userInp.value = 'hello';
+userInp.value = "hello";
 ```
 
 - Nullable:
 
 ```typescript
-const userInp = document.getElementById('username');
+const userInp = document.getElementById("username");
 
 if (userInp) {
-  (userInp as HTMLInputElement).value = 'hello';
+  (userInp as HTMLInputElement).value = "hello";
 }
 ```
 
@@ -332,12 +332,11 @@ if (userInp) {
 TypeScript can check the type of a variable at runtime
 
 - `typeof` variable;
-
   - Check type of variable:
 
   ```typescript
-  if (typeof variable == 'string') {
-    console.log(variable + ' is a string.');
+  if (typeof variable == "string") {
+    console.log(variable + " is a string.");
   }
   ```
 
@@ -371,7 +370,7 @@ function add(a: Combinable, b: Combinable) {
 
 function add(a: Combinable, b: Combinable) {
   // Type guard
-  if (typeof a === 'number' || b === 'number') {
+  if (typeof a === "number" || b === "number") {
     return a.toString() + b.toString();
   }
   return a + b;
@@ -397,11 +396,11 @@ function show(a: ElevatedEmployee) {
   console.log(a.name);
 
   // Type guards
-  if ('privileges' in a) {
+  if ("privileges" in a) {
     console.log(a.privileges);
   }
 
-  if ('startDate' in a) {
+  if ("startDate" in a) {
     console.log(a.startDate);
   }
 }
@@ -412,13 +411,13 @@ function show(a: ElevatedEmployee) {
 ```typescript
 class Car {
   drive() {
-    console.log('Driving...');
+    console.log("Driving...");
   }
 }
 
 class Truck {
   drive() {
-    console.log('Driving Truck...');
+    console.log("Driving Truck...");
   }
 
   loadCargo(amount: number) {
@@ -455,16 +454,16 @@ Narrowing with `typeof`, `instanceof`, and `in`:
 ```typescript
 // you can narrow down the type of a variable
 const getAlbumYear = (year: string | number) => {
-  if (typeof year === 'string') {
+  if (typeof year === "string") {
     console.log(`The album was released in ${year.toUppercase()}.`); // `year` is string
-  } else if (typeof year === 'number') {
+  } else if (typeof year === "number") {
     console.log(`The album was released in ${year.toFixed(0)}.`); // `year` is number
   }
 };
 
 // using `in` operator
 const getAlbumYear = (year: string | number) => {
-  if ('toUppercase' in year) {
+  if ("toUppercase" in year) {
     console.log(`The album was released in ${year.toUppercase()}.`); // `year` is string
   } else {
     console.log(`The album was released in ${year.toFixed(0)}.`); // `year` is number
@@ -502,7 +501,7 @@ interface User {
 }
 
 let user: User = {
-  name: 'Max',
+  name: "Max",
   age: 27,
 };
 ```
@@ -540,8 +539,8 @@ TypeScript has a type hierarchy that is used to define the types of variables, f
    ```typescript
    let name: string;
 
-   name = 'Same';
-   name = 'As';
+   name = "Same";
+   name = "As";
    name = `JavaScript`;
    ```
 
@@ -555,7 +554,6 @@ TypeScript has a type hierarchy that is used to define the types of variables, f
    ```
 
 4. `bigint`: Special numeric type that represents whole numbers larger than `2^53 - 1`
-
    - `n` suffix is used to create a `bigint` value
 
    ```typescript
@@ -565,10 +563,10 @@ TypeScript has a type hierarchy that is used to define the types of variables, f
 5. `symbol`: Unique and immutable value that may be used as an identifier for object properties
 
    ```typescript
-   const sym1: symbol = Symbol('key');
+   const sym1: symbol = Symbol("key");
 
    let obj = {
-     [sym1]: 'value',
+     [sym1]: "value",
    };
 
    console.log(obj[sym1]); // "value"
@@ -579,7 +577,6 @@ TypeScript has a type hierarchy that is used to define the types of variables, f
 7. `undefined`: Represents an uninitialized value
 
 8. `any` (default type): Any kind of value, no specific type assignment
-
    - Avoid using `any` as it defeats the purpose of using TypeScript (it is not type-safe)
    - If you don't specify a type, TypeScript will infer the type as `any`
 
@@ -591,7 +588,7 @@ TypeScript has a type hierarchy that is used to define the types of variables, f
    let variable;
 
    variable = 1;
-   variable = 'Name';
+   variable = "Name";
    ```
 
 You can express much more complex types (arrays, objects, etc.) using a combination of these basic types
@@ -606,12 +603,12 @@ Unknown is the [widest type](#wider-vs-narrower-types) in TypeScript. It represe
 let user: unknown;
 
 user = 25;
-user = 'Name';
+user = "Name";
 
 const fn = (input: unknown) => {};
 
 // Anything is assignable to unknown!
-fn('hello');
+fn("hello");
 fn(42);
 fn(true);
 fn({});
@@ -654,12 +651,12 @@ The `never` type represents the type of values that never occur
 ```typescript
 // the function never returns a value
 function generateError(): never {
-  throw new Error('An error occurred!');
+  throw new Error("An error occurred!");
 }
 
 const fn = (input: never) => {};
 
-fn('hello'); // Error: Argument of type 'string' is not assignable to parameter of type 'never'
+fn("hello"); // Error: Argument of type 'string' is not assignable to parameter of type 'never'
 
 fn(generateError()); // OK as `generateError()` returns never
 ```
@@ -677,7 +674,7 @@ function printName(name: string): void {
 
 // the function never returns a value
 function generateError(): never {
-  throw new Error('An error occurred!');
+  throw new Error("An error occurred!");
 }
 ```
 
@@ -699,7 +696,7 @@ It is a way to give a name to a type, and use that name wherever the type is nee
 // creating a type alias
 type Combinable = number | string;
 
-type ConversionResType = 'as-number' | 'as-text';
+type ConversionResType = "as-number" | "as-text";
 
 function combine(
   inp1: Combinable, // using type alias
@@ -741,7 +738,7 @@ interface Car {
 }
 
 const newCar: Car = {
-  color: 'Red',
+  color: "Red",
   seats: 5,
   printCar() {
     console.log(this.seats + this.color);
@@ -766,8 +763,8 @@ interface Employee {
 interface ElevatedEmployee extends Admin, Employee {}
 
 const emp: ElevatedEmployee = {
-  name: 'Java',
-  privileges: ['None'],
+  name: "Java",
+  privileges: ["None"],
   startDate: new Date(),
 };
 ```
@@ -844,10 +841,10 @@ interface AddFunc {
 To define an [array](../JavaScript.md#array) in TypeScript, you can use the `[]` syntax
 
 ```typescript
-let names: string[] = ['Max', 'Manu'];
+let names: string[] = ["Max", "Manu"];
 
 // TypeScript will infer the type of the array
-let names = ['Max', 'Manu'];
+let names = ["Max", "Manu"];
 
 names.push(3); // Error: Argument of type 'number' is not assignable to parameter of type 'string'
 ```
@@ -855,18 +852,18 @@ names.push(3); // Error: Argument of type 'number' is not assignable to paramete
 Another way to define an array is to use the `Array` [generic type](#generic-types)
 
 ```typescript
-let names: Array<string> = ['Max', 'Manu'];
+let names: Array<string> = ["Max", "Manu"];
 ```
 
 - You can use `readonly` modifier to make an array immutable, mutable functions like `push`, `pop`, `splice`, etc. are not allowed
 
 ```typescript
-const readOnlyGenres: readonly string[] = ['rock', 'pop', 'unclassifiable'];
+const readOnlyGenres: readonly string[] = ["rock", "pop", "unclassifiable"];
 
-readOnlyGenres.push('jazz'); // Error: Property 'push' does not exist on type 'readonly string[]'
+readOnlyGenres.push("jazz"); // Error: Property 'push' does not exist on type 'readonly string[]'
 
 // Alternative syntax using Array type
-const readOnlyGenres: ReadonlyArray<string> = ['rock', 'pop', 'unclassifiable'];
+const readOnlyGenres: ReadonlyArray<string> = ["rock", "pop", "unclassifiable"];
 ```
 
 ### Tuple Type
@@ -879,7 +876,7 @@ _Example:_
 
 ```typescript
 // typle
-let album: [string, number] = ['Rubber Soul', 1965];
+let album: [string, number] = ["Rubber Soul", 1965];
 
 // Error is thrown
 album[0] = 1965; // Error: Type 'number' is not assignable to type 'string'
@@ -888,13 +885,12 @@ album[0] = 1965; // Error: Type 'number' is not assignable to type 'string'
 - You can add elements to a tuple, but it defeats the purpose of using tuple over an array. Remove `push` function from tuple:
 
   ```typescript
-  type StrictTuple<T extends any[]> = Omit<T, keyof any[]> extends infer O
-    ? { [K in keyof O]: O[K] }
-    : never;
+  type StrictTuple<T extends any[]> =
+    Omit<T, keyof any[]> extends infer O ? { [K in keyof O]: O[K] } : never;
 
-  const x: StrictTuple<[number, string]> = [1, '']; // {0: number; 1: string }
+  const x: StrictTuple<[number, string]> = [1, ""]; // {0: number; 1: string }
 
-  x[1] = 'okay';
+  x[1] = "okay";
   x[0] = 123;
   x.push(123); // error!
 
@@ -904,8 +900,8 @@ album[0] = 1965; // Error: Type 'number' is not assignable to type 'string'
 - Second option:
 
   ```typescript
-  const testArray: readonly [number, string] = [10, 'test'] as const;
-  testArray.push('test'); // error
+  const testArray: readonly [number, string] = [10, "test"] as const;
+  testArray.push("test"); // error
   ```
 
 ## Enum Type
@@ -942,7 +938,7 @@ enum DIRECTION {
 
 ```typescript
 enum ROLES {
-  ADMIN = 'ADMIN',
+  ADMIN = "ADMIN",
   READ_ONLY = 0,
   AUTHOR,
 }
@@ -956,8 +952,8 @@ _Example:_
 
 ```typescript
 let userData: { name: string; age: string; wh: number } = {
-  name: 'Max',
-  age: '22',
+  name: "Max",
+  age: "22",
   wh: 22,
 };
 ```
@@ -995,12 +991,12 @@ let userData: { name: string; age: string; wh: number } = {
   };
 
   let obj: User = {
-    name: 'Max',
+    name: "Max",
     age: 27,
   };
 
   let obj2: User = {
-    name: 'Max',
+    name: "Max",
   };
   ```
 
@@ -1042,14 +1038,14 @@ const albumAwards: Record<string, boolean> = {};
 albumAwards.Grammy = true;
 
 // using union type for keys
-const albumAwards1: Record<'Grammy' | 'MercuryPrize' | 'Billboard', boolean> = {
+const albumAwards1: Record<"Grammy" | "MercuryPrize" | "Billboard", boolean> = {
   Grammy: true,
   MercuryPrize: false,
   Billboard: true,
 };
 
 const albumAwards2: {
-  [index: 'Grammy' | 'MercuryPrize' | 'Billboard']: boolean;
+  [index: "Grammy" | "MercuryPrize" | "Billboard"]: boolean;
   // An index signature parameter type cannot be a literal type or generic type. Consider using a mapped object type instead.
 } = {
   Grammy: true,
@@ -1062,7 +1058,7 @@ Combining know and dynamic keys:
 
 ```typescript
 // using type alias
-type BaseAwards = 'Grammy' | 'MercuryPrize' | 'Billboard';
+type BaseAwards = "Grammy" | "MercuryPrize" | "Billboard";
 
 type ExtendedAlbumAwards = Record<BaseAwards, boolean> & {
   [award: string]: boolean;
@@ -1083,7 +1079,7 @@ const extendedNominations: ExtendedAlbumAwards = {
   Grammy: true,
   MercuryPrize: false,
   Billboard: true, // Additional awards can be dynamically added
-  'American Music Awards': true,
+  "American Music Awards": true,
 };
 ```
 
@@ -1096,18 +1092,18 @@ _Example:_
 ```typescript
 type UserRoleAttr =
   | {
-      role: 'admin';
+      role: "admin";
       adminPassword: string;
     }
   | {
-      role: 'user';
+      role: "user";
     }
   | {
-      role: 'super-admin';
+      role: "super-admin";
       superAdminPassword: string;
     };
 
-type Roles = UserRoleAttr['role'];
+type Roles = UserRoleAttr["role"];
 // "admin" | "user" | "super-admin"
 
 type Roles = UserRoleAttr.role; // Error: Cannot access 'UserRoleAttr.role' because 'UserRoleAttr' is a type, but not a namespace
@@ -1151,7 +1147,7 @@ It is better to use [`Record`](#utility-types) utility type instead of `object` 
 ```typescript
 const obj: Record<string, unknown> = {};
 
-obj.name = 'Max';
+obj.name = "Max";
 obj.age = 27;
 obj.getInfo = () => {};
 ```
@@ -1162,7 +1158,7 @@ Objects are mutable in JavaScript:
 
 ```typescript
 type AlbumAttributes = {
-  status: 'new-release' | 'on-sale' | 'staff-pick';
+  status: "new-release" | "on-sale" | "staff-pick";
 };
 
 const updateStatus = (attributes: AlbumAttributes) => {
@@ -1170,7 +1166,7 @@ const updateStatus = (attributes: AlbumAttributes) => {
 };
 
 const albumAttributes = {
-  status: 'on-sale',
+  status: "on-sale",
 };
 
 updateStatus(albumAttributes);
@@ -1183,11 +1179,11 @@ updateStatus(albumAttributes);
 
 ```typescript
 updateStatus({
-  status: 'on-sale',
+  status: "on-sale",
 }); // No error
 
 const albumAttributes: AlbumAttributes = {
-  status: 'on-sale',
+  status: "on-sale",
 };
 
 updateStatus(albumAttributes); // No error
@@ -1197,40 +1193,40 @@ An object variable declared with both `let` and `const` has properties that are 
 
 ```typescript
 type AlbumAttributes = {
-  status: 'new-release' | 'on-sale' | 'staff-pick';
+  status: "new-release" | "on-sale" | "staff-pick";
 };
 
 let albumAttributes: AlbumAttributes = {
-  status: 'on-sale',
+  status: "on-sale",
 };
 
-albumAttributes.status = 'new-release'; // can only be reassigned with valid values
-albumAttributes.status = 'invalid'; // Error: Type '"invalid"' is not assignable
+albumAttributes.status = "new-release"; // can only be reassigned with valid values
+albumAttributes.status = "invalid"; // Error: Type '"invalid"' is not assignable
 ```
 
 - To make object properties immutable, use `readonly` modifier
 
 ```typescript
 type AlbumAttributes = {
-  readonly status: 'new-release' | 'on-sale' | 'staff-pick';
+  readonly status: "new-release" | "on-sale" | "staff-pick";
 };
 
 const albumAttributes: AlbumAttributes = {
-  status: 'on-sale',
+  status: "on-sale",
 };
 
-albumAttributes.status = 'new-release'; // Error: Cannot assign to 'status' because it is a read-only property
+albumAttributes.status = "new-release"; // Error: Cannot assign to 'status' because it is a read-only property
 ```
 
 - Use `Readonly` utility type to make all properties of an object readonly
 
 ```typescript
 type AlbumAttributes = {
-  status: 'new-release' | 'on-sale' | 'staff-pick';
+  status: "new-release" | "on-sale" | "staff-pick";
 };
 
 const albumAttributes: Readonly<AlbumAttributes> = {
-  status: 'on-sale',
+  status: "on-sale",
 };
 ```
 
@@ -1243,7 +1239,7 @@ A union type is TypeScript's way of allowing a variable to have more than one ty
 
 ```typescript
 let myAge: number | string = 27;
-myAge = '27';
+myAge = "27";
 
 myAge = true; // will cause error
 ```
@@ -1251,13 +1247,13 @@ myAge = true; // will cause error
 Combining unions with unions to make one big union:
 
 ```typescript
-type DigitalFormat = 'MP3' | 'FLAC';
+type DigitalFormat = "MP3" | "FLAC";
 
-type PhysicalFormat = 'LP' | 'CD' | 'Cassette';
+type PhysicalFormat = "LP" | "CD" | "Cassette";
 
 type MusicFormat = DigitalFormat | PhysicalFormat;
 
-let format: MusicFormat = 'MP3';
+let format: MusicFormat = "MP3";
 ```
 
 A union type is a [wider type](#wider-vs-narrower-types) than its members. For example, `string | number` is wider than `string` or `number` on their own
@@ -1343,12 +1339,12 @@ let suAdmin: User = {
 
 ```typescript
 interface Bird {
-  type: 'bird';
+  type: "bird";
   flyingSpeed: number;
 }
 
 interface Horse {
-  type: 'horse';
+  type: "horse";
   runningSpeed: number;
 }
 
@@ -1356,11 +1352,11 @@ type Animal = Bird | Horse;
 
 function moveAnimal(animal: Animal) {
   switch (animal.type) {
-    case 'bird':
+    case "bird":
       console.log(animal.flyingSpeed);
       break;
 
-    case 'horse':
+    case "horse":
       console.log(animal.runningSpeed);
       break;
   }
@@ -1391,8 +1387,8 @@ An intersection type lets us combine multiple object types into a single type th
   type ElevatedEmployee = Admin & Employee;
 
   const emp: ElevatedEmployee = {
-    name: 'Java',
-    privileges: ['None'],
+    name: "Java",
+    privileges: ["None"],
     startDate: new Date(),
   };
 
@@ -1437,7 +1433,7 @@ An intersection type lets us combine multiple object types into a single type th
 TypeScript allows you to create types which represent a specific primitive value, these are called _literal types_
 
 ```typescript
-type YesOrNo = 'yes' | 'no';
+type YesOrNo = "yes" | "no";
 type StatusCode = 200 | 404 | 500;
 type TrueOrFalse = true | false;
 
@@ -1452,9 +1448,9 @@ Use `let`, `const`, and `var` to declare variables
 **`let`**: Used to declare a variable that can be reassigned (mutable)
 
 ```typescript
-type AlbumGenre = 'rock' | 'country' | 'electronic';
+type AlbumGenre = "rock" | "country" | "electronic";
 
-let albumGenre = 'rock';
+let albumGenre = "rock";
 
 const handleGenre = (genre: AlbumGenre) => {
   // ...
@@ -1466,7 +1462,7 @@ handleGenre(albumGenre); // Error: Argument of type 'string' is not assignable t
 - As variable is mutable, we can reassign it, TypeScript will infer a wider type `string` for `albumGenre` in order to accommodate the reassignment
 
 ```typescript
-let albumGenre: AlbumGenre = 'rock';
+let albumGenre: AlbumGenre = "rock";
 
 const handleGenre = (genre: AlbumGenre) => {
   // ...
@@ -1478,7 +1474,7 @@ handleGenre(albumGenre); // no more error
 **`const`**: Used to declare a variable that cannot be reassigned (immutable)
 
 ```typescript
-const albumGenre = 'rock';
+const albumGenre = "rock";
 
 const handleGenre = (genre: AlbumGenre) => {
   // ...
@@ -1500,22 +1496,22 @@ We can signal to the language that:
 
 ```typescript
 // Type '"hello"'
-let x = 'hello' as const;
+let x = "hello" as const;
 // Type 'readonly [10, 20]'
 let y = [10, 20] as const;
 // Type '{ readonly text: "hello" }'
-let z = { text: 'hello' } as const;
+let z = { text: "hello" } as const;
 ```
 
 This is useful when you want to prevent widening of literal types:
 
 ```typescript
 type AlbumAttributes = {
-  status: 'new-release' | 'on-sale' | 'staff-pick';
+  status: "new-release" | "on-sale" | "staff-pick";
 };
 
 const albumAttributes: AlbumAttributes = {
-  status: 'on-sale',
+  status: "on-sale",
 };
 
 // `status` is of type "new-release" | "on-sale" | "staff-pick";
@@ -1523,7 +1519,7 @@ const albumAttributes: AlbumAttributes = {
 
 // object literal is inferred
 const albumAttributes = {
-  status: 'on-sale',
+  status: "on-sale",
 } as const;
 
 // now `status` is of type
@@ -1547,12 +1543,12 @@ function updateTodo(todo: Todo, fieldsToUpdate: Partial<Todo>) {
 }
 
 const todo1 = {
-  title: 'organize desk',
-  description: 'clear clutter',
+  title: "organize desk",
+  description: "clear clutter",
 };
 
 const todo2 = updateTodo(todo1, {
-  description: 'throw out trash',
+  description: "throw out trash",
 });
 
 interface Goal {
@@ -1572,7 +1568,6 @@ function createGoal(title: string, date: Date): Goal {
 ```
 
 - `Required<Type>`: Create new object type with all properties set to required
-
   - `Required` only work one level deep
 
   ```typescript
@@ -1618,7 +1613,7 @@ function createGoal(title: string, date: Date): Goal {
   // type C = number | boolean
 
   async function getAPIResponse(): Promise<string> {
-    return 'Hello, TypeScript!';
+    return "Hello, TypeScript!";
   }
 
   type Response = Awaited<ReturnType<typeof getAPIResponse>>;
@@ -1632,10 +1627,10 @@ function createGoal(title: string, date: Date): Goal {
   }
 
   const todo: Readonly<Todo> = {
-    title: 'Delete inactive users',
+    title: "Delete inactive users",
   };
 
-  todo.title = 'Hello'; // Error: Cannot assign to 'title' because it is a read-only property
+  todo.title = "Hello"; // Error: Cannot assign to 'title' because it is a read-only property
   ```
 
 - `Record<Keys, Type>`: Construct a type with a set of properties Keys of type Type
@@ -1646,12 +1641,12 @@ function createGoal(title: string, date: Date): Goal {
     breed: string;
   }
 
-  type CatName = 'miffy' | 'boris' | 'mordred';
+  type CatName = "miffy" | "boris" | "mordred";
 
   const cats: Record<CatName, CatInfo> = {
-    miffy: { age: 10, breed: 'Persian' },
-    boris: { age: 5, breed: 'Maine Coon' },
-    mordred: { age: 16, breed: 'British Shorthair' },
+    miffy: { age: 10, breed: "Persian" },
+    boris: { age: 5, breed: "Maine Coon" },
+    mordred: { age: 16, breed: "British Shorthair" },
   };
 
   cats.boris; // const cats: Record<CatName, CatInfo>
@@ -1666,16 +1661,15 @@ function createGoal(title: string, date: Date): Goal {
     completed: boolean;
   }
 
-  type TodoPreview = Pick<Todo, 'title' | 'completed'>;
+  type TodoPreview = Pick<Todo, "title" | "completed">;
 
   const todo: TodoPreview = {
-    title: 'Clean room',
+    title: "Clean room",
     completed: false,
   };
   ```
 
 - `Omit<Type, Keys>`: Constructs a type by picking all properties from `Type` and then removing `Keys` (string literal or union of string literals). The opposite of `Pick`
-
   - `Omit` is looser than `Pick`, you are able to exclude properties that don't exist on an object type
 
   ```typescript
@@ -1686,7 +1680,7 @@ function createGoal(title: string, date: Date): Goal {
     createdAt: number;
   }
 
-  type TodoPreview = Omit<Todo, 'description'>;
+  type TodoPreview = Omit<Todo, "description">;
 
   type User = {
     id: string;
@@ -1695,7 +1689,7 @@ function createGoal(title: string, date: Date): Goal {
 
   // "name" is not present in the User type
   // but TypeScript will not throw an error
-  type Example = Omit<User, 'name'>;
+  type Example = Omit<User, "name">;
 
   type Spread<T1, T2> = T2 & Omit<T1, keyof T2>;
 
@@ -1707,7 +1701,7 @@ function createGoal(title: string, date: Date): Goal {
   // creating a strict Omit
   type StrictOmit<T, K extends keyof T> = Omit<T, K>;
 
-  type Example = StrictOmit<User, 'name'>; // Error: 'name' does not exist in type 'User'
+  type Example = StrictOmit<User, "name">; // Error: 'name' does not exist in type 'User'
   ```
 
 `Omit` and `Pick` don't work as excepted with union types
@@ -1735,13 +1729,13 @@ type DigitalRelease = {
 
 type MusicProduct = Album | CollectorEdition | DigitalRelease;
 
-type MusicProductWithoutId = Omit<MusicProduct, 'id'>;
+type MusicProductWithoutId = Omit<MusicProduct, "id">;
 
 // Expected:
 type MusicProductWithoutId =
-  | Omit<Album, 'id'>
-  | Omit<CollectorEdition, 'id'>
-  | Omit<DigitalRelease, 'id'>;
+  | Omit<Album, "id">
+  | Omit<CollectorEdition, "id">
+  | Omit<DigitalRelease, "id">;
 
 // Actual:
 type MusicProductWithoutId = {
@@ -1762,19 +1756,19 @@ type DistributivePick<T, K extends PropertyKey> = T extends any
   ? Pick<T, K>
   : never;
 
-type MusicProductWithoutId = DistributiveOmit<MusicProduct, 'id'>;
+type MusicProductWithoutId = DistributiveOmit<MusicProduct, "id">;
 
 // Expected:
 type MusicProductWithoutId =
-  | Omit<Album, 'id'>
-  | Omit<CollectorEdition, 'id'>
-  | Omit<DigitalRelease, 'id'>;
+  | Omit<Album, "id">
+  | Omit<CollectorEdition, "id">
+  | Omit<DigitalRelease, "id">;
 
 // Actual:
 type MusicProductWithoutId =
-  | Omit<Album, 'id'>
-  | Omit<CollectorEdition, 'id'>
-  | Omit<DigitalRelease, 'id'>;
+  | Omit<Album, "id">
+  | Omit<CollectorEdition, "id">
+  | Omit<DigitalRelease, "id">;
 ```
 
 ## Functions
@@ -1782,17 +1776,16 @@ type MusicProductWithoutId =
 Functions in TypeScript are like functions in JavaScript, but with added type annotations for parameters and return values
 
 - Specify function return type:
-
   - If a function does not return anything, use `void` type
 
   ```typescript
   // function that returns a string
   function returnMyName(): string {
-    return 'Prabhu';
+    return "Prabhu";
   }
 
   function voidFunc(): void {
-    console.log('Hello!');
+    console.log("Hello!");
   }
   ```
 
@@ -1812,7 +1805,7 @@ Functions in TypeScript are like functions in JavaScript, but with added type an
   }
 
   //function printName2(name: string = "25") {
-  function printName2(name = '25') {
+  function printName2(name = "25") {
     // same as above
     console.log(name);
   }
@@ -1867,7 +1860,7 @@ Functions that return a promise can be typed using the `Promise` type
 ```typescript
 function fetchUser(): Promise<{ name: string }> {
   return new Promise((resolve) => {
-    resolve({ name: 'Max' });
+    resolve({ name: "Max" });
   });
 }
 ```
@@ -1916,14 +1909,19 @@ class Person {
   protected age: number;
 
   // userName will automatically assigned to this.userName
-  constructor(name: string, typ: string, age: number, public userName: string) {
+  constructor(
+    name: string,
+    typ: string,
+    age: number,
+    public userName: string
+  ) {
     this.name = name;
     this.typ = typ;
     this.age = age;
   }
 }
 
-const pers1 = new Person('Max', 'admin', 27, 'maxin');
+const pers1 = new Person("Max", "admin", 27, "maxin");
 ```
 
 - Shorthand Initializer:
@@ -1938,14 +1936,17 @@ class Person {
   ) {}
 }
 
-const pers1 = new Person('Max', 'admin', 27, 'maxin');
+const pers1 = new Person("Max", "admin", 27, "maxin");
 ```
 
 - `readonly` modifier mark a property that shouldn't be changed:
 
 ```typescript
 class Car {
-  constructor(public readonly seats: number = 36, private color: string) {}
+  constructor(
+    public readonly seats: number = 36,
+    private color: string
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -1975,7 +1976,7 @@ class Car {
 
 ```typescript
 // The above class is used as an example
-const newCar = new Car(25, 'Red');
+const newCar = new Car(25, "Red");
 
 // Save the pointer to the function of the object
 // So that it can be used later
@@ -2017,14 +2018,14 @@ class Car {
 
 ```typescript
 class Max extends Person {
-  name = 'Max';
+  name = "Max";
 
   constructor(userName: string) {
-    super('Max', 'Hulk', 2, userName);
+    super("Max", "Hulk", 2, userName);
   }
 }
 
-const newMax = new Max('maxin');
+const newMax = new Max("maxin");
 ```
 
 ### Setters And Getters
@@ -2033,7 +2034,10 @@ const newMax = new Max('maxin');
 
 ```typescript
 class Car {
-  constructor(public readonly seats: number = 36, private color: string) {}
+  constructor(
+    public readonly seats: number = 36,
+    private color: string
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -2044,7 +2048,7 @@ class Car {
   }
 }
 
-const newCar = new Car(25, 'Red');
+const newCar = new Car(25, "Red");
 
 console.log(newCar.colorValue);
 ```
@@ -2053,7 +2057,10 @@ console.log(newCar.colorValue);
 
 ```typescript
 class Car {
-  constructor(public readonly seats: number = 36, private color: string) {}
+  constructor(
+    public readonly seats: number = 36,
+    private color: string
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -2068,9 +2075,9 @@ class Car {
   }
 }
 
-const newCar = new Car(25, 'Red');
+const newCar = new Car(25, "Red");
 
-newCar.colorValue = 'Pink';
+newCar.colorValue = "Pink";
 
 console.log(newCar.colorValue);
 ```
@@ -2081,7 +2088,10 @@ console.log(newCar.colorValue);
 
 ```typescript
 abstract class Car {
-  constructor(public readonly seats: number, private color: string) {}
+  constructor(
+    public readonly seats: number,
+    private color: string
+  ) {}
 
   abstract printCar(this: Car): void;
 }
@@ -2093,7 +2103,10 @@ abstract class Car {
 class Car {
   private static instance: Car;
 
-  private constructor(public readonly seats: number, private color: string) {}
+  private constructor(
+    public readonly seats: number,
+    private color: string
+  ) {}
 
   printCar(this: Car) {
     console.log(this.seats + this.color);
@@ -2109,7 +2122,7 @@ class Car {
   }
 }
 
-const newCar = Car.getInstance(25, 'Red');
+const newCar = Car.getInstance(25, "Red");
 ```
 
 ## `satisfies` Operator
@@ -2120,12 +2133,12 @@ const newCar = Car.getInstance(25, 'Red');
 type RGB = [red: number, green: number, blue: number];
 type Color = RGB | string;
 
-const myColor: Color = 'red';
+const myColor: Color = "red";
 
 myColor.toUpperCase();
 //     ^^^^^^^^^^^^^^ invalid operation as myColor can be string or RGB
 
-const myColorNew = 'red' satisfies Color; // works
+const myColorNew = "red" satisfies Color; // works
 const myIncorrectColor = 100 satisfies Color; // throws error
 
 myColorNew.toUpperCase(); // valid operation as myColorNew is a string
@@ -2136,7 +2149,7 @@ myColorNew.toUpperCase(); // valid operation as myColorNew is a string
 Generics are a way to create reusable components that can work with a variety of types
 
 ```typescript
-const ages: Array<number | string | boolean> = ['a', 25, true];
+const ages: Array<number | string | boolean> = ["a", 25, true];
 
 const promise: Promise<number> = new Promise((resolve, reject) => {
   resolve(10);
@@ -2148,7 +2161,7 @@ function merge<T, U>(obj1: T, obj2: U) {
   return Object.assign(obj1, obj2);
 }
 
-const a = merge({ name: 'Prabhu' }, { age: 27 });
+const a = merge({ name: "Prabhu" }, { age: 27 });
 ```
 
 - Generic Class
@@ -2229,7 +2242,6 @@ window.bar();
 Code organization is important in any programming language and TypeScript is no exception. Modules are used to organize code in a way that is easy to understand and maintain
 
 - Using `namespace`: Grouping related code
-
   - Per-file or bundled compilation is possible (less imports to manage)
   - TypeScript specific
 
@@ -2241,7 +2253,7 @@ Code organization is important in any programming language and TypeScript is no 
       age: number;
     }
 
-    export const defName = 'Admin';
+    export const defName = "Admin";
     export const defAge = 0;
   }
 
@@ -2264,7 +2276,6 @@ Code organization is important in any programming language and TypeScript is no 
   - Set `outfile`, to concatenate files into a single file
 
 - Using ES6 Imports/Exports
-
   - Per-file compilation but single `<script>` import
   - Bundling via third-party tools (e.g. Webpack)
 
@@ -2275,11 +2286,11 @@ Code organization is important in any programming language and TypeScript is no 
     age: number;
   }
 
-  export const defName = 'Admin';
+  export const defName = "Admin";
   export const defAge = 0;
 
   // Class file: People.ts
-  import { defAge, defName, IPeople } from './counter';
+  import { defAge, defName, IPeople } from "./counter";
 
   class Person implements IPeople {
     name: string;
@@ -2301,16 +2312,16 @@ Decorators are a special kind of declaration that can be attached to a class dec
 
 ```typescript
 function Logger(constructor: Function): void {
-  console.log('Decorator called...');
+  console.log("Decorator called...");
   console.log(constructor);
 }
 
 @Logger
 class Person {
-  name = 'Max';
+  name = "Max";
 
   constructor() {
-    console.log('Creating object');
+    console.log("Creating object");
   }
 }
 
@@ -2329,12 +2340,12 @@ function Logger(logString: string) {
   };
 }
 
-@Logger('Logging - Person')
+@Logger("Logging - Person")
 class Person {
-  name = 'Max';
+  name = "Max";
 
   constructor() {
-    console.log('Creating object');
+    console.log("Creating object");
   }
 }
 ```
@@ -2348,7 +2359,7 @@ class Person {
 const getDeepValue = <
   TObj,
   TFirstKey extends keyof TObj,
-  TSecondKey extends keyof TObj[TFirstKey]
+  TSecondKey extends keyof TObj[TFirstKey],
 >(
   obj: TObj,
   firstKey: TFirstKey,
@@ -2363,12 +2374,12 @@ const obj = {
     b: 2,
   },
   bar: {
-    c: '12',
+    c: "12",
     d: 28,
   },
 };
 
-const value = getDeepValue(obj, 'foo', 'a');
+const value = getDeepValue(obj, "foo", "a");
 // typeof value === boolean
 ```
 
@@ -2403,28 +2414,28 @@ const deepEqualCompare = <Arg>(
 ```
 
 ```typescript
-import second from 'ts-toolbelt';
+import second from "ts-toolbelt";
 
 const query = `/home?a=foo&b=wow`;
 
 type Query = typeof query;
 
-type SecondQueryPart = String.Split<Query, '?'>[1];
+type SecondQueryPart = String.Split<Query, "?">[1];
 
-type QueryElements = String.Split<SecondQueryPart, '&'>;
+type QueryElements = String.Split<SecondQueryPart, "&">;
 
 type QueryParams = {
   [QueryElement in QueryElements[number]]: {
-    [Key in String.Split<QueryElement, '='>[0]]: String.Split<
+    [Key in String.Split<QueryElement, "=">[0]]: String.Split<
       QueryElement,
-      '='
+      "="
     >[1];
   };
 }[QueryElements[number]];
 
 const obj: Uint8ArrayConstructor.Merge<QueryParams> = {
-  a: 'foo',
-  b: 'wow',
+  a: "foo",
+  b: "wow",
 };
 ```
 

@@ -5,20 +5,19 @@ description: Different Authentication mechanisms
 
 # Authentication
 
-Authentication is the process of identifying users that request access to a system, network, or device.
+Authentication is the process of identifying users that request access to a system, network, or device
 
-Access control often determines user identity according to credentials like username and password. Other authentication technologies like biometrics and authentication apps are also used to authenticate user identity
+- Access control often determines user identity according to credentials like username and password. Other authentication technologies like biometrics and authentication apps are also used to authenticate user identity
 
-Incorrectly build authentication and session management scheme that allows an attacker to impersonate another user
+- Incorrectly build authentication and session management scheme that allows an attacker to impersonate another user
 
 ## Common Authentication Schemes
 
 How Claims Based Authentication works?
 
-1. Browser or Client (user) -- Request token --> Security Token Service (STS) by Identity Provider (IdP)
+1. `Browser or Client (user) -- Request token --> Security Token Service (STS) by Identity Provider (IdP)`
 
 2. STS Authenticates user by some means, usually username and password
-
    - For this STS will get information about user from Account/Attribute Store (common example Active Directory)
 
 3. STS creates and returns a token
@@ -26,13 +25,11 @@ How Claims Based Authentication works?
 4. User sends this token along with the request to an application
 
 5. Application can use an Identity Library to verify the token
-
    - This library will verify token's signature and checks whether this STS is trusted
 
-6. Once verifyed the application can use claims provided by the token to perform actions
+6. Once verified the application can use claims provided by the token to perform actions
 
 7. The **'Basic'** HTTP Authentication Scheme (RFC 7617):
-
    - Transmits credentials as user-id/password pairs, encoded using _Base64_
    - Part of browser
    - Server responseds with `www-Authenticate` header and when browser see this, it will ask for username and password
@@ -92,7 +89,6 @@ How Claims Based Authentication works?
    ```
 
 8. The OAuth 2.0 Authorization Framework: **'Bearer'** Token Usage (RFC 6750):
-
    - Any party in possession of a bearer token (a "bearer") can use it to get access to the associated resources (without demonstrating possession of a cryptographic key)
 
    - _Example_:
@@ -104,7 +100,6 @@ How Claims Based Authentication works?
    ```
 
 9. HTTP **'Digest'** Access Authentication (RFC 7616):
-
    - Provides a simple challenge-response authentication mechanism that may be used by a server to challenge a client request and by a client to provide authentication information
 
    - _Example_:
@@ -126,38 +121,39 @@ How Claims Based Authentication works?
    ```
 
 10. HOBA
-
     - See RFC 7486, Section 3, HTTP Origin-Bound Authentication, digital-signature-based
 
 11. Mutual
-
     - See RFC 8120
 
 12. Negotiate / NTLM
-
     - See RFC4599
 
 13. VAPID
-
     - See RFC 8292
 
 14. SCRAM
-
     - See RFC 7804
 
 15. AWS4-HMAC-SHA256
+    - See AWS docs. This scheme is used for AWS3 server authentication
 
-    - See AWS docs. This scheme is used for AWS3 server authentication.
+### Types of Authentication (least to most secure)
 
-Types:
+1. Form-based/Password-based Authentication:
+   - The most common authentication method
+   - Users enter their credentials (username and password) into a form
+   - Vulnerable to phishing attacks, brute-force attacks, and credential stuffing
 
-1. Password-based Authentication:
 2. Multi-Factor Authentication (MFA):
-
    - An authentication method that requires two or more independent ways to identify a user
 
-3. [Token-based Authentication]
-4. Certificate-based authentication
+3. WebAuthn:
+   - A web standard for password-less authentication that allows users to authenticate using public key cryptography
+   - It is part of the FIDO2 project, which aims to provide a secure and user-friendly way to authenticate users without relying on passwords
+
+4. Passwordless Authentication:
+   - A method of authentication that does not require a password. Instead, it uses other factors such as biometrics, hardware tokens, or one-time codes sent via email or SMS
 
 ## Authorization
 
@@ -180,13 +176,13 @@ This vulnerability allows an attacker to bypass authorization checks in order to
 
 The impact of an attack depends on the parameter:
 
-- _Example:_ If the attacker is able to access another user's password, if he's able to access another user's shopping basket he could buy products in that user's name.
+- _Example:_ If the attacker is able to access another user's password, if he's able to access another user's shopping basket he could buy products in that user's name
 - This attack can also be used to access files from the system
 
 Prevention:
 
 - Prevent attackers from directly targeting unauthorized resources by using per user or per session indirect references instead, implement access control checks to make sure the user is authorized for the requested information
-- Never rely on user-defined inputs parameters (GET/POST parameters, cookies, HTTP headers, etc) to authorize access to sensitive resources.
+- Never rely on user-defined inputs parameters (GET/POST parameters, cookies, HTTP headers, etc) to authorize access to sensitive resources
 - Always rely on server-side session information. Use mapping values to access objects
 - Use centralized authorization routines. No two separate pieces of code should verify if an account belongs to a certain user
 
@@ -194,17 +190,17 @@ Prevention:
 
 Missing functional level access control occurs when users can perform functions they have not been authorised for when resources can be accessed by an authorised user s
 
-- functional level access control is missing when access checks have not been implemented or when a protection mechanism exists but is not properly configured
+- Functional level access control is missing when access checks have not been implemented or when a protection mechanism exists but is not properly configured
 
-- an attacker could fauj request in order to access functionality without proper authorisation. an attacker could gain access to the administrative panel of your application. and employee from the sales department could view information from the financial department.
+- An attacker could fauj request in order to access functionality without proper authorisation. an attacker could gain access to the administrative panel of your application. and employee from the sales department could view information from the financial department
 
 Prevention:
 
-- protect all business functions using a role based authorisation mechanism, server side. authorisation should be implemented using centralised authorisation routing. deny access by default
+- protect all business functions using a role based authorisation mechanism, server side. Authorisation should be implemented using centralised authorisation routing. Deny access by default
 
 - all business functions should be authorised
 - implement authorisation using a role based mechanism
-- you centralised authorisation proteins. easy-to-use external module
+- you centralised authorisation proteins. Easy-to-use external module
 - deny access by default
 - perform access control server side
 
@@ -354,9 +350,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
 ```
 
 - Header:
-
   - Typically consists of two parts:
-
     - The type of the token, which is JWT
     - The signing algorithm being used, such as `HMAC`, `SHA256` or `RSA`
 
@@ -372,11 +366,9 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   ```
 
 - Payload:
-
   - Contains the claims
   - Claims are statements about an entity (typically, the user) and additional data
   - There are 3 types of claims:
-
     - [Registered]
     - [Public]
     - [Private]
@@ -386,7 +378,6 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4
   - Do note that for signed tokens this information, though protected against tampering, is readable by anyone. Do **not put secret information in the payload or header elements of a JWT unless it is encrypted**
 
 - Signature:
-
   - To create the signature part you have to take the encoded header, the encoded payload, a secret, the algorithm specified in the header, and sign that
 
   - _Example_: useing the HMAC SHA256 algorithm

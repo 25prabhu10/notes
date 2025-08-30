@@ -64,7 +64,6 @@ Cloud Economics: Cloud computing reduces Capital Expenditures (CapEx) by elimina
 
 - Private Clouds environments are privately owned and hosted by an enterprise.
 - Resources are generally made accessible to a private organization and their customers and partners
-
   - Managed private clouds are deployed and fully managed by a third-party, reducing the IT staffing needs for the enterprise
   - Dedicated private clouds are hosted on a public or private cloud to server a particular department within an enterprise
 
@@ -142,14 +141,12 @@ _Example:_
 ### Global and Scoped Services
 
 - AWS has Global Services:
-
   - [Identity and Access Management](./AWS_IAM.md) (IAM)
   - [Route 53](./AWS_Route_53.md) (DNS service)
   - [CloudFront](./AWS_CloudFront.md) (Content Delivery Network)
   - WAF (Web Application Firewall)
 
 - Most AWS services are Region-scoped:
-
   - [Amazon EC2](./AWS_EC2.md) (Infrastructure as a Service)
   - [Elastic Beanstalk](./AWS_Elastic_Beanstalk.md) (Platform as a Service)
   - [Lambda](./AWS_Lambda.md) (Function as a Service)
@@ -162,7 +159,6 @@ _Example:_
 We can interact with AWS using AWS Console (Web Based App), AWS CLI, and AWS SDK.
 
 - We can interact with services manually and they expose standard information for clients:
-
   - EC2 exposes a standard Linux machine we can use any way we want
   - RDS exposes a standard database we can connect to using a URL
   - ElastiCache exposes a cache URL we can connect to using a URL
@@ -170,12 +166,10 @@ We can interact with AWS using AWS Console (Web Based App), AWS CLI, and AWS SDK
   - Route53 was setup manual
 
 - Developing against AWS has two components:
-
   - How to perform interactions with AWS without using the Online Console?
   - How to interact with AWS Proprietary services? (S3, DynamoDB, etc...)
 
 - Developing and performing AWS tasks against AWS can be done in several ways
-
   - Using the AWS CLI on our local computer
   - Using the AWS CLI on our EC2 machines
   - Using the AWS SDK on our local computer
@@ -202,7 +196,6 @@ AWS CLI v2 Setup: [Install AWS CLI on Windows/Mac/Linux](https://docs.aws.amazon
 - Do not share your AWS Access Key and Secret key with anyone!
 
 1. AWS CLI ON EC2... THE BAD WAY
-
    - To configure AWS CLI run `aws configure` on EC2
    - But... it's SUPER INSECURE
    - NEVER EVER EVER PUT YOUR PERSONAL CREDENTIALS ON AN EC2
@@ -212,7 +205,6 @@ AWS CLI v2 Setup: [Install AWS CLI on Windows/Mac/Linux](https://docs.aws.amazon
    - For EC2, there's a better way... it's called AWS IAM Roles
 
 2. AWS CLI ON EC2... THE RIGHT WAY
-
    - IAM Roles can be attached to EC2 instances
    - IAM Roles can come with a policy authorizing exactly what the EC2 instance should be able to do
    - AWS NETWORK --> EC2 Instance --> IAM ROLE --> CLI --> AWS Account (checks credentials and permissions of the ROLE)
@@ -256,7 +248,6 @@ If you get AccessDenied error while running STS, please attach a policy that all
    ```
 
 4. This will create a `.aws` directory in your home directory. It will contain two files:
-
    - `config`: It will contain the region details
    - `credentials`: It will contain the profile access key and secret key
 
@@ -309,7 +300,6 @@ What if you want to perform actions on AWS directly from your applications code 
 - You can use an SDK (software development kit)!
 
 - Official SDKs are:
-
   - Java
   - .NET
   - Node.js
@@ -330,14 +320,12 @@ If you don't specify or configure a default region, then `us-east-1` will be cho
 ### AWS Limits (Quotas)
 
 - API Rate Limits
-
   - Describe Instances API for EC2 has a limit of 100 calls per seconds
   - `GetObject` on S3 has a limit of 5500 GET per second per prefix
   - For Intermittent Errors: implement [Exponential Back-off](#exponential-back-off)
   - For Consistent Errors: request an API throttling limit increase
 
 - Service Quotas (Service Limits)
-
   - Running On-Demand Standard Instances: 1152 vCPU
   - You can request a service limit increase by opening a ticket
   - You can request a service quota increase by using the Service Quotas API
@@ -349,7 +337,6 @@ Exponential Back-off for any AWS service
 - If you get _ThrottlingException_ intermittently, use exponential back-off
 - Retry mechanism already included in AWS SDK API calls
 - Must implement yourself if using the AWS API as-is or in specific cases
-
   - Must only implement the retries on `5xx` server errors and throttling
   - Do not implement on the `4xx` client errors
 
@@ -379,7 +366,6 @@ The Java SDK (example) will look for credentials in this order:
 - An application deployed on an EC2 instance is using environment variables with credentials from an IAM user to call the Amazon S3 API
 - The IAM user has S3FullAccess permissions
 - The application only uses one S3 bucket, so according to best practices:
-
   - An IAM Role & EC2 Instance Profile was created for the EC2 instance
   - The Role was assigned the minimum permissions to access that one S3 bucket
   - The IAM Instance Profile was assigned to the EC2 instance, but it still had access to all S3 buckets. Why?
@@ -390,7 +376,6 @@ The Java SDK (example) will look for credentials in this order:
 - Overall, **NEVER EVER STORE AWS CREDENTIALS IN YOUR CODE**
 - Best practice is for credentials to be inherited from the credentials chain
 - If using working within AWS, use IAM Roles
-
   - For EC2 Instances Roles for EC2 Instances
   - For ECS Roles for ECS tasks
   - For Lambda Roles for Lambda functions
@@ -432,7 +417,6 @@ The Java SDK (example) will look for credentials in this order:
 Scalability means that an application/system can handle greater loads by adapting
 
 - There are two kinds of scalability:
-
   - Vertical Scalability
   - Horizontal Scalability (elasticity)
 
@@ -466,17 +450,14 @@ Horizontal scalability means **increasing the number of instances/systems for yo
 ### High Availability and Scalability for EC2
 
 - Vertical Scaling: Increase instance size (scale up/down)
-
   - From: `t2.nano` - 0.5G of RAM, 1 vCPU
   - To: `u-12tb1.metal` - 12.3TB of RAM, 448 vCPUs
 
 - Horizontal Scaling: Increase number of instances (scale out/in)
-
   - Auto Scaling Group
   - Load Balancer
 
 - High Availability: Run instances for the same application across multi AZ
-
   - Auto Scaling Group multi AZ
   - Load Balancer multi AZ
 

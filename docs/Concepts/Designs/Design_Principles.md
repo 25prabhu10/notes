@@ -102,7 +102,6 @@ public Pancake orderPancake(string type) {
 This principle warrants against overuse of inheritance and suggests composition as a powerful alternative for extending behaviour in our designs
 
 - **"has-a"** is better than **"is-a"**
-
   - _"is-a"_ is an inheritance relationship: _Dog "is an" animal_
   - _"has-a"_ is a relationship of composition: _Dog "has a" owner_
 
@@ -371,7 +370,6 @@ $$ S \leq T \to (\forall x{:}T.\phi(x) \to \forall y{:}S.\phi(y) $$
 - We should not enforce clients to implement interfaces that they don't use. Instead of creating one big interface we can break down it to smaller interfaces
 
 - Classes depend on the smallest interface
-
   - The fewest methods and attributes
 
 - Helps design good classes

@@ -61,7 +61,6 @@ The queue can be implemented using:
 ### Arrays
 
 1. Queues using single pointer:
-
    - New element will be inserted at the rare: Operation `O(1)`
    - Element will be removed from the front `A[0]` and all the remaining elements will be shifted to one position lower i.e. `A[i] = A[i + 1]`: Operation `O(n)`
 
@@ -125,7 +124,6 @@ The queue can be implemented using:
    ```
 
 2. Queues using two pointer:
-
    - New element will be inserted at the rare: Operation `O(1)`
    - An element deletion will remove the first element: Operation `O(1)`
 
@@ -559,13 +557,10 @@ A priority queue is **a special type of queue** in which each element is associa
 - Assigning Priority Value
 
 1. Limited set of Priorities:
-
    - Useful in OS
 
 2. Element Priority
-
    - Two ways:
-
      - Insert in same order as they come and delete max-priority by search: Operation: Insert - `O(1)`, Delete - `O(n)`
 
      - Insert in increasing/decreasing order of Priority and Delete last/first element: Operation: Insert - `O(n)`, Delete - `O(1)`

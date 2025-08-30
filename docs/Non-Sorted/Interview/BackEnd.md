@@ -1,7 +1,6 @@
 # Backend Questions
 
 1. What are the characteristics of a RESTful API? Give an example e.g. if returning a list of customer accounts
-
    - it is stateless
    - use HTTP verbs as Fielding originally defined
    - express URLs with nouns rather than verbs
@@ -42,7 +41,6 @@ The transactions edge API in turn consumes 3 separate middle tier (restricted zo
 - Retrieve future (scheduled) transactions for any account identifier (sourced from Oracle DB)
 
 1. Sketch a solution architecture diagram (lines and boxes) showing:
-
    - The native app client (e.g. iOS or Android app)
    - The public facing API
    - The middle tier APIs
@@ -52,7 +50,6 @@ The transactions edge API in turn consumes 3 separate middle tier (restricted zo
 2. propose endpoint specification for each of the public facing and middle tier API calls using REST principles
 
    For each specify:
-
    - HTTP verb and route
    - Samples of JSON request/response payload structure
 
@@ -75,7 +72,6 @@ Follow Up Questions:
 Coding On Paper:
 
 1. Code a c# Web API controller class to implement the following endpoints:
-
    - Request: `GET /customers/{identifier}/identity`
    - Response: `HTTP 200 OK`
 
@@ -98,7 +94,6 @@ Coding On Paper:
    - Response: `HTTP 204 NO CONTENT`
 
 2. Assume that the following class and interface are defined:
-
    - Public class customer identity public string `firstName` public string `lastName` public string preferred name
 
    - Public interface I customer service customer identity get customer string identifier void update customer string identifier string preferred name

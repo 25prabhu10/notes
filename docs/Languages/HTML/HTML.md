@@ -221,7 +221,6 @@ In HTML element (paragraph) `<p>This is an amazing website!</p>`:
 Common Attributes and Their Uses:
 
 - `id`: Unique identifier for an element
-
   - Its value should start with a letter (A-Z or a-z) and can be followed by letters (A-Z or a-z), digits (0-9), hyphens (`-`), underscores (`_`), colons (`:`), and periods (`.`)
   - No two elements in the same document can have the same `id`
   - It is known as a **global attribute** because it can be used with any HTML element
@@ -266,34 +265,29 @@ The `role` attribute, describes the purpose of an element to assistive technolog
 Types of Roles:
 
 1. **Landmark Roles**: Used to define regions of a page, such as headers, footers, and navigation sections making it easier for users to navigate the page
-
    - `role="banner"`: Represents a banner or a header, typically at the top of the page
    - `role="navigation"`: Represents a group of navigational links
    - `role="main"`: Indicates the main content of the page
    - `role="complementary"`: Represents content that is related to the main content, but not essential to its understanding
 
 2. **Document Structure Roles**: Used to define the structure of a document, such as headings, paragraphs, and lists
-
    - `role="heading"`: Represents a heading for a section (like `<h1>`, `<h2>`, etc.)
    - `role="paragraph"`: Represents a paragraph of text
    - `role="list"`: Identifies a list of items (used in conjunction with `role="listitem"`)
    - `role="presentation"`: Indicates that an element should not be treated as a landmark or interactive element. Invisible to assistive technologies
 
 3. **Widget Roles**: Used to define interactive components, such as buttons, sliders, and checkboxes
-
    - `role="button"`: Represents a clickable button
    - `role="checkbox"`: Represents a checkbox
    - `role="slider"`: Represents a graphical slider control
    - `role="tablist"`, `role="tab"`, `role="tabpanel"`: Used to create tabbed interfaces
 
 4. **Live Region Roles**: Used to define regions of a page that are updated dynamically, such as alerts, status messages, and chat messages
-
    - `role="alert"`: Used to notify the user of important changes that do not require immediate user interaction
    - `role="status"`: Provides feedback that is not disruptive (e.g., progress updates)
    - `role="log"`: Represents a list of messages that are not interactive
 
 5. **Composite Roles**: Used to define complex components that are made up of multiple elements, such as menus, trees, and grids
-
    - `role="menu"`: Represents a list of menu items
    - `role="tree"`: Represents a hierarchical structure of items
    - `role="grid"`: A grid of elements, often used in data tables
@@ -346,7 +340,6 @@ Semantic HTML uses elements that clearly **describe their meaning** in a human- 
 - Helps screen readers and search engines interpret the content correctly
 
 1. **Semantic elements**: HTML tags that describe the purpose of the content they contain (e.g., `<header>`, `<article>`, and `<footer>`)
-
    - Semantic elements have implicit roles describing their role in the document
 
    ```html
@@ -447,7 +440,6 @@ Accessible Rich Internet Applications (**ARIA**) is a set of [roles](#wai-aria-r
 2. Do not change native semantics, unless you really have to
 
    _Example:_ Developer wants to build a heading that's a tab
-
    - Do **not** do this:
 
    ```html
@@ -469,7 +461,6 @@ Accessible Rich Internet Applications (**ARIA**) is a set of [roles](#wai-aria-r
    _Example:_ If using `role="button"` the element must be able to receive focus and a user must be able to activate the action associated with the element using **both** the `enter` (on WIN OS) or `return` (MAC OS) and the `space` key
 
 4. Do not use `role="presentation"` or `aria-hidden="true"` on a **focusable** element
-
    - Do **not** do this:
 
    ```html
@@ -509,7 +500,6 @@ Accessible Rich Internet Applications (**ARIA**) is a set of [roles](#wai-aria-r
 5. All interactive elements must have an accessible name
 
    _Example:_ The input `type=text` in the code example below has a visible label "user name", but no accessible name:
-
    - Do **not** do this:
 
    ```html
@@ -637,7 +627,6 @@ The `<html>` element represents the root (top-level element) of an HTML document
 `<html>` attributes:
 
 - `lang`: Specifies the primary language for the content of the document
-
   - It helps screen readers and search engines understand the language of the content
 
   - It is recommended to use the [ISO language code](https://www.loc.gov/standards/iso639-2/php/code_list.php) for the `lang` attribute
@@ -704,8 +693,16 @@ The `<head>` element contains machine-readable information (metadata) about the 
 
     <!-- Set the theme colour for the safari, android, ios -->
     <meta name="theme-color" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: light)"
+      content="#ffffff"
+    />
+    <meta
+      name="theme-color"
+      media="(prefers-color-scheme: dark)"
+      content="#000000"
+    />
 
     <!-- Set the colour scheme for the document -->
     <meta name="color-scheme" content="light dark" />
@@ -1097,7 +1094,6 @@ a:visited {
 #### Anchor Attributes
 
 - `href`: The URL of the page the link goes to
-
   - Absolute URL: The full URL of the linked page, including the protocol (e.g., `href="https://example.com"`)
   - Relative URL: The path to the linked page, relative to the current page (e.g., `href="/about"`)
   - Anchor Link: The ID of an element on the same page to link to (e.g., `href="#section1"`)
@@ -1133,15 +1129,12 @@ a:visited {
   ```
 
 - `referrerpolicy`: How much of the referrer to send when following the link
-
   - `no-referrer`: The Referer header will not be sent (set this for security reasons)
 
 - `target`: Where to display the linked URL
-
   - `_self`: the current browsing context. (Default)
 
   - `_blank`: usually a new tab, but users can configure browsers to open a new window instead. Set `rel="noopener"` which does not set `window.opener`, for some browsers it is the default behaviour
-
     - **Not good for accessibility**, as user is navigated away from the current context and not clear indication to go back
 
     - Use `target="_blank"` Sparingly
@@ -1247,7 +1240,6 @@ a:visited {
 6. Try to keep _underline_ for clear communication (optional)
 
 7. If you click an `<a>` element without an `href`? Absolutely nothing
-
    - Browser won't focus the `<a>` element when tab is pressed
 
 #### Creating URL the right way
@@ -1255,7 +1247,7 @@ a:visited {
 ```javascript
 // Don't use string concatenation
 const url = `https://builder.io/api/v1/image?height=${encodeURIComponent(
-  height,
+  height
 )}&width=${encodeURIComponent(width)}`;
 
 // Instead use the global URL constructors
@@ -1323,20 +1315,17 @@ The `<img>` element is used to embed images in an HTML document
 ```
 
 - Provide `src`, `alt`, `height`, and `width` attributes for each image
-
   - `src`: The URL of the image file
   - `height`: The height of the image in pixels
   - `width`: The width of the image in pixels
   - `title`: The title of the image (optional)
 
 - `alt` attribute must be provided (can be empty)
-
   - If an image is decorative, it needs to have an empty/null alternative text attribute (assistive technology devices (ATs) ignore this image as it is not necessary for understanding the content or action on the page)
 
   - An empty/null alternative text attribute is not the same as a missing alternative text attribute. If the alternative text attribute is missing, the AT might read out the file name or surrounding content in an attempt to give the user more information about the image
 
   - Types of Images that Definitely Need Alt Text:
-
     - Images that are links or buttons
     - Images which contain important text
     - Logos
@@ -1675,7 +1664,6 @@ The above code will be rendered as:
 Attributes:
 
 - `scope`: Specifies whether a header cell is a header for a column, row, group, or the entire table
-
   - `col`: The header cell is a header for a column
   - `row`: The header cell is a header for a row
   - `rowgroup`: The header cell is a header for a row group
@@ -1771,21 +1759,18 @@ Attributes:
 - `action`: The URL that processes the form submission. This value can be overridden by a form-action attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` element
 
 - `method`: The HTTP method to submit the form with
-
   - `post`: The **POST method**; form data sent as the request body
   - `get`: The **GET method**; form data appended to the action URL with a `?` separator. Use this method when the form has no side-effects
   - `dialog`: When the form is inside a `<dialog>`, closes the dialog on submission
   - This value is overridden by `formmethod` attributes on `<button>`, `<input type="submit">`, or `<input type="image">` elements
 
 - `enctype`: If the value of the **method attribute is post, enctype is the MIME type** of the form submission
-
   - `application/x-www-form-urlencoded`: (**default**) Form data is URL-encoded before being sent to the server
   - `multipart/form-data`: Use this if the form contains `<input>` elements with `type=file`
   - `text/plain`: Introduced by HTML5 for debugging purposes
   - This value can be overridden by `formenctype` attributes on `<button>`, `<input type="submit">`, or `<input type="image">` elements
 
 - `autocomplete`: Indicates whether input elements can by default have their values automatically completed by the browser
-
   - `off`: No autofill (expect for username and password)
   - `on`: The browser may automatically complete entries
 
@@ -1796,7 +1781,6 @@ Attributes:
 - `novalidate`: This Boolean attribute indicates that the form shouldn't be validated when submitted. If this attribute is not set (and therefore the form is validated), it can be overridden by a `formnovalidate` attribute on a `<button`>, `<input type="submit">`, or `<input type="image"`> element belonging to the form.
 
 - `target`: Indicates where to display the response after submitting the form. In HTML5, it is a name/keyword for a browsing context (for example, tab, window, or iframe). The following keywords have special meanings:
-
   - `_self (default)`: Load into the same browsing context as the current one.
   - `_blank`: Load into a new unnamed browsing context.
   - `_parent`: Load into the parent browsing context of the current one. If no parent, behaves the same as `_self.`
@@ -1850,7 +1834,6 @@ Attributes:
 - `min`: The minimum value allowed in the input field
 - `max`: The maximum value allowed in the input field
 - `disabled`: The input field is disabled and cannot be edited
-
   - An element is disabled if it can't be activated (selected, clicked on, typed into, etc.) or accept focus
   - Disabled elements are usually rendered in gray by default in browsers
 
@@ -1859,11 +1842,9 @@ Attributes:
 CSS Pseudo-classes:
 
 - `:valid`: The input field is valid
-
   - `:user-valid` (new 2023): Validate only when the user interacts with the input field unlike `:valid` which validates on form submission
 
 - `:invalid`: The input field is invalid
-
   - `:user-invalid` (new 2023)
 
 - `:required`: The input field is required
@@ -1874,7 +1855,6 @@ CSS Pseudo-classes:
 - `:read-write`: The input field is read-write such as text input
 - `:placeholder-shown`: The input field is displaying the placeholder text
 - `:empty`: The input field is empty
-
   - `:blank` (experimental): The input field is blank
 
 _Example:_
@@ -1984,7 +1964,6 @@ Common input types:
 
 4. `email`: A control for entering an email address
 5. `radio`: A radio button allowing a single value to be selected out of multiple options
-
    - `checked` attribute is used to set the default value (valid values are `checked` and `unchecked`)
 
    ```html
@@ -2039,7 +2018,6 @@ Common input types:
    - `spellcheck`: Whether the search should be spell-checked
 
    Non-standard attributes:
-
    - `autocorrect`: Whether the search should be automatically corrected
 
    - `incremental`: Whether the search should be incremental
@@ -2064,7 +2042,6 @@ Common input types:
    ```
 
 9. `file`: Upload files
-
    - `accept`: The file types that the server accepts
    - `multiple`: Allow multiple files to be uploaded
    - `capture`: Used to specify which camera to use for capturing image or video data
@@ -2079,7 +2056,6 @@ Common input types:
 
 10. `button`
 11. `submit`: A button that submits the form
-
     - `value`: The text displayed on the button
     - `formaction`: The URL that processes the form submission
 
@@ -2088,7 +2064,6 @@ Common input types:
     ```
 
 12. `image`: A graphical submit button
-
     - `src`: The URL of the image to display on the button
     - `alt`: The alternative text for the image
 
@@ -2098,7 +2073,6 @@ Common input types:
 
 13. `range`
 14. `date`: A control for entering a date
-
     - `min`: The minimum date that can be selected
     - `max`: The maximum date that can be selected
 
@@ -2127,7 +2101,6 @@ Common input types:
     ```
 
 17. `hidden`: A hidden input field
-
     - Used to store data that should not be visible to the user, such as CSRF tokens
 
     ```html
@@ -2141,12 +2114,10 @@ Common input types:
 The `<select>` element is used to create a drop-down list, which can be used to select single/multiple option(s) from a list of options
 
 - `<option>`: The options available in the drop-down list
-
   - `selected`: The default value, if not provided, the first option is selected
   - `optgroup`: The option group
 
 - `multiple`: Allows multiple options to be selected
-
   - Let the user know that they can select multiple options by adding a note above the select element
 
 - `size`: The number of options to show at once
@@ -2371,7 +2342,6 @@ The `<video>` element is used to embed video content in documents
 - `src`: The URL of the video file
 - `poster`: The URL of an image to display while the video is downloading, or until the user hits the play button
 - `preload`: The video should be loaded when the page loads
-
   - `none`: The video should not be loaded when the page loads
   - `metadata`: Only metadata should be loaded when the page loads
   - `auto`: The video should be loaded when the page loads
@@ -2439,12 +2409,10 @@ Attributes:
 - `width`: The width of the frame
 - `height`: The height of the frame
 - `loading`: The loading behaviour of the frame
-
   - `eager`: Load the frame immediately
   - `lazy`: Defer loading the frame until it is visible
 
 - `allow`: A space-separated list of the features the iframe's document may use
-
   - The policy defines what features are available to the `<iframe>` (for example, access to the microphone, camera, battery, web-share, etc.) based on the origin of the request
 
   - **`Permissions-Policy` header** provides a mechanism to allow and deny the use of browser features in a document or within any `<iframe>` elements in the document
@@ -2466,7 +2434,6 @@ Attributes:
 - `referrerpolicy`
 
 - `sandbox`: Security restrictions for the content in the frame. It can be empty to apply all restrictions, or space-separated values to apply specific restrictions
-
   - `allow-downloads`: Allows the embedded browsing context to download files
   - `allow-forms`: Allows the embedded browsing context to submit forms
   - `allow-modals`: Allows the embedded browsing context to open modal windows
@@ -2492,7 +2459,6 @@ The elements that do not have any words between an opening and closing tag are c
 ### Other Elements
 
 - `<address>`: Used for email address, social network account, street address, telephone number, or something you can get in touch with
-
   - The address element represents the contact information for its nearest article or body element ancestor
 
 - `<abbr>`: The Abbreviation element. When including an abbreviation or acronym, provide a full expansion of the term in plain text on first use, along with the `<abbr>` to mark up the abbreviation. This informs the user what the abbreviation or acronym means
@@ -2549,9 +2515,7 @@ Conditional comments are used to target specific versions of Internet Explorer, 
 ### Accessible Design
 
 1. Colour contrast:
-
    - Background to text colour contrast ratios ([WCAG](#web-content-accessibility-guidelines-wcag) recommendations):
-
      - Small text (23x or less): 4.5
      - Small bold text (17x or less): 4.5
      - Large text (24x or more): 3
@@ -2561,7 +2525,6 @@ Conditional comments are used to target specific versions of Internet Explorer, 
    - [Adobe Colour Contrast Analyser](https://color.adobe.com/create/color-contrast-analyzer)
 
 2. Colour blindness:
-
    - Up to 8% male population are red-green colour blind
 
    - There are several other types of colour blindness, some of which primarily affect the female population
@@ -2571,25 +2534,20 @@ Conditional comments are used to target specific versions of Internet Explorer, 
    - Don't rely on colour difference only when indicating state (supplement with text)
 
 3. Typography:
-
    - Larger font sizes (within reason) are preferred
-
      - Default size of _16px_ is OK
      - _18px_ or _20px_ is better
 
    - Avoid complex fonts for anything but decoration
-
      - Handwriting and decorative fonts look good
      - Are difficult to read
 
    - Avoid mono-space fonts unless share code
 
    - Avoid "fancy" fonts with unusual Features
-
      - Fonts with stylish ligaments and non-standard glyphs are difficult to read
 
    - Keep Max sentence length between 70 and 80 characters
-
      - `max-width: 70ch;` and your done!
 
 4. Hierarchies and Flows
@@ -2633,7 +2591,6 @@ The goal of `:focus` is to give the user **guidance on where exactly they are** 
 - Only one element can be focused at a time
 
 - Browsers use the `:focus-visible` CSS pseudo class to **give outlines (focus indicators)** to form fields and other elements **when they're focused**
-
   - `:focus-visible` is a pseudo-class that is activated when an element is focused and UA determines via heuristics the user's input modality
 
 - `:focus-within` is a pseudo-class that is activated when an element is focused, or contains an element that is focused
@@ -2657,7 +2614,6 @@ The goal of `:focus` is to give the user **guidance on where exactly they are** 
   ```
 
 - **Never remove CSS outlines** unless you replace them with something better
-
   - Don't remove outline completely with `outline: none;`, instead set outline colour to transparent `outline: 0.25rem solid transparent;`
   - This will hide the outline in normal mode but overridden correctly in high contrast mode, where the transparent colour will be replaced with a colour set by the user
 
@@ -2735,7 +2691,6 @@ If something is set to `display: none;` or otherwise hidden, screen readers migh
 Different ways to hide content:
 
 1. **`hidden` (attribute)**: The `hidden` global attribute is a Boolean attribute indicating that the element is not yet, or is no longer, directly relevant to the page's current state or direction
-
    - All HTML elements may have the hidden content attribute set
    - User agents should not render elements that have the `hidden` attribute specified
 
@@ -2744,7 +2699,6 @@ Different ways to hide content:
    ```
 
    Effects:
-
    - Content not displayed to **any user**
    - Semantic indicator of state in HTML code
    - CSS style of `display: none;` is applied by browsers
@@ -2753,7 +2707,6 @@ Different ways to hide content:
    - `hidden` where setting a `display: block;` will override the attribute's default styling and semantics
 
 2. **`aria-hidden="true"`**: attribute of the element that should be **only hidden from screen readers**
-
    - This attribute applies to current element and **all its children**
    - It is used to hide elements from screen readers, but keep them **visible on the page**
    - It is important to note that any focusable elements within an element with `aria-hidden="true"` **remains focusable**, which can be a big problem for screen readers. Make sure there are no focusable elements within such container and that the element itself is also not focusable either (see the [fourth rule of ARIA](#aria-rules))
@@ -2768,7 +2721,6 @@ Different ways to hide content:
    ```
 
 3. **CSS `display: none`**: The element is completely removed from the document
-
    - The element is not rendered
    - The element is not included in the accessibility tree
    - The element is not focusable
@@ -2889,7 +2841,6 @@ Different ways to hide content:
    ```
 
 5. `visibility: hidden`: The element is invisible but **still takes up space** in the layout
-
    - The element is not focusable
    - The element is not rendered, but it still takes up space in the layout
    - Does not remove the content from the normal DOM flow, so its "physical space" is still retained in the document

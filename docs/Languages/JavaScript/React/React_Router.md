@@ -200,7 +200,6 @@ export const Profile = ({ loggedIn }) => {
   ```
 
   - By default React-Router will render all the matched paths
-
     - In the above code, if we navigate to the path `/about` both `<Home />` and `<About />` components will be rendered as `/about` can be matched with `/` and `/about`
 
     - To exclude `/` from being matched we can specify the **`exact` attribute**:
@@ -260,15 +259,12 @@ export const Profile = ({ loggedIn }) => {
 ## Types of Routers
 
 - `BrowserRouter`: Uses everything after the TLD (.com, .net) or port as the "path"
-
   - `localhost:3000/page-two`: `/page-two` is matched
   - Backend server need to be configured to respond to different routes
 
 - `HashRouter`: Uses everything after a `#` as the "path"
-
   - `localhost:3000/#/page-two`: `/page-two` is matched
   - As anything after the `#` is ignored by the browser before making the request to server. The server will always return the root `index.html`
 
 - `MemoryRouter`: Doesn't use the URL to track navigation
-
   - `localhost:3000/`: URL don't change even if we navigate to other pages

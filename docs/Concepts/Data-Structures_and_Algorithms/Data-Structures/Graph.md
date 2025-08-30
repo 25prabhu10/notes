@@ -28,7 +28,6 @@ A graph is a data structure (V, E) that consists of:
 Graphs are commonly represented in 2 ways:
 
 1. Adjacency Matrix: An adjacency matrix is a 2D array of `V x V` vertices. Each row and column represent a vertex
-
    - If the value of any element `a[i][j]` is `1`, it represents that there is an edge connecting vertex `i` and vertex `j`
 
    - Edge lookup(checking if an edge exists between vertex A and vertex B) is extremely fast. You can check if node `i` is adjacent to node `j` in **`O(1)` steps**
@@ -53,7 +52,6 @@ Graphs are commonly represented in 2 ways:
    ```
 
 2. **Adjacency List**: An adjacency list represents a graph as an array of linked lists
-
    - The index of the array represents a vertex and each element in its linked list represents the other vertices that form an edge with the vertex
 
    - An adjacency list is efficient in terms of storage **(consumes `O(n+e)` space)** because we only need to store the values for the edges
@@ -78,7 +76,6 @@ Graphs are commonly represented in 2 ways:
 ## Traversal Algorithms
 
 1. Breath first search (BFS): The graph is first explored in depth and then in breadth
-
    - Using Queue
 
    - Best for finding all possible routes, then use it to find the most efficient
@@ -107,7 +104,6 @@ Graphs are commonly represented in 2 ways:
    ```
 
 2. Depth first search (DFS): The graph is first explored in breadth and then in depth
-
    - Using Stack
 
    - Fastest way to find a route

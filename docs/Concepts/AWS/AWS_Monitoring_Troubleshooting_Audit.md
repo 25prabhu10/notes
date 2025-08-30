@@ -83,7 +83,6 @@ Why Monitoring is Important
   - CloudWatch log agents: for example on EC2 machines
   - Route53: Log DNS queries
 - CloudWatch Logs can go to:
-
   - Batch exporter to S3 for archival
   - Stream to ElasticSearch cluster for further analytics
 
@@ -251,7 +250,6 @@ Why Monitoring is Important
 ## Enable AWS X-Ray
 
 1. Your code (Java, Python, Go, Node.js, .NET) must import the AWS X-Ray SDK::
-
    - Very little code modification needed
    - The application SDK will then capture:
      - Calls to AWS services
@@ -260,7 +258,6 @@ Why Monitoring is Important
      - Queue calls (SQS)
 
 2. Install the X-Ray daemon or enable X-Ray AWS Integration
-
    - X-Ray daemon works as a low level UDP packet interceptor (Linux / Windows / Mac...)
    - AWS Lambda / other AWS services already run the X-Ray daemon for you
    - Each application must have the IAM rights to write data to X-Ray
@@ -325,7 +322,6 @@ app.use(AWSXRay.express.closeSegment());
 - You can create your own rules with the reservoir and rate
 
 - _Example:_ Higher minimum rate for POSTs
-
   - Rule name: `POST minimum`
   - Priority: `100`
   - Reservoir: `10`

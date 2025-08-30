@@ -39,7 +39,6 @@ Because it has:
 REST APIs are not that useful for non-CRUD operations, such as:
 
 - Archiving:
-
   - Work around in REST: Sending action in body
 
   ```http
@@ -48,7 +47,6 @@ REST APIs are not that useful for non-CRUD operations, such as:
   ```
 
 - Deactivate:
-
   - Work around in REST: Using sub-resource as actions name (only acceptable for sub-resources)
 
   ```http
@@ -56,7 +54,6 @@ REST APIs are not that useful for non-CRUD operations, such as:
   ```
 
 - Search:
-
   - Work around in REST: Using query parameters
 
   ```http
@@ -143,7 +140,7 @@ server.bindAsync(
   () => {
     serve.start();
     console.log("Server running on port 50051");
-  },
+  }
 );
 ```
 
@@ -232,7 +229,6 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 2. **Collection**: represents a collection of entities: `/customers`
 
 3. **Sub-collection**: a resource may contain sub-collection resources:
-
    - `/customers/{customerId}/accounts`
    - `accounts` is sub-collection of a particular `customer`
    - `/customers/{customerId}/accounts/{accountsId}`
@@ -263,22 +259,18 @@ _Example:_ The following shows a JSON representation of an order. It contains li
 Maturity model for web APIs by Leonard Richardson (2008):
 
 1. **Level 0**: Define **one URI**, and all operations are POST requests to this URI
-
    - XML-RPC, most SOAP, and WSDL are examples of Level 0 APIs
 
 2. **Level 1**: **Multiple URIs** for individual resources, but **one HTTP method** for all operations (usually POST)
-
    - Most "RESTful" services that aren't
    - _Example:_ `POST /dogs` (retrieve), `POST /dogs/123` (update)
 
 3. **Level 2**: Use HTTP methods to define operations on resources
-
    - Many URIs each supporting multiple HTTP methods
    - Most published web APIs are at this level
    - _Example:_ `GET /dogs`, `POST /dogs`, `PUT /dogs/123`, `DELETE /dogs/123`
 
 4. **Level 3**: Hypermedia Controls
-
    - Resources describe their own capabilities and interconnections
    - Use hypermedia [HATEOAS](#hateoas)
    - Used very rarely
@@ -330,7 +322,6 @@ API defines a contract on how to interact with the application
 For an **API to be RESTful** it should comply with the following constraints:
 
 1. **Uniform Design (interface)**: Once a developer becomes familiar with one of your APIs, he should be able to follow a similar approach for other APIs
-
    - Resource identification in requests
    - Resource manipulation through representations
    - Self-descriptive messages
@@ -351,7 +342,6 @@ All the above constraints help you build a truly RESTful API, and you should fol
 ### API Design
 
 1. Entity-oriented:
-
    - code manipulates the entities that are exposed
    - similar to learning a database schema
    - Their APIs are all the same
@@ -359,7 +349,6 @@ All the above constraints help you build a truly RESTful API, and you should fol
    - Examples: `GET /dogs`, `POST /dogs`
 
 2. Procedure-oriented:
-
    - code calls procedure/function/method
    - similar to learning the libraries of a programming language
    - Their APIs are all different
@@ -410,14 +399,12 @@ Checkout notes about HTTP here: [HTTP Notes Link](./HTTP.md)
 Common Update Semantics:
 
 1. Approach 1:
-
    - POST to create
    - PUT for full updates
    - PATCH for partial updates
    - Most specification compliant but also more complex
 
 2. Approach 2:
-
    - POST to create or update
    - Simpler and easier, but no idempotent update capability (treat all updates as partial updates)
 
@@ -676,7 +663,6 @@ Give all optional parameters in query strings meaningful defaults. For example, 
 Use HTTP status codes:
 
 - Status codes for scenarios:
-
   - Everything worked: `200`
   - The application did something wrong: `404`
   - The API did something wrong: `500`
@@ -693,10 +679,10 @@ On an average 8 codes: `200, 201, 304, 400, 401, 403, 404, 500`
   // HTTP Status Code: 401
 
   {
-    status: 401,
-    message: "Authenticate",
-    code: 2003,
-    more_info: "https://www.twilio.com/docs/errors/20003",
+    "status": 401,
+    "message": "Authenticate",
+    "code": 2003,
+    "more_info": "https://www.twilio.com/docs/errors/20003"
   }
   ```
 
@@ -721,13 +707,11 @@ Approaches to Restful Versioning:
    ```
 
 3. URL prefix (path) versioning:
-
    - `/api/v1/test`, `/api/v2/test`
    - Least restful
    - But more explicit to the clients
 
 4. Query String:
-
    - `/api/test?api-version=1.0`, `/api/test?api-version=2.0`
    - Set default version
 
@@ -948,13 +932,13 @@ While Posting data, how do clients know which fields and types of data to submit
 
   ```json
   {
-    href: "https://example.io/register",
-    rel: ["form"], // (or edit-form, create-form, query-form)
-    method: "POST",
-    value: [
-      { name: "firstName", type: "string" },
-      { name: "lastName", type: "string", required: true },
-    ],
+    "href": "https://example.io/register",
+    "rel": ["form"], // (or edit-form, create-form, query-form)
+    "method": "POST",
+    "value": [
+      { "name": "firstName", "type": "string" },
+      { "name": "lastName", "type": "string", "required": true }
+    ]
   }
   ```
 
@@ -965,9 +949,7 @@ While Posting data, how do clients know which fields and types of data to submit
 Employee resource API:
 
 1. GET route: returns array of employees
-
    - Query Parameters:
-
      - `bodyLimit`
      - `pageLimit`
 
@@ -978,9 +960,7 @@ Employee resource API:
        - `Title`
 
 2. GET route: returns specific employee
-
    - Path Parameters:
-
      - `ID`
 
    - Responses:
@@ -990,9 +970,7 @@ Employee resource API:
        - `Title`
 
 3. POST route: add new employee
-
    - Parameters:
-
      - Payload:
        - `ID`
 
@@ -1002,20 +980,17 @@ Employee resource API:
 ## Adding an API
 
 1. Bolt-On Strategy: for existing systems
-
    - Brute-force approach
    - The fastest way to build something useful
    - Benefit: takes advantages of existing code and systems
    - Drawback: problems in the application or architecture leak through into the API
 
 2. Greenfield Strategy: for new systems
-
    - API or mobile-first mindset
    - Benefits: takes advantage of new technologies and architectures and may reinvigorate the team
    - Drawback: often requires massive upfront investment before any Benefits appear
 
 3. Facade Strategy: replacing piece by piece
-
    - Benefit: ideal for legacy systems as the application is always functional
    - Drawback: multiple mindsets in the system
    - Drawback: hard to replicate behaviour for a full one-on-one conversion
@@ -1055,19 +1030,16 @@ Optimization techniques:
 
 1. Caching
 2. Connection pooling:
-
    - Reduce number of connections created and destroyed
    - But also maintain the number of connections open in order not to overwhelm the Database
    - RDS Proxy: it sits between your application and database to efficiently manage DB connections
 
 3. Avoid N+1 Query Problem:
-
    - N+1 Problem: Include enough information in single resources inside collection resources
 
 4. Pagination:
 5. Fast serialization libraries
 6. Compression:
-
    - Brotli
 
 7. Asynchronous logging

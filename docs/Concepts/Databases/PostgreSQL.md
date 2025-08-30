@@ -14,6 +14,14 @@ Features:
 - MUCC
 - Continuity
 
+Advantages:
+
+- Open Source
+- Extensible
+- SQL Compliance
+- ACID Compliance
+- Advanced Data Types (JSON, XML, Arrays, Key-Value Pairs, Geometric types, etc.)
+
 ## Installation
 
 PostgreSQL 12 on Ubuntu 20.04 LTS:
@@ -187,3 +195,261 @@ pg_restore -h <pg_host> -U <pg_user> -d postgres --create -F c /tmp/db.dmp -v
 ```
 
 A complete guide of `pg_restore` from the official documentation can be found [here](https://www.postgresql.org/docs/current/app-pgrestore.html)
+
+## Data Types
+
+PostgreSQL supports a wide range of data types. The following list shows some of the most common data types:
+
+- `integer`
+
+### Text
+
+#### Search Vector
+
+```sql
+CREATE TABLE blogs (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    search_vector TSVECTOR
+);
+
+CREATE INDEX search_vector_idx ON blogs USING GIN(search_vector);
+
+INSERT INTO blogs (title, content) VALUES
+('Postgres Full-Text Search', 'Postgres is a powerful open-source database.'),
+('Postgres JSONB', 'Postgres supports JSONB data type.');
+
+
+SELECT title,
+       ts_rank(search_vector, plainto_tsquery('open-source')) AS rank
+FROM blogs,
+     to_tsquery('english', 'open-source') AS query
+WHERE search_vector @@ query
+ORDER BY rank DESC;
+```
+
+### JSON
+
+PostgreSQL supports JSON data type. JSON is stored as binary JSON (JSONB) which is a decomposed binary format
+
+The following example shows how to create a table with a JSON column:
+
+```sql
+CREATE TABLE json_table (
+    id serial PRIMARY KEY,
+    data json NOT NULL
+);
+```
+
+```sql
+-- create a table with a JSONB column
+CREATE TABLE horses (
+    id serial PRIMARY KEY,
+    name TEXT,
+    attributes JSONB
+);
+
+-- insert a JSON object
+INSERT INTO horses (name, attributes)
+VALUES ('Horse1', '{"color": "brown", "age": 5, "weight": 500}');
+
+-- query the JSON object
+SELECT * FROM horses
+WHERE attributes->>'color' = 'brown';
+```
+
+## Tables
+
+### UNLOGGED tables
+
+`UNLOGGED` tables are not written to the WAL (Write-Ahead Log) and are not replicated to the standby servers. They are faster than regular tables because they do not have to be written to the WAL. They are useful for temporary tables that do not need to be replicated
+
+- It can be used as a in-memory table for temporary data like a cache
+
+```sql
+CREATE UNLOGGED TABLE cache_table (
+    key TEXT PRIMARY KEY,
+    value TEXT,
+    expires_at TIMESTAMP NOT NULL WITH TIME ZONE
+);
+
+INSERT INTO cache_table (key, value, expires_at)
+VALUES ('session_123', 'user_data', NOW() + INTERVAL '1 hour');
+
+SELECT * FROM cache_table
+WHERE key = 'session_123' AND expires_at > NOW();
+```
+
+To use `UNLOGGED` tables, you need to have the `unlogged_table` parameter set to `on` in the `postgresql.conf` file
+
+```text
+unlogged_table = on
+```
+
+- Set `shared_buffers` to at least 25% of RAM
+- Use _auto vacuum_ to clean up dead tuples
+- Also, you can create cron jobs to clean up the table
+
+```sql
+SELECT cron.schedule(
+  'clean_cache_table',
+  '0 0 * * *',
+  $$DELETE FROM cache_table WHERE expires_at <= NOW();$$
+);
+```
+
+## Extensions
+
+### `pg_mooncake`
+
+`pg_mooncake` is a PostgreSQL extension that provides a set of functions for working with mooncake data types. It allows you to store and query mooncake data efficiently
+
+- A simple time-series data type
+
+### `pgcrypto`
+
+`pgcrypto` is a PostgreSQL extension that provides cryptographic functions. It allows you to encrypt data, generate hashes, and perform other cryptographic operations
+
+```sql
+CREATE EXTENSION IF NOT EXISTS pgcrypto;
+CREATE EXTENSION IF NOT EXISTS pgjwt;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password TEXT NOT NULL,
+  name VARCHAR(255),
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+INSERT INTO users (email, password, name)
+VALUES (
+  'abc@m.com',
+  crypt('password', gen_salt('bf', 10)),
+  'Alice'
+);
+
+SELECT id, email, name
+FROM users
+WHERE email = 'abc@m.com' AND password = crypt('password', password);
+
+
+CREATE TABLE jwt_tokens (
+  id SERIAL PRIMARY KEY,
+  kid VARCHAR(255) NOT NULL UNIQUE,
+  key TEXT NOT NULL,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+);
+
+SELECT
+    sign(
+        '{ "sub": "123", "name": "Alice", "iat": 1630000000 }',
+        'secret_key',
+  );
+
+SELECT * FROM
+    verify('someToken', 'secret_key');
+
+
+ALTER TABLE documents ENABLE ROW LEVEL SECURITY;
+
+CREATE POLICY user_documents_policy
+ON documents
+FOR SELECT USING (user_id = current_setting('jwt.claims.sub', true));
+
+SELECT set_config('jwt.claims.sub', '123', true);
+
+SELECT * FROM blogs;
+```
+
+### `pg_cron`
+
+`pg_cron` is a simple cron-based job scheduler for PostgreSQL (9.5 or higher) that runs inside the database as an extension. It uses the same syntax as regular cron, but it allows you to schedule PostgreSQL commands directly from the database.
+
+```sql
+CREATE EXTENSION IF NOT EXISTS pg_cron;
+
+SELECT cron.schedule(
+  'daily_vacuum', -- name of the job
+  '0 3 * * *', -- cron schedule
+  $$VACUUM ANALYZE;$$ -- SQL command
+);
+
+SELECT * FROM cron.job;
+```
+
+### `pgvector`
+
+`pgvector` is a PostgreSQL extension that provides vector similarity search and indexing. It allows you to store and query high-dimensional vectors efficiently.
+
+- Use case: recommendation systems, image search, natural language processing
+
+```sql
+CREATE EXTENSION IF NOT EXISTS vector;
+
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    embedding vector(768)
+);
+
+INSERT INTO products (name, embedding)
+VALUES ('product1', '[0.01, 0.23, -0.47, ...]');
+
+SELECT * FROM products
+ORDER BY embedding <-> '[0.1, 0.2, -0.5, ...]'; -- find similar vectors
+```
+
+### `pgai`
+
+`pgai` is a PostgreSQL extension that provides machine learning and artificial intelligence capabilities. It allows you to train and deploy machine learning models directly in the database.
+
+- Use case: predictive analytics, fraud detection, recommendation systems
+
+```sql
+CREATE EXTENSION IF NOT EXISTS ai CASCADE;
+
+SELECT ai.load_dataset(
+    'wikimedia/wikipedia',
+    '20231101.en',
+    table_name=>'wiki',
+    batch_size=>5,
+    max_batches=>1,
+    if_table_exists=>'append'
+);
+
+SELECT ai.create_vetorizer(
+    'wiki'::regclass,
+    destination => 'wiki_embeddings',
+    embedding => ai.embedding_ollama('all-minilm', 384),
+    chunking => ai.chunking_recursive_character_text_splitter('text')
+);
+```
+
+### `pg_graphql`
+
+`pg_graphql` is a PostgreSQL extension that provides a GraphQL API for your database. It allows you to expose your database schema as a GraphQL API without writing any backend code
+
+```sql
+graphqldb= CREATE EXTENSION IF NOT EXISTS pg_graphql;
+CREATE EXTENSION
+
+graphqldb= CREATE TABLE book(id INT PRIMARY KEY, title TEXT);
+CREATE TABLE
+
+graphqldb= INSERT INTO book(id, title) VALUES (1, 'PostgreSQL');
+INSERT 0 1
+
+graphqldb= SELECT graphql.resolve($$
+query {
+  bookCollection {
+    edges {
+      node {
+        id
+      }
+    }
+  }
+}
+$$);
+```

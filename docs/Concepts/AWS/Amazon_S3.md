@@ -47,7 +47,6 @@ Steps:
 
 1. Goto Amazon S3
 2. Create bucket:
-
    - General configuration
    - Bucket name: this should be unique name across global S3 (like a username for a website)
    - AWS Region: (S3 console is Global but Buckets are Regional)
@@ -203,7 +202,6 @@ Steps:
 1. Goto Amazon S3 --> the bucket --> Permissions
 2. Bucket policy (written in JSON)
 3. Policy Generator:
-
    1. Select Policy Type: S3 Bucket Policy
    2. Add Statement(s):
       - Effect: Allow or Deny
@@ -237,7 +235,6 @@ Steps:
 2. Unblock all public access
 3. Add AWS Policy to make objects publicly accessible
 4. Goto Properties --> Static website hosting:
-
    - Static website hosting: Enable
    - Hosting type: Host a static website (or Redirect requests for an object)
    - Index document: `index.html`
@@ -330,7 +327,6 @@ Steps:
 1. Open the original bucket
 2. Goto Management --> Replication rules
 3. Create replication rules:
-
    - Replication rule name:
    - Status: Enabled
    - Source bucket:
@@ -471,7 +467,6 @@ Steps:
 
 1. Goto Bucket --> Management --> Lifecycle rules
 2. Create lifecycle rule:
-
    - Lifecycle rule name
    - Choose a rule scope: (Limit the scope...) (...all objects...)
    - Actions:

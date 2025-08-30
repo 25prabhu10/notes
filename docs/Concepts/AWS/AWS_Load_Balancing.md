@@ -69,23 +69,19 @@ Load balancers are servers that forward internet traffic to multiple servers (EC
 Steps:
 
 1. Define Load Balancer
-
    - Load Balancer name:
    - Load Balancer Protocol: HTTP:80
    - Instance Protocol: HTTP:80
 
 2. Assign Security Groups
-
    - Create or use existing security group
    - Type: HTTP:80
    - Source: Anywhere
 
 3. Configure Security Settings
-
    - Setup HTTPS or SSL protocol
 
 4. Configure Health Check
-
    - Ping Protocol: HTTP
    - Ping Port: 80
    - Ping Path: / (or /health or any other path)
@@ -136,7 +132,6 @@ Steps:
 Steps:
 
 1. Configure Load Balancer:
-
    - Name
    - Scheme: internet-facing
    - IP address type: ipv4
@@ -146,7 +141,6 @@ Steps:
 2. Configure Security
 3. Configure Security Groups
 4. Configure Routing:
-
    - Target group
    - Name
    - Target type: Instance
@@ -172,7 +166,6 @@ Steps:
 Steps:
 
 1. Configure Load Balancer:
-
    - Name
    - Scheme: internet-facing
    - IP address type: ipv4
@@ -181,7 +174,6 @@ Steps:
 
 2. Configure Security
 3. Configure Routing:
-
    - Target group
    - Name
    - Target type: instance
@@ -331,7 +323,6 @@ Note:
 ### Auto Scaling Custom Metric
 
 - We can auto scale based on a custom metric (ex: number of connected users)
-
   1. Send custom metric from application on EC2 to CloudWatch (PutMetric API)
   2. Create CloudWatch alarm to react to low / high values
   3. Use the CloudWatch alarm as the scaling policy for ASG
@@ -352,7 +343,6 @@ Steps:
 
 1. Goto Auto Scaling Groups
 2. Choose launch template or configuration:
-
    - Name
    - Launch template:
      - Create launch template
@@ -368,14 +358,12 @@ Steps:
      - In Advance details add User data
 
 3. Configure settings:
-
    - Instance purchase options:
      - Adhere to launch template
      - Combine purchase options and instance types (provide min, max, and desired capacity)
    - Network: AZs
 
 4. Configure advanced options:
-
    - Load balancing:
      - No load balancer
      - Attach to an existing load Balancer
@@ -386,7 +374,6 @@ Steps:
    - Additional settings: Monitoring (with CloudWatch)
 
 5. Configure group size and scaling policies
-
    - Group size:
      - Desired capacity
      - Minimum capacity
@@ -406,7 +393,6 @@ Steps:
   - Most simple and easy to set-up
   - Example: I want the average ASG CPU to stay at around 40%
 - Simple / Step Scaling
-
   - When a CloudWatch alarm is triggered (example CPU > 70%), then add 2 units
   - When a CloudWatch alarm is triggered (example CPU less than 30%), then remove 1
 

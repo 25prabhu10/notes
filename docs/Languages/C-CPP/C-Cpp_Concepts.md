@@ -12,7 +12,6 @@ To start working with C/C++ you need to install few application in your system, 
 You can use any IDE or Text editor, some of the are listed below:
 
 - For Windows (uses [MinGW Compiler](https://osdn.net/projects/mingw/)):
-
   - [Vim](https://www.vim.org/download.php): Text editor or [Neovim](https://neovim.io/): Vim-based text editor
   - [Visual Studio](https://visualstudio.microsoft.com/)
   - [Visual Studio Code](https://code.visualstudio.com/): Text editor
@@ -26,32 +25,6 @@ Make the below changes in **Tools** --> **Compiler Options**:
 1. In the **Compiler** section, tick mark **Add the following commands when calling compiler:** and add `-g` in the text available below. This helps while debugging the code
 
 2. Now, in **Programs** section, append `-std=c++99` to **gcc:** and **g++:** like `gcc.exe -std=c++11` and `g++.exe -std=c++11`. To use the C++ 11 standards (by default it will be set to latest)
-
-## Memory
-
-The main memory can divided into:
-
-1. Heap:
-
-2. Stack:
-
-3. Code Section:
-
-_Example:_
-
-```c
-int main()
-{
-    int A[5];
-    int B[5]={2,4,6,8,10};
-    int i;
-    for(i=0;i<5;i++)
-    {
-        printf("%d", B[i]);
-    }
-}
-// ARRAYS A AND B WILL APPEAR IN THE STACK AFTER DECLARATION.
-```
 
 ## Types and objects
 
@@ -162,7 +135,6 @@ Pointers are used for:
 
 - **Accessing heap memory**. The program will not automatically access the heap. Heap memory is external to the program.
 - Accessing resources, such as files, keyboard, monitor, etc.:
-
   - Like access files, files are stored in hard disks and are external to the program. File pointers are used to access these files.
   - Similarly to interact with any external device we use the pointer.
 
@@ -523,48 +495,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
 
 ## Structure of the Code
 
-1. In _C_, `main()` function **should only have variable declarations and function calls.**
-
-   These functions will be responsible for initialization, mutation, etc.
-
-   The structure is usually maintained as _structs_ and _functions_ related to them.
-
-   _Example:_
-
-   ```c
-   struct Rectangle
-   {
-       int length;
-       int breadth;
-   }
-
-   void initialize(struct Rectangle *r, int l, int b)
-   {
-       r->length = l;
-       r->breadth = b;
-   }
-
-   int area(struct Rectangle r)
-   {
-       return r.length * r.breadth;
-   }
-
-   void changeLength(struct Rectangle *r1, int l)
-   {
-       r->length = l;
-   }
-
-   int main()
-   {
-       struct Rectangle r;
-
-       initialize(&r, 10, 5);
-       printf("Area of the Rectangle is %d", area(r));
-       changeLength(&r, 20);
-   }
-   ```
-
-2. Similarly in _C++_, OOP's concepts are used to organize the code.
+1. Similarly in _C++_, OOP's concepts are used to organize the code.
 
    All the **variables and functions related to them are grouped together as a class**.
 
@@ -688,7 +619,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
    }
    ```
 
-3. C++ program supports _generic (template) functions_ and _generic(template) classes_.
+2. C++ program supports _generic (template) functions_ and _generic(template) classes_.
 
    ```cpp
    template <class T>

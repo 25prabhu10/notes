@@ -50,7 +50,6 @@ Please disable the apps instead of uninstalling. As it may cause system issues.
 14. Alternative way:
 
     You can find the package name of an installed system application by installing the **App Inspector** app on your phone. I prefer doing it this way so you know what the app name is of the application that you are about to uninstall.
-
     - Step 1: Tap on _"App List"_
 
       <img src="./app-inspector-1.png" alt="No image, kindly refer the TEXT" style="zoom:50%;" />

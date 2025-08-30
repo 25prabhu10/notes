@@ -50,7 +50,6 @@ CREATE DATABASE rose DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_cs;
 ```
 
 - `count(*)` is fast and good to be used
-
   - Smallest secondary non-null index
 
 ```sql
@@ -151,7 +150,6 @@ SHOW CREATE TABLE todos;
 ### Column Types
 
 1. `INT[(width)] [UNSIGNED] [ZEROFILL]`:
-
    - `UNSIGNED` can be used
 
    - `width`: Not the max number of digits but the min number of digits, like `INT(4)` will save 33 as 0033.

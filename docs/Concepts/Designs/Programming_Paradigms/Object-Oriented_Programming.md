@@ -30,15 +30,12 @@ Objects are often referred to as Nouns:
 All objects have:
 
 1. **Identity**: A unique identifier
-
    - Olivia's coffee mug
 
 2. **Attributes**: Properties, characteristics, state, fields, variables
-
    - colour, size, fullness
 
 3. **Behaviours**: Operations, methods, functions
-
    - `fill()`, `empty()`, `clean()`
 
 What is object assignment rule?
@@ -92,7 +89,6 @@ Abstraction refers to only showing essential details and keep everything else hi
 - Modelling the relevant attributes and interactions of entities as classes to define an abstract representation of a system
 
 - Interface and Implementation:
-
   - The interface refers to the way sections of code can communicate with one another. This typically is done through methods that each class can access
   - The implementation of these methods, or how these methods are coded, should be hidden
   - If classes are entangled, then one change creates a ripple effect that causes many more changes
@@ -236,7 +232,6 @@ Mitigation strategies:
 Polymorphism describes methods that are able to take on many forms
 
 - Polymorphism means having many forms
-
   - **Poly**: Many
   - **Morph**: Form
 
@@ -247,7 +242,6 @@ Polymorphism is the ability of an object to take on many forms. It allows method
 There are multiple form of polymorphism:
 
 1. **Dynamic Polymorphism**: Uses the same interface for methods on different types of objects
-
    - Occurs during the runtime of the program
    - Describes when a method signature is in both a subclass and a superclass
    - The methods share the same name but have different implementation
@@ -284,13 +278,11 @@ There are multiple form of polymorphism:
    ```
 
 2. **Static (Compile-Time) Polymorphism**: Uses **method overloading**
-
    - Occurs during compile-time rather than during runtime
    - This refers to when multiple methods with the same name but different arguments are defined in the same class
    - This can done through method overloading. Despite the methods having the same name, their signatures are different due to their different arguments
 
    - Ways to differentiate methods of the same name:
-
      - Different number of parameters
      - Different types of parameters
      - Different order of parameters
@@ -330,12 +322,10 @@ Coupling and Cohesion are two important concepts in software design
 Coupling is the degree of interdependence between software modules
 
 - **Tight Coupling**: When a class is dependent on another class
-
   - Changes in one class require changes in another class
   - Can lead to difficult to maintain code
 
 - **Loose Coupling**: When a class is not dependent on another class
-
   - Changes in one class do not require changes in another class
   - Allows for greater flexibility and maintainability
 
@@ -351,12 +341,10 @@ To achieve loose coupling:
 Cohesion is the degree to which the elements inside a module belong together
 
 - **High Cohesion**: When the elements inside a module belong together
-
   - The module is focused on a single task
   - The module is easier to understand and maintain
 
 - **Low Cohesion**: When the elements inside a module do not belong together
-
   - The module is focused on multiple tasks
   - The module is harder to understand and maintain
 
@@ -369,13 +357,11 @@ To achieve high cohesion:
 ### Coupling and Cohesion
 
 - **High Cohesion and Low Coupling**: The ideal situation
-
   - Modules are focused on a single task
   - Modules are not dependent on each other
   - Modules are easier to understand and maintain
 
 - **Low Cohesion and High Coupling**: The worst situation
-
   - Modules are focused on multiple tasks
   - Modules are dependent on each other
   - Modules are harder to understand and maintain

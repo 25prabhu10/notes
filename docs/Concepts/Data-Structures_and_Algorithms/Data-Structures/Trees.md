@@ -28,7 +28,6 @@ Subcategories:
 5. **Neighbor**: Parent or child
 
 6. **Ancestors**: A node might have many **ancestor nodes**, such as the parent's parent
-
    - A node reachable by repeated proceeding from child to parent
 
 7. **Descendants**: A node reachable by repeated proceeding from parent to child. Also known as **subchild**
@@ -50,7 +49,6 @@ Subcategories:
 15. **Depth**: The depth of a node is the length of the path to its root
 
 16. **Levels**: The level of a node is the number of edges along the unique path between it and the root node.
-
     - This is the same as depth when using zero-based counting.
 
 17. **Width**: The number of nodes in a level
@@ -73,9 +71,7 @@ A Binary Tree is a tree with degree of node _2_
 ### Number Of Binary Tress
 
 1. For Unnamed Nodes the number of Binary Tress that can be generated using `n` Node is calculated using _Catalan Number_:
-
    - `T(n) = (2nCn)/(n + 1)`
-
      - `T(3) = 5`
      - `T(4) = 14`
      - `T(5) = 42`
@@ -85,18 +81,15 @@ A Binary Tree is a tree with degree of node _2_
    - Number of Binary Tress with Max height containing `n` Node: `2^n-1`
 
 2. For Named Nodes the number of Binary Tress that can be generated using `n` Node is calculated using:
-
    - `T(n) = ((2nCn)/(n + 1)) * n!`
 
 ### Height vs Nodes Of Binary Tree
 
 - For Height `h` the:
-
   - Min number of Nodes required: `min(n) = h + 1`
   - Max number of Nodes required: `max(n) = 2^(h + 1) - 1` (Sum of G-P Series with `a=1` and `r=2`)
 
 - For `n` Nodes the:
-
   - Min Height: `min(n) = (log2 (n + 1)) - 1`
   - Max Height: `max(h) = n - 1`
 
@@ -110,12 +103,10 @@ A Binary Tree is a Strict Binary Tree if every node has either degree 0 or 2. Sh
 ### Height vs Nodes
 
 - For Height `h` the:
-
   - Min number of Nodes required: `min(n) = (2 * h) + 1`
   - Max number of Nodes required: `max(n) = 2^(h + 1) - 1` (Sum of G-P Series with `a=1` and `r=2`)
 
 - For `n` Nodes the:
-
   - Min Height: `min(h) = (log2 (n + 1)) - 1`
   - Max Height: `max(h) = (n - 1)/2`
 
@@ -134,19 +125,16 @@ A Binary Tree is a Strict Binary Tree if every node has either degree 0 or 2. Sh
 Tree traversing means visiting all the nodes.
 
 1. Pre-order (VLR):
-
    - Visit (node)
    - Pre-order (left sub-tree)
    - Pre-order (right sub-tree)
 
 2. In-order (LVR):
-
    - In-order (left sub-tree)
    - Visit (node)
    - In-order (right sub-tree)
 
 3. Post-order (LRV):
-
    - Post-order (left sub-tree)
    - Post-order (right sub-tree)
    - Visit (node)
@@ -208,9 +196,7 @@ It uses balance factor to balance the height:
 ### Height vs Nodes of AVL Tree
 
 - For Height `h` the if `h` starts from 1:
-
   - Min number of Nodes required: (Fibonacci Series)
-
     - For 0: 0
     - For 1: 1
     - For >1: `min(n) = min(h - 2) + min(h - 1) + 1`
@@ -218,7 +204,6 @@ It uses balance factor to balance the height:
   - Max number of Nodes required: `max(n) = 2^h - 1` (Sum of G-P Series with `a=1` and `r=2`)
 
 - For `n` Nodes the:
-
   - Min Height: `min(h) = log2 (n + 1)`
   - Max Height: `max(h) = 1.44 log2 (n + 2)`
 
@@ -239,12 +224,10 @@ It uses balance factor to balance the height:
 ### Height vs Nodes Of 2-3 Trees
 
 - For Height `h` the if `h` starts from 1:
-
   - Min number of Nodes required: `max(n) = 2^(h + 1) - 1`
   - Max number of Nodes required: `max(n) = (3^(h + 1) - 1)/2`
 
 - For `n` Nodes the:
-
   - Min Height: `min(h) = (log2 (n - 1)) - 1`
   - Max Height: `max(h) = (log3 (2n + 1)) - 1`
 
@@ -279,12 +262,10 @@ It uses balance factor to balance the height:
 #### Height vs Nodes Of Strict N-Array Tree
 
 - For Height `h` with degree `m` the:
-
   - Min number of Nodes required: `min(n) = (m * h) + 1`
   - Max number of Nodes required: `max(n) = (m^(h + 1) - 1)/(m - 1)` (Sum of G-P Series with `a=1` and `r=m`)
 
 - For `n` Nodes with degree `m` the:
-
   - Min Height: `min(h) = logm [n(m - 1) + 1] - 1`
   - Max Height: `max(h) = (n - 1)/m`
 

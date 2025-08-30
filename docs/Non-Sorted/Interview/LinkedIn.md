@@ -10,7 +10,6 @@ LinkedIn is a employment-oriented online service
 ## All Star Status
 
 1. High quality profile picture & cover photo
-
    - Charming smile
    - Chest in frame
    - 1600 x 1600 px (profile)
@@ -18,11 +17,9 @@ LinkedIn is a employment-oriented online service
 
 2. Your Headline = Your Title + Value
 3. Keywords in LinkedIn about section
-
    - Use word cloud generators
 
 4. Add 5 skills "correctly" to your profile
-
    - Have at least one endorsement
 
 5. Use a custom LinkedIn URL

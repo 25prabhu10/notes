@@ -31,7 +31,6 @@ Chemical:
 Debt instruments:
 
 - Corporate Bonds:
-
   - Senior Secured Bonds
   - Senior Unsecured Bonds
   - Subordinate Bonds
@@ -77,7 +76,6 @@ Know your worth!
 - Net Interest Margin: The difference between what the bank charges and what it pays
 
 - Certificates of deposits: CDs pay a much higher interest rate because the person giving their money to the bank promises not to withdraw their money for a certain amount of time in the future
-
   - Granted
   - Interest on the CD is taxed at ordinary income rates
 
@@ -87,14 +85,12 @@ Know your worth!
 - HELOCs
 
 - Mortgage Debt
-
   - Annual Income x 4 = Debt-to-Income
   - Tax returns
   - Pay stubs/slips
   - Good credit
 
 - Credit Scores: Assessment of your riskiness as a borrower
-
   - From 300 to 850
   - Poor: 300 - 580
   - Okay: 580 - 670
@@ -107,7 +103,6 @@ Know your worth!
 A system that enables companies to sell partial ownership in themselves to people in exchange for cash
 
 - Common stocks have the highest rate of return
-
   - Common Stock: A Certificate that indicates ownership in part of a corporation
 
 When you buy a share, you buy a part of the company and attain ownership rights in proportion to your share of the company
@@ -124,12 +119,10 @@ Dividends
 Types of Brokerages:
 
 - Full service:
-
   - More expensive
   - Higher quality service
 
 - Discount:
-
   - Less costly
 
 - Minimize trading even if costs are low
@@ -145,7 +138,6 @@ Mutual Funds:
 - Open-ended fund
 
 - Advantages:
-
   - Manager picks stock
   - Reasonable risk
   - Good retirement method
@@ -187,11 +179,9 @@ Characteristics of Bonds:
 1. Par Value: Face value of the bond, returned to the bondholder at maturity
 
 2. Price: Represented as a % of face value or Par
-
    - _Example:_ A bond quoted at 112 cab be bought at 112% of its par value in the market. Bonds will return the par value at maturity, regardless of the price paid at the time of Purchase
 
 3. Coupon: The percentage of the par value of the bond that will be paid periodically in the form of interest
-
    - _Example:_ If James buys a bond with a $1000 par value and 5% annual coupon rate, it will pay him $50 annually (=0.05x1000) or $25 (if interest is paid semi-annually). Some bonds, called zero coupon bonds have zero or very low coupon rate. Instead of paying interest, the bonds are issues at a substantial discount below the par or face value
 
 4. maturity: The length of time until the bond issuer returns the par value to the bondholder and terminates or redeems the bond
@@ -257,32 +247,24 @@ Insurance is related to risk aversion
 Types:
 
 1. Health:
-
    - Health Savings Account (HSA) Accounts: A tax-free option provided by employers that can be used in combination with insurance
-
      - Deductible: What you pay before your insurance covers the medical fees, cost varies based on plan
      - High-Deductible insurance plans cover you for a true medical emergency
      - withdraw from your account to pay allowable medical expenses
 
 2. Life:
-
    1. Term Life Insurance: Pays only if death occurs during the term of the policy
-
       - Level Term:
       - Decreasing Term:
 
    2. Whole Life Insurance: Pays a death benefit whenever you die; also known as permanent insurance
-
       - Traditional
       - Universal
       - Variable
 
 3. Property and Auto
-
    1. Home Insurance:
-
       - Property and Casualty
-
         - Homeowners Insurance
         - Auto Insurance
 

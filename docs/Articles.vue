@@ -3,10 +3,10 @@ import { useData } from "vitepress";
 
 import Card from "./Card.vue";
 
-const { isDark, ...rest } = useData();
+const { isDark } = useData();
 
 const getLightImg = (path) => {
-  if (typeof path === "object") {
+  if (typeof path === "object" && path !== null) {
     return isDark.value ? path.dark : path.light;
   }
 
@@ -210,5 +210,11 @@ ul {
 li:has(article) {
   margin-top: 0;
   list-style: none;
+}
+
+@media (max-width: 768px) {
+  ul {
+    gap: 2rem;
+  }
 }
 </style>

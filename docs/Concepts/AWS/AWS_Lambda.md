@@ -102,7 +102,6 @@ _Example:_
 ## Lambda - Synchronous Invocations
 
 - Synchronous: CLI, SDK, API Gateway, Application Load Balancer
-
   - Results is returned right away
   - Error handling must happen in client side (retries, exponential backoff, etc...)
 
@@ -197,7 +196,6 @@ http://example.com/path?name=foo&name=bar
 - What if you wanted to run a global AWS Lambda alongside?
 - Or want to implement request filtering before reaching your application?
 - For this, you can use Lambda@Edge:
-
   - deploy Lambda functions alongside your CloudFront CDN
   - Build more responsive applications
   - You don't manage servers, Lambda is deployed globally

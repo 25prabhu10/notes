@@ -16,7 +16,6 @@ An open-source terminal multiplexer for Unix-like operating systems
 - The tmux server and clients
 
 - Sessions, windows and panes:
-
   - **Every terminal** inside tmux belongs to one **pane**
   - **Each pane** appears in one **window**
   - **Multiple windows are grouped** together into **sessions**

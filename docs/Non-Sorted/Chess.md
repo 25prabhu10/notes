@@ -2,7 +2,7 @@
 title: Chess
 description:
 date: 2022-12-29
-lastmod: 2023-01-05
+lastmod: 2025-03-08
 ---
 
 # Chess
@@ -91,9 +91,7 @@ White moves first
 ```
 
 - Castling: The king moves two spaces to the left or to the right, and the rook moves over and in front of the king, all in one move!
-
   - Rules for castling:
-
     - Your king can not have moved
     - Your rook can not have moved
     - Your king can NOT be in check
@@ -226,7 +224,6 @@ White moves first
 ```
 
 - Promotion: to queen, rook, bishop, or knight of the same color, when a pawn advances to its eighth rank, as part of the move (mandatory)
-
   - Promotion to a queen is known as _queening_
   - Promotion to any other piece is known as _under-promotion_
 
@@ -239,7 +236,6 @@ White moves first
 ### Checkmate
 
 - Fool's mate: 2 move checkmate
-
   1. `f3` `e6`
   2. `g4` `Qh4#`
 
@@ -266,24 +262,20 @@ White moves first
 Setups:
 
 - Sicilian Defence:
-
   1. e4 c5
 
 - London system
 - Evans Gambit
 
 - King's Gambit:
-
   1. e4 e5
   2. f4
 
 - King's Indian Defence:
-
   1. d4 Nf6
   2. c4 g6
 
 - Benko Gambit (or Volga Gambit):
-
   1. d4 Nf6
   2. c4 c5
   3. d5 b5
@@ -363,6 +355,43 @@ What is the best opening?
  -------------------------------
   a   b   c   d   e   f   g   h
 ```
+
+## Elo Rating
+
+Elo rating system is a method for calculating the relative skill levels of players in two-player games such as chess
+
+- Developed by Arpad Elo in 1960
+
+Each player has a rating which is a number. The difference in the ratings of the winner and loser determines the total number of points gained or lost after a game
+
+- 400 points difference: 10:1 odds
+- 200 points difference: 5:1 odds
+- 100 points difference: 2:1 odds
+
+### Elo Probability Formula
+
+$$ E_a = \frac {1} { 1 + 10^\frac{(R2 - R1)}{400}} $$
+
+$$ E_b = \frac {1} { 1 + 10^\frac{(R1 - R2)}{400}} $$
+
+Where:
+
+- $E_a$: Expected score of player A
+- $E_b$: Expected score of player B
+- $R1$: Rating of player A
+- $R2$: Rating of player B
+
+### Elo Rating Formula
+
+$$ R_A' = R_A + K \cdot (S_A - E_A) $$
+
+Where:
+
+- $R_A'$: New rating of player A after the game
+- $R_A$: Rating of player A before the game
+- $K$: Weight of the competition (32 for rapid, 24 for blitz, 16 for standard)
+- $S_A$: Score of player A (1 for win, 0.5 for draw, 0 for loss)
+- $E_A$: Expected score of player A (from the probability formula)
 
 ## Chess Engines
 

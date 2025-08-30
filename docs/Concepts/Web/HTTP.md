@@ -20,7 +20,6 @@ The main features of HTTP are:
 - HTTP is **extendable**: easy to implement new features (by adding headers)
 
 - HTTP is a **stateless protocol**:
-
   - Meaning that the server does not keep any data (state) between two requests
   - HTTP protocol itself does not store state
   - **Not session less**, HTTP Cookies allow the use of stateful sessions
@@ -34,13 +33,11 @@ Short version:
 1. **Client** asks **DNS Recursive Resolver** to lookup a hostname (`stanford.edu`)
 
 2. **DNS Recursive Resolver** sends DNS query to **Root Nameserver**
-
    - **Root Nameserver** responds with IP address of **TLD Nameserver** (`.edu`, etc.)
 
 3. **DNS Recursive Resolver** sends DNS query to **TLD Nameserver**
 
 4. **DNS Recursive Resolver** sends DNS query to **Domain Nameserver**
-
    - **Domain Nameserver** is authoritative, sp replies with server IP address
 
 5. **DNS Recursive Resolver** finally responds to Client, sending server IP address (`171.67.215.200`)
@@ -48,25 +45,21 @@ Short version:
 Detailed version:
 
 1. The browser requests for the actual address of [www.google.com](http://www.google.com/) from a Domain Name System (DNS) server
-
    - DNS might perform multiple steps. Hence it is called a recursive resolver
    - DNS returns an IP address
    - This IP address can be in an IPv4 or the newer IPv6
 
 2. The browser asks your computer to open a _Transmission Control Protocol (TCP)_ connection over IP to this address on the standard web port (port `80`) or over the standard secure web port (port `443`)
-
    - IP is used to direct traffic through the internet, but TCP adds stability and retransmissions to make the connection reliable
 
    - TCP/IP together, they form the backbone of much of the internet
 
 3. When the browser connects to the web-server, it can ask for the website. This step is where HTTP comes in, and the web browser uses HTTP to ask the Google server for the Google home page
-
    - The actual full URL includes the port and would be [http://www.google.com:80](http://www.google.com/), but if standard ports are being used (`80` for HTTP and `443` for HTTPS), the browser hides the port
 
    - If non-standard ports are being used, the port is shown. Some systems, particularly in development environments, use port `8080` for HTTP or `8443` for HTTPS, for example
 
 4. The Google server responds with whatever URL you asked for. Typically, what gets sent back from the initial page is the text that makes up the web page in HTML format
-
    - Instead of an HTML page, the response may be an instruction to go to a different location. Google, for example, runs only on HTTPS, so if you go to [http://www.google.com](http://www.google.com/), the response is a special HTTP instruction (usually, a `301` or `302` response code) that redirects to a new location at [https://www.google.com](https://www.google.com/)
 
    - Similarly, if something goes wrong, you get back an HTTP response code, the best-known of which is the `404` Not Found response code
@@ -418,17 +411,14 @@ HTTPS adds 3 important concepts to HTTP messages:
 SSL/TLS have 3 goals (CIA):
 
 1. Confidentiality:
-
    - Provided by [Symmetric Encryption](../Application_Security/Cryptography.md#symmetric-encryption)
    - No man in the middle
 
 2. Integrity:
-
    - Provided by [M.A.C.](../Application_Security/Cryptography.md#hash-based-message-authentication-code-hmac) (Hashing)
    - Data should not be tampered and if tampered, the receiver should know about it and discard it
 
 3. Authentication:
-
    - Provided by Certificates/PKI
 
 CIA of security is used in any of the secure communication protocol such as TLS, IPsec, SSH, etc.
@@ -438,7 +428,6 @@ CIA of security is used in any of the secure communication protocol such as TLS,
 1. SSLv1 was never released outside Netscape
 
 2. SSLv2 and **SSLv3** were released in 1995 and 1996 respectively
-
    - **SSLv3** was widely used, but in 2014 major vulnerabilities were discovered and support for SSLv3 is **not supported** by browsers
 
 3. SSL was standardized as TLS
@@ -448,7 +437,6 @@ CIA of security is used in any of the secure communication protocol such as TLS,
 5. TLSv1.1 and TLSv1.2 were released in 2006 and 2008 respectively
 
 6. **TLSv1.3** was released in 2018 (current standard)
-
    - TLSv1.0 and TLSv1.1 should not be used (deprecated)
 
 #### TLS Handshake
@@ -463,7 +451,6 @@ A TLS handshake is the process that kicks off a communication session that uses 
 Cipher suite picks total four protocols, one for Key-Exchange, Authentication, Encryption, and Hashing:
 
 - Example Cipher Suite string representation `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256` represents:
-
   - Elliptic-curve Diffie–Hellman (ECDHE): is a key agreement protocol that allows two parties, each having an Elliptic-curve public-private key pair, to establish a shared secret over an secure channel
 
   - Rivest–Shamir–Adleman (RSA): is a public-key cryptosystem that is widely used for secure data transmission
@@ -477,7 +464,6 @@ Basic steps of **TLSv1.2 Handshake** (Total 2 round trips):
 1. TCP Handshake
 
 2. Client Hello:
-
    - **Version**: Highest version of TLS/SSL the Client supports
    - **Random Number** (hash) (_"client random"_): 32 bytes/256 bits
      - Timestamp encoded in first four bytes (optional)
@@ -487,7 +473,6 @@ Basic steps of **TLSv1.2 Handshake** (Total 2 round trips):
    - **Extensions**: Optional additional features added to TLS/SSL
 
 3. Server Hello (server responds with):
-
    - **Version**: Highest version of TLS/SSL the Server supports
    - **Random Number** (hash) (_"server random"_): 32 bytes/256 bits
      - Timestamp encoded in first four bytes (optional)
@@ -498,60 +483,48 @@ Basic steps of **TLSv1.2 Handshake** (Total 2 round trips):
    - **Extensions**: Optional additional features added to TLS/SSL
 
 4. Certificate (server sends):
-
    - Server Certificate and Full Certificate Chain
    - Includes Server Public Key
 
 5. Server Hello Done:
-
    - Indicates server has nothing more to send at this time
 
 6. Client Key Exchange:
-
    - Establish Mutual Keying Material (i.e., Seed Value)
 
    - Authentication: Client verifies the server's SSL certificate with the certificate authority that issued it. This confirms that the server is who it says it is, and that the client is interacting with the actual owner of the domain
 
    - Client generates **Pre-Master-Secret** (Example using RSA):
-
      - 2 bytes: TLS/SSL Version (optional)
      - 46 bytes: Random
 
    - Pre-Master-Secret is encrypted using Server's Public Key
-
      - Server can only decrypt if it has Server Private Key
 
    - Both parties now have matching Seed Values and hence they both generate all Session Keys:
-
      - Seed value used to generate Session Keys (Symmetric Keys)
 
      - Pre-Master-Secret used to derive **Master Secret**
-
        - Master Secret generated using Pre-Master-Secret + `"master secret"` + Client Random + Server Random
 
      - Master Secret is used to generate Session Keys, I.V.'s (Client and Server, required by CBC)
-
        - **Session Keys** generated using Master Secret + `"key expansion"` + Client Random + Server Random
 
      - Generated Session Keys are:
-
        - Client Encryption Key
        - Client HMAC Key
        - Server Encryption Key
        - Server HMAC Key
 
    - In the above section calculations involve a PRF (Pseudo Random Function):
-
      - PRF is a Hashing algorithm that generates digests at any desired length
 
    - At this point, both parties have identical Session Keys, but they don't know whether the other has the same keys
-
      - Rest of the handshake will prove to both parties that the other party has the correct Session Keys
 
 7. Change Cipher Spec (client sends): Indicates Client has everything necessary to speak securely
 
 8. Finished (client sends): Proves to the Serve that Client has correct Session Keys
-
    - Sends an Encrypted Verification
    - Client calculates Handshake Hash of all Handshake Records seen so far (Steps 2 to 6) (Prevents downgrade attacks)
    - Verification Data (uses PRF)= Master Secret + `"client finished"` + Handshake Hash
@@ -560,7 +533,6 @@ Basic steps of **TLSv1.2 Handshake** (Total 2 round trips):
 9. Change Cipher Spec (server sends): Indicates Server has everything necessary to speak securely
 
 10. Finished (server sends): Proves to the Client that Server has correct Session Keys
-
     - Generates Encrypted Verification using Server Session Keys similar to Step 8, now including Step 8
     - Verification Data (uses PRF)= Master Secret + `"server finished"` + Handshake Hash
 
@@ -608,24 +580,20 @@ TLSv1.3 Handshake:
 Basic steps:
 
 1. Client Hello:
-
    - Protocol version
    - Client random
    - List of cipher suites
    - It also includes the parameters that will be used for calculating the premaster secret. Essentially, the client is assuming that it knows the server's preferred key exchange method (which, due to the simplified list of cipher suites, it probably does). This cuts down the overall length of the handshake - one of the important differences between TLS 1.3 handshakes and TLS 1.0, 1.1, and 1.2 handshakes
 
 2. Server generates master secret:
-
    - At this point, the server has received the client random and the client's parameters and cipher suites
    - It already has the server random, since it can generate that on its own. Therefore, the server can create the master secret
 
 3. Server Hello and "Finished":
-
    - It includes the server's certificate, digital signature, server random, and chosen cipher suite
    - Because it already has the master secret, it also sends a "Finished" message
 
 4. Final steps and client "Finished":
-
    - Client verifies signature and certificate, generates master secret, and sends "Finished" message
 
 5. Secure symmetric encryption achieved
@@ -747,22 +715,18 @@ The HTTP specification allows the server to compress responses if the client sup
 Caching involves both the client and the server
 
 - Modern default: **Don't cache, validate!**
-
   - Use a [CDN](https://web.dev/content-delivery-networks/) to get close to your users
 
   - Use `ETag` validation to save bytes
 
 - Opt-in to caching as needed:
-
   - Some assets are immutable (hashes)
 
 - Using Service Worker
-
   - Service Workers only run on the 2nd load: and give you a whole extra cache!
   - Common pattern: Use Workbox to inject a manifest
   - Use a runtime cache for other stuff
   - Network or Cache First?
-
     - By going Network-First, just fetch new HTML
     - HTML contains updated hashed asset links: cache misses, but no danger of stale assets
     - Network-first sites rarely need a reload button
@@ -772,26 +736,21 @@ Caching involves both the client and the server
     - New Web Periodic Background Synchronization API can be used (less support)
 
 - If no caching strategy is explicitly specified, browsers will use **Heuristic Freshness** (the cache can guess a freshness lifetime)
-
   - Without instructions, assets may expire at different times
 
 The server can let the clients know that responses are cacheable in few ways:
 
 - Cache Headers:
-
   - The `Cache-Control` header is the master knob for caching, it holds directives (instructions) - in both requests and responses
-
     - `max-age=n`: how long asset is valid for, in seconds
     - `must-revalidate`: cannot use after `max-age` (optional)
     - `public`/`private`: cached by CDNs or just you
     - `no-store`: don't cache this asset, good for logged in stuff
     - `no-cache`: cache it, but the response must be validated with the origin server before each reuse
     - `immutable`: this file won't change, really
-
       - Chrome (after 2017) by default behaves as if `immutable` is present
       - Entry points (such as `index.html` files) shouldn't be marked as `immutable`
       - Cache-busting using version/hashes in URLs of static resources:
-
         - Query strings are marginally safer, as if an old entrypoint refers to `script.js?v=abcd` even if that hash is out of date, they'll still load something
 
       ```html
@@ -807,19 +766,16 @@ The server can let the clients know that responses are cacheable in few ways:
       ```
 
     - Good defaults:
-
       - `Cache-Control: max-age=0, must-revalidate, public` (always validate)
       - Great CDNs will invalidate edge caches when you redeploy
         - Depending on CDN, you might also have to set `s-maxage` (similar to `max-age` but for shared caches, and they will ignore `max-age` when it is present)
 
     - _Example:_
-
       - `Cache-Control: max-age=31536000, immutable` (fresh for 1 year = forever as per spec)
       - `Cache-Control: max-age=100, must-revalidate` (fresh for 100 seconds)
       - `Cache-Control: no-cache, no-store` (**never cache**)
 
   - Previously the `Expires` header was also be used to let the client know how long to cache a request:
-
     - `Expires: Mon, 06 Nov 2022 07:42:00 GMT`
 
   - If a response includes both `Cache-Control` and `Expires`, **`Cache-Control` takes priority** in determining whether cache data is fresh
@@ -829,7 +785,6 @@ How clients determine to serve cached response?
 - If content is still fresh (based on header value), then return cached content. No call to the server is made
 
 - If content is stale (not fresh), then check with the server to see if the cached copy is still valid
-
   - Validation headers are included on the outgoing request which lets the server know which version of the resource the client has in the cache
 
   - If the server determines that the resource still hasn't changed, it can send back `304 Not Modified` status and updated cache headers `Cache-Control` with new freshness info
@@ -837,7 +792,6 @@ How clients determine to serve cached response?
   - `304` response dose not include a response body
 
 1. Validation with `Last-Modified` header:
-
    - Caching began in 1999
 
    ```http
@@ -860,7 +814,6 @@ How clients determine to serve cached response?
    ```
 
 2. Validation with `Etag` header (better):
-
    - `ETag`: is a fingerprint or hash that uniquely identifies this version of a resource
 
    - If cache is stale, new `ETag` value is sent to the client
@@ -895,7 +848,6 @@ How clients determine to serve cached response?
 Downsides:
 
 - One validation might beget another, and so on: Critical Request Chains
-
   - Parallel fetches (e.g., lots of images) aren't an issue: HTTP/2+ solves this
 
 - Every small file needs validation
@@ -922,7 +874,6 @@ Authorization: Scheme value...
 Authentication Schemes:
 
 1. Basic: username/password (or API key/secret)
-
    - Raw credentials are sent, which can be extremely (always use HTTPS)
 
 2. Bearer: tokens issued by the server
@@ -963,7 +914,6 @@ The OpenID Connect client credentials flow is very similar except a client would
 - Attacker changes DNS records of target to point to own IP address
 - All site visitors are directed to attacker's web server
 - Motivation
-
   - Phishing
   - Revenue through ads, cryptocurrency mining, etc.
 

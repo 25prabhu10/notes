@@ -30,12 +30,10 @@ prev: ./AWS
 ## Deep dive into SAM deployment
 
 1. aws cloudformation package:
-
    - SAM Template YAML file --Transform--> Generated Template CloudFormation YAML
    - Application Code + Swagger File (optional) --Zip and upload--> Code S3 bucket --reference--> Generated Template CloudFormation YAML
 
 2. aws cloudformation deploy:
-
    - Generated Template CloudFormation YAML --Create and execute change set--> AWS CloudFormation --> Stack
 
 - To installing the SAM CLI follow the steps provided in [AWS SAM CLI - Installation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)

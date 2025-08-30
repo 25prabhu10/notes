@@ -229,7 +229,6 @@ To create a custom syntax file:
 Some considerations:
 
 1. If `keyword` doesn't set the syntax properly, then probably vim doesn't know that match the keyword pattern
-
    - Check the keyword pattern: `:set iskeyword?`
    - Add the missing pattern to `iskeyword` at the start of the syntax file:
 

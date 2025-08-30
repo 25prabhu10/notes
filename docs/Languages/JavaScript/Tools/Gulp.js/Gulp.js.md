@@ -88,9 +88,9 @@ Structure of Gulp file can be divided into 4 parts as shown below.
        .pipe(
          autoprefixer({
            cascade: false,
-         }),
+         })
        )
-       .pipe(gulp.dest("dist/")),
+       .pipe(gulp.dest("dist/"))
    );
    ```
 
@@ -148,17 +148,13 @@ Types of steams:
 ## Plugins
 
 1. JavaScript File Plugins:
-
    1. [gulp-concat](https://github.com/gulp-community/gulp-concat) - Concatenate files into one single file:
 
       ```javascript
       const concat = require("gulp-concat");
 
       gulp.task("scripts", () =>
-        gulp
-          .src("./lib/*.js")
-          .pipe(concat("all.js"))
-          .pipe(gulp.dest("./dist/")),
+        gulp.src("./lib/*.js").pipe(concat("all.js")).pipe(gulp.dest("./dist/"))
       );
       ```
 
@@ -168,7 +164,7 @@ Types of steams:
       const useref = require("gulp-useref");
 
       gulp.task("useref", () =>
-        gulp.src("app/*.html").pipe(useref()).pipe(gulp.dest("dist")),
+        gulp.src("app/*.html").pipe(useref()).pipe(gulp.dest("dist"))
       );
       ```
 
@@ -183,7 +179,7 @@ Types of steams:
           .src("app/*.html")
           // Minifies only if it's a JavaScript file
           .pipe(gulpIf("*.js", uglify()))
-          .pipe(gulp.dest("dist")),
+          .pipe(gulp.dest("dist"))
       );
       ```
 
@@ -199,14 +195,13 @@ Types of steams:
           .pipe(
             babel({
               presets: ["@babel/preset-env"],
-            }),
+            })
           )
-          .pipe(gulp.dest("dist")),
+          .pipe(gulp.dest("dist"))
       );
       ```
 
 2. CSS File Plugins:
-
    1. [gulp-clean-css](https://github.com/jakubpawlowicz/clean-css) - Minify CSS:
 
       ```javascript
@@ -216,7 +211,7 @@ Types of steams:
         gulp
           .src("css/*.css")
           .pipe(cleanCSS({ compatibility: "ie8" }))
-          .pipe(gulp.dest("./dist/")),
+          .pipe(gulp.dest("./dist/"))
       );
       ```
 
@@ -244,9 +239,9 @@ Types of steams:
           .pipe(
             autoprefixer({
               cascade: false,
-            }),
+            })
           )
-          .pipe(gulp.dest("dist/")),
+          .pipe(gulp.dest("dist/"))
       );
       ```
 
@@ -259,7 +254,7 @@ Types of steams:
         gulp
           .src("source-files")
           .pipe(sass()) // Using gulp-sass
-          .pipe(gulp.dest("destination")),
+          .pipe(gulp.dest("destination"))
       );
       ```
 
@@ -269,7 +264,7 @@ Types of steams:
       const csso = require("gulp-csso");
 
       gulp.task("default", () =>
-        gulp.src("./main.css").pipe(csso()).pipe(gulp.dest("./out")),
+        gulp.src("./main.css").pipe(csso()).pipe(gulp.dest("./out"))
       );
 
       gulp.task("development", () =>
@@ -280,14 +275,13 @@ Types of steams:
               restructure: false,
               sourceMap: true,
               debug: true,
-            }),
+            })
           )
-          .pipe(gulp.dest("./out")),
+          .pipe(gulp.dest("./out"))
       );
       ```
 
 3. Image File Plugins:
-
    1. **[gulp-imagemin](https://github.com/sindresorhus/gulp-imagemin)** - Minify and optimize images:
 
       ```javascript
@@ -300,16 +294,15 @@ Types of steams:
             imagemin({
               // Setting interlaced to true
               interlaced: true,
-            }),
+            })
           )
-          .pipe(gulp.dest("dist/images")),
+          .pipe(gulp.dest("dist/images"))
       );
       ```
 
    2. **[sharp](https://github.com/lovell/sharp)** - Resize images:
 
 4. HTML File Plugins:
-
    1. [gulp-htmlmin](https://github.com/jonschlinkert/gulp-htmlmin) - Minify HTML:
 
       ```javascript
@@ -322,14 +315,13 @@ Types of steams:
             htmlmin({
               collapseWhitespace: true,
               removeComments: true,
-            }),
+            })
           )
-          .pipe(gulp.dest("./dist/")),
+          .pipe(gulp.dest("./dist/"))
       );
       ```
 
 5. Font Plugins:
-
    1. [gulp-iconfont](https://github.com/nfroidure/gulp-iconfont) - Create SVG/TTF/EOT/WOFF/WOFF2 fonts from several SVG icons.
 
       ```javascript
@@ -345,15 +337,14 @@ Types of steams:
               prependUnicode: true, // recommended option
               formats: ["ttf", "eot", "woff"], // default, 'woff2' and 'svg' are available
               timestamp: runTimestamp, // recommended to get consistent builds when watching files
-            }),
+            })
           )
           .on("glyphs", (glyphs, options) => console.log(glyphs, options))
-          .pipe(gulp.dest("www/fonts/")),
+          .pipe(gulp.dest("www/fonts/"))
       );
       ```
 
 6. Local Server Plugins:
-
    1. [browser-sync](https://github.com/Browsersync/browser-sync) - Keep multiple browsers & devices in sync when building websites.
 
       ```javascript
@@ -379,7 +370,6 @@ Types of steams:
       ```
 
 7. Other Plugins:
-
    1. [gulp-changed](https://github.com/sindresorhus/gulp-changed) - Only pass through changed files:
 
       ```javascript
@@ -412,10 +402,10 @@ Types of steams:
             cache(
               imagemin({
                 interlaced: true,
-              }),
-            ),
+              })
+            )
           )
-          .pipe(gulp.dest("dist/images")),
+          .pipe(gulp.dest("dist/images"))
       );
       ```
 
@@ -429,7 +419,7 @@ Types of steams:
           .src("files/*.js")
           .pipe(cache("linting"))
           .pipe(jshint())
-          .pipe(jshint.reporter()),
+          .pipe(jshint.reporter())
       );
 
       gulp.task("watch", () => gulp.watch("files/*.js", ["lint"]));
@@ -452,7 +442,7 @@ Types of steams:
           .src(imgSrc)
           .pipe(newer(imgDest)) // Add the newer pipe to pass through newer images only
           .pipe(imagemin())
-          .pipe(gulp.dest(imgDest)),
+          .pipe(gulp.dest(imgDest))
       );
 
       gulp.task("default", () => gulp.watch(imgSrc, ["images"]));
@@ -470,7 +460,7 @@ Types of steams:
       const sass = require("gulp-sass");
 
       gulp.task("sass", () =>
-        gulp.src("source-files").pipe($.sass()).pipe(gulp.dest("destination")),
+        gulp.src("source-files").pipe($.sass()).pipe(gulp.dest("destination"))
       );
       ```
 
@@ -488,7 +478,7 @@ Types of steams:
           .pipe(plugin1())
           .pipe(plugin2())
           .pipe(sourcemaps.write())
-          .pipe(gulp.dest("dist")),
+          .pipe(gulp.dest("dist"))
       );
       ```
 
@@ -502,7 +492,7 @@ Types of steams:
           .src("./src/*.ext")
           .pipe(plumber())
           .pipe(plugin1())
-          .pipe(gulp.dest("./dist")),
+          .pipe(gulp.dest("./dist"))
       );
       ```
 

@@ -14,18 +14,15 @@ Model-View-Controller (MVC) is a user interface design pattern
 The MVC design pattern helps to enforce separation of concerns to help you avoid mixing presentation logic, business logic, and data access logic together.
 
 - Model: classes (objects)
-
   - All business logic
     - Business processes
     - Validation rules
     - Systems integration
 
 - View: web pages (Razor HTML)
-
   - Very little logic
 
 - Controller: connects models, business logic and web pages
-
   - Controls application workflow
   - Orchestrates interaction between the model and the view
 
@@ -56,7 +53,6 @@ How website works:
   ```
 
 - Add the services MVC requires (DI): 3-5 were added in Core 3.x
-
   1. `AddMvcCore()`: Only adds core components of the MVC pipeline, requiring you to add any other middleware (needed for your project) by yourself.
 
      ```cs
@@ -72,7 +68,6 @@ How website works:
      ```
 
   2. `AddMvc()`: Internally calls `AddMvcCore()` and adds other middleware such as the Razor view engine, Razor pages, CORS, cache tag helper, JSON formatter (in Core 2.x), data annotations etc.
-
      - everything that `AddControllersWithViews()` does
      - everything that `AddRazorPages()` does
 
@@ -84,7 +79,6 @@ How website works:
      ```
 
   3. `AddControllers()`: Everything that `AddMvcCore()` does and (Better suited for API apps):
-
      - authorization services: needed for authorization policies, filters and other authorization components to work
      - API explorer: required if you want to build dynamic API documentation, generate Swagger/OpenAPI files
      - data annotations: needed for model validation with attributes and IValidateableObject to work
@@ -92,12 +86,10 @@ How website works:
      - CORS
 
   4. `AddControllersWithViews()`: Everything that `AddControllers()` does and (building a "classic" MVC site):
-
      - views functionality: explicitly registers the Razor view engine
      - cache tag helper
 
   5. `AddRazorPages()`: Everything that `AddMvcCore()` does and:
-
      - all the core Razor pages features
      - authorization services
      - data annotations
@@ -118,7 +110,6 @@ Razor is a template markup syntax.
 - Introduced in ASP.NET Core 2.0
 - Routing, Models, `ActionResult`, Tag Helpers...
 - Razor Pages have two parts:
-
   1. Razor Page (UI/View)
   2. Page Model (Contains Handlers)
 
@@ -170,7 +161,6 @@ Check [Core Project Structure](./ASP_NET_Core.md#aspnet-core-project-structure)
 4. `wwwroot/`: folder will contain all the static files like CSS, JavaScript, image files, and libraries. This addresses separation of concerns.
 
 5. `Pages/`: is the main folder in a Razor Project. This folder contains all the pages (views) of the application.
-
    - There is a _Shared_ folder inside, which contains `.cshtml` files with `_` prefix. These files are known as **partial view** files. They act as components.
    - `_ViewImports.cshtml` - Contains tag helper. This contains global tags, you can define page specific tags inside the specific page folder.
    - `_ViewStart.cshtml` - Defines the master page. Like the layout for all the pages.
@@ -201,7 +191,6 @@ Other methods:
 - `app.UseDirectoryBrowser`: Allows directory listing within specified directories. Disabled by default for security reasons. Add `services.AddDirectoryBrowser()`
 
 - `app.UseDefaultFiles()`: Serve a default file from `wwwroot` without requiring the request URL to include the file's name:
-
   - `UseDefaultFiles` must be called before `UseStaticFiles`
   - It checks for:
     - `default.htm`

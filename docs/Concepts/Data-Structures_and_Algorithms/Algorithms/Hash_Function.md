@@ -38,7 +38,6 @@ Problems with this method:
 Problems with Consistent Hashing:
 
 - Uneven distribution
-
   - Virtual nodes are used to overcome this issue
 
 - Amazon DynamoDB

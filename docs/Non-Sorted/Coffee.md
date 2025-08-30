@@ -1,13 +1,11 @@
 # Coffee
 
 - Arabica:
-
   - Smooth taste
   - Less Caffeine
   - Expensive
 
 - Robusta:
-
   - Bitter taste
   - More Caffeine
   - Cheap

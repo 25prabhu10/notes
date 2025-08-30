@@ -76,11 +76,9 @@ The `http` block is the main context and is used to configure how nginx handles 
 
 - `server` block is used to define the settings for a virtual server (there can be multiple `server` blocks, distinguished by ports and server names)
 - `location` block is used to define how nginx should handle requests for different URIs
-
   - `/` is used to match any request, `/path` is used to match requests for a specific path, and `~` is used for case-sensitive regular expression matching
 
 - `root` directive is used to define the root directory where nginx should look for files to serve
-
   - `/var/www/html` can be used as the root directory for serving static content or `/data/www` for a custom directory
 
 ```nginx

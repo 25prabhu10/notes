@@ -52,7 +52,6 @@ Each module below contains one or more of the following headings: Activities, Re
 Please complete the following steps prior to your first class and review all of the information contained within the program guide:
 
 1. Access the appropriate program guide by clicking one of the links below:
-
    - [IT Business Analysis (BAGC) Program Guide](https://moodle.cambriancollege.ca/course/view.php?id=39839)
 
    - [Mobile Application Development (MAPD) Program Guide](https://moodle.cambriancollege.ca/course/view.php?id=39840&source=bitly)

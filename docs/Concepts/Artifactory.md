@@ -12,19 +12,16 @@ Artifactory is an Universal artifact repository manager
 Why do we use Artifactory?
 
 - To access external packages:
-
   - Public NPM and NuGet repositories are not internally accessible (blocked due to security concerns)
 
   - Artifactory acts as a proxy
 
   - CI/CD pipeline
-
     - Built-in automated vulnerability analysis: early detection of security issues
     - License governance: detect ineligible packages
     - Cache
 
 - To store internal packages:
-
   - Common code
   - DTO packages
   - Shared utilities and tools
@@ -50,5 +47,4 @@ Repo Types:
 - Remote: On-demand mirroring of external third party packages
 
 - Virtual: Aggregates multiple local/remote repositories into a single endpoint
-
   - e.g.: Your local NPM repository, plus the mirror of `npmjs.com` so you can resolve all dependencies from a single URL

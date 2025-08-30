@@ -41,7 +41,6 @@ Victor Franki: "A Man's Search for Meaning" - It's not sex that brings up meanin
 
 - [Project Gutenberg](https://www.gutenberg.org/): Free eBooks
 - [Project Gutenberg Australia](http://gutenberg.net.au/): Free eBooks
-
   - [Authors with Surnames beginning A-M](http://gutenberg.net.au/plusfifty-a-m.html)
   - [Authors with Surnames beginning N-Z](http://gutenberg.net.au/plusfifty-n-z.html)
 

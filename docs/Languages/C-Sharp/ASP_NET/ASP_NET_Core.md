@@ -38,20 +38,16 @@ Telemetry is on by default.
 ## ASP.NET Core Project Structure
 
 1. `[project name].csproj`: The Project configuration file, will contain the Target Framework, Nuget package details and other project related settings. This file is used by MSbuild during the build process. For more details visit [project-file](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file).
-
    - Defines how the project will be built
 
    - `TargetFramework`: Specifies the target framework for the application.
-
      - To specify a target framework we use _Target Framework Moniker_ (TFM).
      - E.g. `netcoreapp3.1`
 
    - `AspNetCoreHostingModel`: Specifies how the application should be hosted
-
      - `InProcess` or `OutOfProcess`
 
    - `PackageReference`: Used to include a reference to the NuGet package that is installed for the application
-
      - Metapackage - `Microsoft.AspNetCore.App`
      - A metagpackage has no content of its own
      - It just contains a list of dependencies (other packages)
@@ -59,12 +55,10 @@ Telemetry is on by default.
      - Rely on the implicit version rather than explicitly setting the version number on the package reference
 
 2. `Properties/launchSettings.json`: Which will contain the details for starting the project during development or production environment.
-
    - You can create different profiles based on the requirement.
    - Visual Studio will use the profiles defined here to run the project
 
 3. `appsettings.json`: Application configuration file, it store details such as database connection strings, API keys, etc.
-
    - All the application's settings are contained in this file. (Restart VS after making changes to this file)
    - Different environment specific settings can be used, by creating files in the below mentioned format
    - `appsettings.[environment].json`
@@ -73,7 +67,6 @@ Telemetry is on by default.
 4. `Program.cs`: Entry point of the .NET Core applications. Host configuration.
 
 5. `Startup.cs`: Configures services and application request pipelines (middlewares)
-
    - **`Program.cs` and `Startup.cs` files are combined into `Program.cs` file from ASP.NET Core 6+**
 
    - `public IConfiguration Configuration { get; }`: Read configuration settings from multiple sources like `appsettings.json`, Environment variables, files...
@@ -166,14 +159,11 @@ app.Run();
 An ASP.NET Core application can be hosted:
 
 - `InProcess`:
-
   - `CreateDefaultBuilder()` method calls `UseIIS()` method and hosts the app inside of the IIS worker process (`w3wp.exe`) or IIS Express (`iisexpress.exe`)
   - `InProcess` hosting delivers significantly higher request throughput that `OutOfProcess` hosing
 
 - Out-Of-Process:
-
   - Two ways of hosting:
-
     - Kestrel as the server
     - Reverse proxy + Kestrel
 
@@ -256,7 +246,6 @@ ASP.NET Core supports the [Dependency Injection](../../../Concepts/Designs/Desig
 Services are typically registered in the app's Startup.ConfigureServices method.
 
 - The `Startup.ConfigureServices` method accepts one parameter an instance of the `IServiceCollection` named `services`. This object exposes a handful of helpful methods that allow you to configure your dependency injection logic:
-
   1. `AddScoped`: We get the same instance within the scope of a given HTTP request but a new instance across different HTTP requests
 
   2. `AddSingleton`: Single instance is created and used for the entire applications lifetime
@@ -293,7 +282,6 @@ When the browser sends a request to the server, the request is attached to a con
 Registering middleware:
 
 1. `app.Run(IApplicationBuilder, RequestDelegate)`:
-
    - Adds a _terminal middleware_ delegate as it prevents further middleware from processing the request.
    - Will never call subsequent middleware
    - `Run` delegates don't receive a `next` parameter.
@@ -306,7 +294,6 @@ Registering middleware:
    ```
 
 2. `app.Use`: If you want to pass the request to the next delegate use `app.Use` instead of `app.Run`.
-
    - The `next` parameter represents the next delegate in the pipeline.
    - You can _short-circuit_ the pipeline by not calling the `next` parameter.
    - You can typically perform actions both before and after the `next` delegate
@@ -321,7 +308,6 @@ Registering middleware:
    ```
 
 3. `app.Map`: extensions are used as a convention for branching the pipeline.
-
    - `Map` branches the request pipeline based on matches of the given request path.
    - If the request path starts with the given path, the branch is executed.
 
@@ -459,7 +445,6 @@ Route templates:
 Types of Routing:
 
 1. Conventional routing: typically used with controllers and views.
-
    - Routing Configuration:
 
      ```cs
@@ -479,7 +464,6 @@ Types of Routing:
      - `?` defines `id` as optional
 
 2. Attribute routing: **preferred with REST APIs**
-
    - Placing a route on the controller or action makes it attribute-routed.
 
      ```cs
@@ -669,7 +653,6 @@ Steps to add Identity to the application:
    ```
 
    - The built-in classes have limited properties, if we need to store more information about the user:
-
      - Create a class that inherits from `IdentityUser` and extends it with new properties
      - Then replace `IdentityUser` with the new class in the `AddIdentity` service
 
@@ -791,7 +774,6 @@ Roles
 
 - Boolean
 - Encapsulating:
-
   - Users
   - Functions
 
@@ -920,7 +902,6 @@ Keeps production secrets like database connection strings, API and encryption ke
 
 - **Meant to be used for development purpose only**
 - The secrets are stored as plain text in the `secrets.json` file located in `C:\Users\{UserName}\AppData\Roaming\Microsoft\UserSecrets\{ID}\`
-
   - `UserName`: is the current windows user
   - `ID`: Random GUID used to link secrets with a particular project
 
@@ -999,14 +980,11 @@ To target older ASP.NET Core versions add a `global.json` file to the working di
 - 27 June 2016 (VS 2015 update 3)
 - Used a `project.json` file for project and package configuration, references
 - Improved separations of concerns between content and resources
-
   - Public, static resources (CSS, JavaScript, images) in `wwwroot` directory
 
 - VS 2017 moved back to `.csproj` file from `project.json`
-
   - Change allows for MSBuild support
   - Project file updates:
-
     - Removed list of `included` files
     - Manage NuGet package references
 
@@ -1017,7 +995,6 @@ Dependency injection is completely built in:
 - No need to bring in **Ninject** or **Autofac** etc.
 - Items added to the services container in `Startup.cs`
 - Services are accessed through:
-
   - Constructor injection
   - Method injection (with `[FromServices]`)
   - View injection (with `@inject`)
@@ -1026,7 +1003,6 @@ Dependency injection is completely built in:
   - Injection is the preferred mechanism
 
 - Custom services can be registered as well:
-
   - Transient: created each time there is a request (by any class)
   - Scoped: created once per request (HTTP request)
   - Singleton: max of one instance per application
@@ -1036,13 +1012,11 @@ Dependency injection is completely built in:
 
 - Configured with `bundleconfig.json`
 - Bundler & Minifier VS extension
-
   - Includes file watcher for `bundleconfig.json`
   - Bundle on build requires additional NuGet package
   - Set bindings with Task Runner Explorer
 
 - `BundlerMinifierCore` works with .NET Core CLI
-
   - Must manually configure `.csproj` file
   - Execute with "dotnet bundle" or "dotnet bundle clean"
 
@@ -1057,7 +1031,6 @@ Dependency injection is completely built in:
 - Environment Tag Helper
 
 - Applications are configured using:
-
   - Simple JSON (or other file types)
   - CLI arguments
   - Environment variables
@@ -1067,11 +1040,9 @@ Dependency injection is completely built in:
 
   - Configuration values are set in the order received
   - Environment determines which additional files to load:
-
     - `appsettings.<environment>.json`
 
   - Custom classes can represent configuration values:
-
     - Can bind to entire configuration or individual sections with `services.Configure<T>`
 
     - Requires the `Microsoft.Extensions.Options.ConfigurationExtensions` package
@@ -1079,18 +1050,15 @@ Dependency injection is completely built in:
     - Can be added to DI container and injection in with `IOption<T>`
 
   - Added in 1.1
-
     - `ReloadOnChange` for `AddJsonFile` and `IOptionsSnapshot` for object injection
     - Azure Key Vault configuration provider
 
   - Changed in 2.0
-
     - Configuration is loaded using `CreateDefaultBuilder`
 
 #### Web host configuration & SSL
 
 - Create a Web host:
-
   - ASP.NET Core application are console applications that create a web host
     - Kestrel in 1.0
   - The web host is created with the `WebHostBuilder` class
@@ -1101,11 +1069,9 @@ Dependency injection is completely built in:
     - `UseStartup<T>` adds configuration (Configure and ConfigureServices)
 
 - **Changed in 1.1**
-
   - Added `HTTP.sys IServer` (called `WebListener` in 1.1)
 
 - **Changed in 2.0**
-
   - `CreateDefaultBuilder` configures standard `IWebHostBuilder`
   - Many additional options added to `WebHostBuilder`
 
@@ -1130,7 +1096,6 @@ public class Program
 ```
 
 1. Using SSL Locally: IIS
-
    - Check Enable SSL on Debug project property page
    - Configure MVC for SSLPort (44300 or greater)
    - Add RequireHttps attribute/filter/etc.
@@ -1138,7 +1103,6 @@ public class Program
    - If you have not already trusted it. You'll get an exception in the browser.
 
    - **Added in 1.1:**
-
      - URL rewriting to HTTPS
 
    _Example:_
@@ -1160,7 +1124,6 @@ public class Program
    ```
 
 2. Using SSL Locally: Kestrel
-
    - Install the desktop development with C++ workload
    - Need the `Microsoft.AspNetCore.Server.Kestrel.Https` package
    - Make a cert, convert to `.pfx` format
@@ -1168,15 +1131,12 @@ public class Program
    - Add `RequireHttps` attribute, configure MVC for SSLPort
 
 - **Added in 1.1:**
-
   - URL rewriting to HTTPS
 
 - **Changed in 2.0:**
-
   - Kestrel configuration (breaking changes)
 
 - **Changed in 2.1**
-
   - HTTPS on by default in development
   - Addition of specialized middleware for redirects
   - Kestrel listens on `https://localhost:5001` with dev certificate
@@ -1202,7 +1162,6 @@ ASP.NET Core provides `ILoggerFactory` available in Startup's Configure method
 - `LoggerFactory` available through injection using `ILogger<T>`
 
 - **Changed in 2.0:**
-
   - Logging incorporated in DI system by default
   - Configured in `Program.cs` instead of `Startup.cs`
 
@@ -1221,7 +1180,6 @@ New in ASP.NET Core
 
 - Enable server-side code to participate in rendering HTML elements in Razor views
 - Reduces the transition between code and markup
-
   - Keeps developers and designers in the HTML
 
 - Attach to HTML elements in views:
@@ -1231,7 +1189,6 @@ New in ASP.NET Core
 Form Tag Helper:
 
 - Support tags (must include at least one)
-
   - `asp-area`
   - `asp-controller`
   - `asp-action`
@@ -1275,7 +1232,6 @@ Label:
 Validation Tag Helpers:
 
 - Validation message:
-
   - Property selected with `asp-validation-for`
   - Generates `data-valmsg-for` attribute
   - Equivalent to `@Html.ValidationMessageFor`
@@ -1287,12 +1243,10 @@ Validation Tag Helpers:
 Non-Form Tag Helpers:
 
 - Anchor: additionally supports:
-
   - `asp-fragment`
   - `asp-hostname`
 
 - Environment:
-
   - Conditionally renders content based on the runtime environment
   - The "names" attribute accepts one or more environment names
   - If `HostingEnvironment.EnvironmentName` matches, content is loaded
@@ -1300,14 +1254,12 @@ Non-Form Tag Helpers:
     - Added the `include` and `exclude` attributes
 
 - Link/Script/Image:
-
   - Link:
     - `asp-append-version` tag adds hash of file to URL
     - Resolves issue of file still cached when contents change
     - Adds `?v=[hash of file]` to the URL
 
 - Cache/Distributed Cache:
-
   - Provides a way to mark content as cached using the `[cache]` tag
 
   - Supports absolute, time-span, or sliding expiration
@@ -1315,7 +1267,6 @@ Non-Form Tag Helpers:
   - Supports additional cache options
 
   - Distributed Cache Tag helper:
-
     - Inherits from Cache Tag Helper
     - Supports SQL Server or Redis as a distributed cache
 
@@ -1341,7 +1292,6 @@ Limitations:
 Create `ViewComponent` Class:
 
 - Derive from `ViewComponent`
-
   - Can also use name ending in `ViewComponent` or decorate with `[ViewComponent]`
 
 - Implement `InvokeAsync` and return `IViewComponentResult`
@@ -1350,12 +1300,10 @@ Create `ViewComponent` Class:
 - Create standard partial view: default name is `default.cshtml`
 
 - Must locate partial view in:
-
   - `Views/[controller_name]/Components/[view_component_name]/[view_name]`
   - `Views/Shared/Components/[view_component_name]/[view_name]`
 
 - Invoke from a view (or layout)
-
   - `@Component.InvokeAsync("[name]", [anonymous type with parameters])`
 
 - Invoke from a controller action method: `return ViewComponent("[name]", [anonymous type with parameters]);`
@@ -1367,9 +1315,7 @@ Create `ViewComponent` Class:
 
 - Recommended for production
 - Entity Framework Core 1.1 (IMHO) is production ready
-
   - Added/fixed features:
-
     - Connection Resiliency
     - Explicit loading
     - Mapping to computed columns
@@ -1390,7 +1336,6 @@ View Components Invoked as Tag Helpers:
 Configuration Updates
 
 - Reload on change in `AddJsonFile`
-
   - Parameter existed in 1.0; only supported in 1.1 and later
 
 - `IOptionSnapshot`:
@@ -1400,12 +1345,10 @@ Configuration Updates
 **View Pre-Compilation**:
 
 - Views can now be compiled with application publication
-
   - Requires `Microsoft.AspNetCore.Mvc.Razor.ViewComponent` package
   - Requires updating the project file: `<MvcRazorCompileOnPublish>true</MvcRazorCompileOnPublish>`
 
 - 2 Considerations:
-
   - Resulting publication bundle is smaller
   - Views cannot be edited after pre-compilation
 
@@ -1433,26 +1376,21 @@ Middleware Components:
 - Completely configured in code
 
 1. URL Rewriting Middleware:
-
    - Modifies a request URL based on set rules
    - Must add `Microsoft.AspNetCore.Rewrite` package
    - Capable of redirects (client-side) and rewrite (server-side)
    - Can be configured with:
-
      - Text (regex, case sensitive)
      - IIS standard XML formatted rules or Apache Mod_Rewrite syntax
      - C# code (methods or classes)
 
    - **Changed in 2.0:**
-
      - Configuration of IIS and Apache rules
 
    - **Changed in 2.1:**
-
      - Addition of middleware to intelligently redirect to HTTPS
 
    - Redirects are configured with regex, replacement, and status code
-
      - Defaults to 302 (temporary) if status code is not supplied
      - Can also redirect to secure end point
 
@@ -1461,13 +1399,11 @@ Middleware Components:
    - Can add classes that implement `IRule` interface
 
 2. Response Caching Middleware:
-
    - Requires `Microsoft.AspNetCore.ResponseCaching` package
    - Add `services.AddResponseCaching()` in `ConfigureServices`
    - Add `app.UseResponseCaching()` in `Configure`
    - Use `[ResponseCache]` controller attribute
    - Options:
-
      - `UseCaseSensitivePaths(default=false)`
      - `MaximumBodySize(default=64MB)`
      - `SizeLimit(default=100MB)`
@@ -1476,7 +1412,6 @@ Middleware Components:
      - Where it gets configured
 
 3. Response Compression Middleware:
-
    - Requires `Microsoft.AspNetCore.ResponseCompression` package
    - Add `services.AddResponseComporession()` in `ConfigureServices`
    - Add `app.UseResponseCompression()` in `Configure`
@@ -1487,10 +1422,8 @@ Middleware Components:
      - Where it gets configured
 
 4. Middleware as MVC Filters:
-
    - Filters have access to MVC context and constructs
    - Using middleware as filters provides same access
-
      - Run in same stage as resources filters
 
    - Create a class with `Configure` method
@@ -1505,7 +1438,6 @@ Middleware Components:
 - Send and Receive messages
 
 - **SignalR** (.NET Core 3.0 or later) provides more power:
-
   - Included in the `Microsoft.AspNetCore.App` shared framework
   - `Microsoft.AspNetCore.SignalR.Client` package
 
@@ -1517,11 +1449,9 @@ Middleware Components:
 Package/Runtime Update:
 
 - `Microsoft.AspNetCore.All` meta-package (.NET Core 2)
-
   - Includes all ASP.NET Core, EF, and their internal/third-party dependencies
 
 - .Net Core Runtime Store:
-
   - Contains all packages (pre-compiled) from `Microsoft.AspNetCore.All` meta-package
 
 - Package trimming (pre-release)
@@ -1543,7 +1473,6 @@ Entity Framework Updates:
 Using Docker:
 
 - Build a custom image based on an existing `aspnetcore` image
-
   - Enable Docker support in the new project wizard
   - Add Docker support in VS 2017 through project context menu
   - Select the same target OS that Docker is targeting
@@ -1551,7 +1480,6 @@ Using Docker:
 - Docker doesn't use the `launchSettings.json`
 - Configured through the Docker files
 - Docker-Compose project in startup project
-
   - Switch to ASP.NET Core project to disable Docker
 
 - Localhost:{ServicePort} is the window into your application
@@ -1559,11 +1487,9 @@ Using Docker:
 `WebHost.CreateDefaultBuilder`:
 
 - Encapsulates the most common tasks:
-
   - Configures Kestrel and IISIntegration
   - Sets content root directory
   - Loads configuration from:
-
     - `appsettings.json/appsettings.{environmentname}.json`
     - User secrets (in development)
     - Environment variables/command-line arguments
@@ -1585,7 +1511,6 @@ Logging Changes:
 
 - Default logging is configured in `Program.cs` by `CreateDefaultBuilder`
 - Log filters can be configured in:
-
   - `appsettings.json`
   - Through code
 
@@ -1596,7 +1521,6 @@ Logging Changes:
 
 - Renamed from WebListener (introduced in 1.1)
 - Requires `Microsoft.AspNetCore.Server.HttpSys` package; merger of:
-
   - `Microsoft.AspNetCore.Server.WebListener`
   - `Microsoft.Net.Http.Server`
 
@@ -1611,7 +1535,6 @@ Rewriting Middleware Updates:
 
 - Changes to how IIS and Apache rules are acquired
 - Additional IIS URL Rewrite Module features are supported:
-
   - Global rules
   - Rewrite maps
   - CustomResponse action
@@ -1647,7 +1570,6 @@ SSL in Docker:
 
 - Enable SSL in Kestrel
 - Map entry ports to 80, 443 in `docker-compose.override.yml`
-
   - `8080:80`
   - `44300:443`
 
@@ -1662,7 +1584,6 @@ SSL in Docker:
   - All part of the same framework
   - Framework looks for Razor Pages in the `Pages/` folder by default
 - Declared with `@page` directive, operates as an action:
-
   - Requests don't go through a controller
   - Use code behind files for C# code
 
@@ -1691,7 +1612,6 @@ Client Libraries and Library Manger:
 - Which is similar to GulpJS, GruntJS, webpack, npm
 
 - Why Library Manger?
-
   - Not currently using an open-source tool
   - Need/want complete control over the file destination
   - Smaller footprint for libraries
@@ -1731,7 +1651,6 @@ Implementing SignalR:
 
 - SignalR server library is in `Microsoft.AspNetCore.App`
 - Add SignalR client library using Library Manager
-
   - `@aspnet/signalR` from unpkg
 
 - Create a SignalR hub
@@ -1756,7 +1675,6 @@ Binding Source Parameter inference:
 Razor Pages Improvements:
 
 - Razor Pages increased search area:
-
   - Current Pages folder
   - `/Pages/Shared`
   - `/Views/Shared`
@@ -1793,7 +1711,6 @@ EU General Data Protection Regulation (GDPR):
 - All websites should consider GDPR compliance
 
 - ASP.NET Core 2.1 GDPR Support:
-
   - Configurable cookie policy options
   - Cookie consent partial view
   - User download/deletion of personal data

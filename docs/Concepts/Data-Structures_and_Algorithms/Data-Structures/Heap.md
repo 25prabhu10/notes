@@ -36,7 +36,6 @@ In other words, where any given node is:
 3. Set current element `i` as `largest`
 
 4. The index of left child is given by `2i + 1` and the right child is given by `2i + 2`
-
    - If `leftChild` is greater than `currentElement` (i.e. element at ith index), set `leftChildIndex` as largest
 
    - If `rightChild` is greater than element in `largest`, set `rightChildIndex` as largest

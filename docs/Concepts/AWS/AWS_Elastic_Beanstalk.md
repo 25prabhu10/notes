@@ -189,7 +189,6 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 
 - After creating an Elastic Beanstalk environment, you cannot change the Elastic Load Balancer type (only the configuration)
 - To migrate:
-
   1. create a new environment with the same configuration except LB (can't clone)
   2. deploy your application onto the new environment
   3. perform a CNAME swap or Route 53 update

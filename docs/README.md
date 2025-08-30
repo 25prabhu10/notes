@@ -1,5 +1,6 @@
 ---
 layout: home
+
 hero:
   name: "Note Nexus"
   text: "Anthology of Snippets"

@@ -97,7 +97,6 @@ Routes URL to pages.
 Controller inherit from `ApiController`
 
 - `HttpResponseMessage`:
-
   - _Example:_
 
     ```cs
@@ -123,7 +122,6 @@ Controller inherit from `ApiController`
     ```
 
 - `IHttpActionResult`:
-
   - New introduced in Web API 2
 
   - Clean Code

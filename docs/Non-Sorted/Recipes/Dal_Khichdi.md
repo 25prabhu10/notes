@@ -25,7 +25,6 @@ Moong Dal Khichdi is a popular basic food prepared and served across India for m
 ### Ingredients
 
 1. For Pressure Cooking:
-
    - **Rice**: 1/2 cup
    - **Moong dal**: 1/2 cup
    - **Ghee**: 1 tsp
@@ -34,7 +33,6 @@ Moong Dal Khichdi is a popular basic food prepared and served across India for m
    - **Water**: 3 1/4 cup
 
 2. Other Ingredients:
-
    - **Ghee**: 2 tbsp
    - **Cumin**: 1 tsp
    - **Bay leaf**: 1

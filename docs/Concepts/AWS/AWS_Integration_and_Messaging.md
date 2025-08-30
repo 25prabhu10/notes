@@ -10,7 +10,6 @@ SQS, SNS and Kinesis
 
 - When we start deploying multiple applications, they will inevitably need to communicate with one another
 - There are two patterns of application communication:
-
   1. Synchronous communications (application to application)
   2. Asynchronous/Event based (application to queue to application)
 

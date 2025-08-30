@@ -62,10 +62,8 @@ $$ \begin{align} T(n) & = c_1n + c_2(n - 1) + c_3(n - 1) + c_4(n - 1) + c_7(n - 
 - We can express this running time as $a_n + b$ for constants $a$ and $b$ that depend on the statement costs $c_k$ (where $a = c_1 + c_2 + c_4 + c_5 + c_8$ and $b = c_2 + c_4 + c_5 + c_8$). The running time is thus a _linear function_ of $n$
 
 - In analysing Insertion Sort, we simplified by:
-
   - Using constants ck to represent statement costs.
   - Simplifying expressions further:
-
     - Best-case: $an + b$
     - Worst-case: $an^2 + bn + c$
 
@@ -270,7 +268,6 @@ _Example:_ $f(n) = 3n^2 + 2n - 1$ is $Θ(n^2)$ because for $c1 = 2$, $c2 = 4$, a
    ```
 
    _Example:_ $f(n) = n is o(n^2)$ because for any $c > 0$, we can choose $n_0 = 1/c$, and then $n < cn^2$ for all $n > n_0$
-
    - **Little O** describes the **upper bound excluding the exact bound** (i.e. denote an upper bound that is not asymptotically tight)
 
 2. Little-omega (_𝜔-notation_): For a given function $g(n)$, we denote by $𝜔(g(n))$ ("little-omega of $g$ of $n$") the _set of functions_:
@@ -337,7 +334,6 @@ Time functions
 Terms:
 
 - complexity
-
   - Complexity is different for small numbers than large numbers
 
 - time complexity
@@ -345,7 +341,6 @@ Terms:
 - asymptotic complexity
 
 - Amortization:
-
   - Long-term averaging
   - Operations can take different times
 
@@ -364,7 +359,6 @@ _Big-O Complexity:_
 ![Big-O Complexity Chart](./big-o-complexity-chart.svg)
 
 1. `O(1)`: **Constant time** (size of data dose not matter)
-
    - Constant time beats linear if data is sufficiently big
 
    ```python
@@ -385,7 +379,6 @@ _Big-O Complexity:_
    ```
 
 2. `O(n)`: **Linear time**
-
    - Time grows proportionally to data
 
    ```python
@@ -536,7 +529,6 @@ _Big-O Complexity:_
     ```
 
 11. `O(n!)`:
-
     - Permutations
     - Travelling Salesman Problem
 
@@ -615,7 +607,6 @@ _Examples:_
 
 - Dynamic programming
 - Greedy algorithm
-
   - Dijkstra's Shortest Path algorithm
 
 - Backtracking

@@ -24,29 +24,24 @@ Types of Version Control Systems:
 Old VCS that predate Git:
 
 - Source Code Control System (SCCS):
-
   - 1972: closed source, free with Unix
   - Stored original version and sets of changes
 
 - Revision Control System (RCS):
-
   - 1982: open source
   - Stored latest version and sets of changes
 
 - Concurrent Version System (CVS):
-
   - 1986-1990: open source
   - Multiple files, entire project
   - Multi-user repositories
 
 - Apache Subversion (SVN):
-
   - 2000: open source
   - Track text and images
   - Track file changes collectively (track directory)
 
 - BitKeeper SCM:
-
   - 2000: closed source, proprietary
   - Distributed version control
 
@@ -170,15 +165,12 @@ Download Git from this [link](https://git-scm.com/downloads) and install it
 All the Git configurations are stored in a file:
 
 1. The **configurations specific to the users** resides in home directory as `~/.gitconfig` or `~/.config/git/config` file
-
    - To add configurations to this file we pass `--global` option in the CLI
 
 2. The **configurations specific to a repository** resides as `.git/config` file
-
    - To add configurations to this file we pass `--local` option or just `git config` in the CLI
 
 3. The **configurations specific to that machine** resides as `/etc/gitconfig` file
-
    - To add configurations to this file we pass `--system` option in the CLI
 
 The **priority** in which these configuration files are used is: **local** > **global** > **system**
@@ -257,7 +249,6 @@ ssh-keygen -t rsa -b 4096 -C "string"
 Git was initially a **toolkit for a VCS** and hence consists of a number of subcommands divided into:
 
 1. _Plumbing_: Subcommands that do low-level work and were designed to be chained together UNIX-style or called from scripts
-
    - Around 63 commands
    - 19 manipulators (`apply`, `commit-tree`, `update-ref`, ...)
    - 21 interrogators (`cat-file`, `for-each-ref`, ...)
@@ -265,7 +256,6 @@ Git was initially a **toolkit for a VCS** and hence consists of a number of subc
    - 18 internal (`check-attr`, `sh-i18n`, ...)
 
 2. _Porcelain_: More user-friendly commands
-
    - Around 82 commands
    - 42 main commands (`add`, `commit`, `push`, `push`, ...)
    - 11 manipulators (`config`, `reflog`, `replace`, ...)
@@ -423,7 +413,7 @@ git add [filename]
 
 # add the entire directory recursively,
 # including files whose names begin with a dot
-git add 
+git add
 git add -A
 
 # stage modified and deleted files only, not new files
@@ -532,10 +522,8 @@ Commit best practice:
 
 - Add the _right_ changes
 - Compose a _good commit message_:
-
   - Subject (50 chars): concise summary of what happened
   - Body (150 chars): mode detailed explanation:
-
     - What is now different than before?
     - What's the reason for the change?
     - Is there anything to watch out for/anything particularly remarkable?
@@ -849,7 +837,6 @@ We can use:
   - `*?[aeiou][0-9]`
   - `logs/*.txt`
 - Negative expressions:
-
   - `*.php`
   - `!index.php`
 
@@ -1514,7 +1501,6 @@ FILE PERMISSIONS / TYPE OF FILE / objectSHA / FILE NAME
 - Git reflog has the superpower to **track the head**
 
 - The difference between log and reflog is that:
-
   - `git log` will track every commit that you make and record it as a snapshot at a particular time, whereas `git reflog` will keep track of commits that are made as well as the commits that are discarded
 
 - This is provided in a rolling buffer for 30 days
@@ -1591,32 +1577,32 @@ Steps: `start`, `bad`, `good`
 
 1. Start bisecting:
 
-    ```bash
-    # start bisect session
-    git bisect start
-    ```
+   ```bash
+   # start bisect session
+   git bisect start
+   ```
 
 2. Mark the current commit as bad:
 
-    ```bash
-    git bisect bad
-    ```
+   ```bash
+   git bisect bad
+   ```
 
-2. Provide a commit/branch/tag to start from:
+3. Provide a commit/branch/tag to start from:
 
-    ```bash
-    git bisect good [treeish]
-    ```
+   ```bash
+   git bisect good [treeish]
+   ```
 
-3. Now add the current commit as bad, Git will go through all the commits between the start commit and the current bad commit
+4. Now add the current commit as bad, Git will go through all the commits between the start commit and the current bad commit
 
-    ```bash
-    git bisect bad
+   ```bash
+   git bisect bad
 
-    or
+   or
 
-    git bisect bad [treeish]
-    ```
+   git bisect bad [treeish]
+   ```
 
 From now check the application and verify if the application has the bug or not, if the commit dose not have bug then mark it as good and if you find the commit that has the bug then mark it as bad. Repeat this process till the tool narrows down to the commit that introduced the bug
 
@@ -1649,24 +1635,20 @@ Agree on a Branching Workflow in your team:
 Integrating changes and structuring releases:
 
 1. mainline development ("Always Be Integrating"):
-
    - few branches
    - relatively small commits
    - high quality testing and QA standards
 
 2. Stale, release and feature branches:
-
    - different types of branches
    - fulfil different types of jobs
 
 **GIT Flow vs Trunk based dev**:
 
 1. GitHub Flow: very simple, very lean:
-
    - only one long-running branch (_"main"_) + feature branches
 
 2. GitFlow: more structure, more rules,
-
    - long-running branches: _"main"_, _"development"_
    - short-lived branches: _"features"_, _"releases"_, _"hotfixes"_
 
@@ -1800,38 +1782,31 @@ A `.gitmodules` file is created when we add a submodule to the project. This is 
 Based on the git operation, any one of the following `git hooks` will be triggered
 
 1. **Client-side**:
-
    - Committing workflow hooks:
-
      - `pre-commit`
      - `prepare-commit-msg`
      - `commit-msg`
      - `post-commit`
 
    - Rewriting:
-
      - `pre-rebase`
      - `post-rewrite`
 
    - Merging:
-
      - `post-merge`
      - `pre-merge-commit`
 
    - Switching/Pushing:
-
      - `post-checkout`
      - `reference-transaction`
      - `pre-push`
 
    - Email workflow hooks:
-
      - `applypatch-msg`
      - `pre-applypatch`
      - `post-applypatch`
 
 2. **Server-side**:
-
    - `update`
    - `pre-receive`
    - `post-receive`
@@ -1994,7 +1969,6 @@ The below mentioned files can be created in the `.github` folder:
 - `FUNDING.yml`: Displays a sponsor button in your repository to increase the visibility of funding options for your open source project
 
 - `ISSUE_TEMPLATE`: Folder that contains a templates of possible issues user can use to open issue (such as if issue is related to documentation, if it's a bug, if user wants new feature etc)
-
   - `config.yml`: Customize the issue template chooser that people see when creating a new issue in your repository by adding a `config.yml` file to the .`github/ISSUE_TEMPLATE` folder
 
 - `PULL_REQUEST_TEMPLATE.md`: How to make a pull request to project

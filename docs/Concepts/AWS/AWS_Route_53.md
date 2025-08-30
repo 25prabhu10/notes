@@ -23,7 +23,6 @@ prev: ./AWS
 - Route53 is a Managed DNS (Domain Name System)
 - DNS is a collection of rules and records which helps clients understand how to reach a server through URLs.
 - In AWS, the most common records are:
-
   - A: hostname to IPv4
   - AAAA: hostname to IPv6
   - CNAME: hostname to hostname

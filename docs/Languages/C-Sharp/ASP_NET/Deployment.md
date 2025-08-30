@@ -24,16 +24,13 @@ Frontend:
 ASP.NET Core applications themselves run as a self-contained process with the help of a server library. If you've developed self-hosted OWIN (Open Web Interface for .NET) applications in the past with ASP.NET, you'll find this pattern familiar. The server itself contains the code that translates raw HTTP requests into the structures that ASP.NET Core is looking for
 
 1. [IIS](./IIS.md)
-
    - IIS Express
 
 2. `HTTP.sys`
-
    - Windows only
    - Supports Windows authentication
 
 3. [Kestrel](#kestrel)
-
    - Cross-platform
    - Highly optimized
    - Recommended
@@ -41,16 +38,13 @@ ASP.NET Core applications themselves run as a self-contained process with the he
 Handling Internet traffic:
 
 - Server directly (edge server): Can be used for simple applications
-
   - Internet --> Application code: Server (Kestrel or HTTP.sys)
   - App server configured for HTTPS and listening for connections
   - Not good for large applications:
-
     - Hard to scale
     - No easy way to balance load and send traffic to another server
 
 - Behind a Reverse Proxy or Load Balancer:
-
   - Internet --> Reverse proxy --> Application code: Server (Kestrel or HTTP.sys)
   - Reverse Proxies like IIS/Nginx
   - Reverse Proxy acts as a load balancer
@@ -65,7 +59,6 @@ Handling Internet traffic:
 ## Deployment Strategies
 
 - Windows/Azure using IIS: Copy binaries manually
-
   - IIS acting as reverse proxy to Kestrel
 
 - On a Linux server using Kestrel plus a reverse proxy like Apache or NGINX: Copy binaries manually
@@ -77,7 +70,6 @@ Handling Internet traffic:
 Launch settings:
 
 - Profiles are configured with `Properties/launchSettings.json` (edit directly the JSON or project properties)
-
   - Running an IIS simulates a deployment to a Windows server, using both IIS and Kestrel and tying them together with a reverse proxy.
 
   - Running in Kestrel is useful for development purposes because of all the extra logging that gets output in the console window.
@@ -94,15 +86,12 @@ There are 2 types of web servers:
 ### Portable or Stand-Alone Deployment
 
 - .NET Core supports true side-by-side installation of the platform:
-
   - Installation of additional versions won't affect previously installed versions
 
 - Portable deployments rely on the framework pre-installed:
-
   - Only deploy application-specific libraries
 
 - Stand-alone deployments contain required:
-
   - Application files
   - Framework (CoreFX, CoreCLR) files
 
@@ -142,9 +131,7 @@ To add these files: These settings will be included in every publish profile
 ## HTTPS
 
 1. HTTPS on edge servers (Kestrel):
-
    - ASP.NET Core project templates use Kestrel by default when not hosted with IIS. In `Program.cs`:
-
      - (v3+) The `ConfigureWebHostDefaults` method calls `UseKestrel` internally:
 
        ```cs
@@ -171,7 +158,6 @@ To add these files: These settings will be included in every publish profile
        ```
 
    To add Client certificate:
-
    1. Create a certificate
 
       ```bash
@@ -208,13 +194,11 @@ To add these files: These settings will be included in every publish profile
    3. Using SSL Locally
 
 2. HTTPS on reverse proxy servers (Apache or Nginx): Instead of copying a certificate to and adding the right configuration to each server, you only need to configure the certificate at the reverse proxy level.
-
    - When a new connection arrives, the proxy handles the HTTPS connection, then it turns around and makes an unencrypted HTTP connection internally to your web servers.
    - That way your web servers let the proxy do all the work and don't have to worry about HTTPS and certificates and encryption.
    - Their responses are relayed back over HTTPS by the proxy.
    - The proxy or load balancer will include one or more headers on the internal HTTP connection so that your web servers can understand if requests started on HTTPS.
    - It's important to configure ASP.NET Core to look for these forwarded headers:
-
      - `X-Forwarded-For: 203.0.113.195`
      - `X-Forwarded-Host: example.io`
      - `X-Forwarded-Proto: https`
@@ -253,14 +237,12 @@ Create a Site and Application Pool:
 
 - Open IIS Manager
 - Create a new site (Sites --> Add Website)
-
   - Site Name:
   - Application Pool: (site name)
   - Physical path: (path of the files and binaries of the website)
   - Host name: (localhost)
 
 - Modify the new Application Pool:
-
   - Basic Settings --> .NET CLR Version: No Manage Code
   - For ASP.NET Core, IIS will not actually be hosting or running any of the application code itself, unlike previous versions. This will be managed by Kestrel, IIS needs to simply forward along requests
 
@@ -274,7 +256,6 @@ Setup Data Protection:
 
 - Download the [Provision-AutoGenKeys.ps1](https://github.com/dotnet/AspNetCore/blob/main/src/DataProtection/Provision-AutoGenKeys.ps1) script
 - Run this script in admin mode:
-
   - Now elevate this PowerShell window to give it the remote signed execution policy, which allows the execution of that script
 
     ```powershell
@@ -290,11 +271,9 @@ Setup Data Protection:
 Publishing Application:
 
 1. With Visual Studio:
-
    - Open the Publish wizard (Create a publish profile)
 
    - Pick a publish target:
-
      - Example: Folder --> select the folder mentioned in the IIS Application Pool --> Physical path
 
 2. Via the CLI:

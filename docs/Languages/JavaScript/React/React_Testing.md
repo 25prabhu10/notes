@@ -70,7 +70,6 @@ It helps with:
 Finding Elements:
 
 - Testing Library recommends finding elements by accessibility handles
-
   - [Which query to use?](https://testing-library.com/docs/queries/about/#priority)
 
 ### Queries
@@ -97,7 +96,6 @@ Types of Queries:
 - `Text` (display elements)
 
 - Form elements:
-
   - `PlaceholderText`
   - `LabelText`
   - `DisplayValue`

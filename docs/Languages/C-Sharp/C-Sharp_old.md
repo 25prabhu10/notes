@@ -5,15 +5,12 @@
 ## Function Members
 
 1. Properties:
-
    - Properties are function members that encapsulate a piece of an object's state, such as a button's color or a label's text.
 
 2. Methods
-
    - Are traditional functions.
 
 3. Events
-
    - Events are function members that simplify acting on object state changes.
 
 > Functions can be treated as values through the use of **delegates**, C# allows functions to be passed as values to and from other functions.

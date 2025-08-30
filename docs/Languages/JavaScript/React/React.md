@@ -75,7 +75,6 @@ We can either:
 2. Or create a local development environment and manage project dependencies. Follow steps mentioned in [React Project Setup From Scratch](#react-project-setup-from-scratch)
 
 3. Or use boilerplate generators, such as:
-
    - [create-react-app](https://create-react-app.dev/) application to generate the boilerplate. It is recommended by the official react guide.
 
      ```bash
@@ -121,7 +120,6 @@ Steps to create a base React project without using any boilerplate tools:
 2. Initialize your project with `npm init` or `yarn init` and also initialize _git_ as well with `git init`
 
 3. A `package.json` file will be created after you complete _step-3_.
-
    - The `package.json` is a standard `npm` manifest file that records important metadata about a project, such a name, description, information about the author, etc. It lets the developer specify dependencies (that should be downloaded and installed) and define script tasks.
    - `Yarn` also uses the same file
 
@@ -169,7 +167,6 @@ Steps to create a base React project without using any boilerplate tools:
 8. Now you need a **module packager or build tool**, which will orchestrate JSX transformation, file minification and concatenation, module/dependency bundling or any other tasks. Tools such as [Grunt](https://gruntjs.com/), [gulp.js](https://gulpjs.com/), [webpack](https://webpack.js.org/), [PARCEL](https://parceljs.org/), [rollup.js](https://rollupjs.org/), [Snowpack](https://www.snowpack.dev/) can be used
 
 9. We will use webpack (v5) and for more info on how webpack works check out this [Link](../Tools/Webpack/Webpack.md)
-
    - Install it as project development dependency:
 
      ```bash
@@ -326,10 +323,8 @@ Virtual DOM is an **in-memory**, **lightweight representation of the DOM**.
 - React converts these virtual elements into real DOM elements as necessary. This process of finding the minimum number of changes that must be made in order to make the virtual DOM tree and the actual DOM tree identical is called **reconciliation**.
 
 - A Diffing algorithm is used to identify these changes.
-
   - This algorithm is very fast and efficient
   - It makes few assumptions:
-
     - Two elements of different types will produce different trees
     - When we have a list of child elements which often changes, we should provide an unique "key" as a prop
 
@@ -473,8 +468,8 @@ Ways to create a React class component:
         "ul",
         { className: "ingredients" },
         this.props.items.map((ingredient, i) =>
-          React.createElement("li", { key: i }, ingredient),
-        ),
+          React.createElement("li", { key: i }, ingredient)
+        )
       );
     },
   });
@@ -495,8 +490,8 @@ Ways to create a React class component:
         "ul",
         { className: "ingredients" },
         this.props.items.map((ingredient, i) =>
-          React.createElement("li", { key: i }, ingredient),
-        ),
+          React.createElement("li", { key: i }, ingredient)
+        )
       );
     }
   }
@@ -678,7 +673,7 @@ function Greeting(props) {
 ReactDOM.render(
   // Try changing to isLoggedIn={true}:
   <Greeting isLoggedIn={false} />,
-  document.getElementById("root"),
+  document.getElementById("root")
 );
 ```
 
@@ -841,7 +836,7 @@ const Greeter = (props) => {
 
   if (typeof salutation !== "string") {
     console.warn(
-      `Expected type for salutation is a string, but a ${typeof salutation} was passed`,
+      `Expected type for salutation is a string, but a ${typeof salutation} was passed`
     );
   }
 
@@ -940,13 +935,11 @@ This is a way to "preserve" some values between the function calls - `useState` 
 - React will preserve this state between re-renders.
 
 - `useState` returns a pair:
-
   - The current state value and a function that lets you update it
   - This function is similar to `this.setState` in a class
   - Except it doesn't merge the old and new state together
 
 - `useState` takes only one argument: the initial state
-
   - The initial state is only used during the first render
 
 Sample syntax:
@@ -1274,7 +1267,6 @@ Ways to create unique keys:
   ```
 
 - If items don't have ids, we can use [Nano ID](https://github.com/ai/nanoid/) to create short non-sequential url-friendly unique ids.
-
   - But don't use `nanoid` directly as a `key`
 
   ```jsx
@@ -1390,7 +1382,6 @@ function TextInputWithFocusButton() {
    ```
 
 2. Using **"callback refs"**, which gives more fine-grain control over when refs are set and unset.
-
    - Instead of passing a s`ref` attribute created by `createRef()`, you can pass a function.
    - The function receives the React component instance or HTML DOM element as its argument, which can be stored and accessed elsewhere.
 
@@ -1440,7 +1431,6 @@ function TextInputWithFocusButton() {
    :::
 
 3. _Legacy API_: String Refs
-
    - The `ref` attribute is a string, like `myTextInput`, and the DOM node is accessed as `this.refs.textInput`
 
    ```jsx
@@ -1637,7 +1627,6 @@ Hooks are functions that let you _"hook into"_ React state and lifecycle feature
 They help in resolving some of the problems caused by class based components:
 
 - Wrapper hell
-
   - Higher order components
   - Render props
 
@@ -1665,7 +1654,6 @@ Hooks provided by React:
 ### Rules of Hooks
 
 - Only call Hooks at the Top Level
-
   - **Don't call** Hooks **inside loops, conditions, or nested functions**
 
 - Only call Hooks from React Function components or custom Hook functions
@@ -1721,7 +1709,6 @@ function Example() {
 There are two common kinds of side effects in React components:
 
 1. Effects Without Clean-up:
-
    - Running some additional code after React has updated the DOM
 
    - Network requests, manual DOM mutations, and logging are common examples of effects that don't require a clean-up
@@ -1745,7 +1732,7 @@ There are two common kinds of side effects in React components:
        return function cleanUp() {
          ChatAPI.unsubscribeFromFriendStatus(
            props.friend.id,
-           handleStatusChange,
+           handleStatusChange
          );
        };
      }, []);
@@ -1809,7 +1796,6 @@ Tips:
 
 - Use Multiple Effects to Separate Concerns
 - Optimizing Performance by Skipping Effects:
-
   - Cleaning up or applying the effect after every render might create a performance problem
 
   ```jsx
@@ -1920,7 +1906,6 @@ Pass a "create" function and an array of dependencies. `useMemo` will only recom
 - Don't use this hook if the answer is "no" to "dose this component re-render often with the same props?"
 
 - To benefit from `React.memo` the component should:
-
   - Be a Pure functional component.
   - Render _often_.
   - Usually, re-render with the same props.
@@ -1979,7 +1964,6 @@ React.memo(Component, moviePropsAreEqual);
 ```
 
 - Memoization can be avoid by using `children` prop: this technique is known as **"lifting content up"**
-
   - When `count` changes, `Parent` component will re-render. But it still has the same `children` prop it got from the `App` last time, so React doesn't visit that subtree
 
   ```jsx
@@ -2194,7 +2178,6 @@ function App() {
 ```
 
 - `startTransition` lets you mark updates as low priority in the provided callback as transitions
-
   - Lets you explicitly tell React which updates are a lower priority
 
   ```javascript
@@ -2256,7 +2239,6 @@ These are **available only in Class based components** and not present in functi
 A `React.Component` subclass must define a `render()` method
 
 - `render()`: Invoked before the component is mounted and then whenever the [State](#state-management) or [Props](#props) changes.
-
   - It should always return React element
 
 ![Component Life-Cycle Methods](./react_component_life_cycle.webp)
@@ -2275,7 +2257,6 @@ Order of method calls on mount:
 List of Methods:
 
 1. `constructor`:
-
    - `super()` must be called at the start inside the constructor if class extends another class, in this case the component extends `React.Component` class
 
    - Setting up [state](#state-management)
@@ -2307,14 +2288,12 @@ List of Methods:
    - _Constructor_ is required to call `createRef` or method binding
 
 2. `componentDidMount`: **Invoked once, immediately after the initial rendering** occurs. At this point, the component has a DOM representation that can be accessed.
-
    - This is **not invoked during component re-rendering** after the component has been mounted.
 
    - API calls are made here
    - Add event listeners
 
 3. `getDerivedStateFromProps`: **Invoked right before calling the `render()`** method, both on the initial mount and on subsequent updates. It should return an object to update the state, or `null` to update nothing.
-
    - resetting a video or audio element when the source changes
    - refreshing a UI element with updates from the server
    - closing an accordion element when the contents change
@@ -2356,7 +2335,6 @@ Order of method calls based on updates:
 **Prop Changes** and **State Changes**:
 
 1. `shouldComponentUpdate`: **Called before the render function** and it gives the opportunity to **define if a re-rendering is needed or can be skipped**.
-
    - Stop unnecessary re-renders
 
    ```javascript
@@ -2367,7 +2345,6 @@ Order of method calls based on updates:
    ```
 
 2. `componentDidUpdate`: **Invoked immediately after the component's updates are flushed to the DOM**.
-
    - This method is **not called for the initial render**
 
    - If `getSnapshotBeforeUpdate()` is implemented (which is rare), the value it returns will be passed as a third `snapshot` parameter to `componentDidUpdate()`. Otherwise this parameter will be `undefined`
@@ -2384,7 +2361,6 @@ Order of method calls based on updates:
    ```
 
 3. `getSnapshotBeforeUpdate` (NEW): Invoked right before the most recently rendered output is committed to e.g. the DOM. It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. Any value returned by this lifecycle method will be passed as a parameter to `componentDidUpdate()`
-
    - A snapshot value (or `null`) should be returned
    - Use case is not common
 
@@ -2417,7 +2393,6 @@ Order of method calls based on updates:
 - `componentWillUnmount`
 
 1. `componentWillUnmount`: **Invoked once, immediately before a component is unmounted from the DOM**. Used for clean-up operations like removing any event listener's timers defined in mounting life cycle.
-
    - Tear down or clean up tasks or code that will otherwise clutter the app before the component disappears
 
    - Remove event listeners
@@ -2449,13 +2424,10 @@ Error boundaries **do not catch** errors for:
 A class component becomes an error boundary if it defines **either (or both)** of the lifecycle methods `static getDerivedStateFromError()` or `componentDidCatch()`.
 
 - `static getDerivedStateFromError()`: This lifecycle is invoked after an error has been thrown by a descendant component.
-
   - It receives the error that was thrown as a parameter and should return a value to update state.
 
 - `componentDidCatch()`: This lifecycle is invoked after an error has been thrown by a descendant component.
-
   - It receives two parameters:
-
     1. `error`: The error that was thrown.
 
     2. `info`: An object with a `componentStack` key containing information about which component threw the error.
@@ -2694,7 +2666,6 @@ class UserForm extends Component {
 ```
 
 - There only few updates:
-
   - All form elements will require to have the name prop to be set same as the key name used in the state object to track that particular element
 
   - Ternary operator is used to determine the value as all elements have user data in their value props except checkboxes which have boolean data in the checked prop
@@ -2892,7 +2863,6 @@ const App = () => {
 Types of state:
 
 - **UI State**: State used for controlling interactive parts of our application (e.g. dark mode toggle, modals)
-
   - State that's only useful in the UI for controlling the interactive parts of our app (like modal `isOpen` state)
 
   - [Redux](./Redux.md)
@@ -2904,7 +2874,6 @@ Types of state:
   - [MobX](https://mobx.js.org/)
 
 - **Server Cache State**: State from the server, which we cache on the client-side for quick access (e.g. call an API, store the result, use it in multiple places)
-
   - State that's actually stored on the server and we store in the client for quick-access
 
   - [`react-query`](https://react-query.tanstack.com/)
@@ -2930,7 +2899,6 @@ Context API (React _v16.3_) enable us to define the context Object which stores 
   ```
 
 - The Context object exposes a `Provider` component, which is most often used at the top-level component to provide its context to all child components:
-
   - `value` is the current value
 
   ```jsx
@@ -3097,7 +3065,6 @@ Typical use case for portals is when a parent component has an `overflow: hidden
 ## Other APIs
 
 1. `flushSync`: Lets you force React to flush any updates inside the provided callback synchronously. This ensures that the DOM is updated immediately
-
    - Using flushSync is uncommon and **can hurt the performance** of your app
 
    ```javascript
@@ -3140,7 +3107,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
+  </React.StrictMode>
 );
 ```
 
@@ -3220,7 +3187,7 @@ const OtherComponent = React.lazy(() => import("./OtherComponent"));
 const DetailPage = React.lazy(() =>
   import("./OtherComponent").then((module) => ({
     default: module.NamedComponent,
-  })),
+  }))
 );
 ```
 
@@ -3311,12 +3278,10 @@ export default App;
 ## Versions
 
 1. React _v18_:
-
    - March 29, 2022
    - `ReactDOM.render` is deprecated
    - Automatic batching
    - New Hooks:
-
      - [`useDeferredValue`](#usedeferredvalue-hook)
      - [`useTransition`](#usetransition-hook)
      - [`useId`](#useid-hook)
@@ -3327,11 +3292,9 @@ export default App;
    - Concurrent rendering: A behind-the-scenes
 
 2. React _v17_:
-
    - October 20, 2020
    - React import is not required
    - New JSX transform:
-
      - Old transformation
 
        ```jsx
@@ -3367,10 +3330,8 @@ export default App;
    - React will no longer attach event handlers at the `document` level. Instead, it will attach them to the root DOM container into which your React tree is rendered
 
 3. React _v16_:
-
    - Fibre
    - React _16.3_:
-
      - Marked for depreciation `UNSAFE_componentWillMount`, `UNSAFE_componentWillReceiveProps`, `UNSAFE_componentWillUpdate`
 
      - [`React.createContext`](#context-api)
@@ -3418,46 +3379,36 @@ export default App;
 
 - [Very old React tutorial](https://zapier.com/engineering/react-js-tutorial-guide-gotchas/)
 
-
 ## Libraries
 
 1. Icons:
-
    - [react-icons](https://react-icons.netlify.com): collection of different SVG icons
 
 2. CSS Animations
-
    - [react-transition-group](https://github.com/reactjs/react-transition-group/tree/v1-stable)
-
      - Basic animation
      - 14.7kb (mini)
 
    - [react-spring](https://github.com/pmndrs/react-spring)
-
      - Ease of use
      - 27kb (mini)
 
    - [react-motion](https://github.com/chenglou/react-motion)
-
      - Ease of use
      - 90kb (mini)
 
    - [framer-motion](https://github.com/framer/motion)
-
      - Ease of use
      - 20kb (mini)
 
    - [react-move](https://github.com/sghall/react-move)
-
      - Ease of use
      - 12.7kb
 
 3. Multi Select Input:
-
    - [react-select](https://github.com/jedwatson/react-select)
 
 4. Performance:
-
    - [why-did-you-render](https://github.com/welldone-software/why-did-you-render)
 
    - [Benchmark React Components](https://engineering.musefind.com/how-to-benchmark-react-components-the-quick-and-dirty-guide-f595baf1014c)

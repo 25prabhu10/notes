@@ -96,7 +96,6 @@ KEYS *
   ```
 
 - Expire keys:
-
   - Timeout can be rest by using `SET` with the key again
 
   ```sql
@@ -127,13 +126,11 @@ Redis is a data structure server
 ### Core
 
 1. Strings: Redis strings are the most basic Redis data type, representing a sequence of bytes
-
    - Binary-safe Strings
 
    - "binary-safe" means that the string can contain any type of data represented as a string: PNG images or serialized objects, for example.
 
 2. Lists: Redis lists are lists of strings sorted by insertion order
-
    - Like linked lists
 
    - `RPUSH`: inserts a new element at the end of the List
@@ -160,7 +157,6 @@ Redis is a data structure server
      ```
 
    - `LRANGE`: returns a subset of the List based on a specified start and stop index
-
      - `0`: first element
      - `-1`: last element
 
@@ -196,7 +192,6 @@ Redis is a data structure server
      ```
 
 3. Sets: Redis sets are **unordered** collections of **unique strings** that act like the sets (Java HashSets, Python sets). With a Redis set, you can add, remove, and test for existence `O(1)` time (in other words, regardless of the number of set elements)
-
    - `SADD`: create a Set
 
      ```sql
@@ -249,7 +244,6 @@ Redis is a data structure server
      ```
 
    - `SUNION`: combine Sets
-
      - If we pass to `SUNION` a key that doesn't exist, it considers that key to be an empty set (a set that has nothing in it).
 
      ```sql
@@ -261,7 +255,6 @@ Redis is a data structure server
      ```
 
 4. Hashes: Redis hashes are record types modelled as collections of field-value pairs (Python dictionaries, Java HashMaps, and Ruby hashes)
-
    - `HSET`: sets `field` in the Hash to `value`
 
      ```sql
@@ -314,11 +307,8 @@ Redis is a data structure server
      ```
 
 5. Sorted sets: Redis (_v1.2_) **sorted** sets are collections of **unique strings** that maintain order by each string's associated score
-
    - `ZADD`: adds all the specified members with specified scores to the Sorted Set
-
      - `ZADD` option arguments (Redis _v3.0.2_):
-
        - `XX`: Only update members that already exist. Never add members
 
        - `NX`: Don't update already existing members. Always add new members
@@ -391,7 +381,7 @@ app.get("/photos", async (req, res) => {
   const photos = await getOrSetCache(`photos?albumId=${albumId}`, async () => {
     const { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/photos",
-      { params: { albumId } },
+      { params: { albumId } }
     );
 
     return data;
@@ -404,7 +394,7 @@ app.get("photos/:id", async (req, res) => {
   const photo = await getOrSetCache(`photos:${req.params.id}`, async () => {
     const { data } = await axios.get(
       `https://jsonplaceholder.typicode.com/photos/${req.params.id}`,
-      { params: { albumId } },
+      { params: { albumId } }
     );
 
     return data;

@@ -43,7 +43,6 @@ Developed by Microsoft, STRIDE is considered one of the most comprehensive ways 
 STRIDE stands for:
 
 - Spoofing: Authentication
-
   - Spoofing is the impersonation of something or someone else
 
 - Tampering: Integrity
@@ -62,7 +61,6 @@ STRIDE stands for:
 More complex the application (more ways to interact) more potential bugs: Combinatorial explosion of different ways an API can be used
 
 1. What is Application Security?
-
    - Security beyond infrastructure
    - Integrating security tooling to DevOps a.k.a DevSecOps
    - Determine security posture for application
@@ -72,7 +70,6 @@ More complex the application (more ways to interact) more potential bugs: Combin
    - Knowledge sharing and presentations on security
 
 2. Why is Application Security Important?
-
    - PCI DSS.
    - APRA Prudential Standard CPS 234 & Practice Guide CPG 234.
 
@@ -86,19 +83,15 @@ Common form of attacks:
 Different Parts of Web Security:
 
 - **Browser security**:
-
   - _Example:_ [Same-Origin Policy](./SameOrigin_Policy.md) - Isolate sites from each other, while running in the same browser
 
 - **Server app security**:
-
   - Attackers can run arbitrary HTTP clients: can send anything to server
 
 - **Client app security**:
-
   - Prevent user from being attacked while using web app locally
 
 - **Protect the user**:
-
   - From social engineering
   - From trackers, private data being leaked
 
@@ -134,7 +127,6 @@ The browser has a seemingly impossible task:
 ## The Five Stages of Hacking
 
 1. [Reconnaissance](#reconnaissance) - Gathering Information
-
    - Passive Reconnaissance
    - Active Reconnaissance
 
@@ -146,7 +138,6 @@ The browser has a seemingly impossible task:
 ### Reconnaissance
 
 1. Passive Reconnaissance:
-
    - Target Validation: `WHOIS`, `nslookup`, `dnsrecon`
    - Finding Subdomains: Google Fu, `dig`, `Nmap`, `Sublist3r`, `Bluto`, `crt.sh`, etc.
    - Fingerprinting: `Nmap`, `Wappalyze`, `WhatWeb`, `BuiltWith`, `Netcat`
@@ -251,7 +242,6 @@ Site vs Origin:
 Which is blocked?
 
 - **Web Forms: applies**
-
   - Scripts, images, etc. which remain constant:
 
     ```html
@@ -265,7 +255,6 @@ Which is blocked?
     ```
 
 - **JavaScript: applies**
-
   - Content operated via XMLHTTPRequest or Fetch (APIs):
 
     ```javascript
@@ -283,13 +272,10 @@ Mandatory security headers for apps:
 - [`Content-Security-Policy`](./Content_Security_Policy.md) prevents a wide range of attacks, including Cross-site scripting and other cross-site injections
 
 - Reduce Fingerprinting:
-
   - `X-Powered-By`:
 
 - MIME Sniffing Protection:
-
   - When content type is:
-
     - **Set**: Some browsers (IE) try to verify content type with actual content payload
     - **Not Set**: Some browsers guess content type while others block loading of page
 
@@ -302,15 +288,12 @@ Mandatory security headers for apps:
   ```
 
 - Clickjacking Protection (Legacy):
-
   - AKA UI redressing
   - Attackers trick users into clicking hidden actionable content
-
     - CSS is used to create and manipulate layers
     - iframes are used to create hidden content
 
   - Prevent framing of your site as iframe in another website:
-
     - Complete deny:
 
       ```http
@@ -324,7 +307,6 @@ Mandatory security headers for apps:
       ```
 
     - Allow from specific origin:
-
       - Allow from is deprecated in some browsers and should not be relied upon - use in conjunction with CSP
 
       ```http
@@ -336,9 +318,7 @@ Mandatory security headers for apps:
   :::
 
 - Cache Headers:
-
   - Properly configured caching header is to avoid having sensitive information stored in browser or proxy:
-
     - `Cache-Control`: Header to determine if page should be cached
     - `Expires`: Not relevant in modern browsers but needed to stay consistent
     - `Pragma`: This is older header and replaced by `Cache-Control`

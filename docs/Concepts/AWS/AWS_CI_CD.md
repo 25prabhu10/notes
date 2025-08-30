@@ -59,7 +59,6 @@ Code --> Build --> Test --> Deploy --> Provision
 - All these are enabled by using a version control system such as Git
 - A Git repository can live on one's machine, but it usually lives on a central online repository
 - Benefits are:
-
   - Collaborate with other developers
   - Make sure the code is backed-up somewhere
   - Make sure it's fully viewable and auditable
@@ -133,14 +132,12 @@ Differences:
 
 1. Search for `CodeCommit` --> Create repository
 2. Repository settings:
-
    - Repository name:
    - Description (optional):
    - Tags
    - Enable Amazon CodeGuru Reviewer for Java and Python - optional
 
 3. Connection steps:
-
    - HTTPS:
    - SSH:
    - HTTPS (GRC):
@@ -228,7 +225,6 @@ Differences:
 ### Create a CodeBuild
 
 1. Create build project:
-
    - Project name:
    - Description (optional):
    - Build badge (optional):
@@ -415,12 +411,10 @@ Differences:
 
 1. Goto CodeStar --> Create project
 2. Templates:
-
    - Application type: (Web service) ...
    - AWS service: (AWS Elastic Beanstalk) (AWS EC2) (AWS Lambda) ...
 
 3. Project details:
-
    - Project name:
    - Project ID:
    - Project repository: (CodeCommit) (GitHub)

@@ -5,14 +5,12 @@ OOPs:
 1. What is Object-Oriented Programming?
 
 2. What are the main features of OOPs? Can you please briefly explain them?
-
    - **Encapsulation**: Data hiding and Data binding
    - **Polymorphism**: Multiple forms, Compile and runtime polymorphism
    - **Inheritance**:
    - **Abstraction**:
 
 3. What are the **SOLID** Principles?
-
    - S - **Single Responsibility Principle**: Each and every class in your project should have one, and only one responsibility.
 
    - O - **Open Closed Principle**: Entities in your software system should be open for extension, but closed for modification.
@@ -24,17 +22,14 @@ OOPs:
    - D - **Dependency Inversion Principle**: High level modules should not depend on lower level modules. Both should depend on abstractions. Abstractions should not depend on details. Details should depend on abstractions.
 
 4. How Design Principles are different from Design Patterns?
-
    - Principles are best practices to follow to allow scalable architecture and software craftmanship.
 
    - Design patterns are techniques about how to do the design and architect your code
 
 5. What is Inversion of Control (IoC)?
-
    - Inversion of Control is a principle in software engineering which transfers the control of objects or portions of a program to a container or framework.
 
 6. What is is Loose Coupling?
-
    - Is achieved by means of a design that promotes single-responsibility and separation of concerns.
 
    - A loosely-coupled class can be consumed and tested independently of other classes.
@@ -46,7 +41,6 @@ OOPs:
 ## Important C# topics
 
 1. What is C# and .NET Framework?
-
    - The .Net framework is a software development platform developed by Microsoft. The framework was meant to create applications, which would run on the Windows Platform. The first version of the .Net framework was released in the year 2002.
 
    - C# is an elegant and type-safe object-oriented language that enables developers to build a variety of secure and robust applications that run on the .NET Framework.
@@ -62,7 +56,6 @@ OOPs:
 6. Decision making using `if-else`, `switch` and looping using `for`, `while`, `do..while` and `foreach` loop.
 
 7. What is meant by pass by value and pass by reference? How can we pass arguments as reference in C#?
-
    - `out`, `ref`, `params`, `in`
 
 8. Arrays in C#, Array initialization syntax, Arrays as parameters and arguments or return values of a method.
@@ -102,7 +95,6 @@ OOPs:
 39. Delegates.
 40. Lambda expressions.
 41. Popular data structures in C#?
-
     - Array
     - ArrayList
     - `List<T>`
@@ -120,20 +112,17 @@ OOPs:
 ## LINQ
 
 1. Have you used Language Integrated Query (LINQ)? Explain what is LINQ? Why is it required?
-
    - LINQ is the collection of standard query operators which provides query facilities into.NET framework language like C#, VB.NET.
 
    - It bridges the gap between the world of data and the world of objects.
 
 2. List some LINQ operators that you have used?
-
    - Projection Operators: `Select`, `SelectMany`
    - Filtering: `Where`, `OfType`
    - Grouping: `GroupBy`, `ToLookup`
    - Sorting: `OrderBy`, `OrderByDescending`, `ThenBy`, `ThenByDescending`
 
 3. LINQ extension methods?
-
    - add methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type.
 
    - are static functions of a static class.
@@ -142,7 +131,6 @@ OOPs:
    - These methods are useful when we can not want to modify the class. Consider:
 
 4. Explain how LINQ is useful than Stored Procedures?
-
    - Debugging: It is difficult to debug a stored procedure but as LINQ is part of.NET, visual studios debugger can be used to debug the queries
 
    - Deployment: For stored procedure, additional script should be provided but with LINQ everything gets compiled into single DLL hence deployment becomes easy

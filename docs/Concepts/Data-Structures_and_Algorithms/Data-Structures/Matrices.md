@@ -161,7 +161,6 @@ description: Matrices
    ```
 
 2. Lower Triangular Matrix: A square matrix is called lower triangular if all the entries above the main diagonal are zero. A matrix _M_ of size _ixj_ should have `M[i,j] = 0 if i < j`
-
    - Row major implementation:
 
      ```c

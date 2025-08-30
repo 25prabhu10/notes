@@ -45,11 +45,9 @@ Steps:
 
 1. Choose an [Amazon Machine Image](#ami) (AMI)
 2. Choose an Instance Type:
-
    - `t2.micro` is available in free tire
 
 3. Configure Instance Details
-
    - User data: Paste the bootstrap script here
 
    ```bash
@@ -77,12 +75,10 @@ Steps:
 [List of current EC2 instance types](https://aws.amazon.com/ec2/instance-types/):
 
 1. General Purpose:
-
    - Great for a diversity of workloads such as web servers or code repositories
    - Balance between: Compute, Memory, and Networking
 
 2. Compute Optimized:
-
    - Great for compute-intensive tasks that require high performance processors
    - Batch processing workloads
    - Media transcoding
@@ -93,7 +89,6 @@ Steps:
    - Name starts with `c`
 
 3. Memory Optimized:
-
    - Fast performance for workloads that process large data sets in memory
    - High performance, relational/non-relational databases
    - Distributed web scale cache stores
@@ -102,7 +97,6 @@ Steps:
 4. Accelerated Computing
 
 5. Storage Optimized:
-
    - Great for storage-intensive tasks that require high, sequential read and write access to large data sets in local storage
    - High frequency online transaction processing (OLTP) systems
    - Relational & NoSQL databases
@@ -139,7 +133,6 @@ _Example:_ (EC2 instance types)
 
 - Security groups are acting as a "firewall" on EC2 instances
 - They regulate:
-
   - **Access to Ports**
   - Authorised IP ranges - IPv4 and IPv6
   - Control of **inbound network** (from other to the instance)
@@ -222,7 +215,6 @@ Steps:
 
 1. Download and install `PuTTY`
 2. After installing, open `PuTTYgen` (PuTTY Key Generator) to convert the AWS EC2 private key (.pem) file into a format that PuTTY understands called ppk (PuTTY Private Key)
-
    - `File` --> `Load private key` --> Select the private key
    - After importing the key select --> `Save private key` --> `Yes` --> Save the file `filename.ppk`
 
@@ -230,7 +222,6 @@ Steps:
 4. Save the session and double click on the session to open it
 5. You will get an error like: **Disconnected: No supported authentication methods available...**
 6. This is because the private key is not included. To include the file:
-
    - `Connection` --> `SSH` --> `Auth` --> Browse and select the private key under `Private key file for authentication`
 
 7. Now open the session
@@ -263,7 +254,6 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 ### EC2 Reserved Instances
 
 1. **Reserved Instances**:
-
    - **Up to 75% discount** compared to On-demand
    - Reservation period: **1 year** = + discount | **3 year** = +++ discount
    - Purchasing options: no upfront | partial upfront = + discount | All upfront = ++ discount
@@ -271,12 +261,10 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
    - Recommended for **steady-state usage application (think database)**
 
 2. **Convertible Reserved Instance**:
-
    - Can **change the EC2 instance type**
    - Up to 54% discount
 
 3. **Scheduled Reserved Instance**:
-
    - **Launch within time window you reserve**
    - When you require a fraction of day/week/month
    - Still commitment over 1 or 3 years
@@ -419,7 +407,6 @@ AMI Process (from an EC2 instance)
 - **Only gp2/gp3 and io1/io2 can be used as boot volumes**
 
 1. General Purpose SSD
-
    - Cost effective storage, low-latency
    - System boot volumes, Virtual desktops, Development and test environments
    - 1 GiB - 16 TiB
@@ -432,7 +419,6 @@ AMI Process (from an EC2 instance)
      - 3 IOPS per GB, means at 5,334 GB we are at the max IOPS
 
 2. Provisioned IOPS (PIOPS) SSD
-
    - Critical business applications with sustained IOPS performance
    - Or applications that need more than 16,000 IOPS
    - Great for databases workloads (sensitive to storage perf and consistency)
@@ -446,7 +432,6 @@ AMI Process (from an EC2 instance)
    - Supports EBS Multi-attach
 
 3. Hard Disk Drives (HDD)
-
    - Cannot be a boot volume
    - 125 MiB to 16 TiB
    - Throughput Optimized HDD (st1)
@@ -551,7 +536,6 @@ Steps:
 ### EBS vs EFS
 
 1. EBS - Elastic Block Storage
-
    - EBS volumes...
      - Can be attached to only one instance at a time
      - Are locked at the Availability Zone (AZ) level
@@ -564,7 +548,6 @@ Steps:
    - Root EBS Volumes of instances get terminated by default if the EC2 instance gets terminated. (you can disable that)
 
 2. EFS - Elastic File System
-
    - Mounting 100s of instances across AZ
    - EFS share website files (WordPress)
    - Only for Linux Instances (POSIX) Availability Zone 1 Linux

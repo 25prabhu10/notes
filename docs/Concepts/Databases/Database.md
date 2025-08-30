@@ -10,7 +10,6 @@ A **database** is a collection of data that is stored and organized in a way tha
 
 - A _database_ is nothing more than a set of related information
 - A _database management system (DBMS)_ is a software that allows users to define, create, maintain and control access to the database
-
   - Primary goal of a DBMS is to provide an _efficient_ and _convenient_ method for defining and managing databases
 
 ## Before Databases
@@ -32,7 +31,6 @@ Data can be stored in different formats, depending on the type of data and how i
 Databases before the advent of relational databases were non-relational. They were based on the hierarchical or network model. These databases were designed to handle specific types of data and were not as flexible as relational databases
 
 - **Hierarchical Database**: Data is organized in a tree-like structure, with parent-child relationships
-
   - _Single-parent_ hierarchy (one-to-many relationship)
 
   ```text
@@ -44,7 +42,6 @@ Databases before the advent of relational databases were non-relational. They we
   ```
 
 - **Network Database**: Data is organized in a graph-like structure, with many-to-many relationships
-
   - Exposes sets of records and sets of links that define relationships between different records
   - _Multiple-parent_ hierarchy (many-to-many relationship)
 
@@ -74,19 +71,15 @@ The relational database model was introduced by **E.F. Codd in 1970** of IBM's r
 ### Key Concepts
 
 - **Table**: A table is a collection of data organized into rows and columns
-
   - Modelled after a real-world entity
 
 - **Column**: A column is a set of data values of a particular type
-
   - Some attribute of the entity
 
 - **Row**: A row is a single record in a table
-
   - A single instance of the entity
 
 - **Cell**: A cell is a single data value in a table
-
   - A single value for a single instance
   - The intersection of a row and a column
 
@@ -136,18 +129,15 @@ The relational database model was introduced by **E.F. Codd in 1970** of IBM's r
 A **data model** is a conceptual representation of the data structures that are required by a database
 
 1. **Entity-Relationship Model**: A data model that describes the relationships between entities in a database
-
    - The entity-relationship (E-R) data model uses a collection of basic objects, called _entities_, and _relationships_ among these objects
    - An entity is a "thing" or "object" in the real world that is distinguishable from other objects
 
 2. **Relational Model**: A data model that describes the relationships between tables in a database
-
    - The relational model uses a collection of tables to represent both data and the relationships among those data
    - Each table has multiple columns, and each column has a unique name
    - Tables are also known as **relations**
 
 3. **Semi-Structured Model**: A data model that allows for the representation of data that does not fit neatly into a tabular format
-
    - This data model permits the specification of data where individual data items of the same type may have different attributes
    - _JSON_ and _XML_ are examples of semi-structured data formats
 
@@ -167,16 +157,13 @@ Data are represented in the form of tables
 Different levels of data abstraction:
 
 - **Physical Level**: Describes how data is stored in the database (e.g., data structures, file formats)
-
   - Lowest level of abstraction
 
 - **Logical Level**: Describes **what** data is stored in the database and the relationships among the data
-
   - Describes the structure of the database
   - Independent of the physical storage of data (physical data independence)
 
 - **View Level**: Describes **how** data is presented to the user
-
   - Highest level of abstraction
   - Describes only a part of the database
   - Not all users need to see all the data in the database
@@ -341,7 +328,6 @@ In a **client-server architecture**, the database is stored on a server, and cli
 How a client-server architecture works:
 
 1. The client sends a request to the server containing a database query or command
-
    - Database drivers are used to connect the client to the server
 
 2. The server passes the request to the database management system (DBMS)
@@ -387,36 +373,30 @@ An **entity-relationship diagram (ERD)** is a visual representation of the entit
 ## Database Paradigms
 
 1. Key-value: Redis, Memcache, etc.
-
    - Caching
    - Pub/Sub
    - Leaderboards
 
 2. Wide Column: Apache Cassandra, Apache HBase
-
    - Time-series
    - Historical Records
    - High-write, low-read
 
 3. Document: MongoDB, Firebase Database, Amazon DynamoDB, Apache CouchDB
-
    - Most Apps
    - Games
    - IOT
 
 4. RDBMS: MySQL, PostgreSQL, SQL Server, CockroachDB
-
    - Most Apps
    - Not ideal for unstructured data
 
 5. Graph: Neo4j, Dgraph
-
    - Graphs
    - Knowledge Graphs
    - Recommendation Engines
 
 6. Search: Apache Lucene, Elasticsearch, Apache Solr, Algolia, meilisearch
-
    - Search Engines
    - Typeahead
 

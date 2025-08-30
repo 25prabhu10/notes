@@ -5,7 +5,7 @@ description: A database engine
 
 # SQLite
 
-SQLite is a SQL database engine that is **self-contained**, **serverless**, **zero-configuration**, **transactional** (ACID compliant), **cross-platform**, **small runtime footprint**, **full-featured** (supports standard SQL), and **highly reliable**. It is the most widely deployed database in the world with an estimated _1 trillion deployments_
+SQLite is an SQL database engine that is **self-contained**, **serverless**, **zero-configuration**, **transactional** (ACID compliant), **cross-platform**, **small runtime footprint**, **full-featured** (supports standard SQL), and **highly reliable**. It is the most widely deployed database in the world with an estimated _1 trillion deployments_
 
 It was created by D. Richard Hipp in 2000 and is public domain software
 
@@ -36,7 +36,7 @@ sqlite3 database_file_name.db
 
 # or
 
-# open sqlite command-line shell
+# open SQLite command-line shell
 sqlite3
 # use dot-commands to create a new database
 .open database_file_name.db
@@ -63,7 +63,7 @@ SQLite is a library that provides a relational database management system (RDBMS
 - When a new database is created, a new file is created on disk that will store the database
 - The database file is divided into pages, each page is a fixed-size block of data
 - A page size in the database file by default is 4096 bytes
-- Pages are the smallest unit of transaction on the file system
+- Pages are the smallest unit of transaction on the filesystem
 - When database needs to read data from a file, it reads one or more pages at a time
 - SQLite uses a B-tree data structure to store the data in the database file
 
@@ -76,13 +76,13 @@ SQLite understands most of the standard SQL language. However, it does not suppo
 
 ### SQL Features That SQLite Does Not Implement
 
-- Complete `ALTER TABLE` support: Only the RENAME TABLE, ADD COLUMN, RENAME COLUMN, and DROP COLUMN variants of the ALTER TABLE command are supported. Other kinds of ALTER TABLE operations such as ALTER COLUMN, ADD CONSTRAINT, and so forth are omitted.
+- **Complete `ALTER TABLE` support**: Only the RENAME TABLE, ADD COLUMN, RENAME COLUMN, and DROP COLUMN variants of the ALTER TABLE command are supported. Other kinds of ALTER TABLE operations such as ALTER COLUMN, ADD CONSTRAINT, and so forth are omitted.
 
-- Complete trigger support: FOR EACH ROW triggers are supported but not FOR EACH STATEMENT triggers
+- **Complete trigger support**: FOR EACH ROW triggers are supported but not FOR EACH STATEMENT triggers
 
-- Writing to VIEWs: VIEWs in SQLite are read-only. You may not execute a DELETE, INSERT, or UPDATE statement on a view. But you can create a trigger that fires on an attempt to DELETE, INSERT, or UPDATE a view and do what you need in the body of the trigger
+- **Writing to VIEWs**: VIEWs in SQLite are read-only. You may not execute a DELETE, INSERT, or UPDATE statement on a view. But you can create a trigger that fires on an attempt to DELETE, INSERT, or UPDATE a view and do what you need in the body of the trigger
 
-- GRANT and REVOKE: Since SQLite reads and writes an ordinary disk file, the only access permissions that can be applied are the normal file access permissions of the underlying operating system. The GRANT and REVOKE commands commonly found on client/server RDBMSes are not implemented because they would be meaningless for an embedded database engine
+- **GRANT and REVOKE**: Since SQLite reads and writes an ordinary disk file, the only access permissions that can be applied are the normal file access permissions of the underlying operating system. The GRANT and REVOKE commands commonly found on client/server RDBMSes are not implemented because they would be meaningless for an embedded database engine
 
 ## Dot-Commands
 
@@ -176,7 +176,6 @@ Along with SQL commands, SQLite supports a number of dot-commands that are used 
 
 - `.headers`: Turn column headers on or off
 - `.mode`: Set the output mode
-
   - 14 modes: `list` (default), `ascii`, `box`, `csv`, `column`, `html`, `insert`, `json`, `line`, `markdown`, `quote`, `table`, `tabs`, `tcl`
 
 - Execute SQL statements from a file:
@@ -187,13 +186,13 @@ Along with SQL commands, SQLite supports a number of dot-commands that are used 
   .read query.sql
   ```
 
-- Backup current database:
+- Back up current database:
 
   ```bash
   .backup
   ```
 
-- Exit sqlite:
+- Exit SQLite:
 
   ```bash
   .exit CODE # exit the SQLite shell with a return code
@@ -244,7 +243,6 @@ SQLite uses flexible type system for columns, **it dose not use strict data type
 Storage classes (5 basic data types):
 
 1. `NULL`: It dose not hold a value (missing or unknown value)
-
    - Literal NULLs are represented by the keyword `NULL`
 
 2. `INTEGER`: The value is a signed integer, stored in `0`, `1`, `2`, `3`, `4`, `6`, or `8` bytes depending on the magnitude of the value
@@ -273,7 +271,6 @@ typeof(NULL);     -- null
 - Boolean values are stored as integers `0` (false) and `1` (true). Keywords `TRUE` and `FALSE`, are supported as of V3.23.0 (2018-04-02)
 
 - The built-in Date And Time Functions of SQLite are capable of storing dates and times as `TEXT`, `REAL`, or `INTEGER` values
-
   - `TEXT` as ISO-8601 strings (`YYYY-MM-DD HH:MM:SS.SSS`)
   - `REAL` as Julian day numbers, the number of days since noon in Greenwich on `November 24, 4714 B.C.` according to the proleptic Gregorian calendar
   - `INTEGER` as Unix Time, the number of seconds since `1970-01-01 00:00:00 UTC`
@@ -346,8 +343,7 @@ SQLite has three built-in collating functions:
 
 1. `BINARY` (default): Compares string data using `memcmp()`, regardless of text encoding.
 2. `NOCASE`: Compares strings case-insensitively
-
-   - ASCII are folded to their lower case equivalents before the comparison
+   - ASCII are folded to their lowercase equivalents before the comparison
 
 3. `RTRIM`: Same as binary, except it ignores trailing space characters
 
@@ -412,17 +408,45 @@ SELECT x FROM t1 ORDER BY c COLLATE NOCASE, x;
 --result 2 4 3 1
 ```
 
+::: tip NOTE
+
+Collating is crucial for user-facing fields like usernames, emails, etc. It makes comparisons case-insensitive. So, 'JohnDoe' and 'johndoe' will be treated as the same for uniqueness constraints and queries. This prevents users from registering variations of the same name.
+
+:::
+
 ### Date And Time
 
 SQLite does not have a dedicated date/time data-type. Instead, date and time values can stored as any of the following:
 
-- ISO-8601: A text string that is one of the ISO 8601 date/time values shown in items 1 through 10 below. Example: `'2025-05-29 14:16:00'`
-- Julian day number: The number of days including fractional days since -4713-11-24 12:00:00 Example: `2460825.09444444`
-- Unix timestamp: The number of seconds including fractional seconds since 1970-01-01 00:00:00 Example: `1748528160`
+- **ISO-8601**: A text string that is one of the ISO 8601 date/time values shown in items 1 through 10 below. Example: `'2025-05-29 14:16:00'`
+
+- **Julian day number**: The number of days including fractional days since -4713-11-24 12:00:00 Example: `2460825.09444444`
+
+- **Unix timestamp**: The number of seconds including fractional seconds since 1970-01-01 00:00:00 Example: `1748528160`
+
+```sql
+SELECT
+   date('now'),                     -- 2025-05-29
+   time('now'),                     -- 14:16:00
+   datetime('now'),                 -- 2025-05-29 14:16:00
+   julianday('now'),                -- 2460825.09444444
+   strftime('%Y-%m-%d %H:%M:%S', 'now'); -- 2025-05-29 14:16:00
+```
+
+```sql
+CREATE TABLE users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    email TEXT NOT NULL UNIQUE COLLATE NOCASE,
+    password_hash TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
 ## Tables
 
-Tables are the basic unit of data storage in an SQLite database. They are used to store data in rows and columns
+Tables are the basic unit of data storage in a SQLite database. They are used to store data in rows and columns
 
 ### Creating Tables
 
@@ -480,7 +504,6 @@ INSERT INTO types (n, s) VALUES (1, 1.0);
 ```
 
 - Create **table from query** result:
-
   - Column constraints are not copied and cannot be specified
   - Data is populated from the result of the query
   - Inherit column names and column affinity
@@ -534,12 +557,10 @@ Common constraints:
 
 - `NOT NULL`: Ensures that a column cannot have `NULL` value
 - `UNIQUE`: Ensures that all values in a column are different
-
   - As `NULL` is not considered a value, so `UNIQUE` constraint allows multiple `NULL` values
   - An index is created for each column with a `UNIQUE` constraint
 
 - `DEFAULT`: Provides a default value for a column when none is specified
-
   - `CURRENT_TIMESTAMP`, `CURRENT_DATE`, and `CURRENT_TIME`
 
 - `AUTOINCREMENT`: Automatically generates a unique integer number (identity) for each row
@@ -547,7 +568,6 @@ Common constraints:
 - `NOCASE`: Case-insensitive collation ignores case when sorting and comparing text
 
 - `PRIMARY KEY`: Uniquely identifies each row/record in a database table
-
   - A table can have only one primary key
   - In SQLite, the `PRIMARY KEY` dose not imply `NOT NULL` constraint, so always use `NOT NULL` with `PRIMARY KEY`
   - Only `INTEGER PRIMARY KEY` have an automatic `NOT NULL` constraint and they are strictly typed to `INTEGER`
@@ -563,7 +583,6 @@ Common constraints:
   ```
 
 - `FOREIGN KEY`: Uniquely identifies a row/record in another table
-
   - A table can have multiple foreign keys
   - The `FOREIGN KEY` constraint is used to prevent actions that would destroy links between tables
   - The `FOREIGN KEY` constraint also prevents invalid data from being inserted into the foreign key column
@@ -580,7 +599,6 @@ Common constraints:
   ```
 
   - The `ON DELETE` and `ON UPDATE` clauses specify what to do when a `DELETE` or `UPDATE` operation affects the foreign key column
-
     - `CASCADE`: Automatically delete or update the corresponding rows in the child table
     - `SET NULL`: Set the foreign key column to `NULL` when the parent key is deleted or updated
     - `RESTRICT`: Reject the delete or update operation for the parent key
@@ -627,7 +645,7 @@ Every SQLite table has a special hidden column named `ROWID`. If a table has a c
 
 Table constraints still operate on individual rows, but they can span multiple columns
 
-- Multicolumn constraints are also known as _compound constraints_
+- Multi-column constraints are also known as _compound constraints_
 
 SQLite supports the following table constraints:
 
@@ -822,7 +840,6 @@ SELECT *
 ```
 
 - `USING` expression can be used to specify the column to join on
-
   - It is a shorthand for specifying the join condition
   - This will return only one column with the same name
   - Both tables must have a column with the same name
@@ -835,7 +852,6 @@ SELECT *
 ```
 
 - **`NATURAL JOIN`**: It is a shorthand for `INNER JOIN` with `USING` clause
-
   - It automatically matches columns with the same name in both tables
 
 ```sql
@@ -853,7 +869,6 @@ Outer joins are used to return rows that do not have a match in the other table
 There are three types of outer joins:
 
 - `LEFT JOIN` (or `LEFT OUTER JOIN`): Returns all rows from the left table, and the matched rows from the right table
-
   - The result is `NULL` from the right side if there is no match
 
   ```sql
@@ -864,7 +879,6 @@ There are three types of outer joins:
   ```
 
 - `RIGHT JOIN` (or `RIGHT OUTER JOIN`): Returns all rows from the right table, and the matched rows from the left table
-
   - The result is `NULL` from the left side if there is no match
 
   ```sql
@@ -875,7 +889,6 @@ There are three types of outer joins:
   ```
 
 - `FULL JOIN` (or `FULL OUTER JOIN`): Returns all rows when there is a match in either left or right table
-
   - The result is `NULL` from both sides when there is no match
 
   ```sql
@@ -926,7 +939,6 @@ Functions are used to perform operations on data and return a result
 - `strftime(format, time-value, modifier, modifier, ...)`
 
   Valid string _format_:
-
   - `%d`: day of month: `01-31`
   - `%e`: day of month without leading zero: `1-31`
   - `%f`: fractional seconds: `SS.SSS`
@@ -1045,7 +1057,7 @@ SELECT MAX(column_name) FROM table_name;
 
 ## Transactions
 
-A transaction is a sequence of operations that are executed as a single unit of work so that either all of the operations are executed or none of them are executed
+A transaction is a sequence of operations that are executed as a single unit of work so that either all the operations are executed or none of them are executed
 
 - Transactions are used to ensure data integrity and consistency in the database
 - SQLite uses transactions to ensure that changes are atomic, consistent, isolated, and durable (ACID properties)
@@ -1057,17 +1069,13 @@ SQLite by default runs in `autocommit` mode, which means that SQLite will automa
 - `END [TRANSACTION]` is a synonym for `COMMIT [TRANSACTION]`
 
 - Optional `DEFERRED` (default), `IMMEDIATE`, or `EXCLUSIVE` keywords can be used to specify the type of transaction
-
   - `DEFERRED`: The `BEGIN` statement will not acquire any locks until the first read or write operation
-
     - Other clients can continue to use the database file
 
   - `IMMEDIATE`: The `BEGIN` statement will acquire a reserved lock on the database file immediately
-
     - Other clients can read the database file but cannot write to it
 
   - `EXCLUSIVE`: The `BEGIN` statement will acquire an exclusive lock on the database file immediately
-
     - Other clients cannot read or write to the database file
 
 ```sql
@@ -1094,7 +1102,6 @@ Save-points are used to create points within a transaction that can be rolled ba
 - Save-points are also called _nested transactions_
 - `SAVEPOINT` creates a save-point
 - `RELEASE` removes a save-point and accepts all changes made since the save-point was created
-
   - Changes are accepted but not committed as the transaction is still active
   - `COMMIT` is required to commit the transaction
 
@@ -1159,8 +1166,7 @@ PRAGMA synchronous=1;
 SQLite provides a number of system catalogues that can be queried to retrieve information about the database
 
 - `sqlite_schema`: Stores the schema for that database
-
-  - Description of all of the other tables, indexes, triggers, and views that are contained within the database
+  - Description of all the other tables, indexes, triggers, and views that are contained within the database
   - Alias names: `sqlite_master`, `sqlite_temp_master`, `sqlite_temp_schema`
 
   | Column Name | Column Type | Description                                                       |

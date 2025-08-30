@@ -216,7 +216,6 @@ _Example:_
   ```
 
 - Isolation Levels for in-flight transactions:
-
   - **Read uncommitted**: No Isolation, any change from the outside is visible to the transaction, committed or not
 
   - **Read committed**: Each query in a transaction only sees committed changes by other transactions
@@ -253,21 +252,18 @@ Database Implementation of Isolation:
 #### Consistency
 
 - Consistency in Data:
-
   - Defined by the user
   - Referential integrity (foreign keys)
   - Atomicity
   - Isolation
 
   _Example:_
-
   - Pictures
 
   | ID (**PK**) | BLOB | LIKES |
   | :---------: | :--: | :---: |
   |      1      |  xx  |   2   |
   |      2      |  xx  |   1   |
-
   - Picture_Likes
 
   | USER (**PK**) | PICTURE_ID (**PK**)(**FK**) |
@@ -275,7 +271,6 @@ Database Implementation of Isolation:
   | Jon           |              1              |
   | Edmond        |              1              |
   | Jon           |              2              |
-
   - Spot inconsistency in this data
 
   - Pictures
@@ -284,7 +279,6 @@ Database Implementation of Isolation:
   | :---------: | :--: | :---: |
   |      1      |  xx  |   5   |
   |      2      |  xx  |   1   |
-
   - Picture_Likes
 
   | USER (**PK**) | PICTURE_ID (**PK**)(**FK**) |
@@ -295,7 +289,6 @@ Database Implementation of Isolation:
   | Edmond        |              4              |
 
 - Consistency in reads:
-
   - If a transaction committed a change will a new transaction immediately see the change?
   - Affects the system as a whole
   - Relational and NoSQL databases suffer from this
@@ -304,13 +297,11 @@ Database Implementation of Isolation:
 ## Database Design / Data Modelling
 
 1. It's an ongoing process where basic Database is designed:
-
    - Understand business data
    - Create a logical design
      - Tables, Indexes, Columns (ER Diagram)
 
 2. Normalization is done:
-
    - Eliminate / Reduce:
      - Data Redundancy
      - Data Anomalies
@@ -326,7 +317,6 @@ Database Implementation of Isolation:
 
 - Entity-Relationship (ER) diagram
 - Relational Schema: an existing idea of how the database must be organized
-
   - Represents the concept database administrators must implement
   - Depict how a database is organized
   - Blueprints, or a plan for a database
@@ -350,7 +340,6 @@ Database Implementation of Isolation:
 Main goal: organize huge amounts of data that can be quickly retrieved
 
 - _Entity_: the smallest unit that can contain a meaningful set of data
-
   - An object we want to model & store information about
 
 - Data inside a column is known as _data value_
