@@ -5,6 +5,13 @@ description: Collection of CLI applications and commands.
 
 # Bash Snippets
 
+## System Utilities
+
+```bash
+# Get CPU info
+lscpu
+```
+
 ## General
 
 1. Find difference in output of two shell commands:

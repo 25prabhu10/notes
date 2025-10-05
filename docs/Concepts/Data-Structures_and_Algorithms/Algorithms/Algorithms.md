@@ -147,7 +147,7 @@ Transitivity of $\sim$: Suppose $f \sim g$ and $g \sim h$, prove $f \sim h$
 
 $$1 = \lim \frac{f}{g} = \lim \frac{\frac{f}{h}}{\frac{g}{h}} = \frac{\lim \frac{f}{h}}{\lim \frac{g}{h}}$$
 
-$$1 = \frac{\lim \frac{f}{h}}{1}$
+$$1 = \frac{\lim \frac{f}{h}}{1}$$
 
 Corollary: $\sim$ is an equivalence relation
 

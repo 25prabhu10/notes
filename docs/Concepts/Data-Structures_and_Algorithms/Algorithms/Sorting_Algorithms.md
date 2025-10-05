@@ -6,6 +6,8 @@ lastmod: 2024-09-06
 
 # Sorting Algorithms
 
+Sorting is the process of arranging the elements of a list or array in a specific order, typically in ascending or descending order
+
 Here is how we formally define the sorting problem:
 
 - **Input**: A sequence of $n$ numbers $(a1, a2, ..., an)$
@@ -13,21 +15,21 @@ Here is how we formally define the sorting problem:
 
 List of sorting algorithms:
 
-1. [Bubble](#bubble-sort): `O(n^2)` (also known as Simple Sort)
-2. [Insertion](#insertion-sort): `O(n^2)`
-3. [Selection](#selection-sort): `O(n^2)`
-4. Heap Sort: `O(n log n)`
-5. [Merge Sort](#merge-sort): `O(n log n)`
-6. [Quick Sort](#quick-sort): `O(n log n)`
-7. Tree Sort: `O(n log n)`
-8. [Shell Sort](#shell-sort): `O(n^(3/2))`
-9. [Count Sort](#count-sort): `O(n)`
-10. Bucket/Bin Sort : `O(n)`
-11. Radix Sort : `O(n)`
+1. [Bubble](#bubble-sort): $O(n^2)$ (also known as _Simple Sort_)
+2. [Insertion](#insertion-sort): $O(n^2)$
+3. [Selection](#selection-sort): $O(n^2)$
+4. Heap Sort: $O(n \log n)$
+5. [Merge Sort](#merge-sort): $O(n \log n)$
+6. [Quick Sort](#quick-sort): $O(n \log n)$
+7. Tree Sort: $O(n log n)$
+8. [Shell Sort](#shell-sort): $O(n^{3/2})$
+9. [Count Sort](#count-sort): $O(n)$
+10. Bucket/Bin Sort : $O(n)$
+11. Radix Sort : $O(n)$
 
-In the above list 1-8 are called **Comparison based Sorts**, And 9-11 are called **Index based Sorts**
+- Check out the [Sorting Overview](#overview)
 
-Go to [sorting overview](#overview)
+> In the above list `1-8` are called **Comparison based Sorts**, And `9-11` are called **Index based Sorts**
 
 ## Criteria For Analysis
 
@@ -35,10 +37,16 @@ Go to [sorting overview](#overview)
 
 2. Number of Swaps
 
-3. **Adaptive**: Less time to sort an already sorted list. An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
+3. **Adaptive**: Less time to sort an already sorted list
+
+    - An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
+
    - Efficient for data sets that are already substantially sorted
 
-4. **Stability**: A sorting algorithm is stable if it maintains the relative order of equal elements in the sorted output as they were in the original input. In other words, if you have two equal elements A and B, and A appears before B in the input, a stable sorting algorithm will ensure that A still appears before B in the sorted output
+4. **Stability**: A sorting algorithm is stable if it maintains the relative order of equal elements in the sorted output as they were in the original input
+
+    - In other words, if you have two equal elements `A` and `B`, and `A` appears before `B` in the input, a stable sorting algorithm will ensure that `A` still appears before `B` in the sorted output
+
    - Does not change the relative order of elements with equal keys
 
 5. Extra Memory
@@ -101,6 +109,7 @@ Time complexity:
 
 - By using a flag we can make it Adaptive
 - For an Adaptive sort it will perform:
+
   - Comparisons: `n-1`
   - Swaps: `0`
   - Performance: `O(n)`
@@ -177,6 +186,7 @@ Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
 Analysis:
 
 1. Best Case Scenario:
+
    - **Input**: The input array is already sorted
    - **Time Complexity**: `O(n)`
    - **Explanation**: Each element is already in its correct position, so the algorithm only compares each element with the one before it and makes no swaps. The inner loop of the insertion sort algorithm will only execute once for each element. Therefore, it only performs `n-1` comparisons, resulting in a _linear time complexity_
@@ -184,19 +194,23 @@ Analysis:
    - Max Number of Swaps: `0` --> `O(1)`
 
 2. Worst Case Scenario:
+
    - **Input**: The input array is sorted in reverse order
    - **Time Complexity**: `O(n^2)`
    - **Explanation**: In the worst case, each new element is smaller than all the elements already sorted. This requires the algorithm to compare the new element with all previous elements and shift them to the right, leading to a quadratic number of comparisons and swaps
 
    For an array of size `n` at worst case:
+
    - Number of Passes: `n-1`
    - Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
    - Max Number of Swaps: `(n * (n - 1)) / 2` --> `O(n^2)`
 
 3. Average-Case Scenario:
+
    - **Input**: The input array is in a random order
    - **Time Complexity**: `O(n^2)`
    - **Explanation**:
+
      - On average, each element in the array is compared and potentially swapped with about half of the elements before it.
      - Specifically, for each element, about half of the previous elements are expected to be larger and need to be shifted to make room for the new element.
      - Since this happens for each of the `n` elements, the total number of comparisons and shifts sums to about $\frac{n^2}{4}$, which still results in a quadratic time complexity, `O(n^2)`
@@ -247,28 +261,28 @@ of the loop
 
 ## Selection Sort
 
-Selection sort is an _in-place comparison-based algorithm_ in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list
+Selection sort is _in-place comparison-based algorithm_ in which the list is divided into two parts, the sorted part at the left end and the unsorted part at the right end. Initially, the sorted part is empty and the unsorted part is the entire list
 
-The smallest element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. This process continues moving unsorted array boundary by one element to the right
+The smallest (or largest) element is selected from the unsorted array and swapped with the leftmost element, and that element becomes a part of the sorted array. This process continues moving unsorted array boundary by one element to the right
 
 **Steps**:
 
-1. Initial State: The algorithm starts with the entire array being unsorted and an empty sorted portion
+1. **Initial State**: The algorithm starts with the entire array being unsorted and an empty sorted portion
 
-2. Find the Minimum: In each iteration, the algorithm scans the unsorted portion of the array to find the minimum (or maximum) element
+2. **Find the Minimum**: In each iteration, the algorithm scans the unsorted portion of the array to find the minimum (or maximum) element
 
-3. Swap: Once the minimum (or maximum) element is found, it's swapped with the leftmost element in the unsorted portion. This effectively moves the selected element to the end of the sorted portion
+3. **Swap**: Once the minimum (or maximum) element is found, it's swapped with the leftmost element in the unsorted portion. This effectively moves the selected element to the end of the sorted portion
 
-4. Expand Sorted Portion: After the swap, the sorted portion grows by one element, and the unsorted portion shrinks by one element
+4. **Expand Sorted Portion**: After the swap, the sorted portion grows by one element, and the unsorted portion shrinks by one element
 
-5. Repeat: Steps 2 to 4 are repeated until the entire array is sorted. The sorted portion gradually expands while the unsorted portion shrinks until there are no more elements left in the unsorted portion
+5. **Repeat**: _Steps 2_ to _4_ are repeated until the entire array is sorted. The sorted portion gradually expands while the unsorted portion shrinks until there are no more elements left in the unsorted portion
 
-6. Final State: At the end of the process, the array is fully sorted
+6. **Final State**: The array is fully sorted
 
-_Pseudocode_:
+_Pseudocode_: Sort in ascending order
 
 ```text
-function selectionSort(arr):
+function selectionSort(arr): // arr is 0 indexed array
     n = length(arr)
     for i from 0 to n-2:  // The last element will be in the correct position after n-1 iterations
         minIndex = i
@@ -281,7 +295,11 @@ function selectionSort(arr):
 
 _Example:_
 
-Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
+Let's say you have an unsorted list: `[5, 2, 9, 1, 5]` and you want to sort it in ascending order
+
+![Selection Sort animation](./selection-sort.gif)
+
+> [Code for the animation](https://github.com/25prabhu10/animations/blob/master/main.py#L6)
 
 1. Pass 1: Find the smallest, which is `1` and swap with left most `5`: `[1, 2, 9, 5, 5]`
 2. Pass 2: `[1, 2, 9, 5, 5]`
@@ -289,19 +307,27 @@ Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
 4. Pass 4: `[1, 2, 5, 5, 9]`
 5. Pass 5: `[1, 2, 5, 5, 9]`
 
-- Each element is compared in every operation, with number of operations same as the number of elements. With each operation an element is moved to the new array, so one less element to be compared in the next operation. On an average, (1/2)n elements are compared for each operation. Thus, the runtime is **O(n x (1/2)n)**. But constants like _(1/2)_ are ignored in Big O. So the runtime is written as _O(n^2)_.
+_Analysis_:
 
-For an array of size `n` at worst case:
+Each element is compared in every operation, with number of operations same as the number of elements
 
-- Number of Passes: `n-1`
-- Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
-- Max Number of Swaps: `n-1` --> `O(n)`
+- With each operation an element is moved to the new array, so one less element to be compared in the next operation. On an average, $\frac{1}{2}n$ elements are compared for each operation. Thus, the runtime is **$O(n * \frac{1}{2}n)$**. But constants like _$\frac{1}{2}$_ are ignored in Big O. So the runtime is written as _$O(n^2)$_.
 
-- It is **not Stable**: does not guarantee stability. When selecting the minimum (or maximum) element to be placed in its correct position, Selection Sort doesn't consider the relative order of equal elements. As a result, if there are equal elements in the array, their order might change during the sorting process
+For an array of size $n$ at worst case:
 
-- Is is **not Adaptive**: Its time complexity remains the same regardless of the input's initial order. It doesn't take advantage of any pre-existing order in the data. It always scans the entire unsorted portion of the array to find the minimum (or maximum) element, regardless of whether the array is partially sorted or not
+- Number of Passes: $n - 1$
+- Max Number of Comparisons: $\frac{n * (n - 1)}{2}$ to $O(n^2)$
+- Max Number of Swaps: $n - 1$ to $O(n)$
 
-- We get **smallest (or largest if desc) number after just 1 pass** (the first element)
+_Note_:
+
+- It is **not Stable**: does not guarantee stability
+  - When selecting the minimum (or maximum) element to be placed in its correct position, Selection Sort doesn't consider the relative order of equal elements. As a result, if there are equal elements in the array, their order might change during the sorting process
+
+- It is **not Adaptive**: Its time complexity remains the same regardless of the input's initial order
+  - It doesn't take advantage of any pre-existing order in the data. It always scans the entire unsorted portion of the array to find the minimum (or maximum) element, regardless of whether the array is partially sorted or not
+
+- We get **smallest (or largest if descending) number after just 1 pass** (the first element)
 
 _Implementations:_
 
@@ -323,6 +349,8 @@ def selection_sort(arr):
         newArr.append(arr.pop(smallest))
     return newArr
 ```
+
+> [Other implementations](https://github.com/25prabhu10/up-skill/tree/main/src/algorithms/sort/selection-sort)
 
 ## Quick Sort
 
@@ -512,16 +540,19 @@ T(n) = O(n^log_b(a) * log^k(n))
 ```
 
 1. Best Case Scenario:
+
    - **Input**: The input array is already sorted
    - **Time Complexity**: `O(n log n)`
    - Explanation: Merge sort still divides the array into smaller sub-arrays and merges them back together, but since the sub-arrays are already sorted, the merging process is very efficient
 
 2. Worst Case Scenario:
+
    - **Input**: The input array is sorted in reverse order
    - **Time Complexity**: `O(n log n)`
    - Explanation: This results in the maximum number of comparisons and merges during the algorithm. However, the time complexity remains `O(n log n)` because the merging process is still efficient even in the worst case.
 
 3. Average Case Scenario:
+
    - **Input**: The input array is in a random order
    - **Time Complexity**: `O(n log n)`
    - Explanation: On average, Merge Sort also requires `O(n log n)` time. The average case behaves similarly to the best and worst cases due to the algorithm's consistent approach of dividing and merging
