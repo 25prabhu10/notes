@@ -27,9 +27,9 @@ List of sorting algorithms:
 10. Bucket/Bin Sort : $O(n)$
 11. Radix Sort : $O(n)$
 
-- Check out the [Sorting Overview](#overview)
-
 > In the above list `1-8` are called **Comparison based Sorts**, And `9-11` are called **Index based Sorts**
+
+Check out the [Comparison sorts](#comparison-sorts) section for summary of the above algorithms
 
 ## Criteria For Analysis
 
@@ -38,14 +38,12 @@ List of sorting algorithms:
 2. Number of Swaps
 
 3. **Adaptive**: Less time to sort an already sorted list
-
-    - An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
+   - An adaptive sorting algorithm is one that takes advantage of the existing order of the input data to improve its efficiency. If an algorithm is adaptive, it performs fewer comparisons or swaps when dealing with partially sorted data
 
    - Efficient for data sets that are already substantially sorted
 
 4. **Stability**: A sorting algorithm is stable if it maintains the relative order of equal elements in the sorted output as they were in the original input
-
-    - In other words, if you have two equal elements `A` and `B`, and `A` appears before `B` in the input, a stable sorting algorithm will ensure that `A` still appears before `B` in the sorted output
+   - In other words, if you have two equal elements `A` and `B`, and `A` appears before `B` in the input, a stable sorting algorithm will ensure that `A` still appears before `B` in the sorted output
 
    - Does not change the relative order of elements with equal keys
 
@@ -53,70 +51,72 @@ List of sorting algorithms:
 
 ## Bubble Sort
 
-It is also known as **Simple Sort**
+Bubble Sort (a.k.a **Simple Sort**) is a straightforward sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted
 
-Bubble Sort is a straightforward sorting algorithm that repeatedly steps through the list, compares adjacent elements, and swaps them if they are in the wrong order. The pass through the list is repeated until the list is sorted
-
-Steps:
+**Steps**:
 
 1. Start with an unsorted list of elements
 
 2. Compare the first element with the second element. If the first element is greater than the second element, swap them
 
-3. Move to the next pair of elements (second and third) and repeat step 2
+3. Move to the next pair of elements (second and third) and repeat _step 2_
 
-4. Continue this process for all adjacent pairs of elements in the list, comparing and swapping as necessary. After the first pass, the largest element will have "bubbled up" to the end of the list
+4. Continue this process for all adjacent pairs of elements in the list, comparing, and swapping as necessary
+   - After the first pass, the largest element will have **"bubbled up"** to the end of the list
 
-5. Repeat steps 2-4 for a total of `n-1` passes, where n is the number of elements in the list. On each pass, the largest unsorted element will move to the end of the list
+5. Repeat _steps 2 to 4_ for a total of $n - 1$ passes, where $n$ is the number of elements in the list. On each pass, the largest unsorted element will move to the end of the list
 
 6. After completing all passes, the list will be sorted
 
-_Pseudocode_:
+_Pseudocode:_
 
 ```text
-procedure bubbleSort(list)
-    n = length(list)
+function bubbleSort(arr) // arr is 0 indexed array
+    n = length(arr)
     for i from 0 to n - 1
         for j from 0 to n - i - 1
-            if list[j] > list[j + 1]
-                swap(list[j], list[j + 1])
-            end if
-        end for
-    end for
-end procedure
+            if arr[j] > arr[j + 1]
+                swap(arr[j], arr[j + 1])
 ```
 
 _Example:_
 
-Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
+Let's say you have an unsorted list: `[5, 2, 9, 5, 1]`
 
-1. Pass 1: `[2, 5, 1, 5, 9]`
+![Bubble Sort animation](./bubble-sort.gif)
+
+> [Code for the animation](https://github.com/25prabhu10/animations/blob/master/src/sort.py#L116)
+
+1. Pass 1: Swap `5` and `2`, then `9` and `5`, then `9` and `1`: `[2, 5, 5, 1, 9]`
 2. Pass 2: `[2, 1, 5, 5, 9]`
-3. Pass 3: `[1, 2, 5, 5, 9]`
+3. Pass 3: `[1, 2, 5, 5, 9]` is sorted
 
-- After three passes, the list is sorted
+_Analysis:_
 
-For an array of size `n` at worst case:
+For an array of size $n$ at worst case:
 
-- Number of Passes: `n-1`
-- Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
-- Max Number of Swaps: `(n * (n - 1)) / 2` --> `O(n^2)`
+- Number of Passes: $n - 1$
+- Max Number of Comparisons: $\frac{n * (n - 1)}{2}$ to $O(n^2)$
+- Max Number of Swaps: $\frac{n * (n - 1)}{2}$ to $O(n^2)$
 
 Time complexity:
 
-- Best case: **`O(n)`**
-- Worst case: **`O(n^2)`**
+- Best case: **$O(n)$**
+- Average case: **$O(n^2)$**
+- Worst case: **$O(n^2)$**
 
-- By using a flag we can make it Adaptive
+By using a flag we can make it Adaptive
+
 - For an Adaptive sort it will perform:
+  - Comparisons: $n-1$
+  - Swaps: $0$
+  - Performance: $O(n)$
 
-  - Comparisons: `n-1`
-  - Swaps: `0`
-  - Performance: `O(n)`
+_Note:_
 
 - Bubble sort is **Adaptive and Stable**
 
-It can be used to get some number of elements sorted, like **finding the largest (or smallest if desc) number** in 1 pass (the last element)
+- It can be used to get some number of elements sorted, like **finding the largest (or smallest if descending) number** in 1 pass (the last element)
 
 _Implementations:_
 
@@ -143,6 +143,8 @@ void Bubble_Sort(int A[], int n) {
   }
 }
 ```
+
+> [Other implementations](https://github.com/25prabhu10/up-skill/tree/main/src/algorithms/sort/bubble-sort)
 
 ## Insertion Sort
 
@@ -185,34 +187,29 @@ Let's say you have an unsorted list: `[5, 2, 9, 1, 5]`
 
 Analysis:
 
-1. Best Case Scenario:
-
+1. Best-Case Scenario:
    - **Input**: The input array is already sorted
    - **Time Complexity**: `O(n)`
    - **Explanation**: Each element is already in its correct position, so the algorithm only compares each element with the one before it and makes no swaps. The inner loop of the insertion sort algorithm will only execute once for each element. Therefore, it only performs `n-1` comparisons, resulting in a _linear time complexity_
-   - Max Number of Comparisons: `n - 1` --> `O(n)`
-   - Max Number of Swaps: `0` --> `O(1)`
+   - Max Number of Comparisons: `n - 1` -> `O(n)`
+   - Max Number of Swaps: `0` -> `O(1)`
 
-2. Worst Case Scenario:
-
+2. Worst-Case Scenario:
    - **Input**: The input array is sorted in reverse order
    - **Time Complexity**: `O(n^2)`
    - **Explanation**: In the worst case, each new element is smaller than all the elements already sorted. This requires the algorithm to compare the new element with all previous elements and shift them to the right, leading to a quadratic number of comparisons and swaps
 
    For an array of size `n` at worst case:
-
    - Number of Passes: `n-1`
-   - Max Number of Comparisons: `(n * (n - 1)) / 2` --> `O(n^2)`
-   - Max Number of Swaps: `(n * (n - 1)) / 2` --> `O(n^2)`
+   - Max Number of Comparisons: `(n * (n - 1)) / 2` -> `O(n^2)`
+   - Max Number of Swaps: `(n * (n - 1)) / 2` -> `O(n^2)`
 
 3. Average-Case Scenario:
-
    - **Input**: The input array is in a random order
    - **Time Complexity**: `O(n^2)`
    - **Explanation**:
-
-     - On average, each element in the array is compared and potentially swapped with about half of the elements before it.
-     - Specifically, for each element, about half of the previous elements are expected to be larger and need to be shifted to make room for the new element.
+     - On average, each element in the array is compared and potentially swapped with about half of the elements before it
+     - Specifically, for each element, about half of the previous elements are expected to be larger and need to be shifted to make room for the new element
      - Since this happens for each of the `n` elements, the total number of comparisons and shifts sums to about $\frac{n^2}{4}$, which still results in a quadratic time complexity, `O(n^2)`
 
 |                | Bubble Sort | Insertion Sort | Cases             |
@@ -232,7 +229,7 @@ Characteristics:
 
 - More efficient in practice than most other simple quadratic algorithms such as [selection sort](#selection-sort) or [bubble sort](#bubble-sort)
 
-- It's an **in-place sorting algorithm**, meaning it doesn't require additional memory space proportional to the input size for sorting and with, at most, a constant number of them stored outside the array at any time
+- It's **in-place sorting algorithm**, meaning it doesn't require additional memory space proportional to the input size for sorting and with, at most, a constant number of them stored outside the array at any time
 
 - Although the best-case time complexity of Insertion Sort is `O(n)` and the worst-case is `O(n^2)`, the average-case also falls into `O(n^2)`, reflecting that Insertion Sort **generally performs similarly to its worst-case** on typical, randomly ordered inputs
 
@@ -279,39 +276,39 @@ The smallest (or largest) element is selected from the unsorted array and swappe
 
 6. **Final State**: The array is fully sorted
 
-_Pseudocode_: Sort in ascending order
+_Pseudocode:_ Sort in ascending order
 
 ```text
-function selectionSort(arr): // arr is 0 indexed array
+function selectionSort(arr) // arr is 0 indexed array
     n = length(arr)
-    for i from 0 to n-2:  // The last element will be in the correct position after n-1 iterations
+    for i from 0 to n-2  // The last element will be in the correct position after n-1 iterations
         minIndex = i
-        for j from i+1 to n-1:
-            if arr[j] < arr[minIndex]:
+        for j from i+1 to n-1
+            if arr[j] < arr[minIndex]
                 minIndex = j
-        if minIndex != i:
+        if minIndex != i
             swap(arr[i], arr[minIndex])
 ```
 
 _Example:_
 
-Let's say you have an unsorted list: `[5, 2, 9, 1, 5]` and you want to sort it in ascending order
+Let's say you have an unsorted list: `[5, 2, 9, 5, 1]` and you want to sort it in ascending order
 
 ![Selection Sort animation](./selection-sort.gif)
 
-> [Code for the animation](https://github.com/25prabhu10/animations/blob/master/main.py#L6)
+> [Code for the animation](https://github.com/25prabhu10/animations/blob/master/src/sort.py#L15)
 
 1. Pass 1: Find the smallest, which is `1` and swap with left most `5`: `[1, 2, 9, 5, 5]`
 2. Pass 2: `[1, 2, 9, 5, 5]`
 3. Pass 3: `[1, 2, 5, 9, 5]`
 4. Pass 4: `[1, 2, 5, 5, 9]`
-5. Pass 5: `[1, 2, 5, 5, 9]`
+5. Pass 5: `[1, 2, 5, 5, 9]` is sorted
 
-_Analysis_:
+_Analysis:_
 
 Each element is compared in every operation, with number of operations same as the number of elements
 
-- With each operation an element is moved to the new array, so one less element to be compared in the next operation. On an average, $\frac{1}{2}n$ elements are compared for each operation. Thus, the runtime is **$O(n * \frac{1}{2}n)$**. But constants like _$\frac{1}{2}$_ are ignored in Big O. So the runtime is written as _$O(n^2)$_.
+- With each operation an element is moved to the new array, so one less element to be compared in the next operation. On an average, $\frac{1}{2}n$ elements are compared for each operation. Thus, the runtime is **$O(n * \frac{1}{2}n)$**. But constants like _$\frac{1}{2}$_ are ignored in Big-O. So the runtime is written as _$O(n^2)$_
 
 For an array of size $n$ at worst case:
 
@@ -319,7 +316,13 @@ For an array of size $n$ at worst case:
 - Max Number of Comparisons: $\frac{n * (n - 1)}{2}$ to $O(n^2)$
 - Max Number of Swaps: $n - 1$ to $O(n)$
 
-_Note_:
+Time complexity:
+
+- Best case: **$O(n^2)$**
+- Average case: **$O(n^2)$**
+- Worst case: **$O(n^2)$**
+
+_Note:_
 
 - It is **not Stable**: does not guarantee stability
   - When selecting the minimum (or maximum) element to be placed in its correct position, Selection Sort doesn't consider the relative order of equal elements. As a result, if there are equal elements in the array, their order might change during the sorting process
@@ -362,7 +365,7 @@ def selection_sort(arr):
 
 - _Inductive proofs_
 
-- Randomized Quick Sort
+- Randomized QuickSort
 
 - Selection Exchange Sort
 - Partition Exchange Sort
@@ -509,7 +512,7 @@ The running time of an algorithm on an input of size `n` by `T(n)`, worst-case r
 
 - Conquer: Recursively solving two sub-problems, each of size `n/2`, contributes `2T(n/2)` to the running time (ignoring the floors and ceilings)
 
-- Combine: Since the MERGE procedure on an _n-element_ sub-array takes `θ(n)` time, we have `C(n) = θ(n)`
+- Combine: Since the MERGE procedure on a _n-element_ sub-array takes `θ(n)` time, we have `C(n) = θ(n)`
 
 - Adding `θ(n)` to the `2T(n/2)` term from the conquer step gives the recurrence for the worst-case running time `T(n)` of merge sort:
 
@@ -539,20 +542,17 @@ T(n) = O(n^log_b(a) * log^k(n))
      = O(n log n)
 ```
 
-1. Best Case Scenario:
-
+1. Best-Case Scenario:
    - **Input**: The input array is already sorted
    - **Time Complexity**: `O(n log n)`
    - Explanation: Merge sort still divides the array into smaller sub-arrays and merges them back together, but since the sub-arrays are already sorted, the merging process is very efficient
 
-2. Worst Case Scenario:
-
+2. Worst-Case Scenario:
    - **Input**: The input array is sorted in reverse order
    - **Time Complexity**: `O(n log n)`
-   - Explanation: This results in the maximum number of comparisons and merges during the algorithm. However, the time complexity remains `O(n log n)` because the merging process is still efficient even in the worst case.
+   - Explanation: This results in the maximum number of comparisons and merges during the algorithm. However, the time complexity remains `O(n log n)` because the merging process is still efficient even in the worst case
 
 3. Average Case Scenario:
-
    - **Input**: The input array is in a random order
    - **Time Complexity**: `O(n log n)`
    - Explanation: On average, Merge Sort also requires `O(n log n)` time. The average case behaves similarly to the best and worst cases due to the algorithm's consistent approach of dividing and merging
@@ -579,27 +579,27 @@ Characteristics:
 
 Uses [Insertion Sort](#insertion-sort)
 
-## Overview
+## Comparison Sorts
 
 Here's a comparison of the average-case time complexities of various sorting algorithms:
 
-| Algorithm      | Space Complexity | Time Complexity (Worst) | Best                          | Avgerage                                               | Adaptive | Stable           |
-| -------------- | ---------------- | ----------------------- | ----------------------------- | ------------------------------------------------------ | -------- | ---------------- |
-| Bubble Sort    | `O(1)`           |                         |                               | `O(n^2)`                                               | Yes      | Yes              |
-| Selection Sort | `O(1)`           |                         |                               | `O(n^2)`                                               | No       | No               |
-| Insertion Sort | `O(1)`           |                         |                               | `O(n^2)`                                               | Yes      | Yes              |
-| Merge Sort     | `O(n)`           |                         |                               | `O(n log n)`                                           | Yes      | Yes              |
-| Quick Sort     | `O(log n)`       |                         |                               | `O(n log n)`                                           | No       | No (can be made) |
-| Heap Sort      | `O(1)`           |                         |                               | `O(n log n)`                                           | No       | No               |
-| Counting Sort  | `O(k)`           |                         |                               | `O(n + k)` (`k` = range of input values)               | No       | Yes              |
-| Radix Sort     | `O(n + k)`       |                         |                               | `O(nk)` (`k` = number of digits in the maximum number) | No       | Yes              |
-| Bucket Sort    | `O(n + k)`       |                         | `O(n)` (uniform distribution) | `O(n^2)`                                               | No       | Yes              |
+| Algorithm      | Space Complexity | Time Complexity (Worst) |                          Best |                                                Average | Adaptive |           Stable |
+| -------------- | ---------------: | ----------------------: | ----------------------------: | -----------------------------------------------------: | -------: | ---------------: |
+| Bubble Sort    |           $O(1)$ |                $O(n^2)$ |                        $O(n)$ |                                               $O(n^2)$ |      Yes |              Yes |
+| Selection Sort |           $O(1)$ |                $O(n^2)$ |                      $O(n^2)$ |                                               $O(n^2)$ |       No |               No |
+| Insertion Sort |           $O(1)$ |                         |                               |                                               $O(n^2)$ |      Yes |              Yes |
+| Merge Sort     |           $O(n)$ |                         |                               |                                           $O(n log n)$ |      Yes |              Yes |
+| Quick Sort     |       $O(log n)$ |                         |                               |                                           $O(n log n)$ |       No | No (can be made) |
+| Heap Sort      |           $O(1)$ |                         |                               |                                           $O(n log n)$ |       No |               No |
+| Counting Sort  |           $O(k)$ |                         |                               |               $O(n + k)$ ($k$ = range of input values) |       No |              Yes |
+| Radix Sort     |       $O(n + k)$ |                         |                               | $O(nk)$ ($k$ = number of digits in the maximum number) |       No |              Yes |
+| Bucket Sort    |       $O(n + k)$ |                         | $O(n)$ (uniform distribution) |                                               $O(n^2)$ |       No |              Yes |
 
 Space Complexity:
 
 - All `O(1)` are In-place algorithm, hence no additional space is required
-- Merge sort: Requires additional space for merging sub-arrays, not in-place
-- Quick Sort: Recursive algorithm, requires additional space for the call stack
-- Counting Sort: Requires additional space for counting array, where `k` is the range of input values
-- Radix Sort: Requires additional space for intermediate arrays, where `k` is the number of digits in the maximum number
-- Bucket Sort: Requires additional space for buckets and intermediate arrays, can be high for small ranges
+- _Merge sort_: Requires additional space for merging sub-arrays, not in-place
+- _Quick Sort_: Recursive algorithm, requires additional space for the call stack
+- _Counting Sort_: Requires additional space for counting array, where `k` is the range of input values
+- _Radix Sort_: Requires additional space for intermediate arrays, where `k` is the number of digits in the maximum number
+- _Bucket Sort_: Requires additional space for buckets and intermediate arrays, can be high for small ranges

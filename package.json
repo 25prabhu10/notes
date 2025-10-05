@@ -18,10 +18,10 @@
   "author": "Prabhu K Hiremath",
   "type": "module",
   "scripts": {
+    "build": "vitepress build docs",
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted",
-    "deploy": "npm run fetch && npm run docs:build && node deploy.js",
+    "deploy": "npm run fetch && npm run build && node deploy.js",
     "dev": "npm run fetch && npm run docs:dev",
-    "docs:build": "vitepress build docs",
     "docs:dev": "vitepress dev docs",
     "docs:preview": "vitepress preview docs",
     "fetch": "sh utils/bash/sync.sh",
@@ -31,10 +31,14 @@
     "lint:prettier": "prettier --check .",
     "lint:text": "textlint -f pretty-error './docs/**/*.md'"
   },
+  "overrides": {
+    "vite": "npm:rolldown-vite@latest"
+  },
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.4",
     "markdown-it-mathjax3": "^4.3.2",
     "markdownlint-cli2": "^0.18.1",
+    "oxc-minify": "^0.82.3",
     "prettier": "^3.6.2",
     "prettier-plugin-packagejson": "^2.5.19",
     "textlint": "^15.2.2",
