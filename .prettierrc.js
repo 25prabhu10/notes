@@ -30,7 +30,7 @@ const config = {
       },
     },
   ],
-  plugins: ['prettier-plugin-packagejson'],
+  plugins: ['@prettier/plugin-oxc', 'prettier-plugin-packagejson'],
 }
 
 export default config
