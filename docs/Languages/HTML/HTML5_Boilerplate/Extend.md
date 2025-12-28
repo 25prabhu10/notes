@@ -175,16 +175,10 @@ Add this function after `ga` is defined:
     ga("send", {
       hitType: "event",
       eventCategory:
-        (host == window.location.hostname || host == undefined || host == ""
-          ? ""
-          : "external ") + "error",
+        (host == window.location.hostname || host == undefined || host == "" ? "" : "external ") +
+        "error",
       eventAction: message,
-      eventLabel: (
-        file +
-        " LINE: " +
-        line +
-        (column ? " COLUMN: " + column : "")
-      ).trim(),
+      eventLabel: (file + " LINE: " + line + (column ? " COLUMN: " + column : "")).trim(),
       nonInteraction: 1,
     });
   };
@@ -251,10 +245,7 @@ You know - a tooltip. A little textbox that appears when the user holds their
 mouse over your Pinned Site's icon.
 
 ```html
-<meta
-  name="msapplication-tooltip"
-  content="A description of what this site does."
-/>
+<meta name="msapplication-tooltip" content="A description of what this site does." />
 ```
 
 ### Set a default page for your Pinned Site
@@ -265,10 +256,7 @@ track the number of pinned users, like so:
 `https://www.example.com/index.html?pinned=true`
 
 ```html
-<meta
-  name="msapplication-starturl"
-  content="https://www.example.com/index.html?pinned=true"
-/>
+<meta name="msapplication-starturl" content="https://www.example.com/index.html?pinned=true" />
 ```
 
 ### Recolor IE's controls manually for a Pinned Site
@@ -389,12 +377,7 @@ plugin behaves in the browser. [How to make a browser search
 plugin](https://www.google.com/search?ie=UTF-8&q=how+to+make+browser+search+plugin).
 
 ```html
-<link
-  rel="search"
-  title=""
-  type="application/opensearchdescription+xml"
-  href=""
-/>
+<link rel="search" title="" type="application/opensearchdescription+xml" href="" />
 ```
 
 ## Miscellaneous
@@ -440,12 +423,7 @@ addition to it. [See what Atom's all
 about](<https://en.wikipedia.org/wiki/Atom_(Web_standard)>).
 
 ```html
-<link
-  rel="alternate"
-  type="application/atom+xml"
-  title="Atom"
-  href="/atom.xml"
-/>
+<link rel="alternate" type="application/atom+xml" title="Atom" href="/atom.xml" />
 ```
 
 ### Pingbacks
@@ -507,10 +485,7 @@ and you can validate your markup with the [Card validator](https://cards-dev.twi
 <meta name="twitter:url" content="https://www.example.com/path/to/page.html" />
 <meta name="twitter:title" content="" />
 <meta name="twitter:description" content="" />
-<meta
-  name="twitter:image"
-  content="https://www.example.com/path/to/image.jpg"
-/>
+<meta name="twitter:image" content="https://www.example.com/path/to/image.jpg" />
 ```
 
 ### Schema.org
@@ -571,7 +546,7 @@ This can be done by adding the following annotations in your HTML pages:
 
   `<link rel="canonical" href="https://www.example.com/page.html">`
 
-For more information checkout this [link](https://developers.google.com/search/mobile-sites/mobile-seo/separate-urls)
+- [Separate mobile URLs for better SEO](https://developers.google.com/search/mobile-sites/mobile-seo/separate-urls)
 
 ## Web Apps
 

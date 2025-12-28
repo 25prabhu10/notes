@@ -8,7 +8,7 @@ description: Collection of CLI applications and commands.
 ## System Utilities
 
 ```bash
-# Get CPU info
+# get CPU info
 lscpu
 ```
 
@@ -33,10 +33,10 @@ lscpu
 
    ```bash
    echo $PATH
-   # /home/prabhu/.local/bin:/usr/local/sbin
+   # /home/user/.local/bin:/usr/local/sbin
 
    echo $PATH | tr ':' '\n'
-   # /home/prabhu/.local/bin
+   # /home/user/.local/bin
    # /usr/local/sbin
    ```
 

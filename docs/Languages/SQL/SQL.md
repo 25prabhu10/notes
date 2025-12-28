@@ -5,7 +5,7 @@ description: Structured Query Language
 
 # SQL
 
-Structured Query Language (SQL) is a standard language for storing, manipulating and retrieving data in databases
+Structured Query Language (SQL) is a standard language for storing, manipulating, and retrieving data in databases
 
 - SQL can mainly be categorised as [declarative programming](../../Concepts/Designs/Programming_Paradigms/) (non-procedural)
 - Cascading referential integrity constraint
@@ -88,17 +88,17 @@ Truth tables:
 | `FALSE` | `TRUE`      |
 | `NULL`  | `NULL`      |
 
-| 3VL AND | `TRUE`  | `FALSE` | `NULL`  |
-| ------- | ------- | ------- | ------- |
-| `TRUE`  | `TRUE`  | `FALSE` | `NULL`  |
-| `FALSE` | `FALSE` | `FALSE` | `FALSE` |
-| `NULL`  | `NULL`  | `FALSE` | `NULL`  |
+| `3VL` AND | `TRUE`  | `FALSE` | `NULL`  |
+| --------- | ------- | ------- | ------- |
+| `TRUE`    | `TRUE`  | `FALSE` | `NULL`  |
+| `FALSE`   | `FALSE` | `FALSE` | `FALSE` |
+| `NULL`    | `NULL`  | `FALSE` | `NULL`  |
 
-| 3VL OR  | `TRUE` | `FALSE` | `NULL` |
-| ------- | ------ | ------- | ------ |
-| `TRUE`  | `TRUE` | `TRUE`  | `TRUE` |
-| `FALSE` | `TRUE` | `FALSE` | `NULL` |
-| `NULL`  | `TRUE` | `NULL`  | `NULL` |
+| `3VL` OR | `TRUE` | `FALSE` | `NULL` |
+| -------- | ------ | ------- | ------ |
+| `TRUE`   | `TRUE` | `TRUE`  | `TRUE` |
+| `FALSE`  | `TRUE` | `FALSE` | `NULL` |
+| `NULL`   | `TRUE` | `NULL`  | `NULL` |
 
 To check for `NULL` values, use `IS NULL` or `IS NOT NULL`, you cannot use equality operators (`=`, `!=`)
 
@@ -120,7 +120,7 @@ SELECT column_name
 
 Logical order of SQL operations:
 
-1. [`FROM`](#from): Get the table
+1. `FROM`: Get the table
 2. [`JOIN`](#join): Combine tables
 3. [`WHERE`](#where): Filter rows
 4. [`GROUP BY`]: Group rows that have the same values into summary rows (squish rows in buckets)

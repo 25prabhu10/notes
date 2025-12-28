@@ -48,7 +48,7 @@ SQS, SNS and Kinesis
 
 ### SQS - Consuming Messages
 
-- Consumers (running on EC2 instances, servers, or AWS Lambda)...
+- Consumers (running on EC2 instances, servers, or AWS Lambda)..
 - Poll SQS for messages (receive up to 10 messages at a time)
 - Process the messages (example: insert the message into an RDS database)
 - Delete the messages using the DeleteMessage API
@@ -74,7 +74,7 @@ SQS, SNS and Kinesis
 
 ### SQS Queue Access Policy
 
-Similar to S3 access policy.
+Similar to S3 access policy
 
 ### SQS - Message Visibility Timeout
 
@@ -108,7 +108,7 @@ Similar to S3 access policy.
 
 - When a consumer requests messages from the queue, it can optionally "wait" for messages to arrive if there are none in the queue
 - This is called Long Polling
-- LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application.
+- LongPolling decreases the number of API calls made to SQS while increasing the efficiency and latency of your application
 - The wait time can be between 1 sec to 20 sec (20 sec preferable)
 - Long Polling is preferable to Short Polling
 - Long polling can be enabled at the queue level or at the API level using WaitTimeSeconds
@@ -174,7 +174,7 @@ Similar to S3 access policy.
 - Auto Scaling Groups notifications
 - Amazon S3 (on bucket events)
 - CloudFormation (upon state changes => failed to build, etc)
-- Etc...
+- Etc..
 
 ### Amazon SNS - How to publish
 
@@ -186,7 +186,7 @@ Similar to S3 access policy.
   - Create a platform application
   - Create a platform endpoint
   - Publish to the platform endpoint
-  - Works with Google GCM, Apple APNS, Amazon ADM...
+  - Works with Google GCM, Apple APNS, Amazon ADM..
 
 ### Amazon SNS - Security
 
@@ -349,7 +349,7 @@ Similar to S3 access policy.
 
 - Fully Managed Service, no administration, automatic scaling, serverless
   - AWS: Redshift / Amazon S3 / ElasticSearch
-  - 3rd party partner: Splunk / MongoDB / DataDog / NewRelic / ...
+  - 3rd party partner: Splunk / MongoDB / DataDog / NewRelic / ..
   - Custom: send to any HTTP endpoint
 - Pay for data going through Firehose
 - Near Real Time
@@ -385,15 +385,15 @@ Similar to S3 access policy.
 
 ### Ordering data into Kinesis
 
-- Imagine you have 100 trucks (truck_1, truck_2, ... truck_100) on the road sending their GPS positions regularly into AWS.
-- You want to consume the data in order for each truck, so that you can track their movement accurately.
+- Imagine you have `100` trucks (`truck_1`, `truck_2`, ... `truck_100`) on the road sending their GPS positions regularly into AWS
+- You want to consume the data in order for each truck, so that you can track their movement accurately
 - How should you send that data into Kinesis?
 - Answer: send using a "Partition Key" value of the "truck_id"
 - The same key will always go to the same shard
 
 ### Ordering data into SQS
 
-- For SQS standard, there is no ordering.
+- For SQS standard, there is no ordering
 - For SQS FIFO, if you don't use a Group ID, messages are consumed in the order they are sent, with only one consumer
 - You want to scale the number of consumers, but you want messages to be "grouped" when they are related to each other
 - Then you use a Group ID (similar to Partition Key in Kinesis)
@@ -423,4 +423,4 @@ Similar to S3 access policy.
 | Ordering guarantees only on FIFO queues         | Up to 100,000 topics                                 | Ordering at the shard level                              |
 | Individual message delay capability             | No need to provision throughput                      | Data expires after X days                                |
 |                                                 | Integrates with SQS for fan-out architecture pattern | Must provision throughput                                |
-|                                                 | FIFO capability for SQS FIFO                         |
+|                                                 | FIFO capability for SQS FIFO                         |                                                          |

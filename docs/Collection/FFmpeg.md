@@ -7,26 +7,14 @@ description: FFmpeg is a free and open-source software project consisting of a s
 
 FFmpeg is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams.
 
-Check streams:
+## Audio
 
-```bash
-ffprobe -v error -show_entries stream=index,codec_name,codec_type movie.mkv
-```
-
-Combine audio and video:
-
-```bash
-ffmpeg -i video.mkv -i audio.mp3 -map 0:v -map 1:a -c:v copy -shortest movie.mkv
-```
-
-Audio:
+Audio codecs and bitrates:
 
 - `mp3`: 128, 144, 160, _192_
 - `vorbis`: 128, 144, _160_, 192 (`ogg`)
 - `aac`: 128, 144, 160, 192 (`m4a`)
 - `opus`: 128, _144_, 160, 192 (`ogg`/`opus`)
-
-## Audio
 
 - Audio conversion:
 
@@ -39,6 +27,14 @@ Audio:
   ```bash
   # -map channel
   ffmpeg -i movie.mkv -vn -map 0:4 -acodec copy output.mka
+  ```
+
+- Record audio:
+
+  ```bash
+  ffmpeg -f alsa -i default output.mka
+
+  ffmpeg -f alsa -i default -acodec libopus -threads 0 -y output.mka
   ```
 
 ## Video
@@ -54,8 +50,41 @@ Audio:
   ```bash
   ffmpeg -f x11grab -i :0.0 test.mkv
 
-  #
-  ffmpeg -f x11grab -s 854x480 -i :0.0 test.mkv
+  ffmpeg -f x11grab -i $DISPLAY test.mkv
+
+  ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -c:v ffvhuff screen.mkv
+  ```
+
+- Audio and Video Recording:
+
+  ```bash
+  ffmpeg -f alsa -ac 2 -i default -acodec libopus -threads 0 -y output.mka
+
+  ffmpeg -f x11grab -r 20 -s 1920x1080 -i :0.0 -vcodec libx265 -preset fast -b:v 500k -threads 0 -y output.6.mkv
+
+  ffmpeg -f alsa -ac 2 -i default -f x11grab -r 20 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx264 -preset ultrafast -b:v 900k -threads 0 -y output.mkv
+
+  ffmpeg -f x11grab -video_size 1920x1080 -framerate 25 -i $DISPLAY -f alsa -i default -c:v libx264 -preset ultrafast -c:a aac screen.mp4
+  ```
+
+- Combine audio and video:
+
+  ```bash
+  ffmpeg -i video.mkv -i audio.mp3 -map 0:v -map 1:a -c:v copy -shortest movie.mkv
+  ```
+
+- Check streams in a file:
+
+  ```bash
+  ffprobe -v error -show_entries stream=index,codec_name,codec_type movie.mkv
+  ```
+
+## Images
+
+- Capture screenshot:
+
+  ```bash
+  ffmpeg -f x11grab -video_size 1920x1080 -i $DISPLAY -vframes 1 screen.png
   ```
 
 ## x265
@@ -108,20 +137,6 @@ An application for encoding video streams into the H.265/MPEG-H HEVC compression
    ```
 
    > Disable periodic progress reports from the CLI
-
-## Audio and Video Recording
-
-```bash
-ffmpeg -f alsa -ac 2 -i default -acodec libopus -threads 0 -y output.mka
-```
-
-```bash
-ffmpeg -f x11grab -r 20 -s 1920x1080 -i :0.0 -vcodec libx265 -preset fast -b:v 500k -threads 0 -y output.6.mkv
-```
-
-```bash
-ffmpeg -f pulse -ac 2 -i default -f x11grab -r 20 -s 1920x1080 -i :0.0 -acodec aac -vcodec libx264 -preset ultrafast -b:v 900k -threads 0 -y output.mkv
-```
 
 ## Something
 

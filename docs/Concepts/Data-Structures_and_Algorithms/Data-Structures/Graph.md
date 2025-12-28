@@ -148,8 +148,7 @@ const dijkstra = (startNode, stopNode) => {
     const n = remaining.extractMin();
 
     for (let neighbour of adjacencyList.get(n)) {
-      const newPathLength =
-        distances.get(n) + edgeWeights.get(n).get(neighbour);
+      const newPathLength = distances.get(n) + edgeWeights.get(n).get(neighbour);
       const oldPathLength = distances.get(neighbour);
 
       if (newPathLength < oldPathLength) {

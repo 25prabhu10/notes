@@ -163,9 +163,7 @@ Types of steams:
       ```javascript
       const useref = require("gulp-useref");
 
-      gulp.task("useref", () =>
-        gulp.src("app/*.html").pipe(useref()).pipe(gulp.dest("dist"))
-      );
+      gulp.task("useref", () => gulp.src("app/*.html").pipe(useref()).pipe(gulp.dest("dist")));
       ```
 
    3. **[gulp-uglify](https://github.com/terinjokes/gulp-uglify)** - JavaScript parser, minifies, compressor and beautifier:
@@ -263,9 +261,7 @@ Types of steams:
       ```javascript
       const csso = require("gulp-csso");
 
-      gulp.task("default", () =>
-        gulp.src("./main.css").pipe(csso()).pipe(gulp.dest("./out"))
-      );
+      gulp.task("default", () => gulp.src("./main.css").pipe(csso()).pipe(gulp.dest("./out")));
 
       gulp.task("development", () =>
         gulp
@@ -415,11 +411,7 @@ Types of steams:
       const cache = require("gulp-cached");
 
       gulp.task("lint", () =>
-        gulp
-          .src("files/*.js")
-          .pipe(cache("linting"))
-          .pipe(jshint())
-          .pipe(jshint.reporter())
+        gulp.src("files/*.js").pipe(cache("linting")).pipe(jshint()).pipe(jshint.reporter())
       );
 
       gulp.task("watch", () => gulp.watch("files/*.js", ["lint"]));
@@ -488,11 +480,7 @@ Types of steams:
       const plumber = require("gulp-plumber");
 
       gulp.task("javascript", () =>
-        gulp
-          .src("./src/*.ext")
-          .pipe(plumber())
-          .pipe(plugin1())
-          .pipe(gulp.dest("./dist"))
+        gulp.src("./src/*.ext").pipe(plumber()).pipe(plugin1()).pipe(gulp.dest("./dist"))
       );
       ```
 
@@ -501,8 +489,7 @@ Types of steams:
       ```javascript
       const size = require("gulp-size");
 
-      exports.default = () =>
-        gulp.src("fixture.js").pipe(size()).pipe(gulp.dest("dist"));
+      exports.default = () => gulp.src("fixture.js").pipe(size()).pipe(gulp.dest("dist"));
       ```
 
 ## Alternative Tools

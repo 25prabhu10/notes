@@ -21,7 +21,7 @@ Lets get started...
    npm install -g @angular/cli
    ```
 
-   > Angular CLI creates projects, generates application and library code, and performs a variety of ongoing development tasks such as testing, bundling, and deployment.
+   > Angular CLI creates projects, generates application and library code, and performs a variety of ongoing development tasks such as testing, bundling, and deployment
 
 3. Create a new workspace and initial starter app:
 
@@ -36,7 +36,7 @@ Lets get started...
    ng serve --open
    ```
 
-5. Install **[Bootstrap](https://getbootstrap.com/)** if needed.
+5. Install **[Bootstrap](https://getbootstrap.com/)** if needed
 
    ```bash
    npm install --save bootstrap popper.js jquery
@@ -51,7 +51,7 @@ Lets get started...
    "scripts": ["./node_modules/jquery/dist/jquery.min.js", "./node_modules/bootstrap/dist/js/bootstrap.min.js"]
    ```
 
-6. For this case we will use a css framework called **[Semantic UI](https://semantic-ui.com/)**, to download it and for more info visit [Link](https://semantic-ui.com/introduction/getting-started.html).
+6. For this case we will use a css framework called **[Semantic UI](https://semantic-ui.com/)**
 
 7. Import `semantic.min.css` in the main `style.css` file:
 

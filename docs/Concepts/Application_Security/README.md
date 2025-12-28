@@ -16,7 +16,7 @@ sidebar: false
 8. [Same-Origin Policy](./SameOrigin_Policy.md)
 9. XPATH Injection
 10. [HTTP Security](../Web/HTTP.md#http-security)
-11. [Unicode Normalisation Vulnerability](./Unicode.md)
+11. [Unicode Normalisation Vulnerability](./Unicode_Normalisation_Vulnerability.md)
 
 - Typosquatting
 

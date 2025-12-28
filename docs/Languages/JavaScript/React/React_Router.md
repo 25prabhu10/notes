@@ -135,10 +135,7 @@ function App() {
       <Header />
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route
-        path="/profile"
-        component={loggedIn ? <Profile /> : <Navigate to="/" />}
-      />
+      <Route path="/profile" component={loggedIn ? <Profile /> : <Navigate to="/" />} />
     </BrowserRouter>
   );
 }
@@ -153,10 +150,7 @@ function App() {
       <Header />
       <Route path="/" component={Home} />
       <Route path="/about" component={About} />
-      <Route
-        path="/profile"
-        component={loggedIn ? <Profile /> : <Redirect to="/" />}
-      />
+      <Route path="/profile" component={loggedIn ? <Profile /> : <Redirect to="/" />} />
     </BrowserRouter>
   );
 }

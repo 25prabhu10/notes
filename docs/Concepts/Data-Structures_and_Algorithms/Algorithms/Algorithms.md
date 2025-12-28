@@ -295,7 +295,7 @@ The method for evaluating the efficiency of an algorithm or computer program is 
 
 - Asymptotic analysis also gives a way to define the inherent difficulty of a problem
 
-Order of the polynomial equation or [Big O](#big-o): How time scales with respect to some input variables
+Order of the polynomial equation or [Big O](#big-o-o-notation): How time scales with respect to some input variables
 
 - Usually `n` is used to denote the variable (any letter can be used)
 

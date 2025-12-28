@@ -5,13 +5,13 @@ description: GitHub Actions enables us to create custom software development lif
 
 # GitHub Actions
 
-Github Actions enables us to create custom software development lifecycle workflows directly in the Github repository.
+GitHub Actions enables us to create custom software development life-cycle workflows directly in the GitHub repository.
 
 It is a platform to _automate developer (any users) workflows_.
 
 How GitHub Actions automate workflows?
 
-- When something happens _in or to the repository_.In GitHub these are know as GitHub events such as _Pull Requests_, _Issue created_, _New Contributers, etc._.
+- When something happens _in or to the repository_.In GitHub these are know as GitHub events such as _Pull Requests_, _Issue created_, _New Contributors, etc._.
 - Listen to these events and trigger workflow. _Automatic actions_ are executed in response.
 
 Some examples of workflows:

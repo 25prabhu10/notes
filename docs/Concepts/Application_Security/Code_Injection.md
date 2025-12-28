@@ -158,8 +158,7 @@ function authenticate(req, res, next) {
   const username = req.query.username,
     password = req.query.password;
   let preparedStatement = new sql.PreparedStatment(),
-    sqlQuery =
-      "select * from users where (username = @username and password = @password)";
+    sqlQuery = "select * from users where (username = @username and password = @password)";
 
   preparedStatement.input("username", sqlVarChar(50));
   preparedStatement.input("password", sqlVarChar(50));

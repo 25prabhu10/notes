@@ -134,14 +134,10 @@ sever.addService(helloProto.HelloWorld.service, {
 });
 
 // Create a gRPC server and listen on port 50051
-server.bindAsync(
-  "0.0.0.0:50051",
-  grpc.ServerCredentials.createInsecure(),
-  () => {
-    serve.start();
-    console.log("Server running on port 50051");
-  }
-);
+server.bindAsync("0.0.0.0:50051", grpc.ServerCredentials.createInsecure(), () => {
+  serve.start();
+  console.log("Server running on port 50051");
+});
 ```
 
 - Above as RESTful API

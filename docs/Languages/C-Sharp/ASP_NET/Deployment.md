@@ -429,19 +429,21 @@ On normal server to host any application, things need to be done, Like:
 
 These things need to be done on each server, thus adding and maintaining server becomes a complex task
 
-Benefits of Docker:
+Benefits of [Docker](../../../Concepts/CI-CD/Docker.md) containers:
 
 - Servers are standardized
 - Declarative server and application configuration recipe
-- Docker Image = fundamental unit of deployment
+- Docker Image: fundamental unit of deployment
 - Containers can be duplicated easily
 
-1. Install Docker
+Steps to [create Docker Image for ASP.NET Core Application](https://learn.microsoft.com/en-us/dotnet/core/docker/build-container):
+
+1. [Install Docker](../../../Concepts/CI-CD/Docker.md#installation)
 2. Create the `Dockerfile` at the root of the project
 
    ```dockerfile
    # syntax=docker/dockerfile:1
-   FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
+   FROM mcr.microsoft.com/dotnet/sdk:10.0 AS build-env
    WORKDIR /app
 
    # Copy csproj and restore as distinct layers
@@ -449,11 +451,11 @@ Benefits of Docker:
    RUN dotnet restore
 
    # Copy everything else and build
-   COPY .. ./
+   COPY . ./
    RUN dotnet publish -c Release -o out
 
    # Build runtime image
-   FROM mcr.microsoft.com/dotnet/aspnet:6.0
+   FROM mcr.microsoft.com/dotnet/aspnet:10.0
    WORKDIR /app
    COPY --from=build-env /app/out .
    ENTRYPOINT ["dotnet", "hellocoreworld.dll"]

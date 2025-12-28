@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Markdown** is created by [Daring Fireball](http://daringfireball.net/); the original guideline is [here](http://daringfireball.net/projects/markdown/syntax). Its syntax, however, varies between different parsers or editors. **Typora** is using [GitHub Flavored Markdown][gfm].
+**Markdown** is created by [Daring Fireball](http://daringfireball.net/); the [original syntax](http://daringfireball.net/projects/markdown/syntax). Its syntax, however, varies between different parsers or editors. **Typora** is using [GitHub Flavored Markdown][gfm].
 
 ## Block Elements
 
@@ -108,7 +108,13 @@ $$
 $$
 ```
 
-You can find more details [here](https://support.typora.io/Math/).
+- [typora maths support](https://support.typora.io/Math/).
+
+#### Inline Maths
+
+To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use `$` to wrap a TeX command. For example: `$\lim_{x \to \infty} \exp(-x) = 0$` will be rendered as LaTeX command.
+
+To trigger inline preview for inline maths: input "$", then press the `ESC` key, then input a TeX command.
 
 ### Tables
 
@@ -129,7 +135,7 @@ In markdown source code, they look like:
 
 You can also include inline Markdown such as links, bold, italics, or strike-through in the table.
 
-Finally, by including colons (`:`) within the header row, you can define text in that column to be left-aligned, right-aligned, or center-aligned:
+Finally, by including colons (`:`) within the header row, you can define text in that column to be left-aligned, right-aligned, or centre-aligned:
 
 ```markdown
 | Left-Aligned  | Center Aligned  | Right Aligned |
@@ -252,7 +258,7 @@ You are able to use drag & drop to insert an image from an image file or your we
 
 If you're using markdown for building websites, you may specify a URL prefix for the image preview on your local computer with property `typora-root-url` in YAML Front Matters. For example, input `typora-root-url:/User/Abner/Website/typora.io/` in YAML Front Matters, and then `![alt](/blog/img/test.png)` will be treated as `![alt](file:///User/Abner/Website/typora.io/blog/img/test.png)` in Typora.
 
-You can find more details [here](https://support.typora.io/Images/).
+- [typora images support](https://support.typora.io/Images/).
 
 ### Emphasis
 
@@ -320,14 +326,6 @@ Input emoji with syntax `:smile:`.
 
 User can trigger auto-complete suggestions for emoji by pressing `ESC` key, or trigger it automatically after enabling it on preference panel. Also, inputting UTF-8 emoji characters directly is also supported by going to `Edit` -> `Emoji & Symbols` in the menu bar (macOS).
 
-### Inline Math
-
-To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use `$` to wrap a TeX command. For example: `$\lim_{x \to \infty} \exp(-x) = 0$` will be rendered as LaTeX command.
-
-To trigger inline preview for inline math: input "$", then press the `ESC` key, then input a TeX command.
-
-You can find more details [here](https://support.typora.io/Math/).
-
 ### Subscript
 
 To use this feature, please enable it first in the `Preference` Panel -> `Markdown` Tab. Then, use `~` to wrap subscript content. For example: `H~2~O`, `X~long\ text~`/
@@ -362,6 +360,6 @@ You can use the `<video>` HTML tag to embed videos. For example:
 
 ### Other HTML Support
 
-You can find more details [here](https://support.typora.io/HTML/).
+- [typora HTML support](https://support.typora.io/HTML/)
 
 [gfm]: https://docs.github.com/en/get-started/writing-on-github

@@ -882,7 +882,7 @@ Nullable reference types are available beginning with C# 8.0:
 
 - Reference types are nullable by default
 
-#### Null-Coalescing operator `??` and `??=`
+#### Null-Coalescing operators
 
 If you want to assign a value of a nullable value type to a non-nullable value type variable, you might need to specify the value to be assigned in place of `null`.
 
@@ -4777,7 +4777,7 @@ C# has evolved over the years with [different versions](https://learn.microsoft.
    - Visual Studio 2019 (.NET Core 3.0)
    - `Readonly` members: members that can be assigned a value only once
    - [Nullable reference types](#nullable-types): Avoid null reference exceptions
-   - [Null-coalescing assignment](#null-coalescing-operator-and): Assigning a value to a variable only if it is null
+   - [Null-coalescing assignment](#null-coalescing-operators): Assigning a value to a variable only if it is null
    - Switch expressions (pattern matching): Simplified switch statements
    - Default interface methods: Interface members can have implementations
    - Using declarations: Simplified resource management

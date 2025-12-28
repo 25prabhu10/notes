@@ -75,10 +75,6 @@ A loader is a program that loads an executable file into memory, and starts its 
 
 Grammar rules of a programming language are called syntax. Semantics is the meaning of the syntax
 
-## Programming Language Paradigms
-
-- [Programming Language Paradigms](../Concepts/Designs/Programming_Paradigms/)
-
 ## Resources
 
 - [Same problem solved in different languages](https://rosettacode.org/wiki/Rosetta_Code)

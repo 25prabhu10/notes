@@ -5,7 +5,7 @@ description: A static module bundler for modern JavaScript applications
 
 # Webpack
 
-It is a **A static module bundler for modern JavaScript applications**
+[webpack](https://webpack.js.org/) is a **A static module bundler for modern JavaScript applications**
 
 A module bundler takes all of our different files (JavaScript, LESS, CSS, JSX, ESNext, and so on) and turns them into a single file
 
@@ -42,13 +42,13 @@ Once installed add the below script tags inside `package.json` file:
 ```bash
 webpack
 
-# FOR YARN ADD THIS
+# for yarn add this
 node ./node_modules/webpack-cli/bin/cli.js
 ```
 
 The above command will invoke webpack with its default settings and produce results
 
-::: tip NOTE
+::: note NOTE
 Webpack v5 is being used here
 :::
 
@@ -90,7 +90,7 @@ module.exports = {};
 
 ## Loaders
 
-Loaders help webpack to pre-process files. This allows you to bundle any static resource way beyond JavaScript
+[Loaders](https://webpack.js.org/loaders/) help webpack to pre-process files. This allows you to bundle any static resource way beyond JavaScript
 
 Loaders work at the individual file level _during or before_ the **bundle** is generated
 
@@ -124,10 +124,7 @@ Loaders work at the individual file level _during or before_ the **bundle** is g
 
   ```javascript
   module.exports = {
-    presets: [
-      "@babel/preset-env",
-      ["@babel/preset-react", { runtime: "automatic" }],
-    ],
+    presets: ["@babel/preset-env", ["@babel/preset-react", { runtime: "automatic" }]],
   };
   ```
 
@@ -225,6 +222,6 @@ module: {
 
 ## Plugins
 
-Plugins work at **bundle** or **chunk** level and usually work at the end of the bundle generation process
+[Plugins](https://webpack.js.org/plugins/) work at **bundle** or **chunk** level and usually work at the end of the bundle generation process
 
 Plugins can also modify how the bundles themselves are created. Plugins have more powerful control than loaders

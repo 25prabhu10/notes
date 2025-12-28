@@ -33,7 +33,7 @@ Types of networks:
     - Broadband connections are typically faster and more reliable than dial-up connections
     - Cable, DSL, Fiber, Satellite, Wireless WAN
 
-### WAN
+## WAN
 
 - Physical layer implementations vary
 - Cable specifications define speed of link
@@ -161,9 +161,9 @@ The OSI (Open Systems Interconnection) model is a conceptual framework used to u
 
 4. **[Transport Layer](#transport-layer)**: The transport layer is responsible for end-to-end communication between devices. It deals with error detection and correction, flow control, and data segmentation
 
-5. **[Session Layer](#session-layer)**: The session layer is responsible for establishing, maintaining, and terminating connections between devices. It deals with session management and synchronization
+5. **Session Layer**: The session layer is responsible for establishing, maintaining, and terminating connections between devices. It deals with session management and synchronization
 
-6. **[Presentation Layer](#presentation-layer)**: The presentation layer is responsible for translating data into a format that can be understood by the application. It deals with data encryption, compression, and formatting
+6. **Presentation Layer**: The presentation layer is responsible for translating data into a format that can be understood by the application. It deals with data encryption, compression, and formatting
 
 7. **[Application Layer](#application-layer)**: The application layer is responsible for providing network services to applications. It deals with user interfaces, file transfers, and network management
 

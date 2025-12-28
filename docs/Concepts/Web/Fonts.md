@@ -59,20 +59,8 @@ font-family:
 ## Preload
 
 ```html
-<link
-  rel="preload"
-  href="fonts/Roboto.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
-<link
-  rel="preload"
-  href="fonts/Noto.woff2"
-  as="font"
-  type="font/woff2"
-  crossorigin
-/>
+<link rel="preload" href="fonts/Roboto.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="fonts/Noto.woff2" as="font" type="font/woff2" crossorigin />
 ```
 
 ## Hierarchy

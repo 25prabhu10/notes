@@ -258,9 +258,7 @@ Problems with ambient authority:
 - Consider this HTML embedded in `attacker.com`:
 
   ```html
-  <img
-    src="https://bank.example.com/withdraw?from=bob&to=mallory&amount=1000"
-  />
+  <img src="https://bank.example.com/withdraw?from=bob&to=mallory&amount=1000" />
   ```
 
 - Browser helpfully includes `bank.example.com` cookies in all requests to `bank.example.com`, even though the request originated from `attacker.com`

@@ -1,12 +1,17 @@
+---
+title: Metaprogramming
+description: An overview of metaprogramming concepts including macros, reflection, introspection, self-modification, and intercession
+---
+
 # Metaprogramming
 
-Metaprogramming is a programming technique in which computer programs have **the ability to treat other programs as their data**.
+Metaprogramming is a programming technique in which computer programs have **the ability to treat other programs as their data**
 
-- It means that a program can be designed to read, generate, analyze or transform other programs, and even modify itself while running.
+- It means that a program can be designed to read, generate, analyse or transform other programs, and even modify itself while running
 
-- In some cases, this allows programmers to minimize the number of lines of code to express a solution, in turn reducing development time.
+- In some cases, this allows programmers to minimize the number of lines of code to express a solution, in turn reducing development time
 
-- It also allows programs greater flexibility to efficiently handle new situations without recompilation.
+- It also allows programs greater flexibility to efficiently handle new situations without recompilation
 
 ## Macros
 
@@ -93,7 +98,7 @@ eval("Foo().hello()")
 
 ### Introspection
 
-We have read-only access to the structure of a program.
+We have read-only access to the structure of a program
 
 _Example:_ Checking keys of an object
 
@@ -106,13 +111,12 @@ const hero = {
 
 const keys = Object.keys(hero);
 
-console.log(keys);
-// ['health', 'backpack', 'weapon']
+console.log(keys); // ['health', 'backpack', 'weapon']
 ```
 
 ### Self-Modification
 
-We can change the structure.
+We can change the structure
 
 _Example:_ Modifying function at run time
 
@@ -133,7 +137,7 @@ console.log(grumpySum(2, 100)); // 0
 
 ### Intercession
 
-We can redefine the semantics of some language operations.
+We can redefine the semantics of some language operations
 
 _Example:_
 

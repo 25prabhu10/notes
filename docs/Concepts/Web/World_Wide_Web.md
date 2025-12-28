@@ -317,7 +317,7 @@ Search Engine Optimization (SEO) is the practice of increasing the quantity and 
 - **Local SEO**: Refers to the process of optimizing your online presence to attract more business from relevant local searches
 - **Mobile SEO**: Refers to the practice of optimizing your website for users on smartphones and tablets
 
-The [`<head>`](#head) element is where you can add metadata that helps search engines understand the content of your page
+The [`<head>`](../../Languages/HTML/HTML.md#head) element is where you can add metadata that helps search engines understand the content of your page
 
 ## Key Metrics
 

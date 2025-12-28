@@ -158,7 +158,7 @@ The git commands that require commit-hash will default to HEAD if no commit-hash
 
 Git can be installed on the most common operating systems like Windows, Mac, and Linux
 
-Download Git from this [link](https://git-scm.com/downloads) and install it
+[Download Git](https://git-scm.com/downloads) and install it
 
 ## Configuration
 
@@ -1847,7 +1847,7 @@ This will modify your `.git/config` file to add a `maintenance.strategy` value s
 - `loose-objects`: daily
 - `incremental-repack`: daily
 
-This means that every hour it will rebuild your commit graph and do a prefetch, and once per day it will clean up loose objects and put them in pack-files and also repack the object directory using the multi-pack-index feature (read more about that in an incredible blog post from GitHub's Taylor Blau [here](https://github.blog/2021-04-29-scaling-monorepo-maintenance/?ref=blog.gitbutler.com#multi-pack-indexes))
+This means that every hour it will rebuild your commit graph and do a prefetch, and once per day it will clean up loose objects and put them in pack-files and also repack the object directory using the multi-pack-index feature (read more about that in an incredible blog post from GitHub's Taylor Blau - [Multi-pack indexes](https://github.blog/2021-04-29-scaling-monorepo-maintenance/?ref=blog.gitbutler.com#multi-pack-indexes))
 
 - This makes things like `git log --graph` or `git branch --contains` much, much faster
 

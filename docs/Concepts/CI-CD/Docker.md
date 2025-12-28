@@ -16,16 +16,16 @@ _Example:_
 docker pull alpine
 
 # run a new container from the image
-docker run -t -d --name <customName> alpine
+docker run -t -d --name [customName] alpine
 
 # check currently running Docker containers
 docker ps
 
 # connect to a container
-docker exec -it <customName> bash
+docker exec -it [customName] sh
 
 # stop a container
-docker stop <customName>
+docker stop [customName]
 
 # check container stats
 docker stats
@@ -35,7 +35,7 @@ docker stats
 
 A way to **package application** with **all** the **necessary dependencies** and **configuration**
 
-- Portable artifact, easily shared and moved around.
+- Portable artifact, easily shared and moved around
 
 Need of containers:
 
@@ -45,12 +45,7 @@ Need of containers:
 
 ## Installation
 
-- One click installation script:
-
-```bash
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-```
+We will use the Docker Engine (core of Docker) for running containers by following instructions in [docker install repo](https://github.com/docker/docker-install/) or [install docker engine](https://docs.docker.com/engine/install/)
 
 - Run docker as non root user:
 
@@ -59,7 +54,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 ```
 
-- [Install Docker Engine](https://docs.docker.com/engine/install/)
+If you want docker desktop features like GUI, you can install [Docker Desktop](https://docs.docker.com/get-started/get-docker/)
 
 ## Docker CLI
 
@@ -68,22 +63,22 @@ _Example:_
 ```bash
 docker build .
 
-docker build -t <image-name>:<version> .
+docker build -t [image-name]:[version] .
 
 docker image ls
 
-docker image rm <image-id>
-docker rmi -f <image-id>
+docker image rm [image-id]
+docker rmi -f [image-id]
 
-docker run -p 8080:3000 -d --name <container-name> <image-name>
+docker run -p 8080:3000 -d --name [container-name] [image-name]
 
-docker run -it <container-name>
+docker run -it [container-name]
 
 # enter the container
-docker exec -it <container-name> bash
+docker exec -it [container-name] bash
 
 # delete container
-docker rm <container-name> -f
+docker rm [container-name] -f
 ```
 
 - Run Containers:
@@ -211,14 +206,18 @@ _Example:_
   ```dockerfile
   # syntax=docker/dockerfile:1
   FROM scratch
+
+  # copy the contents of the "helloworld" binary to the root directory of the image
   COPY helloworld /
+
+  # run the "helloworld" binary when the container starts
   CMD ["/helloworld"]
   ```
 
 - Python app:
 
   ```dockerfile
-  # Docker image
+  # pull official base image
   FROM python:latest
 
   # Set the working directory
@@ -237,9 +236,7 @@ _Example:_
 
 `.dockerignore` file is used to prevent sensitive or unnecessary files and directories from making their way into your image builds
 
-- It should be in the root directory, known as the build **context**
-
-- [ASP.NET Core app](../../C-Sharp/ASP_NET/Deployment.md#deploying-with-docker)
+It should be in the root directory, known as the build **context**
 
 ## Docker-Compose
 
@@ -314,7 +311,7 @@ docker-compose up
 docker-compose -d up
 
 # start specific service
-docker-compose up <service-name>
+docker-compose up [service-name]
 
 # list images
 docker-compose images
@@ -359,7 +356,7 @@ The output is also a (compressed) tar. The playbook can also manage the backup r
 
 To also create and backup the container configuration itself, you can use `docker-replay`for that. If you lose the entire container, you can recreate it with the export from `docker-replay`
 
-A more detailed tutorial on how to use docker-replay can be found [here](https://thedatabaseme.de/2022/03/18/shorty-generate-docker-run-commands-using-docker-replay/)
+- [How to use `docker-replay`](https://thedatabaseme.de/2022/03/18/shorty-generate-docker-run-commands-using-docker-replay/)
 
 ### Restore container from backup
 

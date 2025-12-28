@@ -6,24 +6,14 @@ sidebar: false
 
 # Table of Content
 
-1. [Keyboards](./Keyboard.md): Keyboard types
-2. [Aptitude](./Apti/Programs/)
-3. [Income Tax](./Finance/Income-Tax.md)
-4. [Math](./Math/)
-5. [Nature](./Nature.md)
-6. [Chess](./Chess.md)
-7. [Things](./Things.md)
-8. [Camera](./Camera.md)
+1. [Aptitude](./Apti/Programs/)
+2. [Income Tax](./Finance/Income-Tax.md)
+3. [Math](./Math/)
+4. [Nature](./Nature.md)
+5. [Camera](./Camera.md)
 
 [Open Source SmartWatch](https://open-smartwatch.github.io/)
 
-## Typing
-
-- [monkeytype](https://monkeytype.com/login)
-- [Touch Typing Tutor](https://www.touchtypingtutor.net/typing-tutorial)
-- [typingclub](https://www.typingclub.com/sportal/)
-- [keybr](https://www.keybr.com/)
-
 ## Wallpapers
 
-- https://github.com/GixoXYZ/HyprlandDotFiles/blob/main/Wallpapers/The-Crossing-1920x1080.png
+- [The-Crossing-1920x1080.png](https://github.com/GixoXYZ/HyprlandDotFiles/blob/main/Wallpapers/The-Crossing-1920x1080.png)

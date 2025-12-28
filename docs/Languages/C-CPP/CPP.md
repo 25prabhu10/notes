@@ -9,6 +9,38 @@ Main function can be used without `return` statement. It by default includes `re
 
 - Think operators as functions like: `cout << "Hello" << endl;` as `cout.print("Hello).print(endl);`
 
+## Headers and Namespaces
+
+[Headers and Preprocessor Directives](./C.md#headers-and-preprocessor-directives)
+
+- Namespace:
+
+  ```cpp
+  // sum.h
+  #pragma once
+
+  namespace customSum {
+    int sum(int a, int b);
+  }
+
+  // sum.cpp
+  namespace customSum {
+    int sum(int a, int b) {
+      return a + b;
+    }
+  }
+
+
+  // Main file
+  #include "sum.h"
+
+  int main() {
+    cout << customSum::sum(10, 20);
+
+    return 0;
+  }
+  ```
+
 ## Arrays
 
 ```cpp

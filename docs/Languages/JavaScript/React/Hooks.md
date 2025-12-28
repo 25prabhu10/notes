@@ -137,10 +137,7 @@ export const Button = () => {
   const [mode, setMode] = useDarkMode();
 
   return (
-    <button
-      style={styles[mode]}
-      onClick={() => setMode(mode === "dark" ? "light" : "dark")}
-    >
+    <button style={styles[mode]} onClick={() => setMode(mode === "dark" ? "light" : "dark")}>
       {mode}
     </button>
   );

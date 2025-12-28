@@ -86,10 +86,10 @@ title: ASP.NET
 
    | URL                                 | Controller     | Action | Id  |
    | ----------------------------------- | -------------- | ------ | --- |
-   | `http://localhost:4736/`            | HomeController | Index  |
-   | `http://localhost:4736/Book/`       | BookController | Index  |
-   | `http://localhost:4736/Book/Create` | BookController | Create |
-   | `http://localhost:4736/Book/Edit/2` | BookController | Edit   |
+   | `http://localhost:4736/`            | HomeController | Index  |     |
+   | `http://localhost:4736/Book/`       | BookController | Index  |     |
+   | `http://localhost:4736/Book/Create` | BookController | Create |     |
+   | `http://localhost:4736/Book/Edit/2` | BookController | Edit   | `2` |
 
 4. What is a Middleware?
    - software which is injected into the application pipeline to handle request and responses.

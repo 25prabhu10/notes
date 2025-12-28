@@ -183,7 +183,7 @@ Laptop time-spy graphics score:
 | Lenovo LOQ         | Ryzen 9 9950X   | RTX 4050 | 32               | 1TB     | 2.5K @165Hz    | $950  | 5.5    | 70Wh    | 4     |      | Good     | Good     | Good          | Good    | Quiet | Excellent   | 6      | 4h           | $42.11            | 2     |
 | Acer Swift X14     | Ryzen 9 7900X3D | RTX 4070 | 32               | 1TB     | 2.5K @165Hz    | $1200 | 3.5    | 53.3Wh  | 4     |      | Good     | Small    | Good          | Good    | Quiet | Excellent   | 7      | 3h           | $34.38            | 5     |
 | Asus Zephyrus      | Ryzen 7 7700X   | RTX 4060 | 16               | 512GB   | 2.5K @165Hz    | $1100 | 4.5    | 70Wh    | 4     |      | Good     | Good     | Good          | Good    | Quiet | Excellent   | 8      | 5h           | $45.00            | 4     |
-| ASUS ROG Strix G16 | Core i9-13980HX | RTX 4070 | 16 DDR5 @4800MHz | 1TB     | 16" @240Hz/3ms | $1499 | 5.51   |         |       | 6E   |
+| ASUS ROG Strix G16 | Core i9-13980HX | RTX 4070 | 16 DDR5 @4800MHz | 1TB     | 16" @240Hz/3ms | $1499 | 5.51   |         |       | 6E   |          |          |               |         |       |             |        |              |                   |       |
 | MSI Cyborg 14      | Ryzen 9 7950X3D | RTX 4050 | 32               | 1TB     | 2.5K @165Hz    | $1100 | 5.5    | 53.3Wh  | 4     |      | Good     | Small    | Good          | Good    | Quiet | Excellent   | 9      | 3h           | $34.38            | 5     |
 | MSI Titan GT77     | Ryzen 9 9950X   | RTX 4090 | 32               | 1TB     | 2.5K @165Hz    | $4200 | 7.28   | 70Wh    | 4     |      | Good     | Good     | Good          | Good    | Quiet | Excellent   | 10     | 4h           | $40.00            | 2     |
 

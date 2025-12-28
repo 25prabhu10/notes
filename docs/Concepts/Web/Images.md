@@ -154,9 +154,7 @@ Some tips to convert GIF to videos:
 ```html
 <svg role="img" aria-labelledby="icon-title icon-desc">
   <title id="icon-title">Pickling Solution</title>
-  <desc id="icon-desc">
-    The secret to good pickled cheese is good pickling.
-  </desc>
+  <desc id="icon-desc">The secret to good pickled cheese is good pickling.</desc>
   <!-- svg content -->
 </svg>
 ```
@@ -235,8 +233,8 @@ According to some analysis of website loading time, it was concluded that nearly
 As per google lighthouse, here are 4 Simple ways of Image Optimizations
 
 1. [Quality](#quality)
-2. [Formats](#formats)
-3. [Sizing - Image Dimensions](#sizing-image-dimensions)
+2. [Formats](#image-formats)
+3. [Sizing - Image Dimensions](#image-dimensions)
 4. [Lazy Loading](#lazy-loading)
 
 Network Info can help in image optimization, like check if the user's network is slow, then we can send smaller images or less images

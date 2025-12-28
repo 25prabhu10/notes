@@ -43,7 +43,7 @@ This tells `htmx`:
 
 - Now any element, not just anchors and forms, can issue an HTTP request
 - Now any event, not just clicks or form submissions, can trigger requests
-- Now any [HTTP verb](), not just GET and POST, can be used
+- Now any [HTTP verb](../../Concepts/Web/HTTP.md), not just `GET` and `POST`, can be used
 - Now any element, not just the entire window, can be the target for update by the request
 
 Functionalities:

@@ -251,48 +251,58 @@ Database Implementation of Isolation:
 
 #### Consistency
 
-- Consistency in Data:
-  - Defined by the user
-  - Referential integrity (foreign keys)
-  - Atomicity
-  - Isolation
+Consistency in Data:
 
-  _Example:_
-  - Pictures
+- Defined by the user
+- Referential integrity (foreign keys)
+- Atomicity
+- Isolation
 
-  | ID (**PK**) | BLOB | LIKES |
-  | :---------: | :--: | :---: |
-  |      1      |  xx  |   2   |
-  |      2      |  xx  |   1   |
-  - Picture_Likes
+_Example:_
 
-  | USER (**PK**) | PICTURE_ID (**PK**)(**FK**) |
-  | ------------- | :-------------------------: |
-  | Jon           |              1              |
-  | Edmond        |              1              |
-  | Jon           |              2              |
-  - Spot inconsistency in this data
+- `pictures` table
 
-  - Pictures
+| ID (**PK**) | BLOB | LIKES |
+| :---------: | :--: | :---: |
+|      1      |  xx  |   2   |
+|      2      |  xx  |   1   |
 
-  | ID (**PK**) | BLOB | LIKES |
-  | :---------: | :--: | :---: |
-  |      1      |  xx  |   5   |
-  |      2      |  xx  |   1   |
-  - Picture_Likes
+- `picture_likes` table
 
-  | USER (**PK**) | PICTURE_ID (**PK**)(**FK**) |
-  | ------------- | :-------------------------: |
-  | Jon           |              1              |
-  | Edmond        |              1              |
-  | Jon           |              2              |
-  | Edmond        |              4              |
+| USER (**PK**) | PICTURE_ID (**PK**)(**FK**) |
+| ------------- | :-------------------------: |
+| Jon           |              1              |
+| Edmond        |              1              |
+| Jon           |              2              |
 
-- Consistency in reads:
-  - If a transaction committed a change will a new transaction immediately see the change?
-  - Affects the system as a whole
-  - Relational and NoSQL databases suffer from this
-  - Eventual consistency
+Spot inconsistency in this data:
+
+- `pictures` table
+
+| ID (**PK**) | BLOB | LIKES |
+| :---------: | :--: | :---: |
+|      1      |  xx  |   5   |
+|      2      |  xx  |   1   |
+
+- `picture_likes` table
+
+| USER (**PK**) | PICTURE_ID (**PK**)(**FK**) |
+| ------------- | :-------------------------: |
+| Jon           |              1              |
+| Edmond        |              1              |
+| Jon           |              2              |
+| Edmond        |              4              |
+
+Consistency in reads:
+
+- If a transaction committed a change will a new transaction immediately see the change?
+- Affects the system as a whole
+- Relational and NoSQL databases suffer from this
+- Eventual consistency
+
+#### Durability
+
+- Once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors
 
 ## Database Design / Data Modelling
 

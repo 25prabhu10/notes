@@ -5,7 +5,7 @@ description: CSS is a style sheet language used for describing the presentation 
 
 # CSS
 
-[Cascading Style Sheets](https://www.w3.org/TR/CSS/) (CSS) is a **style sheet language** for describing the rendering of structured documents (such as HTML and XML) on screen, on paper, etc.
+[Cascading Style-Sheets](https://www.w3.org/TR/CSS/) (CSS) is a **stylesheet language** for describing the rendering of structured documents (such as HTML and XML) on screen, on paper, etc.
 
 - CSS is a declarative language
 
@@ -42,7 +42,7 @@ For styling the HTML document, we can add CSS in two ways:
    }
    ```
 
-   - Linking the external style sheet inside the HTML document:
+   - Linking the external stylesheet inside the HTML document:
 
    ```html
    <head>
@@ -62,7 +62,7 @@ p {
 ```
 
 - This rule sets the colour of all `<p>` elements to red and the font size to 20 pixels
-- The rule consists of a [**selector**](#selector) (`p`) and a **declaration block** (`{ color: red; font-size: 20px; }`)
+- The rule consists of a [**selector**](#selectors) (`p`) and a **declaration block** (`{ color: red; font-size: 20px; }`)
 - The selector is used to target the HTML element(s) to which the style should be applied
 - The declaration block contains one or more **declarations** separated by semicolons (`;`)
 - Each declaration includes a **property** (`color`, `font-size`) and a **value** (`red`, `20px`) separated by a colon (`:`)
@@ -107,7 +107,7 @@ This is the HTML element name at the start of the rule-set. It defines the eleme
    ```
 
 4. **ID Selector**: Matches an element whose id attribute has a value that matches the one specified after the pound or hash symbol (`#`)
-   - As all ids inside a HTML are unique, avoid using same id for multiple elements
+   - As all ids inside HTML are unique, avoid using same id for multiple elements
 
    ```css
    #ok {
@@ -134,7 +134,7 @@ This is the HTML element name at the start of the rule-set. It defines the eleme
 
    | Selector  | Meaning                                                                                      | Example                                                        |
    | --------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
-   | Existance | `[]` - Matches a specific attribute                                                          | `p[class]` - Matches all `<p>` elements with a class attribute |
+   | Existence | `[]` - Matches a specific attribute                                                          | `p[class]` - Matches all `<p>` elements with a class attribute |
    | Equality  | `[=]` - Matches a specific value                                                             | `input[type="text"]` - Matches all text `<input>` elements     |
    | Space     | `[~=]` - Matches a specific attribute whose value appears in a space-separated list of words | `p[class~="red"]` - Matches all `<p>` elements with class red  |
    | Prefix    | `[^=]` - Matches a specific attribute whose value begins with a certain string               | `a[href^="https://"]` - Matches all links to `https://`        |
@@ -308,10 +308,10 @@ Types of units:
 
 1. Absolute:
    - `px`: Unit of measure for computer graphics; this is only suitable for screen-based displays
-   - `in`: Inch. _1in. = 6pc = 72pt = 2.54cm_. This will be a true inch on printers, but defined relative to a reference pixel for screens which is _96px_ regardless of the screen resolution
+   - `in`: Inch. `1in. = 6pc = 72pt = 2.54cm`. This will be a true inch on printers, but defined relative to a reference pixel for screens which is `96px` regardless of the screen resolution
    - `pc`: Pica. Unit of measure in typography
    - `pt`: Point. Unit of measure in typography
-   - `cm`: Centimetre. _1cm = 10mm_
+   - `cm`: Centimetre. `1cm = 10mm`
    - `mm`: Millimetre
 
 2. Font-Relative:
@@ -321,8 +321,8 @@ Types of units:
    - `rem`: Exactly the same as `em`, but always relative to the font-size of the root element (which is the `<html>` for HTML documents). This is the preferred default unit for many web designers as it allows for manageable fluid layouts while addressing accessibility concerns
 
 3. Viewport-Relative:
-   - `vh`: Equal to _1%_ of the height of the viewport
-   - `vw`: Equal to _1%_ of the width of the viewport
+   - `vh`: Equal to `1%` of the height of the viewport
+   - `vw`: Equal to `1%` of the width of the viewport
 
    - `vmin`: Equal to the smaller of `vh` or `vw`
    - `vmax`: Equal to the larger of `vh` or `vw`
@@ -336,6 +336,12 @@ Types of units:
 4. Percentage:
    - Many CSS properties will accept a _percentage_ or a _length-percentage_ (meaning either a length or a percentage). While the rem is the best choice for many purposes, especially those relating to content and accessibility, percentage works relative to any inherited size including font-relative, view-relative, or even absolute units
 
+5. Container-Relative:
+   - `cqw`: Equal to `1%` of the width of the container
+   - `cqh`: Equal to `1%` of the height of the container
+   - `cqi`: Equal to `1%` of the smaller of the width or height of the container
+   - `cqb`: Equal to `1%` of the larger of the width or height of the container
+
 ## How CSS Rules Cascade
 
 The cascade is the process of combining multiple style sheets and resolving conflicts between them. It is the process of determining which styles apply to an element when more than one rule could apply
@@ -343,16 +349,16 @@ The cascade is the process of combining multiple style sheets and resolving conf
 CSS priority scheme (highest to lowest):
 
 | Priority | CSS source type                          | Description                                                                                  |
-| -------- | ---------------------------------------- | -------------------------------------------------------------------------------------------- |
-| 1        | Importance                               | The "`!important`" annotation overwrites the previous priority types                         |
-| 2        | Inline                                   | A style applied to an HTML element via HTML `style` attribute                                |
-| 3        | Media Type                               | A property definition applies to all media types unless a media-specific CSS is defined      |
-| 4        | User defined                             | Most browsers have the accessibility feature: a user-defined CSS                             |
-| 5        | Selector specificity                     | A specific contextual selector (`#heading p`) overwrites generic definition                  |
-| 6        | Rule order                               | Last rule declaration has a higher priority                                                  |
-| 7        | Parent inheritance                       | If a property is not specified, it is inherited from a parent element                        |
-| 8        | CSS property definition in HTML document | CSS rule or CSS inline style overwrites a default browser value                              |
-| 9        | Browser default                          | The lowest priority: browser default value is determined by W3C initial value specifications |
+| -------: | ---------------------------------------- | -------------------------------------------------------------------------------------------- |
+|        1 | Importance                               | The "`!important`" annotation overwrites the previous priority types                         |
+|        2 | Inline                                   | A style applied to an HTML element via HTML `style` attribute                                |
+|        3 | Media Type                               | A property definition applies to all media types unless a media-specific CSS is defined      |
+|        4 | User defined                             | Most browsers have the accessibility feature: a user-defined CSS                             |
+|        5 | Selector specificity                     | A specific contextual selector (`#heading p`) overwrites generic definition                  |
+|        6 | Rule order                               | Last rule declaration has a higher priority                                                  |
+|        7 | Parent inheritance                       | If a property is not specified, it is inherited from a parent element                        |
+|        8 | CSS property definition in HTML document | CSS rule or CSS inline style overwrites a default browser value                              |
+|        9 | Browser default                          | The lowest priority: browser default value is determined by W3C initial value specifications |
 
 1. **Last Rule**: If the two selectors are the same, the last rule will take precedence
 
@@ -886,7 +892,7 @@ Using fonts:
 
 Choosing a font:
 
-- Choose `Sans-serif` font for heading and Serif for the body or vice-versa
+- Choose `Sans-serif` font for heading and Serif for the body or vice versa
 
 - Fonts should have good contrasts, like the more important text must be emphasized
 
@@ -993,7 +999,7 @@ Fluid typography is the idea that `font-size` (and perhaps other attributes of t
 
 Please test these as they are _not a foolproof solution for all accessibility issues_:
 
-- Using media Queries (variable but not actually fluid):
+- Using [media queries](#media-queries) (variable but not actually fluid):
 
   ```css
   /* minimum value */
@@ -1209,7 +1215,7 @@ There are several ways to set colours in CSS, each with its advantages and use c
 
 6. **`lab()`:** which specifies a CIELAB colour by CIE Lightness and its a- and b-axis hue coordinates (red/green-ness, and yellow/blue-ness) using the CIE LAB rectangular coordinate model
    - `lab()` is a new way to define CSS colour. In `lab(L A B)` or `lab(L A B / a)` each item corresponds as follows:
-     - `L` is perceived lightness (`0-100` or 0%-100%`). "Perceived" means that it has consistent lightness for our eyes, unlike `L`in`hsl()`
+     - `L` is perceived lightness (`0-100` or `0%-100%`). "Perceived" means that it has consistent lightness for our eyes, unlike `L`in`hsl()`
      - `A` is the a-axis hue coordinate (`-125-125` or `-100%-100%`)
      - `B` is the b-axis hue coordinate (`-125-125` or `-100%-100%`)
      - `a` is opacity (`0-1` or `0-100%`)
@@ -1344,8 +1350,6 @@ Luckily, OKLCH has a good readability, supports P3 and beyond, as well as any co
 
 ### Colour Scheme
 
-If not sure on what colours to work with, use black and white
-
 The `color-scheme` CSS property allows an element to indicate which color schemes it can comfortably be rendered in. User agents change the following aspects of the UI chrome to match the used color scheme:
 
 - The colour of the canvas surface.
@@ -1353,13 +1357,13 @@ The `color-scheme` CSS property allows an element to indicate which color scheme
 - The default colours of form controls.
 - The default colours of other browser-provided UI, such as "spellcheck" underlines.
 
-[`prefers-colour-scheme`](#prefers-colour-scheme) is a media feature that can be used to detect if the user has requested the system use a light or dark colour theme
+[`prefers-color-scheme`](#media-features) is a media feature that can be used to detect if the user has requested the system use a light or dark colour theme
 
 ```css
 color-scheme: normal; /* indicates that the element is designed to be displayed in the default colour scheme */
 color-scheme: light; /* Indicates that the element can be rendered using the operating system _light_ colour scheme. */
 color-scheme: dark; /* Indicates that the element can be rendered using the operating system _dark_ colour scheme. */
-color-scheme: light dark;
+color-scheme: light dark; /* Indicates that the element can be rendered using either the light or dark colour scheme based on the user's preference (system). */
 color-scheme: only light; /* Forbids the user agent from overriding the colour scheme for the element. */
 
 /* Global values */
@@ -1369,6 +1373,20 @@ color-scheme: revert;
 color-scheme: revert-layer;
 color-scheme: unset;
 ```
+
+Then using `light-dark` function to set colours based on the colour scheme
+
+````css
+body {
+  background-color: light-dark(#ffffff, #000000); /* white in light mode, black in dark mode */
+  color: light-dark(#000000, #ffffff); /* black in light mode, white in dark mode */
+}
+
+:::tip Colour Scheme
+
+If not sure on what colours to work with, use black and white
+
+:::
 
 ### Accent Colour
 
@@ -1380,7 +1398,7 @@ Accent colours are used to highlight important elements on a page. They can be u
 button {
   accent-color: #ff0000;
 }
-```
+````
 
 ## Shadows
 
@@ -1751,27 +1769,6 @@ Media queries are useful when you want to modify your site or app depending on a
 
 `@media` at-rule is used to perform queries against the system, environment, or user agent. These media queries can be used to build responsive layouts
 
-#### Responsive Design
-
-Different visitors will have different devices, and each device has a different screen size. Responsive web design is about creating web pages that look good on all devices
-
-Responsive web design is about using CSS and HTML to resize, hide, shrink, enlarge, or move the content to make it look good on any screen
-
-- Common device resolutions:
-
-| Device Type | Resolution     |
-| ----------- | -------------- |
-| iPhone 4    | 960 x 640 px   |
-| iPad 2      | 1024 x 768 px  |
-| 13" MacBook | 1280 x 800 px  |
-| 27" iMac    | 2560 x 1440 px |
-
-- Common Screen Sizes:
-  - `320px`: Smartphones
-  - `768px`: Tablets
-  - `1024px`: Laptops
-  - `1440px`: Desktops
-
 #### Media Types
 
 Media types describe the general category of a device. Except when using the `not` or `only` logical operators, the media type is optional and the `all` type will be implied
@@ -1787,7 +1784,7 @@ Media features describe specific characteristics of the [user agent](https://dev
 
 - Visit [MDN - Media features](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries#media_features) for the list of all media features expression
 
-1. Prefers-Colour-Scheme: The prefers-colour-scheme CSS media feature is used to detect if the user has requested the system to use a light or dark colour theme
+1. `prefers-color-scheme`: The prefers-colour-scheme CSS media feature is used to detect if the user has requested the system to use a light or dark colour theme
    - `no-preference`: Indicates that the user has made no preference known to the system. This keyword value evaluates as false in the boolean context
 
    - `light`: Indicates that the user has notified the system that they prefer an interface that has a light theme
@@ -1813,7 +1810,7 @@ Media features describe specific characteristics of the [user agent](https://dev
    }
    ```
 
-2. Prefers-Reduced-Motion: The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of animation or motion it uses
+2. `prefers-reduced-motion`: The prefers-reduced-motion CSS media feature is used to detect if the user has requested that the system minimize the amount of animation or motion it uses
    - `no-preference`: Indicates that the user has made no preference known to the system
 
    - `reduce`: Indicates that the user has notified the system that they prefer an interface that minimizes the amount of movement or animation, preferably to the point where all non-essential movement is removed
@@ -1890,6 +1887,57 @@ Media features describe specific characteristics of the [user agent](https://dev
    }
    ```
 
+#### Responsive Design
+
+Different visitors will have different devices, and each device has a different screen size. Responsive web design is about creating web pages that look good on all devices
+
+Responsive web design is about using CSS and HTML to resize, hide, shrink, enlarge, or move the content to make it look good on any screen
+
+Common device resolutions:
+
+| Device Type   | Resolution       |
+| ------------- | ---------------- |
+| `iPhone 4`    | `960 x 640 px`   |
+| `iPad 2`      | `1024 x 768 px`  |
+| `13" MacBook` | `1280 x 800 px`  |
+| `27" iMac`    | `2560 x 1440 px` |
+
+Common Screen Sizes:
+
+- `320px`: Smartphones
+- `768px`: Tablets
+- `1024px`: Laptops
+- `1440px`: Desktops
+
+```css
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (max-width: 320px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/* Tablets (portrait and landscape) ----------- */
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+/* using range */
+@media only screen and (width >= 321px) and (width <= 768px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+/* using range shorthand */
+@media only screen and (321px <= width <= 768px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+```
+
 ### Logical Operators
 
 The logical operators `not`, `and`, and `only` can be used to compose a complex media query
@@ -1904,12 +1952,20 @@ The logical operators `not`, `and`, and `only` can be used to compose a complex 
 
 ### Import
 
-`@import` helps in importing styles from a different style sheet
+`@import` helps in importing styles from a different stylesheet
 
 - The `@import` rule must be at the top of the document (but after any `@charset` declaration)
 
 ```css
 @import url("styles.css");
+```
+
+- Import stylesheets import into layering context
+
+```css
+@import url("design-system.css") layer(design.system);
+@import url("components.css") layer(components);
+@import url("utilities.css") layer(utilities);
 ```
 
 ### Supports
@@ -1936,7 +1992,11 @@ p {
 
 `@layer` at-rule is used to define the layer of a CSS file
 
+- The priority of styles is determined by the order of layers, with later layers taking precedence over earlier ones e.g., styles in the `components` layer will override styles in the `design.system` layer
+
 ```css
+/* @layer design.system, components, utilities; */
+
 @layer components {
   .button {
     background-color: #f1f1f1;
@@ -1970,7 +2030,15 @@ p {
 
 Container queries are a way to apply styles to an element based on the size of its parent container, rather than the size of the viewport
 
-- `@container` at-rule is used to apply styles based on the size of the parent container
+- `continer` property is used to define a container for an element
+
+```css
+.card {
+  container: var(--my-container) / inline-size;
+}
+```
+
+- `@container` at-rule is used to apply styles based on the size of the nearest ancestor container
 
 ```css
 .parent {
@@ -1983,17 +2051,30 @@ Container queries are a way to apply styles to an element based on the size of i
     }
   }
 }
+
+/* Querying a specific container */
+@container var(--my-container) (min-width: 400px) {
+  .child {
+    background-color: lightblue;
+  }
+}
 ```
 
 ### `@property`
 
-`@property` at-rule is used to define custom properties
+`@property` at-rule is used to define custom properties with specific syntax, inheritance, and initial values. Type safe, interpolatable, CSS variables
 
 ```css
 @property --main-bg-color {
   syntax: "<color>";
   inherits: false;
   initial-value: white;
+}
+
+@property --interpolatable-percetage {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
 }
 
 body {
@@ -2074,6 +2155,52 @@ _Example:_
 }
 ```
 
+### View Transitions
+
+View transitions provide a way to animate changes between different states of a web page or application. This can include transitions between different pages, sections, or components within a single page
+
+Page Transitions can be enabled using the `@view-transition` at-rule:
+
+```css
+@view-transition {
+  navigation: auto;
+}
+```
+
+- Persistent Element Transitions: Elements that exist in both the old and new views can be animated seamlessly between the two states using the `view-transition-name` property
+
+```css
+nav {
+  view-transition-name: --persistent-nav;
+}
+```
+
+### Scroll Driven Animations
+
+Scroll-driven animations allow you to create animations that are triggered by the user's scroll position on a webpage. This can be used to create engaging and interactive experiences for users as they navigate through your content
+
+```css
+.animate-on-scroll {
+  animation: something-cool linear both;
+  animation-timeline: scroll();
+}
+
+.animate-viewport-intersection {
+  animation: something-cool linear both;
+  animation-timeline: view();
+}
+```
+
+### Linear function
+
+```css
+.spingy {
+  --spring: linear(1 /* mass */, 100 /* stiffness */, 10 /* damping */, 0 /* initial velocity */);
+
+  transition: transform 500ms var(--spring);
+}
+```
+
 ## Styling Techniques
 
 1. Global CSS:
@@ -2122,6 +2249,25 @@ _Example:_
 - **Can only scope class names**, when elements are directly used in CSS modules they are applied globally
 
 ## Performance
+
+The browser has to do a lot of work to convert your CSS into pixels on the screen. The faster it can do this, the faster your page will load and the better the user experience will be
+
+Rendering steps include style, layout, paint, and in some cases compositing. The _CSSOM_ and DOM trees created in the parsing step are combined into a render tree which is then used to compute the layout of every visible element, which is then painted to the screen
+
+1. `style`: The browser calculates the styles for each element on the page based on the CSS rules and the DOM structure
+2. `layout`: The browser calculates the size and position of each element on the page based on the styles calculated in the previous step
+
+### Selector Performance
+
+For most websites I would posit that selector performance is not the best area to spend your time trying to find performance optimizations. However, if you are working on a very large website with a lot of CSS and a lot of DOM elements, then it may be worth considering optimizing your selectors for performance
+
+- Avoid universal selector (`*`)
+- Avoid descendant selectors (`div p`)
+- Avoid complex selectors (`div > ul li a.active`)
+- Prefer class and ID selectors (`.class`, `#id`)
+- Minimize the use of attribute selectors (`[type="text"]`)
+
+### Concepts
 
 - First Paint
 - Critical rendering path
@@ -2331,7 +2477,6 @@ CSS was first introduced in 1996 and has since gone through several versions. Th
 - Containment: `@container` queries
 - `<dialog>`
 - Form Compatibility
-- Scrolling
 - Subgrid: Grid lines made available for children and grandchildren
 - Typography
 - Viewport Units
@@ -2352,17 +2497,13 @@ function stripCSS() {
     1. .css files included with `<link rel="stylesheet`
     2. `<style></style>` elements collocated in HTML document
   */
-  Array.from(document.styleSheets).forEach(
-    (stylesheet) => (stylesheet.disabled = true)
-  );
+  Array.from(document.styleSheets).forEach((stylesheet) => (stylesheet.disabled = true));
 
   /*
     Remove inline[1] CSS
     1. `style` attribute applied to HTML elements
   */
-  Array.from(document.querySelectorAll("*")).forEach((element) =>
-    element.removeAttribute("style")
-  );
+  Array.from(document.querySelectorAll("*")).forEach((element) => element.removeAttribute("style"));
 }
 ```
 

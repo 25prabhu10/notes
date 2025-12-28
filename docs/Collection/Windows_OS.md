@@ -7,7 +7,7 @@ description: Windows OS
 
 ## Windows Quirks
 
-Collection of windows quirks.
+Collection of windows quirks
 
 1. **`Con`, `aux`, `prn`, `lst`, `com0 to com9`, `Lpt0 to ltp9`, `null`** cannot be used as name for files and folders in windows. Because all those names for device files in MS dos
 
@@ -229,8 +229,9 @@ PortForwarding
 
 ### Linux desktop in WSL2
 
-With WSL2 it's possible to install and run a Linux desktop environment (XFCE). A tutorial on how
-to implement that, can be found [here](https://thedatabaseme.de/2022/05/15/shorty-running-xfce-linux-desktop-on-wsl2/).
+With WSL2 it's possible to install and run a Linux desktop environment (XFCE)
+
+- [Tutorial Running XFCE Linux Desktop on WSL2](https://thedatabaseme.de/2022/05/15/shorty-running-xfce-linux-desktop-on-wsl2/) to run GUI applications in WSL2
 
 ## Windows Updates
 

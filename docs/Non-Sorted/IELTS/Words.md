@@ -640,7 +640,6 @@ straightforward, undergo, whereby
 | 527  |            | direct         | adj   | link            | n      |                   |
 | 528  |            | direct         | adj   | observation     | n      |                   |
 | 529  |            | direct         | adj   | relationship    | n      |                   |
-| 42   |            |
 | 530  |            | direct         | adj   | role            | n      |                   |
 | 531  |            | directly       | adv   | affect          | v      |                   |
 | 532  | (be)       | directly       | adv   | affected        | vpp    |                   |

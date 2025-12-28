@@ -785,7 +785,7 @@ LINQ provides many useful Enumerable methods.
 - It's possible to create more extension methods to add other query operations.
 
 - _MoreLinq_ is available as a [NuGet package](https://morelinq.github.io/)
-- Examples at [Link](https://github.com/morelinq/examples):
+- [MoreLinq examples](https://github.com/morelinq/examples):
 
 ```cs
 var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7 };

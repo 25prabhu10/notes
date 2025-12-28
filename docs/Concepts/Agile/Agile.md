@@ -22,7 +22,7 @@ Steps:
 2. Agile is doing what is valuable
 3. Don't do what is not
 
-### Story
+## Story
 
 Story in agile is a short narrative
 

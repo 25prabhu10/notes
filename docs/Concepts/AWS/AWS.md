@@ -62,7 +62,7 @@ Cloud Economics: Cloud computing reduces Capital Expenditures (CapEx) by elimina
 
 ### Private Clouds
 
-- Private Clouds environments are privately owned and hosted by an enterprise.
+- Private Clouds environments are privately owned and hosted by an enterprise
 - Resources are generally made accessible to a private organization and their customers and partners
   - Managed private clouds are deployed and fully managed by a third-party, reducing the IT staffing needs for the enterprise
   - Dedicated private clouds are hosted on a public or private cloud to server a particular department within an enterprise
@@ -92,7 +92,7 @@ Cloud Economics: Cloud computing reduces Capital Expenditures (CapEx) by elimina
 
 ### Lift and Shift Cloud Migration
 
-Lift and shift (or **rehosting**) is one way you might consider moving to the cloud. Simply put, lift and shift means moving a copy of an existing application and data to cloud infrastructure with minimal or no redesigning or modification.
+Lift and shift (or **rehosting**) is one way you might consider moving to the cloud. Simply put, lift and shift means moving a copy of an existing application and data to cloud infrastructure with minimal or no redesigning or modification
 
 ## AWS Global Infrastructure
 
@@ -106,20 +106,20 @@ Lift and shift (or **rehosting**) is one way you might consider moving to the cl
 ### AWS Regions
 
 - AWS has **Regions all around the world**
-- Names can be `us-east-1`, `eu-west-3`...
+- Names can be `us-east-1`, `eu-west-3`..
 - A region is a **cluster of data centres**
 - **Most AWS services are region-scoped**
 
 #### How to choose an AWS Region?
 
-- **_Compliance_ with data governance and legal requirements**: data never leaves a region without your explicit permission.
-- **_Proximity_ to customers**: reduced latency.
-- **_Available services_ within a Region**: new services and new features aren't available in every Region.
-- **_Pricing_**: pricing varies region to region and is transparent in the service pricing page.
+- **_Compliance_ with data governance and legal requirements**: data never leaves a region without your explicit permission
+- **_Proximity_ to customers**: reduced latency
+- **_Available services_ within a Region**: new services and new features aren't available in every Region
+- **_Pricing_**: pricing varies region to region and is transparent in the service pricing page
 
 ### AWS Availability Zones
 
-- Each region has many Availability Zones (usually 3, min is 2, max is 6).
+- Each region has many Availability Zones (usually 3, min is 2, max is 6)
 
 _Example:_
 
@@ -156,7 +156,7 @@ _Example:_
 
 ## Developing on AWS
 
-We can interact with AWS using AWS Console (Web Based App), AWS CLI, and AWS SDK.
+We can interact with AWS using AWS Console (Web Based App), AWS CLI, and AWS SDK
 
 - We can interact with services manually and they expose standard information for clients:
   - EC2 exposes a standard Linux machine we can use any way we want
@@ -209,11 +209,11 @@ AWS CLI v2 Setup: [Install AWS CLI on Windows/Mac/Linux](https://docs.aws.amazon
    - IAM Roles can come with a policy authorizing exactly what the EC2 instance should be able to do
    - AWS NETWORK --> EC2 Instance --> IAM ROLE --> CLI --> AWS Account (checks credentials and permissions of the ROLE)
    - EC2 Instances can then use these profiles automatically without any additional configurations
-   - This is the best practice on AWS and you should 100% do this.
+   - This is the best practice on AWS and you should 100% do this
 
 ### AWS CLI Dry Runs
 
-- Sometimes, we'd just like to make sure we have the permissions...
+- Sometimes, we'd just like to make sure we have the permissions..
 - But not actually run the commands!
 - Some AWS CLI commands (such as EC2) can become expensive if they succeed, say if we wanted to try to create an EC2 Instance
 - Some AWS CLI commands (not all) contain a `--dry-run` option to simulate API calls
@@ -234,8 +234,8 @@ If you get AccessDenied error while running STS, please attach a policy that all
 
 ### AWS Profile
 
-1. To add a profile into your working machine you need access keys.
-2. Create access keys for an IAM user follow this [link](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
+1. To add a profile into your working machine you need access keys
+2. Create access keys for an IAM user by following the [configuring settings for the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html) docs
 3. Now configure AWS CLI with the default profile:
 
    ```bash

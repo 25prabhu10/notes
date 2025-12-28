@@ -252,11 +252,11 @@ Finally, wherever JavaScript expects a statement, you can also use an expression
 foo(7, 1);
 ```
 
-- The whole line is a statement (a so-called _expression statement_), but the function call `foo(7, 1)` is an expression.
+- The whole line is a statement (a so-called _expression statement_), but the function call `foo(7, 1)` is an expression
 
 ### Semicolons
 
-Semicolons are optional in JavaScript. However, it is recommended to always include them otherwise, JavaScript can guess wrong about the end of a statement.
+Semicolons are optional in JavaScript. However, it is recommended to always include them otherwise, JavaScript can guess wrong about the end of a statement
 
 Semicolons terminate statements, but not blocks. There is one case where you will see a semicolon after a block:
 
@@ -266,7 +266,7 @@ Semicolons terminate statements, but not blocks. There is one case where you wil
 // pattern: var _ = ___;
 var x = 3 * 7;
 
-var f = function () {}; // function expr. inside var decl.
+var f = function () {}; // function expr. inside var decl
 ```
 
 ## Variables
@@ -285,8 +285,8 @@ There are two limitations on variable names in JavaScript:
 1. The name must contain only letters, digits, or the symbols `$` and `_`
 2. The first character must not be a digit
 
-- The usual variable declaration rules apply here.
-- camelCasing is preferred in JavaScript for variables.
+- The usual variable declaration rules apply here
+- camelCasing is preferred in JavaScript for variables
 
 ### `var`, `let`, and `const`
 
@@ -300,7 +300,7 @@ There are two limitations on variable names in JavaScript:
    - **Block scope**
 
 3. `const`:
-   - Read-only, cannot be reassigned a value.
+   - Read-only, cannot be reassigned a value
    - **Block scope**
    - We need to assign a value during the declaration of a `const`
    - As convention uppercase letters are used for constant variable name
@@ -331,7 +331,7 @@ There are two limitations on variable names in JavaScript:
 
 ::: danger UNDECLARED VARIABLE
 
-If a value is assigned to an undeclared variable, then it will have a global scope even if it is done inside an enclosing function. **Please avoid this**.
+If a value is assigned to an undeclared variable, then it will have a global scope even if it is done inside an enclosing function. **Please avoid this**
 
 ```javascript
 function app() {
@@ -429,7 +429,7 @@ Primitives are immutable
 
 There are 7 primitive data types in JavaScript:
 
-1. **Number**: Floating point numbers for both decimals and integers.
+1. **Number**: Floating point numbers for both decimals and integers
 
    ```javascript
    let n = 123;
@@ -442,7 +442,7 @@ There are 7 primitive data types in JavaScript:
    hex = 0xA; // or `0xa`
    ```
 
-   - `Infinity`: represents the mathematical _Infinity_ **∞**. It is a special value that's greater than any number.
+   - `Infinity`: represents the mathematical _Infinity_ **∞**. It is a special value that's greater than any number
 
      ```javascript
      //
@@ -459,7 +459,7 @@ There are 7 primitive data types in JavaScript:
      NaN ** 0; // 1
      ```
 
-   - `Number` object: has properties for numerical constants, such as maximum value, not-a-number, and infinity.
+   - `Number` object: has properties for numerical constants, such as maximum value, not-a-number, and infinity
 
      ```javascript
      const biggestNum = Number.MAX_VALUE; // ±1.7976931348623157e+308
@@ -578,11 +578,11 @@ There are 7 primitive data types in JavaScript:
 
 ### Objects
 
-An object is a data structure that associate **a collection of key-value pairs**, which is similar to a [map](#maps) or hash map in other languages.
+An object is a data structure that associate **a collection of key-value pairs**, which is similar to a [map](#maps) or hash map in other languages
 
-- We can say an object is a collection of properties, where each property associates a key to a value.
+- We can say an object is a collection of properties, where each property associates a key to a value
 
-- Objects are mutable.
+- Objects are mutable
 
 ```javascript
 const obj = {
@@ -590,14 +590,14 @@ const obj = {
 };
 ```
 
-- _Name_ (Key) must be a unique name that looks like a string.
-- _Value_ can be anything, a primitive, another object or function.
+- _Name_ (Key) must be a unique name that looks like a string
+- _Value_ can be anything, a primitive, another object or function
 
 Everything is an object in JavaScript (well, almost everything), including:
 
 - Arrays, functions, objects, dates, wrappers for numbers, strings, or boolean
 
-- If a value is not a Primitive then it is an Object.
+- If a value is not a Primitive then it is an Object
 
 #### Object Creation
 
@@ -614,7 +614,7 @@ Everything is an object in JavaScript (well, almost everything), including:
      obj["face"] = "🤡";
      ```
 
-   - Using a constructor function one can customize the way the object is created. By convention the constructor function name is same as the object and is Capitalized. This function is similar to a class in other object-oriented programming languages. New object is created using the `new` keyword before the constructor function.
+   - Using a constructor function one can customize the way the object is created. By convention the constructor function name is same as the object and is Capitalized. This function is similar to a class in other object-oriented programming languages. New object is created using the `new` keyword before the constructor function
 
      ```javascript
      // constructor function
@@ -717,7 +717,7 @@ Everything is an object in JavaScript (well, almost everything), including:
      console.log(obj.legs); // 25
      ```
 
-   - Dynamically add property names by wrapping them in brackets `[]` and place an expression inside and it will compute that value when the object is created.
+   - Dynamically add property names by wrapping them in brackets `[]` and place an expression inside and it will compute that value when the object is created
 
      ```javascript
      const spider = "🕷";
@@ -732,7 +732,7 @@ Everything is an object in JavaScript (well, almost everything), including:
      console.log(obj); // { spider: '🕷', da9dl: true }
      ```
 
-   - When a function lives on an object it's called a _method_. We can use getters and setters.
+   - When a function lives on an object it's called a _method_. We can use getters and setters
 
      ```javascript
      const obj = {
@@ -751,9 +751,9 @@ Everything is an object in JavaScript (well, almost everything), including:
      };
      ```
 
-   - `this` inside an object method refers to that object. But if the object method uses arrow function, then `this` refers to the global `this` context.
+   - `this` inside an object method refers to that object. But if the object method uses arrow function, then `this` refers to the global `this` context
 
-   - Chaining methods, `return this` in the method you want to chain. This will keep a reference to the same object.
+   - Chaining methods, `return this` in the method you want to chain. This will keep a reference to the same object
 
      ```javascript
      const obj = {
@@ -770,15 +770,15 @@ Everything is an object in JavaScript (well, almost everything), including:
      ```
 
 3. `create()` static method on `Object` class:
-   - Not used for empty object.
+   - Not used for empty object
 
-   - It used to inherit properties of existing objects. i.e. Use existing object as a prototype to create a Prototype Chain.
+   - It used to inherit properties of existing objects. i.e. Use existing object as a prototype to create a Prototype Chain
 
-   - If we console log `obj`, we will get an empty object `{}`. But if we console log `obj.dna` we get a result.
+   - If we console log `obj`, we will get an empty object `{}`. But if we console log `obj.dna` we get a result
 
-   - Here `dna` is like an invisible property on the new object `obj`.
+   - Here `dna` is like an invisible property on the new object `obj`
 
-   - This is because `dna` property exists on `obj` objects prototype.
+   - This is because `dna` property exists on `obj` objects prototype
 
      ```javascript
      const organism = {
@@ -794,7 +794,7 @@ Everything is an object in JavaScript (well, almost everything), including:
      console.log(Object.getPrototypeOf(obj)); // { dna: 0.18536405128609768 }
      ```
 
-   - We can add a property to the object using Object Define property. Using this method we can add setters, getters and other advanced options.
+   - We can add a property to the object using Object Define property. Using this method we can add setters, getters and other advanced options
 
      ```javascript
      const obj = Object.create({});
@@ -825,7 +825,7 @@ Everything is an object in JavaScript (well, almost everything), including:
 
 #### Looping Through Objects
 
-1. Using **For-In** loop, it loops over all of the enumerable properties and the prototypes of the object.
+1. Using **For-In** loop, it loops over all of the enumerable properties and the prototypes of the object
 
    ```javascript
    const obj = {
@@ -838,7 +838,7 @@ Everything is an object in JavaScript (well, almost everything), including:
    }
    ```
 
-2. Get the keys or values as an array, then loop through this array using **For** or **For-Each**.
+2. Get the keys or values as an array, then loop through this array using **For** or **For-Each**
 
    ```javascript
    const obj = {
@@ -862,13 +862,13 @@ Everything is an object in JavaScript (well, almost everything), including:
    }
    ```
 
-- You can mutate the key-value of an object even if it's defined as a constant variable.
+- You can mutate the key-value of an object even if it's defined as a constant variable
 
-- Literal syntax is mostly used for object creation.
+- Literal syntax is mostly used for object creation
 
 #### Object References (Object Copying)
 
-Copying value from one primitive to another, will create a new primitive variable. Thus changing the value of the first variable will not effect the second variable .
+Copying value from one primitive to another, will create a new primitive variable. Thus changing the value of the first variable will not effect the second variable
 
 ```javascript
 let a = "a";
@@ -971,7 +971,7 @@ let b = { ...a };
 
 #### Immutable Objects
 
-Objects by default are mutable, hence the properties of any object can be modified after its creation.
+Objects by default are mutable, hence the properties of any object can be modified after its creation
 
 To stop any changes being made to the object after its creation (make it immutable):
 
@@ -1015,7 +1015,7 @@ To stop any changes being made to the object after its creation (make it immutab
 
 #### Object Inheritance
 
-JavaScript is **Prototype** based language, hence the inheritance is achieved using prototypes.
+JavaScript is **Prototype** based language, hence the inheritance is achieved using prototypes
 
 - The most important difference between class- and prototype-based inheritance is that a class defines a _type_ which can be instantiated at runtime, whereas a **_prototype_ is itself an object instance**
 
@@ -1051,13 +1051,13 @@ console.log(child.foo); // 'baz'
 
 Prototype Chain:
 
-- Every JavaScript object has a prototype property, which makes inheritance possible.
+- Every JavaScript object has a prototype property, which makes inheritance possible
 
-- The prototype property of an object is where we put methods and properties that we want other objects to inherit.
+- The prototype property of an object is where we put methods and properties that we want other objects to inherit
 
-- The Constructor's prototype property is NOT the prototype of the constructor itself, it's the prototype of ALL instances that are created through it.
+- The Constructor's prototype property is NOT the prototype of the constructor itself, it's the prototype of ALL instances that are created through it
 
-- When, a certain method (or property) is called, the search starts in the object itself, and if it cannot be found, the search moves on to the object's prototype. This continues until the method is found: _prototype chain_.
+- When, a certain method (or property) is called, the search starts in the object itself, and if it cannot be found, the search moves on to the object's prototype. This continues until the method is found: _prototype chain_
 
 Creating an object prototype:
 
@@ -1108,7 +1108,7 @@ Creating an object prototype:
 
 The `Proxy` object (ES6) enables you to create a proxy for another object, which can intercept and redefine fundamental operations for that object
 
-- Proxy objects are commonly used to log property accesses, validate, format, or sanitize inputs, and so on.
+- Proxy objects are commonly used to log property accesses, validate, format, or sanitize inputs, and so on
 
 - [Metaprogramming](../../Concepts/Metaprogramming.md) using `Proxy`
 
@@ -1116,7 +1116,7 @@ You create a Proxy with two parameters:
 
 - `target`: the original object which you want to proxy
 
-- `handler`: an object that defines which operations will be intercepted and how to redefine intercepted operations.
+- `handler`: an object that defines which operations will be intercepted and how to redefine intercepted operations
 
 ```javascript
 // target
@@ -1242,7 +1242,7 @@ console.log(prx.name); // EVERYONE
 
 ## Operators
 
-All the basic arithmetic operations can be used along with logical operators.
+All the basic arithmetic operations can be used along with logical operators
 
 - `|`: bitwise OR operator
 - `&`: bitwise AND operator
@@ -1279,7 +1279,7 @@ All the basic arithmetic operations can be used along with logical operators.
   expr1 && expr2;
   ```
 
-  - Logical AND (`&&`) evaluates operands from left to right, returning immediately with the value of the first falsy operand it encounters; if all values are truthy, the value of the last operand is returned.
+  - Logical AND (`&&`) evaluates operands from left to right, returning immediately with the value of the first falsy operand it encounters; if all values are truthy, the value of the last operand is returned
 
 - `||`: logical OR operator
 
@@ -1287,13 +1287,13 @@ All the basic arithmetic operations can be used along with logical operators.
   expr1 || expr2;
   ```
 
-  - If `expr1` can be converted to `true`, returns `expr1`; else, returns `expr2`.
+  - If `expr1` can be converted to `true`, returns `expr1`; else, returns `expr2`
 
-- `==`: abstract comparison operator. It will **typecast before comparison**.
-- `===`: strict equality operator will check equality on both type and value.
+- `==`: abstract comparison operator. It will **typecast before comparison**
+- `===`: strict equality operator will check equality on both type and value
 - `var x = truthy ? 1 : 2;`: ternary operator
 
-- `??` (nullish coalescing operator): returns its right-hand side operand when its left-hand side operand is `null` or `undefined`, and otherwise returns its left-hand side operand.
+- `??` (nullish coalescing operator): returns its right-hand side operand when its left-hand side operand is `null` or `undefined`, and otherwise returns its left-hand side operand
   - `??` returns the first _defined_ value
   - `||` returns the first _truthy_ value
 
@@ -1308,7 +1308,7 @@ All the basic arithmetic operations can be used along with logical operators.
   "" || "default string"; // "default string"
   ```
 
-- `?.` (optional chaining): enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid.
+- `?.` (optional chaining): enables you to read the value of a property located deep within a chain of connected objects without having to check that each reference in the chain is valid
 
   ```javascript
   const adventurer = {
@@ -1337,9 +1337,9 @@ Don't use `==` for comparisons
 
 ### Operator Precedence
 
-Operator precedence determines how operators are parsed concerning each other.
+Operator precedence determines how operators are parsed concerning each other
 
-- Operators with higher precedence become the operands of operators with lower precedence.
+- Operators with higher precedence become the operands of operators with lower precedence
 
 ### Truthy And Falsy
 
@@ -1348,11 +1348,11 @@ In JavaScript:
 - Truthy values: all NON Falsy values
 - Falsy values: `0`, `false`, `''`, `null`, `undefined`, `NaN`
 
-JavaScript will always try to coerce a value into a Boolean when it's encountered inside of a conditional statement.
+JavaScript will always try to coerce a value into a Boolean when it's encountered inside of a conditional statement
 
 So:
 
-- `true` is Truthy.
+- `true` is Truthy
 
 - All Objects are Truthy:
 
@@ -1381,9 +1381,9 @@ So:
 
 ### Comparisons
 
-String comparison: To see whether a string is greater than another, JavaScript uses the so-called "dictionary" or "lexicographical" order.
+String comparison: To see whether a string is greater than another, JavaScript uses the so-called "dictionary" or "lexicographical" order
 
-In other words, strings are compared letter-by-letter.
+In other words, strings are compared letter-by-letter
 
 ```javascript
 "Z" > "A"; // true
@@ -1414,9 +1414,9 @@ n; // { x: 1, y: 2, a: 3, b: 4 }
 
 ### Rest Syntax
 
-- Rest parameters convert multiple input parameters into a single array containing all the arguments.
+- Rest parameters convert multiple input parameters into a single array containing all the arguments
 
-- It uses the same 3 dot notation as spread operator and dose opposite of spread operator.
+- It uses the same 3 dot notation as spread operator and dose opposite of spread operator
 
 ```javascript
 // ES5
@@ -1429,8 +1429,7 @@ function isFullAge5() {
 }
 
 // ES6
-const isFullAge6 = (...years) =>
-  years.forEach((el) => console.log(2016 - el >= 18));
+const isFullAge6 = (...years) => years.forEach((el) => console.log(2016 - el >= 18));
 
 isFullAge6(1990, 1999, 1960);
 ```
@@ -1446,13 +1445,13 @@ z; // { a: 3, b: 4 }
 
 ## Functions
 
-Functions are first class objects in JavaScript.
+Functions are first class objects in JavaScript
 
-- Every JavaScript function is actually a `Function` object. This can be seen with the code `(function(){}).constructor === Function`, which returns true.
+- Every JavaScript function is actually a `Function` object. This can be seen with the code `(function(){}).constructor === Function`, which returns true
 
 ### Function Declaration
 
-To create a function we can use a function declaration.
+To create a function we can use a function declaration
 
 A **function definition** (also called a **function declaration**, or **function statement**) consists of the `function` keyword, followed by:
 
@@ -1496,7 +1495,7 @@ const temp = function () {
 
 ### Function Expression
 
-While the function declaration above is syntactically a statement, functions can also be created by a function expression.
+While the function declaration above is syntactically a statement, functions can also be created by a function expression
 
 Using function as a value:
 
@@ -1521,7 +1520,7 @@ _Function Declaration vs Function Expression_:
 
 - Function declaration can be redeclared (can introduce bugs)
 
-- We can use a function before its declaration, but when we have an expression the function is created only when the code is reached in the script.
+- We can use a function before its declaration, but when we have an expression the function is created only when the code is reached in the script
 
   ```javascript
   // function declaration
@@ -1540,12 +1539,12 @@ _Function Declaration vs Function Expression_:
   ```
 
 ::: tip
-Use function expressions as a best practice, because they are not hoisted and this makes it easier to understand where they belong in the context of an application. Also they are less likely to pollute the global namespace.
+Use function expressions as a best practice, because they are not hoisted and this makes it easier to understand where they belong in the context of an application. Also they are less likely to pollute the global namespace
 :::
 
 ### Immediately Invoked Function Expression (IIFE)
 
-By **wrapping an anonymous (or named) function in parentheses**, we can then **call it immediately** by adding parentheses afterwards.
+By **wrapping an anonymous (or named) function in parentheses**, we can then **call it immediately** by adding parentheses afterwards
 
 _Example:_
 
@@ -1676,7 +1675,7 @@ Function parameters:
      multiply(5); // 5
      ```
 
-4. Named Parameters: Here the argument is a single object that can contain multiple values.
+4. Named Parameters: Here the argument is a single object that can contain multiple values
    - We can destructure the object or use it directly inside the function body
    - Order of the arguments doesn't matter
 
@@ -1694,8 +1693,8 @@ Function parameters:
    // Breakfast includes 🥞, 🥓, 🥛
    ```
 
-5. Rest Parameters: A single parameter is preceded by three dots `...args`.
-   - This allows us to use multiple positioned arguments and then access them as an array inside the function body.
+5. Rest Parameters: A single parameter is preceded by three dots `...args`
+   - This allows us to use multiple positioned arguments and then access them as an array inside the function body
 
    ```javascript
    // rest parameters
@@ -1712,13 +1711,13 @@ Function parameters:
 
 #### Parameters vs Arguments
 
-Parameters are the variable inputs that are used in the function definition.
+Parameters are the variable inputs that are used in the function definition
 
-While Arguments are the actual value or expressions used when calling the function.
+While Arguments are the actual value or expressions used when calling the function
 
 ### Arrow Functions
 
-An arrow function expression has a shorter syntax compared to function expressions.
+An arrow function expression has a shorter syntax compared to function expressions
 
 - It does not have its own `this`, `arguments`, `super`, `new.target`
 - `this` is picked up from surroundings (lexical)
@@ -1742,7 +1741,7 @@ const makeWine = (qty) => {
 };
 ```
 
-They don't have their own `this` object.
+They don't have their own `this` object
 
 ```javascript
 // ES5 Arrow 'this' example
@@ -1776,13 +1775,13 @@ If a function doesn't have a `return` statement, it will return `undefined`
 
 ### Pure Functions
 
-Pure functions are those functions that depend only on their input parameters and only mutate variables that are within its local scope and it should also not produce any side effects.
+Pure functions are those functions that depend only on their input parameters and only mutate variables that are within its local scope and it should also not produce any side effects
 
 Pure functions always produce the same output given the same input
 
-- They are easier to test.
-- Easier to understand in general.
-- They help in composing your applications as a collection of Higher Order Functions.
+- They are easier to test
+- Easier to understand in general
+- They help in composing your applications as a collection of Higher Order Functions
 
 ```javascript
 let x = 0;
@@ -1799,7 +1798,7 @@ const pure = (x) => x ** 2;
 
 ### Higher Order Functions
 
-JavaScript supports first-class functions, i.e. functions can be passed as arguments to other functions or use functions as the return value from a function.
+JavaScript supports first-class functions, i.e. functions can be passed as arguments to other functions or use functions as the return value from a function
 
 ```javascript
 let haveFun = () => console.log("fun!");
@@ -1823,9 +1822,9 @@ cool(() => console.log('sweet'));
 
 A closure is **the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment)**
 
-Closure is just a function within a function where inner function references a variable that was declared in the scope of the outer function and returns the inner function.
+Closure is just a function within a function where inner function references a variable that was declared in the scope of the outer function and returns the inner function
 
-- An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned.
+- An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned
 
 - Whenever we define a function it will create a lexical environment. Anything inside of curly braces is it's own lexical environment:
 
@@ -1945,18 +1944,9 @@ var john = {
   job: "teacher",
   presentation: function (style, timeOfDay) {
     if (style === "formal") {
-      console.log(
-        "I'm " + this.name + " of age " + this.age + ". Good " + timeOfDay
-      );
+      console.log("I'm " + this.name + " of age " + this.age + ". Good " + timeOfDay);
     } else if (style === "casual") {
-      console.log(
-        "Whats up? " +
-          this.name +
-          "here, of age " +
-          this.age +
-          ". Good " +
-          timeOfDay
-      );
+      console.log("Whats up? " + this.name + "here, of age " + this.age + ". Good " + timeOfDay);
     }
   },
 };
@@ -2034,9 +2024,7 @@ function nameIterator(names) {
 
   return {
     next: function () {
-      return nextIndex < names.length
-        ? { value: names[nextIndex++], done: false }
-        : { done: true };
+      return nextIndex < names.length ? { value: names[nextIndex++], done: false } : { done: true };
     },
   };
 }
@@ -2183,7 +2171,7 @@ console.log(showNext.next());
 ```
 
 ::: warning NOTE
-Generator functions **do not have arrow function** counterparts.
+Generator functions **do not have arrow function** counterparts
 :::
 
 ### Iterables
@@ -2209,7 +2197,7 @@ for (let value of generator) {
 
 ## Exception Handling
 
-You can throw exceptions using the `throw` statement and handle them using the `try...catch` statements.
+You can throw exceptions using the `throw` statement and handle them using the `try...catch` statements
 
 ### `throw` Statement
 
@@ -2230,7 +2218,7 @@ throw {
 
 ### `try...catch` Statement
 
-The `try...catch` statement marks a block of statements to try, and specifies one or more responses should an exception be thrown.
+The `try...catch` statement marks a block of statements to try, and specifies one or more responses should an exception be thrown
 
 ```javascript
 try {
@@ -2243,9 +2231,9 @@ try {
 
 ### `finally` Block
 
-The finally block contains statements to be executed after the try and catch blocks execute.
+The finally block contains statements to be executed after the try and catch blocks execute
 
-- `finally` block will execute whether or not an exception is thrown.
+- `finally` block will execute whether or not an exception is thrown
 
 ```javascript
 openMyFile();
@@ -2274,9 +2262,7 @@ function calcAge(year) {
 }
 
 // ES5
-console.log(
-  "I was born in the year " + year + " and my age is " + calcAge(year)
-);
+console.log("I was born in the year " + year + " and my age is " + calcAge(year));
 
 //ES6
 console.log(`I was born in the year ${year} and my age is ${calcAge(year)}`);
@@ -2309,7 +2295,7 @@ tagFunction`Hello ${firstName} ${lastName}!`;
 tagFunction(["Hello ", " ", "!"], firstName, lastName);
 ```
 
-- Tagged template literals allow you to implement custom embedded sub-languages (which are sometimes called _domain-specific languages_) with little effort, because JavaScript does much of the parsing for you.
+- Tagged template literals allow you to implement custom embedded sub-languages (which are sometimes called _domain-specific languages_) with little effort, because JavaScript does much of the parsing for you
 
 _Example:_
 
@@ -2331,7 +2317,7 @@ const age = 28;
 const output = myTag`That ${person} is a ${age}.`;
 
 console.log(output);
-// That Mike is a youngster.
+// That Mike is a youngster
 ```
 
 ## Array
@@ -2414,9 +2400,7 @@ let arr = [element0, element1, ..., elementN]
   - ES6
 
   ```javascript
-  Array.from(boxes).forEach(
-    (cur) => (cur.style.backgroundColor = "dodgerblue")
-  );
+  Array.from(boxes).forEach((cur) => (cur.style.backgroundColor = "dodgerblue"));
   ```
 
 ### Typed Arrays
@@ -2464,7 +2448,7 @@ const fire = new TextEncoder().encode("🔥"); // [240, 159, 148, 165]
 
 ## Class
 
-In JavaScript (ES6+) `class` is not a language feature, it's _syntactic obscurantism_.
+In JavaScript (ES6+) `class` is not a language feature, it's _syntactic obscurantism_
 
 - ES5 class type functionality using Object Constructor:
 
@@ -2541,7 +2525,7 @@ class Car {
 const newCar = new Car(25, "Red");
 ```
 
-- Static methods can be also be created. Static methods are those methods that cannot be inherited.
+- Static methods can be also be created. Static methods are those methods that cannot be inherited
 
 ```javascript
 class Person6 {
@@ -2569,7 +2553,7 @@ Person6.greeting();
 - Access modifiers in Classes
 
 ::: warning NOTE
-Classes are not hoisted.
+Classes are not hoisted
 :::
 
 ### Inheritance
@@ -2655,10 +2639,7 @@ _Example:_
 ```javascript
 const question = new Map();
 
-question.set(
-  "question",
-  "What is the official name of the latest major JavaScript version?"
-);
+question.set("question", "What is the official name of the latest major JavaScript version?");
 question.set(1, "ES5");
 question.set(2, "ES2015");
 question.set("correct", 2);
@@ -2669,9 +2650,7 @@ question.get("correct"); // 2
 
 question.size; // 6
 
-question.forEach((value, key) =>
-  console.log(`This is ${key}, and it's set to ${value}`)
-);
+question.forEach((value, key) => console.log(`This is ${key}, and it's set to ${value}`));
 
 // loop through key-value pairs
 for (let [key, value] of question.entries()) {
@@ -2702,7 +2681,7 @@ question.size; // 0
 
 `Set` objects are **collections of unique values**
 
-- A value in a `Set` may only occur once; it is **unique** in the Set's collection.
+- A value in a `Set` may only occur once; it is **unique** in the Set's collection
 
 ```javascript
 let mySet = new Set();
@@ -2810,7 +2789,7 @@ Key aspects of Asynchronous functions are:
 
 JavaScript has a runtime model based on an **event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks
 
-WEB API's are part of JavaScript Runtime but leave outside of the JavaScript engine. Like the DOM events, `setTimeout()`, `XMLHttpRequest()` etc.
+WEB API's are part of JavaScript Runtime but leave outside of the JavaScript engine. Like the DOM events, `setTimeout()`, `XMLHttpRequest()` etc
 
 - Event loop monitors the Message Queue and Execution Stack so that the first callback function can be pushed into the Execution Stack if the Execution Stack is empty
 
@@ -2898,7 +2877,7 @@ Promise States:
 2. **fulfilled**: meaning that the operation was completed successfully
    - A promise is _fulfilled_ if `promise.then(f)` will call `f` "as soon as possible"
 
-3. **rejected**: meaning that the operation failed.
+3. **rejected**: meaning that the operation failed
    - A promise is _rejected_ if `promise.then(undefined, r)` will call `r` "as soon as possible"
 
 - If the promise is _fulfilled_ or _rejected_, the corresponding handler is called
@@ -3196,7 +3175,7 @@ const getData = () => {
 
 ### Fetch API
 
-The Fetch API provides an interface for fetching resources (including across the network). It will seem familiar to anyone who has used [XMLHttpRequest](#xmlhttprequest), but the new API provides a more powerful and flexible feature set.
+The Fetch API provides an interface for fetching resources (including across the network). It will seem familiar to anyone who has used [XMLHttpRequest](#xmlhttprequest), but the new API provides a more powerful and flexible feature set
 
 ```javascript
 // init is optional
@@ -3223,9 +3202,7 @@ fetch(resource, init);
 ```javascript
 async function getTodo(id) {
   try {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/todos/${id}`
-    );
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
     const data = await response.json();
     console.log(data);
   } catch (error) {
@@ -3242,9 +3219,7 @@ Using Async and Await:
 ```javascript
 async function getTodo(id) {
   try {
-    const response = await fetch(
-      `https://jsonplaceholder.typicode.com/todos/${id}`
-    );
+    const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
     const data = await response.json();
     console.log(data);
   } catch (error) {
@@ -3296,9 +3271,7 @@ const response = await fetch("https://example.com/api", {
 
 ```javascript
 try {
-  const response = await fetch(
-    `https://jsonplaceholder.typicode.com/todos/${id}`
-  );
+  const response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`);
 
   if (!response.ok) {
     throw new Error("Network response was not OK");
@@ -3318,9 +3291,9 @@ try {
 Events are actions or occurrences that happen in the system you are programming, which the system tells you about so you can respond to them in some way if desired
 
 1. **Event Bubbling**:
-   - When an element has lots of child elements that we are interested in.
+   - When an element has lots of child elements that we are interested in
 
-   - When we want an event handler attached to an element that is not yet in the DOM when the page is loaded.
+   - When we want an event handler attached to an element that is not yet in the DOM when the page is loaded
 
 2. **Event delegation** is a technique of delegating events to a single common ancestor
    - JavaScript event listeners fire not only on a single DOM element but also on all its descendants
@@ -3357,7 +3330,7 @@ ESM is the official standard format for JavaScript. [Module System in Node.js](.
 JavaScript Modules:
 
 - Each module is a piece of code that is executed once it is loaded
-- Modules are singletons. Even if a module is imported multiple times, only a single "instance" of it exists.
+- Modules are singletons. Even if a module is imported multiple times, only a single "instance" of it exists
 
 Use the `type="module"` attribute of `script` tag to let browsers know that the file is a JavaScript module
 
@@ -3455,7 +3428,7 @@ budgetController.publicTest(25); // 49
 
 ## Local Storage
 
-**`localStorage`** API stores information as a key-value pair inside the browser. This data persists even after the page is reloaded.
+**`localStorage`** API stores information as a key-value pair inside the browser. This data persists even after the page is reloaded
 
 You can set, retrieve, and delete an item:
 
@@ -3531,9 +3504,55 @@ window.onstorage = (event) => {
 localStorage.setItem("now", Date.now());
 ```
 
-## Date And Time
+## Date and Time
 
-The `Intl` object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting.
+JavaScript Date objects represent a single moment in time in a platform-independent format. Date objects encapsulate an integral number that represents milliseconds since the midnight at the beginning of January 1, 1970, UTC (the epoch)
+
+### Issues with Date and Time
+
+When JavaScript was created in 1995, the Date object was copied from Java's early, flawed `java.util.Date` implementation. Java replaced this implementation in 1997, but JavaScript is stuck with the same API for almost 30 years, despite known problems
+
+- Supports user's local time and UTC time, no other time zones
+- Daylight saving time (DST)
+- Different calendar systems
+- Formatting and parsing dates in different locales
+- Date arithmetic
+
+Examples of issues:
+
+```javascript
+new Date("0"); // "20001-01T00:00:00.000Z" not "1970-01-01T00:00:00.000Z"
+new Date(0); // "1970-01-01T00:00:00.000Z"
+
+Date.parse(0) === Date.parse("0"); // true
+```
+
+We can use libraries like [Moment.js](./Libraries/Moment.js.md) (**deprecated**), [date-fns](https://github.com/date-fns/date-fns), [dayjs](https://github.com/iamkun/dayjs/) etc. to handle date and time
+
+### Temporal API
+
+The Temporal object enables date and time management in various scenarios, including built-in time zone and calendar representation, wall-clock time conversions, arithmetic, formatting, and more. It is designed as a full replacement for the Date object
+
+::: warning Browser Support
+This feature is not Baseline because it does not work in some of the most widely-used browsers
+
+As of writing, Temporal is supported only in Firefox 139+
+:::
+
+```javascript
+// The current date in the system's time zone
+const dateTime = Temporal.Now.plainDateTimeISO();
+console.log(dateTime); // e.g.: 2025-01-22T11:46:36.144
+
+// The current date in the "America/New_York" time zone
+const dateTimeInNewYork = Temporal.Now.plainDateTimeISO("America/New_York");
+console.log(dateTimeInNewYork);
+// e.g.: 2025-01-22T05:47:02.555
+```
+
+### Internationalization API
+
+The `Intl` object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting
 
 - It is Localized
 - Performant
@@ -3576,7 +3595,7 @@ Handling date and time using browser-native `Intl` (International) object:
   ```javascript
   const msPerDay = 24 * 60 * 60 * 1000;
 
-  // July 17, 2014 00:00:00 UTC.
+  // July 17, 2014 00:00:00 UTC
   const july172014 = new Date(msPerDay * (44 * 365 + 11 + 197));
 
   const options = {
@@ -3660,9 +3679,7 @@ console.log(array); // e.g., [123456789, 987654321, ...]
   const data = new TextEncoder().encode("Hello, World!");
   window.crypto.subtle.digest("SHA-256", data).then((hashBuffer) => {
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    const hashHex = hashArray
-      .map((b) => b.toString(16).padStart(2, "0"))
-      .join("");
+    const hashHex = hashArray.map((b) => b.toString(16).padStart(2, "0")).join("");
     console.log(hashHex);
   });
 
@@ -3717,7 +3734,7 @@ JavaScript Engine executes the JavaScript code:
 
 ### Execution Context
 
-A box, a container, or a wrapper which stores variables and in which a piece of code is evaluated and executed.
+A box, a container, or a wrapper which stores variables and in which a piece of code is evaluated and executed
 
 The default execution context is the _Global Execution Context_
 
@@ -3745,26 +3762,26 @@ Execution context is created in two phases:
    - Determine value of the `this` variable
 
 2. Execution Phase
-   - The code of the function that generated the current context is ran line by line.
+   - The code of the function that generated the current context is ran line by line
 
 #### Creation Phase
 
-- The argument object is created, containing all the arguments that were passed into the function.
+- The argument object is created, containing all the arguments that were passed into the function
 
 - Now Hosting happens, the below are the steps of hoisting:
-  - Code is scanned for function declarations: for each function, a property is created in the variable object, pointing to the function.
+  - Code is scanned for function declarations: for each function, a property is created in the variable object, pointing to the function
 
-  - Code is scanned for variable declarations: for each variable, a property is created in the variable object, and set to undefined.
+  - Code is scanned for variable declarations: for each variable, a property is created in the variable object, and set to undefined
 
 #### Scoping Chain
 
-Scoping defines where a certain variable can be accessed.
+Scoping defines where a certain variable can be accessed
 
-- Each new function creates a scope: the space/environment, in which the variables it defines are accessible.
+- Each new function creates a scope: the space/environment, in which the variables it defines are accessible
 
-- Lexical scoping: a function that is lexically within another function gets access to the scope of the outer function.
+- Lexical scoping: a function that is lexically within another function gets access to the scope of the outer function
 
-JavaScript only has function scoping.
+JavaScript only has function scoping
 
 - Anything inside a curly braces is block and will have block scope
 
@@ -3788,11 +3805,11 @@ function first() {
 
 #### `this` Variable
 
-- Regular function call: the `this` keyword points at the global object, (the window object, in the browser).
+- Regular function call: the `this` keyword points at the global object, (the window object, in the browser)
 
-- Method Call: the `this` variable points to the object that is calling the method.
+- Method Call: the `this` variable points to the object that is calling the method
 
-The `this` keyword is not assigned a value until a function where it is defined is actually called.
+The `this` keyword is not assigned a value until a function where it is defined is actually called
 
 ```javascript
 // Window is the default `this`
@@ -3907,7 +3924,7 @@ It includes:
   ```typescript
   const userName = "Max";
   const greetings = `This is a heading-
-  I'm ${userName}.
+  I'm ${userName}
   This is cool!`;
   ```
 
@@ -3941,9 +3958,9 @@ It includes:
 
 ### ES2017
 
-1. Async Functions (`async` / `await`): let us use synchronous-looking syntax to write asynchronous code.
+1. Async Functions (`async` / `await`): let us use synchronous-looking syntax to write asynchronous code
 
-2. `Object.values()` returns an Array with the values of all enumerable string-keyed properties of a given object.
+2. `Object.values()` returns an Array with the values of all enumerable string-keyed properties of a given object
 
    ```javascript
    let c = { a: "a", b: [2, 5], d: { e: 300 } };
@@ -3952,7 +3969,7 @@ It includes:
    // ['a', [2, 5], { e: 300 }]
    ```
 
-3. `Object.entries()` returns an Array with the key-value pairs of all enumerable string-keyed properties of a given object. Each pair is encoded as a two-element Array.
+3. `Object.entries()` returns an Array with the key-value pairs of all enumerable string-keyed properties of a given object. Each pair is encoded as a two-element Array
 
    ```javascript
    let c = { a: "a", b: [2, 5], d: { e: 300 } };
@@ -4092,15 +4109,9 @@ New Features:
 - Promise.any(): This method settles a Promise as soon as one of the provided promises resolves, or rejects if all promises reject:
 
   ```javascript
-  const promise1 = new Promise((resolve, reject) =>
-    setTimeout(resolve, 1000, "Fast")
-  );
-  const promise2 = new Promise((resolve, reject) =>
-    setTimeout(reject, 2000, "Error")
-  );
-  const promise3 = new Promise((resolve, reject) =>
-    setTimeout(resolve, 3000, "Slow")
-  );
+  const promise1 = new Promise((resolve, reject) => setTimeout(resolve, 1000, "Fast"));
+  const promise2 = new Promise((resolve, reject) => setTimeout(reject, 2000, "Error"));
+  const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 3000, "Slow"));
 
   Promise.any([promise1, promise2, promise3])
     .then((value) => console.log(value)) // Output: 'Fast' (Settled with the first resolved promise)
@@ -4361,8 +4372,8 @@ New Features:
     const sharedArray = new Int32Array(new SharedArrayBuffer(1024));
 
     function performSynchronizedOperation(index, value) {
-      // The waitSync method would block execution until a certain condition is met.
-      // For example, it could wait until the value at the specified index is no longer equal to 0.
+      // The waitSync method would block execution until a certain condition is met
+      // For example, it could wait until the value at the specified index is no longer equal to 0
       Atomics.waitSync(sharedArray, index, 0);
 
       // Perform operations on shared memory
@@ -4391,7 +4402,7 @@ New Features:
 
 ## Document Object Model (DOM)
 
-The Document Object Model (DOM) is a cross-platform, **language-independent convention** for representing and interacting with objects in HTML, XHTML and XML documents.
+The Document Object Model (DOM) is a cross-platform, **language-independent convention** for representing and interacting with objects in HTML, XHTML and XML documents
 
 The Document Object Model (DOM) is **the data representation of** the objects that comprise the structure and content of **a document on the web**
 
@@ -4568,9 +4579,9 @@ _Example:_
 
 ````javascript
 /**
- * Logs the values of an object to the console.
+ * Logs the values of an object to the console
  *
- * @param obj - The object to log.
+ * @param obj - The object to log
  *
  * @example
  * ```ts

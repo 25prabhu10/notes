@@ -336,7 +336,7 @@ They help us to:
 ### Liskov Substitution
 
 > "Objects in a program should be replaceable with instances of their subtypes without altering the correctness of that program" - Introduced by Barbara Liskov
-
+>
 > "Subtype Requirement: Let 𝜙(𝑥) be a property provable about objects 𝑥 of type T. Then 𝜙(𝑦) should be true for objects 𝑦 of type S where S is a subtype of T." - Wikipedia
 
 Symbolically:

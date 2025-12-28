@@ -1,13 +1,13 @@
 ---
 title: Performance
-description:
+description: Strategies for analysing Performance problems
 date: 2023-01-09
 lastmod: 2023-01-09
 ---
 
 # Performance
 
-Strategies for analyzing Performance problems:
+Strategies for analysing Performance problems:
 
 - When it's slow, what is it doing?
 
@@ -21,7 +21,7 @@ Micro-optimizations such as:
 
 You need the call stack:
 
-- You want to see a stack trace when it runs slow
+- You want to see a stacktrace when it runs slow
 - What initiated the slow code?
 - And why?
 

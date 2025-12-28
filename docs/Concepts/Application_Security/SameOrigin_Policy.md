@@ -51,9 +51,7 @@ _Example:_ Logic to check if two URLs are same origin:
 ```javascript
 function isSameOrigin(url1, url2) {
   return (
-    url1.protocol === url2.protocol &&
-    url1.hostname === url2.hostname &&
-    url1.port === url2.port
+    url1.protocol === url2.protocol && url1.hostname === url2.hostname && url1.port === url2.port
   );
 }
 ```
@@ -67,10 +65,9 @@ function isSameOrigin(url1, url2) {
 - Cross Origin:
 
   ```html
-  // Hostname don't match https://foo.github.io https://bar.github.io //
-  Hostname don't match https://example.org https://www.example.org // Protocol
-  don't match https://example.org http://example.org // Port don't match
-  https://example.org:81/ https://example.org:80/
+  // Hostname don't match https://foo.github.io https://bar.github.io // Hostname don't match
+  https://example.org https://www.example.org // Protocol don't match https://example.org
+  http://example.org // Port don't match https://example.org:81/ https://example.org:80/
   ```
 
 ## Applicable
@@ -162,9 +159,7 @@ Methods to work around SOP restrictions in ajax
 
     ```html
     <!-- URL -->
-    <script
-      src="http://internal.api.dev/api/transactions/jsonp?callback=accntResult"
-    >
+    <script src="http://internal.api.dev/api/transactions/jsonp?callback=accntResult">
 
       <!-- Callback function -->
       <script>

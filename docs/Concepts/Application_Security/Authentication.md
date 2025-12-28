@@ -53,17 +53,10 @@ How Claims Based Authentication works?
 
      // parse login and password from headers
      const b64auth = (req.headers.authorization || "").split(" ")[1] || "";
-     const [login, password] = Buffer.from(b64auth, "base64")
-       .toString()
-       .split(":");
+     const [login, password] = Buffer.from(b64auth, "base64").toString().split(":");
 
      // Verify login and password are set and correct
-     if (
-       login &&
-       password &&
-       login === auth.login &&
-       password === auth.password
-     ) {
+     if (login && password && login === auth.login && password === auth.password) {
        // Access granted...
        return next();
      }
@@ -230,9 +223,7 @@ app.use(
 app.post("/login", (req, res) => {
   User.findOne({ email: req.body.email }, (err, user) => {
     if (password !== user.password) {
-      return res
-        .status(401)
-        .json({ error: { message: "Invalid username or password" } });
+      return res.status(401).json({ error: { message: "Invalid username or password" } });
     }
 
     req.session.userId = user.id;

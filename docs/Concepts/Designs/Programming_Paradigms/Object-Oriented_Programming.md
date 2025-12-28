@@ -354,7 +354,7 @@ To achieve high cohesion:
 - **Separation of Concerns**: Divide a program into distinct sections, each addressing a separate concern
 - **Modular Programming**: Break a program into smaller, more manageable pieces
 
-### Coupling and Cohesion
+### Ideal Situations
 
 - **High Cohesion and Low Coupling**: The ideal situation
   - Modules are focused on a single task

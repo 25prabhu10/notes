@@ -153,10 +153,7 @@ const doorAndCoinPossibilites = doors.flatMap((door) => {
 });
 
 // Explicit map, then flatten
-const unFlattenedDoorAndCoinPossibilites = doors.map((door) => [
-  door + " heads",
-  door + " tails",
-]);
+const unFlattenedDoorAndCoinPossibilites = doors.map((door) => [door + " heads", door + " tails"]);
 const doorAndCoinPossibilites2 = unFlattenedDoorAndCoinPossibilites.flat();
 ```
 

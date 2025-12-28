@@ -330,12 +330,7 @@ public class Program
           "System": "Warning"
         }
       },
-      "Enrich": [
-        "FromLogContext",
-        "WithMachineName",
-        "WithProcessId",
-        "WithThreadId"
-      ],
+      "Enrich": ["FromLogContext", "WithMachineName", "WithProcessId", "WithThreadId"],
       "WriteTo": [
         { "Name": "Console" },
         {

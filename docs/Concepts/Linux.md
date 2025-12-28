@@ -7,27 +7,9 @@ description: GNU Linux is a family of OS
 
 Linux is a family of open-source Unix-like operating systems based on the Linux kernel
 
-Common CLI programs:
-
-- `rm`: remove files or directories
-- `cp`: copy files or directories
-- `mv`: move files or directories
-- `ls`: list directory contents
-- `cat`: concatenate and display files
-- `man`: display manual pages
-- `sed` (1974): stream editor for filtering and transforming text
-- `diff` (1974): compare files line by line
-- `bc` (1975): arbitrary-precision calculator language
-- `make` (1976): build automation tool
-- `awk` (1977): pattern scanning and processing language
-- `vi` (1976): text editor
-- `vim` (1991): text editor
-- `grep` (1974): search text for patterns
-- `ssh` (1995): secure shell
-
 ## File-system
 
-Typical File-system Hierarchy Standard (FHS): To get more information checkout `man hier`
+Typical _File-system Hierarchy Standard_ (FHS): To get more information checkout `man hier`
 
 1. `/bin`:
    - Binaries of important executables and core OS commands (`ls`, `cat`)
@@ -112,25 +94,98 @@ Typical File-system Hierarchy Standard (FHS): To get more information checkout `
 20. `/media`:
     - It is the mount mount for file systems stored on removable media
 
-## `grep`
+### File System Tools
 
-Grep is a command-line utility for searching plain-text data sets for lines that match a regular expression. Its name comes from the ed command g/re/p (globally search for a regular expression and print matching lines), which has the same effect. grep was originally developed for the Unix operating system like Linux, but later available for all Unix-like systems and some others such as OS-9
+- `rm`: remove files or directories
+- `cp`: copy files or directories
+- `mv`: move files or directories
+- `ls`: list directory contents
+- `man`: display manual pages
+- `bc` (1975): arbitrary-precision calculator language
 
-## `sed`
+## Text Processing Tools
 
-sed ("stream editor") is a Unix utility that parses and transforms text, using a simple, compact programming language
+- `cat`: concatenate and display files
+- `vi` (1976), [`vim` (1991) and `neovim` (2015)](../Collection/Editors/Vim-Neovim.md) : text editor
+- `diff` (1974): compare files line by line
+- [`grep`](#grep): search text for patterns
+- [`sed`](#sed) (1974): stream editor for filtering and transforming text
+- [`awk`](#awk) (1977): pattern scanning and processing language
+
+### `grep`
+
+[`grep`](https://www.gnu.org/software/grep/manual/grep.html) (1973) is a command-line utility for searching plain-text data sets for lines that match a regular expression. Its name comes from the `ed` command `g/re/p` (Global, Regular Expression, Print), which has the same effect
+
+```bash
+grep 'pattern' [file]
+
+# Example: search recursively in all files in current directory for 'TODO'
+grep -r 'TODO' .
+```
+
+Options:
+
+```bash
+-P       # use Perl-compatible regex (PCRE)
+-i       # ignore case distinctions
+-v       # invert match (select non-matching lines)
+-r       # recursive search
+-l       # print only names of files with matching lines
+-n       # print line numbers with output lines
+-c       # print only a count of matching lines per file
+--color  # highlight matching strings
+--include='*.ext'   # search only files with specified extension
+--exclude='*.ext'   # exclude files with specified extension
+```
+
+#### `ripgrep`
+
+[ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`) is a similar tool to `grep` written in Rust, that recursively searches directories for a regex pattern while respecting your gitignore rules
+
+```bash
+rg 'pattern' [file]
+
+# Example: search recursively in all files in current directory for 'TODO'
+rg 'TODO' .
+```
+
+Options:
+
+```bash
+--smart-case  # search case insensitively unless pattern contains upper-case
+-v      # invert match (select non-matching lines)
+-c      # print only a count of matching lines for matching files only
+-t ext  # search only files of type 'text'
+```
+
+### `sed`
+
+[sed](https://www.gnu.org/software/sed/manual/sed.html) ("Stream EDitor") is a Unix utility that parses and transforms text, using a simple, compact programming language
+
+Use [`sed` playground](https://sed.js.org/) for testing `sed` commands online
 
 - TMP replace pattern:
 
 ```bash
+# replace 'Steven' with 'Kate' on each line and print to standard output
 sed -i 's/Steven/Kate/' file
+
+# replace all occurrences of 'foo' with 'bar' on each line
+sed -i 's/foo/bar/g' file
+
+# replace only the 2nd occurrence of 'foo' with 'bar' on each line
+sed -i 's/foo/bar/2' file
+
+# apply multiple substitutions on each line
+sed -i -e 's/Steven/Kate/g' -e 's/Mike/John/g' file
 ```
 
-## AWK
+- [`sd`](https://github.com/chmln/sd) is an alternative to `sed` written in Rust, with a simpler syntax for common use-cases
+- [`awk`](#awk) can also be used for text substitution
 
-AWK (`awk`) is a domain-specific language designed for text processing and typically used as a data extraction and reporting tool. Similar to the [Sed](#sed) and [Grep](#grep) commands, it is a filter, and is a standard feature of most Unix-like operating systems
+### AWK
 
-### Usage
+AWK (`awk`) is a **domain-specific language** designed for text processing and typically used as a data extraction and reporting tool. Similar to the [Sed](#sed) and [Grep](#grep) commands, it is a filter, and is a standard feature of most Unix-like operating systems
 
 - Unix/Linux:
 
@@ -145,23 +200,14 @@ AWK (`awk`) is a domain-specific language designed for text processing and typic
   awk "/pattern/ {print \"$1\"}"  # GnuWin32, UnxUtils, Mingw
   ```
 
-Note that the DJGPP compilation (for DOS or Windows-32) permits an awk
-script to follow Unix quoting syntax `'/like/ {"this"}'`. However, if the
-command interpreter is `CMD.EXE` or `COMMAND.COM`, single quotes will not
-protect the redirection arrows `(<, >)` nor do they protect pipes `(|)`.
-These are special symbols which require "double quotes" to protect them
-from interpretation as operating system directives. If the command
-interpreter is bash, ksh, zsh or another Unix shell, then single and double
-quotes will follow the standard Unix usage
+::: warning DOS/Windows Quoting Caveats
+The DJGPP compilation (for DOS or Windows-32) permits an `awk` script to follow Unix quoting syntax `'/like/ {"this"}'`. However, if the command interpreter is `CMD.EXE` or `COMMAND.COM`, single quotes will not protect the redirection arrows `(<, >)` nor do they protect pipes `(|)`. These are special symbols which require "double quotes" to protect them from interpretation as operating system directives. If the command interpreter is `bash`, `ksh`, `zsh` or another Unix shell, then single and double quotes will follow the standard Unix usage
 
-Users of MS-DOS or Microsoft Windows must remember that the percent
-sign `(%)` is used to indicate environment variables, so this symbol must
-be doubled `(%%)` to yield a single percent sign visible to awk
+Users of MS-DOS or Microsoft Windows must remember that the percent sign `(%)` is used to indicate environment variables, so this symbol must be doubled `(%%)` to yield a single percent sign visible to awk
+To conserve space, use `'1'` instead of `'{print}'` to print each line. Either one will work
+:::
 
-To conserve space, use `'1'` instead of `'{print}'` to print each line.
-Either one will work
-
-### Handy one-line AWK scripts
+#### Handy one-line AWK scripts
 
 - File Spacing:
 
@@ -376,6 +422,134 @@ Either one will work
 | `sudo usermod -aG groupname username` | Add a user to group        |
 | `sudo deluser username groupname`     | Remove a user from a group |
 
+## Networking
+
+- `ssh` (1995): secure shell
+- `scp` (1995): secure copy
+- [`curl`](#curl): transfer data from or to a server
+- `wget` (1996): non-interactive network downloader
+- `netstat` (1983): network statistics
+- `nmap` (1997): network mapper
+- `traceroute` (1987): print the route packets take to the network host
+
+### `curl`
+
+[`curl`](https://curl.se/) is a command-line tool for transferring data. It supports various protocols including HTTP, HTTPS, FTP, and more
+
+- Built by Daniel Stenberg in 1998
+- [`curl` book](https://everything.curl.dev/)
+
+```bash
+# basic GET request
+curl http://httpbin.org/get
+
+# download a file
+curl -O content.txt http://example.com/file.txt
+
+# send a POST request with data
+curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' http://httpbin.org/post
+curl --post
+```
+
+Options from [man page](https://curl.se/docs/manpage.html):
+
+```bash
+-v                # verbose output (for debugging)
+-i                # include response headers in output
+-I                # fetch only the headers
+-L or --location  # follow redirects
+
+-X                # specify request method (GET, POST, PUT, DELETE, etc.)
+-G or --get       # GET request
+--json            # send JSON data (implies content-type, and -d)
+
+-H or --head      # add custom headers
+-d or --data      # send data in POST request
+-s or --silent    # silent mode (no progress meter or error messages)
+```
+
+Handy scripts:
+
+```bash
+# curl version and supported protocols
+curl --version
+
+# download multiple files parallelly
+curl -Z -O http://example.com/file1.txt -O http://example.com/file2.txt
+
+# use glob patterns to download multiple files
+curl --parallel --parallel-max 5 -O http://example.com/file[1-100].txt
+
+# resume interrupted download
+curl -C - -O http://example.com/largefile.zip
+
+# full url of a shortened link
+curl -sIL bit.ly/1sNZMwL
+
+# dns lookup
+curl -s -o /dev/null -w "dns_lookup: %{time_namelookup}s\nconnect: %{time_connect}s\nappconnect: %{time_appconnect}s\npretransfer: %{time_pretransfer}s\nstarttransfer: %{time_starttransfer}s\nhttp_code: %{http_code}\n---\ntotal: %{time_total}s" https://api.github.com
+```
+
+Services:
+
+```bash
+# ip lookup
+curl ifconfig.me
+curl https://checkip.amazonaws.com/
+curl https://ipinfo.io/ip
+
+# weather info
+curl wttr.in/[location]
+
+# word from the dictionary
+curl "dict://dict.org/d:[word]"
+
+# read email via imap
+curl -k --url "imaps://imap.gmail.com/INBOX" -u "your_email:password" -X "SEARCH ALL"
+
+# telnet via curl
+curl telnet://[hostname]:[port]
+
+# mqtt via curl
+curl --output - "mqtt://test.mosquitto.org:1883/demo/hello"
+```
+
+- [xh](https://github.com/ducaale/xh) is an alternative to `curl` written in Rust, with a simpler syntax for common use-cases
+
+### `iptables`
+
+Iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. The filters are organized in different tables, which contain chains of rules for how to treat network traffic packets. Different kernel modules and programs are currently used for different protocols; iptables applies to IPv4, ip6tables to IPv6, arptables to ARP, and ebtables to Ethernet frames
+
+### UFW (Uncomplicated Firewall)
+
+UFW (uncomplicated firewall) is a firewall configuration tool for Linux that runs on top of [iptables](#iptables), included by default within Ubuntu distributions. It provides a streamlined interface for configuring common firewall use cases via the command line
+
+Enable UFW
+
+- To check if ufw is enabled, run:
+
+```bash
+sudo ufw status
+```
+
+- To enable UFW on your system, run:
+
+```bash
+sudo ufw enable
+```
+
+- If for some reason you need to disable UFW, you can do so with the following command:
+
+```bash
+sudo ufw disable
+```
+
+- Block an IP Address/Subnet:
+
+```bash
+sudo ufw deny from 203.0.113.0/24
+```
+
 ## `cron`
 
 A cron expression is simply a string consisting of six fields that each define a specific unit of time
@@ -465,36 +639,49 @@ gpg --decrypt directory.tar.gpg > directory.tar
 tar -xvf directory.tar
 ```
 
-## `iptables`
+## Disable Start-Up Process
 
-Iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. The filters are organized in different tables, which contain chains of rules for how to treat network traffic packets. Different kernel modules and programs are currently used for different protocols; iptables applies to IPv4, ip6tables to IPv6, arptables to ARP, and ebtables to Ethernet frames
+1. Stop and disable **Bluetooth**:
 
-## UFW (Uncomplicated Firewall)
+   ```bash
+   sudo systemctl stop bluetooth.service
+   sudo systemctl disable bluetooth.service
+   systemctl status bluetooth.service
+   ```
 
-UFW (uncomplicated firewall) is a firewall configuration tool for Linux that runs on top of [iptables](#iptables), included by default within Ubuntu distributions. It provides a streamlined interface for configuring common firewall use cases via the command line
+   ::: tip REFERENCE
+   [Cleaning Your Linux start-up Process](https://www.linux.com/topic/desktop/cleaning-your-linux-startup-process/)
+   :::
 
-Enable UFW
+2. To stop other service to start Bluetooth, mask it using `sudo systemctl mask bluetooth.service`
 
-- To check if ufw is enabled, run:
+## Dual Booting OS
 
-```bash
-sudo ufw status
-```
+Dual boot Windows and Linux
 
-- To enable UFW on your system, run:
+### Remove Linux From Dual Boot
 
-```bash
-sudo ufw enable
-```
+Here are two methods to remove the OS.
 
-- If for some reason you need to disable UFW, you can do so with the following command:
+#### Method 1
 
-```bash
-sudo ufw disable
-```
+1. Boot into _Windows 10_.
+2. Go to **Disk Management**.
+3. Delete the drive(s) containing the _Linux OS_.
+4. Delete the **Free Partition**.
+5. Then rebuild **`mbr`**.
 
-- Block an IP Address/Subnet:
+#### Method 2
 
-```bash
-sudo ufw deny from 203.0.113.0/24
-```
+1. `shift + Restart` -> Troubleshoot -> Advanced options -> `cmd` -> then type:
+
+   ```bash
+   bootrec /fixmbr
+   bootrec /fixboot
+   bootrec /scanos
+   bootrec /rebuildbcd
+   ```
+
+2. `bcdedit /enum all`
+
+3. `bcdedit /delete identifier`

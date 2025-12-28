@@ -243,10 +243,10 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
       - GCP
 
     - Containerization
-      - [Docker](./../../CI-CD/Docker/Docker.md)
+      - [Docker](./../../../Concepts/CI-CD/Docker.md)
 
     - Orchestration
-      - Kubernetes
+      - [Kubernetes](./../../../Concepts/CI-CD/Kubernetes.md)
       - Docker Swarm
 
     - Reverse Proxy

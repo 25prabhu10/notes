@@ -335,8 +335,7 @@ Usage:
    counterSlice.actions.increment;
 
    // action creators are generated for each case reducer function
-   export const { increment, decrement, incrementByAmount } =
-     counterSlice.actions;
+   export const { increment, decrement, incrementByAmount } = counterSlice.actions;
    ```
 
 5. Dispatch actions:

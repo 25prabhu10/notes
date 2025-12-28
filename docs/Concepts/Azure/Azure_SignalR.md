@@ -56,7 +56,7 @@ The order of preference for the transports is WebSockets, Server-Sent Events, an
 The server is responsible for exposing a SignalR endpoint and managing client connections
 
 - The endpoints map to a [SignalR hub](#hub)
-- Expose hub methods that clients can call, and also events that clients can subscribe to (these are called [RPC]())
+- Expose hub methods that clients can call, and also events that clients can subscribe to (these are called [RPC](../Web/RPC.md) methods)
 
 #### Hub
 

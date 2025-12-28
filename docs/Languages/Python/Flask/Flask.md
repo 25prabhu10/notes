@@ -1,6 +1,6 @@
 # Flask
 
-Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around Werkzeug and Jinja.
+Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications. It began as a simple wrapper around Werkzeug and Jinja
 
 ## Setup
 
@@ -29,3 +29,7 @@ $ env FLASK_APP=hello.py flask run
  * Serving Flask app "hello"
  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
 ```
+
+## ORM
+
+While Flask does not come with a built-in ORM, it can be easily integrated with SQLAlchemy ORM and use alembic for migrations

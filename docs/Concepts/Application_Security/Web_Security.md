@@ -459,6 +459,12 @@ Every snowflake ID has a unique structure, hence called snowflake ID
 
 _Example:_ Tweet by Wikipedia has a snowflake ID `1541815603606036480`
 
+- [Comparison to others?](https://github.com/paralleldrive/cuid2/issues/7#issuecomment-1464559207)
+
+- [Identity Crisis: Sequence v. UUID as Primary Key](https://brandur.org/nanoglyphs/026-ids)
+
+- [The Problem with Using a UUID Primary Key in MySQL](https://planetscale.com/blog/the-problem-with-using-a-uuid-primary-key-in-mysql)
+
 ### Database Unique Identifier
 
 When storing data into a database, you can use a unique identifier as primary key. You can use sequential identifiers (like auto-incrementing integers) or random identifiers (like UUIDs or GUIDs) to identify entities

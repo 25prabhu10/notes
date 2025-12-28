@@ -234,10 +234,11 @@ Global vs Static Variable:
    // 1
    ```
 
+   - It seems to have Time Complexity of _O(m^n)_, where _n_ is the size of data and _m_ is the number of time the function calls itself
+
    | Type           | Time Complexity                                      | Space Complexity                                                         |
    | -------------- | ---------------------------------------------------- | ------------------------------------------------------------------------ |
    | Tree Recursion | O(2^n) - Sum of terms in Geometry Progression Series | O(n) - Creates and deletes function activation record for each recursion |
-   - It seems to have Time Complexity of _O(m^n)_, where _n_ is the size of data and _m_ is the number of time the function calls itself
 
 4. **Indirect Recursion**: When function A calls function B and function B in turn calls function A. It is a cyclic recursion
 

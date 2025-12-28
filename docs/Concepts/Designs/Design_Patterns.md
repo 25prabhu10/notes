@@ -444,7 +444,7 @@ Design Patterns:
 
 3. [Composite](#composite-pattern): A tree structure of simple and composite objects
 
-4. [Decorator (Wrapper)](#decorator-wrapper-pattern): Add responsibilities to objects dynamically
+4. [Decorator (Wrapper)](#decorator-pattern): Add responsibilities to objects dynamically
 
 5. [Facade](#facade-pattern): A single class that represents an entire subsystem (Simplified API)
 
@@ -1055,19 +1055,13 @@ let subscriptionID1 = publisherSubscriber.subscribe("mouseClicked", (data) => {
   console.log("mouseClicked, data: " + JSON.stringify(data));
 });
 
-let subscriptionID2 = publisherSubscriber.subscribe(
-  "mouseHovered",
-  function (data) {
-    console.log("mouseHovered, data: " + JSON.stringify(data));
-  }
-);
+let subscriptionID2 = publisherSubscriber.subscribe("mouseHovered", function (data) {
+  console.log("mouseHovered, data: " + JSON.stringify(data));
+});
 
-let subscriptionID3 = publisherSubscriber.subscribe(
-  "mouseClicked",
-  function (data) {
-    console.log("second mouseClicked, data: " + JSON.stringify(data));
-  }
-);
+let subscriptionID3 = publisherSubscriber.subscribe("mouseClicked", function (data) {
+  console.log("second mouseClicked, data: " + JSON.stringify(data));
+});
 
 // When we publish an event, all callbacks should
 // be called and you will see three logs
@@ -1080,6 +1074,99 @@ publisherSubscriber.unsubscribe("mouseClicked", subscriptionID3);
 // now we have 2 logs
 publisherSubscriber.publish("mouseClicked", { data: "data1" });
 publisherSubscriber.publish("mouseHovered", { data: "data2" });
+```
+
+#### Signals
+
+Signals are a simple implementation of the observer pattern that can be used to create reactive state management systems. They allow you to create stateful values that can be observed and updated, triggering side effects when the state changes
+
+- Signals at the core are an event system, where you have publishers and subscribers. The publisher is the signal, and the subscribers are the effects that are triggered when the signal changes
+- It utilizes the push-pull model, where the signal pushes updates to the subscribers, and the subscribers pull the current value of the signal when they are triggered. This allows for efficient and reactive state management
+
+```javascript
+let activeEffect = null;
+function effect(fn) {
+  //callback, dependencies) {
+  //  let cleanup;
+  //  const runEffect = () => {
+  // if (cleanup) cleanup();
+  // cleanup = callback();
+  //  };
+  //
+  //  runEffect();
+  //
+  //  return () => {
+  // if (cleanup) cleanup();
+  //  };
+
+  activeEffect = fn;
+  fn();
+}
+
+function get(signal) {
+  if (activeEffect) {
+    signal.subscribers.add(activeEffect);
+  }
+  return signal.value;
+}
+
+function set(signal, newValue) {
+  signal.value = newValue;
+  signal.subscribers.forEach((effect) => effect());
+}
+
+// Example usage:
+const countSignal = state(0);
+
+effect(() => {
+  console.log("Count: ", get(countSignal));
+});
+
+setInterval(() => {
+  set(countSignal, get(countSignal) + 1);
+}, 1000);
+```
+
+Another simple implementation of signals:
+
+```javascript
+const context = [];
+
+function getCurrentObserver() {
+  return context[context.length - 1];
+}
+
+function createSignla(value) {
+  let subscribers = new Set();
+
+  function read() {
+    const current = getCurrentObserver();
+    if (current) {
+      subscribers.add(activeEffect);
+    }
+    return value;
+  }
+
+  function write(newValue) {
+    value = newValue;
+    subscribers.forEach((subscriber) => subscriber());
+  }
+
+  return [read, write];
+}
+
+function createEffect(fn) {
+  function execute() {
+    context.push(wrappedEffect);
+    try {
+      fn();
+    } finally {
+      context.pop();
+    }
+  }
+
+  execute();
+}
 ```
 
 ### State Pattern

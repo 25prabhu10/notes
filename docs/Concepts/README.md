@@ -19,12 +19,15 @@ sidebar: false
 9. [Metaprogramming](./Metaprogramming.md)
 10. [Linux](./Linux.md)
 11. [AWS](./AWS/)
-12. [regex](./Regular_Expression/)
-13. [Logging](./Logging.md)
-14. [Telemetry](./Telemetry.md)
-15. [Agile](./Agile/Agile.md)
-16. [Artifactory](./Artifactory.md)
-17. [Key Words](./Key_Words.md)
+12. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
+13. [Text Encoding](./Text_Encoding.md)
+14. [Data Serialization](./Data_Serialization.md)
+14. [regex](./Regular_Expression/)
+15. [Logging](./Logging.md)
+16. [Telemetry](./Telemetry.md)
+17. [Agile](./Agile/Agile.md)
+18. [Artifactory](./Artifactory.md)
+19. [Key Words](./Key_Words.md)
 
 ## References
 

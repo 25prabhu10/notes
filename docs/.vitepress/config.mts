@@ -18,9 +18,7 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "About", link: "/about" },
     ],
-    socialLinks: [
-      { icon: "github", link: "https://github.com/25prabhu10/notes" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/25prabhu10/notes" }],
     footer: {
       message:
         'Released under the <a href="https://github.com/25prabhu10/notes/blob/master/LICENSE">MIT License</a>.',
@@ -101,10 +99,7 @@ export default defineConfig({
     ],
     ["link", { rel: "manifest", href: "/manifest.json" }],
     ["meta", { name: "mobile-web-app-capable", content: "yes" }],
-    [
-      "meta",
-      { name: "apple-mobile-web-app-status-bar-style", content: "black" },
-    ],
+    ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
     ["meta", { name: "application-name", content: "Notes" }],
     ["meta", { name: "msapplication-TileColor", content: "#2bae66" }],
     ["meta", { name: "theme-color", content: "#3eaf7c" }],

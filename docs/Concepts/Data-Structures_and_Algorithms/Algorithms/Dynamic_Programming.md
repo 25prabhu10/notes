@@ -44,8 +44,7 @@ function genFibonacciSeries(num, memo) {
     return memo[num];
   }
 
-  const fibNum =
-    genFibonacciSeries(num - 1, memo) + genFibonacciSeries(num - 2, memo);
+  const fibNum = genFibonacciSeries(num - 1, memo) + genFibonacciSeries(num - 2, memo);
 
   memo[num] = fibNum;
 

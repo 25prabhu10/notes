@@ -20,11 +20,7 @@ description: CSRF is a type of malicious exploit of a website
 - Synchronizer token pattern (STP): technique where a token, **secret and unique value for each request**, is embedded by the web application in all HTML forms and verified on the server side:
 
   ```html
-  <input
-    type="hidden"
-    name="csrfmiddlewaretoken"
-    value="KbyUmhTLMpYj7CD2di7JKP1P3qmLlkPt"
-  />
+  <input type="hidden" name="csrfmiddlewaretoken" value="KbyUmhTLMpYj7CD2di7JKP1P3qmLlkPt" />
   ```
 
 - Cookie-to-header token

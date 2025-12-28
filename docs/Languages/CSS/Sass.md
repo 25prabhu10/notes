@@ -369,7 +369,7 @@ Resulting CSS:
     padding-block-start: "size-1";
   }
 
-  /* 
+  /*
   .
   .
   .

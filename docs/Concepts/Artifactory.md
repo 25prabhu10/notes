@@ -5,7 +5,7 @@ description: An artifact repository manager
 
 # Artifactory
 
-Artifactory is an Universal artifact repository manager
+Artifactory is a Universal artefact repository manager
 
 - Single source of truth for all packages, container images
 
@@ -47,4 +47,4 @@ Repo Types:
 - Remote: On-demand mirroring of external third party packages
 
 - Virtual: Aggregates multiple local/remote repositories into a single endpoint
-  - e.g.: Your local NPM repository, plus the mirror of `npmjs.com` so you can resolve all dependencies from a single URL
+  - E.g.: Your local NPM repository, plus the mirror of `npmjs.com` so you can resolve all dependencies from a single URL

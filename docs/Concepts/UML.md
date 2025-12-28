@@ -5,6 +5,8 @@ description: Unified Modelling Language (UML) is a general-purpose, developmenta
 
 # Unified Modelling Language (UML)
 
+UML is a general-purpose, developmental modelling language that is intended to provide a standard way to visualize the design of a system
+
 Standardized notation for diagrams to visualize object-oriented systems
 
 - UML is a way to visualize a software program using diagrams
@@ -33,7 +35,7 @@ Below are the types of UML diagrams:
    - Interaction overview diagram
    - Timing diagram
 
-### Class Diagram
+## Class Diagram
 
 [Class diagrams](https://developer.ibm.com/articles/the-class-diagram/) are the most common type of UML diagram
 
@@ -148,7 +150,7 @@ Class can be represented with or without signatures (data types)
   +-------------------------------------+
   ```
 
-#### Perspectives of Class Diagram
+### Perspectives of Class Diagram
 
 The class diagram can be viewed from three different perspectives:
 
@@ -191,11 +193,11 @@ The choice of perspective depends how far along the development process is
 +-----------------------------+
 ```
 
-#### Relationships
+### Relationships
 
 A relationship between classes
 
-##### Multiplicity
+#### Multiplicity
 
 The number of instances of one class related to one instance of the other class
 
@@ -209,62 +211,61 @@ The number of instances of one class related to one instance of the other class
 | `3`       | Three only   |
 | `0..5`    | Zero to five |
 
-##### Association
+#### Association
 
 When you model a system, certain objects will be related to each other, and these relationships themselves need to be modelled for clarity
 
 There are five types of associations:
 
-1.  **Bi-directional Association**: Represented by a solid line connecting two classes
-    - **Association Name**: Describes the relationship between the classes
-    - **Association [Multiplicity](#multiplicity)**: The number of instances of one class related to one instance of the other class
+1. **Bi-directional Association**: Represented by a solid line connecting two classes
+   - **Association Name**: Describes the relationship between the classes
+   - **Association [Multiplicity](#multiplicity)**: The number of instances of one class related to one instance of the other class
 
-    ```text
-           0..*                 assignedPlane
-    Flight ---------------------------------- Plane
-           assignedFlights               0..1
-    ```
+   ```text
+          0..*                 assignedPlane
+   Flight ---------------------------------- Plane
+          assignedFlights               0..1
+   ```
 
-    - Flight has 0 or more assigned planes
-    - Plane has 0 or 1 assigned flights
+   - Flight has 0 or more assigned planes
+   - Plane has 0 or 1 assigned flights
 
-2.  **Uni-directional Association**: Two classes are related, but only once class knows that the relationship exists
-    - [Dependency](#dependency) between two classes
+2. **Uni-directional Association**: Two classes are related, but only once class knows that the relationship exists
+   - [Dependency](#dependency) between two classes
 
-    ```text
-                                   overdrawnAccounts
-    OverdrawnAccountsReport -----------------------> BankAccount
-                                                0..*
-    ```
+   ```text
+                                  overdrawnAccounts
+   OverdrawnAccountsReport -----------------------> BankAccount
+                                               0..*
+   ```
 
-    - `OverdrawnAccountsReport` knows about `BankAccount`, but `BankAccount` does not know about `OverdrawnAccountsReport`
-    - `OverdrawnAccountsReport` is dependent on `BankAccount`
+   - `OverdrawnAccountsReport` knows about `BankAccount`, but `BankAccount` does not know about `OverdrawnAccountsReport`
+   - `OverdrawnAccountsReport` is dependent on `BankAccount`
 
-3.  **Reflexive Association**: When a class is related to itself (a binary association between a class and itself)
+3. **Reflexive Association**: When a class is related to itself (a binary association between a class and itself)
 
-    ```text
-    +-------------------------+
-    | Employee                |
-    |-------------------------| 1
-    | firstName : string      |------------+
-    | lastName : string       | - manager  |
-    |-------------------------|            |
-    +-------------------------+            |
-                        | 0..*             |
-              - manages |                  |
-                        +------------------+
-    ```
+   ```text
+   +-------------------------+
+   | Employee                |
+   |-------------------------| 1
+   | firstName : string      |------------+
+   | lastName : string       | - manager  |
+   |-------------------------|            |
+   +-------------------------+            |
+                       | 0..*             |
+             - manages |                  |
+                       +------------------+
+   ```
 
-    - Employee can be a manager of other employees
-    - Because the relationship role of "manages" has a multiplicity of `0..*`, an employee might not have any other employees to manage
+   - Employee can be a manager of other employees
+   - Because the relationship role of "manages" has a multiplicity of `0..*`, an employee might not have any other employees to manage
 
-4.  **Binary and Ternary Association**: When a class is related to two or three classes
-    - Represented as a diamond connected with a solid line to each of the associated classes
+4. **Binary and Ternary Association**: When a class is related to two or three classes
+   - Represented as a diamond connected with a solid line to each of the associated classes
 
-5.  **N-ary Association**: When a class is related to multiple classes
-
-- An association can be named, and the ends of an association can be adorned with role names, aggregation indicators, multiplicity, visibility, navigability, and other properties
-- Bi-directional relationship between classes
+5. **N-ary Association**: When a class is related to multiple classes
+   - An association can be named, and the ends of an association can be adorned with role names, aggregation indicators, multiplicity, visibility, navigability, and other properties
+   - Bi-directional relationship between classes
 
 Types of Associations:
 
@@ -283,7 +284,7 @@ A ------ B
 A is associated with B and B is associated with A
 ```
 
-##### Dependency
+#### Dependency
 
 A relationship where one class depends on another class
 
@@ -296,7 +297,7 @@ A ----> B
 A depends on B
 ```
 
-##### Aggregation
+#### Aggregation
 
 A special form of association where one class is a part of another class
 
@@ -320,7 +321,7 @@ A professor 'has a' class to teach
 +-------------------------+                  +-------------------------+
 ```
 
-##### Composition
+#### Composition
 
 A composite aggregation (composition) is a strong form of [aggregation](#aggregation) where the aggregate controls the life-cycle of the elements it aggregates
 
@@ -341,7 +342,7 @@ Aggregation: A Pond has zero or more Ducks, and a Duck has at most one Pond (at 
 +-------------------------+   0..1     0..*  +-------------------------+
 ```
 
-##### Inheritance
+#### Inheritance
 
 A relationship between a superclass and a subclass
 
@@ -382,7 +383,7 @@ class Dog : Animal {
 +-------------------------+
 ```
 
-##### Interfaces
+#### Interfaces
 
 A contract that specifies the behaviour of a class
 
@@ -407,11 +408,11 @@ A contract that specifies the behaviour of a class
 +-------------------------+             +-------------------------+
 ```
 
-#### Packages
+### Packages
 
 A package is a collection of logically related UML elements
 
-### Designing with UML
+## Designing with UML
 
 5-Step approach:
 
@@ -441,10 +442,6 @@ Popular UML tools:
 - [Gliffy](https://www.gliffy.com/)
 - Microsoft Visio
 
-## Unified Modelling Language (UML)
-
-UML is a general-purpose, developmental modelling language that is intended to provide a standard way to visualize the design of a system
-
 ## Model
 
 Model is a partial abstract representation of a real-world system
@@ -463,7 +460,7 @@ Types of Models:
    - Describe components and their relationships in a system
 
    - Models in Software can be categorized into 2 groups:
-     1. Data Models: like Entity Relationship models,etc.
+     1. Data Models: like Entity Relationship models, etc.
 
      2. Application Models: UML models, SysML models, BPMN models, etc.
 
@@ -477,7 +474,7 @@ Types of Models:
    5. Package diagram
    6. Deployment diagram
 
-2. _behaviour_: Represents dynamic view of the system and its components
+2. _Behaviour_: Represents dynamic view of the system and its components
    1. Use case diagram:
       - Capture high-level functionality of a system using notations for actors, use cases, and relationships among them
 
@@ -508,16 +505,10 @@ Types of Models:
    3. Timing diagram
    4. interaction overview diagram
 
-## Class Diagram
-
-- Class Name
-- Attributes
-- behaviours
-
 ## References
 
 - [Unified Modelling Language (UML) specification 2.5](https://www.omg.org/spec/UML/)
-  - controlled by Object Management Group (OMG)
+  - Controlled by Object Management Group (OMG)
   - Releases: UML-1 (1997), UML-2 (2005), UML-2.5 (2015)
 
 - UML Distilled by Martin Fowler

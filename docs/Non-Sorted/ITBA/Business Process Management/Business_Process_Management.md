@@ -43,7 +43,7 @@ There are some processes that are poorly suited to modelling or automation in BP
 
 An example of an unstructured process is that of a doctor coming upon the scene of an accident with injuries. She is unlikely to work through a BPMN diagram but instead will quickly plunge in, making decisions based on her knowledge and experience, of course, but also in reaction to the chaos of the scene
 
-This is why the [Case Management Model and Notation (CMMN)](#case-management-model-and-notation) standard was invented alongside BPMN
+This is why the [Case Management Model and Notation (CMMN)](#case-management-model-and-notation-cmmn) standard was invented alongside BPMN
 
 ### Understanding Process
 
@@ -192,3 +192,5 @@ DMN is the newest of the three standards
 A _decision_ in the DMN sense means deriving a result (output) from given facts (input) on the basis of defined logic (decision logic)
 
 ## Case Management Model and Notation (CMMN)
+
+CMMN is a graphical notation for modelling and automating unstructured processes, also known as case management processes

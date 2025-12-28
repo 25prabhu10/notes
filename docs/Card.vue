@@ -26,9 +26,7 @@ defineProps({
 <template>
   <article>
     <a :href="href" class="card" :aria-label="title">
-      <img :alt="title" :src="imgPath" class="logo" loading="lazy" />{{
-        title
-      }}</a
+      <img :alt="title" :src="imgPath" class="logo" loading="lazy" />{{ title }}</a
     >
   </article>
 </template>

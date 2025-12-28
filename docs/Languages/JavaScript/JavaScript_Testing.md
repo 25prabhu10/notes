@@ -289,9 +289,7 @@ test("adds 1 + 2 to equal 3", () => {
     const rate = await convert("USD", "CAD");
 
     expect(rate).toEqual(null);
-    expect(fetch).toHaveBeenCalledWith(
-      "https://api.exchangeratesapi.io/latest?base=USD"
-    );
+    expect(fetch).toHaveBeenCalledWith("https://api.exchangeratesapi.io/latest?base=USD");
   });
   ```
 
@@ -301,9 +299,7 @@ test("adds 1 + 2 to equal 3", () => {
   // src/utils/currency.js
   async function convert(base, destination) {
     try {
-      const result = await fetch(
-        `https://api.exchangeratesapi.io/latest?base=${base}`
-      );
+      const result = await fetch(`https://api.exchangeratesapi.io/latest?base=${base}`);
 
       const data = await result.json();
 

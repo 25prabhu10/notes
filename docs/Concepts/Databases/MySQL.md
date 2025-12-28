@@ -10,7 +10,7 @@ lastmod: 2024-11-07
 
 - MySQL InnoDB Storage Engine
 
-Setup: Install the MySQL Community Server from this [link](https://dev.mysql.com/downloads/)
+Setup: Install the [MySQL Community Server](https://dev.mysql.com/downloads/)
 
 Features:
 
@@ -93,6 +93,8 @@ USE lucy;
 
 ## Table
 
+MySQL stores rows of a table in the leaf nodes of a B+ tree primarily designed for fast retrieval of data
+
 ```sql
 SELECT *
 FROM customers
@@ -160,6 +162,13 @@ SHOW CREATE TABLE todos;
 
 ```sql
 CREATE INDEX email_index on Users(email);
+
+
+-- size of index of a table
+select index_name, stat_value * @@innodb_page_size / 1024 / 1024 as index_size_in_mb from mysql.innodb_index_stats where database_name = 'your_database_name' and table_name = 'your_table_name' and stat_name = 'size';
+
+-- show indexes
+SHOW INDEXEX FROM table_name \G;
 ```
 
 ## SELECT Statement

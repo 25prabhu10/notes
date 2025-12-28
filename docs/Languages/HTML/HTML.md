@@ -307,14 +307,7 @@ _Example:_
 
 <div role="alert" aria-live="assertive">Error: Invalid email address</div>
 
-<div
-  role="progressbar"
-  aria-valuenow="50"
-  aria-valuemin="0"
-  aria-valuemax="100"
->
-  50% complete
-</div>
+<div role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50% complete</div>
 ```
 
 ## Accessibility in HTML
@@ -693,16 +686,8 @@ The `<head>` element contains machine-readable information (metadata) about the 
 
     <!-- Set the theme colour for the safari, android, ios -->
     <meta name="theme-color" content="#ffffff" />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: light)"
-      content="#ffffff"
-    />
-    <meta
-      name="theme-color"
-      media="(prefers-color-scheme: dark)"
-      content="#000000"
-    />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000000" />
 
     <!-- Set the colour scheme for the document -->
     <meta name="color-scheme" content="light dark" />
@@ -715,24 +700,15 @@ The `<head>` element contains machine-readable information (metadata) about the 
 
     <!-- Open Graph metadata for social media -->
     <meta property="og:title" content="My Website" />
-    <meta
-      property="og:description"
-      content="This is a description of the document"
-    />
+    <meta property="og:description" content="This is a description of the document" />
     <meta property="og:image" content="https://example.com/image.jpg" />
     <meta property="og:url" content="https://myawesomewebsite.com" />
 
     <!-- Twitter Card metadata for Twitter -->
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:title" content="My Website" />
-    <meta
-      name="twitter:description"
-      content="Web development tutorials and guides."
-    />
-    <meta
-      name="twitter:image"
-      content="https://myawesomewebsite.com/image.jpg"
-    />
+    <meta name="twitter:description" content="Web development tutorials and guides." />
+    <meta name="twitter:image" content="https://myawesomewebsite.com/image.jpg" />
     <meta name="twitter:site" content="@example" />
   </head>
   ```
@@ -747,11 +723,7 @@ The `<head>` element contains machine-readable information (metadata) about the 
     <link rel="import" href="styles.css" />
 
     <!-- Alternate stylesheets for different devices -->
-    <link
-      rel="stylesheet"
-      media="screen and (max-width: 600px)"
-      href="small.css"
-    />
+    <link rel="stylesheet" media="screen and (max-width: 600px)" href="small.css" />
 
     <!-- Stylesheet for printing the document -->
     <link rel="stylesheet" href="print.css" media="print" />
@@ -806,10 +778,7 @@ The `<head>` element contains machine-readable information (metadata) about the 
   - If JavaScript is disabled, show a message to the user to enable JavaScript
 
   ```html
-  <noscript
-    >JavaScript is disabled in your browser. Enable JavaScript to view this
-    page.</noscript
-  >
+  <noscript>JavaScript is disabled in your browser. Enable JavaScript to view this page.</noscript>
   ```
 
 - `<style>`: Contains CSS code to style the document
@@ -988,10 +957,7 @@ Represents a thematic grouping of content, typically with a heading
 ```html
 <section>
   <h2>Our Services</h2>
-  <p>
-    We offer a wide range of services including web development, mobile app
-    development...
-  </p>
+  <p>We offer a wide range of services including web development, mobile app development...</p>
 </section>
 ```
 
@@ -1148,11 +1114,7 @@ a:visited {
     <a href="https://example.com" target="_blank">Visit Example Website</a>
 
     <!-- Accessible: -->
-    <a
-      href="https://example.com"
-      target="_blank"
-      aria-label="Opens in a new tab"
-    >
+    <a href="https://example.com" target="_blank" aria-label="Opens in a new tab">
       Visit Example Website (opens in a new tab)
     </a>
     ```
@@ -1164,23 +1126,19 @@ a:visited {
 - `title`: Using a title attribute in your anchor elements will improve accessibility when used the right way
 
   ```html
-  <a href="http://blog.com/all-articles" title="A list of all articles."
-    >Click here.</a
-  >
+  <a href="http://blog.com/all-articles" title="A list of all articles.">Click here.</a>
   ```
 
 #### Anchor Best Practices
 
-1. **Provide Descriptive Link Text**: Ensure that the text within the anchor tag describes the destination or purpose of the link. Avoid vague text like "Click here" or "Read more.". Clearer for the screen reader users and improves [SEO](#seo)
+1. **Provide Descriptive Link Text**: Ensure that the text within the anchor tag describes the destination or purpose of the link. Avoid vague text like "Click here" or "Read more.". Clearer for the screen reader users and improves [SEO](../../Concepts/Web/World_Wide_Web.md#seo)
 
    ```html
    <!-- Non-accessible: -->
    <a href="article.html">Click here</a>
 
    <!-- Accessible: -->
-   <a href="article.html"
-     >Read the full article on web accessibility best practices</a
-   >
+   <a href="article.html">Read the full article on web accessibility best practices</a>
    ```
 
 2. **Use `aria-label` for Icon-Only Links**: If an anchor tag contains only an icon or image without text, use the `aria-label` attribute to provide a textual description for screen readers
@@ -1232,9 +1190,7 @@ a:visited {
      Continue reading <span class="sr-only">pickled cheese is healthy.</span>
    </a>
 
-   <a href="/cricket.html">
-     Continue reading <span class="sr-only">about cricket</span>
-   </a>
+   <a href="/cricket.html"> Continue reading <span class="sr-only">about cricket</span> </a>
    ```
 
 6. Try to keep _underline_ for clear communication (optional)
@@ -1368,10 +1324,7 @@ _Example:_
 
 ```html
 <picture>
-  <source
-    srcset="/media/cc0-images/surfer-240-200.jpg"
-    media="(min-width: 800px)"
-  />
+  <source srcset="/media/cc0-images/surfer-240-200.jpg" media="(min-width: 800px)" />
 
   <img src="/media/cc0-images/painted-hand-298-332.jpg" alt="" />
 </picture>
@@ -1479,8 +1432,8 @@ Can be used for:
   <figure>
     <figcaption><b>Edsger Dijkstra:</b></figcaption>
     <blockquote>
-      If debugging is the process of removing software bugs, then programming
-      must be the process of putting them in.
+      If debugging is the process of removing software bugs, then programming must be the process of
+      putting them in.
     </blockquote>
   </figure>
   ```
@@ -1490,14 +1443,11 @@ Can be used for:
   ```html
   <figure>
     <p style="white-space:pre">
-      Bid me discourse, I will enchant thine ear, Or like a fairy trip upon the
-      green, Or, like a nymph, with long dishevelled hair, Dance on the sands,
-      and yet no footing seen: Love is a spirit all compact of fire, Not gross
-      to sink, but light, and will aspire.
+      Bid me discourse, I will enchant thine ear, Or like a fairy trip upon the green, Or, like a
+      nymph, with long dishevelled hair, Dance on the sands, and yet no footing seen: Love is a
+      spirit all compact of fire, Not gross to sink, but light, and will aspire.
     </p>
-    <figcaption>
-      <cite>Venus and Adonis</cite>, by William Shakespeare
-    </figcaption>
+    <figcaption><cite>Venus and Adonis</cite>, by William Shakespeare</figcaption>
   </figure>
   ```
 
@@ -1845,7 +1795,7 @@ CSS Pseudo-classes:
   - `:user-valid` (new 2023): Validate only when the user interacts with the input field unlike `:valid` which validates on form submission
 
 - `:invalid`: The input field is invalid
-  - `:user-invalid` (new 2023)
+  - `:user-invalid` (new 2023) way cooler than `:invalid` as it only applies when the user has interacted with the input field
 
 - `:required`: The input field is required
 - `:optional`: The input field is optional
@@ -1893,8 +1843,7 @@ Ways to associate a label with an input:
 1. Using the `for` attribute
 
    ```html
-   <label for="username">Username:</label>
-   <input type="text" id="username" name="username" />
+   <label for="username">Username:</label> <input type="text" id="username" name="username" />
    ```
 
 2. Nesting the input inside the label
@@ -1924,8 +1873,7 @@ Attributes:
 - `name`: The name of the input field. This is used when submitting the form data
 
   ```html
-  <input type="text" name="username" />
-  <input type="password" name="password" />
+  <input type="text" name="username" /> <input type="password" name="password" />
   ```
 
   - The form data is sent to the server as a key-value pair with the name as the key and the value as the value
@@ -1981,7 +1929,7 @@ Common input types:
    ```
 
 7. `password`
-8. `search`: A single-line text field for entering search strings
+8. `search`: A single-line text field for entering search strings using `input` element or `search` element
 
    ```html
    <form role="search">
@@ -2039,6 +1987,18 @@ Common input types:
 
    ```html
    <input type="search" autosave="search-history" />
+   ```
+
+   Using `search` element:
+
+   ```html
+   <search>
+     <form>
+       <label for="site-search">Search the site:</label>
+       <input type="search" id="site-search" name="q" />
+       <button>Search</button>
+     </form>
+   </search>
    ```
 
 9. `file`: Upload files
@@ -2219,9 +2179,10 @@ The `tabindex` attribute must not be used on the `<dialog>` element.
 
 ### Details Disclosure
 
-The `<details>` HTML element creates a disclosure widget in which information is visible only when the widget is toggled into an _"open"_ state.
+The `<details>` HTML element creates a disclosure widget in which information is visible only when the widget is toggled into an _"open"_ state
 
-- A summary or label must be provided using the `<summary>` element.
+- A summary or label must be provided using the `<summary>` element
+- The contents of the `<details>` element are hidden by default, but can be shown when the user clicks on the summary
 
 _Example:_
 
@@ -2230,6 +2191,20 @@ _Example:_
   <summary>Details</summary>
 
   <p>Something small enough to escape casual notice.</p>
+</details>
+```
+
+- If there are more than one `detials` elements on a page, you only want one to be open at a time, you can do this by giving them all the same `name` attribute
+
+```html
+<details name="faq">
+  <summary>Question 1</summary>
+  <p>Answer 1</p>
+</details>
+
+<details name="faq">
+  <summary>Question 2</summary>
+  <p>Answer 2</p>
 </details>
 ```
 
@@ -2295,7 +2270,7 @@ _Example:_ Better way to embedded videos
           alt='Rick Astley - Never Gonna Give You Up (Official Music Video)'
         />
         <span>&#x25BA;</span>
-      </a>      
+      </a>
       "
       frameborder="0"
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -2465,10 +2440,9 @@ The elements that do not have any words between an opening and closing tag are c
 
   ```html
   <p>
-    You can use <abbr>CSS</abbr> (Cascading Style Sheets) to style your
-    <abbr>HTML</abbr> (HyperText Markup Language). Using style sheets, you can
-    keep your <abbr>CSS</abbr> presentation layer and <abbr>HTML</abbr> content
-    layer separate. This is called "separation of concerns."
+    You can use <abbr>CSS</abbr> (Cascading Style Sheets) to style your <abbr>HTML</abbr> (HyperText
+    Markup Language). Using style sheets, you can keep your <abbr>CSS</abbr> presentation layer and
+    <abbr>HTML</abbr> content layer separate. This is called "separation of concerns."
   </p>
 
   <abbr title="Hypertext Markup Language">HTML</abbr>
@@ -2494,7 +2468,7 @@ Characters that have a special meaning in HTML are called _"reserved characters"
 | `&`       | `&amp;`          |
 | `<`       | `&lt;`           |
 | `>`       | `&gt;`           |
-| `©`      | `&copy;`         |
+| `©`       | `&copy;`         |
 | `“`       | `&ldquo;`        |
 | `”`       | `&rdquo;`        |
 | `"`       | `&quot;`         |
@@ -2856,7 +2830,7 @@ Different ways to hide content:
 
    ```html
    <!--
-      a list of skip links to jump directly to the 
+      a list of skip links to jump directly to the
       primary navigation or content of an interface.
     -->
    <ul class="off-screen-ul">
@@ -2864,9 +2838,7 @@ Different ways to hide content:
        <a href="#primary_nav" class="skip-link"> Skip to Primary Navigation </a>
      </li>
      <li>
-       <a href="#primary_content" class="skip-link">
-         Skip to Primary Content
-       </a>
+       <a href="#primary_content" class="skip-link"> Skip to Primary Content </a>
      </li>
    </ul>
 
@@ -2883,8 +2855,8 @@ Different ways to hide content:
      }
 
      /*
-        Style the skip links to be fixed to the 
-        top of the page, and have an initial 
+        Style the skip links to be fixed to the
+        top of the page, and have an initial
         negative Y-axis value.
       */
      .skip-link {

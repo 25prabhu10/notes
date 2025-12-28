@@ -25,7 +25,7 @@ TypeScript has _type safety_ (using types to prevent programs from doing invalid
 
 - Static Type checking
 
-- Can use Non-JavaScript features like [Interface](#interface) or [Generics](#generics)
+- Can use Non-JavaScript features like [Interface](#interface) or [Generics](#generic-types)
 
 - Use Next-gen JavaScript features now and compile it to older versions
 
@@ -1693,10 +1693,7 @@ function createGoal(title: string, date: Date): Goal {
 
   type Spread<T1, T2> = T2 & Omit<T1, keyof T2>;
 
-  type Example = Spread<
-    { overWriteMe: string },
-    { overWriteMe: number; dontOverwriteMe: boolean }
-  >;
+  type Example = Spread<{ overWriteMe: string }, { overWriteMe: number; dontOverwriteMe: boolean }>;
 
   // creating a strict Omit
   type StrictOmit<T, K extends keyof T> = Omit<T, K>;
@@ -1748,13 +1745,9 @@ type MusicProductWithoutId = {
 - To fix the above issue, we can create `DistributiveOmit` and `DistributivePick` types:
 
 ```typescript
-type DistributiveOmit<T, K extends PropertyKey> = T extends any
-  ? Omit<T, K>
-  : never;
+type DistributiveOmit<T, K extends PropertyKey> = T extends any ? Omit<T, K> : never;
 
-type DistributivePick<T, K extends PropertyKey> = T extends any
-  ? Pick<T, K>
-  : never;
+type DistributivePick<T, K extends PropertyKey> = T extends any ? Pick<T, K> : never;
 
 type MusicProductWithoutId = DistributiveOmit<MusicProduct, "id">;
 
@@ -2194,10 +2187,7 @@ type Point = { x: number; y: number };
 type P = keyof Point;
 
 // Example
-function extractAndConvert<T extends object, K extends keyof object>(
-  obj: T,
-  key: K
-) {
+function extractAndConvert<T extends object, K extends keyof object>(obj: T, key: K) {
   return obj[key];
 }
 ```
@@ -2356,11 +2346,7 @@ class Person {
 ## Snippets
 
 ```typescript
-const getDeepValue = <
-  TObj,
-  TFirstKey extends keyof TObj,
-  TSecondKey extends keyof TObj[TFirstKey],
->(
+const getDeepValue = <TObj, TFirstKey extends keyof TObj, TSecondKey extends keyof TObj[TFirstKey]>(
   obj: TObj,
   firstKey: TFirstKey,
   secondKey: TSecondKey
@@ -2426,10 +2412,7 @@ type QueryElements = String.Split<SecondQueryPart, "&">;
 
 type QueryParams = {
   [QueryElement in QueryElements[number]]: {
-    [Key in String.Split<QueryElement, "=">[0]]: String.Split<
-      QueryElement,
-      "="
-    >[1];
+    [Key in String.Split<QueryElement, "=">[0]]: String.Split<QueryElement, "=">[1];
   };
 }[QueryElements[number]];
 
