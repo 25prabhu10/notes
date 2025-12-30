@@ -1,8 +1,6 @@
 ---
 title: Mutual Funds
 description: An investment product
-date: 2023-04-16
-lastmod: 2024-09-06
 ---
 
 # Mutual Funds
@@ -75,7 +73,7 @@ Funds based on investment objective:
    | Long duration fund           | greater than 7 years          |
 
 3. Liquid funds: Liquid funds aim to provide liquidity to the investor. These funds put money in short-term money-market instruments like treasury bills, Certificate of Deposits (CDs), term deposits, commercial papers, and so on. Liquid funds can be an option if you want to park your surplus money for the short term or create an emergency fund
-   - Overnight funds are another interesting option you can consider if liquidity is your priority. These are open-ended debt mutual funds that invest in securities having a maturity of just one day. This makes overnight funds highly liquid. These funds come with very low risk as they are not impacted by changes in interest rates. Overnight funds are suitable for those investors who want to park a large sum of money for a short period.
+   - Overnight funds are another interesting option you can consider if liquidity is your priority. These are open-ended debt mutual funds that invest in securities having a maturity of just one day. This makes overnight funds highly liquid. These funds come with very low risk as they are not impacted by changes in interest rates. Overnight funds are suitable for those investors who want to park a large sum of money for a short period
 
 4. **Tax-saving funds**: Tax-saving funds offer tax benefits in the form of tax rebates under Section 80C of the Income Tax Act. When you invest in these funds, you can claim deductions up to Rs 1.5 Lakh each year. Tax-saving funds can be suitable if your primary investment goal is to save tax. Equity Linked Saving Scheme (ELSS) funds are an example of tax-saving funds
 

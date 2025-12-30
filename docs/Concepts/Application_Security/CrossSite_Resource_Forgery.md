@@ -9,7 +9,7 @@ description: CSRF is a type of malicious exploit of a website
 
 - Attack which forces an end user to execute unwanted actions on a web app in which they're currently authenticated
 
-- Normal users: CSRF attack can force user to perform requests like transferring funds, changing email address, etc.
+- Normal users: CSRF attack can force user to perform requests like transferring funds, changing email address, etc...
 
 - Admin users: CSRF attack can force admins to add new admin user, or in the worst case, run commands directly on the server
 

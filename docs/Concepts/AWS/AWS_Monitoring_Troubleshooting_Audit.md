@@ -29,7 +29,7 @@ Why Monitoring is Important
 
 - AWS CloudWatch:
   - Metrics: Collect and track key metrics
-  - Logs: Collect, monitor, analyze and store log files
+  - Logs: Collect, monitor, analyse and store log files
   - Events: Send notifications when certain events happen in your AWS
   - Alarms: React in real-time to metrics / events
 - AWS X-Ray:
@@ -55,7 +55,9 @@ Why Monitoring is Important
 - With detailed monitoring (for a cost), you get data "every 1 minute"
 - Use detailed monitoring if you want to scale faster for your ASG!
 - The AWS Free Tier allows us to have 10 detailed monitoring metrics
-- Note: EC2 Memory usage is by default not pushed (must be pushed from inside the instance as a custom metric)
+
+> [!NOTE]
+> EC2 Memory usage is by default not pushed (must be pushed from inside the instance as a custom metric)
 
 ## CloudWatch Custom Metrics
 
@@ -130,7 +132,7 @@ Why Monitoring is Important
   - For example, find a specific IP inside of a log
   - Or count occurrences of "ERROR" in your logs
   - Metric filters can be used to trigger alarms
-- Filters do not retroactively filter data. Filters only publish the metric data points for events that happen after the filter was created.
+- Filters do not retroactively filter data. Filters only publish the metric data points for events that happen after the filter was created
 - `CloudWatch Logs Aganet` (EC2 Instance) --stream--> `CW Logs` --> Metric Filters --> CW Alaram --> SNS
 
 ## CloudWatch Alarms
@@ -196,12 +198,12 @@ Why Monitoring is Important
 
 ## Amazon EventBridge vs CloudWatch Events
 
-- Amazon EventBridge builds upon and extends CloudWatch Events.
-- It uses the same service API and endpoint, and the same underlying service infrastructure.
-- EventBridge allows extension to add event buses for your custom applications and your third-party SaaS apps.
+- Amazon EventBridge builds upon and extends CloudWatch Events
+- It uses the same service API and endpoint, and the same underlying service infrastructure
+- EventBridge allows extension to add event buses for your custom applications and your third-party SaaS apps
 - Event Bridge has the Schema Registry capability
 - EventBridge has a different name to mark the new capabilities
-- Over time, the CloudWatch Events name will be replaced with EventBridge.
+- Over time, the CloudWatch Events name will be replaced with EventBridge
 
 ## AWS X-Ray
 
@@ -209,7 +211,7 @@ Why Monitoring is Important
   - Test locally
   - Add log statements everywhere
   - Re-deploy in production
-- Log formats differ across applications using CloudWatch and analytics is hard.
+- Log formats differ across applications using CloudWatch and analytics is hard
 - Debugging: monolith "easy", distributed services "hard"
 - No common views of your entire architecture!
 - Enter... AWS X-Ray!
@@ -279,7 +281,7 @@ Why Monitoring is Important
 
 ## X-Ray Instrumentation in your code
 
-- Instrumentation means the measure of product's performance, diagnose errors, and to write trace information.
+- Instrumentation means the measure of product's performance, diagnose errors, and to write trace information
 - To instrument your application code, you use the X-Ray SDK
 - Many SDK require only configuration changes
 - You can modify your application code to customize and annotation the data that the SDK sends to X- Ray, using interceptors, filters, handlers, middleware...
@@ -313,9 +315,9 @@ app.use(AWSXRay.express.closeSegment());
 
 - With sampling rules, you control the amount of data that you record
 - You can modify sampling rules without changing your code
-- By default, the X-Ray SDK records the first request each second, and five percent of any additional requests.
-- One request per second is the reservoir, which ensures that at least one trace is recorded each second as long the service is serving requests.
-- Five percent is the rate at which additional requests beyond the reservoir size are sampled.
+- By default, the X-Ray SDK records the first request each second, and five percent of any additional requests
+- One request per second is the reservoir, which ensures that at least one trace is recorded each second as long the service is serving requests
+- Five percent is the rate at which additional requests beyond the reservoir size are sampled
 
 ## X-Ray Custom Sampling Rules
 
@@ -336,7 +338,7 @@ app.use(AWSXRay.express.closeSegment());
 ## X-Ray Write APIs (used by the X-Ray daemon)
 
 - PutTraceSegments: Uploads segment documents to AWS X-Ray
-- PutTelemetryRecords: Used by the AWS X-Ray daemon to upload telemetry.
+- PutTelemetryRecords: Used by the AWS X-Ray daemon to upload telemetry
   - `SegmentsReceivedCount`, `SegmentsRejectedCounts`, `BackendConnectionErrors`...
 - GetSamplingRules: Retrieve all sampling rules (to know what/when to send)
 - GetSamplingTargets & GetSamplingStatisticSummaries: advanced
@@ -358,9 +360,9 @@ app.use(AWSXRay.express.closeSegment());
 
 - **`arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess`**
 - GetServiceGraph: main graph
-- BatchGetTraces: Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request.
-- GetTraceSummaries: Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces.
-- GetTraceGraph: Retrieves a service graph for one or more specific trace IDs.
+- BatchGetTraces: Retrieves a list of traces specified by ID. Each trace is a collection of segment documents that originates from a single request
+- GetTraceSummaries: Retrieves IDs and annotations for traces available for a specified time frame using an optional filter. To get the full traces, pass the trace IDs to BatchGetTraces
+- GetTraceGraph: Retrieves a service graph for one or more specific trace IDs
 
 ```json
 {
@@ -437,7 +439,7 @@ _Example:_ ECS + X-Ray Task Definition
   - CLI
   - AWS Services
 - Can put logs from CloudTrail into CloudWatch Logs or S3
-- A trail can be applied to All Regions (default) or a single Region.
+- A trail can be applied to All Regions (default) or a single Region
 - If a resource is deleted in AWS, investigate CloudTrail first!
 
 ## CloudTrail Events
@@ -448,7 +450,7 @@ _Example:_ ECS + X-Ray Task Definition
     - Configuring security (IAM AttachRolePolicy)
     - Configuring rules for routing data (Amazon EC2 CreateSubnet)
     - Setting up logging (AWS CloudTrail CreateTrail)
-  - By default, trails are configured to log management events.
+  - By default, trails are configured to log management events
   - Can separate Read Events (that don't modify resources) from Write Events (that may modify resources)
 - Data Events:
   - By default, data events are not logged (because high volume operations)

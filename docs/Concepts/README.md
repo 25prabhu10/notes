@@ -22,12 +22,12 @@ sidebar: false
 12. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
 13. [Text Encoding](./Text_Encoding.md)
 14. [Data Serialization](./Data_Serialization.md)
-14. [regex](./Regular_Expression/)
-15. [Logging](./Logging.md)
-16. [Telemetry](./Telemetry.md)
-17. [Agile](./Agile/Agile.md)
-18. [Artifactory](./Artifactory.md)
-19. [Key Words](./Key_Words.md)
+15. [regex](./Regular_Expression/)
+16. [Logging](./Logging.md)
+17. [Telemetry](./Telemetry.md)
+18. [Agile](./Agile/Agile.md)
+19. [Artifactory](./Artifactory.md)
+20. [Key Words](./Key_Words.md)
 
 ## References
 

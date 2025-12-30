@@ -6,5 +6,5 @@ sidebar: false
 
 # Table of Content
 
-1. [Vim/Neovim](./Vim-Neovim.md)
-2. [Visual Studio Code (VSCode)](./VSCode.md): A free source-code editor
+1. [Vim/Neovim](./Vim-Neovim.md): Terminal based text editor
+2. [VSCode (Visual Studio Code)](./VSCode.md): A free source-code editor

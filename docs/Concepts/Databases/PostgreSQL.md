@@ -56,7 +56,7 @@ This will connect you to the Postgres instance and open a `psql` prompt:
 postgres=#
 ```
 
-We can use GUI tools as well to connect to Postgres instances, e.g. [pgAdmin](https://www.pgadmin.org/), [DBeaver](https://dbeaver.io/), [DataGrip](https://www.jetbrains.com/datagrip/), [beekeeper-studio](https://github.com/beekeeper-studio/beekeeper-studio) etc
+We can use GUI tools as well to connect to Postgres instances, e.g. [pgAdmin](https://www.pgadmin.org/), [DBeaver](https://dbeaver.io/), [DataGrip](https://www.jetbrains.com/datagrip/), [beekeeper-studio](https://github.com/beekeeper-studio/beekeeper-studio) etc...
 
 ## User configuration and authentication
 

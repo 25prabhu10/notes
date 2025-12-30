@@ -460,9 +460,9 @@ Types of Models:
    - Describe components and their relationships in a system
 
    - Models in Software can be categorized into 2 groups:
-     1. Data Models: like Entity Relationship models, etc.
+     1. Data Models: like Entity Relationship models, etc...
 
-     2. Application Models: UML models, SysML models, BPMN models, etc.
+     2. Application Models: UML models, SysML models, BPMN models, etc...
 
 ## Types of UML
 

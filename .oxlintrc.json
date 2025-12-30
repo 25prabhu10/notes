@@ -1,0 +1,48 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "nursery": "warn",
+    "pedantic": "error",
+    "perf": "error",
+    "restriction": "error",
+    "style": "error",
+    "suspicious": "error"
+  },
+  "env": {
+    "node": true,
+    "browser": true
+  },
+  "plugins": [
+    "eslint",
+    "import",
+    "jsdoc",
+    "node",
+    "oxc",
+    "vue",
+    "promise",
+    "typescript",
+    "unicorn"
+  ],
+  "ignorePatterns": ["build", "!.vitepress/**", ".vitepress/cache"],
+  "rules": {
+    "init-declarations": "off",
+    "unicorn/filename-case": "off",
+    "import/consistent-type-specifier-style": "off",
+    "func-style": ["error", "declaration", { "allowTypeAnnotation": true }],
+    "import/no-default-export": "off",
+    "no-ternary": "off",
+    "no-undef": "off",
+    "no-nested-ternary": "off",
+    "vue/max-props": "off",
+    "sort-imports": "off",
+    "sort-keys": ["error", "asc", { "caseSensitive": false }],
+    "capitalized-comments": "off",
+    "unicorn/no-process-exit": "off",
+    "vue/define-props-declaration": "off",
+    "import/unambiguous": "off",
+    "no-magic-numbers": "off",
+    "import/no-anonymous-default-export": "off",
+    "no-console": ["error", { "allow": ["info", "warn", "error"] }]
+  }
+}

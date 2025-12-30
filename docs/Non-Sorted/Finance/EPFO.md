@@ -1,13 +1,11 @@
 ---
 title: EPFO
 description: Employees' Provident Fund Organisation
-date: 2023-05-19
-lastmod: 2023-05-19
 ---
 
 # Employees' Provident Fund Organisation (EPFO)
 
-As per the guidelines laid out by the EPFO, every salaried professional can contribute **12% of their 'Basic pay'** towards provident fund.
+As per the guidelines laid out by the EPFO, every salaried professional can contribute **12% of their 'Basic pay'** towards provident fund
 
 The amount is matched by an equal deposit by the employer
 
@@ -50,9 +48,8 @@ Consists of Schemes:
 3. EDLI (Employment Deposit Linked Insurance Scheme, 1976):
    - Relief to family members in case of sudden death
 
-::: tip NOTE
-**Higher pension scheme** only for private employees who are in employment as on 1st Sep 2014
-:::
+> [!NOTE]
+> **Higher pension scheme** only for private employees who are in employment as on 1st Sep 2014
 
 Info:
 
@@ -78,10 +75,10 @@ Info:
 
    - Petrol Reimbursement (without bills and without supporting documentation/data to substantiate the reimbursement is for official purposes)
 
-   - City Compensatory Allowance or any other allowance paid as fixed component, uniformly and universally having no direct nexus to the outcome of an employee's normal work.
+   - City Compensatory Allowance or any other allowance paid as fixed component, uniformly and universally having no direct nexus to the outcome of an employee's normal work
 
 5. Wage Limit: PF Wages <= ₹15000
-   - An employee with a basic salary of over Rs. 15,000 and who has never been a member of EPF can opt out of the scheme. But once they become a member, they cannot opt out of the scheme.
+   - An employee with a basic salary of over Rs. 15,000 and who has never been a member of EPF can opt out of the scheme. But once they become a member, they cannot opt out of the scheme
 
 HRA, Night allowance, etc are not considered towards PF Wages
 

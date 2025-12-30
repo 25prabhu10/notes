@@ -1,8 +1,6 @@
 ---
 title: SDLC
 description: Software Development Life Cycle
-date: 2022-11-21
-lastmod: 2022-11-22
 ---
 
 # SDLC

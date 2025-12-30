@@ -358,19 +358,19 @@ There are several different types of twisted pair cables, including unshielded t
 
 #### Unshielded Twisted Pair (UTP)
 
-As the title states, a UTP cable has no shielding. This is the most used and most basic type of cable. The cable contains pairs of wires twisted together to help reduce and prevent electromagnetic interference.
+As the title states, a UTP cable has no shielding. This is the most used and most basic type of cable. The cable contains pairs of wires twisted together to help reduce and prevent electromagnetic interference
 
 #### Shielded Twisted Pair (STP)
 
-STP cables are similar to UTP cables, where the wires are twisted together and then wrapped with a shielding or screening material which consits of foil wrapping or a copper braid jacket.
+STP cables are similar to UTP cables, where the wires are twisted together and then wrapped with a shielding or screening material which consits of foil wrapping or a copper braid jacket
 
 #### Foil Twisted Pair (FTP)
 
-With FTP cables, each twisted pair of cables is wrapped in a shielding of foil to protect the cable from EMI and crosstalk.
+With FTP cables, each twisted pair of cables is wrapped in a shielding of foil to protect the cable from EMI and crosstalk
 
 #### Shielded Foil Twisted Pair (S/FTP)
 
-A cable that is classified as S/FTP or Shielded Foil Twisted Pair is a combination of both FTP and STP shielding. The wires inside the cable are twisted and then shielded with a foil wrapping, then the 4-pair grouping of foiled wires are shielded by a wrapping of either foil or a flexible braided screening. This provides the highest level of protection against EMI and crosstalk.
+A cable that is classified as S/FTP or Shielded Foil Twisted Pair is a combination of both FTP and STP shielding. The wires inside the cable are twisted and then shielded with a foil wrapping, then the 4-pair grouping of foiled wires are shielded by a wrapping of either foil or a flexible braided screening. This provides the highest level of protection against EMI and crosstalk
 
 ### Wiring
 

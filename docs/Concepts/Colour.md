@@ -1,7 +1,6 @@
 ---
 title: Colour
 description: Colour is light
-date: 2024-09-26
 ---
 
 # Colour

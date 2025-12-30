@@ -1,7 +1,6 @@
 ---
 title: HTML
 description: Hypertext Markup Language is the standard markup language for documents designed to be displayed in a web browser
-lastmod: 2025-02-15
 ---
 
 # HTML
@@ -250,9 +249,8 @@ The `a` element has the following attributes:
 - `target`: Opens the link in a new tab
 - `title`: Provides a tooltip when hovering over the link
 
-::: info
-HTML5 allows you to use uppercase attribute names and omit the quotemark, but this is not recommended
-:::
+> [!NOTE]
+> HTML5 allows you to use uppercase attribute names and omit the quotemark, but this is not recommended
 
 ### WAI-ARIA Roles
 
@@ -422,9 +420,8 @@ Accessible Rich Internet Applications (**ARIA**) is a set of [roles](#wai-aria-r
 
 - These are useful when default HTML elements don't provide enough information about dynamic content or interactive components
 
-::: warning
-**Developers should prefer using the correct semantic HTML element over using ARIA**, if such an element exists
-:::
+> [!WARNING]
+> **Developers should prefer using the correct semantic HTML element over using ARIA**, if such an element exists
 
 #### ARIA Rules
 
@@ -445,9 +442,8 @@ Accessible Rich Internet Applications (**ARIA**) is a set of [roles](#wai-aria-r
    <div role="tab"><h2>heading tab</h2></div>
    ```
 
-   ::: tip
-   If a non-interactive element is used as the basis for an interactive element, developers have to add the semantics using ARIA and the appropriate interaction behaviour using scripting. In the case of a button, for example, it is **much better** and easier to Just use a (native HTML) [button](#button)
-   :::
+   > [!TIP]
+   > If a non-interactive element is used as the basis for an interactive element, developers have to add the semantics using ARIA and the appropriate interaction behaviour using scripting. In the case of a button, for example, it is **much better** and easier to Just use a (native HTML) [button](#button)
 
 3. All interactive ARIA controls must be usable with the keyboard
 
@@ -939,7 +935,7 @@ An `<article>` is intended to be independently distributable or reusable
 
 - Represents independent, self-contained content. This could be a blog post, news article, or forum post
 
-- Content that you would like to link to, such as blog posts, comments, etc.
+- Content that you would like to link to, such as blog posts, comments, etc...
 
 ```html
 <article>
@@ -1433,7 +1429,7 @@ Can be used for:
     <figcaption><b>Edsger Dijkstra:</b></figcaption>
     <blockquote>
       If debugging is the process of removing software bugs, then programming must be the process of
-      putting them in.
+      putting them in
     </blockquote>
   </figure>
   ```
@@ -1445,7 +1441,7 @@ Can be used for:
     <p style="white-space:pre">
       Bid me discourse, I will enchant thine ear, Or like a fairy trip upon the green, Or, like a
       nymph, with long dishevelled hair, Dance on the sands, and yet no footing seen: Love is a
-      spirit all compact of fire, Not gross to sink, but light, and will aspire.
+      spirit all compact of fire, Not gross to sink, but light, and will aspire
     </p>
     <figcaption><cite>Venus and Adonis</cite>, by William Shakespeare</figcaption>
   </figure>
@@ -1728,22 +1724,19 @@ Attributes:
 
 - `rel`: Specifies the relationship between the current document and the linked document
 
-- `novalidate`: This Boolean attribute indicates that the form shouldn't be validated when submitted. If this attribute is not set (and therefore the form is validated), it can be overridden by a `formnovalidate` attribute on a `<button`>, `<input type="submit">`, or `<input type="image"`> element belonging to the form.
+- `novalidate`: This Boolean attribute indicates that the form shouldn't be validated when submitted. If this attribute is not set (and therefore the form is validated), it can be overridden by a `formnovalidate` attribute on a `<button`>, `<input type="submit">`, or `<input type="image"`> element belonging to the form
 
 - `target`: Indicates where to display the response after submitting the form. In HTML5, it is a name/keyword for a browsing context (for example, tab, window, or iframe). The following keywords have special meanings:
-  - `_self (default)`: Load into the same browsing context as the current one.
-  - `_blank`: Load into a new unnamed browsing context.
+  - `_self (default)`: Load into the same browsing context as the current one
+  - `_blank`: Load into a new unnamed browsing context
   - `_parent`: Load into the parent browsing context of the current one. If no parent, behaves the same as `_self.`
   - `_top`: Load into the top-level browsing context (i.e., the browsing context that is an ancestor of the current one and has no parent). If no parent, behaves the same as `_self.`
-  - This value can be overridden by a form-target attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` element.
+  - This value can be overridden by a form-target attribute on a `<button>`, `<input type="submit">`, or `<input type="image">` element
 
-::: tip NOTE
-
-- Setting `target="_blank"` on `<form>` elements implicitly provides the same `rel` behaviour as setting `rel="noopener"` which does not set window.opener
-
-- It is possible to use the `:valid` and `:invalid` CSS pseudo-classes to style a `<form>` element based on whether or not the elements inside the form are valid
-
-:::
+> [!NOTE]
+>
+> - Setting `target="_blank"` on `<form>` elements implicitly provides the same `rel` behaviour as setting `rel="noopener"` which does not set window.opener
+> - It is possible to use the `:valid` and `:invalid` CSS pseudo-classes to style a `<form>` element based on whether or not the elements inside the form are valid
 
 ##### Grouping Form Elements
 
@@ -2095,7 +2088,7 @@ _Example:_
 
 #### Data-List
 
-The `<datalist>` HTML element contains a set of `<option>` elements that represent the **permissible or recommended options available to choose** from within other controls.
+The `<datalist>` HTML element contains a set of `<option>` elements that represent the **permissible or recommended options available to choose** from within other controls
 
 - Recommend values to various input types
 
@@ -2132,7 +2125,7 @@ _Example:_
 
 #### Time
 
-The `<time>` element allows an unambiguous ISO 8601 date to be attached to a human-readable version of that date.
+The `<time>` element allows an unambiguous ISO 8601 date to be attached to a human-readable version of that date
 
 ```html
 <time datetime="2017-10-31T11:21:00+02:00">Tuesday, 31 October 2017</time>
@@ -2140,7 +2133,7 @@ The `<time>` element allows an unambiguous ISO 8601 date to be attached to a hum
 
 ### Dialog
 
-The `<dialog>` HTML element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow.
+The `<dialog>` HTML element represents a dialog box or other interactive component, such as a dismissible alert, inspector, or subwindow
 
 - Can be used as modal instead of creating one manually
 
@@ -2173,9 +2166,8 @@ _Example:_
 </script>
 ```
 
-::: danger NOTE
-The `tabindex` attribute must not be used on the `<dialog>` element.
-:::
+> [!CAUTION]
+> The `tabindex` attribute must not be used on the `<dialog>` element
 
 ### Details Disclosure
 
@@ -2423,9 +2415,8 @@ Attributes:
   - `allow-top-navigation-by-user-activation`: Allows the embedded browsing context to navigate its top-level browsing context, but only if initiated by a user gesture
   - `allow-top-navigation-by-custom-protocols`
 
-::: warning
-Because each browsing context is a complete document environment, every `<iframe>` in a page requires increased memory and other computing resources. While theoretically you can use as many `<iframe>` as you like, check for performance problems
-:::
+> [!WARNING]
+> Because each browsing context is a complete document environment, every `<iframe>` in a page requires increased memory and other computing resources. While theoretically you can use as many `<iframe>` as you like, check for performance problems
 
 ### Empty Elements
 
@@ -2579,7 +2570,7 @@ The goal of `:focus` is to give the user **guidance on where exactly they are** 
 
   ```css
   /* if a selector list contains an invalid selector,
-     the entire list is considered invalid.
+     the entire list is considered invalid
      Thus this doesn't gracefully degrade: */
   .main-nav:hover,
   .main-nav:focus-within {
@@ -2706,7 +2697,7 @@ Different ways to hide content:
 
    - To hide content from all users, use the HTML5 `hidden` attribute (along with `display: none;` in CSS for browsers that don't support the `hidden` attribute). **No need to use** `aria-hidden="true"` in this case
 
-   ````html
+   ```html
    <p hidden class="hidden">this content is hidden from all users</p>
    <style>
      .hidden {
@@ -2714,7 +2705,6 @@ Different ways to hide content:
      }
    </style>
    ```
-   ````
 
 4. Use CSS to hide elements in such a way that they are **hidden visually but are accessible for screen readers**
 
@@ -2820,7 +2810,7 @@ Different ways to hide content:
    - Does not remove the content from the normal DOM flow, so its "physical space" is still retained in the document
    - Unlike `display: none`, it will respect CSS transitions
    - This makes it a preferred choice when hidden content is meant to transition between its hidden and revealed state
-   - It is best paired with other CSS properties that negate its position in the DOM. e.g., use `position: absolute` to remove it from the normal DOM flow in the hidden state, or `overflow: hidden` and `height: 0;`, etc.
+   - It is best paired with other CSS properties that negate its position in the DOM. e.g., use `position: absolute` to remove it from the normal DOM flow in the hidden state, or `overflow: hidden` and `height: 0;`, etc...
 
    ```html
    <p style="visibility: hidden;">This content is hidden.</p>
@@ -2831,7 +2821,7 @@ Different ways to hide content:
    ```html
    <!--
       a list of skip links to jump directly to the
-      primary navigation or content of an interface.
+      primary navigation or content of an interface
     -->
    <ul class="off-screen-ul">
      <li>
@@ -2846,7 +2836,7 @@ Different ways to hide content:
      /*
         Hides the list off screen, since these are links
         that are only useful for keyboard users, and do
-        not require being consistently visible.
+        not require being consistently visible
       */
      .off-screen-ul {
        left: -100vw;
@@ -2857,7 +2847,7 @@ Different ways to hide content:
      /*
         Style the skip links to be fixed to the
         top of the page, and have an initial
-        negative Y-axis value.
+        negative Y-axis value
       */
      .skip-link {
        background: #000;
@@ -2873,7 +2863,7 @@ Different ways to hide content:
      /*
         Upon focus of the skip link, transition
         it into view by returning it's Y-axis to
-        the default 0 value.
+        the default 0 value
       */
      .skip-link:focus {
        transform: translateY(0em);
@@ -2941,7 +2931,7 @@ In 1989, while working at CERN, Tim Berners-Lee invented the [World Wide Web](..
 
 ### HTML 2.0 (1995)
 
-- Introduced the `<form>` elements, such as Form elements `<input>`, `<textarea>`, `<button>`, etc.
+- Introduced the `<form>` elements, such as Form elements `<input>`, `<textarea>`, `<button>`, etc...
 - Improved support for tables, images, and internationalization
 - Supported by Netscape Navigator, Internet Explorer 1.0
 

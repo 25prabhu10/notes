@@ -1,7 +1,6 @@
 ---
 title: Database
 description: Database is a collection of data that is stored and organized in a way that can be easily accessed, managed and updated
-date: 2024-10-20
 ---
 
 # Database
@@ -372,7 +371,7 @@ An **entity-relationship diagram (ERD)** is a visual representation of the entit
 
 ## Database Paradigms
 
-1. Key-value: Redis, Memcache, etc.
+1. Key-value: Redis, Memcache, etc...
    - Caching
    - Pub/Sub
    - Leaderboards

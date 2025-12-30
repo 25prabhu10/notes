@@ -5,11 +5,11 @@ next: ./Code
 
 # Images
 
-Images can be inserted using URLs or relative physical path.
+Images can be inserted using URLs or relative physical path
 
 Images in Markdown are very similar to links. The difference is that, the square brackets must be prefixed with an exclamation mark `!`.
 
-Also, they may have some alternative text. A description of the image, which is displayed if the image can't be loaded.
+Also, they may have some alternative text. A description of the image, which is displayed if the image can't be loaded
 
 ## Inline
 

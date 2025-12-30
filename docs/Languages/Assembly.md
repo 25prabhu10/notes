@@ -1,7 +1,6 @@
 ---
 title: Assembly
-description:
-date: 2024-11-17
+description: A low-level programming language that is closely related to machine code
 ---
 
 # Assembly

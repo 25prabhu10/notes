@@ -22,25 +22,25 @@ It's open source JavaScript toolkit and **task runner** (build system) that util
 
 ## How Gulp works
 
-- Built on **node [streams](#streams)**. Which is piping output from one task as an input to the next.
-- It reads a **file once**, process it through **multiple times**, and then writes the final output file.
-- Pipeline/`.pipe()` operator is used.
-- Files not affected until all plugins are processed.
-- Single purpose plugins.
-- Gulp makes use of call-back functions to run tasks.
-- It is **faster** as it dose not create and read intermediary files on hard drive.
+- Built on **node [streams](#streams)**. Which is piping output from one task as an input to the next
+- It reads a **file once**, process it through **multiple times**, and then writes the final output file
+- Pipeline/`.pipe()` operator is used
+- Files not affected until all plugins are processed
+- Single purpose plugins
+- Gulp makes use of call-back functions to run tasks
+- It is **faster** as it dose not create and read intermediary files on hard drive
 
 ## Gulp vs Grunt
 
-1. Gulp is code over configuration, Grunt is the opposite.
-2. Gulp is easier to read than Grunt.
-3. Gulp is based on [streams](#streams), Grunt is based on files.
+1. Gulp is code over configuration, Grunt is the opposite
+2. Gulp is easier to read than Grunt
+3. Gulp is based on [streams](#streams), Grunt is based on files
 
 ## Instruction
 
-1. First install [Node.js](./../../Node.js/Node.js.md) which will install npm (node package manager) along with it. In latest versions `npx` as well is installed.
+1. First install [Node.js](./../../Node.js/Node.js.md) which will install npm (node package manager) along with it. In latest versions `npx` as well is installed
 
-2. Install `gulp-cli` globally, it helps to maintain different versions of gulp.js.
+2. Install `gulp-cli` globally, it helps to maintain different versions of gulp.js
 
    ```bash
    npm install gulp-cli -g
@@ -52,21 +52,21 @@ It's open source JavaScript toolkit and **task runner** (build system) that util
    npm init
    ```
 
-4. Then install `gulp.js` locally in each project as a development dependency package.
+4. Then install `gulp.js` locally in each project as a development dependency package
 
    ```bash
    npm install gulp --save-dev
    ```
 
-5. Now install the required Gulp [plugins](#plugins) that perform tasks.
+5. Now install the required Gulp [plugins](#plugins) that perform tasks
 
-6. Create a `gulpfile.js` file where all the tasks are written.
+6. Create a `gulpfile.js` file where all the tasks are written
 
-7. Run `gulp` in command line to execute the tasks.
+7. Run `gulp` in command line to execute the tasks
 
 ## Structure of Gulp File
 
-Structure of Gulp file can be divided into 4 parts as shown below.
+Structure of Gulp file can be divided into 4 parts as shown below
 
 1. Required modules (plugins).
 
@@ -78,7 +78,7 @@ Structure of Gulp file can be divided into 4 parts as shown below.
    const autoprefixer = require("gulp-autoprefixer");
    ```
 
-2. Create tasks using the plugins.
+2. Create tasks using the plugins
 
    ```javascript
    // create tasks
@@ -94,7 +94,7 @@ Structure of Gulp file can be divided into 4 parts as shown below.
    );
    ```
 
-3. Automate tasks by watching for changes in files and run tasks accordingly.
+3. Automate tasks by watching for changes in files and run tasks accordingly
 
    ```javascript
    gulp.task("watch", () => gulp.watch("src/js/*.js", ["scripts"]));
@@ -109,29 +109,28 @@ Structure of Gulp file can be divided into 4 parts as shown below.
 
 ![Image of the structure of a Gulp-file](./structure-of-gulp-file.png)
 
-::: tip NOTE
-All sample codes are working in `gulp -v` = **4.0.2**
-:::
+> [!NOTE]
+> All sample codes are working in `gulp -v` = **4.0.2**
 
 ### Functions
 
-There different levels for functions.
+There different levels for functions
 
 #### Top level functions
 
-- `gulp.task` - Defines tasks.
-- `gulp.src` - Defines path to the input files.
-- `gulp.dest` - Defines path to the output directory.
-- `gulp.watch` - Watch files and folders for changes and run tasks accordingly.
+- `gulp.task` - Defines tasks
+- `gulp.src` - Defines path to the input files
+- `gulp.dest` - Defines path to the output directory
+- `gulp.watch` - Watch files and folders for changes and run tasks accordingly
 
 ### Streams
 
-- Streams allows us to pass X data through a number of small useful functions.
-- Once the data is processed by a function, it is passed on to the next function.
-- When the last functions finishes data processing it outputs the final processed data.
-- Streams are asynchronous, they use callbacks to interact with other functions.
+- Streams allows us to pass X data through a number of small useful functions
+- Once the data is processed by a function, it is passed on to the next function
+- When the last functions finishes data processing it outputs the final processed data
+- Streams are asynchronous, they use callbacks to interact with other functions
 
-Streams separate concerns because they restrict the implementation surface area into a consistent interface which could be reused.
+Streams separate concerns because they restrict the implementation surface area into a consistent interface which could be reused
 
 `.pipe()` is a mere function that takes a readable source stream `src:` and hooks the output to a destination writeable stream `dst:`.
 
@@ -318,7 +317,7 @@ Types of steams:
       ```
 
 5. Font Plugins:
-   1. [gulp-iconfont](https://github.com/nfroidure/gulp-iconfont) - Create SVG/TTF/EOT/WOFF/WOFF2 fonts from several SVG icons.
+   1. [gulp-iconfont](https://github.com/nfroidure/gulp-iconfont) - Create SVG/TTF/EOT/WOFF/WOFF2 fonts from several SVG icons
 
       ```javascript
       const iconfont = require("gulp-iconfont");
@@ -341,7 +340,7 @@ Types of steams:
       ```
 
 6. Local Server Plugins:
-   1. [browser-sync](https://github.com/Browsersync/browser-sync) - Keep multiple browsers & devices in sync when building websites.
+   1. [browser-sync](https://github.com/Browsersync/browser-sync) - Keep multiple browsers & devices in sync when building websites
 
       ```javascript
       const gulp = require("gulp");
@@ -384,7 +383,7 @@ Types of steams:
           .pipe(gulp.dest(DESTINATION));
       ```
 
-   2. [gulp-cache](https://github.com/jgable/gulp-cache) - A cache proxy task for Gulp. Optimizing images however, is an extremely slow process that you'd not want to repeat unless necessary. To do so, we can use this plugin.
+   2. [gulp-cache](https://github.com/jgable/gulp-cache) - A cache proxy task for Gulp. Optimizing images however, is an extremely slow process that you'd not want to repeat unless necessary. To do so, we can use this plugin
 
       ```javascript
       const imagemin = require("gulp-imagemin");

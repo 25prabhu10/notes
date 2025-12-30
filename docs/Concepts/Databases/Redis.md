@@ -128,7 +128,7 @@ Redis is a data structure server
 1. Strings: Redis strings are the most basic Redis data type, representing a sequence of bytes
    - Binary-safe Strings
 
-   - "binary-safe" means that the string can contain any type of data represented as a string: PNG images or serialized objects, for example.
+   - "binary-safe" means that the string can contain any type of data represented as a string: PNG images or serialized objects, for example
 
 2. Lists: Redis lists are lists of strings sorted by insertion order
    - Like linked lists

@@ -1,8 +1,6 @@
 ---
 title: PC
 description: PC Building Guide
-date: 2023-07-05
-lastmod: 2024-09-06
 ---
 
 # PC Building Guide

@@ -68,7 +68,7 @@ Elements
 - `[InlineData]`, `[MemberData]`, `[ClassData]`: passing data to a unit test
 - Constructor should be used for Set Up
 
-Parametrized tests: Using `[Theory]`: represents a suite of tests that execute the same code but have different input arguments.
+Parametrized tests: Using `[Theory]`: represents a suite of tests that execute the same code but have different input arguments
 
 - `[InlineData]`: Pass data inline
 - `[MemberData]`: Fetch data from a static property or method

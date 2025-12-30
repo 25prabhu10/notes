@@ -1,6 +1,6 @@
 ---
 title: Recursion
-description: Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem.
+description: Recursion is a method of solving a problem where the solution depends on solutions to smaller instances of the same problem
 ---
 
 # Recursion
@@ -69,11 +69,10 @@ Using the stack takes up a lot of memory
 - Rewrite the code to use loop instead, to save space
 - Or use something called [_tail recursion_](#types-of-recursion). Which is only supported by some languages
 
-> Quote by Leigh CaldWell on [Stack Overflow](http://stackoverflow.com/a/72694/139117)
+[Quote by Leigh CaldWell on Stack Overflow](http://stackoverflow.com/a/72694/139117)
 
-::: warning NOTE
-**Excessive Recursion**: When a recursive function calls itself multiple times for the same parameters
-:::
+> [!WARNING]
+> **Excessive Recursion**: When a recursive function calls itself multiple times for the same parameters
 
 ## Algorithmic Recurrences
 
@@ -308,9 +307,8 @@ Global vs Static Variable:
    // 101
    ```
 
-::: tip REFERENCES
-[Tracing Recursive Code](https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Trace.html)
-:::
+> [!TIP] REFERENCES
+> [Tracing Recursive Code](https://opendsa-server.cs.vt.edu/ODSA/Books/Everything/html/Trace.html)
 
 ## Use Cases
 

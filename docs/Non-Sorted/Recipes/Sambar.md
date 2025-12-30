@@ -1,8 +1,6 @@
 ---
 title: Sambar
-description:
-date: 2024-07-21
-lastmod: 2024-08-03
+description: Sambar is a popular South Indian lentil and vegetable stew
 ---
 
 # Sambar

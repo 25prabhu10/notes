@@ -1,8 +1,6 @@
 ---
 title: Telemetry
 description: Telemetry is the process of collecting and transmitting data from a remote source to a central or local source
-date: 2024-10-05
-lastmod: 2024-10-05
 ---
 
 # Telemetry
@@ -27,7 +25,7 @@ Observability is the ability to understand the internal state of a system based 
 
 Observability is achieved through the use of telemetry data. By collecting and analysing telemetry data, you can gain insights into the performance and behaviour of your system. This data can help you identify bottlenecks, troubleshoot issues, and optimize your system for better performance
 
-> Observability is about understanding and debugging unknown-unknowns; **the ability to understand any inner system state** just by asking questions from outside the system.
+> Observability is about understanding and debugging unknown-unknowns; **the ability to understand any inner system state** just by asking questions from outside the system
 >
 > Charity Majors, Observability Pioneer, Co-founder of Honeycomb.io
 

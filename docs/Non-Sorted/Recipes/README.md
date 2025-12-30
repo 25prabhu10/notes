@@ -1,8 +1,5 @@
 ---
 title: README
-description:
-date: 2024-08-03
-lastmod: 2024-08-03
 ---
 
 # README

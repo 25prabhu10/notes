@@ -1,19 +1,19 @@
 # Interfaces
 
-- An interface is like a class, except that it only describes members. The implementation for those members comes from types that implement the interface.
+- An interface is like a class, except that it only describes members. The implementation for those members comes from types that implement the interface
 
 ## Function Members
 
 1. Properties:
-   - Properties are function members that encapsulate a piece of an object's state, such as a button's color or a label's text.
+   - Properties are function members that encapsulate a piece of an object's state, such as a button's color or a label's text
 
 2. Methods
-   - Are traditional functions.
+   - Are traditional functions
 
 3. Events
-   - Events are function members that simplify acting on object state changes.
+   - Events are function members that simplify acting on object state changes
 
-> Functions can be treated as values through the use of **delegates**, C# allows functions to be passed as values to and from other functions.
+> Functions can be treated as values through the use of **delegates**, C# allows functions to be passed as values to and from other functions
 
 - And when calling a method with multiple out parameters, you can discard ones you're uninterested in with the underscore character:
 
@@ -48,14 +48,14 @@ Console.WriteLine((int)parsedDirections);
 - Return type
 - Parameters
   - Call-by-value: `static void PrintNumber(int[] numbers){...}`
-    - The original value remains unaffected.
+    - The original value remains unaffected
   - Call-by-reference: `static void PrintNumber(params int[] numbers){...}`
-    - The original value changes.
+    - The original value changes
 
 ---
 
 title: C# and Angular
-description: C# and Angular interview questions.
+description: C# and Angular interview questions
 
 ---
 
@@ -63,7 +63,7 @@ description: C# and Angular interview questions.
 
 ### Encapsulation
 
-- Encapsulation means creating a boundary around an object, to separate its external (public) behaviour from its internal (private) implementation details.
+- Encapsulation means creating a boundary around an object, to separate its external (public) behaviour from its internal (private) implementation details
 
 ## Class
 
@@ -71,7 +71,7 @@ description: C# and Angular interview questions.
 
   > _Objects_ are stored in computer's memory in **heap**.
 
-- Class can be split up into different files by using **partial** keyword in the same _namespace_.
+- Class can be split up into different files by using **partial** keyword in the same _namespace_
 
   File1.cs
 
@@ -101,24 +101,24 @@ description: C# and Angular interview questions.
 
 - The **static** modifier makes an **item non-instantiable**.
 
-- If **static** is applied to a **class** then that class **cannot be instantiated** using the _new_ keyword.
+- If **static** is applied to a **class** then that class **cannot be instantiated** using the _new_ keyword
 
-- If **static** is applied to a **var, method or property** of class then they can be **accessed without creating object** of the class, just use _className.propertyName_, _className.methodName_.
+- If **static** is applied to a **var, method or property** of class then they can be **accessed without creating object** of the class, just use _className.propertyName_, _className.methodName_
 
-- **static class** [^task] must have **all** of it's **methods** to be **static** too.
+- **static class** [^task] must have **all** of it's **methods** to be **static** too
 
-  > _static method_ can only access other _static items_. and instance of a _non-static class_ cannot use its _static members_.
+  > _static method_ can only access other _static items_. and instance of a _non-static class_ cannot use its _static members_
 
 ### Type Casting
 
-- Changing an expression from one data type to another.
+- Changing an expression from one data type to another
 
   ```cs
   decimal myDecimal = 10;
   int myInt = (int)myDecimal;
   ```
 
-- When a big value is cast into smaller one, C# will automatically wrap the value around.
+- When a big value is cast into smaller one, C# will automatically wrap the value around
 
   ```cs
   int myDecimal = 365;
@@ -158,7 +158,7 @@ description: C# and Angular interview questions.
 
 ### do-while
 
-- do-while executes statements **at least once** and afterwards it behaves like _while_ loop.
+- do-while executes statements **at least once** and afterwards it behaves like _while_ loop
 
   ```cs
   // execute at least once

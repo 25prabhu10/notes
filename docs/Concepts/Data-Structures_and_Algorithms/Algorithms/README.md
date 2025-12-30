@@ -11,3 +11,5 @@ sidebar: false
 3. [Sorting Algorithms](./Sorting_Algorithms.md)
 4. [Recursion](./Recursion.md)
 5. [Hash Function](./Hash_Function.md)
+6. [Dynamic Programming](./Dynamic_Programming.md)
+7. [Puzzles](./Puzzles.md)

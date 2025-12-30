@@ -11,7 +11,7 @@ A string is a sequence of characters usually represented as an array data struct
 
 ## Characters Set
 
-A character set is an element of internationalization that maps and translates an alphabet; that is, the characters that are used in a particular language.
+A character set is an element of internationalization that maps and translates an alphabet; that is, the characters that are used in a particular language
 
 ### Character Encoding
 
@@ -44,9 +44,8 @@ Character Encoding is the process of assigning numbers to graphical characters s
 - Code-point
 - `U+00639`
 
-::: tip UTF-8
-System for storing and representing code-points (encoding).
-:::
+> [!TIP] UTF-8
+> System for storing and representing code-points (encoding).
 
 ## Characters
 
@@ -62,11 +61,11 @@ printf("%d", temp); // 65
 
 ## Strings Data
 
-Strings: Array of Characters.
+Strings: Array of Characters
 
-- String is an array of chars with a string delimiter at the end.
-- To know the end of a string, a null char `\0` (or string delimiter or end of the string char) is used to mark the end of the string.
-- String can be enclosed in double-quotes.
+- String is an array of chars with a string delimiter at the end
+- To know the end of a string, a null char `\0` (or string delimiter or end of the string char) is used to mark the end of the string
+- String can be enclosed in double-quotes
 - String is mutable if defined as `A[]` and is immutable if defined as pointer `*A = "Hello"`
 
 ```c
@@ -115,7 +114,7 @@ printf("%s", temp4);                      // ABC
 
 ### String Length
 
-Number of characters in the string.
+Number of characters in the string
 
 ```c
 int main()

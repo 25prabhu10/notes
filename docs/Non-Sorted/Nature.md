@@ -1,6 +1,5 @@
 ---
 title: Nature
-description:
 ---
 
 # Nature

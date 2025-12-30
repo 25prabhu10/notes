@@ -10,9 +10,9 @@ You can self host Google fonts in your server, use this link [Google web-fonts h
 
 You can use system fonts if you want to not load a separate font:
 
-- Fast: No network request, no time to parse a font, no flash of an incorrect font.
-- Styles & Unicode: System fonts have lots of styles and broad language coverage, unlike many web-fonts.
-- Familiarity: Web apps feel more native when they use system font faces.
+- Fast: No network request, no time to parse a font, no flash of an incorrect font
+- Styles & Unicode: System fonts have lots of styles and broad language coverage, unlike many web-fonts
+- Familiarity: Web apps feel more native when they use system font faces
 
 ```css
 /*Sans-serif*/

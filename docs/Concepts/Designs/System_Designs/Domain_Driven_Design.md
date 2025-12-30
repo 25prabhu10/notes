@@ -14,7 +14,7 @@ Domain-Driven Design (DDD) is a software development approach that focuses on bu
 - **Repositories**: Interfaces that provide methods for accessing aggregates from a data store
 - **Services**: Business logic that doesn't naturally fit within an entity or value object
 - **Modules**: Logical grouping of related concepts to keep the system organized
-  > Any fool can write code that a computer can understand. Good programmers write code that humans can understand.
+  > Any fool can write code that a computer can understand. Good programmers write code that humans can understand
   >
   > Refactoring: Improving the Design of Existing Code, 1999
 
@@ -36,7 +36,7 @@ A common language for domain experts and technical team members to ensure clear 
 
 ## Tactical Patterns
 
-A set of building blocks to structure the implementation of a model according to best practices" _Entity_, _Aggregate_, _Value Object_, _Domain Service_, _Domain Event_, _Repository_, _Factory_, _Module_, etc.
+A set of building blocks to structure the implementation of a model according to best practices" _Entity_, _Aggregate_, _Value Object_, _Domain Service_, _Domain Event_, _Repository_, _Factory_, _Module_, etc...
 
 ## References
 

@@ -1,7 +1,6 @@
 ---
 title: Calculus
-description: Calculus is the mathematical study of change.
-date: 2024-11-08
+description: Calculus is the mathematical study of change
 ---
 
 # Calculus

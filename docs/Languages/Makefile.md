@@ -1,14 +1,13 @@
 ---
 title: Makefile
 description: A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
-date: 2024-05-05
 ---
 
 # Makefile
 
 A Makefile is a configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files. It contains a list of source files to be compiled, as well as configuration options for the compiler. Makefiles also set rules to determine which parts of a program need to be recompiled, and issue commands to do so
 
-> If recursive Make is considered evil, `Autotools` is literally the devil.
+> If recursive Make is considered evil, `Autotools` is literally the devil
 
 The file is named `Makefile` or `makefile` and is located in the root directory of the project. The make utility reads the file to determine how to compile the program and which files to compile
 

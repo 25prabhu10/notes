@@ -1,8 +1,6 @@
 ---
 title: Software Architectural Patterns
-description:
-date: 2023-09-03
-lastmod: 2023-09-03
+description: An architectural pattern is a general, reusable solution to a commonly occurring problem in software architecture within a given context
 ---
 
 # Software Architectural Patterns

@@ -236,15 +236,12 @@ The distinction between statements and expressions is best illustrated by the fa
   var x = y >= 0 ? y : -y;
   ```
 
-::: tip NOTE
-
-You can use the latter as a function argument (but not the former):
-
-```javascript
-myFunction(y >= 0 ? y : -y);
-```
-
-:::
+> [!NOTE]
+> You can use the latter as a function argument (but not the former):
+>
+> ```javascript
+> myFunction(y >= 0 ? y : -y);
+> ```
 
 Finally, wherever JavaScript expects a statement, you can also use an expression; for example:
 
@@ -329,18 +326,15 @@ There are two limitations on variable names in JavaScript:
   // Uncaught ReferenceError: foo is not defined
   ```
 
-::: danger UNDECLARED VARIABLE
-
-If a value is assigned to an undeclared variable, then it will have a global scope even if it is done inside an enclosing function. **Please avoid this**
-
-```javascript
-function app() {
-  l = "global";
-}
-console.log(l); // l has a global scope
-```
-
-:::
+> [!CAUTION] UNDECLARED VARIABLE
+> If a value is assigned to an undeclared variable, then it will have a global scope even if it is done inside an enclosing function. **Please avoid this**
+>
+> ```javascript
+> function app() {
+>   l = "global";
+> }
+> console.log(l); // l has a global scope
+> ```
 
 ### Hoisting
 
@@ -1331,9 +1325,8 @@ All the basic arithmetic operations can be used along with logical operators
   obj.func?.(args);
   ```
 
-::: danger NOTE
-Don't use `==` for comparisons
-:::
+> [!CAUTION]
+> Don't use `==` for comparisons
 
 ### Operator Precedence
 
@@ -1538,9 +1531,8 @@ _Function Declaration vs Function Expression_:
   };
   ```
 
-::: tip
-Use function expressions as a best practice, because they are not hoisted and this makes it easier to understand where they belong in the context of an application. Also they are less likely to pollute the global namespace
-:::
+> [!TIP]
+> Use function expressions as a best practice, because they are not hoisted and this makes it easier to understand where they belong in the context of an application. Also they are less likely to pollute the global namespace
 
 ### Immediately Invoked Function Expression (IIFE)
 
@@ -1604,9 +1596,8 @@ function foo() {
   }
   ```
 
-::: tip Note
-`var` inside a block scope can be accessed outside the block as it only has function scope
-:::
+> [!NOTE]
+> `var` inside a block scope can be accessed outside the block as it only has function scope
 
 ### Parameters and Arguments
 
@@ -1767,11 +1758,10 @@ function Dog() {
 Dog();
 ```
 
-> ES6 [in depth Arrow Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) - Mozilla
+[ES6 in depth Arrow Functions](https://hacks.mozilla.org/2015/06/es6-in-depth-arrow-functions/) - Mozilla
 
-::: tip NOTE
-If a function doesn't have a `return` statement, it will return `undefined`
-:::
+> [!NOTE]
+> If a function doesn't have a `return` statement, it will return `undefined`
 
 ### Pure Functions
 
@@ -2170,9 +2160,8 @@ console.log(showNext.next());
 // {value: 100, done: true}
 ```
 
-::: warning NOTE
-Generator functions **do not have arrow function** counterparts
-:::
+> [!WARNING]
+> Generator functions **do not have arrow function** counterparts
 
 ### Iterables
 
@@ -2552,9 +2541,8 @@ Person6.greeting();
 
 - Access modifiers in Classes
 
-::: warning NOTE
-Classes are not hoisted
-:::
+> [!WARNING]
+> Classes are not hoisted
 
 ### Inheritance
 
@@ -2789,7 +2777,7 @@ Key aspects of Asynchronous functions are:
 
 JavaScript has a runtime model based on an **event loop**, which is responsible for executing the code, collecting and processing events, and executing queued sub-tasks
 
-WEB API's are part of JavaScript Runtime but leave outside of the JavaScript engine. Like the DOM events, `setTimeout()`, `XMLHttpRequest()` etc
+WEB API's are part of JavaScript Runtime but leave outside of the JavaScript engine. Like the DOM events, `setTimeout()`, `XMLHttpRequest()` etc...
 
 - Event loop monitors the Message Queue and Execution Stack so that the first callback function can be pushed into the Execution Stack if the Execution Stack is empty
 
@@ -3311,11 +3299,10 @@ Advantages:
 - Encapsulation (information hiding)
 - Managing dependencies
 
-::: tip NOTE
-It is important to clarify the distinction between a **module** and a **module system**
-
-We can define **a module as the actual unit of software**, while a module system is the syntax and the tooling that allows us to define modules and to use them within our projects
-:::
+> [!NOTE]
+> It is important to clarify the distinction between a **module** and a **module system**
+>
+> We can define **a module as the actual unit of software**, while a module system is the syntax and the tooling that allows us to define modules and to use them within our projects
 
 ESM is the official standard format for JavaScript. [Module System in Node.js](./Node.js/Node.js.md#module-system-in-javascript-and-nodejs)
 
@@ -3336,9 +3323,8 @@ Use the `type="module"` attribute of `script` tag to let browsers know that the 
 
 - `script` tag will automatically `defer` if `type="module"`
 
-::: warning NOTE
-A web-page opened via the `file://` protocol **cannot use `import` / `export`**
-:::
+> [!WARNING]
+> A web-page opened via the `file://` protocol **cannot use `import` / `export`**
 
 ### Export
 
@@ -3463,11 +3449,8 @@ Limitations:
 - They **do not expire**
 - The data is bound to the origin (domain/port/protocol)
 
-::: tip NOTE
-
-_localStorage_ can only store strings and numbers, so always convert arrays and objects to JSON string like `JSON.stringify(value)` and use `JSON.parse(stringifiedValue)` to read the object or array back
-
-:::
+> [!NOTE]
+> _localStorage_ can only store strings and numbers, so always convert arrays and objects to JSON string like `JSON.stringify(value)` and use `JSON.parse(stringifiedValue)` to read the object or array back
 
 ### Session Storage
 
@@ -3533,11 +3516,10 @@ We can use libraries like [Moment.js](./Libraries/Moment.js.md) (**deprecated**)
 
 The Temporal object enables date and time management in various scenarios, including built-in time zone and calendar representation, wall-clock time conversions, arithmetic, formatting, and more. It is designed as a full replacement for the Date object
 
-::: warning Browser Support
-This feature is not Baseline because it does not work in some of the most widely-used browsers
-
-As of writing, Temporal is supported only in Firefox 139+
-:::
+> [!WARNING] Browser Support
+> This feature is not Baseline because it does not work in some of the most widely-used browsers
+>
+> As of writing, Temporal is supported only in Firefox 139+
 
 ```javascript
 // The current date in the system's time zone

@@ -37,4 +37,4 @@ Used in:
 
 A empty bloom filter is a **bit array** of `m` bits, all set to zero
 
-- We need `k` number of **hash functions** to calculate the hashes for a given input.
+- We need `k` number of **hash functions** to calculate the hashes for a given input

@@ -2,8 +2,6 @@
 title: C-CPP
 next: ./C.md
 sidebar: false
-date: 2022-11-21
-lastmod: 2022-11-21
 ---
 
 # Table of Content

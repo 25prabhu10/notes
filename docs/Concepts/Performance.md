@@ -1,8 +1,6 @@
 ---
 title: Performance
 description: Strategies for analysing Performance problems
-date: 2023-01-09
-lastmod: 2023-01-09
 ---
 
 # Performance

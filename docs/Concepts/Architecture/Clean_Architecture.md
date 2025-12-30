@@ -1,11 +1,9 @@
 ---
 title: Clean Architecture
-description:
+description: A domain-centric approach to organizing dependencies
 ---
 
 # Clean Architecture
-
-[Google](https://github.com/jhuangtw/xg2xg)
 
 A domain-centric approach to organizing dependencies
 
@@ -105,7 +103,7 @@ N-Tier/N-Layer Architecture:
 - src
   - Domain:
     - Types, Entities, Exceptions
-    - Domain specific: Such as Finance domain will have finance specific things like currency, rates, currency representation etc..
+    - Domain specific: Such as Finance domain will have finance specific things like currency, rates, currency representation etc...
     - Less application logic
 
   - Application:
@@ -120,6 +118,7 @@ N-Tier/N-Layer Architecture:
 
 ## Resources
 
+- [Google Technologies](https://github.com/jhuangtw/xg2xg)
 - [Clean Architecture with .NET Core: Getting Started](https://jasontaylor.dev/clean-architecture-getting-started/)
 - [Clean Architecture with ASP.NET Core 2.1 | Jason Taylor](https://www.youtube.com/watch?v=_lwCVE_XgqI)
 

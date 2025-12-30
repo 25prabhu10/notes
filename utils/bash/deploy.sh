@@ -1,17 +1,30 @@
 #!/usr/bin/env bash
 
 # ---------------------------------------------------------------------------------
-# Abort on errors
+# Script Configuration
 # ---------------------------------------------------------------------------------
-# Stop script on NZEC
 set -e
-# Stop script if unbound variable found (use ${var:-} if intentional)
 set -u
+set -o pipefail
 
 # ---------------------------------------------------------------------------------
 # Variable declarations
 # ---------------------------------------------------------------------------------
-DIST=docs/.vitepress/dist
+DIST="${DIST:-docs/.vitepress/dist}"
+
+# ---------------------------------------------------------------------------------
+# Pre-flight Checks
+# ---------------------------------------------------------------------------------
+if ! command -v git &>/dev/null; then
+    echo "Error: git is not installed."
+    exit 1
+fi
+
+if [ ! -d "$DIST" ]; then
+    echo "Error: Build directory '$DIST' does not exist."
+    echo "Please run the build script first."
+    exit 1
+fi
 
 # ---------------------------------------------------------------------------------
 # Navigate to the dist (build output) directory
@@ -27,8 +40,8 @@ git init
 git add -A
 echo "COMMITTING..."
 git commit -m 'deploy' || {
-  echo "No changes to commit or commit failed"
-  exit 0
+    echo "No changes to commit or commit failed"
+    exit 0
 }
 
 # ---------------------------------------------------------------------------------

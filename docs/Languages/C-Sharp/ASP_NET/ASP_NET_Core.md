@@ -1,6 +1,6 @@
 ---
 title: ASP.NET Core
-description: ASP.NET Core is a free and open-source web framework.
+description: ASP.NET Core is a free and open-source web framework
 ---
 
 # ASP.NET Core
@@ -31,7 +31,7 @@ Old ASP.NET Framework:
 
 ## Telemetry
 
-Telemetry is on by default.
+Telemetry is on by default
 
 - Set `$Env:DOTNET_CLI_TELEMETRY_OPTOUT = 1` to opt out
 
@@ -40,7 +40,7 @@ Telemetry is on by default.
 1. `[project name].csproj`: The Project configuration file, will contain the Target Framework, Nuget package details and other project related settings. This file is used by MSbuild during the build process. For more details visit [project-file](https://docs.microsoft.com/en-us/aspnet/web-forms/overview/deployment/web-deployment-in-the-enterprise/understanding-the-project-file).
    - Defines how the project will be built
 
-   - `TargetFramework`: Specifies the target framework for the application.
+   - `TargetFramework`: Specifies the target framework for the application
      - To specify a target framework we use _Target Framework Moniker_ (TFM).
      - E.g. `netcoreapp3.1`
 
@@ -54,17 +54,17 @@ Telemetry is on by default.
      - When the version is not specified, an implicit version is specified by the SDK
      - Rely on the implicit version rather than explicitly setting the version number on the package reference
 
-2. `Properties/launchSettings.json`: Which will contain the details for starting the project during development or production environment.
-   - You can create different profiles based on the requirement.
+2. `Properties/launchSettings.json`: Which will contain the details for starting the project during development or production environment
+   - You can create different profiles based on the requirement
    - Visual Studio will use the profiles defined here to run the project
 
-3. `appsettings.json`: Application configuration file, it store details such as database connection strings, API keys, etc.
+3. `appsettings.json`: Application configuration file, it store details such as database connection strings, API keys, etc...
    - All the application's settings are contained in this file. (Restart VS after making changes to this file)
    - Different environment specific settings can be used, by creating files in the below mentioned format
    - `appsettings.[environment].json`
    - `appsettings.Development.json`
 
-4. `Program.cs`: Entry point of the .NET Core applications. Host configuration.
+4. `Program.cs`: Entry point of the .NET Core applications. Host configuration
 
 5. `Startup.cs`: Configures services and application request pipelines (middlewares)
    - **`Program.cs` and `Startup.cs` files are combined into `Program.cs` file from ASP.NET Core 6+**
@@ -179,8 +179,8 @@ Startup file (**not needed from ASP.NET Core 6+**) is used to configure the majo
 
 Methods present in the file:
 
-- `ConfigureServices`: Add and configure services, like entity framework, etc..
-- `Configure`: Add and configure middle-ware to the pipe line.
+- `ConfigureServices`: Add and configure services, like entity framework, etc...
+- `Configure`: Add and configure middle-ware to the pipe line
 
 ### Application Configurations
 
@@ -239,11 +239,11 @@ Configuration management:
 
 ## Dependency Injection
 
-ASP.NET Core supports the [Dependency Injection](../../../Concepts/Designs/Design_Patterns.md) (DI) software design pattern, which is a technique for achieving _Inversion of Control_ (IoC) between classes and their dependencies.
+ASP.NET Core supports the [Dependency Injection](../../../Concepts/Designs/Design_Patterns.md) (DI) software design pattern, which is a technique for achieving _Inversion of Control_ (IoC) between classes and their dependencies
 
-- Dependency injection, a development pattern which encourages loose coupling between components.
+- Dependency injection, a development pattern which encourages loose coupling between components
 
-Services are typically registered in the app's Startup.ConfigureServices method.
+Services are typically registered in the app's Startup.ConfigureServices method
 
 - The `Startup.ConfigureServices` method accepts one parameter an instance of the `IServiceCollection` named `services`. This object exposes a handful of helpful methods that allow you to configure your dependency injection logic:
   1. `AddScoped`: We get the same instance within the scope of a given HTTP request but a new instance across different HTTP requests
@@ -252,39 +252,39 @@ Services are typically registered in the app's Startup.ConfigureServices method.
 
   3. `AddTransient`: Shortest. A new instance is provided every time an instance is requested whether it is the scope of the same HTTP request or across different HTTP requests
 
-- _Injection_ of the service into the constructor of the class where it's used. The framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed.
+- _Injection_ of the service into the constructor of the class where it's used. The framework takes on the responsibility of creating an instance of the dependency and disposing of it when it's no longer needed
 
-- The collective set of dependencies that must be resolved is typically referred to as a dependency tree, dependency graph, or object graph.
+- The collective set of dependencies that must be resolved is typically referred to as a dependency tree, dependency graph, or object graph
 
 ## Middleware in ASP.NET Core
 
 Middleware is software that's assembled into an app pipeline to handle requests and responses. Each component:
 
-- Chooses whether to pass the request to the next component in the pipeline.
+- Chooses whether to pass the request to the next component in the pipeline
 
-- Can perform work before and after the next component in the pipeline.
+- Can perform work before and after the next component in the pipeline
 
 When the browser sends a request to the server, the request is attached to a context object:
 
-- This object is passed to the first pipe which process the request and determines if a response is needed, if not the context is passed along to the next pipe.
-- This process continues till a response is given back to the browser.
+- This object is passed to the first pipe which process the request and determines if a response is needed, if not the context is passed along to the next pipe
+- This process continues till a response is given back to the browser
 
-- If the middleware doesn't pass along the request, it's called short-circuiting the request pipeline.
-- Short-circuiting is often desirable because it avoids unnecessary work.
-- When a middleware short-circuits, it's called a terminal middleware because it prevents further middleware from processing the request.
+- If the middleware doesn't pass along the request, it's called short-circuiting the request pipeline
+- Short-circuiting is often desirable because it avoids unnecessary work
+- When a middleware short-circuits, it's called a terminal middleware because it prevents further middleware from processing the request
 
 ### Request Delegates
 
-- Request delegates are used to build the request pipeline. The request delegates handle each HTTP request.
+- Request delegates are used to build the request pipeline. The request delegates handle each HTTP request
 
-- Request delegates are configured using `Run`, `Map`, and `Use` extension methods.
+- Request delegates are configured using `Run`, `Map`, and `Use` extension methods
 
 Registering middleware:
 
 1. `app.Run(IApplicationBuilder, RequestDelegate)`:
-   - Adds a _terminal middleware_ delegate as it prevents further middleware from processing the request.
+   - Adds a _terminal middleware_ delegate as it prevents further middleware from processing the request
    - Will never call subsequent middleware
-   - `Run` delegates don't receive a `next` parameter.
+   - `Run` delegates don't receive a `next` parameter
 
    ```cs
    app.Run(async context =>
@@ -294,22 +294,22 @@ Registering middleware:
    ```
 
 2. `app.Use`: If you want to pass the request to the next delegate use `app.Use` instead of `app.Run`.
-   - The `next` parameter represents the next delegate in the pipeline.
-   - You can _short-circuit_ the pipeline by not calling the `next` parameter.
+   - The `next` parameter represents the next delegate in the pipeline
+   - You can _short-circuit_ the pipeline by not calling the `next` parameter
    - You can typically perform actions both before and after the `next` delegate
 
    ```cs
    app.Use(async (context, next) =>
    {
-       // Do work that doesn't write to the Response.
+       // Do work that doesn't write to the Response
        await next.Invoke();
-       // Do logging or other work that doesn't write to the Response.
+       // Do logging or other work that doesn't write to the Response
    });
    ```
 
-3. `app.Map`: extensions are used as a convention for branching the pipeline.
-   - `Map` branches the request pipeline based on matches of the given request path.
-   - If the request path starts with the given path, the branch is executed.
+3. `app.Map`: extensions are used as a convention for branching the pipeline
+   - `Map` branches the request pipeline based on matches of the given request path
+   - If the request path starts with the given path, the branch is executed
 
    ```cs
    app.Map("/map1", HandleMapTest1);
@@ -353,7 +353,7 @@ _Example:_ ASP.NET Core MVC and Razor Pages apps request processing pipeline:
 _Example:_
 
 ```cs
-// Middleware that is not added when creating a new web app with individual users accounts is commented out.
+// Middleware that is not added when creating a new web app with individual users accounts is commented out
 public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 {
     if (env.IsDevelopment())
@@ -375,7 +375,7 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     // Returns static files and short-circuits further request processing
     app.UseStaticFiles();
 
-    // Conforms the app to the EU General Data Protection Regulation (GDPR) regulations.
+    // Conforms the app to the EU General Data Protection Regulation (GDPR) regulations
     // app.UseCookiePolicy();
 
     app.UseRouting();
@@ -406,45 +406,43 @@ public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 
 Recommendations regarding order:
 
-- `UseCors`, `UseAuthentication`, and `UseAuthorization` must appear in the order shown.
+- `UseCors`, `UseAuthentication`, and `UseAuthorization` must appear in the order shown
 
-- `UseCors` currently must appear before `UseResponseCaching` due to a bug.
+- `UseCors` currently must appear before `UseResponseCaching` due to a bug
 
 - `UseRequestLocalization` must appear before any middleware that might check the request culture (for example, `app.UseMvcWithDefaultRoute()`).
 
 ## Routing
 
-Routing is responsible for matching incoming HTTP requests and dispatching those requests to the app's executable endpoints.
+Routing is responsible for matching incoming HTTP requests and dispatching those requests to the app's executable endpoints
 
-- Endpoints are the app's units of executable request-handling code.
-- Endpoints are defined in the app and configured when the app starts.
-- The endpoint matching process can extract values from the request's URL and provide those values for request processing.
-- Using endpoint information from the app, routing is also able to generate URLs that map to endpoints.
+- Endpoints are the app's units of executable request-handling code
+- Endpoints are defined in the app and configured when the app starts
+- The endpoint matching process can extract values from the request's URL and provide those values for request processing
+- Using endpoint information from the app, routing is also able to generate URLs that map to endpoints
 
-ASP.NET Core controllers use the Routing middleware to match the URLs of incoming requests and map them to actions.
+ASP.NET Core controllers use the Routing middleware to match the URLs of incoming requests and map them to actions
 
 Routing uses a pair of middlewares:
 
-1. `UseRouting`: Matches request to an endpoint.
+1. `UseRouting`: Matches request to an endpoint
 
-2. `UseEndpoints`: Execute the matched endpoint.
+2. `UseEndpoints`: Execute the matched endpoint
 
-::: tip NOTE
-In Core 6.0, the `WebApplicationBuilder` implicitly calls `UseRouting` and `UseEndpoints`.
-
-- Apps can change the order in which `UseRouting` and `UseEndpoints` run by calling these explicitly
-
-:::
+> [!NOTE]
+> In Core 6.0, the `WebApplicationBuilder` implicitly calls `UseRouting` and `UseEndpoints`.
+>
+> - Apps can change the order in which `UseRouting` and `UseEndpoints` run by calling these explicitly
 
 Route templates:
 
-- Are defined in startup code or attributes.
-- Describe how URL paths are matched to actions.
-- Are used to generate URLs for links. The generated links are typically returned in responses.
+- Are defined in startup code or attributes
+- Describe how URL paths are matched to actions
+- Are used to generate URLs for links. The generated links are typically returned in responses
 
 Types of Routing:
 
-1. Conventional routing: typically used with controllers and views.
+1. Conventional routing: typically used with controllers and views
    - Routing Configuration:
 
      ```cs
@@ -464,7 +462,7 @@ Types of Routing:
      - `?` defines `id` as optional
 
 2. Attribute routing: **preferred with REST APIs**
-   - Placing a route on the controller or action makes it attribute-routed.
+   - Placing a route on the controller or action makes it attribute-routed
 
      ```cs
      public void ConfigureServices(IServiceCollection services)
@@ -563,7 +561,7 @@ HTTP verb templates:
 
 Route templates:
 
-- All the HTTP verb templates are route templates.
+- All the HTTP verb templates are route templates
 - `[Route]`
 
 _Example:_
@@ -603,8 +601,8 @@ public class Test2Controller : ControllerBase
 
 Route name: can be used to generate a URL based on a specific route. Route names:
 
-- Have no impact on the URL matching behaviour of routing.
-- Are only used for URL generation.
+- Have no impact on the URL matching behaviour of routing
+- Are only used for URL generation
 - Route names must be unique application-wide
 
 ```cs
@@ -625,9 +623,9 @@ Authentication is identifying who the user is
 
 ASP.NET Core Identity:
 
-- Is an API that supports user interface (UI) login functionality.
+- Is an API that supports user interface (UI) login functionality
 
-- Manages users, passwords, profile data, roles, claims, tokens, email confirmation, and more.
+- Manages users, passwords, profile data, roles, claims, tokens, email confirmation, and more
 
 Steps to add Identity to the application:
 
@@ -664,19 +662,16 @@ Steps to add Identity to the application:
 
 6. Add the `[AllowAnonymous]` attribute to allow unauthenticated users
 
-::: tip NOTE
-
-- If `[Authorize]` on the controller and `[AllowAnonymous]` on the action works
-
-- If `[AllowAnonymous]` on the controller and `[Authorize]` on the action will not work. That action can be accessed by unauthenticated users
-
-:::
+> [!NOTE]
+>
+> - If `[Authorize]` on the controller and `[AllowAnonymous]` on the action works
+> - If `[AllowAnonymous]` on the controller and `[Authorize]` on the action will not work. That action can be accessed by unauthenticated users
 
 ### User Management
 
-- `UserManager<IdentityUser>`: Provides the APIs for managing user in a persistence store.
+- `UserManager<IdentityUser>`: Provides the APIs for managing user in a persistence store
 
-- `SignInManager<IdentityUser>`: Provides the APIs for user sign in.
+- `SignInManager<IdentityUser>`: Provides the APIs for user sign in
 
 ```cs
 [AllowAnonymous]
@@ -723,7 +718,7 @@ public void ConfigureServices(IServiceCollection services)
 {
     services.Configure<IdentityOptions>(options =>
     {
-        // Password settings.
+        // Password settings
         options.Password.RequireDigit = true;
         options.Password.RequireLowercase = true;
         options.Password.RequireNonAlphanumeric = true;
@@ -731,12 +726,12 @@ public void ConfigureServices(IServiceCollection services)
         options.Password.RequiredLength = 6;
         options.Password.RequiredUniqueChars = 1;
 
-        // Lockout settings.
+        // Lockout settings
         options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(5);
         options.Lockout.MaxFailedAccessAttempts = 5;
         options.Lockout.AllowedForNewUsers = true;
 
-        // User settings.
+        // User settings
         options.User.AllowedUserNameCharacters =
         "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-._@+";
         options.User.RequireUniqueEmail = false;
@@ -949,7 +944,7 @@ Data Protection API (DPAPI) can be used
 
 ## Nuget Packages
 
-1. Use `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` Nuget package to hot reload. Also add `app.AddRazorPages().AddRazorRuntimeCompilation()` to Startup file.
+1. Use `Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation` Nuget package to hot reload. Also add `app.AddRazorPages().AddRazorRuntimeCompilation()` to Startup file
 
 2. `Microsoft.EntityFrameworkCore` to access Database. `Microsoft.EntityFrameworkCore.SqlServer` for SqlServer. For Sqlite use [Sqlite EntityFramework](https://docs.microsoft.com/en-us/ef/core/get-started/?tabs=visual-studio). `Microsoft.EntityFrameworkCore.Tools` to run migrations. Add the below connection string in `appsettings.json` file:
 
@@ -961,7 +956,7 @@ Data Protection API (DPAPI) can be used
    }
    ```
 
-   Connection String is found in the respective SQL Application.
+   Connection String is found in the respective SQL Application
 
 ## Versions
 
@@ -992,7 +987,7 @@ To target older ASP.NET Core versions add a `global.json` file to the working di
 
 Dependency injection is completely built in:
 
-- No need to bring in **Ninject** or **Autofac** etc.
+- No need to bring in **Ninject** or **Autofac** etc...
 - Items added to the services container in `Startup.cs`
 - Services are accessed through:
   - Constructor injection
@@ -1098,9 +1093,9 @@ public class Program
 1. Using SSL Locally: IIS
    - Check Enable SSL on Debug project property page
    - Configure MVC for SSLPort (44300 or greater)
-   - Add RequireHttps attribute/filter/etc.
+   - Add RequireHttps attribute/filter/etc...
    - Add `iisSettings.iisExpress.sslPort: 44329` to `launchSettings.json` file
-   - If you have not already trusted it. You'll get an exception in the browser.
+   - If you have not already trusted it. You'll get an exception in the browser
 
    - **Added in 1.1:**
      - URL rewriting to HTTPS
@@ -1170,7 +1165,7 @@ ASP.NET Core provides `ILoggerFactory` available in Startup's Configure method
 - Controller, AsyncController, APIController all rolled into one
 - All return `IActionResult` (or `Task<IActionResult>`) or its derivatives
 - many helper methods built into base controller for returning `HttpStatusCodes`:
-  - `NoContent(204)`, `OK(200)`, `BadRequest(400)`, etc
+  - `NoContent(204)`, `OK(200)`, `BadRequest(400)`, etc...
 - API methods must specify HTTP verb (as opposed to API 2.2)
   - No longer based on name of method
 
@@ -1497,7 +1492,7 @@ Using Docker:
   - Configures logging for console and debug logging using filtering rules from `appsettings`
 
   - Can add additional configuration, logging providers, and servers
-  - Can execute `Configure` and `ConfigureServices` directly from the WebHostBuilder without having to use a startup class.
+  - Can execute `Configure` and `ConfigureServices` directly from the WebHostBuilder without having to use a startup class
 
 Configuration Updates:
 
@@ -1636,8 +1631,8 @@ SignalR Features:
 
 SignalR Mechanics:
 
-- ASP.NET Core SignalR uses WebSockets to handle real-time communications.
-- Hubs are used to communicate between the clients and the servers.
+- ASP.NET Core SignalR uses WebSockets to handle real-time communications
+- Hubs are used to communicate between the clients and the servers
 - SignalR handles the dispatching across machine boundaries
   - Allowing clients to call the server and vice versa
 

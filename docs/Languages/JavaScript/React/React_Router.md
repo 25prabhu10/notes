@@ -29,7 +29,7 @@ function App() {
 }
 ```
 
-- A `<Route>` is only ever to be used as the child of `<Routes>` element, never rendered directly.
+- A `<Route>` is only ever to be used as the child of `<Routes>` element, never rendered directly
 
 - If you want the new page to start from top:
 
@@ -246,9 +246,8 @@ export const Profile = ({ loggedIn }) => {
   - Even though an anchor tag is render, on clicking the link the page will not be reloaded
   - React prevents the browser navigation to the new page
 
-::: danger LINK
-`Link` should always be under any of the children of `BrowserRouter`
-:::
+> [!CAUTION] LINK
+> `Link` should always be under any of the children of `BrowserRouter`
 
 ## Types of Routers
 

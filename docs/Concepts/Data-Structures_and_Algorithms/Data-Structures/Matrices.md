@@ -245,4 +245,4 @@ description: Matrices
 
 7. Toeptitz Matrix
 
-8. Sparse Matrix: A sparse matrix is a matrix that is comprised of mostly zero values.
+8. Sparse Matrix: A sparse matrix is a matrix that is comprised of mostly zero values

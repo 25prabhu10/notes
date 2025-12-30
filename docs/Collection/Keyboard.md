@@ -98,7 +98,7 @@ Switch Manufactures:
 
 Categories:
 
-1. _Tactile Key Switches_: A small tactile bump provides resistance while the switch itself is practically inaudible. Versatile performers for a variety of typing tasks.
+1. _Tactile Key Switches_: A small tactile bump provides resistance while the switch itself is practically inaudible. Versatile performers for a variety of typing tasks
    - Zeal PC Zilents V2 - (mushy, less sound)
    - Zeal PC Zealios V2 + (sound)
    - Novelkeys Box Royal
@@ -110,7 +110,7 @@ Categories:
    - Buckling spring switches
    - Cherry MX Brown + (light)
 
-2. _Linear Key Switches_: Linear switches are close to silent. To actuate a linear switch, you must push it all the way down, like a membrane key.
+2. _Linear Key Switches_: Linear switches are close to silent. To actuate a linear switch, you must push it all the way down, like a membrane key
    - Kailh Speed Silver
    - Kailh Red
    - Gateron Black Ink - (force)
@@ -120,7 +120,7 @@ Categories:
    - Zeal PC Roselios - (Soft)
    - Cherry MX Red
 
-3. _Clicky Key Switches_: Featuring a distinct click sound and tactile resistance that must be overcome to register a keystroke. Often preferred by typiests.
+3. _Clicky Key Switches_: Featuring a distinct click sound and tactile resistance that must be overcome to register a keystroke. Often preferred by typiests
    - NovelKeys Sherbet + (Sharp feedback, loud)
    - NovelKeys x Kailh Box Jade + (heavy)
    - NovelKeys x Kailh Box Navy

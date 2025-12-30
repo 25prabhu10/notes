@@ -1,7 +1,6 @@
 ---
 title: LeetCode
 description: Coding problems from LeetCode
-date: 2025-03-08
 ---
 
 # LeetCode

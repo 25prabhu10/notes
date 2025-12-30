@@ -1,6 +1,6 @@
 ---
 title: Arrays
-description: An array data structure consists of a collection of homogeneous elements, each identified by at least one array index or key.
+description: An array data structure consists of a collection of homogeneous elements, each identified by at least one array index or key
 ---
 
 # Arrays
@@ -93,13 +93,13 @@ int main()
 
 - If an array of size `5` and only first `3` elements are initialized with values then the remaining `2` elements value will be set to `0`
 
-- Arrays have constant-time access to any element and to add/remove at the end. Linear time to add/remove at an arbitrary location.
+- Arrays have constant-time access to any element and to add/remove at the end. Linear time to add/remove at an arbitrary location
 
 - To find the address of any element in an array use: `array_starting_address + element_size * (index_of_element - index_of_first_element)`
 
 ## Size
 
-Arrays are created inside the Stack Memory and have fixed size and cannot be changed after initialization.
+Arrays are created inside the Stack Memory and have fixed size and cannot be changed after initialization
 
 The size of an array can be determined dynamically (user inputs the size during runtime) (supported in C++):
 
@@ -162,7 +162,7 @@ int main()
 
 ### Increase Size of an Array Created In Heap
 
-Size of an array cannot be changed after initialization. So to accommodate more elements we need to use pointers to create arrays.
+Size of an array cannot be changed after initialization. So to accommodate more elements we need to use pointers to create arrays
 
 ```c
 int main()
@@ -217,17 +217,17 @@ During runtime the address of the array is known and the value of `L0` is update
 
 ## Multi-Dimensional Arrays
 
-The size of a two-dimensional array is represented as `m x n`, where `m` is the number of rows and `n` is the number of columns.
+The size of a two-dimensional array is represented as `m x n`, where `m` is the number of rows and `n` is the number of columns
 
 We can create multi-dimensional arrays by:
 
-1. Array declared with array size and dimensions. In memory array will have one dimension but the compiler provides ways to define multi-dimensions. Array is created in Stack Memory.
+1. Array declared with array size and dimensions. In memory array will have one dimension but the compiler provides ways to define multi-dimensions. Array is created in Stack Memory
 
    ```c
    int A[2][2] = {{1, 2}, {3, 4}};
    ```
 
-2. Array of pointers where each pointer points to an array. Multi-dimensional array in Heap memory. Pointer array is created in Stack Memory and the arrays which each element points to is stored in Heap Memory.
+2. Array of pointers where each pointer points to an array. Multi-dimensional array in Heap memory. Pointer array is created in Stack Memory and the arrays which each element points to is stored in Heap Memory
 
    ```c
    int *A[3];
@@ -259,11 +259,11 @@ We can create multi-dimensional arrays by:
    }
    ```
 
-When we create a multi-dimensional array, during runtime the actual array created will be linear not multi-dimensional in memory. So, the multi-dimensional array is mapped on to (or represented as) single dimension and stored inside the memory.
+When we create a multi-dimensional array, during runtime the actual array created will be linear not multi-dimensional in memory. So, the multi-dimensional array is mapped on to (or represented as) single dimension and stored inside the memory
 
 There are two ways to do this mapping or representation:
 
-1. **Row-major:** The elements of multi-dimensional array are mapped row by row. If we stack all elements of an array as `(1,1),(1,2)...,(1,n),(2,1),(2,2)...,(2,n)...,` the **column values change** rapidly, hence _Row-Major_.
+1. **Row-major:** The elements of multi-dimensional array are mapped row by row. If we stack all elements of an array as `(1,1),(1,2)...,(1,n),(2,1),(2,2)...,(2,n)...,` the **column values change** rapidly, hence _Row-Major_
    - Formula for `m x n` metrics:
 
      `Address(A[i][j] = L0 + ((i * n) + j) * w`
@@ -272,7 +272,7 @@ There are two ways to do this mapping or representation:
 
      `Address(A[i1][i2][i3][i4]) = L0 + ((i1 * d2 * d3 * d4) + (i2 * d3 * d4) + (i3 * d4) + i4) * w`
 
-   - Multiplication of dimensions goes left to right.
+   - Multiplication of dimensions goes left to right
 
    - Formula for `d1 x d2 x d3 .... xdn`metrics:
 
@@ -284,14 +284,14 @@ There are two ways to do this mapping or representation:
 
    - Here the number of multiplications are reduced to `n-1` and hence `O(n)`.
 
-2. **Column-major:** The elements of multi-dimensional array are mapped column by column. If we stack all elements of an array as `(1,1),(2,1)...,(n,1),(1,2),(2,2)...,(n,2)...,` the **row values change** rapidly, hence _Column-Major_.
+2. **Column-major:** The elements of multi-dimensional array are mapped column by column. If we stack all elements of an array as `(1,1),(2,1)...,(n,1),(1,2),(2,2)...,(n,2)...,` the **row values change** rapidly, hence _Column-Major_
    - Formula for `m x n` metrics: `Address(A[i][j] = L0 + (i + (j * m)) * w`
 
    - Formula for `d1 x d2 x d3 x d4` metrics: `Address(A[i1][i2][i3][i4]) = L0 + ((i4 * d3 * d2 * d1) + (i3 * d2 * d1) + (i2 * d1) + i1) * w`
 
-   - Multiplication of dimensions goes right to left.
+   - Multiplication of dimensions goes right to left
 
-Looking at the formula we can see that both the methods are equally efficient and any one of them can be used.
+Looking at the formula we can see that both the methods are equally efficient and any one of them can be used
 
 In C/C++, **Row-major mapping is used**.
 
@@ -303,9 +303,8 @@ In C/C++, **Row-major mapping is used**.
 |    End    | `O(1)` | `O(1)` |
 |  Middle   | `O(n)` | `O(n)` |
 
-::: tip NOTE
-Most languages use zero-based indexing, some use one as the starting index, and some allow the user to specify the starting index.
-:::
+> [!NOTE]
+> Most languages use zero-based indexing, some use one as the starting index, and some allow the user to specify the starting index
 
 ## Implementation
 
@@ -533,7 +532,7 @@ int Delete(struct Array *arr, int index)
      }
      ```
 
-2. Binary Search: The array must be sorted.
+2. Binary Search: The array must be sorted
    - Operations: Best: `O(1)`, Worst: `O(log2 n)`
 
      ```c
@@ -923,7 +922,7 @@ struct Array *Intersection(struct Array arr1, struct Array arr2)
 
 ### Difference
 
-- Get all the elements that are present in the first element but not in the second element.
+- Get all the elements that are present in the first element but not in the second element
 - Operations: Unsorted Array: `O(n^2)`
 
 ```c

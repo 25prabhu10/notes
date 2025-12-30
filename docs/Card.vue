@@ -1,33 +1,27 @@
-<script setup>
-defineProps({
-  title: {
-    type: String,
-    default: "",
-  },
-  imgPath: {
-    type: String,
-    default: "./logo.png",
-  },
-  href: {
-    type: String,
-    default: "/",
-  },
-  shadowColor: {
-    type: String,
-    default: "var(--vp-c-text-1)",
-  },
-  borderColor: {
-    type: String,
-    default: "var(--vp-c-text-1)",
-  },
-});
+<script setup lang="ts">
+interface Props {
+  borderColor?: string;
+  href?: string;
+  imgPath?: string;
+  shadowColor?: string;
+  title?: string;
+}
+
+const {
+  title = "",
+  imgPath = "./logo.png",
+  href = "/",
+  shadowColor = "var(--vp-c-text-1)",
+  borderColor = "var(--vp-c-text-1)",
+} = defineProps<Props>();
 </script>
 
 <template>
   <article>
-    <a :href="href" class="card" :aria-label="title">
-      <img :alt="title" :src="imgPath" class="logo" loading="lazy" />{{ title }}</a
-    >
+    <a :href="href" class="card">
+      <img :alt="title" :src="imgPath" class="logo" loading="lazy" width="100" height="100" />
+      <span class="title">{{ title }}</span>
+    </a>
   </article>
 </template>
 
@@ -43,6 +37,8 @@ defineProps({
   padding: 2em;
   border: 0.2em solid var(--vp-c-text-3);
   border-radius: 0.5em;
+  text-decoration: none;
+  color: inherit;
 }
 
 .dark .card:hover,
@@ -69,8 +65,14 @@ html:not(.dark) .card:focus-visible {
   }
 }
 
-img {
+.logo {
   height: 100px;
   width: 100px;
+  object-fit: contain;
+}
+
+.title {
+  font-weight: bold;
+  text-align: center;
 }
 </style>

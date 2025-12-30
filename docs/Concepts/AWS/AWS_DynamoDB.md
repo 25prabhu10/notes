@@ -20,7 +20,7 @@ NoSQL Serverless Database
 ## NoSQL databases
 
 - NoSQL databases are non-relational databases and are **distributed**
-- NoSQL databases include MongoDB, DynamoDB, etc.
+- NoSQL databases include MongoDB, DynamoDB, etc...
 - NoSQL databases **do not support join**
 - All the data that is needed for a query is present in one row
 - NoSQL databases **don't perform aggregations** such as "SUM"
@@ -90,7 +90,7 @@ NoSQL Serverless Database
 
 - One write capacity unit represents **one write per second for an item up to 1 KB in size**
 - If the items are larger than 1 KB, more WCU are consumed
-- _Example_ 1: we write 10 objects per seconds of 2 KB each.
+- _Example_ 1: we write 10 objects per seconds of 2 KB each
   - We need `2 * 10 = 20 WCU`
 - _Example_ 2: we write 6 objects per second of 4.5 KB each
   - We need `6 * 5 = 30 WCU` (4.5 gets rounded to the upper KB)
@@ -207,7 +207,7 @@ NoSQL Serverless Database
 
 - Alternate range key for your table, **local to the hash key**
 - Up to **five local secondary indexes per table.**
-- The sort key consists of exactly one scalar attribute.
+- The sort key consists of exactly one scalar attribute
 - The attribute that you choose must be a scalar String, Number, or Binary
 - **LSI must be defined at table creation time**
 - Any columns other Partition key and Sort key
@@ -273,10 +273,10 @@ NoSQL Serverless Database
 - Stream has **24 hours of data retention**
 
 - Choose the information that will be written to the stream whenever the data in the table is modified:
-  - `KEYS_ONLY`: Only the key attributes of the modified item.
-  - `NEW_IMAGE`: The entire item, as it appears after it was modified.
-  - `OLD_IMAGE`: The entire item, as it appeared before it was modified.
-  - `NEW_AND_OLD_IMAGES`: Both the new and the old images of the item.
+  - `KEYS_ONLY`: Only the key attributes of the modified item
+  - `NEW_IMAGE`: The entire item, as it appears after it was modified
+  - `OLD_IMAGE`: The entire item, as it appeared before it was modified
+  - `NEW_AND_OLD_IMAGES`: Both the new and the old images of the item
 - DynamoDB Streams are made of shards, just like Kinesis Data Streams
 - You don't provision shards, this is automated by AWS
 - **Records are not retroactively populated in a stream after enabling it**
@@ -313,7 +313,7 @@ NoSQL Serverless Database
 ## DynamoDB Transactions
 
 - Transaction = Ability to Create / Update / Delete multiple rows in different tables at the same time
-- It's an "all or nothing" type of operation.
+- It's an "all or nothing" type of operation
 - Write Modes: Standard, Transactional
 - Read Modes: Eventual Consistency, Strong Consistency, Transactional
 - **Consume 2x of WCU / RCU**

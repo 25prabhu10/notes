@@ -31,9 +31,9 @@ app.Run();
 2. The above command scaffolds these files and folder (Check [Core Project Structure](./ASP_NET_Core.md#aspnet-core-project-structure.md)):
    - `Controller/`
    - `Properties/launchSettings.json`: Visual Studio will use the profiles defined here to run the project
-   - `appsettings.json`: Application configuration file, it store details such as database connection strings, API keys, etc.
+   - `appsettings.json`: Application configuration file, it store details such as database connection strings, API keys, etc...
    - `[project name].csproj`: Defines how the project will be built
-   - `Program.cs`: Entry point of the .NET Core applications. Host configuration.
+   - `Program.cs`: Entry point of the .NET Core applications. Host configuration
    - `Startup.cs`: Configures services and application request pipelines (middle-ware)
      - `public IConfiguration Configuration { get; }`: Read configuration settings from multiple sources like `appsettings.json`, Environment variables, files...
 
@@ -43,7 +43,7 @@ app.Run();
    dotnet dev-certs https --trust
    ```
 
-4. Build and run the project.
+4. Build and run the project
 
    ```bash
    dotnet run
@@ -53,21 +53,21 @@ app.Run();
 
 ## Routing
 
-**Attribute routing** is preferred with REST APIs.
+**Attribute routing** is preferred with REST APIs
 
 Configure routing in your API application:
 
 ```cs
  public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
  {
-     // Matches request to an endpoint.
+     // Matches request to an endpoint
      app.UseRouting();
 
-     // Execute the matched endpoint.
+     // Execute the matched endpoint
      app.UseEndpoints(endpoints =>
      {
 
-         // Adds endpoints for controller actions to the `IEndpointRouteBuilder` without specifying any routes.
+         // Adds endpoints for controller actions to the `IEndpointRouteBuilder` without specifying any routes
          endpoints.MapControllers();
      });
  }
@@ -92,7 +92,7 @@ public void ConfigureServices(IServiceCollection services)
 
 A controller based web API consists of one or more controller classes that derive from `ControllerBase`.
 
-- `ControllerBase` is lightweight and dose not have support for views.
+- `ControllerBase` is lightweight and dose not have support for views
 
 _Example:_
 
@@ -149,11 +149,11 @@ ApiController attribute: The `[ApiController]` attribute can be applied to a con
 
 Some useful attributes:
 
-- `[Route]`: Specifies URL pattern for a controller or action.
-- `[Bind]`: Specifies prefix and properties to include for model binding.
-- `[HttpGet]`: Identifies an action that supports the HTTP GET action verb.
-- `[Consumes]`: Specifies data types that an action accepts.
-- `[Produces]`: Specifies data types that an action returns.
+- `[Route]`: Specifies URL pattern for a controller or action
+- `[Bind]`: Specifies prefix and properties to include for model binding
+- `[HttpGet]`: Identifies an action that supports the HTTP GET action verb
+- `[Consumes]`: Specifies data types that an action accepts
+- `[Produces]`: Specifies data types that an action returns
 
 ### Binding Source Parameter Inference
 
@@ -175,9 +175,9 @@ The following binding source attributes exist:
 public ActionResult<List<Product>> Get([FromQuery] bool discontinuedOnly = false)
 ```
 
-- The [ApiController] attribute applies inference rules for the default data sources of action parameters.
+- The [ApiController] attribute applies inference rules for the default data sources of action parameters
 
-- These rules save you from having to identify binding sources manually by applying attributes to the action parameters.
+- These rules save you from having to identify binding sources manually by applying attributes to the action parameters
 
 ### Control API Behaviour
 
@@ -336,13 +336,13 @@ app.MapGet("/weather", asycn (string city, string units, OpenWeatherMapService w
 
 ## Resources
 
-[RESTful APIs](./../../../Concepts/Web/RESTful_Web_Services.md) are all about returning and manipulating resources.
+[RESTful APIs](./../../../Concepts/Web/RESTful_Web_Services.md) are all about returning and manipulating resources
 
-- We can use a base class for all the resource models we'll need to return from the API.
+- We can use a base class for all the resource models we'll need to return from the API
 
 ### Entities / Domains / Models
 
-A _model_ is a set of classes that represent the data that the app manages.
+A _model_ is a set of classes that represent the data that the app manages
 
 Create `record` Types instead of `class` as they provide more features like:
 
@@ -367,13 +367,13 @@ Example folder structures:
 
 - `Data/Models/[modelClasses].cs`
 
-Entity Framework lets us use simple classes to represent database entities.
+Entity Framework lets us use simple classes to represent database entities
 
 - These are sometimes called POCOs (Plain Old CLR Objects)
 
 ## Asynchronous
 
-Asynchronous all the way.
+Asynchronous all the way
 
 ## Database
 
@@ -384,9 +384,9 @@ Working with Database using:
 
 ### Authentication And Authorization
 
-- Implemented using the ASP.NET Core Identity packages.
+- Implemented using the ASP.NET Core Identity packages
 
-- ASP.NET Core Identity contains reusable code for dealing with accounts, passwords, and other authentication concerns.
+- ASP.NET Core Identity contains reusable code for dealing with accounts, passwords, and other authentication concerns
 
 - Use `OpenIddict` for OpenId implementation
 
@@ -411,7 +411,7 @@ Dose your API need CORS?
 
 - Accessed by browsers
 
-Server can whitelist certain origins, HTTP methods, headers, and other element of the request.
+Server can whitelist certain origins, HTTP methods, headers, and other element of the request
 
 - Add CORS middleware:
 
@@ -448,21 +448,21 @@ Application exposes HTTP endpoints which can be configured to provide informatio
 
 ASP.NET provides 3 different health check levels:
 
-- **Healthy**: Application is healthy and in a normal, working state.
+- **Healthy**: Application is healthy and in a normal, working state
 
-- **Unhealthy**: Application is unhealthy and is offline or an unhandled exception was thrown while executing the check.
+- **Unhealthy**: Application is unhealthy and is offline or an unhandled exception was thrown while executing the check
 
-- **Degraded**: Application is still running, but not responding within an expected timeframe.
+- **Degraded**: Application is still running, but not responding within an expected timeframe
 
 Types of Health Checks:
 
-- **Basic health probes** are the simplest form of health checking. They are configured as a URL endpoint, which will respond with a health response. These basic checks allow us to very quickly determine if our application is healthy or not.
+- **Basic health probes** are the simplest form of health checking. They are configured as a URL endpoint, which will respond with a health response. These basic checks allow us to very quickly determine if our application is healthy or not
 
-- **System** health checks give us a plethora of information, such as disk storage and memory usage of the underlying host our application is running on.
+- **System** health checks give us a plethora of information, such as disk storage and memory usage of the underlying host our application is running on
 
-- **Database** probes can determine whether our database provider is online and whether our application can successfully talk to it.
+- **Database** probes can determine whether our database provider is online and whether our application can successfully talk to it
 
-- **Custom** health checks can range from anything such as checking a 3rd party service or API our application relies on, to checking our logging storage is not near capacity. These are more general and would require custom code to be written to execute the checks.
+- **Custom** health checks can range from anything such as checking a 3rd party service or API our application relies on, to checking our logging storage is not near capacity. These are more general and would require custom code to be written to execute the checks
 
 _Example:_
 
@@ -575,7 +575,7 @@ Approaches to Restful Versioning:
 
 1. Don't version (clients should be dynamic)
 
-2. Content/Media type (header) versioning: Content negotiation process that already exists in HTTP. When clients request a media type using the Accept header they can explicitly include a version number or string in the media type itself.
+2. Content/Media type (header) versioning: Content negotiation process that already exists in HTTP. When clients request a media type using the Accept header they can explicitly include a version number or string in the media type itself
 
    ```http
    GET api/test HTTP/1.1
@@ -690,7 +690,7 @@ services.AddSwaggerGen(c =>
 
     });
 
-    // Set the comments path for the Swagger JSON and UI.
+    // Set the comments path for the Swagger JSON and UI
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     c.IncludeXmlComments(xmlPath);
@@ -699,7 +699,7 @@ services.AddSwaggerGen(c =>
 // Add Middleware
 if (env.IsDevelopment())
 {
-    // Enable middleware to serve generated Swagger as a JSON endpoint.
+    // Enable middleware to serve generated Swagger as a JSON endpoint
     app.UseSwagger();
 
     // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.)
@@ -721,7 +721,7 @@ public IActionResult GetRoot()
 ## Caching Response
 
 1. Client-side caching:
-   - ASP.NET Core uses the `ResponseCache` attribute to indicate that a particular response is cacheable.
+   - ASP.NET Core uses the `ResponseCache` attribute to indicate that a particular response is cacheable
 
      ```cs
      public class RootController : ControllerBase

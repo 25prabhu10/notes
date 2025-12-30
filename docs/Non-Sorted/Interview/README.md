@@ -9,23 +9,21 @@ sidebar: false
 "I have interviewed at a number of different companies for various positions. I received a written offer for one of the positions that would be an excellent fit for my qualifications and this offer was received after we scheduled this interview. The truth is, I believe the position you are offering me is an even better fit for my qualifications, but the salary you are offering is less than the other offer I have. This presents a challenging dilemma for me as you might imagine. Is there a possibility of meeting or improving upon the salary identified in this other offer? I can show you the other offer if that would be helpful."
 
 1. [General](./General.md)
-2. [Agile](./Agile.md)
-3. [ASP.NET](./ASP_NET.md)
-4. [BackEnd](./BackEnd.md)
-5. [C-Sharp](./C_Sharp.md)
-6. [Database](./Database.md)
-7. [FrontEnd](./FrontEnd.md)
-8. [Tools](./Tools.md)
-9. [Roles and Responsibilities](./Roles_and_Responsibilities.md)
-10. [LinkedIn](./LinkedIn.md)
-11. [Temp](./temp.md)
+2. [ASP.NET](./ASP_NET.md)
+3. [BackEnd](./BackEnd.md)
+4. [C-Sharp](./C_Sharp.md)
+5. [Database](./Database.md)
+6. [FrontEnd](./FrontEnd.md)
+7. [Roles and Responsibilities](./Roles_and_Responsibilities.md)
+8. [LinkedIn](./LinkedIn.md)
+9. [Temp](./temp.md)
 
 ## Temp
 
 Seeking an Onsite Opportunity (serving notice period)
 Dear All,
 
-I am a Full-Stack Developer having 6+ years of experience. I am seeking an Onsite Opportunity. Ready to withdraw resignation.
+I am a Full-Stack Developer having 6+ years of experience. I am seeking an Onsite Opportunity. Ready to withdraw resignation
 
 Last working day: 7th April 2023
 Skill Set: React.js, TypeScript, JavaScript, HTML & CSS, Angular.js, Node.js, Express, C#, ASP.Net Core, Python, RESTful APIs, Git, GitHub, AWS, SQL, Postman, Jira, Linux
@@ -35,8 +33,8 @@ Fresco Play: 3.16
 
 Certificate: AWS Certified Developer - Associate (Nov 2021 — Nov 2024)
 
-Looking forward to your guidance.
-Kindly connect me if there is any requirement.
+Looking forward to your guidance
+Kindly connect me if there is any requirement
 
 Regards,
 Prabhu Hiremath
@@ -46,14 +44,14 @@ Email Id: `prabhu.hiremath@tcs.com`
 Contact No.: +91-9480580490
 
 Looking for Canada onsite opportunity
-getting released from current project by March end.
-|Skills: Selenium Java Automation, Manual testing | Exp. 8+ years.
-Please find the attached resume and let me know about open requirements in UK.
+getting released from current project by March end
+|Skills: Selenium Java Automation, Manual testing | Exp. 8+ years
+Please find the attached resume and let me know about open requirements in UK
 Contact Details: Emp ID - 1747778|Email - `suniti.pandey@tcs.com` |Phone - +44-07771089293
 
 Looking for immediate onsite opportunity in testing
-Skills : API Testing, Robot Framework, POSTMAN, Jenkins, JIRA, GIT Repo, Swagger, Basics in Selenium Automation with core Java, SQL.
-Ready to learn and upskill new technologies as well.
+Skills : API Testing, Robot Framework, POSTMAN, Jenkins, JIRA, GIT Repo, Swagger, Basics in Selenium Automation with core Java, SQL
+Ready to learn and upskill new technologies as well
 
 Contact:
 Emp id : 1815678
@@ -63,27 +61,27 @@ Contact:+91-8606739275
 
 Unalllocated || Immediate Joiner || Looking for a project || Onsite Opportunity
 
-Hi, I am a front end developer having 5+ years of experience in UI(Angular 13, Angular Material, JavaScript, TypeScript, Bootstrap, HTML5, CSS3. I am looking for onsite opportunity as I have experience in working with clients directly. Please reach out to me on Teams.
+Hi, I am a front end developer having 5+ years of experience in UI(Angular 13, Angular Material, JavaScript, TypeScript, Bootstrap, HTML5, CSS3. I am looking for onsite opportunity as I have experience in working with clients directly. Please reach out to me on Teams
 
-Looking for immediate Onsite opportunity and ready to Travel immediately.
-Hi All,I am immediately available and Looking for a suitable onsite role.I am ready for relocation as well.
+Looking for immediate Onsite opportunity and ready to Travel immediately
+Hi All,I am immediately available and Looking for a suitable onsite role.I am ready for relocation as well
 Primary Skills : Power BI, Data Analysis-SQL, Test Lead
 SecondaryContinue reading Looking for immediate Onsite opportunity and ready to Travel immediately....See More
-Hi All,I am immediately available and Looking for a suitable onsite role.I am ready for relocation as well.
+Hi All,I am immediately available and Looking for a suitable onsite role.I am ready for relocation as well
 Primary Skills : Power BI, Data Analysis-SQL, Test Lead
 Secondary Skills : PowerApps, EazyBI, Python, Scrum Master, Databricks
 Certifications: PowerBI,PowerApps,PSM1,Python.Please find my contacts Mobile - 9075565884
 
 Hi All,
-I am looking for an immediate on-site opportunity for the Australia location. I have work Visa for Australia. Ready to withdraw resignation if the Onsite project is provided before 31st Jan 2023.
+I am looking for an immediate on-site opportunity for the Australia location. I have work Visa for Australia. Ready to withdraw resignation if the Onsite project is provided before 31st Jan 2023
 
-Skill: SQL, Informatica power center, INFORMATICA cloud, Azure, PL/SQL, Python(3.x), MySQL, Unix Shell scripting.
+Skill: SQL, Informatica power center, INFORMATICA cloud, Azure, PL/SQL, Python(3.x), MySQL, Unix Shell scripting
 Experience: 3.8 years
 
-Ready to take new technology.
-Looking forward to your guidance.
+Ready to take new technology
+Looking forward to your guidance
 
-Kindly connect me if there is any requirement.
+Kindly connect me if there is any requirement
 
 Regards,
 Nishanth Hanumanthu
@@ -127,15 +125,15 @@ teams: 1641829
 
 - "I'd like to learn more about the role and its responsibilities before discussing salary expectations. But may I ask what salary range you consider for this role?".
 
-- I expect salary based on Industry standards & skill sets, knowledge.
+- I expect salary based on Industry standards & skill sets, knowledge
 
-- I would be interested in hearing the salary range for this position before I commit to a figure.
+- I would be interested in hearing the salary range for this position before I commit to a figure
 
-- My first priority is to enhance my knowledge and improve my skills. I expect a salary according to the norms of the company.
+- My first priority is to enhance my knowledge and improve my skills. I expect a salary according to the norms of the company
 
-- Right now finding the right position for me and getting hands-on -experience is most important. I will accept based on industrial standards and company norms.
+- Right now finding the right position for me and getting hands-on -experience is most important. I will accept based on industrial standards and company norms
 
-- I want a salary which fulfil my economical needs. And I agree based on the industrial standards.
+- I want a salary which fulfil my economical needs. And I agree based on the industrial standards
 
 [Share My Salary History?](https://in.indeed.com/career-advice/pay-salary/providing-salary-history)
 

@@ -1,8 +1,6 @@
 ---
 title: Data Analytics
 description: Analyzing data to extract useful information
-date: 2024-11-06
-lastmod: 2024-11-06
 ---
 
 # Data Analytics

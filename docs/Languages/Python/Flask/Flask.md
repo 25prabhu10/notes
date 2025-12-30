@@ -4,7 +4,7 @@ Flask is a lightweight WSGI web application framework. It is designed to make ge
 
 ## Setup
 
-All Flask applications must create an application instance.
+All Flask applications must create an application instance
 
 ### Snippets
 

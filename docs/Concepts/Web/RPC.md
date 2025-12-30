@@ -1,8 +1,6 @@
 ---
 title: RPC
 description: Remote Procedure Call (RPC) is a protocol for communication between two systems
-date: 2024-10-09
-lastmod: 2024-10-09
 ---
 
 # RPC

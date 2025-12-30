@@ -1,8 +1,6 @@
 ---
 title: tmux
 description: An open-source terminal multiplexer for Unix-like operating systems
-date: 2023-06-10
-lastmod: 2023-08-07
 ---
 
 # tmux

@@ -1,7 +1,6 @@
 ---
 title: Azure
 next: ./Azure
-date: 2024-10-05
 sidebar: false
 ---
 

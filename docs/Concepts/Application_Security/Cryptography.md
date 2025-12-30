@@ -5,7 +5,7 @@ description: Cryptography involves converting sensitive data into a format that 
 
 # Cryptography
 
-It is the practice and study of techniques for secure communication in the presence of adversarial behavior
+It is the practice and study of techniques for secure communication in the presence of adversarial behaviour
 
 - Cryptography involves converting sensitive data into a format that is unreadable for an unauthorized user
 
@@ -123,7 +123,7 @@ Encryption turns plaintext into ciphertext (and vice-versa):
 
 ### Symmetric Encryption
 
-Symmetric encryption uses a single key to encrypt and decrypt.
+Symmetric encryption uses a single key to encrypt and decrypt
 
 - Key needs to be shared
 - Which makes it less secure
@@ -176,15 +176,15 @@ console.log(decryptedMessage.toString("utf-8"));
 
 ### Asymmetric Encryption / Public-Key Cryptography
 
-Asymmetric Encryption encrypts and decrypts the data using two separate yet mathematically connected cryptographic keys.
+Asymmetric Encryption encrypts and decrypts the data using two separate yet mathematically connected cryptographic keys
 
-- The Private Key is intended to be private so that only the authenticated recipient can decrypt the message.
+- The Private Key is intended to be private so that only the authenticated recipient can decrypt the message
 
 - The Public Key is shared with users how intend to encrypt the message
 
 - Message longer than public key cannot be encrypted using the public key. This is an **important limitation**.
 
-- HTTPS performs key exchange (using public and private keys to generate symmetric key) and then encrypt any data larger than the public key using the resulting symmetric key.
+- HTTPS performs key exchange (using public and private keys to generate symmetric key) and then encrypt any data larger than the public key using the resulting symmetric key
 
 _Example:_
 
@@ -317,9 +317,9 @@ TLS Protocols & Cipher Suites:
 
 ##### Public Key Infrastructure (PKI)
 
-- PKI is about how two entities learn to trust each other to exchange messages securely.
-- Central idea of PKI is that some trusted keys can delegate their trust to other un-trusted keys.
-- Instead of just keys, certificates hold more personal information like domain name, organization, etc
+- PKI is about how two entities learn to trust each other to exchange messages securely
+- Central idea of PKI is that some trusted keys can delegate their trust to other un-trusted keys
+- Instead of just keys, certificates hold more personal information like domain name, organization, etc...
 - Primarily made up of:
   - Certificate Authority (CA): An entity that issues digital certificates to websites
   - Registration Authority
@@ -426,7 +426,7 @@ Web Apps:
 How do I trust a CA?
 
 - All CAs must submit certificate activity logs to CT Log services
-- CTLogs must be monitored and audited by organisation.
+- CTLogs must be monitored and audited by organisation
 - _A Signed Certificate Timestamp_ (SCT) is generated and returned when a certificate is submitted
 - All newly issued certificates must contain SCT and all CAs in Chrome's trusted store should have CT Logs
 - Web Server can enforce browsers to check and validate SCT using `Expect-CT` header

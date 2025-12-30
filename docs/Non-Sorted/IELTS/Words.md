@@ -1,8 +1,6 @@
 ---
 title: Words
-description:
-date: 2023-08-08
-lastmod: 2023-08-08
+description: A collection of academic words and collocations
 ---
 
 # Words

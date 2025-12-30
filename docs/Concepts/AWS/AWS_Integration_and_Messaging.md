@@ -174,7 +174,7 @@ Similar to S3 access policy
 - Auto Scaling Groups notifications
 - Amazon S3 (on bucket events)
 - CloudFormation (upon state changes => failed to build, etc)
-- Etc..
+- Etc...
 
 ### Amazon SNS - How to publish
 

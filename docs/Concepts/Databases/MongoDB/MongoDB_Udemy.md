@@ -78,15 +78,15 @@ Other applications required are:
 
 ### Documents
 
-- Document is an ordered set of keys with associated values.
+- Document is an ordered set of keys with associated values
 
-- A value can be one of several different [Data Types](#data-types) supported by MongoDB.
+- A value can be one of several different [Data Types](#data-types) supported by MongoDB
 
-- Every document has a special key, **`_id`**, that is unique within a collection. By default a unique `_id` is generated if explicitly not provided.
+- Every document has a special key, **`_id`**, that is unique within a collection. By default a unique `_id` is generated if explicitly not provided
 
-- Documents can have embedded documents and array fields.
+- Documents can have embedded documents and array fields
 
-- MongoDB is _type-sensitive_ and _case-sensitive_.
+- MongoDB is _type-sensitive_ and _case-sensitive_
 
   ```javascript
   // THE BELOW DOCUMENTS ARE DIFFERENT FROM EACH OTHER
@@ -103,9 +103,9 @@ Other applications required are:
 
 Keys can be any UTF-8 character, with some exceptions:
 
-- Keys must not contain the character **\0** (the `null` character). This character is used to signify the end of a key.
-- The `.` and `$` characters are reserved characters.
-- All the keys inside a document **must be unique** to that document.
+- Keys must not contain the character **\0** (the `null` character). This character is used to signify the end of a key
+- The `.` and `$` characters are reserved characters
+- All the keys inside a document **must be unique** to that document
 
 _Embedded Documents_:
 
@@ -168,11 +168,11 @@ Some reserved database names:
 
 ## Data Types
 
-1. **String**: Any strings of UTF-8 and must be enclosed in double or single quotes.
+1. **String**: Any strings of UTF-8 and must be enclosed in double or single quotes
 
 2. **Boolean**: `true` and `false`.
 
-3. **Number**: By default all numeric values are stored as (in mongo shell) _64-bit floating-point numbers_, which have much less precision than decimal numbers.
+3. **Number**: By default all numeric values are stored as (in mongo shell) _64-bit floating-point numbers_, which have much less precision than decimal numbers
    - **Integer** (int32): `55` written using `NumberInt(55)`.
    - **NumberLong** (int64): `10000000000`
    - **NumberDecimal** Doubles (64bit): `12.99`
@@ -181,17 +181,17 @@ Some reserved database names:
 4. **ObjectID**: Unique 12-byte IDs (temporal component) - `ObjectID("UUID")`.
 
 5. **Date**: Stores dates in ISO format - `ISODate("2018-09-09")` and `{"today" : new Date()}`.
-   - **Timestamp**: It is a special type for internal MongoDB use and not directly associated with the regular Date type.
+   - **Timestamp**: It is a special type for internal MongoDB use and not directly associated with the regular Date type
 
 6. **Embedded Documents**: Documents can contain entire documents embedded as values in a parent document:
 
-7. **Array**: A collection of items.
+7. **Array**: A collection of items
 
-8. **Null**: A key with value as `null` or a non-existent value.
+8. **Null**: A key with value as `null` or a non-existent value
 
 9. **Regular Expression**: Values can be JavaScript's regular expression syntax - `{"regex" : /foobar/i}`.
 
-10. **Binary Data**: Binary data is a string of arbitrary bytes. It cannot be manipulated from the shell. Binary data is the only way to save non-UTF-8 strings to the database.
+10. **Binary Data**: Binary data is a string of arbitrary bytes. It cannot be manipulated from the shell. Binary data is the only way to save non-UTF-8 strings to the database
 
 11. **Code**: MongoDB also makes it possible to store arbitrary JavaScript in queries and documents - `{"x" : function() { /* ... */ }}`.
 
@@ -199,8 +199,8 @@ Some reserved database names:
 
 ### CRUD Operations
 
-- `find()` **returns a cursor**, not a list of documents.
-- Filters and operators (`$gt`...) can be used to retrieve specify particular documents and also limit the number of documents.
+- `find()` **returns a cursor**, not a list of documents
+- Filters and operators (`$gt`...) can be used to retrieve specify particular documents and also limit the number of documents
 
 #### CREATE Documents
 
@@ -214,21 +214,21 @@ Some reserved database names:
   db.collectionName.insertOne({_id: "4984" key: "value"})
   ```
 
-- `insertMany()`: Insert multiple documents by passing an array of documents.
+- `insertMany()`: Insert multiple documents by passing an array of documents
 
   ```javascript
   db.collectionName.insertMany([{ key: "value" }, { key: "value" }]);
   ```
 
-  > MongoDB dose not accept message longer than 48MB and will split into batches of 48MB if message is large.
+  > MongoDB dose not accept message longer than 48MB and will split into batches of 48MB if message is large
 
-- `insert()`: Insert one or more documents at a time. It is not recommended to use. Also, this command dose not return the _ID_ of the inserted document.
+- `insert()`: Insert one or more documents at a time. It is not recommended to use. Also, this command dose not return the _ID_ of the inserted document
 
   ```javascript
   db.collectionName.insert();
   ```
 
-- `mongoimport`: Import documents from an external file.
+- `mongoimport`: Import documents from an external file
 
   ```bash
   mongoimport -d cars -c carsList --drop --jsonArray
@@ -236,10 +236,10 @@ Some reserved database names:
 
 Insert Options:
 
-1. **Ordered Insert**: MongoDB by default inserts documents in a Ordered Insert method i.e. While inserting multiple documents, each document is processed and inserted separately. If one of the document insertion fails, MongoDB stops insertion of rest of the documents. All the documents before the error were inserted.
-   - **MongoDB will not rollback** documents inserted before the error.
+1. **Ordered Insert**: MongoDB by default inserts documents in a Ordered Insert method i.e. While inserting multiple documents, each document is processed and inserted separately. If one of the document insertion fails, MongoDB stops insertion of rest of the documents. All the documents before the error were inserted
+   - **MongoDB will not rollback** documents inserted before the error
 
-   - Ordered insert can be disabled, so that the documents after the error are also inserted.
+   - Ordered insert can be disabled, so that the documents after the error are also inserted
 
      ```javascript
      db.collectionName.insertMany(
@@ -254,18 +254,18 @@ Insert Options:
      // IN THIS EXAMPLE DOCUMENT WITH _id: "Cooking" WILL BE INSERTED EVEN THOUGH THERE WAS AN ERROR IN THE PREVIOUS DOCUMENT
      ```
 
-2. **Write Concern**: Write concern describes the level of acknowledgment requested from MongoDB for write operations.
-   - Here, **`w: 1`** is acknowledgment is requested on a write operation and it is **`w: 0`** if no acknowledgment is needed. If `w` is **greater than 1** then it requires acknowledgment from the primary and as many data-bearing secondaries as needed to meet the specified write concern. Specifying `w: 2` would require acknowledgment from the primary and one of the secondaries. Specifying `w: 3` would require acknowledgment from the primary and both secondaries.
+2. **Write Concern**: Write concern describes the level of acknowledgment requested from MongoDB for write operations
+   - Here, **`w: 1`** is acknowledgment is requested on a write operation and it is **`w: 0`** if no acknowledgment is needed. If `w` is **greater than 1** then it requires acknowledgment from the primary and as many data-bearing secondaries as needed to meet the specified write concern. Specifying `w: 2` would require acknowledgment from the primary and one of the secondaries. Specifying `w: 3` would require acknowledgment from the primary and both secondaries
 
    - The `j` option requests acknowledgment from MongoDB that the write operation has been written to the [on-disk journal](https://docs.mongodb.com/manual/core/journaling/).
 
-   - This option specifies a time limit, in milliseconds, for the write concern. `wtimeout` is only applicable for `w` values greater than `1`. `wtimeout` causes write operations to return with an error after the specified limit, even if the required write concern will eventually succeed. When these write operations return, MongoDB **does not** undo successful data modifications performed before the write concern exceeded the `wtimeout` time limit. If you do not specify the `wtimeout` option and the level of write concern is unachievable, the write operation will block indefinitely. Specifying a `wtimeout` value of `0` is equivalent to a write concern without the `wtimeout` option.
+   - This option specifies a time limit, in milliseconds, for the write concern. `wtimeout` is only applicable for `w` values greater than `1`. `wtimeout` causes write operations to return with an error after the specified limit, even if the required write concern will eventually succeed. When these write operations return, MongoDB **does not** undo successful data modifications performed before the write concern exceeded the `wtimeout` time limit. If you do not specify the `wtimeout` option and the level of write concern is unachievable, the write operation will block indefinitely. Specifying a `wtimeout` value of `0` is equivalent to a write concern without the `wtimeout` option
 
      ```javascript
      db.collectionName.insertOne({_id: "yoga", name: "Yoga"}, { w: <value>, j: <boolean>, wtimeout: <number> });
      ```
 
-**Atomicity**: If an operation fails on a document, then the operation will be rolled back for only that document. The document is either saved or not saved.
+**Atomicity**: If an operation fails on a document, then the operation will be rolled back for only that document. The document is either saved or not saved
 
 ##### Import Documents from JSON File
 
@@ -281,11 +281,11 @@ Insert Options:
 
 #### DELETE Documents
 
-- `deleteOne()`: Deletes the first document that matches the filter. It takes a filter document as first parameter. This filter specifies a set of criteria to match against a document that needs to be removed.
-- `deleteMany()`: Similar to `deleteOne()`, this deletes many documents at a time.
-- `deleteMany({})` will remove all the documents in a collection.
+- `deleteOne()`: Deletes the first document that matches the filter. It takes a filter document as first parameter. This filter specifies a set of criteria to match against a document that needs to be removed
+- `deleteMany()`: Similar to `deleteOne()`, this deletes many documents at a time
+- `deleteMany({})` will remove all the documents in a collection
 
-> `remove` is still supported but should not be used.
+> `remove` is still supported but should not be used
 
 #### DROP
 
@@ -295,22 +295,22 @@ Insert Options:
 
 #### UPDATE Documents
 
-- `updateOne()`: Updates one document. Takes a filter document as the first parameter and a modifier document, which describes changes to make, as the second parameter.
+- `updateOne()`: Updates one document. Takes a filter document as the first parameter and a modifier document, which describes changes to make, as the second parameter
 - `updateMany()`: Updates many documents. Parameters are same as in `updateOne()`.
-- Updating a document is **atomic**: if two updates happen at the same time, whichever one reaches the server first will be applied, and then the next one will be applied.
+- Updating a document is **atomic**: if two updates happen at the same time, whichever one reaches the server first will be applied, and then the next one will be applied
 
-> Expect value of `_id` every other value can be modified.
+> Expect value of `_id` every other value can be modified
 
 Update Operators:
 
-- `$set`: Sets the value of a field. If the field dose not yet exist, it will be created.
-- `$unset`: Removes the required field.
+- `$set`: Sets the value of a field. If the field dose not yet exist, it will be created
+- `$unset`: Removes the required field
 - `$inc`: Increments the value of type integer, long, decimal, or decimal. It will create the field if not already present. It is used as the second parameter to update operations. `db.movies.updateOne({'title': 'Matrix'}, {'$inc': {'rating': 1}})`
 - `$rename`: Rename a field. `db.collection.updateMany({}, {$rename: {oldFieldName: "newFieldName"}})`.
 
 ##### Array Operations
 
-- `$push`: Adds elements to the end of an array if the array exists and creates a new array if it does not.
+- `$push`: Adds elements to the end of an array if the array exists and creates a new array if it does not
   - If you want to add or append an array, use `$each`. `db.movies.updateOne({"genre" : "horror"}, {"$push" : {"hourly" : {"$each" : [562.776, 562.790, 559.123]}}})`
 
   - If you want to limit the size of an array, use `$slice`. It will replace old values to fit the new ones. `db.movies.updateOne({"genre" : "horror"}, {"$push" : {"top10" : {"$each" : ["Nightmare on Elm Street", "Saw"], "$slice" : -10}}})`.
@@ -319,7 +319,7 @@ Update Operators:
 
   - To prevent insertion of duplicate values we can use `$ne` (not-equal-to) operator. `db.movies.updateOne({"titles" : {"$ne": "Jaws"}, {$push: {"titles": "Jaws"}}},`
 
-  - To prevent duplicates and treat an array as a set, use `$addToSet`. The `$each` operator can be used along with this operator, not with `$ne` operator.
+  - To prevent duplicates and treat an array as a set, use `$addToSet`. The `$each` operator can be used along with this operator, not with `$ne` operator
 
     ```javascript
     db.movies.updateOne({ name: 1 }, { $addToSet: { genre: "Comedy" } });
@@ -332,8 +332,8 @@ Update Operators:
     ```
 
 - `$pop`: Remove elements from an array,
-  - `{"$pop": {"key": 1}}`: Removes an element from the end of an array.
-  - `{"$pop": {"key": -1}}`: Removes an element from the beginning.
+  - `{"$pop": {"key": 1}}`: Removes an element from the end of an array
+  - `{"$pop": {"key": -1}}`: Removes an element from the beginning
 
 - Updates on an array element can be done through:
   - The index value of the element. MongoDB uses 0-based indexing. We can directly reference the required element in an array. `db.tv.findOne({"genres.2": "Family"})`.
@@ -364,15 +364,15 @@ Update Operators:
 
   This command defines `elem` as the identifier for each matching element in the `"comments"` array. If the `votes` value for the comment identified by `elem` is less than or equal to `-5`, we will add a field called `"hidden"` to the `"comments"` document and set its value to `true`.
 
-> `$each` needs to used before using any of the array operators.
+> `$each` needs to used before using any of the array operators
 
 #### Document Replacement
 
-- `replaceOne()`: Replace a document fully with a new one. Takes a filter as the first parameter, but as the second parameter it expects a document with which it will replace the document matching the filter.
+- `replaceOne()`: Replace a document fully with a new one. Takes a filter as the first parameter, but as the second parameter it expects a document with which it will replace the document matching the filter
 
 ### Joining Documents
 
-`$lookup` is used to join two documents.
+`$lookup` is used to join two documents
 
 ```javascript
 // CUSTOMERS DOCUMENT
@@ -405,18 +405,18 @@ customers.aggregate([
 
 ## Schema
 
-MongoDB supports **dynamic schemas** (dose not enforces any schema), i.e. documents don't have to use the same schema inside of one collection.
+MongoDB supports **dynamic schemas** (dose not enforces any schema), i.e. documents don't have to use the same schema inside of one collection
 
 ### Schema Validation
 
 1. Validation Level:
    - Which documents get validated?
-   - **strict**: All inserts and updates are validated.
-   - **moderate**: All inserts and updates to correct documents are validated.
+   - **strict**: All inserts and updates are validated
+   - **moderate**: All inserts and updates to correct documents are validated
 2. Validation Action:
    - What happens if validation fails?
-   - **error**: Throw error and don't insert or update the document.
-   - **warn**: Log warning but proceed with the operation.
+   - **error**: Throw error and don't insert or update the document
+   - **warn**: Log warning but proceed with the operation
 
 **Adding Validation**:
 

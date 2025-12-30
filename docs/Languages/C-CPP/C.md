@@ -1,7 +1,6 @@
 ---
 title: C
 description: A general-purpose, procedural computer programming language
-date: 2022-11-21
 ---
 
 # C
@@ -41,9 +40,8 @@ C is a general-purpose, procedural computer programming language
    ./hello
    ```
 
-::: tip NOTE
-If you get an error like `: permission denied: ./hello` in Linux/Unix, then run `chmod +x hello` to make the file executable
-:::
+> [!NOTE]
+> If you get an error like `: permission denied: ./hello` in Linux/Unix, then run `chmod +x hello` to make the file executable
 
 ## Syntax of C
 
@@ -84,7 +82,7 @@ Types of tokens:
    - **Binary Operators**: Operators that act upon two operands (like `+`, `-`, `*`, `/`, `%`, `==`, `!=`, `&&`, `||`, etc.)
    - **Ternary Operators**: Operators that act upon three operands (like `? :`)
 
-4. **Identifiers**: Identifiers are names given to various program elements like variables, functions, arrays, etc.
+4. **Identifiers**: Identifiers are names given to various program elements like variables, functions, arrays, etc...
    - An identifier can contain letters, digits, and underscores
    - An identifier must start with a letter (upper-case or lowercase) or an underscore (`_`)
    - An identifier cannot contain spaces or special characters
@@ -100,7 +98,7 @@ Types of tokens:
    ```
 
 5. **Constants**: Constants are fixed values that do not change during the execution of a program
-   - Constants can be of various types like integer constants, floating-point constants, character constants, string constants, etc.
+   - Constants can be of various types like integer constants, floating-point constants, character constants, string constants, etc...
 
 6. **Strings**: Strings are sequences of characters enclosed in double quotes (`" "`) or single quotes (`' '`)
    - Strings are used to store text data
@@ -228,7 +226,7 @@ _Example:_
 ```c
 /* comment
  *
- * Converts distances from miles to kilometres.
+ * Converts distances from miles to kilometres
  */
 
 #include <stdio.h> // preprocessor directive: printf, scanf definitions
@@ -246,16 +244,16 @@ main(void) // function name
       kms;      // equivalent distance in kilometres
   //   ^ variable identifier
 
-  // Get the distance in miles.
+  // Get the distance in miles
   printf("Enter the distance in miles> ");
   scanf("%lf", &miles);
   // ^ standard identifier
 
-  // Convert the distance to kilometers.
+  // Convert the distance to kilometers
   kms = KMS_PER_MILE * miles;
   //  ^              ^ operators
 
-  // Display the distance in kilometers.
+  // Display the distance in kilometers
   printf("That equals %f kilometers.\n", kms);
 
   return (0); // return statement
@@ -353,9 +351,8 @@ There are four storage durations are available:
 3. `thread`: Objects that are local to a thread and exist for the lifetime of the thread
 4. `allocated`: Objects created with dynamic memory allocation functions like `malloc`, `calloc`, `realloc`, and `free`
 
-::: tip NOTE
-[Scope](#scope) and lifetime are entirely different concepts. Scope applies to identifiers, whereas lifetime applies to objects. The scope of an identifier is the code region where the object denoted by the identifier can be accessed by its name. The lifetime of an object is the time period for which the object exists
-:::
+> [!NOTE]
+> [Scope](#scope) and lifetime are entirely different concepts. Scope applies to identifiers, whereas lifetime applies to objects. The scope of an identifier is the code region where the object denoted by the identifier can be accessed by its name. The lifetime of an object is the time period for which the object exists
 
 - Objects declared in _file scope_ have _static_ storage duration
 
@@ -448,7 +445,7 @@ Executable file
 4. **Linker**: Combines object files into an executable file
 
    _Flag:_ `-o` to specify output file name
-   - Linking all the source files together, that is all the other object codes in the project.
+   - Linking all the source files together, that is all the other object codes in the project
    - Linking function calls with their definitions. The linker knows where to look for the function definitions in the static libraries or dynamic libraries
    - It stitches all these Object file into an executable file
 
@@ -605,7 +602,7 @@ Compiler flags are used to specify the behaviour of the compiler and the output 
 
 ### Build Systems
 
-If a project has multiple source files, then we can use a build system to automate the compilation and linking process, like `make`, `CMake`, `ninja`, `Meson`, `Bazel`, etc.
+If a project has multiple source files, then we can use a build system to automate the compilation and linking process, like `make`, `CMake`, `ninja`, `Meson`, `Bazel`, etc...
 
 - [`Makefile`](../Makefile.md) is a file that contains rules to build the project using `make` command
 
@@ -1146,15 +1143,14 @@ If a variable is declared but not initialized, then it will contain a _garbage v
 
 - Compilers can initialize variables to zero, but it is not guaranteed
 
-The **size of the data types is compiler dependent** especially before C99 standard, but after C99 standard there are fixed-width integer types in `stdint.h` such as `int8_t`, `int16_t`, etc.
+The **size of the data types is compiler dependent** especially before C99 standard, but after C99 standard there are fixed-width integer types in `stdint.h` such as `int8_t`, `int16_t`, etc...
 
-::: tip NOTE
-If something is declared but not defined, then the linker doesn't know what to link references to and complains about a missing symbols. If you define something more than once, then the linker doesn't know which of the definitions to link references to and complains about duplicated symbols
-:::
+> [!NOTE]
+> If something is declared but not defined, then the linker doesn't know what to link references to and complains about a missing symbols. If you define something more than once, then the linker doesn't know which of the definitions to link references to and complains about duplicated symbols
 
 Dynamic type using `auto`
 
-Maps are like JavaScript objects.
+Maps are like JavaScript objects
 
 ### Character
 
@@ -1246,7 +1242,7 @@ Better data types for fixed-width integers using `stdint.h` (`C99` standard) or 
   | `unsigned short` | `uint16_t` |           |           |
   | `char`           | Any size   |           |           |
 
-- `int8_t`, `int16_t`, `int32_t`, `int64_t`, `uint8_t`, `uint16_t`, `uint32_t`, `uint64_t` etc.
+- `int8_t`, `int16_t`, `int32_t`, `int64_t`, `uint8_t`, `uint16_t`, `uint32_t`, `uint64_t` etc...
 - `uintmax_t` and `intmax_t` for the largest unsigned and signed integer types respectively
 - **`uintptr_t`** ensures that the variable is large enough to hold a pointer
 
@@ -1808,11 +1804,8 @@ int main() {
 }
 ```
 
-::: tip Rule of Thumb
-
-Ordering the members from largest to smallest will help the compiler to minimize padding
-
-:::
+> [!TIP] RULE OF THUMB
+> Ordering the members from largest to smallest will help the compiler to minimize padding
 
 - [The Lost Art of Structure Packing](http://www.catb.org/esr/structure-packing/)
 
@@ -1929,9 +1922,8 @@ int main()
 }
 ```
 
-::: tip NOTE
-Pointers consume the same amount of memory (8 bit) irrespective of the type of pointer
-:::
+> [!NOTE]
+> Pointers consume the same amount of memory (8 bit) irrespective of the type of pointer
 
 **Accessing heap memory**:
 
@@ -2126,7 +2118,7 @@ int result = add(10, 20);
 
 ## Standard Functions and Libraries
 
-A C compiler comes with a set of standard libraries that provide useful functions for various tasks like input/output, string manipulation, mathematical calculations, etc.
+A C compiler comes with a set of standard libraries that provide useful functions for various tasks like input/output, string manipulation, mathematical calculations, etc...
 
 Some commonly used standard libraries in C are:
 
@@ -2229,9 +2221,8 @@ int main()
 
 When using `scanf`, be careful with the format specifiers. For example, `%f` is used for `float` in `scanf`, but it is used for `double` in `printf`. Similarly, `%lf` is used for `double` in `scanf`, but it is not used in `printf`
 
-::: warning SECURITY
-Take care not to pass user-supplied data as part of the first argument to the `printf` function, because doing so can result in a formatted output security vulnerability (Seacord 2013)
-:::
+> [!WARNING] SECURITY
+> Take care not to pass user-supplied data as part of the first argument to the `printf` function, because doing so can result in a formatted output security vulnerability (Seacord 2013)
 
 #### `puts`
 
@@ -2405,7 +2396,7 @@ Common `gdb` commands:
      };
      ```
 
-   - Better data types for fixed-width integers using `stdint.h`, like `int32_t`, `int64_t`, etc.
+   - Better data types for fixed-width integers using `stdint.h`, like `int32_t`, `int64_t`, etc...
    - Compound literals:
      - A compound literal is an unnamed object that is created on the fly
      - It is a way to create an object of a structure or array type without giving it a name

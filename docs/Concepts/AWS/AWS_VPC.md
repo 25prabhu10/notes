@@ -12,7 +12,7 @@ prev: ./AWS
   - Security Groups, Network ACL (NACL), VPC Flow Logs
   - VPC Peering, VPC Endpoints
   - Site to Site VPN & Direct Connect
-- I will just give you an overview, less than1 or 2 questions at your exam.
+- I will just give you an overview, less than1 or 2 questions at your exam
 - Later in the course, I will be highlighting when VPC concepts are helpful
 
 ## VPC & Subnets Primer
@@ -21,12 +21,12 @@ prev: ./AWS
 - Subnets allow you to partition your network inside your VPC (Availability Zone resource)
 - A public subnet is a subnet that is accessible from the internet
 - A private subnet is a subnet that is not accessible from the internet
-- To define access to the internet and between subnets, we use Route Tables.
+- To define access to the internet and between subnets, we use Route Tables
 
 ## Internet Gateway & NAT Gateways
 
 - Internet Gateways helps our VPC instances connect with the internet
-- Public Subnets have a route to the internet gateway.
+- Public Subnets have a route to the internet gateway
 - NAT Gateways (AWS-managed) & NAT Instances (self-managed) allow your instances in your Private Subnets to access the internet while remaining private
 
 ## Network ACL & Security Groups

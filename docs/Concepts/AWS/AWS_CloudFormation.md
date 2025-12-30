@@ -69,13 +69,13 @@ Infrastructure as Code
 - Templates have to be uploaded in S3 and then referenced in CloudFormation
 - To update a template, we can't edit previous ones. We have to re- upload a new version of the template to AWS
 - Stacks are identified by a name
-- Deleting a stack deletes every single artifact that was created by CloudFormation.
+- Deleting a stack deletes every single artifact that was created by CloudFormation
 
 ## Deploying CloudFormation templates
 
 - Manual way:
   - Editing templates in the CloudFormation Designer
-  - Using the console to input parameters, etc
+  - Using the console to input parameters, etc...
 - Automated way:
   - Editing templates in a YAML file
   - Using the AWS CLI (Command Line Interface) to deploy the templates
@@ -108,10 +108,10 @@ Note: This is an introduction to CloudFormation
 
 ## Introductory Example
 
-- We're going to create a simple EC2 instance.
+- We're going to create a simple EC2 instance
 - Then we're going to create to add an Elastic IP to it
 - And we're going to add two security groups to it
-- For now, forget about the code syntax.
+- For now, forget about the code syntax
 - We'll look at the structure of the files later on EC2 Instance
 - We'll see how in no-time, we are able to get started with CloudFormation!
 
@@ -192,13 +192,13 @@ Resources:
 
 ## How do I find resources documentation?
 
-- I can't teach you all of the 224 resources, but I can teach you how to learn how to use them.
+- I can't teach you all of the 224 resources, but I can teach you how to learn how to use them
 - All the resources can be found here: [AWS Template Resource](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html)
 - Example here (for an EC2 instance): [EC2 Example](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)
 
 ## Analysis of CloudFormation Template
 
-- Going back to the example of the introductory section, let's learn why it was written this way.
+- Going back to the example of the introductory section, let's learn why it was written this way
 - Relevant documentation can be found here:
   - [AWS Properties EC2 Instance](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html)
   - [AWS Properties EC2 Security Group](http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-security-group.html)
@@ -219,13 +219,13 @@ Resources:
 - They're important to know about if:
 - You want to reuse your templates across the company
 - Some inputs can not be determined ahead of time
-- Parameters are extremely powerful, controlled, and can prevent errors from happening in your templates thanks to types.
+- Parameters are extremely powerful, controlled, and can prevent errors from happening in your templates thanks to types
 
 ## When should you use a parameter?
 
 - Ask yourself this:
   - Is this CloudFormation resource configuration likely to change in the future?
-  - If so, make it a parameter.
+  - If so, make it a parameter
 - You won't have to re-upload a template to change its content J
 
 ### Parameters Settings
@@ -251,7 +251,7 @@ Parameters can be controlled by all these settings:
 ## How to Reference a Parameter
 
 - The `Fn::Ref` function can be leveraged to reference parameters
-- Parameters can be used anywhere in a template.
+- Parameters can be used anywhere in a template
 - The shorthand for this in YAML is `!Ref`
 - The function can also reference other elements within the template
 
@@ -266,7 +266,7 @@ DbSubnet1:
 
 ## Concept: Pseudo Parameters
 
-- AWS offers us pseudo parameters in any CloudFormation template.
+- AWS offers us pseudo parameters in any CloudFormation template
 - These can be used at any time and are enabled by default:
 
 | Reference Value       | Example Return Value                                                                               |
@@ -280,8 +280,8 @@ DbSubnet1:
 
 ## What are mappings?
 
-- Mappings are fixed variables within your CloudFormation Template.
-- They're very handy to differentiate between different environments (dev vs prod), regions (AWS regions), AMI types, etc
+- Mappings are fixed variables within your CloudFormation Template
+- They're very handy to differentiate between different environments (dev vs prod), regions (AWS regions), AMI types, etc...
 - All the values are hardcoded within the template
 
 _Example:_
@@ -347,7 +347,7 @@ Resources:
   - AWS Account
   - Environment (dev vs prod)
   - Etc...
-- They allow safer control over the template.
+- They allow safer control over the template
 - Use parameters when the values are really user specific
 
 ## What are outputs?
@@ -376,7 +376,7 @@ Outputs:
 
 - We then create a second template that leverages that security group
 - For this, we use the `Fn::ImportValue` function
-- You can't delete the underlying stack until all the references are deleted too.
+- You can't delete the underlying stack until all the references are deleted too
 
 ```yaml
 Resources:
@@ -392,7 +392,7 @@ Resources:
 
 ## What are conditions used for?
 
-- Conditions are used to control the creation of resources or outputs based on a condition.
+- Conditions are used to control the creation of resources or outputs based on a condition
 - Conditions can be whatever you want them to be, but common ones are:
   - Environment (dev / test / prod)
   - AWS Region
@@ -452,7 +452,7 @@ DbSubnet1:
 ## Fn::GetAtt
 
 - Attributes are attached to any resources you create
-- To know the attributes of your resources, the best place to look at is the documentation.
+- To know the attributes of your resources, the best place to look at is the documentation
 - For example: the AZ of an EC2 machine!
 
 ```yaml
@@ -534,7 +534,7 @@ Resources:
 
 ## Function Fn::Sub
 
-- Fn::Sub, or !Sub as a shorthand, is used to substitute variables from a text. It's a very handy function that will allow you to fully customize your templates.
+- Fn::Sub, or !Sub as a shorthand, is used to substitute variables from a text. It's a very handy function that will allow you to fully customize your templates
 - For example, you can combine `Fn::Sub` with References or AWS Pseudo variables!
 - String must contain `${VariableName}` and will substitute them
 
@@ -603,7 +603,7 @@ Conditions:
 - Create, update, or delete stacks across multiple accounts and regions with a single operation
 - Administrator account to create StackSets
 - Trusted accounts to create, update, delete stack instances from StackSets
-- When you update a stack set, all associated stack instances are updated throughout all accounts and regions.
+- When you update a stack set, all associated stack instances are updated throughout all accounts and regions
 
 ## CloudFormation Drift
 

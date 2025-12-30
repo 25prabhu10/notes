@@ -7,11 +7,11 @@ description: IIS is an extensible web server software
 
 Internet Information Services (IIS)
 
-- IIS is a windows component that works as a web-server.
+- IIS is a windows component that works as a web-server
 
-- It hosts both HTTP and FTP on the server.
+- It hosts both HTTP and FTP on the server
 
-- IIS Express is light weight and is used for local development.
+- IIS Express is light weight and is used for local development
 
 - `w3wp.exe` worker process
 

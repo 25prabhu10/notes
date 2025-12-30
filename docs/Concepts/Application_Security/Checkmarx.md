@@ -5,7 +5,7 @@ description: A static code analysis tool
 
 # Checkmarx
 
-Checkmarx is a static code analysis tool that will assist developers to identify security vulnerabilities prior to code being deployed to production.
+Checkmarx is a static code analysis tool that will assist developers to identify security vulnerabilities prior to code being deployed to production
 
 - Determine the security posture for an application
 - Support delivering security at scale

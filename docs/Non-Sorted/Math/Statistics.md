@@ -1,7 +1,6 @@
 ---
 title: Statistics
 description: Statistics is the study of the collection, analysis, interpretation, presentation, and organization of data
-date: 2024-11-08
 ---
 
 # Statistics
@@ -78,7 +77,7 @@ Inferential statistics is the branch of statistics that deals with making predic
 
 Linear approximation is a method used to approximate the value of a function near a given point using the tangent line to the function at that point. It is based on the idea that for small values of `x`, the function can be approximated by a straight line
 
-_Example:_ You have a table of values and you want to approximate the value at 63, but the table dose not have a value at 63.
+_Example:_ You have a table of values and you want to approximate the value at 63, but the table dose not have a value at 63
 
 | `v / α` | 0.20    | 0.10    | 0.05    | 0.025   | 0.01    | 0.005   |
 | ------- | ------- | ------- | ------- | ------- | ------- | ------- |

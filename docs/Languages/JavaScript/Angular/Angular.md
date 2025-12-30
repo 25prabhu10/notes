@@ -5,7 +5,7 @@ description: A JavaScript Framework  to create reactive Single-Page-Applications
 
 # Angular
 
-Angular is a **JavaScript Framework** which allows you to create _reactive_ **Single-Page-Applications** (SPA)s.
+Angular is a **JavaScript Framework** which allows you to create _reactive_ **Single-Page-Applications** (SPA)s
 
 ## Introduction
 
@@ -67,15 +67,15 @@ To learn more see this document [TypeScript](../TypeScript/TypeScript.md)
 
 ### How dose Angular start?
 
-1. `main.ts` file is executed first. There `.bootstrapModule(AppModule)` directs to `app.module.ts` file.
+1. `main.ts` file is executed first. There `.bootstrapModule(AppModule)` directs to `app.module.ts` file
 
-2. This file contains all the components of the app.
+2. This file contains all the components of the app
 
-3. There `bootstrap: [AppComponent]` points to `app.components.ts` file.
+3. There `bootstrap: [AppComponent]` points to `app.components.ts` file
 
-4. This file contains the `selector: 'app-root'`. This is an attribute present in the `index.html` file.
+4. This file contains the `selector: 'app-root'`. This is an attribute present in the `index.html` file
 
-5. Now angular will place everything between this `app-root` attribute.
+5. Now angular will place everything between this `app-root` attribute
 
 ## Modules
 
@@ -83,17 +83,17 @@ A **collection** of [Components](#components)
 
 ## Components
 
-They are the basic building blocks.
+They are the basic building blocks
 
 ### Create a Component
 
 #### Manual Method
 
-1. Usually all _modules_ and _components_ reside inside `src/app` folder.
+1. Usually all _modules_ and _components_ reside inside `src/app` folder
 
-2. Create a new folder with the component name.
+2. Create a new folder with the component name
 
-3. **`name.component.ts`** is the main component file.
+3. **`name.component.ts`** is the main component file
    - **export class** that is created inside this file and add **Component decorator** to it:
 
      ```typescript
@@ -105,7 +105,7 @@ They are the basic building blocks.
      export class NameComponent {}
      ```
 
-4. Create **`name.component.html`** file and fill it.
+4. Create **`name.component.html`** file and fill it
 
 5. Add the this component to **`app.module.ts`**:
 
@@ -119,7 +119,7 @@ They are the basic building blocks.
    })
    ```
 
-6. Add `"<app-name></app-name>"` in the `app.component.html` file.
+6. Add `"<app-name></app-name>"` in the `app.component.html` file
 
 #### CLI Method
 
@@ -129,7 +129,7 @@ They are the basic building blocks.
    ng generate component name # or ng g c name
    ```
 
-2. Step 1-5 is done by the CLI automatically. Proceed with step-6.
+2. Step 1-5 is done by the CLI automatically. Proceed with step-6
 
 ### Component Files vs Inline
 
@@ -163,7 +163,7 @@ color: doderblue;
 
 ### Component Selector
 
-Selector works the same way as CSS selector works, So all the CSS types of selectors can be used except _id_ and _pseudo_ selectors.
+Selector works the same way as CSS selector works, So all the CSS types of selectors can be used except _id_ and _pseudo_ selectors
 
 - **`app-name`** for element **`<app-name></app-name>`**
 - **`[app-name]`** for attribute **`<div app-name></div>`**

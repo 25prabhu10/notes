@@ -1,6 +1,6 @@
 ---
 title: Stack
-description: A stack is an abstract data type that serves as a collection of elements.
+description: A stack is an abstract data type that serves as a collection of elements
 ---
 
 # Stack
@@ -11,9 +11,9 @@ A stack is an abstract data type that serves as a collection of elements, with t
 
 2. **Pop**: Which removes the most recently added element that was not yet removed
 
-**LIFO**: _Last-in First-out_ it is the order in which elements are pushed and popped.
+**LIFO**: _Last-in First-out_ it is the order in which elements are pushed and popped
 
-- Similar to a stack of plates, inserting or removing is only possible at the top.
+- Similar to a stack of plates, inserting or removing is only possible at the top
 
 _Stack representation:_ :)
 
@@ -341,7 +341,7 @@ The stack can be implemented using:
 - In browsers: Store history of the tab
 
 - **Parenthesis Matching**:
-  - Every opening parenthesis must have a matching closing parenthesis. Add condition to check multiple types of parenthesis.
+  - Every opening parenthesis must have a matching closing parenthesis. Add condition to check multiple types of parenthesis
 
 ```c
 struct Stack

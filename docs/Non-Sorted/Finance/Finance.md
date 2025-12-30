@@ -1,6 +1,6 @@
 ---
 title: Finance
-description: The management, creation, and study of money and investments.
+description: The management, creation, and study of money and investments
 ---
 
 # Finance

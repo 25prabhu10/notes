@@ -8,7 +8,7 @@ Podcast By John Green
 
 What I want to remember from this podcast
 
-> The Anthropocene is a time of tremendous human impact on the planet, but it is also a time of tremendous human loneliness.
+> The Anthropocene is a time of tremendous human impact on the planet, but it is also a time of tremendous human loneliness
 
 ## Episode 1
 
@@ -62,20 +62,22 @@ Date: 2018-02-21
    - Halley's Comet (Arcade - 1984)
    - 1
 
-> Tetris is a simple game, play till death
-
-> You have to live somewhere
-
-> Love loves to love love - Ulysses
-
-> The campfire rule, "You must always leave the code as good or in a better state than you found it."
-
-> Adna cent Williams poem - The chulill is in the air
-
-> Robert Penwaren - The darkness which is you
-
-> Jawline
-
 ## Quotes
 
 > "Somewhere, something incredible is waiting to be known." - Carl Sagan
+
+Need organization
+
+> Tetris is a simple game, play till death
+>
+> You have to live somewhere
+>
+> Love loves to love love - Ulysses
+>
+> The campfire rule, "You must always leave the code as good or in a better state than you found it."
+>
+> Adna cent Williams poem - The chulill is in the air
+>
+> Robert Penwaren - The darkness which is you
+>
+> Jawline

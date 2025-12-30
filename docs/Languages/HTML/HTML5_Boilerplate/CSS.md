@@ -9,13 +9,13 @@ This starting CSS does not rely on the presence of
 [conditional class names](https://www.paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/),
 [conditional style sheets](https://css-tricks.com/how-to-create-an-ie-only-stylesheet/),
 or Modernizr.js, and it is ready to use no matter what
-your development preferences happen to be.
+your development preferences happen to be
 
 ## Normalize.css
 
 In order to make browsers render all elements more consistently and in line
 with modern standards, we include Normalize.css - a modern, HTML5-ready
-alternative to CSS resets.
+alternative to CSS resets
 
 As opposed to CSS resets, Normalize.css:
 
@@ -42,4 +42,4 @@ styles:
 
 - style the prompt that is displayed to users using an outdated browser
 
-These styles are included in [`style.css`](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/style.css). See the [`style.css`](https://github.com/h5bp/main.css) project [documentation](https://github.com/h5bp/main.css/blob/main/README.md#features) for a full discussion of these styles.
+These styles are included in [`style.css`](https://github.com/h5bp/html5-boilerplate/blob/master/dist/css/style.css). See the [`style.css`](https://github.com/h5bp/main.css) project [documentation](https://github.com/h5bp/main.css/blob/main/README.md#features) for a full discussion of these styles

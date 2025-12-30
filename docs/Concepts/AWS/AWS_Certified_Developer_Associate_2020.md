@@ -23,7 +23,7 @@ prev: ./AWS
 - Web developers
 - Building **Cloud-First web-applications**
 - Deploying web-applications
-- Transitioning from web-developer to **Cloud Engineer** role.
+- Transitioning from web-developer to **Cloud Engineer** role
 
 ## Exam Guide Breakdown
 
@@ -95,7 +95,7 @@ AWS Account:
 - A: Block is defined as we save data on hard disks, it is into blocks hence faster to find it. EBS is like hard disks
 
 - Can we create RAID structures with EBS manually or its taken care by the system itself?
-- A: Yes. You can stripe multiple volumes together to achieve up to 260,000 IOPS or 60,000 Mbps (or 7500 MB/s) when attached to larger EC2 instances. However, performance for st1 and sc1 scales linearly with volume size so there may not be as much of a benefit to stripe these volumes together.
+- A: Yes. You can stripe multiple volumes together to achieve up to 260,000 IOPS or 60,000 Mbps (or 7500 MB/s) when attached to larger EC2 instances. However, performance for st1 and sc1 scales linearly with volume size so there may not be as much of a benefit to stripe these volumes together
 
 - Webinar staffto everyone
 
@@ -115,7 +115,7 @@ AWS Account:
 - A: yes !
 
 - Q: How many questions , duration, (12:41 PM)
-- A: We will cover these Q at the end. 65 Q in 90 mins.
+- A: We will cover these Q at the end. 65 Q in 90 mins
 
 - Some of Lambda examples here: [Lambda - Samples](https://docs.aws.amazon.com/lambda/latest/dg/lambda-samples.html)
 

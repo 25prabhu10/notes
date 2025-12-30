@@ -9,3 +9,4 @@ sidebar: false
 1. [CI-CD](./CI-CD.md)
 2. [Docker](./Docker.md)
 3. [GitHub Actions](./GitHub_Actions.md)
+4. [Kubernetes](./Kubernetes.md)

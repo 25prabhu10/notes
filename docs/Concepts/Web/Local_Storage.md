@@ -1,3 +1,8 @@
+---
+title: Local Storage
+description: Browser storage that allows websites to store data locally within the user's browser
+---
+
 # Local Storage
 
 - Every site can store **5 MB** data
@@ -6,6 +11,5 @@
 - Using IFrames we can call any number of sub-domains and keep adding 5 MB of data until the browser or the computer crash
 - Checkout [filldisk.com](http://www.filldisk.com/) Website that emulates this behaviour
 
-::: tip FIXED
-This has be fixed in most new versions of the browsers
-:::
+> [!TIP] FIXED
+> This has be fixed in most new versions of the browsers

@@ -21,12 +21,12 @@ prev: ./AWS
 ## AWS Route 53 Overview
 
 - Route53 is a Managed DNS (Domain Name System)
-- DNS is a collection of rules and records which helps clients understand how to reach a server through URLs.
+- DNS is a collection of rules and records which helps clients understand how to reach a server through URLs
 - In AWS, the most common records are:
   - A: hostname to IPv4
   - AAAA: hostname to IPv6
   - CNAME: hostname to hostname
-  - Alias: hostname to AWS resource.
+  - Alias: hostname to AWS resource
 
 - Route53 can use:
   - public domain names you own (or buy) application1.mypublicdomain.com
@@ -132,7 +132,7 @@ prev: ./AWS
 
 ## 3rd Party Registrar with AWS Route 53
 
-- If you buy your domain on 3rd party website, you can still use Route53.
+- If you buy your domain on 3rd party website, you can still use Route53
   1. Create a Hosted Zone in Route 53
   2. Update NS Records on 3rd party website to use Route 53 name servers
 - Domain Registrar != DNS

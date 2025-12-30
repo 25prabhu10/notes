@@ -20,23 +20,29 @@
   "scripts": {
     "build": "vitepress build docs",
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted",
-    "deploy": "npm run fetch && npm run build && node deploy.js",
+    "deploy": "npm run fetch && npm run build && node ./utils/deploy.ts",
     "dev": "npm run fetch && npm run docs:dev",
     "docs:dev": "vitepress dev docs",
-    "docs:preview": "vitepress preview docs",
+    "preview": "vitepress preview docs",
     "fetch": "sh utils/bash/sync.sh",
     "format": "oxfmt",
     "format:check": "oxfmt --check",
-    "lint": "npm run fix && npm run lint:md",
+    "lint": "pnpm run lint:vue && pnpm run lint:js && pnpm run lint:md",
     "lint:md": "markdownlint-cli2 './docs/**/*.md' '#./docs/README.md' '#./docs/about.md'",
-    "lint:text": "textlint -f pretty-error './docs/**/*.md'"
+    "lint:js": "oxlint --type-aware --type-check --deny-warnings",
+    "lint:text": "textlint -f pretty-error './docs/**/*.md'",
+    "lint:vue": "vue-tsc --noEmit",
+    "lint:fix": "oxlint --type-aware --type-check --fix"
   },
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.4",
+    "@types/node": "^25.0.3",
     "markdown-it-mathjax3": "^4.3.2",
     "markdownlint-cli2": "^0.20.0",
-    "oxc-minify": "^0.105.0",
-    "oxfmt": "^0.20.0",
+    "oxc-minify": "^0.106.0",
+    "oxfmt": "^0.21.0",
+    "oxlint": "^1.35.0",
+    "oxlint-tsgolint": "^0.10.0",
     "textlint": "^15.5.0",
     "textlint-filter-rule-comments": "^1.2.2",
     "textlint-rule-common-misspellings": "^1.0.1",
@@ -45,10 +51,15 @@
     "textlint-rule-spelling": "^0.3.0",
     "textlint-rule-terminology": "^5.2.15",
     "textlint-rule-write-good": "^2.0.0",
-    "vitepress": "^2.0.0-alpha.15"
+    "typescript": "~5.9.3",
+    "vitepress": "^2.0.0-alpha.15",
+    "vue": "^3.5.26",
+    "vue-tsc": "^3.2.1"
   },
-  "overrides": {
-    "vite": "npm:rolldown-vite@latest"
-  },
-  "packageManager": "npm@11.7.0"
+  "packageManager": "pnpm@10.26.2",
+  "pnpm": {
+    "overrides": {
+      "vitepress>vite": "npm:vite@8.0.0-beta.5"
+    }
+  }
 }

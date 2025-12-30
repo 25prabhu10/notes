@@ -5,9 +5,9 @@ next: ./Tables
 
 # Code Blocks
 
-Code blocks are used to insert raw code.
+Code blocks are used to insert raw code
 
-Some markdown engines support syntax highlighting.
+Some markdown engines support syntax highlighting
 
 - Use 4 spaces or 1 tab
 
@@ -19,7 +19,7 @@ This contains & in `&blink`
 
 ## Syntax Highlighting
 
-You can define the language to be used for syntax highlighting by adding name on the opening tag.
+You can define the language to be used for syntax highlighting by adding name on the opening tag
 
 Like...
 

@@ -58,9 +58,8 @@ In his essay _The Rise of "Worse is Better"_ Richard P. Gabriel says:
 
    ![The reactor pattern](./the-reactor-pattern.png)
 
-   ::: tip NOTE
-   A Node.js application will exit when there are no more pending operations in the event demultiplexer, and no more events to be processed inside the event queue
-   :::
+   > [!NOTE]
+   > A Node.js application will exit when there are no more pending operations in the event demultiplexer, and no more events to be processed inside the event queue
 
 5. **Building blocks**:
    - A set of bindings responsible for wrapping and exposing `libuv` and other low-level functionalities to JavaScript
@@ -199,9 +198,8 @@ module.exports.run = () => {
 };
 ```
 
-::: tip NOTE
-The essential concept to remember is that everything inside a module is private unless it's assigned to the `module.exports` variable. The content of this variable is then cached and returned when the module is loaded using `require()`
-:::
+> [!NOTE]
+> The essential concept to remember is that everything inside a module is private unless it's assigned to the `module.exports` variable. The content of this variable is then cached and returned when the module is loaded using `require()`
 
 #### `module.exports` VS `exports`
 
@@ -230,21 +228,16 @@ module.exports = () => {
 };
 ```
 
-::: tip NOTE
-The `require` function is synchronous
-:::
-
-::: danger Asynchronous `exports`
-Any assignment to `module.exports` must be synchronous
-
-```javascript
-// THE BELOW CODE IS INCORRECT
-setTimeout(() => {
-  module.exports = function () {...};
-}, 100);
-```
-
-:::
+> [!CAUTION] ASYNCHRONOUS `require` AND `exports`
+> The `require` function is synchronous
+> Any assignment to `module.exports` must be synchronous
+>
+> ```javascript
+> // THE BELOW CODE IS INCORRECT
+> setTimeout(() => {
+>   module.exports = function () {...};
+> }, 100);
+> ```
 
 #### The resolving algorithm
 
@@ -266,9 +259,8 @@ For file and package modules, both files and directories can match `moduleName`.
 - `<moduleName>/index.js`
 - The directory/file specified in the main property of `<moduleName>/package.json`
 
-::: tip NOTE
-Complete formal documentation of the resolving algorithm can be found at [Node.js Org](https://nodejs.org/api/modules.html#modules_all_together)
-:::
+> [!NOTE]
+> Complete formal documentation of the resolving algorithm can be found at [Node.js Org](https://nodejs.org/api/modules.html#modules_all_together)
 
 #### The Module Cache
 
@@ -277,10 +269,9 @@ Complete formal documentation of the resolving algorithm can be found at [Node.j
 - It makes it possible to have cycles within module dependencies
 - It guarantees, to some extent, that the same instance is always returned when requiring the same module from within a given package
 
-::: tip NOTE
-`require.resolve(<moduleName>)` can be used directly
-`require.cache` variable is exposes the module cache
-:::
+> [!NOTE]
+> `require.resolve(<moduleName>)` can be used directly
+> `require.cache` variable is exposes the module cache
 
 #### Circular Dependencies
 
@@ -328,13 +319,13 @@ Contents of the modules:
 
   ```bash
   a -> {
-    "b": {
-      "a": {
-        "loaded": false
-      },
-      "loaded": true
-    },
-    "loaded": true
+  "b": {
+  "a": {
+  "loaded": false
+  },
+  "loaded": true
+  },
+  "loaded": true
   }
   (node:13214) Warning: Accessing non-existent property 'toJSON' of module exports inside circular dependency
   (Use `node --trace-warnings ...` to show where the warning was created)

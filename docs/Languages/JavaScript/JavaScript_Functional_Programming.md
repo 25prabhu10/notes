@@ -107,7 +107,7 @@ console.log(rateColor(color_lawn, 5).rating); // 5
 console.log(color_lawn.rating); // 5
 ```
 
-In the above example, the value of the rating of the original `color_lawn` gets mutated.
+In the above example, the value of the rating of the original `color_lawn` gets mutated
 
 ```javascript
 const rateColor = function (color, rating) {
@@ -118,15 +118,15 @@ console.log(rateColor(color_lawn, 5).rating); // 5
 console.log(color_lawn.rating); // 0
 ```
 
-In the above example, the value of the rating of the original `color_lawn` remains unaffected and we get a new object with the updated contents.
+In the above example, the value of the rating of the original `color_lawn` remains unaffected and we get a new object with the updated contents
 
-This is done with the help of `Object.assign`, which creates a new copy of the original object with all the new changes. Thus, keeping the original data unchanged.
+This is done with the help of `Object.assign`, which creates a new copy of the original object with all the new changes. Thus, keeping the original data unchanged
 
 #### Arrays
 
-Arrays behave similarly to objects when passed as an argument to a function. Hence, changing the argument values directly should be avoided.
+Arrays behave similarly to objects when passed as an argument to a function. Hence, changing the argument values directly should be avoided
 
-JavaScript provides functional Array methods that help in keep the original data unchanged.
+JavaScript provides functional Array methods that help in keep the original data unchanged
 
 - `Array.push` is not an immutable function. Instead we can use `Array.concat`:
 
@@ -149,7 +149,7 @@ JavaScript provides functional Array methods that help in keep the original data
 
 ### Pure Function
 
-A pure function is a function that returns a value that's computed based on its arguments.
+A pure function is a function that returns a value that's computed based on its arguments
 
 - Pure functions take at least one argument and **always return a value or another function**
 
@@ -216,7 +216,7 @@ Function composition is the process of combining two or more functions in order 
 
 - For example, the composition `f . g` (the dot means "composed with") is equivalent to `f(g(x))` in JavaScript
 
-Composition is putting two or more different things together, and getting the same "kind" of thing - a combination of the inputs - as a result.
+Composition is putting two or more different things together, and getting the same "kind" of thing - a combination of the inputs - as a result
 
 ```javascript
 const both = compose(civilianHours, appendAMPM);
@@ -231,11 +231,11 @@ const compose =
 
 ### Data Transformations
 
-In functional programming even though data is immutable, data can be transformed from one to another, by producing transformed copies of the original data.
+In functional programming even though data is immutable, data can be transformed from one to another, by producing transformed copies of the original data
 
 ### Recursion
 
-[Recursion](../../Concepts/Data-Structures_and_Algorithms/Algorithms/Recursion.md) is a technique that involves creating functions that recall themselves.
+[Recursion](../../Concepts/Data-Structures_and_Algorithms/Algorithms/Recursion.md) is a technique that involves creating functions that recall themselves
 
 ```javascript
 const countdown = (value, fn) => {

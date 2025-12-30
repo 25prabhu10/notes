@@ -7,7 +7,7 @@ description: Introduction to C/CPP
 
 ## Setup
 
-To start working with C/C++ you need to install few application in your system, such as IDE's or Text Editors, Compilers etc.
+To start working with C/C++ you need to install few application in your system, such as IDE's or Text Editors, Compilers etc...
 
 You can use any IDE or Text editor, some of the are listed below:
 
@@ -32,7 +32,7 @@ Make the below changes in **Tools** --> **Compiler Options**:
 - An _object_ is **some memory that holds a value of a given type**.
 - A _value_ is a **set of bits in memory interpreted according to a type**.
 - A _variable_ is a **named object**.
-- A _declaration_ is a statement that **introduces an identifier (name) and describes its type, be it a type, object or function**. The compiler uses this to reference that identifier and dose not set aside any memory for it.
+- A _declaration_ is a statement that **introduces an identifier (name) and describes its type, be it a type, object or function**. The compiler uses this to reference that identifier and dose not set aside any memory for it
 
   ```cpp
   extern int bar;
@@ -46,7 +46,7 @@ Make the below changes in **Tools** --> **Compiler Options**:
   extern double f(int, double);
   ```
 
-- A _definition_ actually instantiates/implements the identifier, the compiler asks memory manager to **set aside memory for that object or function**. You can only define exactly once.
+- A _definition_ actually instantiates/implements the identifier, the compiler asks memory manager to **set aside memory for that object or function**. You can only define exactly once
 
   ```cpp
   int bar;
@@ -55,9 +55,8 @@ Make the below changes in **Tools** --> **Compiler Options**:
   class foo {};
   ```
 
-::: tip NOTE
-If something is declared but not defined, then the linker doesn't know what to link references to and complains about a missing symbols. If you define something more than once, then the linker doesn't know which of the definitions to link references to and complains about duplicated symbols.
-:::
+> [!NOTE]
+> If something is declared but not defined, then the linker doesn't know what to link references to and complains about a missing symbols. If you define something more than once, then the linker doesn't know which of the definitions to link references to and complains about duplicated symbols
 
 **Operations on data types**:
 
@@ -65,10 +64,10 @@ If something is declared but not defined, then the linker doesn't know what to l
 
 ## Struct (Structure)
 
-_Definition:_ It's a **physically grouped list of dissimilar data items under one name in a block of memory**, allowing the different data items to be **accessed via a single pointer**. It's used for defining user-defined data types, apart from the primitive data types.
+_Definition:_ It's a **physically grouped list of dissimilar data items under one name in a block of memory**, allowing the different data items to be **accessed via a single pointer**. It's used for defining user-defined data types, apart from the primitive data types
 
 - Group of related data items
-- `struct` is the **keyword** used to define a structure.
+- `struct` is the **keyword** used to define a structure
 - `.` (dot operator) is used to **access the members of the structure**
 - Its size will the **sum of sizes consumed by all of its elements**
 - **Structure Padding** is used to allocate memory for a structure
@@ -121,24 +120,23 @@ int main()
 }
 ```
 
-::: tip NOTE
-_C_ structs do not have member functions. _C++_ allows struct to have member functions and by default all members are public as compared to class where by default all members are private.
-:::
+> [!NOTE]
+> _C_ structs do not have member functions. _C++_ allows struct to have member functions and by default all members are public as compared to class where by default all members are private
 
 ## Pointers
 
 _Definition:_ Pointer is **an address variable** that is meant for **storing the address of another variable**.
 
-- The size of a pointer will always be equal to size the of its type.
+- The size of a pointer will always be equal to size the of its type
 
 Pointers are used for:
 
-- **Accessing heap memory**. The program will not automatically access the heap. Heap memory is external to the program.
+- **Accessing heap memory**. The program will not automatically access the heap. Heap memory is external to the program
 - Accessing resources, such as files, keyboard, monitor, etc.:
-  - Like access files, files are stored in hard disks and are external to the program. File pointers are used to access these files.
-  - Similarly to interact with any external device we use the pointer.
+  - Like access files, files are stored in hard disks and are external to the program. File pointers are used to access these files
+  - Similarly to interact with any external device we use the pointer
 
-- Functions use Pointers as parameters while using call by reference method.
+- Functions use Pointers as parameters while using call by reference method
 
 _Example:_
 
@@ -177,14 +175,13 @@ int main()
 }
 ```
 
-::: tip NOTE
-Pointers consume the same amount of memory (8 bit) irrespective of the type of pointer
-:::
+> [!NOTE]
+> Pointers consume the same amount of memory (8 bit) irrespective of the type of pointer
 
 **Accessing heap memory**:
 
-- In C `malloc` is used to get memory in heap. Its present in `<stdlib.h>` and takes size as a parameter.
-- `malloc` returns a `void` pointer (generic pointer), so we have to type-caste it and say it's an `integer` pointer.
+- In C `malloc` is used to get memory in heap. Its present in `<stdlib.h>` and takes size as a parameter
+- `malloc` returns a `void` pointer (generic pointer), so we have to type-caste it and say it's an `integer` pointer
 - We need to **free the memory allocated to the variables** after they are no more required using `free()` in C and `delete` in C++
 - **Heap memory must be de-allocated**
 
@@ -300,9 +297,8 @@ int main()
 }
 ```
 
-::: danger NOTE
-Reference is not a part of the C language.
-:::
+> [!CAUTION]
+> Reference is not a part of the C language
 
 ## Functions
 
@@ -340,9 +336,9 @@ int main()
 
 ### Parameter Passing
 
-There are three ways of passing the parameters to a function.
+There are three ways of passing the parameters to a function
 
-1. _Pass/Call by Value:_ In pass by value, **changes in formal parameters do not reflect in the actual parameters**. Refer to the above examples.
+1. _Pass/Call by Value:_ In pass by value, **changes in formal parameters do not reflect in the actual parameters**. Refer to the above examples
 
 2. _Pass/Call by Address:_ In pass by address, **changes in formal parameters reflect in actual parameters**.
 
@@ -388,9 +384,8 @@ There are three ways of passing the parameters to a function.
    }
    ```
 
-::: tip NOTE
-Pass by Reference should be used very carefully as it converts the modular code into monolithic code.
-:::
+> [!NOTE]
+> Pass by Reference should be used very carefully as it converts the modular code into monolithic code
 
 _Arrays as Parameters:_
 
@@ -482,20 +477,14 @@ Structure as parameter:
   }
   ```
 
-::: tip NOTE
-Even when a `struct` has an array member, it can be passed by value even though array alone cannot be passed by value.
-:::
-
-::: warning
-
-- Confirm if true or false: C does not have any built-in data structures.
-- As part of the code activation record of the function, all the variables are created in the stack.
-
-:::
+> [!NOTE]
+> Even when a `struct` has an array member, it can be passed by value even though array alone cannot be passed by value
+>
+> As part of the code activation record of the function, all the variables are created in the stack
 
 ## Structure of the Code
 
-1. Similarly in _C++_, OOP's concepts are used to organize the code.
+1. Similarly in _C++_, OOP's concepts are used to organize the code
 
    All the **variables and functions related to them are grouped together as a class**.
 
@@ -619,7 +608,7 @@ Even when a `struct` has an array member, it can be passed by value even though 
    }
    ```
 
-2. C++ program supports _generic (template) functions_ and _generic(template) classes_.
+2. C++ program supports _generic (template) functions_ and _generic(template) classes_
 
    ```cpp
    template <class T>

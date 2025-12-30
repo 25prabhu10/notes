@@ -20,7 +20,7 @@ description: Collection of CSS Snippets
         required
         aria-errormessage="name-error"
       />
-      <div class="error" id="name-error" aria-live="polite">Please enter your name.</div>
+      <div class="error" id="name-error" aria-live="polite">Please enter your name</div>
     </div>
     <div class="form-group">
       <label for="email">Email</label>
@@ -31,7 +31,7 @@ description: Collection of CSS Snippets
         required
         aria-errormessage="email-error"
       />
-      <div class="error" id="email-error" aria-live="polite">Please enter a valid email.</div>
+      <div class="error" id="email-error" aria-live="polite">Please enter a valid email</div>
     </div>
     <div class="form-group">
       <label for="password">Password</label>
@@ -44,7 +44,7 @@ description: Collection of CSS Snippets
         required
       />
       <div class="hint">Password must be at least 8 characters.</div>
-      <div class="error" id="password-error" aria-live="polite">Please enter a valid password.</div>
+      <div class="error" id="password-error" aria-live="polite">Please enter a valid password</div>
     </div>
 
     <div>
@@ -422,7 +422,7 @@ description: Collection of CSS Snippets
     <div class="section yellow" contenteditable>Min: 150px / Max: 25%</div>
     <div class="section purple" contenteditable>
       This element takes the second grid position (1fr), meaning it takes up the rest of the
-      remaining space.
+      remaining space
     </div>
   </div>
 
@@ -564,7 +564,7 @@ description: Collection of CSS Snippets
       <div class="visual yellow"></div>
       <p>
         Descriptive Text. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed est error
-        repellat veritatis.
+        repellat veritatis
       </p>
     </div>
   </div>

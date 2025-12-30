@@ -1,7 +1,6 @@
 ---
 title: MySQL
 description: MySQL is an open-source RDBMS
-lastmod: 2024-11-07
 ---
 
 # MySQL
@@ -154,9 +153,9 @@ SHOW CREATE TABLE todos;
 1. `INT[(width)] [UNSIGNED] [ZEROFILL]`:
    - `UNSIGNED` can be used
 
-   - `width`: Not the max number of digits but the min number of digits, like `INT(4)` will save 33 as 0033.
+   - `width`: Not the max number of digits but the min number of digits, like `INT(4)` will save 33 as 0033
 
-   - `width` and `ZEROFILL` arguments to left-pad the values with 0's.
+   - `width` and `ZEROFILL` arguments to left-pad the values with 0's
 
 ## Index
 

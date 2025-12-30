@@ -11,9 +11,9 @@ A Queue is an abstract data type that serves as a collection of elements, with t
 
 2. **Dequeue**: Which removes the most recently added element that was not yet removed
 
-**FIFO**: _First-in First-out_ it is the order in which elements are pushed and popped.
+**FIFO**: _First-in First-out_ it is the order in which elements are pushed and popped
 
-- Similar to a real life queue, new element is inserted at the rear end of the queue and an element is only removed at the front end of the queue.
+- Similar to a real life queue, new element is inserted at the rear end of the queue and an element is only removed at the front end of the queue
 
 _Queue representation:_ :)
 
@@ -186,12 +186,12 @@ The queue can be implemented using:
 
 Drawbacks of using Arrays:
 
-- If rare of the Queue is at the last element and front is larger than 0 that means that array has some empty space at the start. So, even though there the array has empty space we cannot add new elements as `rare == size` and new elements are added from the rare.
-- Every space in an array is only used once.
+- If rare of the Queue is at the last element and front is larger than 0 that means that array has some empty space at the start. So, even though there the array has empty space we cannot add new elements as `rare == size` and new elements are added from the rare
+- Every space in an array is only used once
 
 Workaround:
 
-- **Resetting Pointers**: While dequeueing if front and rear are same then reset both and make them `-1`. Not always front and rear are equal, hence this method is good only when all elements are deleted.
+- **Resetting Pointers**: While dequeueing if front and rear are same then reset both and make them `-1`. Not always front and rear are equal, hence this method is good only when all elements are deleted
 
 - **[Circular Queue](#circular-queue)**
 
@@ -217,9 +217,9 @@ Array Based:
 
 ## Circular Queue
 
-In a circular queue, the last element points to the first element making a circular link.
+In a circular queue, the last element points to the first element making a circular link
 
-- Front and rear move in a circular way and array is not circular.
+- Front and rear move in a circular way and array is not circular
 
 Advantages of Simple Queue:
 
@@ -339,7 +339,7 @@ Array Based:
 
 ## Double Ended Queue (Deque)
 
-Deque or Double Ended Queue is a type of queue in which insertion and removal of elements can either be performed from the front or the rear.
+Deque or Double Ended Queue is a type of queue in which insertion and removal of elements can either be performed from the front or the rear
 
 - It **strictly doesn't follow FIFO**. FIFO can be used
 - **Both front and rear** can be **used for insertion and deletion**
@@ -567,7 +567,7 @@ A priority queue is **a special type of queue** in which each element is associa
 
 Implementation:
 
-- [Heap](./Heap.md) data structure provides an efficient implementation of priority queues.
+- [Heap](./Heap.md) data structure provides an efficient implementation of priority queues
 
 ```c
 #include <stdio.h>

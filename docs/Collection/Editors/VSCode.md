@@ -1,13 +1,11 @@
 ---
-title: Visual Studio Code (VSCode)
-description: A lightweight but powerful source code editor.
+title: VSCode (Visual Studio Code)
+description: A lightweight but powerful source code editor
 ---
 
-# Visual Studio Code (VSCode)
+# VSCode
 
-Visual Studio Code is a free source-code editor
-
-[Snippet Generator](https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode)
+[VSCode (Visual Studio Code)](https://code.visualstudio.com/) is a free source-code editor
 
 ## Short Cut Keys
 
@@ -54,3 +52,7 @@ With:
 ```
 
 [Stackoverflow Reference](https://stackoverflow.com/questions/44057402/using-extensions-in-compiled-vscode)
+
+## Snippets
+
+[Snippet Generator](https://snippet-generator.app/?description=&tabtrigger=&snippet=&mode=vscode)

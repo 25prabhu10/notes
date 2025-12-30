@@ -484,7 +484,7 @@ Always hash passwords before saving to Database
 
 Password Entropy matters (amount of information held in the password)
 
-- It can easily be brute forced if its 8 or less chars.
+- It can easily be brute forced if its 8 or less chars
 - Is it dictionary attackable
 - Min 16 characters
 

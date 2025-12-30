@@ -58,11 +58,11 @@ The URI comprises:
 
 4. **Query**: An optional component preceded by a question mark (`?`) containing a query string of non-hierarchical data:
    - Its syntax is not well-defined
-   - By convention is often a sequence of attribute–value pairs separated by a delimiter.
+   - By convention is often a sequence of attribute–value pairs separated by a delimiter
 
 5. **Fragment**: An optional component proceeded by a hash (`#`):
-   - The fragment contains a fragment identifier providing direction to a secondary resource, such as a section heading in an article identified by the remainder of the URI.
-   - When the primary resource is an HTML document, the fragment is often an id attribute of a specific element, and web browsers will scroll this element into view.
+   - The fragment contains a fragment identifier providing direction to a secondary resource, such as a section heading in an article identified by the remainder of the URI
+   - When the primary resource is an HTML document, the fragment is often an id attribute of a specific element, and web browsers will scroll this element into view
 
 **Example URL `http://www.example.com:81/a/b.html?user=Alice&year=2049#heading`** is divided into different parts:
 
@@ -98,9 +98,8 @@ Some HTML tags that can include URLs:
 - `<link>`, `<style>`
 - `<script>`
 
-::: tip TRAILING FORWARD SLASH
-If you add trailing `/` to the URL?
-:::
+> [!TIP] TRAILING FORWARD SLASH
+> If you add trailing `/` to the URL?
 
 ## Internationalized URL
 

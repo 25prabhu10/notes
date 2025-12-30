@@ -1,7 +1,6 @@
 ---
 title: Finite State Machine
-description:
-date: 2024-11-13
+description: A mathematical model of computation used to design computer programs and sequential logic circuits
 ---
 
 # Finite State Machine (FSM)

@@ -5,7 +5,7 @@ description: Tree
 
 # Tree
 
-A tree is a widely used abstract data type (ADT) that represents a hierarchical tree structure with a set of connected nodes.
+A tree is a widely used abstract data type (ADT) that represents a hierarchical tree structure with a set of connected nodes
 
 Subcategories:
 
@@ -38,9 +38,9 @@ Subcategories:
 
 10. **External node**: Any node that **does not have child nodes** (also known as an _outer node_, **leaf node**, or _terminal node_)
 
-11. **Degree**: For a given node, its number of children. A leaf has necessarily degree zero.
+11. **Degree**: For a given node, its number of children. A leaf has necessarily degree zero
 
-12. **Degree of tree**: The degree of a tree is the maximum degree of a node in the tree.
+12. **Degree of tree**: The degree of a tree is the maximum degree of a node in the tree
 
 13. **Distance**: The number of edges along the shortest path between two nodes
 
@@ -48,12 +48,12 @@ Subcategories:
 
 15. **Depth**: The depth of a node is the length of the path to its root
 
-16. **Levels**: The level of a node is the number of edges along the unique path between it and the root node.
-    - This is the same as depth when using zero-based counting.
+16. **Levels**: The level of a node is the number of edges along the unique path between it and the root node
+    - This is the same as depth when using zero-based counting
 
 17. **Width**: The number of nodes in a level
 
-18. **Forest**: A set of one or more disjoint trees.
+18. **Forest**: A set of one or more disjoint trees
 
 19. **Breadth**: The number of leaves
 
@@ -122,7 +122,7 @@ A Binary Tree is a Strict Binary Tree if every node has either degree 0 or 2. Sh
 
 ## Tree Traversal
 
-Tree traversing means visiting all the nodes.
+Tree traversing means visiting all the nodes
 
 1. Pre-order (VLR):
    - Visit (node)
@@ -159,13 +159,13 @@ Generating Tree if Traversal is provided:
 
 Drawbacks of Binary Search Tree:
 
-- No control over the height of the BST as it depends on the order of input.
+- No control over the height of the BST as it depends on the order of input
 
 - It can become unbalanced easily
 
 ## AVL Tree
 
-Height balanced Binary Search Tress.
+Height balanced Binary Search Tress
 
 It uses balance factor to balance the height:
 

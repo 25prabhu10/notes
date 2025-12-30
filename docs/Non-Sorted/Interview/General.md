@@ -21,7 +21,7 @@ Structure:
 
 ### Intro and Agenda
 
-Introduce yourself and set what the agenda for the interview will be.
+Introduce yourself and set what the agenda for the interview will be
 
 - Be professional
 - Put the candidate at ease
@@ -29,7 +29,7 @@ Introduce yourself and set what the agenda for the interview will be.
 
 ### CV Review
 
-Focus on the most relevant recent experience from a technical point of view explaining their roles and responsibilities.
+Focus on the most relevant recent experience from a technical point of view explaining their roles and responsibilities
 
 The goal here is to answer the following questions:
 
@@ -67,7 +67,7 @@ The goals here are are:
 
 1. Identify the seniority of the candidate
 
-2. Identify the candidate's areas of expertise (or lack of) and the breadth and depth of their technical knowledge.
+2. Identify the candidate's areas of expertise (or lack of) and the breadth and depth of their technical knowledge
 
 3. Further understand the candidate's personality and cultural fit within the team
 
@@ -100,7 +100,7 @@ the goal here are:
 ## Other Questions
 
 1. Will AI ever replace developers?
-   - No, But will help in removing repetitive tasks. Less typing. Be more efficient. It will be great assistant.
+   - No, But will help in removing repetitive tasks. Less typing. Be more efficient. It will be great assistant
 
 2. Best way to learn programming?
    - Learning by yourself (Book, Docs, etc.), Courses (will be more structured), Projects

@@ -24,9 +24,8 @@ Some of the most commonly used image formats on web are:
 | [GIF](#gif)   | `.gif`          | Lossless          | Animated images, simple graphics          | Supports animation, lossless compression, widely supported                | Limited color palette (256 colors), larger file sizes than PNG                  |
 | [SVG](#svg)   | `.svg`          | Lossless          | Vector graphics, logos, icons             | Scalable, high-quality graphics, small file sizes                         | Can be complex to edit, might not render consistently across different browsers |
 
-::: info NOTE
-Lossy formats compress images by discarding some data, resulting in smaller file sizes but potential image quality degradation. Lossless formats compress images without losing any data, preserving the original image quality
-:::
+> [!NOTE]
+> Lossy formats compress images by discarding some data, resulting in smaller file sizes but potential image quality degradation. Lossless formats compress images without losing any data, preserving the original image quality
 
 ### JPEG
 
@@ -112,11 +111,10 @@ Some tips to convert GIF to videos:
   ffmpeg -i my-animation.gif -c:v libvpx-vp9 -b:v 0 -crf 41 my-animation.webm
   ```
 
-  > WebM is a relatively new file format and WebM videos are much smaller than MP4 videos
+  WebM is a relatively new file format and WebM videos are much smaller than MP4 videos
 
-  ::: warning
-  Not all browsers support WebM so it makes sense to generate both
-  :::
+  > [!WARNING]
+  > Not all browsers support WebM so it makes sense to generate both
 
 - Usage:
 
@@ -154,7 +152,7 @@ Some tips to convert GIF to videos:
 ```html
 <svg role="img" aria-labelledby="icon-title icon-desc">
   <title id="icon-title">Pickling Solution</title>
-  <desc id="icon-desc">The secret to good pickled cheese is good pickling.</desc>
+  <desc id="icon-desc">The secret to good pickled cheese is good pickling</desc>
   <!-- svg content -->
 </svg>
 ```
@@ -328,17 +326,15 @@ We can load different images depending on the screen size using the `srcset` att
 
   > Use the `w` unit (instead of `px`) to write width descriptors. For example, a 1024px wide image would be written as `1024w`
 
-::: warning
+> [!WARNING]
+>
+> - `srcset` is not widely support as of now, so use a fall-back image source `src`.
+> - The resource specified by the `src` attribute should be large enough to work well on all device sizes
 
-- `srcset` is not widely support as of now, so use a fall-back image source `src`.
+Image resizing can be done using either command line tools or npm packages
 
-- The resource specified by the `src` attribute should be large enough to work well on all device sizes.
-
-:::
-
-::: danger
-**25%** (percentages cannot be used with the sizes attribute)
-:::
+> [!CAUTION]
+> **25%** (percentages cannot be used with the sizes attribute)
 
 Images with higher resolutions are larger in size and take longer to load. To optimize the loading time of images, we can use the `srcset` attribute to provide multiple image sources with different resolutions
 
@@ -353,7 +349,7 @@ Images with higher resolutions are larger in size and take longer to load. To op
 
 #### sharp
 
-The [sharp npm package](https://www.npmjs.com/package/sharp) is a good choice for automating image resizing (for example, generating multiple sizes of thumbnails for all the videos on your website). It is fast and easily integrated with build scripts and tools. On the other hand, [ImageMagick CLI tool](https://www.imagemagick.org/script/index.php) is convenient for one-off image resizing because it is used entirely from the command line.
+The [sharp npm package](https://www.npmjs.com/package/sharp) is a good choice for automating image resizing (for example, generating multiple sizes of thumbnails for all the videos on your website). It is fast and easily integrated with build scripts and tools. On the other hand, [ImageMagick CLI tool](https://www.imagemagick.org/script/index.php) is convenient for one-off image resizing because it is used entirely from the command line
 
 Node script to convert images using **sharp**:
 
@@ -389,11 +385,11 @@ We can also use Responsive Breakpoint Generators like to get different image dim
 
 ### Lazy Loading
 
-**Lazy loading** is the strategy of loading resources as they are needed, rather than in advance. This approach frees up resources during the initial page load and avoids loading assets that are never used.
+**Lazy loading** is the strategy of loading resources as they are needed, rather than in advance. This approach frees up resources during the initial page load and avoids loading assets that are never used
 
-Loading only those image currently present in the view-port.
+Loading only those image currently present in the view-port
 
-[lazysizes](https://github.com/aFarkas/lazysizes) is the most popular library for lazy loading images. It is a script that intelligently loads images as the user moves through the page and prioritizes images that the user will encounter soon.
+[lazysizes](https://github.com/aFarkas/lazysizes) is the most popular library for lazy loading images. It is a script that intelligently loads images as the user moves through the page and prioritizes images that the user will encounter soon
 
 Steps to integrate `lazysizes`:
 
@@ -404,8 +400,8 @@ Steps to integrate `lazysizes`:
    ```
 
 2. Add `class="lazyload"` and add `data-src` instead of `src` to all `<img>` and `<picture>` tags:
-   - **Add the `lazyload` class**: This indicates to lazysizes that the image should be lazy loaded.
-   - **Change the `src` attribute to `data-src`**: When it is time to load the image, the lazysizes code sets the image `src` attribute using the value from the `data-src` attribute.
+   - **Add the `lazyload` class**: This indicates to lazysizes that the image should be lazy loaded
+   - **Change the `src` attribute to `data-src`**: When it is time to load the image, the lazysizes code sets the image `src` attribute using the value from the `data-src` attribute
 
    ```html
    <img data-src="flower.jpg" class="lazyload" alt="" />
@@ -419,12 +415,12 @@ Steps to integrate `lazysizes`:
    </picture>
    ```
 
-- Use Preview Images like single colour SVG's.
+- Use Preview Images like single colour SVG's
 - [Preview Image](https://github.com/axe312ger/sqip)
 
 ### Gulp Tasks
 
-`Imagemin` is an excellent image compression tool, it supports a wide variety of image formats and is easily integrated with build scripts and build tools.
+`Imagemin` is an excellent image compression tool, it supports a wide variety of image formats and is easily integrated with build scripts and build tools
 
 We will use `gulp-imagemin` plugin for image compression. There are specific imagemin plugins to fine tune the quality of images based on image format. Like:
 
@@ -461,7 +457,7 @@ gulp.task("default", () => {
 
 1. [openjpeg](https://github.com/uclouvain/openjpeg)
    - `opj_compress`
-   - Converts `*.pnm, *.pgm, *.ppm, *.pgx, *png, *.bmp, *.tif, *.raw or *.tga` formats into `jpeg`.
+   - Converts `*.pnm, *.pgm, *.ppm, *.pgx, *png, *.bmp, *.tif, *.raw or *.tga` formats into `jpeg`
 
 2. [libjpeg-turbo](https://github.com/libjpeg-turbo/libjpeg-turbo)
    - Used by `mozjpeg`
@@ -471,8 +467,8 @@ gulp.task("default", () => {
    - Slow
 
 4. [mozjpeg](https://github.com/mozilla/mozjpeg)
-   - Based on `libjpeg-turbo`.
-   - Good quality and fast.
+   - Based on `libjpeg-turbo`
+   - Good quality and fast
 
 5. [imagemagick](https://github.com/imagemagick/imagemagick)
    - All in one image converter

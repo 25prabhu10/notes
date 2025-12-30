@@ -1,4 +1,4 @@
-//rules:
+// Rules:
 //  "@textlint-rule/no-unmatched-pair": true
 //
 //  common-misspellings: true
@@ -18,10 +18,13 @@
 //  write-good:
 //    severity: "warning"
 //
-//filters:
+// Filters:
 //  comments: true
 
-module.exports = {
+export default {
+  filters: {
+    comments: true,
+  },
   rules: {
     "@textlint-rule/no-unmatched-pair": true,
     "common-misspellings": true,
@@ -38,8 +41,5 @@ module.exports = {
     "write-good": {
       severity: "warning",
     },
-  },
-  filters: {
-    comments: true,
   },
 };

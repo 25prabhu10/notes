@@ -1,11 +1,11 @@
 ---
 title: Web Security
-description: The protective measures and protocols that organizations adopt to protect the organization from, cyber criminals and threats that use the web channel.
+description: The protective measures and protocols that organizations adopt to protect the organization from, cyber criminals and threats that use the web channel
 ---
 
 # Web Security
 
-The protective measures and protocols that organizations adopt to protect the organization from, cyber criminals and threats that use the web channel.
+The protective measures and protocols that organizations adopt to protect the organization from, cyber criminals and threats that use the web channel
 
 Using Defence In Depth approach: By increasing the number of layers, an attacker's chance of success is decreased. For example an applications which contains:
 
@@ -22,7 +22,7 @@ Using Defence In Depth approach: By increasing the number of layers, an attacker
 ## Preventing vulnerabilities
 
 1. At the "Data" layer: Access controls, Encryption, Backup and restore procedures
-2. At the "Application" layer: Authentication, Authorization, Auditing (otherwise known as AAA). Securing coding, and Hardening.
+2. At the "Application" layer: Authentication, Authorization, Auditing (otherwise known as AAA). Securing coding, and Hardening
 3. At the "Host" layer: Hardening, Authentication, Patch management, Antivirus
 4. On the "Internal network": Network segmentation, IPsec, TLS, NAT
 5. At the "Perimeter" layer: Firewall, TLS, Denial of service, prevention
@@ -38,7 +38,7 @@ Different Threat Modelling
 
 #### STRIDE
 
-Developed by Microsoft, STRIDE is considered one of the most comprehensive ways to identify threats.
+Developed by Microsoft, STRIDE is considered one of the most comprehensive ways to identify threats
 
 STRIDE stands for:
 
@@ -70,8 +70,8 @@ More complex the application (more ways to interact) more potential bugs: Combin
    - Knowledge sharing and presentations on security
 
 2. Why is Application Security Important?
-   - PCI DSS.
-   - APRA Prudential Standard CPS 234 & Practice Guide CPG 234.
+   - PCI DSS
+   - APRA Prudential Standard CPS 234 & Practice Guide CPG 234
 
 Common form of attacks:
 
@@ -139,7 +139,7 @@ The browser has a seemingly impossible task:
 
 1. Passive Reconnaissance:
    - Target Validation: `WHOIS`, `nslookup`, `dnsrecon`
-   - Finding Subdomains: Google Fu, `dig`, `Nmap`, `Sublist3r`, `Bluto`, `crt.sh`, etc.
+   - Finding Subdomains: Google Fu, `dig`, `Nmap`, `Sublist3r`, `Bluto`, `crt.sh`, etc...
    - Fingerprinting: `Nmap`, `Wappalyze`, `WhatWeb`, `BuiltWith`, `Netcat`
    - Data Breaches: `HaveIBeenPwned` and similar lists
 
@@ -313,9 +313,8 @@ Mandatory security headers for apps:
       X-Frame-Options: allow-from https://normal-website.com
       ```
 
-  ::: tip NOTE
-  Clickjacking attacks are not mitigated by CSRF tokens
-  :::
+  > [!NOTE]
+  > Clickjacking attacks are not mitigated by CSRF tokens
 
 - Cache Headers:
   - Properly configured caching header is to avoid having sensitive information stored in browser or proxy:
@@ -329,9 +328,8 @@ Mandatory security headers for apps:
   Expires: 0
   ```
 
-  ::: tip NOTE
-  `no-cache` only works for proxies and `no-store` only works for browsers
-  :::
+  > [!NOTE]
+  > `no-cache` only works for proxies and `no-store` only works for browsers
 
 You can cache:
 
@@ -471,7 +469,7 @@ When storing data into a database, you can use a unique identifier as primary ke
 
 If we use sequential identifiers, it is good for performance but it is predictable and can be easily guessed. Also in a distributed system, different nodes can generate the same identifier which can cause conflicts
 
-If we use random identifiers, it is secure but it is bad for performance.
+If we use random identifiers, it is secure but it is bad for performance
 
 ## Resources
 

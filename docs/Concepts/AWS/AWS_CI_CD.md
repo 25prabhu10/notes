@@ -20,7 +20,7 @@ prev: ./AWS
   - With manual approval where needed
 - To be a proper AWS developer... we need to learn AWS CICD
 
-- This section is all about automating the deployment we've done so far while adding increased safety.
+- This section is all about automating the deployment we've done so far while adding increased safety
 - It correspond to a whole part of the AWS Certification
 - We'll learn about
   - AWS CodeCommit: storing our code
@@ -40,7 +40,7 @@ prev: ./AWS
 
 ## Continuous Delivery
 
-- Ensure that the software can be released reliably whenever needed.
+- Ensure that the software can be released reliably whenever needed
 - Ensures deployments happen often and are quick
 - Shift away from "one release every 3 months" to "5 releases a day"
 - That usually means automated deployment
@@ -63,7 +63,7 @@ Code --> Build --> Test --> Deploy --> Provision
   - Make sure the code is backed-up somewhere
   - Make sure it's fully viewable and auditable
 
-- Git repositories can be expensive.
+- Git repositories can be expensive
 - The industry includes:
   - GitHub: free public repositories, paid private ones
   - BitBucket
@@ -162,7 +162,7 @@ Differences:
 
 ### CodePipeline Troubleshooting
 
-- CodePipeline state changes happen in AWS CloudWatch Events, which can in return create SNS notifications.
+- CodePipeline state changes happen in AWS CloudWatch Events, which can in return create SNS notifications
   - Ex: you can create events for failed pipelines
   - Ex: you can create events for cancelled stages
 - If CodePipeline fails a stage, your pipeline stops and you can get information in the console
@@ -322,8 +322,8 @@ Differences:
 - Application: unique name
 - Compute platform: EC2/On-Premise or Lambda
 - Deployment configuration: Deployment rules for success / failures
-  - EC2/On-Premise: you can specify the minimum number of healthy instances for the deployment.
-  - AWS Lambda: specify how traffic is routed to your updated Lambda function versions.
+  - EC2/On-Premise: you can specify the minimum number of healthy instances for the deployment
+  - AWS Lambda: specify how traffic is routed to your updated Lambda function versions
 - Deployment group: group of tagged instances (allows to deploy gradually)
 - Deployment type: In-place deployment or Blue/green deployment:
 - IAM instance profile: need to give EC2 the permissions to pull from S3 / GitHub
@@ -393,8 +393,8 @@ Differences:
 - You can specify automated rollback options
 - Roll back when a deployment fails
 - Roll back when alarm thresholds are met
-- Disable rollbacks - Do not perform rollbacks for this deployment.
-- If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment.
+- Disable rollbacks - Do not perform rollbacks for this deployment
+- If a roll back happens, CodeDeploy redeploys the last known good revision as a new deployment
 
 ## CodeStar
 

@@ -228,9 +228,8 @@ AWS CLI v2 Setup: [Install AWS CLI on Windows/Mac/Linux](https://docs.aws.amazon
   # It returns a JSON object containing all the error details
   ```
 
-::: tip NOTE
-If you get AccessDenied error while running STS, please attach a policy that allows _STS_ with access level of _Write_
-:::
+> [!NOTE]
+> If you get AccessDenied error while running STS, please attach a policy that allows _STS_ with access level of _Write_
 
 ### AWS Profile
 
@@ -313,9 +312,8 @@ What if you want to perform actions on AWS directly from your applications code 
 
 - The AWS CLI uses the Python SDK (`boto3`)
 
-::: tip NOTE
-If you don't specify or configure a default region, then `us-east-1` will be chosen by default
-:::
+> [!NOTE]
+> If you don't specify or configure a default region, then `us-east-1` will be chosen by default
 
 ### AWS Limits (Quotas)
 

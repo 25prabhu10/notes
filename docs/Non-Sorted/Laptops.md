@@ -1,8 +1,5 @@
 ---
 title: Laptops
-description:
-date: 2024-08-24
-lastmod: 2024-11-18
 ---
 
 # Computers
@@ -69,7 +66,7 @@ Old processor naming convention:
 
 3. Third number: Model Number
    - Leaves option for speed bump or sku differentiator
-   - 00, 20, 50 etc.
+   - 00, 20, 50 etc...
 
 4. Power Suffix
    - X: High Performance, with XFR

@@ -7,7 +7,7 @@ description: LINQ enables us to query any type of data store (SQL Server, XML do
 
 Language Integrated Query (LINQ) enables us to query any type of data store (SQL Server, XML documents, Objects in memory etc.)
 
-- LINQ enables us to work with different data sources using a similar coding style without having the need to know the syntax specific to the data source.
+- LINQ enables us to work with different data sources using a similar coding style without having the need to know the syntax specific to the data source
   - .NET app --> ADO.NET SQL --> Databases
   - .NET app --> XPATH, XSLT --> XML Documents
   - .NET app --> Arrays, Generics --> In Memory Objects
@@ -114,7 +114,7 @@ What sources are query-able?
 2. `IQueryable`:
 
    ```cs
-   // Use in LINQ to Entities, LINQ to SQL etc.
+   // Use in LINQ to Entities, LINQ to SQL etc...
 
    var temp = Assembly.Load("System.Data.Entity");
 
@@ -129,7 +129,7 @@ What sources are query-able?
    - Array are treated specially by the CLR
    - Array implements `IEnumerable`, not `IEnumerable<T>`
    - But for a concrete array CLR alters it to inherit array, implements `IEnumerable<T>`, `ICollection<T>`, and `IList<T>`
-   - Provided the array is single dimensional and 0-lower bound.
+   - Provided the array is single dimensional and 0-lower bound
 
      ```cs
      Double[] array = new Double[] { 4.4, 2.2, 6.6 };
@@ -195,7 +195,7 @@ var q = from method in typeof(System.Linq.Enumerable).GetMethods()
 
 ### Deferred Execution
 
-The execution of a query is distinct from the creation of the query.
+The execution of a query is distinct from the creation of the query
 
 - You do not retrieve any data just by creating a query
 
@@ -240,7 +240,7 @@ var q = colors.Where(c => c.Length > 5).OrderBy(p => p).Distinct();
 
 ### Query Syntax vs Method Syntax
 
-Query syntax and method syntax are semantically identical, but many people find query syntax simpler and easier to read.
+Query syntax and method syntax are semantically identical, but many people find query syntax simpler and easier to read
 
 - Some queries must be expressed as method calls
 
@@ -326,7 +326,7 @@ The Query expression syntax is a substitute for calling the query operator exten
 LINQ query expressions can be categorized into 3 areas:
 
 1. Takes a sequence, returns a new sequence containing the same element type
-   - Doubles to Doubles, Strings to Strings, Products to Products, etc.
+   - Doubles to Doubles, Strings to Strings, Products to Products, etc...
    - Elements are the same, but may be sorted, grouped, filtered
 
 2. Takes a sequence, returns a new sequence containing a different type of element
@@ -436,7 +436,7 @@ public class HistoryCalendar
 
 ### Groups
 
-Group produces a sequence of groups, organized by a key.
+Group produces a sequence of groups, organized by a key
 
 `GroupBy` returns a sequence of groups
 
@@ -502,7 +502,7 @@ var q2 = from a in setA
 
 ### First and Last
 
-Returns the first or last element of a sequence. `First()` and `Last()` will throw exception if the sequence is empty.
+Returns the first or last element of a sequence. `First()` and `Last()` will throw exception if the sequence is empty
 
 ```cs
 var numbers = new List<int> { 50, 4, 10, 3 };
@@ -549,9 +549,9 @@ var entity = dbContext.Set<TEntity>().Find(id);
 
 ### Index
 
-`ElementAt`: Returns the element at a specified index in a sequence.
+`ElementAt`: Returns the element at a specified index in a sequence
 
-`ElementAtOrDefault`: Returns the element at a specified index in a sequence or a default value if the index is out of range.
+`ElementAtOrDefault`: Returns the element at a specified index in a sequence or a default value if the index is out of range
 
 ```cs
 var fiveCount = new List<int> { 0, 5, 10, 15, 20, 25, 30};
@@ -562,9 +562,9 @@ fiveCount.ElementAtOrDefault(22); // 0
 
 ### Single
 
-`Single`: Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists.
+`Single`: Returns the only element of a sequence that satisfies a specified condition, and throws an exception if more than one such element exists
 
-`SingleOrDefault`: Returns a single, specific element of a sequence, or a default value if that element is not found.
+`SingleOrDefault`: Returns a single, specific element of a sequence, or a default value if that element is not found
 
 ```cs
 var colors =  CourseLib.ColorSource.GetColors();
@@ -610,7 +610,7 @@ var q = numbersA.Union(numbersB);
 
 ### Except
 
-`Except`: returns members of the first set that don't appear in the second set.
+`Except`: returns members of the first set that don't appear in the second set
 
 ```cs
 var numbersA = new List<int> { 0, 2, 4, 5, 6, 8, 9, 8 }; // 8 items
@@ -637,7 +637,7 @@ var q2 = numbersB.Except(numbersA);
   colors.Count();
   emptyList.Count();
 
-  // vs.
+  // vs
 
   colors.Any();
   emptyList.Any();
@@ -666,7 +666,7 @@ var q2 = numbersB.Except(numbersA);
   }
   ```
 
-- `Any([predicate])`: Determines whether any element of a sequence exists or satisfies a condition.
+- `Any([predicate])`: Determines whether any element of a sequence exists or satisfies a condition
   - Stops evaluation as soon as it find member that satisfies
   - Takes an predicate as a parameter
 
@@ -682,7 +682,7 @@ var q2 = numbersB.Except(numbersA);
   bool hasMaxBlue = colors.Any(c => c.BlueValue >=255);
   ```
 
-- `Contains`: return whether a specified item is contained in the sequence.
+- `Contains`: return whether a specified item is contained in the sequence
   - Takes a object as a parameter
 
   ```cs
@@ -732,11 +732,11 @@ var q2 = numbersB.Except(numbersA);
 
 - `TakeWhile`: Returns elements from a sequence
   as long as a specified condition is true,
-  and then skips the remaining elements.
+  and then skips the remaining elements
 
 - `SkipWhile`: Bypasses elements in a sequence
   as long as a specified condition is true
-  and then returns the remaining elements.
+  and then returns the remaining elements
 
   ```cs
   var numbers = new List<int> { 21, 32, 43, 54, 65, 201, 301, 401, 76, 87, 98 };
@@ -778,11 +778,11 @@ public IEnumerable<Task[]> Chunk<T>(IEnumerable<T> enumerable, int size)
 
 ### 3rd Party Extensions
 
-LINQ provides many useful Enumerable methods.
+LINQ provides many useful Enumerable methods
 
 - Many are implemented as Extension methods
 
-- It's possible to create more extension methods to add other query operations.
+- It's possible to create more extension methods to add other query operations
 
 - _MoreLinq_ is available as a [NuGet package](https://morelinq.github.io/)
 - [MoreLinq examples](https://github.com/morelinq/examples):
@@ -790,18 +790,18 @@ LINQ provides many useful Enumerable methods.
 ```cs
 var numbers = new List<int> { 1, 2, 3, 4, 5, 6, 7 };
 
-// Returns a sequence with a range of elements in the source sequence moved to a new offset.
+// Returns a sequence with a range of elements in the source sequence moved to a new offset
 var resultA = numbers.Move(3,numbers.Count(),0);
 
 // Pads a sequence with default values if it is narrower (shorter in length)
-// than a given width.
+// than a given width
 var resultA = numbers.Pad(10);
 
 // Pads a sequence with default values in the beginning if it is narrower (shorter in length)
-// than a given width.
+// than a given width
 var resultB = numbers.PadStart(12);
 
-// Returns a sequence of elements in random order from the original sequence.
+// Returns a sequence of elements in random order from the original sequence
 var resultA = numbers.Shuffle();
 
 // Generates a sequence of lists that represent the permutations of the original sequence

@@ -107,25 +107,18 @@ system vimrc file: "$VIM/sysinit.vim"
 fall-back for $VIM: "/usr/share/nvim"
 ```
 
-::: tip NO USER CONFIGURATION
-
-To launch Vim/Neovim without user defined configuration file:
-
-```bash
-# skip everything
-{ vim/nvim } -u NONE
-# skip everything except plugins and syntax highlighting
-{ vim/nvim } -u NORC
-```
-
-:::
-
-::: tip NOTE
+> [!TIP] NO USER CONFIGURATION
+> To launch Vim/Neovim without user defined configuration file:
+>
+> ```bash
+> # skip everything
+> vim/nvim -u NONE
+> # skip everything except plugins and syntax highlighting
+> vim/nvim -u NORC
+> ```
 
 - Commands which are executed after entering `:` are called _Ex_ commands
 - Environment variables such as `$VIM` or `$VIMRUNTIME` are set on launch of vim. They are provided as fallback paths. (see `:version`, `:echo $VIM`)
-
-:::
 
 ### Plugins
 
@@ -306,7 +299,7 @@ _Example:_
 
 Vim has builtin compiler options. Sets options for using a specific compiler (see `:h compiler`)
 
-The directory `compiler/` is used to place compiler specific options.
+The directory `compiler/` is used to place compiler specific options
 
 - When invoking `:compiler xxx`, compiler specific options from `xxx.vim` are sourced to set a `makeprg` and `errorformat` for vim-native compilations
 
@@ -361,9 +354,8 @@ _Example:_ Create plugin for OSC 52 yanks
 
 - We want to create a plugin that allows us to directly yank all text to our local clipboard by utilizing an xterm-compatible terminal's OSC-52 escape sequence support
 
-::: tip YANKING
-For future use, add `alias vi='vi -c "let g:tty='\''$(tty)'\''"'` to `~/.bashrc` or `~/.zshrc`
-:::
+> [!TIP] YANKING
+> For future use, add `alias vi='vi -c "let g:tty='\''$(tty)'\''"'` to `~/.bashrc` or `~/.zshrc`
 
 ## Registers
 

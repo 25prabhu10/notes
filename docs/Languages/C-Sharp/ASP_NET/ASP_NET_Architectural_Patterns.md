@@ -40,7 +40,7 @@ Should consist of:
 
 - Aggregates: Domain driven design pattern to group together entities. Grouping related entities
 
-- Value Objects: Things that don't have identities (`DateTime`). Validation present in the construct, no validation required anywhere else.
+- Value Objects: Things that don't have identities (`DateTime`). Validation present in the construct, no validation required anywhere else...
 
 - Domain Services: Where logic lives and interactions between entities are defined
 
@@ -56,7 +56,7 @@ Should consist of:
 
 - Enums or Smart Enums
 
-- Custom Guards: Simple validators to make sure the system is in a consistent state.
+- Custom Guards: Simple validators to make sure the system is in a consistent state
 
 ## References
 

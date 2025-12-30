@@ -5,15 +5,15 @@ description: Linked List
 
 # Linked List
 
-A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations (unlike arrays) instead, each element points to the next using pointers.
+A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations (unlike arrays) instead, each element points to the next using pointers
 
 ![singly-linked-list](./singly-linked-list.svg)
 
-Linked list is a linear collection of data elements, whose order is not given by their physical placement in memory. Instead, each element points to the next.
+Linked list is a linear collection of data elements, whose order is not given by their physical placement in memory. Instead, each element points to the next
 
 - They are used when the **size of elements is not known or may increase**.
 
-- As the memory location of each element is not known beforehand, it is very difficult to find the element. To find an element we need to start from the first element, get the address of the next element and so on, till the element is found.
+- As the memory location of each element is not known beforehand, it is very difficult to find the element. To find an element we need to start from the first element, get the address of the next element and so on, till the element is found
 
 - Access time is linear (random access, is not feasible)
 
@@ -37,7 +37,7 @@ Problems with arrays:
 
 - _C_ doesn't perform any array index bound checking. For an array of size n we can write to n+5th element with getting error (based on compiler) and also if we access elements from outside of array boundaries, we get garbage value (based on compiler we get error).
 
-To overcome the issues with arrays, we can use Linked list.
+To overcome the issues with arrays, we can use Linked list
 
 Types of Linked List:
 
@@ -51,7 +51,7 @@ Singly Linked List contain nodes which have two parts:
 
 1. Data field(s): Data of any data-type
 
-2. Link (pointer): An address field (usually named next) of type pointer. It will store the address of next node.
+2. Link (pointer): An address field (usually named next) of type pointer. It will store the address of next node
 
 ### Operations
 
@@ -65,13 +65,13 @@ Singly Linked List contain nodes which have two parts:
 
 1. Create the first node with some data and an empty link, which is set to either `NULL` or `0` (0 is an invalid address) (created in Heap).
 
-2. Create a pointer called head (you can call it anything) which will store the address of the first node (created in Stack). This also can be interpreted as the name of the Linked list as it is the only identity of the Linked list we keep track of.
+2. Create a pointer called head (you can call it anything) which will store the address of the first node (created in Stack). This also can be interpreted as the name of the Linked list as it is the only identity of the Linked list we keep track of
 
 3. Create the next node in the same way as Step-1 and link the first node to this new node
 
-4. Continue this process to create a Linked list of n elements.
+4. Continue this process to create a Linked list of n elements
 
-In C/C++ `struct` is used to create a node (class can be used in C++). A `struct` that contains pointer of its own type is called Self referential structure.
+In C/C++ `struct` is used to create a node (class can be used in C++). A `struct` that contains pointer of its own type is called Self referential structure
 
 ```c
 struct Node
@@ -209,9 +209,9 @@ print_list_recursive(head);
 
 ## Circular Linked List
 
-A Linked List where the address of the last node consists of the address of the first node.
+A Linked List where the address of the last node consists of the address of the first node
 
-- The last element is linked to the first element. This forms a circular loop.
+- The last element is linked to the first element. This forms a circular loop
 
 ### Traverse CLL
 
@@ -252,11 +252,11 @@ print_list_recursive(head);
 
 ## Doubly Linked List
 
-A Doubly Linked List is a linked data structure that consists of a set of sequentially linked records called nodes.
+A Doubly Linked List is a linked data structure that consists of a set of sequentially linked records called nodes
 
-- Each node contains two fields, called links, that are references to the previous and to the next node in the sequence of nodes.
+- Each node contains two fields, called links, that are references to the previous and to the next node in the sequence of nodes
 
-- The two node links allow traversal of the list in either direction.
+- The two node links allow traversal of the list in either direction
 
 ```c
 struct Node

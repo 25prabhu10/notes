@@ -54,9 +54,8 @@ Ans: Programs are files that contain a bunch of text. That text is parsed by a s
 
 - TypeScript **compiles** to **JavaScript** code! This JavaScript code is run in browser or [Node.js](../Node.js)
 
-::: tip NOTE
-JavaScript compilers and runtime tend to be smashed into a single program called an engine; as a programmer, this is what you'll normally interact with. It's how V8 (the engine powering NodeJS, Chrome, and Opera), SpiderMonkey (Firefox), JSCore (Safari), and Chakra (Edge) work, and it's what gives JavaScript the appearance of being an interpreted language
-:::
+> [!NOTE]
+> JavaScript compilers and runtime tend to be smashed into a single program called an engine; as a programmer, this is what you'll normally interact with. It's how V8 (the engine powering NodeJS, Chrome, and Opera), SpiderMonkey (Firefox), JSCore (Safari), and Chakra (Edge) work, and it's what gives JavaScript the appearance of being an interpreted language
 
 ### Using TypeScript Compiler
 
@@ -352,7 +351,7 @@ Nullable types
   let a: number | null = 12;
   ```
 
-> Note: once a variable is set to null, will it give error if we assign different value to it.
+> Note: once a variable is set to null, will it give error if we assign different value to it
 
 ### Type Guard
 
@@ -447,7 +446,7 @@ Some types are _wider_ than others, `string` is wider than the literal string `"
 
 It is similar to the concept of 'subtypes' and 'supertypes' in set theory
 
-Narrowing in TypeScript lets us take a wider type and make it narrower using runtime code.
+Narrowing in TypeScript lets us take a wider type and make it narrower using runtime code
 
 Narrowing with `typeof`, `instanceof`, and `in`:
 
@@ -790,7 +789,7 @@ interface User1 {
 
 interface User extends User1 {
   // Interface 'User' incorrectly extends interface 'User1'.
-  //  Types of property 'age' are incompatible.
+  //  Types of property 'age' are incompatible
   //    Type 'string' is not assignable to type 'number'.
   age: string;
 }
@@ -934,7 +933,7 @@ enum DIRECTION {
 // Down has value: 2
 ```
 
-- If string is used instead of numbers to initialize, we need to provide value to all the elements.
+- If string is used instead of numbers to initialize, we need to provide value to all the elements
 
 ```typescript
 enum ROLES {
@@ -1046,7 +1045,7 @@ const albumAwards1: Record<"Grammy" | "MercuryPrize" | "Billboard", boolean> = {
 
 const albumAwards2: {
   [index: "Grammy" | "MercuryPrize" | "Billboard"]: boolean;
-  // An index signature parameter type cannot be a literal type or generic type. Consider using a mapped object type instead.
+  // An index signature parameter type cannot be a literal type or generic type. Consider using a mapped object type instead
 } = {
   Grammy: true,
   MercuryPrize: false,
@@ -1267,7 +1266,7 @@ A pattern that makes working with unions much easier and more robust
 
 _Example:_
 
-````typescript
+```typescript
 type State = {
   state: "loading" | "success" | "error";
   error?: string; // error actually exists only when state is "error"
@@ -1282,20 +1281,20 @@ type State =
 
 // better approach
 type LoadingState = {
-  status: 'loading'
-}
+  status: "loading";
+};
 
 type ErrorState = {
-  status: 'error'
-  error: string
-}
+  status: "error";
+  error: string;
+};
 
 type SuccessState = {
-  status: 'success'
-  data: string
-}
+  status: "success";
+  data: string;
+};
 
-type State = LoadingState | ErrorState | SuccessState
+type State = LoadingState | ErrorState | SuccessState;
 ```
 
 ```typescript
@@ -1335,7 +1334,7 @@ let suAdmin: User = {
   role: "super-admin",
   superAdminPassword: "******",
 };
-````
+```
 
 ```typescript
 interface Bird {
@@ -1947,7 +1946,7 @@ class Car {
 }
 ```
 
-- Methods don't have `function` keyword.
+- Methods don't have `function` keyword
 
 ```typescript
 class Car {
@@ -2180,7 +2179,7 @@ function merge<T extends object, U extends object>(obj1: T, obj2: U) {
 }
 ```
 
-- `keyof` type operator: Takes an object type and produces a string or numeric literal union of its keys.
+- `keyof` type operator: Takes an object type and produces a string or numeric literal union of its keys
 
 ```typescript
 type Point = { x: number; y: number };

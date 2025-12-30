@@ -25,9 +25,9 @@
 
 9. Use-After-Free (UAF) is a vulnerability related to incorrect use of dynamic memory during program operation
 
-10. Write-what-where Condition: Any condition where the attacker has the ability to write an arbitrary value to an arbitrary location, often as the result of a buffer overflow.
+10. Write-what-where Condition: Any condition where the attacker has the ability to write an arbitrary value to an arbitrary location, often as the result of a buffer overflow
 
-11. Global Offset Table (GOT): is a section of a computer program's (executables and shared libraries) memory used to enable computer program code compiled as an ELF file to run correctly, independent of the memory address where the program's code or data is loaded at runtime.
+11. Global Offset Table (GOT): is a section of a computer program's (executables and shared libraries) memory used to enable computer program code compiled as an ELF file to run correctly, independent of the memory address where the program's code or data is loaded at runtime
 
 12. Convex hull
 

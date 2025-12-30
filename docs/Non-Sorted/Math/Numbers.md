@@ -1,8 +1,6 @@
 ---
 title: Numbers
 description: 42
-date: 2022-11-20
-lastmod: 2022-11-21
 ---
 
 # Numbers

@@ -1,8 +1,6 @@
 ---
 title: Azure SignalR Service
 description: Azure SignalR Service is a fully managed real-time messaging service that allows you to add real-time functionality to your application
-date: 2024-10-05
-lastmod: 2024-10-09
 ---
 
 # Azure SignalR

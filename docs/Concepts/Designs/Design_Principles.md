@@ -28,7 +28,7 @@ Identify the aspects of your application that vary and separate them from what s
 
 - If we have part of our design that is changing, say with every new requirement, well then we should encapsulate that part away from the rest of the design
 
-- **Underlines almost all design patterns** like Strategy, Adapter, Facade, Decorator, Observer, Singleton, etc.
+- **Underlines almost all design patterns** like Strategy, Adapter, Facade, Decorator, Observer, Singleton, etc...
 
 _Example:_ Pancake menu can be altered at any time without affecting the rest of our code
 

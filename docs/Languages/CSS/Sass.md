@@ -5,9 +5,9 @@ description: Sass is a preprocessor scripting language that is interpreted or co
 
 # Sass
 
-Syntactically Awesome Style Sheets (Sass) is a CSS pre-processor, this helps users to use features like variables, nesting, mixins, inheritance, and catch errors during compilation. These features help in writing well structured, readable, maintainable, and scalable CSS.
+Syntactically Awesome Style Sheets (Sass) is a CSS pre-processor, this helps users to use features like variables, nesting, mixins, inheritance, and catch errors during compilation. These features help in writing well structured, readable, maintainable, and scalable CSS
 
-A stylesheet language initially designed by Hampton Catlin and developed by Nathan Weizenbaum and Chris Eppstein.
+A stylesheet language initially designed by Hampton Catlin and developed by Nathan Weizenbaum and Chris Eppstein
 
 ## Syntax
 
@@ -58,9 +58,8 @@ Variables in Sass are used for reusing values
   }
   ```
 
-::: tip NOTE
-CSS variables are used whenever dynamic styles need to be applied, like under media queries. Mixture of both CSS and Sass variables are used depending on the need. Check CSS variables vs Sass variables.
-:::
+> [!NOTE]
+> CSS variables are used whenever dynamic styles need to be applied, like under media queries. Mixture of both CSS and Sass variables are used depending on the need. Check CSS variables vs Sass variables
 
 ## Nesting
 
@@ -215,7 +214,7 @@ Using `@extend` lets you share a set of CSS properties from one selector to anot
   color: #333;
 }
 
-// This CSS won't print because %equal-heights is never extended.
+// This CSS won't print because %equal-heights is never extended
 %equal-heights {
   display: flex;
 }

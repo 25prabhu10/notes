@@ -129,9 +129,9 @@ Following are the indexes supported in MongoDB:
 
 - **Single Field**: Used for Single field or sort. Indexes can be either in ascending order or descending order
 
-- **Compound Index**: Used for multiple fields.
+- **Compound Index**: Used for multiple fields
 
-- **Multikey Index**: These are used to index array data.
+- **Multikey Index**: These are used to index array data
 
 - **Geo-spacial Index**: Indexes used are two dimensional and 2D sphere (geolocation).
 
@@ -170,8 +170,8 @@ Two types of capped collections used are:
 
 Example:
 
-Suppose we have an eCommerce application. We are logging user data and should restrict data not to go more than four documents.
-In such scenario, we use capped collection.
+Suppose we have an eCommerce application. We are logging user data and should restrict data not to go more than four documents
+In such scenario, we use capped collection
 
 ```bash
 db.createCollection("LogUsers", {capped : true,size : 100, max :4})
@@ -211,15 +211,15 @@ _GridFS_ is a special type of file system in which data can be stored within Mon
 
 ### Aggregation
 
-In MongoDB, aggregation process records and return computed results.
+In MongoDB, aggregation process records and return computed results
 
 Aggregation can be categorized as :
 
-- Pipeline Aggregation: Documents are piped through processing pipeline and executes in different stages and transforms the documents into a final aggregated result.
+- Pipeline Aggregation: Documents are piped through processing pipeline and executes in different stages and transforms the documents into a final aggregated result
 
-- Map-Reduce: It splits a larger problem into smaller chunks and sends to different machines for processing. It comprises two phases: reduce and map.
+- Map-Reduce: It splits a larger problem into smaller chunks and sends to different machines for processing. It comprises two phases: reduce and map
 
-- Single Purpose: These operations will aggregate documents from a single collection.
+- Single Purpose: These operations will aggregate documents from a single collection
 
 ## MongoDB Architecture
 
@@ -251,9 +251,9 @@ The architecture of MongoDB comprises:
 
 ### Database
 
-The database can be defined as a physical container of collections. MongoDB server can have one or more databases.
+The database can be defined as a physical container of collections. MongoDB server can have one or more databases
 
-The default database for MongoDB is test. In the absence of any database, collections will be stored in the test database.
+The default database for MongoDB is test. In the absence of any database, collections will be stored in the test database
 
 The command to check databases in MongoDB Server:
 
@@ -263,9 +263,9 @@ show dbs
 
 ### Document
 
-A document is a set of key-value pairs that support dynamic schema. A document is similar to Row in RDBMS. In Relational databases, schemas should be defined before we add any data whereas MongoDB allows the insertion of data without a predefined schema.
+A document is a set of key-value pairs that support dynamic schema. A document is similar to Row in RDBMS. In Relational databases, schemas should be defined before we add any data whereas MongoDB allows the insertion of data without a predefined schema
 
-Dynamic schema implies that the documents stored in the database can have different fields, with different types for each field.
+Dynamic schema implies that the documents stored in the database can have different fields, with different types for each field
 
 ## CRUD
 
@@ -279,59 +279,58 @@ Dynamic schema implies that the documents stored in the database can have differ
 
 ### Create Operations
 
-Creating a schema and inserting data are the operations performed.
+Creating a schema and inserting data are the operations performed
 
-We can add single or multiple entries in one go.
+We can add single or multiple entries in one go
 
 Each entry will have an auto generated **\_id** added to the it. We can add over own **\_id** by just including the value for it (Not Recommended).
 
-::: danger REMEMBER
-**\_id** must always be unique for each entry.
-:::
+> [!CAUTION] REMEMBER
+> **\_id** must always be unique for each entry
 
-- `db.collectionName.insertOne({.}, options)` - Creates a collection if not present and inserts one document.
-- `db.collectionName.insertMutiple([{.},..,{.}], options)` - Creates a collection if not present and inserts multiple documents.
+- `db.collectionName.insertOne({.}, options)` - Creates a collection if not present and inserts one document
+- `db.collectionName.insertMutiple([{.},..,{.}], options)` - Creates a collection if not present and inserts multiple documents
 - `db.collectionName.insert({.}, options)`
 
 ### Read Operations
 
-Reading operations include searching a document.
+Reading operations include searching a document
 
 That is done using:
 
-- `db.collectionName.find(filter, options)` - Get all matches.
-- `db.collectionName.findOne(filter, options)` - Get the first match.
+- `db.collectionName.find(filter, options)` - Get all matches
+- `db.collectionName.findOne(filter, options)` - Get the first match
 
 There are read operations used mostly using the respective driver like:
 
-- `db.collectionName.find().forEach((a) => {printjson(a)})` - Loop through and perform an operation on each entry.
+- `db.collectionName.find().forEach((a) => {printjson(a)})` - Loop through and perform an operation on each entry
 
-`find().foEach()` runs on the clients system, this mean `find()` will fetch all the data and `forEach()` is used to filter out only the necessary information. This is method eats up lot of network bandwidth as more data is received then necessary.
+`find().foEach()` runs on the clients system, this mean `find()` will fetch all the data and `forEach()` is used to filter out only the necessary information. This is method eats up lot of network bandwidth as more data is received then necessary
 
 So, we use options inside the `find()` function to get only the information that is necessary. Options are nothing but _0_ or _1_ flags against the particular field, where _1_ means include the field and _0_ include everything except this field. Like, `db.collectionName.find({}, {email: 1, _id: 0})`.
 
-When we fetch information form the database, a cursor (metafile that contains metadata) is returned.
+When we fetch information form the database, a cursor (metafile that contains metadata) is returned
 
 ### Update Operations
 
-Update operations include updating documents or replace a document.
+Update operations include updating documents or replace a document
 
 That is done using:
 
-- `db.collectionName.updateOne(filter, data, options)` - Update a document that matches the filters.
-- `db.collectionName.updateMany(filter, data, options)` - Update many documents that match the filters.
-- `db.collectionName.replaceOne(filter, data, options)` - Replace a document that matches the filters.
+- `db.collectionName.updateOne(filter, data, options)` - Update a document that matches the filters
+- `db.collectionName.updateMany(filter, data, options)` - Update many documents that match the filters
+- `db.collectionName.replaceOne(filter, data, options)` - Replace a document that matches the filters
 
 ### Delete Operations
 
-Delete/Restore operations include deleting documents.
+Delete/Restore operations include deleting documents
 
 That is done using:
 
-- `db.collectionName.deleteOne(filter, options)` - Delete a document that matches the filters.
-- `db.collectionName.deleteMany(filter, options)` - Delete documents that match the filters.
+- `db.collectionName.deleteOne(filter, options)` - Delete a document that matches the filters
+- `db.collectionName.deleteMany(filter, options)` - Delete documents that match the filters
 
-> Delete operations need to used very carefully and add options to make it failsafe.
+> Delete operations need to used very carefully and add options to make it failsafe
 
 ## MongoDB Schema
 
@@ -349,7 +348,7 @@ Schema
 
 ### Relations
 
-Relation is a way in which one document interacts with another document.
+Relation is a way in which one document interacts with another document
 
 - One to One Relationship
 - One to Many Relationship

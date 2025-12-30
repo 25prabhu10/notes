@@ -5,11 +5,11 @@ next: ./Images
 
 # Links
 
-Links can be both external URLs and internal URLs.
+Links can be both external URLs and internal URLs
 
 ## Inline links
 
-Links can be written inline.
+Links can be written inline
 
 Syntax:
 

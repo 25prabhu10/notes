@@ -76,7 +76,7 @@ SQLite understands most of the standard SQL language. However, it does not suppo
 
 ### SQL Features That SQLite Does Not Implement
 
-- **Complete `ALTER TABLE` support**: Only the RENAME TABLE, ADD COLUMN, RENAME COLUMN, and DROP COLUMN variants of the ALTER TABLE command are supported. Other kinds of ALTER TABLE operations such as ALTER COLUMN, ADD CONSTRAINT, and so forth are omitted.
+- **Complete `ALTER TABLE` support**: Only the RENAME TABLE, ADD COLUMN, RENAME COLUMN, and DROP COLUMN variants of the ALTER TABLE command are supported. Other kinds of ALTER TABLE operations such as ALTER COLUMN, ADD CONSTRAINT, and so forth are omitted
 
 - **Complete trigger support**: FOR EACH ROW triggers are supported but not FOR EACH STATEMENT triggers
 
@@ -341,7 +341,7 @@ When SQLite compares two strings, it uses a collating sequence to determine whic
 
 SQLite has three built-in collating functions:
 
-1. `BINARY` (default): Compares string data using `memcmp()`, regardless of text encoding.
+1. `BINARY` (default): Compares string data using `memcmp()`, regardless of text encoding
 2. `NOCASE`: Compares strings case-insensitively
    - ASCII are folded to their lowercase equivalents before the comparison
 
@@ -408,11 +408,8 @@ SELECT x FROM t1 ORDER BY c COLLATE NOCASE, x;
 --result 2 4 3 1
 ```
 
-::: tip NOTE
-
-Collating is crucial for user-facing fields like usernames, emails, etc. It makes comparisons case-insensitive. So, 'JohnDoe' and 'johndoe' will be treated as the same for uniqueness constraints and queries. This prevents users from registering variations of the same name.
-
-:::
+> [!NOTE]
+> Collating is crucial for user-facing fields like usernames, emails, etc. It makes comparisons case-insensitive. So, 'JohnDoe' and 'johndoe' will be treated as the same for uniqueness constraints and queries. This prevents users from registering variations of the same name
 
 ### Date And Time
 

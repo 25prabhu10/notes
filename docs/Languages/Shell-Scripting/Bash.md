@@ -1,6 +1,6 @@
 ---
 title: Shell Scripting
-description: Working with Unix Shells like GNU Bash.
+description: Working with Unix Shells like GNU Bash
 ---
 
 # Shell Scripts
@@ -102,9 +102,8 @@ Why Shebang is needed?
 - If no shebang is specified, then your default shell will be used
 - Different shells have slightly varying syntax and this may cause errors
 
-::: tip Other Interpreters
-Use python interpreter path as shebang if executing python script or any other interpreter path for that matter
-:::
+> [!TIP] OTHER INTERPRETERS
+> Use python interpreter path as shebang if executing python script or any other interpreter path for that matter
 
 ## Syntax
 
@@ -200,7 +199,7 @@ do
 done
 ```
 
-- The list is usually stored inside a variable. With white space separating each item.
+- The list is usually stored inside a variable. With white space separating each item
 
   ```bash
   COLORS="red green blue"
@@ -244,9 +243,8 @@ else
 fi
 ```
 
-::: tip
-Use variables under quotes to prevent unknown errors
-:::
+> [!TIP]
+> Use variables under quotes to prevent unknown errors
 
 ### `case`
 
@@ -466,9 +464,8 @@ Using `"` (double quotes) is recommended to prevent errors
 | `STRING1<STRING2`                       | `STRING1` sorts after `STRING2`                 |
 | `STRING1>STRING2`                       | `STRING1` sorts before `STRING2`                |
 
-::: warning
-The `>` and `<` operators must be quoted (or escaped with a backslash) to prevent the shell from interpreting them as redirection operators
-:::
+> [!WARNING]
+> The `>` and `<` operators must be quoted (or escaped with a backslash) to prevent the shell from interpreting them as redirection operators
 
 ### Arithmetic Expressions
 
@@ -498,7 +495,7 @@ $number # is unset or empty,
 - `[[` is more powerful than `[` because it supports additional operators like `&&`, `||`, `==`, `=~`, `<=`, `>=`
 
 - The `==` and `!=` operators in `[[` perform pattern matching, while in `[` they perform string comparison
-  - This makes `[[` useful for evaluating file and path names.
+  - This makes `[[` useful for evaluating file and path names
 
 _Example:_
 
@@ -535,11 +532,11 @@ fi
 
 ## Positional Parameters
 
-From `$0`-`$9` are used as positional parameters.
+From `$0`-`$9` are used as positional parameters
 
-- `$0` : Name of the script being run.
-- Rest are parameters passed through command line.
-- `$@` is the list of all arguments. It can be used to loop through the parameters.
+- `$0` : Name of the script being run
+- Rest are parameters passed through command line
+- `$@` is the list of all arguments. It can be used to loop through the parameters
 
 ## Exit Status
 
@@ -570,7 +567,7 @@ fi
 
 ## User Input (STDIN)
 
-The `read` command accepts STDIN.
+The `read` command accepts STDIN
 
 Syntax:
 

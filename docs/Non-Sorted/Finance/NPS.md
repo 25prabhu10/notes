@@ -1,8 +1,6 @@
 ---
 title: National Pension System (NPS)
-description:
-date: 2023-04-16
-lastmod: 2023-04-19
+description: A government-sponsored pension scheme in India
 ---
 
 # National Pension System (NPS)

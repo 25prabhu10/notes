@@ -438,7 +438,7 @@ S3: Moving between storage classes
 
 ## S3 Lifecycle Rules
 
-- Transition actions: It defines when objects are transitioned to another storage class.
+- Transition actions: It defines when objects are transitioned to another storage class
   - Move objects to Standard IA class 60 days after creation
   - Move to Glacier for archiving after 6 months
 - Expiration actions: configure objects to expire (delete) after some time
@@ -451,12 +451,12 @@ S3: Moving between storage classes
 ### S3 Lifecycle Rules - Scenario 1
 
 - Your application on EC2 creates images thumbnails after profile photos are uploaded to Amazon S3. These thumbnails can be easily recreated, and only need to be kept for 45 days. The source images should be able to be immediately retrieved for these 45 days, and afterwards, the user can wait up to 6 hours. How would you design this?
-- S3 source images can be on STANDARD, with a lifecycle configuration to transition them to GLACIER after 45 days.
-- S3 thumbnails can be on ONEZONE_IA, with a lifecycle configuration to expire them (delete them) after 45 days.
+- S3 source images can be on STANDARD, with a lifecycle configuration to transition them to GLACIER after 45 days
+- S3 thumbnails can be on ONEZONE_IA, with a lifecycle configuration to expire them (delete them) after 45 days
 
 ### S3 Lifecycle Rules - Scenario 2
 
-- A rule in your company states that you should be able to recover your deleted S3 objects immediately for 15 days, although this may happen rarely. After this time, and for up to 365 days, deleted objects should be recoverable within 48 hours.
+- A rule in your company states that you should be able to recover your deleted S3 objects immediately for 15 days, although this may happen rarely. After this time, and for up to 365 days, deleted objects should be recoverable within 48 hours
 - You need to enable S3 versioning in order to have object versions, so that "deleted objects" are in fact hidden by a "delete marker" and can be recovered
 - You can transition these "noncurrent versions" of the object to S3_IA
 - You can transition afterwards these "noncurrent versions" to DEEP_ARCHIVE
@@ -482,8 +482,8 @@ Steps:
 ## S3: Baseline Performance
 
 - Amazon S3 automatically scales to high request rates, latency 100-200 ms
-- Your application can achieve at least 3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix in a bucket.
-- There are no limits to the number of prefixes in a bucket.
+- Your application can achieve at least 3,500 PUT/COPY/POST/DELETE and 5,500 GET/HEAD requests per second per prefix in a bucket
+- There are no limits to the number of prefixes in a bucket
 - Example (object path => prefix):
   - bucket/folder1/sub1/file => /folder1/sub1/
   - bucket/folder1/sub2/file => /folder1/sub2/
@@ -529,7 +529,7 @@ Steps:
 - Can create as many "S3 events" as desired
 - S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer
 - If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent
-- If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket.
+- If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket
 
 ## AWS Athena
 

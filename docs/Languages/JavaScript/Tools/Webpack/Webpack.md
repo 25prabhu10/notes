@@ -48,9 +48,8 @@ node ./node_modules/webpack-cli/bin/cli.js
 
 The above command will invoke webpack with its default settings and produce results
 
-::: note NOTE
-Webpack v5 is being used here
-:::
+> [!NOTE]
+> Webpack v5 is being used here
 
 ## Configuration
 
@@ -128,9 +127,8 @@ Loaders work at the individual file level _during or before_ the **bundle** is g
   };
   ```
 
-  ::: tip NOTE
-  Babel uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers
-  :::
+  > [!NOTE]
+  > Babel uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers
 
 - `ts-loader`: Loads [TypeScript](https://www.typescriptlang.org/)
 
@@ -177,10 +175,9 @@ Loaders work at the individual file level _during or before_ the **bundle** is g
   npm install --save-dev sass-loader sass
   ```
 
-  ::: tip NOTE
-  Needs [Dart Sass](https://github.com/sass/dart-sass) or [Node Sass](https://github.com/sass/node-sass)
-  Recommended to use Dart Sass
-  :::
+  > [!NOTE]
+  > Needs [Dart Sass](https://github.com/sass/dart-sass) or [Node Sass](https://github.com/sass/node-sass)
+  > Recommended to use Dart Sass
 
 - `postcss-loader`: Loader to process CSS with [PostCSS](https://github.com/postcss/postcss)
 
@@ -198,9 +195,8 @@ Loaders work at the individual file level _during or before_ the **bundle** is g
   };
   ```
 
-  ::: tip NOTE
-  PostCSS uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers
-  :::
+  > [!NOTE]
+  > PostCSS uses [browserslist](https://github.com/browserslist/browserslist) to traget browsers
 
 Basic styling configuration:
 

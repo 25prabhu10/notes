@@ -111,9 +111,8 @@ Where:
 - `GET` is an HTTP method
 - `/page.html` is the resource that we need
 
-::: tip NOTE
-There is no concept of headers in HTTP/0.9 or any other media, such as images
-:::
+> [!NOTE]
+> There is no concept of headers in HTTP/0.9 or any other media, such as images
 
 ### HTTP/1.0
 
@@ -184,7 +183,7 @@ Server: Apache
 <!doctype html>
 <html>
 <head>
-etc.
+etc...
 ```
 
 - The first line consists of an HTTP version (HTTP/1.0), a 3-digit [HTTP status code](#http-response-status-codes) (200), and a text description of that status code (OK)
@@ -227,16 +226,15 @@ GET / HTTP/1.1
 Host: www.google.com
 ```
 
-> [Conversation over the HTTP host header](https://lists.w3.org/Archives/Public/ietf-http-wg-old/1999SepDec/0014.html)
+[Conversation over the HTTP host header](https://lists.w3.org/Archives/Public/ietf-http-wg-old/1999SepDec/0014.html)
 
-::: warning NOTE
-
-```http
-GET / HTTP/1.1
-```
-
-The above request is not according to the HTTP/1.1 specification, this request should be rejected by the server (with a **`400`** response code). Most of the web servers are more forgiving than they should be and have a default host that is returned for such requests
-:::
+> [!WARNING]
+>
+> ```http
+> GET / HTTP/1.1
+> ```
+>
+> The above request is not according to the HTTP/1.1 specification, this request should be rejected by the server (with a **`400`** response code). Most of the web servers are more forgiving than they should be and have a default host that is returned for such requests
 
 #### Connection
 
@@ -262,7 +260,7 @@ Server: Apache
 <!doctype html>
 <html>
 <head>
-etc.
+etc...
 ```
 
 - It is difficult to know when the response is completed and when the client sends another request. To overcome this, **`Content-Length` HTTP header** is used to define the length of the response body, and when the entire body is received, the client is free to send another request
@@ -281,7 +279,7 @@ Server: Apache
 <!doctype html>
 <html>
 <head>
-etc.
+etc...
 Connection closed by foreign host.
 ```
 
@@ -291,9 +289,8 @@ Connection closed by foreign host.
 | HTTP/1.0     | Included          | Kept open  |
 | HTTP/1.1     | Both              | Kept open  |
 
-::: tip NOTE
-Connection header is supported by many _HTTP/1.0_ servers, even though it wasn't included in the _HTTP/1.0_ specification
-:::
+> [!NOTE]
+> Connection header is supported by many _HTTP/1.0_ servers, even though it wasn't included in the _HTTP/1.0_ specification
 
 HTTP/1.1 added the concept of **pipelining**, it is possible to send several requests over the same persistent connection and get the responses back in order. If a web browser is processing an HTML document, for example, and sees that it needs a CSS file and a JavaScript file, it should be able to send the requests for these files together and get the responses back in order rather than waiting for the first response before sending the second request
 
@@ -321,11 +318,10 @@ Server: Apache
 Function(){ ... }
 ```
 
-::: danger IMPORTANT
-Support for pipelining in both clients (browsers) and servers is poor
-
-So, HTTP/1.1 is still fundamentally a request-and-response protocol for most implementations. While that one request is being handled, the HTTP connection is blocked from being used for other requests
-:::
+> [!CAUTION] IMPORTANT
+> Support for pipelining in both clients (browsers) and servers is poor
+>
+> So, HTTP/1.1 is still fundamentally a request-and-response protocol for most implementations. While that one request is being handled, the HTTP connection is blocked from being used for other requests
 
 #### Other New Features
 
@@ -379,9 +375,8 @@ Here are some of the response codes ([List of all status codes](https://www.iana
 |                       | `503`     | Service unavailable           | The server is unable to fulfil the request, perhaps because the server is overloaded or down for maintenance                                                                                    |
 |                       | `504`     | Gateway timeout               | The server, while acting as a gateway or proxy, did not get a response in time from the upstream server that it needed in order to complete the request                                         |
 
-::: tip NOTE
-**HTTP/1.0 doesn't define any `1xx`** status codes, but does define the category. Some codes such as _(203, 303, 402)_ are not part of HTTP/1.0
-:::
+> [!NOTE]
+> **HTTP/1.0 doesn't define any `1xx`** status codes, but does define the category. Some codes such as _(203, 303, 402)_ are not part of HTTP/1.0
 
 ### HTTP 2
 
@@ -421,7 +416,7 @@ SSL/TLS have 3 goals (CIA):
 3. Authentication:
    - Provided by Certificates/PKI
 
-CIA of security is used in any of the secure communication protocol such as TLS, IPsec, SSH, etc.
+CIA of security is used in any of the secure communication protocol such as TLS, IPsec, SSH, etc...
 
 #### History of HTTP encryption
 
@@ -444,7 +439,7 @@ CIA of security is used in any of the secure communication protocol such as TLS,
 - What ciphers will be used?
 - Secret Key
 - Authentication (Public Key)
-- Robust against Man in the middle attacks, Replay attacks, Downgrade attacks, etc.
+- Robust against Man in the middle attacks, Replay attacks, Downgrade attacks, etc...
 
 A TLS handshake is the process that kicks off a communication session that uses TLS. During a TLS handshake, the two communicating sides exchange messages to acknowledge each other, verify each other, establish the cryptographic algorithms they will use, and agree on session keys
 
@@ -612,11 +607,10 @@ The digital certificates are issued, and digitally signed, by various _certifica
 - **`https://`** URL scheme is used instead of `http://`
 - HTTPS doesn't alter the way HTTP is used in terms of syntax or message format except for the encryption and decryption itself
 
-::: danger Certificates
-HTTPS indicates to us that the connection is secure, but does not give any information about the trustworthiness of the server
-
-Benefits of EV or Domain Validated (DV) or Organizational Validated (OV) certificates is highly disputed
-:::
+> [!CAUTION] CERTIFICATES
+> HTTPS indicates to us that the connection is secure, but does not give any information about the trustworthiness of the server
+>
+> Benefits of EV or Domain Validated (DV) or Organizational Validated (OV) certificates is highly disputed
 
 - _Telnet_ cannot be used to send HTTPS requests as it dose not handle the encryption and decryption part. So, programs like **OpenSSL** can be used:
 
@@ -672,9 +666,8 @@ Imagine a simple web page with some text and two images
 
 - Pipelining should have brought huge improvements to HTTP performance, but for many reasons, it was difficult to implement, easy to break, _head-of-line_ (HOL) blocking, and not well supported by web browsers or web servers
 
-::: danger SUPPORT
-Pipelining was rarely used
-:::
+> [!CAUTION] SUPPORT
+> Pipelining was rarely used
 
 ### Domain Sharding
 
@@ -915,7 +908,7 @@ The OpenID Connect client credentials flow is very similar except a client would
 - All site visitors are directed to attacker's web server
 - Motivation
   - Phishing
-  - Revenue through ads, cryptocurrency mining, etc.
+  - Revenue through ads, cryptocurrency mining, etc...
 
 #### How do they do it?
 
@@ -933,9 +926,8 @@ The OpenID Connect client credentials flow is very similar except a client would
 
 - **DNS-over-HTTPS**
 
-::: tip DNS SETTING
-Consider switching your DNS settings to Cloudflare (**`1.1.1.1`**) or another provider with a good privacy policy
-:::
+> [!TIP] DNS SETTING
+> Consider switching your DNS settings to Cloudflare (**`1.1.1.1`**) or another provider with a good privacy policy
 
 ## Tools
 
@@ -954,9 +946,8 @@ Some of the tools are:
 
 2. **Openssl**: Can be used to for HTTPS connection
 
-::: tip Warning
-HTTP is not based on Ping. Ping is much simpler than HTTP
-:::
+> [!WARNING]
+> HTTP is not based on Ping. Ping is much simpler than HTTP
 
 ## HTTP Proxy Servers
 

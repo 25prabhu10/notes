@@ -25,9 +25,9 @@ In other words, where any given node is:
 
 ## Operations
 
-**Heapify**: is the process of creating a heap data structure from a binary tree.
+**Heapify**: is the process of creating a heap data structure from a binary tree
 
-- It is used to create a _Min-Heap_ or a _Max-Heap_.
+- It is used to create a _Min-Heap_ or a _Max-Heap_
 
 1. Create a binary tree from an array
 
@@ -42,7 +42,7 @@ In other words, where any given node is:
 
 5. Swap `largest` with `currentElement`
 
-6. Repeat steps 2-6 until the subtrees are also heapified.
+6. Repeat steps 2-6 until the subtrees are also heapified
 
 ## Implementation
 

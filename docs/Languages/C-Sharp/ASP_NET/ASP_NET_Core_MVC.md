@@ -11,7 +11,7 @@ Model-View-Controller (MVC) is a user interface design pattern
 
 - Promotes separation of concerns across multiple application layers
 
-The MVC design pattern helps to enforce separation of concerns to help you avoid mixing presentation logic, business logic, and data access logic together.
+The MVC design pattern helps to enforce separation of concerns to help you avoid mixing presentation logic, business logic, and data access logic together
 
 - Model: classes (objects)
   - All business logic
@@ -37,7 +37,7 @@ How website works:
 
 ### ASP.NET MVC
 
-- Add the MVC middleware `app.UseMvc()`, along with route patterns that the ASP.NET Core MVC middleware should be listening to.
+- Add the MVC middleware `app.UseMvc()`, along with route patterns that the ASP.NET Core MVC middleware should be listening to
 
   ```cs
   app.UseMvc(routes =>
@@ -53,7 +53,7 @@ How website works:
   ```
 
 - Add the services MVC requires (DI): 3-5 were added in Core 3.x
-  1. `AddMvcCore()`: Only adds core components of the MVC pipeline, requiring you to add any other middleware (needed for your project) by yourself.
+  1. `AddMvcCore()`: Only adds core components of the MVC pipeline, requiring you to add any other middleware (needed for your project) by yourself
 
      ```cs
      // MVC Core
@@ -67,7 +67,7 @@ How website works:
      }
      ```
 
-  2. `AddMvc()`: Internally calls `AddMvcCore()` and adds other middleware such as the Razor view engine, Razor pages, CORS, cache tag helper, JSON formatter (in Core 2.x), data annotations etc.
+  2. `AddMvc()`: Internally calls `AddMvcCore()` and adds other middleware such as the Razor view engine, Razor pages, CORS, cache tag helper, JSON formatter (in Core 2.x), data annotations etc...
      - everything that `AddControllersWithViews()` does
      - everything that `AddRazorPages()` does
 
@@ -99,13 +99,13 @@ How website works:
 
 ### Controllers
 
-They are responsible for receiving the request and figuring out what to do with it. In an ASP.NET Core MVC application, controllers are nothing more than classes.
+They are responsible for receiving the request and figuring out what to do with it. In an ASP.NET Core MVC application, controllers are nothing more than classes
 
 - They contain actions (methods)
 
 ## Razor Pages Application
 
-Razor is a template markup syntax.
+Razor is a template markup syntax
 
 - Introduced in ASP.NET Core 2.0
 - Routing, Models, `ActionResult`, Tag Helpers...
@@ -125,13 +125,11 @@ HTML helpers:
 - `@Html.ActionHelper`
 - `@Url.Action`
 
-::: tip Note
-`Microsoft.AspNetCore.App` was the meta-package which contained all features of .NET Core
-
-- Prior to .NET Core 3, meta-package was included as a Nuget Package.
-- With .NET Core 3 onwards, meta-package is a part of .NET Core installation itself, the package have been moved out of the meta-package as a separate Nuget Package, like Entity Framework.
-
-:::
+> [!NOTE]
+> `Microsoft.AspNetCore.App` was the meta-package which contained all features of .NET Core
+>
+> - Prior to .NET Core 3, meta-package was included as a Nuget Package
+> - With .NET Core 3 onwards, meta-package is a part of .NET Core installation itself, the package have been moved out of the meta-package as a separate Nuget Package, like Entity Framework
 
 ## Project
 
@@ -158,14 +156,14 @@ Check [Core Project Structure](./ASP_NET_Core.md#aspnet-core-project-structure)
 
 3. `Properties/launchSettings.json`
 
-4. `wwwroot/`: folder will contain all the static files like CSS, JavaScript, image files, and libraries. This addresses separation of concerns.
+4. `wwwroot/`: folder will contain all the static files like CSS, JavaScript, image files, and libraries. This addresses separation of concerns
 
-5. `Pages/`: is the main folder in a Razor Project. This folder contains all the pages (views) of the application.
-   - There is a _Shared_ folder inside, which contains `.cshtml` files with `_` prefix. These files are known as **partial view** files. They act as components.
-   - `_ViewImports.cshtml` - Contains tag helper. This contains global tags, you can define page specific tags inside the specific page folder.
-   - `_ViewStart.cshtml` - Defines the master page. Like the layout for all the pages.
-   - The rest of the `.cshtml` files in Pages are Razor Pages And other `.cshtml` files have a `.cshtml.cs` file, which is the modal for the view.
-   - `index.cshtml` file is the homepage of the application.
+5. `Pages/`: is the main folder in a Razor Project. This folder contains all the pages (views) of the application
+   - There is a _Shared_ folder inside, which contains `.cshtml` files with `_` prefix. These files are known as **partial view** files. They act as components
+   - `_ViewImports.cshtml` - Contains tag helper. This contains global tags, you can define page specific tags inside the specific page folder
+   - `_ViewStart.cshtml` - Defines the master page. Like the layout for all the pages
+   - The rest of the `.cshtml` files in Pages are Razor Pages And other `.cshtml` files have a `.cshtml.cs` file, which is the modal for the view
+   - `index.cshtml` file is the homepage of the application
 
 6. `Views/`
 
@@ -175,7 +173,7 @@ Check [ASP.NET Core Middleware](./ASP_NET_Core.md#middleware-in-aspnet-core)
 
 ### Serve Static Files
 
-Static files are stored within the project's web root directory. The default directory is `{content root}/wwwroot`, but it can be changed with the `UseWebRoot` method.
+Static files are stored within the project's web root directory. The default directory is `{content root}/wwwroot`, but it can be changed with the `UseWebRoot` method
 
 `wwwroot` folder structure:
 
@@ -210,11 +208,11 @@ Other methods:
 
 ## Routing in Razor Pages
 
-- Routing in ASP.NET Razor Pages maps URL's to physical files on disk.
+- Routing in ASP.NET Razor Pages maps URL's to physical files on disk
 
-- _Pages_ is the root folder where `index.cshtml` (default document) file resides. You can change the root folder in `ConfigureServices` in `Startup.cs` file.
+- _Pages_ is the root folder where `index.cshtml` (default document) file resides. You can change the root folder in `ConfigureServices` in `Startup.cs` file
 
-- File extensions are not included in the URL.
+- File extensions are not included in the URL
 
 | URL                         | Maps TO                                                  |
 | --------------------------- | -------------------------------------------------------- |
@@ -225,4 +223,4 @@ Other methods:
 
 ## Tag Helpers
 
-Tag Helpers enable server-side code to participate in creating and rendering HTML elements in Razor files. HTML Helpers alternative.
+Tag Helpers enable server-side code to participate in creating and rendering HTML elements in Razor files. HTML Helpers alternative

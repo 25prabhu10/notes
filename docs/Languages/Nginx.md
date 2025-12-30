@@ -1,7 +1,6 @@
 ---
 title: Nginx
 description: Open source web and application server
-date: 2023-07-29
 ---
 
 # Nginx

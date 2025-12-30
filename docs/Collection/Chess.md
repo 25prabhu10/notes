@@ -1,8 +1,6 @@
 ---
 title: Chess
-description:
-date: 2022-12-29
-lastmod: 2025-03-08
+description: A strategic board game played on a checkered board with 64 squares
 ---
 
 # Chess

@@ -52,9 +52,9 @@
     test();
     ```
 
-    - 0 delay doesn't actually mean the callback will fire of after zero MS calling set time what with a delay 0 MS doesn't execute the callback function after the given interval.
+    - 0 delay doesn't actually mean the callback will fire of after zero MS calling set time what with a delay 0 MS doesn't execute the callback function after the given interval
 
-    - Execution depends on the number of waiting task in the queue in the example below the message "test" will be returned to the console before the message in the callback gets processed because the delay is the minimum time required for the runtime to process the request but not a guaranteed time.
+    - Execution depends on the number of waiting task in the queue in the example below the message "test" will be returned to the console before the message in the callback gets processed because the delay is the minimum time required for the runtime to process the request but not a guaranteed time
 
     - Basically the set timeout needs to wait for all the code for cute messages to complete even though you specified particular time limit for your set timer
 
@@ -94,7 +94,7 @@
 27. Difference between `bind`, `call` and `apply`? Examples if well answered
 
 28. How to implement queue and stack in JavaScript?
-    - Using jQuery, jQuery validate and jQuery validate Unobtrusive for client-side validation using Data Annotations.
+    - Using jQuery, jQuery validate and jQuery validate Unobtrusive for client-side validation using Data Annotations
 
     - Performance improvements: the use of Bundling and `Minification`
 
@@ -177,7 +177,7 @@
 38. What is tree shakeable in Javascript:
     - Tree shaking is a term commonly used within a JavaScript context to describe the **removal of dead code**.
 
-    - It relies on the **import and export statements (ES6)** to detect if code modules are exported and imported for use between JavaScript files.
+    - It relies on the **import and export statements (ES6)** to detect if code modules are exported and imported for use between JavaScript files
 
 ## HTML
 
@@ -299,8 +299,8 @@
 
 ## Angular 10
 
-1. How to use TypeScript to write Angular applications.
-2. All about directives and components, including the creation of custom directives/components.
+1. How to use TypeScript to write Angular applications
+2. All about directives and components, including the creation of custom directives/components
 3. How data binding works?
 4. What Pipes are and how to use them?
 5. How to access the Web (eg. RESTful servers)?
@@ -321,10 +321,10 @@
     - Module: `ng generate module`
 
 15. Angular 12 routing (All about routing and handling navigation.)
-16. Inter-Component Communication (Parent, Child) - `@Input`, `@Output`, `Event Emitter`, etc
+16. Inter-Component Communication (Parent, Child) - `@Input`, `@Output`, `Event Emitter`, etc...
 17. Unit Testing of Type-Script code using Jasmine / karma framework
 18. What is NGRx/redux in angular slash react and why are we using it what are the advantages of NCRx/redux?
-    - RxJS is a library for composing asynchronous and callback-based code in a functional, reactive style using Observables. Many APIs such as HttpClient produce and consume RxJS Observables and also uses operators for processing observables.
+    - RxJS is a library for composing asynchronous and callback-based code in a functional, reactive style using Observables. Many APIs such as HttpClient produce and consume RxJS Observables and also uses operators for processing observables
 
 19. How do you structure your angular project?
 20. Why we use reducers and components and what should we put in each and why?
@@ -334,4 +334,4 @@
     - [Comparison](https://github.com/sudheerj/angular-interview-questions#what-is-angular-framework)
 
 23. What are directives?
-    - Directives add behaviour to an existing DOM element or an existing component instance.
+    - Directives add behaviour to an existing DOM element or an existing component instance

@@ -13,7 +13,7 @@ The 1995 book _Design Patterns: Elements of Reusable Object-Oriented Software_ b
 
 Quote from the book:
 
-> A design pattern systematically names, motivates, and explains a general design that addresses a recurring design problem in object-oriented systems. It describes the problem, the solution,, when to apply the solution, and its consequences. It also gives implementation hints and examples. The solution is a general arrangement of objects and classes that solve the problem. The solution is customized and implemented to solve the problem in a particular context.
+> A design pattern systematically names, motivates, and explains a general design that addresses a recurring design problem in object-oriented systems. It describes the problem, the solution,, when to apply the solution, and its consequences. It also gives implementation hints and examples. The solution is a general arrangement of objects and classes that solve the problem. The solution is customized and implemented to solve the problem in a particular context
 
 Why use design patterns?
 
@@ -51,7 +51,7 @@ Why use design patterns?
 
 - Unjustified use:
 
-  > If all you have is a hammer, everything looks like a nail.
+  > If all you have is a hammer, everything looks like a nail
 
 ## Elements of a Pattern
 
@@ -298,7 +298,7 @@ _Intent:_ Lets you copy existing objects without making your code dependent on t
 
 We can create objects that will be used as prototypes for other objects to be created
 
-- Inheritance by prototypes ends up bringing a improvement in performance as well, because both objects have a reference to the same method that is implemented on the prototype, instead of being implemented on each one of them.
+- Inheritance by prototypes ends up bringing a improvement in performance as well, because both objects have a reference to the same method that is implemented on the prototype, instead of being implemented on each one of them
 
 - It enables us to extent the prototype with new functions that are immediately available to all the objects. **This is not a best practice**
 
@@ -504,11 +504,11 @@ _Applicability:_
 | ---------- | ---------- | ------ |
 | Important  | 1          | Object |
 
-The facade design pattern is used when we want to create an abstraction layer between what is show publicly and the internal implementation. It is used when we want to have a simpler interface.
+The facade design pattern is used when we want to create an abstraction layer between what is show publicly and the internal implementation. It is used when we want to have a simpler interface
 
-This pattern is used, for example, on the DOM selectors of libraries as JQuery, Dojo and D3. These frameworks have powerful selectors that allow us to write complex queries on a very simple way. Something like jQuery(".parent .child div.span") seems simple, but it hides a complex query logic underneath.
+This pattern is used, for example, on the DOM selectors of libraries as JQuery, Dojo and D3. These frameworks have powerful selectors that allow us to write complex queries on a very simple way. Something like jQuery(`.parent .child div.span`) seems simple, but it hides a complex query logic underneath
 
-Here again, every time we create an abstraction layer above the code, we might end up having a loss of performance. Mostly this loss is irrelevant, but is always good to be considered.
+Here again, every time we create an abstraction layer above the code, we might end up having a loss of performance. Mostly this loss is irrelevant, but is always good to be considered
 
 ```javascript
 // facade is just simplified API
@@ -622,7 +622,7 @@ It encapsulates a request as an object, allowing you to parametrize clients with
 
 Cons:
 
-A problem that arises with this pattern is that it **creates an additional abstraction layer**, and it may **impact the performance** of an app. It is important to know how to balance performance and code legibility.
+A problem that arises with this pattern is that it **creates an additional abstraction layer**, and it may **impact the performance** of an app. It is important to know how to balance performance and code legibility
 
 _Example:_ Let us consider a simple `Ligth` class that has two methods: `TurnOn` and `TurnOff`. To control the light, we can create a `RemoteControl` class that has a `PressButton` method that receives a command to on or off the light
 
@@ -976,7 +976,7 @@ This is the Memento pattern in action:
 
 The _observer pattern_ is very useful when we want to **optimize the communication between separated parts of the system**
 
-_Intent:_ Observer is a behavioural design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing.
+_Intent:_ Observer is a behavioural design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they're observing
 
 - This pattern exemplifies loose coupling
 

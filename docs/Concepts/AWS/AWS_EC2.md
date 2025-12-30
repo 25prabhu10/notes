@@ -29,7 +29,7 @@ It mainly consists in the capability of:
 
 ## EC2 User Data
 
-- It is possible to bootstrap the instances using an EC2 User Data script.
+- It is possible to bootstrap the instances using an EC2 User Data script
 - **Bootstrapping** means launching commands when a machine starts
 - That script is **only run once** at the instance **first start**
 - EC2 user data is used to automate boot tasks such as:
@@ -160,7 +160,7 @@ _Example:_ (EC2 instance types)
 
 ## SSH into EC2 Instance
 
-You can connect to an EC2 instance from your workstation through SSH.
+You can connect to an EC2 instance from your workstation through SSH
 
 ### In Linux/Mac
 
@@ -197,9 +197,9 @@ Steps:
    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
    @         WARNING: UNPROTECTED PRIVATE KEY FILE!          @
    @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-   Permissions 0644 for '../Documents/AWS/EC2Tutorial.pem' are too open.
-   It is required that your private key files are NOT accessible by others.
-   This private key will be ignored.
+   Permissions 0644 for '../Documents/AWS/EC2Tutorial.pem' are too open
+   It is required that your private key files are NOT accessible by others
+   This private key will be ignored
    ...
    ```
 
@@ -227,9 +227,8 @@ Steps:
 7. Now open the session
 8. It should connect to the EC2 instance and you can start working on it
 
-::: tip WINDOWS 10
-Windows 10 comes with OpenSSH installed. In that case you can follow the steps mentioned above for [Linux/Mac](#in-linuxmac). No need to use PuTTY.
-:::
+> [!TIP] WINDOWS 10
+> Windows 10 comes with OpenSSH installed. In that case you can follow the steps mentioned above for [Linux/Mac](#in-linuxmac). No need to use PuTTY
 
 ## EC2 Instances Purchasing
 
@@ -316,7 +315,7 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 - AWS EC2 Instance Metadata is powerful but one of the least known features to developers
 - It allows AWS EC2 instances to **"learn about themselves" without using an IAM Role for that purpose.**
 - The URL is `http://169.254.169.254/latest/meta-data`
-- You can retrieve the IAM Role name from the metadata, but you CANNOT retrieve the IAM Policy.
+- You can retrieve the IAM Role name from the metadata, but you CANNOT retrieve the IAM Policy
 - Metadata = Info about the EC2 instance
 - Userdata = launch script of the EC2 instance
 
@@ -324,7 +323,7 @@ Windows 10 comes with OpenSSH installed. In that case you can follow the steps m
 curl http://169.254.169.254
 ```
 
-AWS Instance calls `http://169.254.169.254/latest/meta-data/iam/security-credentials/<IAM_ROLE>` to get the Token attached a specific Role to make other calls.
+AWS Instance calls `http://169.254.169.254/latest/meta-data/iam/security-credentials/<IAM_ROLE>` to get the Token attached a specific Role to make other calls
 
 ## EC2 Instance Storage
 
@@ -346,12 +345,10 @@ AWS Instance calls `http://169.254.169.254/latest/meta-data/iam/security-credent
   - You get billed for all the provisioned capacity
   - You can increase the capacity of the drive over time
 
-::: tip NOTE
-
-- CCP - Certified Cloud Practitioner - one EBS can be only mounted to one EC2 instance. Associate Level (Solutions Architect, Developer, SysOps): "multi-attach" feature for some EBS.
-- Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month
-
-:::
+> [!NOTE]
+>
+> - CCP - Certified Cloud Practitioner - one EBS can be only mounted to one EC2 instance. Associate Level (Solutions Architect, Developer, SysOps): "multi-attach" feature for some EBS
+> - Free tier: 30 GB of free EBS storage of type General Purpose (SSD) or Magnetic per month
 
 ### EBS - Delete on Termination attribute
 
@@ -506,7 +503,7 @@ Steps:
     - IP address
     - Security Groups (create a new security group and add it here or use the existing ones) with inbound rules:
       - Type: NFS
-    - Recommended enabling EFS service-linked role using AWS IAM.
+    - Recommended enabling EFS service-linked role using AWS IAM
 11. File system policy (optional)
 
 ### Mounting EFS onto EC2 Instances

@@ -1,7 +1,6 @@
 ---
 title: React.js
 description: A JavaScript library for building user interfaces
-lastmod: 2025-02-08
 ---
 
 # React.js
@@ -97,9 +96,8 @@ We can either:
    - [Redwood SDK](https://rwsdk.com/)
    - [Waku](https://waku.gg/)
 
-::: note Official Guide
-[Official react installation guide](https://react.dev/learn/installation) for latest info
-:::
+> [!NOTE] Official Guide
+> [Official react installation guide](https://react.dev/learn/installation) for latest info
 
 ### React Project Setup From Scratch (only for learning purposes)
 
@@ -132,7 +130,7 @@ Steps to create a base React project without using any boilerplate tools:
 
    - All other package managers such as `yarn` and `pnpm` also use the same `package.json` file
 
-4. Create a `public` directory which will contain all the static assets, such as the main `index.html` file, images, `manifest.json`, `robots.txt`, etc.
+4. Create a `public` directory which will contain all the static assets, such as the main `index.html` file, images, `manifest.json`, `robots.txt`, etc...
 
 5. Create an `index.html` file inside the `public` directory. This is an HTML shell page that the browser loads, which react will utilize to render your app. An example of HTML markup of `index.html` is show below:
 
@@ -153,7 +151,7 @@ Steps to create a base React project without using any boilerplate tools:
    </html>
    ```
 
-6. Create a source directory called `src`, which will containing all the user written content such as JSX components, CSS files, etc.
+6. Create a source directory called `src`, which will containing all the user written content such as JSX components, CSS files, etc...
 
 7. Now you need a **module packager or build tool**, which will orchestrate JSX transformation, file minification and concatenation, module/dependency bundling or any other tasks. Tools such as [webpack](../Tools/Webpack/Webpack.md), [rollup.js](https://rollupjs.org/), [PARCEL](https://parceljs.org/), [Rolldown](https://rolldown.rs/), [Rsbuild](https://rsbuild.rs/), [esbuild](https://esbuild.github.io/) can be used
    - Each tool has its own pros and cons. Choose the one which best suits your project requirements
@@ -272,9 +270,8 @@ Steps to create a base React project without using any boilerplate tools:
     npm run build
     ```
 
-::: tip NOTE
-If you are using a boilerplate generator such as create-react-app, you don't need to worry about the initial setup. You can just start working on the project which has been scaffolded
-:::
+> [!NOTE]
+> If you are using a boilerplate generator such as create-react-app, you don't need to worry about the initial setup. You can just start working on the project which has been scaffolded
 
 ### Babel
 
@@ -424,9 +421,8 @@ In the above piece of code:
 
 ### React Factory
 
-::: danger DEPRECATED
-React components can no longer be called directly like this. Instead use JSX. See [React Factories](https://reactjs.org/warnings/legacy-factories.html)
-:::
+> [!CAUTION] DEPRECATED
+> React components can no longer be called directly like this. Instead use JSX. See [React Factories](https://reactjs.org/warnings/legacy-factories.html)
 
 `React.createFactory` is just a helper that binds your component class to `React.createElement` so you can make your own factories
 
@@ -485,9 +481,8 @@ Ways to create a React class component:
 
   Components that used `createClass` would have a `render()` method that described the React element(s) that should be returned and rendered. The idea of the component was the same: we'd describe a reusable bit of UI to render
 
-  ::: danger DEPRECATED
-  In React `v15.5` (April 2017), React started throwing warnings if `createClass` was used. In **React `v16` (September 2017), `React.createClass` was officially deprecated** and was moved to its own package, `create-react-class`
-  :::
+  > [!CAUTION] DEPRECATED
+  > In React `v15.5` (April 2017), React started throwing warnings if `createClass` was used. In **React `v16` (September 2017), `React.createClass` was officially deprecated** and was moved to its own package, `create-react-class`
 
 - Using class syntax added to JavaScript with ES2015. React added `React.Component` API that allowed the use of class syntax to create a new component:
 
@@ -503,9 +498,8 @@ Ways to create a React class component:
   }
   ```
 
-  ::: tip HEADS-UP
-  This syntax may as well be deprecated in near future
-  :::
+  > [!TIP] HEADS-UP
+  > This syntax may as well be deprecated in near future
 
 - `displayName`: This string property is used in debugging messages
 
@@ -873,14 +867,11 @@ You can combine multiple `propTypes`:
 | `PropTypes.instanceOf` | Instance of a given class                                                                              |
 | `PropTypes.oneOf`      | One of the options in an enum: `PropTypes.oneOf(['News', 'Photos'])`                                   |
 
-::: tip NOTE
-
-PropTypes and TypeScript can be used together as type checkers
-
-- PropTypes: Runtime Type Check
-- TypeScript: Static Type Check
-
-:::
+> [!NOTE]
+> PropTypes and TypeScript can be used together as type checkers
+>
+> - PropTypes: Runtime Type Check
+> - TypeScript: Static Type Check
 
 ### Default Props
 
@@ -1071,25 +1062,23 @@ this.setState((prevState, props) => {
 });
 ```
 
-::: tip NOTE
-
 If you want to access `this.props` inside the constructor, you need to pass props to `constructor()` and `super()`. And if you just need `props` inside the constructor, you need to pass props to `constructor()`:
 
 1. Not passing props:
 
    ```javascript
-   constructor() {
-     super();
-     console.log(this.props) // undefined
-   }
+    constructor() {
+      super();
+      console.log(this.props) // undefined
+    }
 
-   // OR
+    // OR
 
-   constructor(props) {
-     super();
-     console.log(this.props) // undefined
-     console.log(props) // props object
-   }
+    constructor(props) {
+      super();
+      console.log(this.props) // undefined
+      console.log(props) // props object
+    }
    ```
 
 2. Passing props will require us to pass props to `super` constructor as well:
@@ -1102,15 +1091,10 @@ If you want to access `this.props` inside the constructor, you need to pass prop
    }
    ```
 
-:::
-
-::: danger STATE MUTATION
-
-- Do not mutate the state directly as it breaks the React's state management and JavaScript copies objects and arrays by reference, hence causing unexpected behaviours
-
-- If the state is directly mutate React will not know about the state change and hence it will not render the component with the latest state change
-
-:::
+> [!CAUTION] STATE MUTATION
+>
+> - Do not mutate the state directly as it breaks the React's state management and JavaScript copies objects and arrays by reference, hence causing unexpected behaviours
+> - If the state is directly mutate React will not know about the state change and hence it will not render the component with the latest state change
 
 **React immutability helper**: React provides an add-on to help in changing objects in immutable way
 
@@ -1168,9 +1152,8 @@ function handleClick(event) {
 }
 ```
 
-::: tip NOTE
-As of `v17`, `e.persist()` doesn't do anything because the SyntheticEvent is no longer pooled
-:::
+> [!NOTE]
+> As of `v17`, `e.persist()` doesn't do anything because the SyntheticEvent is no longer pooled
 
 ## Styling
 
@@ -1325,9 +1308,8 @@ Avoid using refs for anything that can be done declaratively
 
 - For example, instead of exposing `open()` and `close()` methods on a `Dialog` component, pass an `isOpen` prop to it
 
-::: tip NOTE
-`ref` updates happen before `componentDidMount` or `componentDidUpdate` lifecycle methods
-:::
+> [!NOTE]
+> `ref` updates happen before `componentDidMount` or `componentDidUpdate` lifecycle methods
 
 ### `useRef` Hook
 
@@ -1419,9 +1401,8 @@ function TextInputWithFocusButton() {
    }
    ```
 
-   ::: warning CAVEATS WITH CALLBACK REFS
-   If the `ref` callback is defined as an inline function, it will get called twice during updates, first with `null` and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one. You can avoid this by defining the `ref` callback as a bound method on the class, but note that it shouldn't matter in most cases
-   :::
+   > [!WARNING] CAVEATS WITH CALLBACK REFS
+   > If the `ref` callback is defined as an inline function, it will get called twice during updates, first with `null` and then again with the DOM element. This is because a new instance of the function is created with each render, so React needs to clear the old ref and set up the new one. You can avoid this by defining the `ref` callback as a bound method on the class, but note that it shouldn't matter in most cases
 
 3. _Legacy API_: String Refs
    - The `ref` attribute is a string, like `myTextInput`, and the DOM node is accessed as `this.refs.textInput`
@@ -1448,9 +1429,8 @@ function TextInputWithFocusButton() {
    }
    ```
 
-::: danger WILL BE DEPRECATED
-Don't use this way of creating refs, they have [some issues](https://github.com/facebook/react/pull/8333#issuecomment-271648615), will be deprecated in the future
-:::
+> [!CAUTION] WILL BE DEPRECATED
+> Don't use this way of creating refs, they have [some issues](https://github.com/facebook/react/pull/8333#issuecomment-271648615), will be deprecated in the future
 
 ### Accessing Refs
 
@@ -1566,9 +1546,8 @@ function CustomTextInput(props) {
 
 In some cases we need to expose DOM refs to Parent Components. There are few ways to achieve this. It is recommended to use **ref forwarding** in React _v16.3_ or higher
 
-::: danger ADD NOTES HERE
-[`forwardRef`](https://react.dev/reference/react/forwardRef) is deprecated use [`ref`](#refs) as prop instead
-:::
+> [!CAUTION] ADD NOTES HERE
+> [`forwardRef`](https://react.dev/reference/react/forwardRef) is deprecated use [`ref`](#refs) as prop instead
 
 Ref forwarding is a technique for automatically passing a ref through a component to one of its children. Ref forwarding lets components opt into exposing any child component's ref as their own
 
@@ -1603,9 +1582,8 @@ class Parent extends React.Component {
 }
 ```
 
-::: warning DON'T
-Don't Overuse Refs
-:::
+> [!WARNING] DON'T
+> Don't Overuse Refs
 
 ## Hooks
 
@@ -2293,15 +2271,12 @@ List of Methods:
 
    - Check out this link which suggests to use this method only in rare cases [You probably don't need derived state](https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html)
 
-::: tip NOTE
 Components whose single responsibility is to communicate with the remote API, and passing data and callbacks down as props are called **container component**
-:::
 
-::: danger DEPRECATED
-This method is deprecated
-
-`componentWillMount()`: Invoked once, immediately before the initial rendering occurs. Setting state here will not trigger a re-rending
-:::
+> [!CAUTION] DEPRECATED
+> This method is deprecated
+>
+> `componentWillMount()`: Invoked once, immediately before the initial rendering occurs. Setting state here will not trigger a re-rending
 
 ### Updating
 
@@ -2357,15 +2332,11 @@ Order of method calls based on updates:
     }
    ```
 
-::: danger DEPRECATED
-
-These have be deprecated:
-
-- `componentWillReceiveProps(nextProps)`: Invoked when a component is receiving new props. Calling `this.setState()` will not trigger re-rendering
-
-- `componentWillUpdate(nextProps, nextState)`: Invoked immediately before rending when new props or state being received. State change via `this.setState` is not allowed as this function should be strictly used to prepare for upcoming update and not trigger an update itself
-
-:::
+> [!CAUTION] DEPRECATED
+> These have be deprecated:
+>
+> - `componentWillReceiveProps(nextProps)`: Invoked when a component is receiving new props. Calling `this.setState()` will not trigger re-rendering
+> - `componentWillUpdate(nextProps, nextState)`: Invoked immediately before rending when new props or state being received. State change via `this.setState` is not allowed as this function should be strictly used to prepare for upcoming update and not trigger an update itself
 
 ### Unmounting
 
@@ -2669,13 +2640,10 @@ Advantages of this way is:
 
 - This pattern helps to implement interfaces that respond to or validate user interactions
 
-::: warning NOTE
-
-- You can pass an array into the `value` prop, allowing you to select multiple options in a `select` tag: `<select multiple={true} value={['B', 'C']}>`
-
-- The **file input** tag's value is read-only, and hence it is an **uncontrolled** component in React
-
-:::
+> [!WARNING]
+>
+> - You can pass an array into the `value` prop, allowing you to select multiple options in a `select` tag: `<select multiple={true} value={['B', 'C']}>`
+> - The **file input** tag's value is read-only, and hence it is an **uncontrolled** component in React
 
 ### Uncontrolled Components
 
@@ -3152,22 +3120,19 @@ export default function ArtistPage({ artist }) {
 }
 ```
 
-::: note NOTE
-
-By default, the whole tree inside Suspense is treated as a single unit. For example, even if only one of these components suspends waiting for some data, all of them together will be replaced by the loading indicator:
-
-```jsx
-<Suspense fallback={<Loading />}>
-  <Biography />
-  <Panel>
-    <Albums />
-  </Panel>
-</Suspense>
-```
-
-- All components inside the Suspense boundary will be hidden until all of them are ready
-
-:::
+> [!NOTE]
+> By default, the whole tree inside Suspense is treated as a single unit. For example, even if only one of these components suspends waiting for some data, all of them together will be replaced by the loading indicator:
+>
+> ```jsx
+> <Suspense fallback={<Loading />}>
+>   <Biography />
+>   <Panel>
+>     <Albums />
+>   </Panel>
+> </Suspense>
+> ```
+>
+> - All components inside the Suspense boundary will be hidden until all of them are ready
 
 ### Code-Splitting
 
@@ -3226,9 +3191,8 @@ const DetailPage = React.lazy(() =>
 
 - Before React _v16.6_ we used [`react-loadable`](https://github.com/jamiebuilds/react-loadable): Recommended for server rendered apps
 
-::: tip NAMED EXPORTS
-`React.lazy` currently **only supports default exports**
-:::
+> [!TIP] NAMED EXPORTS
+> `React.lazy` currently **only supports default exports**
 
 #### Route Based Code-Splitting
 

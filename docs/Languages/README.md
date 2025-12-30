@@ -20,5 +20,5 @@ sidebar: false
 12. [Shell Scripting](./Shell-Scripting/): Shell Programming
 13. [Git](./Git/): A Distributed Version-Control System
 14. [JSON](./JSON.md): JavaScript Object Notation
-14. [Makefile](./Makefile.md): A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
-15. [Nginx](./Nginx.md): Open source web and application server
+15. [Makefile](./Makefile.md): A configuration file used by the Unix make utility to manage the process of compiling programs from multiple source files
+16. [Nginx](./Nginx.md): Open source web and application server

@@ -7,7 +7,7 @@ description: Content Security Policy
 
 CSP provides additional layer of protection by enforcing loading of resources (scripts, images, etc.) from trusted locations
 
-- It's very effective against XSS, Clickjacking etc.
+- It's very effective against XSS, Clickjacking etc...
 - Visibility on attacks on app using CSP reporting directive
 - Options to deliver CSP:
   - `Content-Security-Policy` header is preferred technique

@@ -10,7 +10,7 @@ Developer problems on AWS
 
 - Managing infrastructure
 - Deploying Code
-- Configuring all the databases, load balancers, etc
+- Configuring all the databases, load balancers, etc...
 - Scaling concerns
 - Most web apps have the same architecture (ALB + ASG)
 - All the developers want is for their code to run!
@@ -103,9 +103,8 @@ Developer problems on AWS
 - Route 53 can be setup using weighted policies to redirect a little bit of traffic to the stage environment
 - Using Beanstalk, "swap URLs" when done with the environment test
 
-::: danger DNS CHANGE
-It uses new load balancer, so the changes happen at DNS level. This is a problem as DNS changes have to propagate to servers around the world.
-:::
+> [!CAUTION] DNS CHANGE
+> It uses new load balancer, so the changes happen at DNS level. This is a problem as DNS changes have to propagate to servers around the world
 
 ## Elastic Beanstalk - Traffic Splitting
 
@@ -251,7 +250,7 @@ It uses new load balancer, so the changes happen at DNS level. This is a problem
 - If your application performs tasks that are long to complete, offload these tasks to a dedicated
   worker environment
 - Decoupling your application into two tiers is common
-- Example: processing a video, generating a zip file, etc
+- Example: processing a video, generating a zip file, etc...
 - You can define periodic tasks in a file `cron.yaml`
 - Worker Environment:
   - creates an ASG

@@ -5,7 +5,7 @@ description: A promise-based HTTP Client for node.js and the browser
 
 # Axios
 
-[Axios](https://github.com/axios/axios) is a promise-based HTTP Client for [node.js](../Node.js) and the browser.
+[Axios](https://github.com/axios/axios) is a promise-based HTTP Client for [node.js](../Node.js) and the browser
 
 On the server-side it uses the native node.js `http` module, while on the client (browser) it uses `XMLHttpRequests`.
 
@@ -108,12 +108,12 @@ The response schema:
   status: 200,
 
   // `statusText` is the HTTP status message from the server response
-  // As of HTTP/2 status text is blank or unsupported.
+  // As of HTTP/2 status text is blank or unsupported
   // (HTTP/2 RFC: https://www.rfc-editor.org/rfc/rfc7540#section-8.1.2.4)
   statusText: 'OK',
 
   // `headers` the HTTP headers that the server responded with
-  // All header names are lower cased and can be accessed using the bracket notation.
+  // All header names are lower cased and can be accessed using the bracket notation
   // Example: `response.headers['content-type']`
   headers: {},
 
@@ -168,7 +168,7 @@ axios.interceptors.response.use(
 );
 ```
 
-- If you need to remove an interceptor later you can.
+- If you need to remove an interceptor later you can
 
   ```javascript
   const myInterceptor = axios.interceptors.request.use(function () {
@@ -177,7 +177,7 @@ axios.interceptors.response.use(
   axios.interceptors.request.eject(myInterceptor);
   ```
 
-- You can add interceptors to a custom instance of axios.
+- You can add interceptors to a custom instance of axios
 
   ```javascript
   const instance = axios.create();
@@ -197,7 +197,7 @@ const instance = axios.create({
   // This is only applicable for request methods 'PUT', 'POST', 'PATCH' and 'DELETE'
   // The last function in the array must return a string or an instance of Buffer, ArrayBuffer,
   // FormData or Stream
-  // You may modify the headers object.
+  // You may modify the headers object
   transformRequest: [
     (data, headers) => {
       const encryptedString = encryptPayload(JSON.stringify(data));
@@ -232,7 +232,7 @@ const responseSuccessHandler = (response) => {
 
 // Log & Sanitize errors response
 // => The errors given by server will not be always consistent so we
-//    could sanitize the response and return proper error to the client.
+//    could sanitize the response and return proper error to the client
 const responseErrorHandler = (error) => {
   var errors = ["Something went wrong, please try again!"];
 
@@ -280,7 +280,7 @@ controller.abort();
 
 ## Axios Instance
 
-You can create a new instance of axios with a custom config.
+You can create a new instance of axios with a custom config
 
 ```javascript
 import axios from "axios";

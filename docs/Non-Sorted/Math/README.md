@@ -2,8 +2,6 @@
 title: Math
 next: ./Numbers.md
 sidebar: false
-date: 2022-11-21
-lastmod: 2024-11-08
 ---
 
 # Table of Content

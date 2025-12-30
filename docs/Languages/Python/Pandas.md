@@ -1,8 +1,6 @@
 ---
 title: Pandas
 description: A Python library for data manipulation and analysis
-date: 2024-11-01
-lastmod: 2024-11-01
 ---
 
 # Pandas
@@ -70,7 +68,7 @@ Here are just a few of the things that pandas does well:
 
 - Robust IO tools for loading data from **flat files** (CSV and delimited), Excel files, databases, and saving / loading data from the ultrafast **HDF5 format**
 
-- **Time series**-specific functionality: date range generation and frequency conversion, moving window statistics, date shifting, and lagging.
+- **Time series**-specific functionality: date range generation and frequency conversion, moving window statistics, date shifting, and lagging
 
 ## Data Structures
 
@@ -90,7 +88,7 @@ All pandas data structures are value-mutable (the values they contain can be alt
 
 - Length of a Series cannot be changed
 
-The length of a Series cannot be changed, but, for example, columns can be inserted into a DataFrame. However, the vast majority of methods produce new objects and leave the input data untouched. In general we like to favor immutability where sensible.
+The length of a Series cannot be changed, but, for example, columns can be inserted into a DataFrame. However, the vast majority of methods produce new objects and leave the input data untouched. In general we like to favour immutability where sensible
 
 Series as a list representation:
 

@@ -1,15 +1,15 @@
 ---
 title: FFmpeg
-description: FFmpeg is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams.
+description: FFmpeg is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams
 ---
 
 # FFmpeg
 
-FFmpeg is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams.
+[FFmpeg](https://www.ffmpeg.org/) is a free and open-source software project consisting of a suite of libraries and programs for handling video, audio, and other multimedia files and streams
 
 ## Audio
 
-Audio codecs and bitrates:
+Audio codecs and bit-rates:
 
 - `mp3`: 128, 144, 160, _192_
 - `vorbis`: 128, 144, _160_, 192 (`ogg`)
@@ -89,9 +89,9 @@ Audio codecs and bitrates:
 
 ## x265
 
-[x265](https://x265.readthedocs.io/en/master/) is a H.265/HEVC encoder.
+[x265](https://x265.readthedocs.io/en/master/) is a H.265/HEVC encoder
 
-An application for encoding video streams into the H.265/MPEG-H HEVC compression format.
+An application for encoding video streams into the H.265/MPEG-H HEVC compression format
 
 ### Basic Commands
 
@@ -127,8 +127,8 @@ An application for encoding video streams into the H.265/MPEG-H HEVC compression
      --csv <filename>
      ```
 
-     - If **`--csv-log-level`** is `0` then _one line per run_.
-     - If _greater_ than `0` then _one line per frame_.
+     - If **`--csv-log-level`** is `0` then _one line per run_
+     - If _greater_ than `0` then _one line per frame_
 
 3. Progress:
 

@@ -1,7 +1,6 @@
 ---
 title: Probability
 description: Probability is the logic of uncertainty
-date: 2024-11-12
 ---
 
 # Probability

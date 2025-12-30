@@ -39,7 +39,7 @@ Features of AngularJS:
 
 ## Modules
 
-A module is a container for different parts of the application i.e. controllers, services, directives, filters, etc
+A module is a container for different parts of the application i.e. controllers, services, directives, filters, etc...
 
 - It can be thought of as the `Main()` method in other types of applications
 
@@ -53,7 +53,7 @@ A module is a container for different parts of the application i.e. controllers,
 
 In AngularJS a controller is a JavaScript function. The job of the controller is to build a model for the view to display
 
-- To create a controller function, just create a function and pass the `$scope` as parameter.
+- To create a controller function, just create a function and pass the `$scope` as parameter
 
   ```javascript
   var myController = function ($scope) {

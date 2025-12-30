@@ -1,8 +1,6 @@
 ---
 title: Svelte
 description: Cybernetically enhanced web apps
-date: 2023-07-30
-lastmod: 2023-07-30
 ---
 
 # Svelte
@@ -34,7 +32,7 @@ At the heart of SvelteKit is a *filesystem-based router*. The routes of your ap
 
 ## React vs. Svelte
 
-[React](../React/React.md) is front-end UI library.
+[React](../React/React.md) is front-end UI library
 
 - State:
 

@@ -4,21 +4,21 @@ The most basic usage of HTML5 Boilerplate is to create a static site or simple
 app. Once you've downloaded or cloned the project, that process looks something
 like this:
 
-1. Set up the basic structure of the site.
-2. Add some content, style, and functionality.
-3. Run your site locally to see how it looks.
-4. Deploy your site.
+1. Set up the basic structure of the site
+2. Add some content, style, and functionality
+3. Run your site locally to see how it looks
+4. Deploy your site
 
 Cool, right? _It is_. That said, the smart defaults, baseline elements, default
 attribute values and various other utilities that HTML5 Boilerplate offers can
-serve as the foundation for whatever you're interested in building.
+serve as the foundation for whatever you're interested in building
 
 Even the basic use-case of a simple static site can be enhanced by manipulating
 the code through an automated build process. Moving up in complexity HTML5
 Boilerplate can be integrated with whatever front-end framework, CMS or
-e-commerce platform you're working with. Mix-and-match to your heart's content.
-Use what you need (toss it in a blender if you need to) and discard the rest.
-HTML5 Boilerplate is a starting point, not a destination.
+e-commerce platform you're working with. Mix-and-match to your heart's content
+Use what you need (toss it in a blender if you need to) and discard the rest
+HTML5 Boilerplate is a starting point, not a destination
 
 ## Basic structure
 
@@ -51,7 +51,7 @@ A basic HTML5 Boilerplate site initially looks something like this:
 └── tile-wide.png
 ```
 
-What follows is a general overview of each major part and how to use them.
+What follows is a general overview of each major part and how to use them
 
 ### css
 
@@ -61,7 +61,7 @@ initial CSS to help get you started from a solid foundation. [About the CSS](./C
 ### doc
 
 This directory contains all the HTML5 Boilerplate documentation. You can use it
-as the location and basis for your own project's documentation.
+as the location and basis for your own project's documentation
 
 ### js
 
@@ -77,15 +77,15 @@ repository](https://github.com/h5bp/server-configs-apache).
 
 Host your site on a server other than Apache? You're likely to find the
 corresponding server configs project listed in our [Server Configs](https://github.com/h5bp/server-configs/blob/master/README.md)
-repository.
+repository
 
 ### 404.html
 
-A helpful custom 404 to get you started.
+A helpful custom 404 to get you started
 
 ### browserconfig.xml
 
-This file contains all settings regarding custom tiles for IE11 and Edge.
+This file contains all settings regarding custom tiles for IE11 and Edge
 
 For more info on this topic, please refer to
 [Microsoft's Docs](<https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/dn320426(v=vs.85)>).
@@ -100,27 +100,27 @@ editors and IDEs. [Read more about the `.editorconfig` file](./Misc.md#editorcon
 
 This is the default HTML skeleton that should form the basis of all pages on
 your site. If you are using a server-side templating framework, then you will
-need to integrate this starting HTML with your setup.
+need to integrate this starting HTML with your setup
 
 Make sure that you update the URLs for the referenced CSS and JavaScript if you
-modify the directory structure at all.
+modify the directory structure at all
 
 If you are using Google Universal Analytics, make sure that you edit the
-corresponding snippet at the bottom to include your analytics ID.
+corresponding snippet at the bottom to include your analytics ID
 
 ### humans.txt
 
 Edit this file to include the team that worked on your site/app, and the
-technology powering it.
+technology powering it
 
 ### robots.txt
 
-Edit this file to include any pages you need hidden from search engines.
+Edit this file to include any pages you need hidden from search engines
 
 ### Icons
 
 Replace the default `favicon.ico`, `tile.png`, `tile-wide.png` and Apple
-Touch Icon with your own.
+Touch Icon with your own
 
 If you want to use different Apple Touch Icons for different resolutions please
 refer to the [according documentation](./Extend.md#apple-touch-icons)

@@ -9,7 +9,7 @@ _Tests_ describe the expected behaviour of the application
 
 Types of Tests:
 
-- [Unit Testing](#unit-testing): Writing tests that confirm an individual function or piece of code works.
+- [Unit Testing](#unit-testing): Writing tests that confirm an individual function or piece of code works
 
 - [Integration Testing](#integration-testing): Testing multiple units of together
 
@@ -19,9 +19,9 @@ Types of Tests:
 
 - Regression Testing:
 
-- System Testing: Works on real hardware.
+- System Testing: Works on real hardware
 
-- Sanity or smoke test: Run few of most important test first to make sure the app is not on fire before testing rest of the test suite.
+- Sanity or smoke test: Run few of most important test first to make sure the app is not on fire before testing rest of the test suite
 
 - [Functional Testing](#functional-testing): tests that test actual code
 
@@ -31,7 +31,7 @@ Types of Tests:
 
 - Security Testing:
 
-- Stress or failure-over testing: Testing the infrastructure capabilities.
+- Stress or failure-over testing: Testing the infrastructure capabilities
 
 ## Testing Methods and Approaches
 
@@ -102,7 +102,7 @@ Benefits of BDD approach:
 BDD is very explicitly defined:
 
 - Involves collaboration between lots of roles
-  - Developers, QA, business partners, etc.
+  - Developers, QA, business partners, etc...
 
 - Defines process for different groups to interact
 
@@ -152,21 +152,21 @@ Unit testing tips:
 
 ### Unit Test Structure
 
-1. **Setup**: Put the Unit Under Test (UUT) or the overall test system in the state needed to run the test.
+1. **Setup**: Put the Unit Under Test (UUT) or the overall test system in the state needed to run the test
 
-2. **Execution**: Trigger/drive the UUT to perform the target behaviour and capture all output, such as return values and output parameters. This step is usually very simple.
+2. **Execution**: Trigger/drive the UUT to perform the target behaviour and capture all output, such as return values and output parameters. This step is usually very simple
 
-3. **Validation**: Ensure the results of the test are correct. These results may include explicit outputs captured during execution or state changes in the UUT.
+3. **Validation**: Ensure the results of the test are correct. These results may include explicit outputs captured during execution or state changes in the UUT
 
-4. **Clean-up**: Restore UUT or the overall test system to the pre-test state. This restoration permits another test to execute immediately after this one. In some cases in order to preserve the information for possible test failure analysis the clean-up should be starting the test just before the test's setup run.
+4. **Clean-up**: Restore UUT or the overall test system to the pre-test state. This restoration permits another test to execute immediately after this one. In some cases in order to preserve the information for possible test failure analysis the clean-up should be starting the test just before the test's setup run
 
 Arranging your tests: **Arrange, Act, Assert** is a common pattern when unit testing. As the name implies, it consists of three main actions:
 
-- _Arrange_ your objects, creating and setting them up as necessary.
+- _Arrange_ your objects, creating and setting them up as necessary
 
-- _Act_ on an object.
+- _Act_ on an object
 
-- _Assert_ that something is as expected.
+- _Assert_ that something is as expected
 
 ### Naming conventions
 
@@ -210,36 +210,36 @@ Tools:
 
 ## Test Doubles
 
-A Test Double is an object that can stand-in for a real object in a test. Used instead of External Dependencies.
+A Test Double is an object that can stand-in for a real object in a test. Used instead of External Dependencies
 
-- DB, Web, API, Library, Network etc
+- DB, Web, API, Library, Network etc...
 - If tests fail then it must due the unit of code that is being tested not due to its dependencies
 - Easy to simulate various scenarios
 
 Types of Test Doubles:
 
-1. **Dummy**: A dummy is the simplest form of a test double. It facilitates linker time substitution by providing a default return value where required.
-   - It is used as a placeholder when an argument needs to be filled in.
-   - Objects that the SUT (System Under Test) depends but they are never used.
-   - Not relevant to the test scope.
+1. **Dummy**: A dummy is the simplest form of a test double. It facilitates linker time substitution by providing a default return value where required
+   - It is used as a placeholder when an argument needs to be filled in
+   - Objects that the SUT (System Under Test) depends but they are never used
+   - Not relevant to the test scope
 
-2. **Stub**: Generates predefined outputs. It provides fake data to the SUT.
-   - A stub is a controllable replacement for an existing dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly.
+2. **Stub**: Generates predefined outputs. It provides fake data to the SUT
+   - A stub is a controllable replacement for an existing dependency (or collaborator) in the system. By using a stub, you can test your code without dealing with the dependency directly
    - Programmed Stub to return a Success, Failure or Exception
    - A stub adds simplistic logic to a dummy, providing different outputs
 
 3. **Spy**: It records information about how the class is being used
 
 4. **Mock**: Mocks replace external interface
-   - A mock object is a fake object in the system that decides whether or not a unit test has passed or failed. A mock starts out as a Fake until it's **asserted** against.
+   - A mock object is a fake object in the system that decides whether or not a unit test has passed or failed. A mock starts out as a Fake until it's **asserted** against
    - They have the same signature of the function
    - We can check if the function is being called or not
    - How many times is the function being called?
    - What Parameters are passed when it is called?
-   - It defines an expectation of how it will be used. It will cause a failure if the expectation isn't met.
+   - It defines an expectation of how it will be used. It will cause a failure if the expectation isn't met
    - **Right call, Right Number of times with Right set of Parameter and in the Right order**
 
-5. **Fake**: Almost working implementation. It is an actual implementation of the contract but is unsuitable for production.
+5. **Fake**: Almost working implementation. It is an actual implementation of the contract but is unsuitable for production
    - Connect to a local HTTP server
    - Instead of actually going to the internet it connects to a local (limited) implementation
    - Check the behaviour with respect to the actual data it receives from the server

@@ -15,5 +15,3 @@ sidebar: false
 6. [MongoDB](./MongoDB/MongoDB.md)
 7. [MongoDB Udemy](./MongoDB/MongoDB_Udemy.md)
 8. [Redis](./Redis.md)
-9. Oracle Database
-10. Microsoft SQL Server

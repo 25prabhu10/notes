@@ -1,7 +1,6 @@
 ---
 title: Sorting Algorithms
 description: Sorting Algorithms
-lastmod: 2024-09-06
 ---
 
 # Sorting Algorithms

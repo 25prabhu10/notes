@@ -7,17 +7,17 @@ description: A function that can be used to map data of arbitrary size to fixed-
 
 A function that can be used to map data of arbitrary size to fixed-size values
 
-- The values returned by a hash function are called _hash values_, _hash codes_, _digests_, or _simply hashes_.
+- The values returned by a hash function are called _hash values_, _hash codes_, _digests_, or _simply hashes_
 
-- The values are usually used to index a fixed-size table called a _[hash table](../Data-Structures/Hash_Table.md)_.
+- The values are usually used to index a fixed-size table called a _[hash table](../Data-Structures/Hash_Table.md)_
 
-- Use of a hash function to index a hash table is called _hashing_ or _scatter storage addressing_.
+- Use of a hash function to index a hash table is called _hashing_ or _scatter storage addressing_
 
 ## Consistent Hashing
 
-Consistent Hashing is a **distributed hashing scheme** that operates independently of the number of servers or objects in a distributed hash table.
+Consistent Hashing is a **distributed hashing scheme** that operates independently of the number of servers or objects in a distributed hash table
 
-- It may be necessary or desirable to split a hash table into several parts, hosted by different servers.
+- It may be necessary or desirable to split a hash table into several parts, hosted by different servers
 
 - This is needed to achieve horizontal scaling
 
@@ -45,9 +45,9 @@ Problems with Consistent Hashing:
 
 ## Rendezvous hashing
 
-**Rendezvous** or **highest random weight (HRW) hashing** is an algorithm that allows clients to achieve distributed agreement on a set of `k` options out of a possible set of `n` options.
+**Rendezvous** or **highest random weight (HRW) hashing** is an algorithm that allows clients to achieve distributed agreement on a set of `k` options out of a possible set of `n` options
 
-- Rendezvous hashing is both much simpler and more general than [consistent hashing](#consistent-hashing), which becomes a special case (for `k=1`) of rendezvous hashing.
+- Rendezvous hashing is both much simpler and more general than [consistent hashing](#consistent-hashing), which becomes a special case (for `k=1`) of rendezvous hashing
 
 ## Cryptographic Hash Functions
 

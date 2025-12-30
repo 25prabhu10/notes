@@ -6,7 +6,7 @@ prev: ./AWS
 
 # Load Balancing
 
-Load balancers are servers that forward internet traffic to multiple servers (EC2 Instances) downstream.
+Load balancers are servers that forward internet traffic to multiple servers (EC2 Instances) downstream
 
 ## Why use a load balancer?
 
@@ -23,7 +23,7 @@ Load balancers are servers that forward internet traffic to multiple servers (EC
   - AWS guarantees that it will be working
   - AWS takes care of upgrades, maintenance, high availability
   - AWS provides only a few configuration knobs
-- It costs less to setup your own load balancer but it will be a lot more effort on your end.
+- It costs less to setup your own load balancer but it will be a lot more effort on your end
 - It is integrated with many AWS offerings / services
 
 ## Health Checks

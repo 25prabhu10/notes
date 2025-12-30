@@ -5,7 +5,7 @@ description: Entity Framework uses EDM (Entity Data Model) for all database-rela
 
 # Entity Framework Core
 
-Entity Framework uses EDM (Entity Data Model) for all database-related operations.
+Entity Framework uses EDM (Entity Data Model) for all database-related operations
 
 EF Database Context is a bridge between the Entity Classes (C# classes) and the database tables (SQL).
 
@@ -31,7 +31,7 @@ Data Access Object (DAO) (Old way):
     - `Microsoft.EntityFrameworkCore.SqlServer` if the DB is SQL Server
     - The other dependent packages are installed automatically such as `Relational`, `EntityFrameworkCore`
 
-  - Type of DB: Relational, NoSQL, etc.
+  - Type of DB: Relational, NoSQL, etc...
     - `Microsoft.EntityFrameworkCore.Relational` as SQL Server is RDBMS
 
   - `Microsoft.EntityFrameworkCore` package contains the EF Core functionality
@@ -99,7 +99,7 @@ public class AppDbContext : DbContext
 
 ## Database Providers
 
-EF Core wide verity of databases.
+EF Core wide verity of databases
 
 Sample list:
 
@@ -121,7 +121,7 @@ It is an abstraction of the data access layer, it hides the details of how exact
 
 ## Migrations
 
-EF Core Migrations: Provides a way to incrementally update the database schema to keep in sync with the application's data model while preserving existing data in the database.
+EF Core Migrations: Provides a way to incrementally update the database schema to keep in sync with the application's data model while preserving existing data in the database
 
 - In other words, Migration keeps the database schema and application model classes in sync
 
@@ -155,11 +155,11 @@ EF Core Migrations: Provides a way to incrementally update the database schema t
    - Inside this directory a new files are created:
      - `XXXXX_[name of migration].cs-`: The main migrations file. It contains the operations necessary to apply the migration (in `Up`) and to revert it (in `Down`).
 
-     - `XXXXX_[name of migration].Designer.cs`: The migrations metadata file. Contains information used by EF.
+     - `XXXXX_[name of migration].Designer.cs`: The migrations metadata file. Contains information used by EF
 
-     - `AppDbContextModelSnapshot.cs`: A snapshot of your current model. Used to determine what changed when adding the next migration.
+     - `AppDbContextModelSnapshot.cs`: A snapshot of your current model. Used to determine what changed when adding the next migration
 
-2. Update the database to the last migration or to a specified migration.
+2. Update the database to the last migration or to a specified migration
 
    ```bash
    # using `dotnet` CLI
@@ -196,7 +196,7 @@ dotnet ef migrations remove
 
 ## Data Seeding
 
-Data seeding is the process of populating a database with an initial set of data.
+Data seeding is the process of populating a database with an initial set of data
 
 There are several ways this can be accomplished in EF Core:
 
@@ -240,7 +240,7 @@ There are several ways this can be accomplished in EF Core:
    }
    ```
 
-Perform migration and update database.
+Perform migration and update database
 
 _Example:_ Create an extension class for data seeding, this keeps the `DbContext` class clean:
 
@@ -295,17 +295,17 @@ Class properties can have [annotations](#annotations)
 
 ## Fluent API
 
-Fluent API is an advanced way of specifying model configuration that covers everything that data annotations can do in addition to some more advanced configuration not possible with data annotations.
+Fluent API is an advanced way of specifying model configuration that covers everything that data annotations can do in addition to some more advanced configuration not possible with data annotations
 
-- Fluent API is another way to configure your domain classes.
+- Fluent API is another way to configure your domain classes
 
 If both Data annotations and Fluent API are use the precedence is:
 
 - Fluent API > Data Annotations > Default Conventions
 
-The Code First Fluent API is most commonly accessed by overriding the OnModelCreating method on your derived DbContext.
+The Code First Fluent API is most commonly accessed by overriding the OnModelCreating method on your derived DbContext
 
-- Fluent API provides more functionality for configuration than DataAnnotations. Fluent API supports the following types of mappings.
+- Fluent API provides more functionality for configuration than DataAnnotations. Fluent API supports the following types of mappings
 
 ## Data Transfer Object (DTO)
 

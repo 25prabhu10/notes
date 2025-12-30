@@ -66,7 +66,7 @@ References:
 
   - CQRS is a small tactical pattern
 
-  - CQRS can open many doors.
+  - CQRS can open many doors
 
   - And yes you can support [RFC 2549](https://datatracker.ietf.org/doc/html/rfc2549) using CQRS
 
@@ -74,18 +74,18 @@ Checkout this [YouTube channel](https://www.youtube.com/channel/UC3RKA4vunFAfrfx
 
 ## Mediator
 
-The Mediator design pattern defines an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently.
+The Mediator design pattern defines an object that encapsulates how a set of objects interact. Mediator promotes loose coupling by keeping objects from referring to each other explicitly, and it lets you vary their interaction independently
 
 ## Repository pattern, Generic Repository Pattern, and Unit of work pattern
 
 ## References
 
-https://www.youtube.com/results?search_query=dotnet+microservices
-https://www.youtube.com/watch?v=WRg13Ze_UpY
-https://www.youtube.com/results?search_query=+Udi+Dahan
-https://particular.net/videos/microservices-and-rules-engines-a-blast-from-the-past
-https://particular.net/videos/designing-a-ui-for-microservices
-https://www.youtube.com/results?search_query=api+gateway
-https://particular.net/blog/transactional-session
-https://learn.particular.net/courses/cqrs?utm_source=presentation&utm_campaign=ndc-oslo-2023
-https://github.com/Particular/Workshop/blob/master/exercises/01-composite-ui/README.md
+- [A](https://www.youtube.com/results?search_query=dotnet+microservices)
+- [A](https://www.youtube.com/watch?v=WRg13Ze_UpY)
+- [A](https://www.youtube.com/results?search_query=+Udi+Dahan)
+- [A](https://particular.net/videos/microservices-and-rules-engines-a-blast-from-the-past)
+- [A](https://particular.net/videos/designing-a-ui-for-microservices)
+- [A](https://www.youtube.com/results?search_query=api+gateway)
+- [A](https://particular.net/blog/transactional-session)
+- [A](https://learn.particular.net/courses/cqrs?utm_source=presentation&utm_campaign=ndc-oslo-2023)
+- [A](https://github.com/Particular/Workshop/blob/master/exercises/01-composite-ui/README.md)

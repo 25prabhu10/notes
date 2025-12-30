@@ -1,6 +1,6 @@
 ---
 title: HTTP Cookie
-description:
+description: Overview of HTTP Cookies, their structure, usage, and security considerations
 ---
 
 # HTTP Cookie
@@ -126,8 +126,8 @@ document.cookie;
 
   - This is allowed by [Same-Origin Policy](../Application_Security/SameOrigin_Policy.md)
   - `cs106.stanford.edu` vs. `cs253.stanford.edu`: mutually exclusive
-  - `cs253.stanford.edu` vs. `stanford.edu`: `cs253.` can access `stanford.edu`'s cookies. Reverse is not true.
-  - `hello.login.stanford.edu` vs. `login.stanford.edu`: `hello.login.` can access `login.`'s cookies. Reverse is not true.
+  - `cs253.stanford.edu` vs. `stanford.edu`: `cs253.` can access `stanford.edu`'s cookies. Reverse is not true
+  - `hello.login.stanford.edu` vs. `login.stanford.edu`: `hello.login.` can access `login.`'s cookies. Reverse is not true
   - Therefore, only use `Path` as a performance optimization
   - Always set it to root `Path=/`
 
@@ -148,7 +148,7 @@ document.cookie;
   Set-Cookie: them=dark; Expires=Tue, 08 Mar 2022 14:02:19 GMT;
   ```
 
-- `Max-Age`: Can be used to set the cookie's expiration as an interval of seconds in the future, relative to the time the browser received the cookie.
+- `Max-Age`: Can be used to set the cookie's expiration as an interval of seconds in the future, relative to the time the browser received the cookie
 
   ```http
   HTTP/1.0 200 OK
@@ -192,9 +192,8 @@ How long can cookies last?
   >
   > - Search Engine Land (2007)
 
-::: tip NOTE
-Cookies are bound to **sites**, not **origins**.
-:::
+> [!NOTE]
+> Cookies are bound to **sites**, not **origins**.
 
 ## Session Management
 
@@ -289,4 +288,4 @@ Signature schemes:
 
 - Cross-site request forgery (CSRF): Checkout notes about CSRF here: [CSRF Notes Link](./../Application_Security/CrossSite_Resource_Forgery.md)
 
-- Cookiejacking: An attack against Internet Explorer which allows the attacker to steal session cookies of a user by tricking a user into dragging an object across the screen.
+- Cookiejacking: An attack against Internet Explorer which allows the attacker to steal session cookies of a user by tricking a user into dragging an object across the screen

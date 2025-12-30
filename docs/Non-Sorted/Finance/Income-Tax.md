@@ -1,3 +1,8 @@
+---
+title: Income Tax
+description: Basic concepts and calculations related to Income Tax in India
+---
+
 # Income Tax
 
 TCS: Are you opting for new tax regime u/s 115BAC ? NO

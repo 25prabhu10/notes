@@ -1,7 +1,6 @@
 ---
 title: Programming Languages
 description: Programming Languages
-date: 2025-02-25
 ---
 
 # Programming Languages

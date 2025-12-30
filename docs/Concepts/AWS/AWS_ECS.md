@@ -113,7 +113,7 @@ Steps:
 ## ECS Service
 
 - ECS Services help define how many tasks should run and how they should be run
-- They ensure that the number of tasks desired is running across our fleet of EC2 instances.
+- They ensure that the number of tasks desired is running across our fleet of EC2 instances
 - They can be linked to ELB / NLB / ALB if needed
 
 ### Create a Service
@@ -144,10 +144,9 @@ Steps:
 
 3. Now a task will be started by the service
 
-::: warning NOTE
-A service cannot be updated to add a Load balancer.
-To add a Load balancer you need to set it during the creation of the service.
-:::
+> [!WARNING]
+> A service cannot be updated to add a Load balancer
+> To add a Load balancer you need to set it during the creation of the service
 
 ## ECR Repository
 
@@ -207,8 +206,8 @@ Steps:
 
 ## ECS Tasks Placement
 
-- When a task of type EC2 is launched, ECS must determine where to place it, with the constraints of CPU, memory, and available port.
-- Similarly, when a service scales in, ECS needs to determine which task to terminate.
+- When a task of type EC2 is launched, ECS must determine where to place it, with the constraints of CPU, memory, and available port
+- Similarly, when a service scales in, ECS needs to determine which task to terminate
 - To assist with this, you can define a task placement strategy and task placement constraints
 - Note: this is only for ECS with EC2, not for Fargate
 
@@ -216,10 +215,10 @@ Steps:
 
 - Task placement strategies are a best effort
 - When Amazon ECS places tasks, it uses the following process to select container instances:
-  1. Identify the instances that satisfy the CPU, memory, and port requirements in the task definition.
-  2. Identify the instances that satisfy the task placement constraints.
-  3. Identify the instances that satisfy the task placement strategies.
-  4. Select the instances for task placement.
+  1. Identify the instances that satisfy the CPU, memory, and port requirements in the task definition
+  2. Identify the instances that satisfy the task placement constraints
+  3. Identify the instances that satisfy the task placement strategies
+  4. Select the instances for task placement
 
 ## ECS Task Placement Strategies
 
@@ -340,7 +339,7 @@ Steps:
 - A Capacity Provider is used in association with a cluster to determine the infrastructure that a task runs on
   - For ECS and Fargate users, the FARGATE and FARGATE_SPOT capacity providers are added automatically
   - For Amazon ECS on EC2, you need to associate the capacity provider with an auto-scaling group
-- When you run a task or a service, you define a capacity provider strategy, to prioritize in which provider to run.
+- When you run a task or a service, you define a capacity provider strategy, to prioritize in which provider to run
 - This allows the capacity provider to automatically provision infrastructure for you
 
 ## ECS Data Volumes - EC2 Task Strategies

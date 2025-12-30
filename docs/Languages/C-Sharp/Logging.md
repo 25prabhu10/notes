@@ -31,17 +31,17 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
 
 - `Trace` = 0: Very detailed info which may contain sensitive data. Should not be enabled in production
 
-- `Debug` = 1: For debugging and development. Use with caution in production due to the high volume.
+- `Debug` = 1: For debugging and development. Use with caution in production due to the high volume
 
-- `Information` = 2: Tracks the general flow of the app. May have long-term value.
+- `Information` = 2: Tracks the general flow of the app. May have long-term value
 
 - `Warning` = 3: For abnormal or unexpected events. Typically includes errors or conditions that don't cause the app to fail. Potential issues
 
-- `Error` = 4: For errors and exceptions that cannot be handled. These messages indicate a failure in the current operation or request, not an app-wide failure.
+- `Error` = 4: For errors and exceptions that cannot be handled. These messages indicate a failure in the current operation or request, not an app-wide failure
 
 - `Critical` = 5: For failures that require immediate attention. Examples: data loss scenarios, out of disk space
 
-- `None` = 6: Specifies that a logging category shouldn't write messages.
+- `None` = 6: Specifies that a logging category shouldn't write messages
 
 ## Configuration
 
@@ -73,9 +73,9 @@ The built-in Core logging providers:
 
 - EventLog (Windows only): Sends log output to the Windows Event Log
 
-- AzureAppServicesFile and AzureAppServicesBlob: Writes logs to text files in an Azure App Service app's file system and to blob storage in an Azure Storage account.
+- AzureAppServicesFile and AzureAppServicesBlob: Writes logs to text files in an Azure App Service app's file system and to blob storage in an Azure Storage account
 
-- Azure ApplicationInsights: Writes logs to Azure Application Insights.
+- Azure ApplicationInsights: Writes logs to Azure Application Insights
 
 Some 3rd party logging providers:
 
@@ -114,9 +114,9 @@ builder.Host.ConfigureLogging(logging =>
 
 ## Create Logs
 
-1. Create a logger, `ILogger<AboutModel>`, which uses a log category of the fully qualified name of the type `AboutModel`. The log category is a string that is associated with each log.
+1. Create a logger, `ILogger<AboutModel>`, which uses a log category of the fully qualified name of the type `AboutModel`. The log category is a string that is associated with each log
 
-2. Call `LogInformation` to log at the Information level. The Log level indicates the severity of the logged event.
+2. Call `LogInformation` to log at the Information level. The Log level indicates the severity of the logged event
 
 ```cs
 public class AboutModel : PageModel
@@ -191,8 +191,8 @@ public class AboutModel : PageModel
     </nlog>
   ```
 
-  - `autoReload="true"`: This is a property that enables the ASP.NET Core Application to reload the config file during runtime on any detected changes in the settings.
-  - `throwExceptions="false"`: Do not throw exception if the Nlog.config file is invalid in Production.
+  - `autoReload="true"`: This is a property that enables the ASP.NET Core Application to reload the config file during runtime on any detected changes in the settings
+  - `throwExceptions="false"`: Do not throw exception if the Nlog.config file is invalid in Production
 
 - Update the `program.cs`: Or just add `logging.AddNLog()`
 
@@ -236,7 +236,7 @@ public class AboutModel : PageModel
     }
   ```
 
-- Configure `appsettings.json`: The Logging configuration specified in appsettings.json overrides any call to SetMinimumLevel. So either remove "Default": or adjust it correctly to your needs.
+- Configure `appsettings.json`: The Logging configuration specified in appsettings.json overrides any call to SetMinimumLevel. So either remove "Default": or adjust it correctly to your needs
 
   ```json
   {
@@ -374,15 +374,14 @@ HTTP Logging is a middleware that logs information about HTTP requests and HTTP 
 
 HTTP Logging is valuable in several scenarios to:
 
-- Record information about incoming requests and responses.
-- Filter which parts of the request and response are logged.
-- Filtering which headers to log.
+- Record information about incoming requests and responses
+- Filter which parts of the request and response are logged
+- Filtering which headers to log
 
-HTTP Logging **can reduce the performance of an app**, especially when logging the request and response bodies.
+HTTP Logging **can reduce the performance of an app**, especially when logging the request and response bodies
 
-::: tip NOTE
-HTTP Logging can potentially log personally identifiable information (PII). Consider the risk and avoid logging sensitive information.
-:::
+> [!NOTE]
+> HTTP Logging can potentially log personally identifiable information (PII). Consider the risk and avoid logging sensitive information
 
 Enabling HTTP logging:
 

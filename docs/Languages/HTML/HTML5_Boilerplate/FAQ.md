@@ -10,9 +10,9 @@
 ## Why is the Google Analytics code at the bottom? Google recommends it be placed in the `<head>`
 
 The main advantage of placing it in the `<head>` is that you will track the
-user's `pageview` even if they leave the page before it has been fully loaded.
+user's `pageview` even if they leave the page before it has been fully loaded
 
-Here's a handy quote from [Mathias Bynens](https://mathiasbynens.be/notes/async-analytics-snippet#comment-50) about our placement choice.
+Here's a handy quote from [Mathias Bynens](https://mathiasbynens.be/notes/async-analytics-snippet#comment-50) about our placement choice
 
 > I should point out that it's Google - not me - recommending to place this
 > script before all other scripts in the document. The only real advantage is to
@@ -28,7 +28,7 @@ Here's a handy quote from [Mathias Bynens](https://mathiasbynens.be/notes/async-
 
 No, just as you don't normally replace the foundation of a house once it
 was built. However, there is nothing stopping you from trying to work in the
-latest changes, but you'll have to assess the costs/benefits of doing so.
+latest changes, but you'll have to assess the costs/benefits of doing so
 
 ### Where can I get help with support questions?
 

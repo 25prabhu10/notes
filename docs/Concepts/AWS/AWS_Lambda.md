@@ -6,7 +6,7 @@ prev: ./AWS
 
 # AWS Lambda
 
-AWS Lambda is a Serverless service.
+AWS Lambda is a Serverless service
 
 ## What's serverless
 
@@ -180,7 +180,7 @@ Response from the Lambda Function
 ### ALB Multi-Header Values
 
 - ALB can support multi header values (must be enabled in ALB setting)
-- When you enable multi-value headers, **HTTP headers and query string parameters** that are sent with **multiple values** are **shown as arrays** within the AWS Lambda event and response objects.
+- When you enable multi-value headers, **HTTP headers and query string parameters** that are sent with **multiple values** are **shown as arrays** within the AWS Lambda event and response objects
 
 ```http
 http://example.com/path?name=foo&name=bar
@@ -207,7 +207,7 @@ http://example.com/path?name=foo&name=bar
   - Before CloudFront forwards the request to the origin (origin request)
   - After CloudFront receives the response from the origin (origin response)
   - Before CloudFront forwards the response to the viewer (viewer response)
-- You can also generate responses to viewers without ever sending the request to the origin.
+- You can also generate responses to viewers without ever sending the request to the origin
 
 ### Lambda@Edge: Global application
 
@@ -265,7 +265,7 @@ http://example.com/path?name=foo&name=bar
 - Use case: generate thumbnails of images uploaded to S3
 - S3 event notifications typically deliver events in seconds but can sometimes take a minute or longer
 - If two writes are made to a single non-versioned object at the same time, it is possible that only a single event notification will be sent
-- If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket.
+- If you want to ensure that an event notification is sent for every successful write, you can enable versioning on your bucket
 
 ### Simple S3 Event Pattern - Metadata Sync
 
@@ -291,7 +291,7 @@ http://example.com/path?name=foo&name=bar
 
 ### Streams & Lambda - Error Handling
 
-- By default, if your function returns an error, the entire batch is reprocessed until the function succeeds, or the items in the batch expire.
+- By default, if your function returns an error, the entire batch is reprocessed until the function succeeds, or the items in the batch expire
 - To ensure in-order processing, processing for the affected shard is paused until the error is resolved
 - You can configure the event source mapping to:
   - discard old events
@@ -311,12 +311,12 @@ http://example.com/path?name=foo&name=bar
 ### Queues & Lambda
 
 - Lambda also supports in-order processing for FIFO (first-in, first-out) queues, **scaling up to the number of active message groups**
-- For standard queues, items aren't necessarily processed in order.
-- Lambda scales up to process a standard queue as quickly as possible.
-- When an error occurs, batches are returned to the queue as individual items and might be processed in a different grouping than the original batch.
-- Occasionally, the event source mapping might receive the same item from the queue twice, even if no function error occurred.
-- Lambda deletes items from the queue after they're processed successfully.
-- You can configure the source queue to send items to a dead-letter queue if they can't be processed.
+- For standard queues, items aren't necessarily processed in order
+- Lambda scales up to process a standard queue as quickly as possible
+- When an error occurs, batches are returned to the queue as individual items and might be processed in a different grouping than the original batch
+- Occasionally, the event source mapping might receive the same item from the queue twice, even if no function error occurred
+- Lambda deletes items from the queue after they're processed successfully
+- You can configure the source queue to send items to a dead-letter queue if they can't be processed
 
 ### Lambda Event Mapper Scaling
 
@@ -342,23 +342,21 @@ http://example.com/path?name=foo&name=bar
   - Amazon SQS
   - Amazon SNS
 
-::: tip NOTE
-
-- AWS recommends you use destinations instead of DLQ now (but both can be used at the same time)
-- You can send events to a DLQ directly from SQS
-
-:::
+> [!NOTE]
+>
+> - AWS recommends you use destinations instead of DLQ now (but both can be used at the same time)
+> - You can send events to a DLQ directly from SQS
 
 ## Lambda Execution Role (IAM Role)
 
 - Grants the Lambda function permissions to AWS services / resources
 - Sample managed policies for Lambda:
-  - `AWSLambdaBasicExecutionRole` - Upload logs to CloudWatch.
+  - `AWSLambdaBasicExecutionRole` - Upload logs to CloudWatch
   - `AWSLambdaKinesisExecutionRole` - Read from Kinesis
   - `AWSLambdaDynamoDBExecutionRole` - Read from DynamoDB Streams
   - `AWSLambdaSQSQueueExecutionRole` - Read from SQS
   - `AWSLambdaVPCAccessExecutionRole` - Deploy Lambda function in VPC
-  - `AWSXRayDaemonWriteAccess` - Upload trace data to X-Ray.
+  - `AWSXRayDaemonWriteAccess` - Upload trace data to X-Ray
 - **When you use an event source mapping to invoke your function, Lambda uses the execution role to read event data.**
 - **Best practice: create one Lambda Execution Role per function**
 
@@ -369,7 +367,7 @@ http://example.com/path?name=foo&name=bar
 - An IAM principal can access Lambda:
   - if the IAM policy attached to the principal authorizes it (e.g. user access)
   - OR if the resource-based policy authorizes (e.g. service access)
-- When an AWS service like Amazon S3 calls your Lambda function, the resource-based policy gives it access.
+- When an AWS service like Amazon S3 calls your Lambda function, the resource-based policy gives it access
 
 ## Lambda Environment Variables
 
@@ -489,28 +487,27 @@ http://example.com/path?name=foo&name=bar
 
 ## Lambda Concurrency Issue
 
-- If you are using multiple Lambda functions and you don't reserve (=limit) concurrency, then when load increases on one Lambda function the other Lambda functions are throttled.
+- If you are using multiple Lambda functions and you don't reserve (=limit) concurrency, then when load increases on one Lambda function the other Lambda functions are throttled
 
 ### Concurrency and Asynchronous Invocations
 
-- If the function doesn't have enough concurrency available to process all events, additional requests are throttled.
-- For throttling errors (429) and system errors (500-series), Lambda returns the event to the queue and attempts to run the function again for up to 6 hours.
-- The retry interval increases exponentially from 1 second after the first attempt to a maximum of 5 minutes.
+- If the function doesn't have enough concurrency available to process all events, additional requests are throttled
+- For throttling errors (429) and system errors (500-series), Lambda returns the event to the queue and attempts to run the function again for up to 6 hours
+- The retry interval increases exponentially from 1 second after the first attempt to a maximum of 5 minutes
 
 ## Cold Starts & Provisioned Concurrency
 
 - Cold Start:
   - New instance --> code is loaded and code outside the handler run (init)
-  - If the init is large (code, dependencies, SDK...) this process can take some time.
+  - If the init is large (code, dependencies, SDK...) this process can take some time
   - First request served by new instances has higher latency than the rest
 - Provisioned Concurrency:
   - Concurrency is allocated before the function is invoked (in advance)
   - So the cold start never happens and all invocations have low latency
   - Application Auto Scaling can manage concurrency (schedule or target utilization)
 
-::: tip NOTE
-Cold starts in VPC have been dramatically reduced in Oct & Nov 2019: Visit [AWS Improved VPC](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/)
-:::
+> [!NOTE]
+> Cold starts in VPC have been dramatically reduced in Oct & Nov 2019: Visit [AWS Improved VPC](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/)
 
 ### Reserved and Provisioned Concurrency
 
@@ -523,7 +520,7 @@ Visit [AWS Configure Concurrency](https://docs.aws.amazon.com/lambda/latest/dg/c
   - For `Node.js`, use `npm` & `node_modules` directory
   - For `Python`, use `pip --target` options
   - For `Java`, include the relevant `.jar` files
-- Upload the zip straight to Lambda if less than 50MB zipped, else to S3 first. Unzipped 250MB.
+- Upload the zip straight to Lambda if less than 50MB zipped, else to S3 first. Unzipped 250MB
 - Native libraries work: they need to be compiled on Amazon Linux
 - AWS SDK comes by default with every Lambda function
 

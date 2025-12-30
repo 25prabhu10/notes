@@ -1,8 +1,6 @@
 ---
 title: Functional Programming
 description: Functional programming is a programming paradigm that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data
-date: 2023-09-17
-lastmod: 2024-10-28
 ---
 
 # Functional Programming

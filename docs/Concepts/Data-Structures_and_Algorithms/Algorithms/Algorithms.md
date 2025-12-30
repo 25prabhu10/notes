@@ -1,11 +1,11 @@
 ---
 title: Algorithms
-description: A process or set of rules to be followed in calculations or other problem-solving operations.
+description: A process or set of rules to be followed in calculations or other problem-solving operations
 ---
 
 # Algorithms
 
-Informally, an **algorithm** is any well-defined computational procedure that takes some value, or set of values, as **input** and produces some value, or set of values, as **output**. An algorithm is thus a sequence of computational steps that transform the input into the output.
+Informally, an **algorithm** is any well-defined computational procedure that takes some value, or set of values, as **input** and produces some value, or set of values, as **output**. An algorithm is thus a sequence of computational steps that transform the input into the output
 
 An algorithm is said to be **correct if, for every input instance, it halts with the correct output**
 
@@ -62,7 +62,7 @@ $$ \begin{align} T(n) & = c_1n + c_2(n - 1) + c_3(n - 1) + c_4(n - 1) + c_7(n - 
 - We can express this running time as $a_n + b$ for constants $a$ and $b$ that depend on the statement costs $c_k$ (where $a = c_1 + c_2 + c_4 + c_5 + c_8$ and $b = c_2 + c_4 + c_5 + c_8$). The running time is thus a _linear function_ of $n$
 
 - In analysing Insertion Sort, we simplified by:
-  - Using constants ck to represent statement costs.
+  - Using constants ck to represent statement costs
   - Simplifying expressions further:
     - Best-case: $an + b$
     - Worst-case: $an^2 + bn + c$
@@ -121,7 +121,7 @@ The efficiency of an algorithm depends on the amount of time, storage and other 
 
 The study of **change in performance** of the algorithm **with the change in the order of the input size** is defined as **asymptotic analysis**
 
-- Asymptotic notation can apply to functions that characterize some other aspect of algorithms (the amount of space they use, for example), or even to functions that have nothing whatsoever to do with algorithms.
+- Asymptotic notation can apply to functions that characterize some other aspect of algorithms (the amount of space they use, for example), or even to functions that have nothing whatsoever to do with algorithms
 
 - Algorithm times are measured in terms of _growth_ of an algorithm
 
@@ -506,7 +506,7 @@ _Big-O Complexity:_
 9. `O(c^n)`:
 
    ```python
-   # c branches, where c is sometimes n.
+   # c branches, where c is sometimes n
    def recursion(i, arr, c):
       if i == len(arr):
          return 0
@@ -538,7 +538,7 @@ Static and Global variables:
 
 ## Call Stack
 
-A call stack is a [_stack data structure_](../Data-Structures/Stack.md) that stores information about the active subroutines of a computer program.
+A call stack is a [_stack data structure_](../Data-Structures/Stack.md) that stores information about the active subroutines of a computer program
 
 - The order in which elements come off a stack gives rise to its alternative name, **LIFO** (last in, first out).
 
@@ -570,8 +570,8 @@ It's applications:
 
 - [Binary Search](./Searching_Algorithms.md#binary-search)
 - [Quick Sort](./Sorting_Algorithms.md#quick-sort)
-- Finding the GCD is an use case of D&C.
-- Check Euclid's algorithm for GCD.
+- Finding the GCD is an use case of D&C
+- Check Euclid's algorithm for GCD
 - Strassen's Matrix multiplication
 - Karatsuba Algorithm
 

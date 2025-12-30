@@ -1,13 +1,13 @@
 ---
 title: Data Structures
-description: A data structure is a particular way of organizing data in a computer.
+description: A data structure is a particular way of organizing data in a computer
 ---
 
 # Data Structures
 
-A **data structure is a data organization, management, and storage format** that enables efficient access and modification.
+A **data structure is a data organization, management, and storage format** that enables efficient access and modification
 
-A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them.
+A data structure is a way to store and organize data in order to facilitate access and modifications. No single data structure works well for all purposes, and so it is important to know the strengths and limitations of several of them
 
 - Data can always be represented in many different ways. However, depending on:
   - what that data is and what you need to do with it,
@@ -16,7 +16,7 @@ A data structure is a way to store and organize data in order to facilitate acce
 
 Data-structures can be envisioned as:
 
-1. Mathematical / Logical models / Abstract data-types (ABTs): Define data and operations but no implementation details. Abstract view.
+1. Mathematical / Logical models / Abstract data-types (ABTs): Define data and operations but no implementation details. Abstract view
    - _Example:_ An abstract data-type: _List_
      - Store a given number of elements of a given data-type
      - Write/Modify elements at a position (index)
@@ -52,7 +52,7 @@ There are two types of Data structures:
 
 ## Stack vs Heap
 
-1. _Stack Memory_ is also known as **Static Memory**, as the size is fixed and known during compile time.
+1. _Stack Memory_ is also known as **Static Memory**, as the size is fixed and known during compile time
 
 2. _Heap Memory_ is known as **Dynamic Memory**, as the size is known only during run time?
 

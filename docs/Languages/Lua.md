@@ -1,7 +1,6 @@
 ---
 title: Lua
-description: Lua is a powerful, efficient, lightweight, embeddable scripting language.
-date: 2024-12-05
+description: Lua is a powerful, efficient, lightweight, embeddable scripting language
 ---
 
 # Lua
@@ -10,7 +9,7 @@ Lua is a powerful, efficient, lightweight, embeddable scripting language. It sup
 
 It is elegant
 
-- Lua uses "Mechanisms over Policies" i.e. it provides a small set of general mechanisms that can be used to implement a variety of policies.
+- Lua uses "Mechanisms over Policies" i.e. it provides a small set of general mechanisms that can be used to implement a variety of policies
 
 ## Syntax
 
@@ -42,7 +41,7 @@ local nothing = nil
 
 - Lua is dynamically typed
 - Lua's only data structure is a table
-  - It can be used as an array, maps, hash table, dictionary, collection, stack, queue, etc.
+  - It can be used as an array, maps, hash table, dictionary, collection, stack, queue, etc...
 
 ```lua
 -- As a list ...
@@ -262,7 +261,7 @@ end
 
 ## Modules
 
-Modules are a way to organize code in Lua. They are just tables with functions and variables.
+Modules are a way to organize code in Lua. They are just tables with functions and variables
 
 - There isn't anything special about modules
 - Modules are just files that return a table

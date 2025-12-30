@@ -15,13 +15,12 @@ C# (C Sharp) is a general-purpose, multi-paradigm programming language encompass
 - functional
 - generic
 - object-oriented
-- and component-oriented programming disciplines.
+- and component-oriented programming disciplines
 
 C# is primarily a type-safe language, meaning that instances of types can interact only through protocols they define, thereby ensuring each type's internal consistency. For instance, C# prevents you from interacting with a string type as though it were an integer type
 
-::: tip NOTE
-C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-type) keyword. However, C# remains a predominantly statically typed language
-:::
+> [!NOTE]
+> C# also allows parts of your code to be dynamically typed via the [dynamic](#dynamic-type) keyword. However, C# remains a predominantly statically typed language
 
 ## Introduction
 
@@ -60,13 +59,12 @@ C# has 2-step compilation process:
    - **Roslyn compiler** is used by `dotnet` CLI tool
    - _IL_ code statements are like assembly language instructions, which are executed by **.NET's virtual machine**, known as **CLR (Common Language Runtime)**
 
-2. At runtime, CoreCLR (core version) loads the IL code from the assembly, the **just-in-time (JIT)** compiler compiles it into native CPU instructions, and then it is executed by the CPU.
+2. At runtime, CoreCLR (core version) loads the IL code from the assembly, the **just-in-time (JIT)** compiler compiles it into native CPU instructions, and then it is executed by the CPU
    - Benefit of this 2-step process is that the same _IL_ code can run everywhere (Windows, Linux or macOS)
-   - To create the _IL_ we can use any language as source code for example, C#, F#, or Visual Basic.
+   - To create the _IL_ we can use any language as source code for example, C#, F#, or Visual Basic
 
-::: tip NOTE
-You can examine and disassemble the contents of an IL assembly with Microsoft's _ildasm_ tool. And with tools such as _ILSpy_, _dotPeek_ (JetBrains), or _Reflector_ (Red Gate), you can go further and decompile the IL to C#. Because IL is higher-level than native machine code, the decompiler can do quite a good job of reconstructing the original C#
-:::
+> [!NOTE]
+> You can examine and disassemble the contents of an IL assembly with Microsoft's _ildasm_ tool. And with tools such as _ILSpy_, _dotPeek_ (JetBrains), or _Reflector_ (Red Gate), you can go further and decompile the IL to C#. Because IL is higher-level than native machine code, the decompiler can do quite a good job of reconstructing the original C#
 
 ### Syntax
 
@@ -160,14 +158,13 @@ namespace HelloCS
 }
 
 // Output on Windows
-0 types with 0 methods in System.Runtime assembly.
-103 types with 1,094 methods in System.Linq assembly.
-46 types with 660 methods in System.Console assembly.
+0 types with 0 methods in System.Runtime assembly
+103 types with 1,094 methods in System.Linq assembly
+46 types with 660 methods in System.Console assembly
 ```
 
-::: tip Note
-`System.Runtime` assembly contains 0 types as it is special because it only contains **type-forwarders** rather than actual types
-:::
+> [!NOTE]
+> `System.Runtime` assembly contains 0 types as it is special because it only contains **type-forwarders** rather than actual types
 
 ### Top-Level Statements
 
@@ -278,13 +275,12 @@ int age = 30;
 Console.WriteLine(nameof(age));
 ```
 
-::: tip NOTE
-Reserved keywords can be used as variable name but they have to be prefixed with `@`: `int @int;`, `string @return;`
-:::
+> [!NOTE]
+> Reserved keywords can be used as variable name but they have to be prefixed with `@`: `int @int;`, `string @return;`
 
 ### Character
 
-`char`: Used to store single character.
+`char`: Used to store single character
 
 - Simple type
 
@@ -306,9 +302,9 @@ Reserved keywords can be used as variable name but they have to be prefixed with
 
 ### Strings
 
-`string`: Used to store multiple character.
+`string`: Used to store multiple character
 
-- **Strings are immutable**. Use `StringBuilder` for mutable strings.
+- **Strings are immutable**. Use `StringBuilder` for mutable strings
 
 - Not a primitive data-type
 
@@ -341,7 +337,7 @@ string welcome = "Hello, " + name;
 
 #### Mutable String
 
-Using `System.Text.StringBuilder` we can create mutable strings. The string value can be modified.
+Using `System.Text.StringBuilder` we can create mutable strings. The string value can be modified
 
 - It is memory efficient
 - They offer better performance than string objects of type `System.String`, when heavy string manipulation is involved
@@ -455,13 +451,13 @@ Console.WriteLine($"This car costs {price:C2}, Age: {25 + 30} with {{{odometer}}
 
 [Stings best practices](https://docs.microsoft.com/en-us/dotnet/standard/base-types/best-practices-strings):
 
-- Use `StringComparison.Ordinal` or `StringComparison.OrdinalIgnoreCase` for comparisons as your safe default for culture-agnostic string matching.
+- Use `StringComparison.Ordinal` or `StringComparison.OrdinalIgnoreCase` for comparisons as your safe default for culture-agnostic string matching
 
-- Use string operations that are based on `StringComparison.CurrentCulture` when you display output to the user.
+- Use string operations that are based on `StringComparison.CurrentCulture` when you display output to the user
 
-- Use the `String.Compare` and `String.CompareTo` methods to sort strings, not to check for equality.
+- Use the `String.Compare` and `String.CompareTo` methods to sort strings, not to check for equality
 
-- Use the `String.ToUpperInvariant` method instead of the `String.ToLowerInvariant` method when you normalize strings for comparison.
+- Use the `String.ToUpperInvariant` method instead of the `String.ToLowerInvariant` method when you normalize strings for comparison
 
 All these methods do not modify the original string, some of them return a new modified string:
 
@@ -474,7 +470,7 @@ All these methods do not modify the original string, some of them return a new m
 
 - `str1.Replace(oldChars, newChars)`: returns a new string with characters replaced
 
-- `Remove(int startIndex)`: removes characters from the string from the `startIndex` position to the end of the string and returns that new string.
+- `Remove(int startIndex)`: removes characters from the string from the `startIndex` position to the end of the string and returns that new string
 
 - `Remove(int startIndex, int count)`: removes a specified number of characters from the string from the starting index position. With the count parameter we decide how many characters we want to delete
 
@@ -603,7 +599,7 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 - If numbers in different types are added then C# will perform implicit type casting
 
-- Use `checked` block to raise exceptions when overflow happens during any arithmetic operation.
+- Use `checked` block to raise exceptions when overflow happens during any arithmetic operation
 
   ```csharp
   int result = checked(a + b) + c;
@@ -625,9 +621,8 @@ Numbers can be Natural / Whole number (+ve), Integers (-ve), and Real numbers (f
 
 - All numbers are primitive data-types
 
-::: danger NOTE
-**Do not use equality comparator with double variables** they will not be equal
-:::
+> [!CAUTION]
+> **Do not use equality comparator with double variables** they will not be equal
 
 ### Booleans
 
@@ -657,9 +652,9 @@ if(something != 0)
 
 ### Object Type
 
-Special type named `object` that can store any data.
+Special type named `object` that can store any data
 
-Every type in C# directly or indirectly derives from the `object` class type, and `object` is the ultimate base class of all types.
+Every type in C# directly or indirectly derives from the `object` class type, and `object` is the ultimate base class of all types
 
 - The code will be messier
 - Possibly poor performance due to [boxing and unboxing operations](#boxing-and-unboxing-operations)
@@ -693,7 +688,7 @@ name = 25;
 Special type named `dynamic` (C# 4.0) can store any data, even more than `object`
 
 - Poor performance
-- It dose implicit type conversion when using the methods of the stored value.
+- It dose implicit type conversion when using the methods of the stored value
 
 ```csharp
 // storing a string in a dynamic object
@@ -711,7 +706,7 @@ something.Length
 
 ### Anonymous Types
 
-Anonymous types provide a convenient way to encapsulate a set of read-only properties into a single object without having to explicitly define a type first.
+Anonymous types provide a convenient way to encapsulate a set of read-only properties into a single object without having to explicitly define a type first
 
 - The type name is generated by the compiler and is not available at the source code level
 - The type of each property is inferred by the compiler
@@ -736,7 +731,7 @@ const string HomePlanet = "Earth";
 
 ### Inferring Type
 
-Using `var` we can declare local variables whose data-type is determined later.
+Using `var` we can declare local variables whose data-type is determined later
 
 For inferring it checks if the literal is suffice with:
 
@@ -752,7 +747,7 @@ It will have the same properties of the inferred data-type
 
 ### Type Casting
 
-- Changing an expression from one data type to another.
+- Changing an expression from one data type to another
 
   ```csharp
   // it will not round up or down, just discards the decimal places
@@ -771,9 +766,8 @@ It will have the same properties of the inferred data-type
   // it rolls over from 256 to 109
   ```
 
-::: tip NOTE
-To get wrapped value. Open calculator, switch to Scientific mode, and calculate 365 _Mod_ 256
-:::
+> [!NOTE]
+> To get wrapped value. Open calculator, switch to Scientific mode, and calculate 365 _Mod_ 256
 
 - **+** (plus) operator when used between a _string_ and any _other type_, it converts the **other type** to **string**
 
@@ -832,13 +826,13 @@ For parsing `int` data from `string` use `int.TryParse()`:
 
 ### Boxing and Unboxing Operations
 
-Values of value types are treated as objects by performing _boxing_ and _unboxing operations_.
+Values of value types are treated as objects by performing _boxing_ and _unboxing operations_
 
-- Boxing is the process of converting a value type to the type `object` or to any interface type implemented by this value type.
+- Boxing is the process of converting a value type to the type `object` or to any interface type implemented by this value type
 
 - Unboxing extracts the value type from the object
 
-- Boxing is implicit; unboxing is explicit.
+- Boxing is implicit; unboxing is explicit
 
 ```csharp
 int i = 123;
@@ -846,9 +840,9 @@ object o = i;    // Boxing
 int j = (int)o;  // Unboxing
 ```
 
-- When a value of a value type is assigned to an `object` reference, a "box" is allocated to hold the value. That box is an instance of a reference type, and the value is copied into that box.
+- When a value of a value type is assigned to an `object` reference, a "box" is allocated to hold the value. That box is an instance of a reference type, and the value is copied into that box
 
-- When an `object` reference is cast to a value type, a check is made that the referenced object is a box of the correct value type. If the check succeeds, the value in the box is copied to the value type.
+- When an `object` reference is cast to a value type, a check is made that the referenced object is a box of the correct value type. If the check succeeds, the value in the box is copied to the value type
 
 ### Default Value
 
@@ -886,9 +880,9 @@ Nullable reference types are available beginning with C# 8.0:
 
 If you want to assign a value of a nullable value type to a non-nullable value type variable, you might need to specify the value to be assigned in place of `null`.
 
-The null-coalescing operator `??` returns the value of its left-hand operand if it isn't `null`; otherwise, it evaluates the right-hand operand and returns its result.
+The null-coalescing operator `??` returns the value of its left-hand operand if it isn't `null`; otherwise, it evaluates the right-hand operand and returns its result
 
-- The `??` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.
+- The `??` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null
 
 ```csharp
 int? TicketsOnSale = null;
@@ -917,7 +911,7 @@ AvailableTickets = TicketsOnSale ?? 0;
 
 The null-coalescing assignment operator `??=` (C# 8.0) assigns the value of its right-hand operand to its left-hand operand only if the left-hand operand evaluates to `null`.
 
-- The `??=` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.
+- The `??=` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null
 
 ```csharp
 if (variable is null)
@@ -945,9 +939,8 @@ Console.WriteLine(string.Join(" ", numbers));  // output: 5 0
 Console.WriteLine(a);  // output: 0
 ```
 
-::: tip NOTE
-The operators `??` and `??=` cannot be overloaded.
-:::
+> [!NOTE]
+> The operators `??` and `??=` cannot be overloaded
 
 #### Null-Conditional Operator `?.`
 
@@ -984,7 +977,7 @@ int b = a!;
 
 ### Tuples
 
-The tuple (C# 7.0) feature provides concise syntax to group multiple data elements in a lightweight data structure.
+The tuple (C# 7.0) feature provides concise syntax to group multiple data elements in a lightweight data structure
 
 - Tuple values are **mutable**
 - They are the recommended way to return multiple values from a method
@@ -1035,9 +1028,9 @@ point.x;
 
 ### Arrays
 
-Multiple variables of the same type can be stored in an array data structure.
+Multiple variables of the same type can be stored in an array data structure
 
-- To store elements of any type in an array, we can specify `object` as its type.
+- To store elements of any type in an array, we can specify `object` as its type
 
 ```csharp
 type[] arrayName;
@@ -1046,25 +1039,25 @@ class TestArraysClass
 {
     static void Main()
     {
-        // Declare a single-dimensional array of 5 integers.
+        // Declare a single-dimensional array of 5 integers
         int[] array1 = new int[5];
 
-        // Declare and set array element values.
+        // Declare and set array element values
         int[] array2 = new int[] { 1, 3, 5, 7, 9 };
 
-        // Alternative syntax.
+        // Alternative syntax
         int[] array3 = { 1, 2, 3, 4, 5, 6 };
 
-        // Declare a two dimensional array.
+        // Declare a two dimensional array
         int[,] multiDimensionalArray1 = new int[2, 3];
 
-        // Declare and set array element values.
+        // Declare and set array element values
         int[,] multiDimensionalArray2 = { { 1, 2, 3 }, { 4, 5, 6 } };
 
-        // Declare a jagged array.
+        // Declare a jagged array
         int[][] jaggedArray = new int[6][];
 
-        // Set the values of the first array in the jagged array structure.
+        // Set the values of the first array in the jagged array structure
         jaggedArray[0] = new int[4] { 1, 2, 3, 4 };
     }
 }
@@ -1072,7 +1065,7 @@ class TestArraysClass
 
 ### Enum
 
-An enumeration type (or `enum` type) is a value type defined by a set of named constants of the underlying integral numeric type.
+An enumeration type (or `enum` type) is a value type defined by a set of named constants of the underlying integral numeric type
 
 If a program uses set of integral numbers, consider replacing them with enums, which makes the program more:
 
@@ -1094,9 +1087,9 @@ enum Season
 
 - By default, the associated constant values of enum members are of type `int`
 
-- They start with 0 and increase by 1 following the definition text order.
+- They start with 0 and increase by 1 following the definition text order
 
-- We can explicitly specify any integral numeric type as an underlying type of an enum type.
+- We can explicitly specify any integral numeric type as an underlying type of an enum type
 
 ```csharp
 enum ErrorCode : ushort
@@ -1162,21 +1155,21 @@ public class FlagsEnumExample
 
 A Delegate is a type safe function pointer
 
-- A delegate type represents references to methods with a particular parameter list and return type.
+- A delegate type represents references to methods with a particular parameter list and return type
 
 - The `delegate` keyword is used to define a delegate
 
-- Delegate can be associated with any method with a compatible signature and return type.
+- Delegate can be associated with any method with a compatible signature and return type
 
-- Methods don't have to match the delegate type exactly. Variance (Covariance and Contravariance) can provide flexibility for matching a delegate type with a method signature.
+- Methods don't have to match the delegate type exactly. Variance (Covariance and Contravariance) can provide flexibility for matching a delegate type with a method signature
 
 - Delegates allow methods to be passed as parameters
 - Delegates can be used to define callback methods
 - Lambda expressions are a more concise way of writing inline code blocks. Lambda expressions (in certain contexts) are compiled to delegate types
 
-- Delegates are analogous to function types provided by functional languages.
+- Delegates are analogous to function types provided by functional languages
 
-They're also similar to the concept of function pointers found in some other languages. Unlike function pointers, delegates are object-oriented and type-safe.
+They're also similar to the concept of function pointers found in some other languages. Unlike function pointers, delegates are object-oriented and type-safe
 
 _Example:_
 
@@ -1184,7 +1177,7 @@ _Example:_
 // Create a delegate
 public delegate void Delg(string message);
 
-// Create a method for a delegate.
+// Create a method for a delegate
 public static void Hello(string strMessage)
 {
     Console.WriteLine(strMessage);
@@ -1216,9 +1209,9 @@ There are 2 approaches to create a multicast delegate:
 1. `+` or `+=` to register a method with the delegate
 2. `-` or `-=` to un-register a method with the delegate
 
-A multicast delegate, invokes the methods in the invocation list, in the same order in which they are added.
+A multicast delegate, invokes the methods in the invocation list, in the same order in which they are added
 
-- **Multicast delegate makes implementation of observer design pattern (publish/subscribe pattern)** very simple.
+- **Multicast delegate makes implementation of observer design pattern (publish/subscribe pattern)** very simple
 
 ```csharp
 public class MethodClass
@@ -1234,7 +1227,7 @@ Del d1 = obj.Method1;
 Del d2 = obj.Method2;
 Del d3 = DelegateMethod;
 
-// Both types of assignment are valid.
+// Both types of assignment are valid
 Del allMethodsDelegate = d1 + d2;
 allMethodsDelegate += d3;
 
@@ -1250,7 +1243,7 @@ Del oneMethodDelegate = allMethodsDelegate - d2;
 int invocationCount = d1.GetInvocationList().GetLength(0);
 ```
 
-- If the delegate has a return type other than void and if the delegate is a multicast delegate, only the value of the last invoked method will be returned.
+- If the delegate has a return type other than void and if the delegate is a multicast delegate, only the value of the last invoked method will be returned
 
 ### Records
 
@@ -1751,7 +1744,7 @@ Console.WriteLine(mayBeNull.Length);
 
 Classes offer a mechanism for _encapsulation_ through access modifiers
 
-- The accessibility level controls whether they can be used from other code in your assembly or other assemblies.
+- The accessibility level controls whether they can be used from other code in your assembly or other assemblies
 
 There are 4 types and 2 combined types:
 
@@ -1770,7 +1763,7 @@ There are 4 types and 2 combined types:
      static void Main(string[] args)
      {
        Car myCar = new Car();
-       Console.WriteLine(myCar.name); // This is Ok.
+       Console.WriteLine(myCar.name); // This is Ok
      }
    }
    ```
@@ -1820,7 +1813,7 @@ There are 4 types and 2 combined types:
      static void Main(string[] args)
      {
        Car myCar = new Car();
-       Console.WriteLine(myCar.seats); // Error. The number variable is inaccessible due to its protection level.
+       Console.WriteLine(myCar.seats); // Error. The number variable is inaccessible due to its protection level
        // The Program class doesn't derive from the Car
      }
    }
@@ -1852,13 +1845,13 @@ There are 4 types and 2 combined types:
      static void Main(string[] args)
      {
        Car myCar = new Car();
-       Console.WriteLine(myCar.seats); // Error. The number variable is inaccessible due to its protection level.
+       Console.WriteLine(myCar.seats); // Error. The number variable is inaccessible due to its protection level
        // The Program class in second project can't access the internal members from another project
      }
    }
    ```
 
-5. `protected internal`: The type or member can be accessed by any code in the assembly in which it's declared, or from within a derived `class` in another assembly.
+5. `protected internal`: The type or member can be accessed by any code in the assembly in which it's declared, or from within a derived `class` in another assembly
 
    ```csharp
    //First Project (ASSEMBLY)
@@ -1871,7 +1864,7 @@ There are 4 types and 2 combined types:
        void Print()
        {
            NumberClassInFirstProject num = new NumberClassInFirstProject();
-           Console.WriteLine(num.number); // This is OK. Anywhere in this project (assembly) we can access the number variable.
+           Console.WriteLine(num.number); // This is OK. Anywhere in this project (assembly) we can access the number variable
        }
    }
    //Second project (ASSEMBLY)
@@ -1879,12 +1872,12 @@ There are 4 types and 2 combined types:
    {
        void Print()
        {
-           Console.WriteLine(number); //This is OK as well. The class Program derives from the NumberClassInFirstProject clas.
+           Console.WriteLine(number); //This is OK as well. The class Program derives from the NumberClassInFirstProject clas
        }
    }
    ```
 
-6. `private protected`: The type or member can be accessed by types derived from the class that are declared within its containing assembly.
+6. `private protected`: The type or member can be accessed by types derived from the class that are declared within its containing assembly
 
 Summary:
 
@@ -1898,25 +1891,24 @@ Summary:
 
 Defaults:
 
-- By default classes, interfaces, records, and structs declared directly within a namespace can be either `public` or `internal`. **`internal` is default** if no access modifier is specified.
+- By default classes, interfaces, records, and structs declared directly within a namespace can be either `public` or `internal`. **`internal` is default** if no access modifier is specified
 
-- Class and struct members, including nested classes and structs, have `private` access by default.
+- Class and struct members, including nested classes and structs, have `private` access by default
 
-- Interface members are `public` by default.
+- Interface members are `public` by default
 
 - Struct members, including nested classes and structs, can be declared `public`, `internal`, or `private`.
 
 - Class members, including nested classes and structs, can be `public`, `protected internal`, `protected`, `internal`, `private protected`, or `private`.
 
-::: tip NOTE
-Types or members with `internal` access specifier can be made available to other assemblies using `[assembly: InternalsVisibleTo("name")]`
-:::
+> [!NOTE]
+> Types or members with `internal` access specifier can be made available to other assemblies using `[assembly: InternalsVisibleTo("name")]`
 
 ### Static
 
-The `static` modifier keyword lets us declare that a member is not associated with any particular instance of the `class` this member is known as static member.
+The `static` modifier keyword lets us declare that a member is not associated with any particular instance of the `class` this member is known as static member
 
-- The static member belongs to the itself rather than to a specific object.
+- The static member belongs to the itself rather than to a specific object
 
 Non-static class can contain static:
 
@@ -1949,7 +1941,7 @@ Console.WriteLine(Counter.TotalCount);
 - `_totalCount` keeps track of count across all the class instances
 
 - The code that is declared static can only access other static members
-- Static methods can be overloaded but not overridden, because they belong to the class, and not to any instance of the class.
+- Static methods can be overloaded but not overridden, because they belong to the class, and not to any instance of the class
 - A `const` field behaves like `static`, as it belongs to the type, not to instances of the type
   - Because of this we cannot use `static const`
   - A `const` field can be accessed the same way `static` fields are accessed: `ClassName.MemberName`
@@ -1985,9 +1977,9 @@ A class, struct or record can declare various kinds of members such as:
 
 ### Fields
 
-Fields are a kind of variable, but unlike local variable, whose scope and lifetime is determined by its containing method, a field is tied to its containing type.
+Fields are a kind of variable, but unlike local variable, whose scope and lifetime is determined by its containing method, a field is tied to its containing type
 
-- Use fields only for variables that have private or protected accessibility.
+- Use fields only for variables that have private or protected accessibility
 
 | `readonly`                                                | `const`                                        |
 | --------------------------------------------------------- | ---------------------------------------------- |
@@ -2141,10 +2133,10 @@ public int this[int index]
 
 class SampleCollection<T>
 {
-   // Declare an array to store the data elements.
+   // Declare an array to store the data elements
    private T[] arr = new T[100];
 
-   // Define the indexer to allow client code to use [] notation.
+   // Define the indexer to allow client code to use [] notation
    public T this[int i]
    {
       get { return arr[i]; }
@@ -2180,7 +2172,7 @@ A constructor is a special method of the class or struct which gets automaticall
 #### Types of Constructors
 
 - Default Constructor: It is a parameterless constructor
-  - Unless the class is static, classes without constructors are given a public parameterless constructor by the C# compiler in order to enable class instantiation.
+  - Unless the class is static, classes without constructors are given a public parameterless constructor by the C# compiler in order to enable class instantiation
 
   ```csharp
   class Geek {
@@ -2189,7 +2181,7 @@ A constructor is a special method of the class or struct which gets automaticall
     string name;
 
     // this would be invoked while the
-    // object of that class created.
+    // object of that class created
     public Geek()
     {
       Console.WriteLine("Constructor Called");
@@ -2216,8 +2208,8 @@ A constructor is a special method of the class or struct which gets automaticall
   }
   ```
 
-- Copy Constructor: This constructor creates an object by copying variables from another object.
-  - Its main use is to initialize a new instance to the values of an existing instance.
+- Copy Constructor: This constructor creates an object by copying variables from another object
+  - Its main use is to initialize a new instance to the values of an existing instance
 
   ```csharp
   class Geek {
@@ -2240,10 +2232,10 @@ A constructor is a special method of the class or struct which gets automaticall
   public static void Main()
   {
 
-      // Create a new Geeks object.
+      // Create a new Geeks object
       Geeks g1 = new Geeks(2018);
 
-      // here is g1 details is copied to g2.
+      // here is g1 details is copied to g2
       Geeks g2 = new Geeks(g1);
   }
   ```
@@ -2257,7 +2249,7 @@ A constructor is a special method of the class or struct which gets automaticall
   class NLog
   {
       // Private Constructor:
-      // The declaration of the empty constructor prevents the automatic generation of a parameterless constructor.
+      // The declaration of the empty constructor prevents the automatic generation of a parameterless constructor
       private NLog() { }
 
       public static double e = Math.E;  //2.71828...
@@ -2265,7 +2257,7 @@ A constructor is a special method of the class or struct which gets automaticall
   ```
 
 - Static Constructor: A static constructor is used to initialize any static data, or to perform a particular action that needs to be performed only once
-  - It is called automatically before the first instance is created or any static members are referenced.
+  - It is called automatically before the first instance is created or any static members are referenced
 
   - There can be **only one static constructor**
 
@@ -2274,11 +2266,11 @@ A constructor is a special method of the class or struct which gets automaticall
   ```csharp
   class SimpleClass
   {
-      // Static variable that must be initialized at run time.
+      // Static variable that must be initialized at run time
       static readonly long baseline;
 
       // Static constructor is called at most one time, before any
-      // instance constructor is invoked or member is accessed.
+      // instance constructor is invoked or member is accessed
       static SimpleClass()
       {
           baseline = DateTime.Now.Ticks;
@@ -2295,13 +2287,13 @@ Constructor **Execution order for Parent-Child**:
 
 #### Destructor (Finalizers)
 
-Destructors (Finalizers) are used to perform any necessary final clean-up when a class instance is being collected by the garbage collector.
+Destructors (Finalizers) are used to perform any necessary final clean-up when a class instance is being collected by the garbage collector
 
-- Finalizers cannot be defined in structs. They are only used with classes.
-- A class can only have one finalizer.
-- Finalizers cannot be inherited or overloaded.
-- Finalizers cannot be called. They are invoked automatically.
-- A finalizer does not take modifiers or have parameters.
+- Finalizers cannot be defined in structs. They are only used with classes
+- A class can only have one finalizer
+- Finalizers cannot be inherited or overloaded
+- Finalizers cannot be called. They are invoked automatically
+- A finalizer does not take modifiers or have parameters
 
 ```csharp
 class Car
@@ -2340,7 +2332,7 @@ public void Main(string[] args)
 
 - Method Name: It is a unique identifier and it is case sensitive. It cannot be same as any other identifier declared in the class
 
-- Parameter List (optional): Enclosed between parentheses, the parameters are used to pass and receive data from a method. The parameter list refers to the type, order, and number of parameters of a method. Parameters are optional.
+- Parameter List (optional): Enclosed between parentheses, the parameters are used to pass and receive data from a method. The parameter list refers to the type, order, and number of parameters of a method. Parameters are optional
 
 - Method Body: This contains the set of instructions needed to be complete the required activity
 
@@ -2360,7 +2352,7 @@ Methods can have two types of parameters: required and optional
 
 - Method call will fail if required arguments are not passed during method call
 
-- Optional parameters have a default value. The method that has optional parameters could be called without those arguments. If we provide the values as arguments for optional parameters then the default values will be overridden.
+- Optional parameters have a default value. The method that has optional parameters could be called without those arguments. If we provide the values as arguments for optional parameters then the default values will be overridden
 
 - **Optional parameters must appear after all required parameters** (Error CS1737):
 
@@ -2419,24 +2411,24 @@ Methods can have two types of parameters: required and optional
 
 #### Pass By Reference
 
-When primitive data-types are passed as arguments to a method, the argument value gets copied. So changes made to the value inside the method will not reflect in the original variable.
+When primitive data-types are passed as arguments to a method, the argument value gets copied. So changes made to the value inside the method will not reflect in the original variable
 
 - If the argument needs to be modified in the method, it needs to be passed by reference
 
 Arguments can be passed by reference using parameter modifiers:
 
-- `ref`: Keyword indicates that a value is passed by reference.
-  - Variables passed as `ref` arguments must be initialized before being passed in a method call.
+- `ref`: Keyword indicates that a value is passed by reference
+  - Variables passed as `ref` arguments must be initialized before being passed in a method call
   - **Arguments can be modified**
 
-- `out`: Keyword causes arguments to be passed by reference.
-  - Variables passed as `out` arguments don't have to be initialized before being passed in a method call.
+- `out`: Keyword causes arguments to be passed by reference
+  - Variables passed as `out` arguments don't have to be initialized before being passed in a method call
   - **Arguments must be modified**: Value must be assigned before the method returns
-  - Enables a method to return multiple values (old way). [Tuples](#tuples) are recommended for this.
+  - Enables a method to return multiple values (old way). [Tuples](#tuples) are recommended for this
   - Cannot be used on the first argument of an extension method
 
-- `in`: Keyword causes arguments to be passed by reference but ensures the argument is not modified.
-  - Variables passed as `in` arguments must be initialized before being passed in a method call.
+- `in`: Keyword causes arguments to be passed by reference but ensures the argument is not modified
+  - Variables passed as `in` arguments must be initialized before being passed in a method call
   - **Arguments cannot be modified**
   - C# 7.2+
 
@@ -2530,19 +2522,19 @@ The `in`, `ref`, and `out` keywords can't be used for the following kinds of met
 
 #### Partial Methods
 
-A partial class or struct may contain a partial method.
+A partial class or struct may contain a partial method
 
-- The definition: One part of the class contains the signature of the method.
-- The implementation: An implementation can be defined in the same part or another part.
+- The definition: One part of the class contains the signature of the method
+- The implementation: An implementation can be defined in the same part or another part
 
-- If the implementation is not supplied, then the method and all calls to the method are removed at compile time.
-- Implementation may be required depending on method signature.
+- If the implementation is not supplied, then the method and all calls to the method are removed at compile time
+- Implementation may be required depending on method signature
 
 A partial method isn't required to have an implementation in the following cases:
 
 - It doesn't have any accessibility modifiers (including the default `private`).
 - It returns `void`.
-- It doesn't have any `out` parameters.
+- It doesn't have any `out` parameters
 - It doesn't have any of the following modifiers `virtual`, `override`, `sealed`, `new`, or `extern`.
 
 _Example:_
@@ -2637,7 +2629,7 @@ The four basic principles of object-oriented programming are:
 
 #### Inheritance
 
-Inheritance allows you to define a child class that reuses (inherits), extends, or modifies the behaviours of a parent class.
+Inheritance allows you to define a child class that reuses (inherits), extends, or modifies the behaviours of a parent class
 
 - **Base Class**: The class whose members are inherited
 - **Derived Class**: The class that inherits the members of the base class
@@ -2833,7 +2825,7 @@ _Example:_ A `Car` and a `Truck` share a lot of core properties and behaviour of
 
 ### Partial Classes
 
-It is possible to split the definition of a `class`, a `struct`, an `interface` or a method over two or more source files.
+It is possible to split the definition of a `class`, a `struct`, an `interface` or a method over two or more source files
 
 Each source file contains a section of the type or method definition, and all parts are combined when the application is compiled
 
@@ -2863,19 +2855,19 @@ public partial class Employee
 
 - If any part is declared `abstract`, then the whole type is considered `abstract`
 - If any part is declared `sealed`, then the whole type is considered `sealed`
-- If any part declares a base type, then the whole type inherits that class.
+- If any part declares a base type, then the whole type inherits that class
 
 - All partial-type definitions meant to be parts of the same type must be defined in the same assembly and the same module (`.exe` or `.dll` file)
 
 ## Structure
 
-A structure type (or `struct` type) is a value type that can encapsulate data and related functionality.
+A structure type (or `struct` type) is a value type that can encapsulate data and related functionality
 
 Structure is a way to write custom value-type using the keyword `struct`
 
-A `struct` type is similar to a `class` type in that it represents a structure with data members and function members. However, unlike classes, structs are value types and don't typically require heap allocation.
+A `struct` type is similar to a `class` type in that it represents a structure with data members and function members. However, unlike classes, structs are value types and don't typically require heap allocation
 
-Struct types don't support user-specified inheritance, and all struct types implicitly inherit from type object.
+Struct types don't support user-specified inheritance, and all struct types implicitly inherit from type object
 
 - A struct can have most of the same features as a class; it can contain methods, fields, properties, constructors, and any of the other member types supported by classes, and we can use the same accessibility keywords, such as `public` and `internal`.
 
@@ -2920,7 +2912,7 @@ Struct types don't support user-specified inheritance, and all struct types impl
   }
   ```
 
-- `GetHashCode`: returns an `int` that in some sense represents the value of the type.
+- `GetHashCode`: returns an `int` that in some sense represents the value of the type
   - Useful when using hash tables
   - `GetHashCode` must fulfil 2 requirements:
     1. It should return the same value if called n number of times when its own value dose not change
@@ -2930,9 +2922,8 @@ Struct types don't support user-specified inheritance, and all struct types impl
 
   - The default implementation of `GetHashCOde` for value types meet both requirement, but use reflection (which is slow). So, they are implemented by the user
 
-::: tip NOTE
-Structure should be used if the **instance size is under 16 bytes**
-:::
+> [!NOTE]
+> Structure should be used if the **instance size is under 16 bytes**
 
 ### Class vs Struct
 
@@ -2948,7 +2939,7 @@ Structure should be used if the **instance size is under 16 bytes**
 
 ### Immutability
 
-C# 7.2. it is possible to declare a `struct` as readonly (immutable) by adding the `readonly` keyword.
+C# 7.2. it is possible to declare a `struct` as readonly (immutable) by adding the `readonly` keyword
 
 Read-only struct:
 
@@ -3030,7 +3021,7 @@ public interface ISurface
 }
 public class SampleClass : IControl, ISurface
 {
-    // Both ISurface.Paint and IControl.Paint call this method.
+    // Both ISurface.Paint and IControl.Paint call this method
     public void Paint()
     {
         Console.WriteLine("Paint method in SampleClass");
@@ -3042,7 +3033,7 @@ SampleClass sample = new SampleClass();
 IControl control = sample;
 ISurface surface = sample;
 
-// The following lines all call the same method.
+// The following lines all call the same method
 sample.Paint();
 control.Paint();
 surface.Paint();
@@ -3073,10 +3064,10 @@ SampleClass sample = new SampleClass();
 IControl control = sample;
 ISurface surface = sample;
 
-// The following lines all call the same method.
-//sample.Paint(); // Compiler error.
-control.Paint();  // Calls IControl.Paint on SampleClass.
-surface.Paint();  // Calls ISurface.Paint on SampleClass.
+// The following lines all call the same method
+//sample.Paint(); // Compiler error
+control.Paint();  // Calls IControl.Paint on SampleClass
+surface.Paint();  // Calls ISurface.Paint on SampleClass
 
 // Output:
 // IControl.Paint
@@ -3179,7 +3170,7 @@ There are several Pre-defined Attributes provided by .NET such as:
 [Serializable]
 public class SampleClass
 {
-    // Objects of this type can be serialized.
+    // Objects of this type can be serialized
 }
 ```
 
@@ -3264,22 +3255,22 @@ class SampleClass
 
 ## Reflection
 
-Reflection provides objects (of type Type) that describe assemblies, modules, and types.
+Reflection provides objects (of type Type) that describe assemblies, modules, and types
 
 - Reflection is the ability of inspecting an assemblies metadata at runtime
 
 You can use reflection to:
 
 - Dynamically create an instance of a type
-  - Late binding can be achieved by using reflection. We can use reflection to dynamically create an instance of a type, about which we don't have any information at compile time. So, reflection enables us to use code that is not available at compile time.
+  - Late binding can be achieved by using reflection. We can use reflection to dynamically create an instance of a type, about which we don't have any information at compile time. So, reflection enables us to use code that is not available at compile time
 
 - Bind the type to an existing object
 - Get the type from an existing object and invoke its methods
-- Access its fields and properties.
+- Access its fields and properties
 
 Reflection enables to access attributes
 
-- The classes that give access to the metadata of a running program are in the `System.Reflection` namespace.
+- The classes that give access to the metadata of a running program are in the `System.Reflection` namespace
 
 _Example:_
 
@@ -3293,9 +3284,8 @@ Type t = typeof(string);
 Console.WriteLine("Name : {0}", t.Name);
 ```
 
-::: tip NOTE
-The C# keywords `protected` and `internal` have no meaning in Intermediate Language (IL) and are not used in the reflection APIs. The corresponding terms in IL are _Family_ and _Assembly_. To identify an `internal` method using reflection, use the `IsAssembly` property. To identify a `protected internal` method, use the `IsFamilyOrAssembly`.
-:::
+> [!NOTE]
+> The C# keywords `protected` and `internal` have no meaning in Intermediate Language (IL) and are not used in the reflection APIs. The corresponding terms in IL are _Family_ and _Assembly_. To identify an `internal` method using reflection, use the `IsAssembly` property. To identify a `protected internal` method, use the `IsFamilyOrAssembly`.
 
 ### Late Binding or Dynamic Binding
 
@@ -3332,18 +3322,18 @@ An exception is actually a class that derives from `System.Exception` class
 
   - `StackTrace`: Provides the call stack to the line number in the method where the exception occurred
 
-Don't catch an exception unless you can handle it and leave the application in a known state.
+Don't catch an exception unless you can handle it and leave the application in a known state
 
-- If you catch `System.Exception`, re-throw it using the throw keyword at the end of the catch block.
+- If you catch `System.Exception`, re-throw it using the throw keyword at the end of the catch block
 
 ### Try-Catch Block
 
 Exception handling uses the `try`, `catch`, and `finally` keywords to try actions that may not succeed, to handle failures when you decide that it's reasonable to do so, and to clean up resources afterward
 
-- A `try` block without a `catch` or `finally` block causes a compiler error.
+- A `try` block without a `catch` or `finally` block causes a compiler error
 
-- `finally`: block run when control leaves a `try` statement.
-  - The transfer of control can occur as a result of normal execution, of execution of a `break`, `continue`, `goto`, or `return` statement, or of propagation of an exception out of the `try` statement.
+- `finally`: block run when control leaves a `try` statement
+  - The transfer of control can occur as a result of normal execution, of execution of a `break`, `continue`, `goto`, or `return` statement, or of propagation of an exception out of the `try` statement
 
 _Syntax:_
 
@@ -3391,11 +3381,11 @@ public static void Main()
 }
 ```
 
-A `catch` block can specify the type of exception to catch.
+A `catch` block can specify the type of exception to catch
 
 - The type specification is called an _exception filter_
 - The exception type should be derived from `Exception`
-- The catch blocks are evaluated from top to bottom in your code, but only one catch block is executed for each exception that is thrown.
+- The catch blocks are evaluated from top to bottom in your code, but only one catch block is executed for each exception that is thrown
 
 ### Create Exception
 
@@ -3426,7 +3416,7 @@ Throw exceptions when:
           {
               throw new InvalidOperationException("Logfile cannot be read-only");
           }
-          // Else write data to the log and return.
+          // Else write data to the log and return
       }
   }
   ```
@@ -3454,9 +3444,9 @@ Create custom Exception filter class:
   - one parameterless constructor
   - one that sets the message property
   - one that sets both the Message and InnerException properties
-  - one constructor that is used to serialize the exception.
+  - one constructor that is used to serialize the exception
 
-- New exception classes should be serializable.
+- New exception classes should be serializable
 
 ```csharp
 [Serializable]
@@ -3467,7 +3457,7 @@ public class InvalidDepartmentException : Exception
     public InvalidDepartmentException(string message, Exception inner) : base(message, inner) { }
 
     // A constructor is needed for serialization when an
-    // exception propagates from a remoting server to the client.
+    // exception propagates from a remoting server to the client
     protected InvalidDepartmentException(System.Runtime.Serialization.SerializationInfo info,
         System.Runtime.Serialization.StreamingContext context) : base(info, context) { }
 }
@@ -3492,9 +3482,9 @@ C# doesn't have a full pre-processing stage like C, it has limited pre-processor
 
 ### Compilation Symbols
 
-`#define`: directive that lets you define a _compilation symbol_.
+`#define`: directive that lets you define a _compilation symbol_
 
-- These symbols are commonly used in conjunction with the `#if` directive to compile code in different ways for different situations.
+- These symbols are commonly used in conjunction with the `#if` directive to compile code in different ways for different situations
 
   ```csharp
   #if DEBUG
@@ -3520,13 +3510,13 @@ static void ShowDebugInfo(object o)
 
 ### Region
 
-`#region` and `#endregion` define a region inside the code that can be collapsed by the editor. They can be nested.
+`#region` and `#endregion` define a region inside the code that can be collapsed by the editor. They can be nested
 
-The compiler ignores these and throws error if a `#region` dose not have a corresponding `#endregion` directive.
+The compiler ignores these and throws error if a `#region` dose not have a corresponding `#endregion` directive
 
 ### Others
 
-- `#errors` and `#warnings` can be used to throw errors and warnings during compilation if certain criteria is met.
+- `#errors` and `#warnings` can be used to throw errors and warnings during compilation if certain criteria is met
 
   ```csharp
   #if NETSTANDARD
@@ -3561,7 +3551,7 @@ Generic (C# 2.0) is a class which allows the user to define classes and methods 
 By using a generic type parameter `T`, we can write a single class that other client code can use without incurring the cost or risk of runtime casts or boxing operations:
 
 ```csharp
-// Declare the generic class.
+// Declare the generic class
 public class GenericList<T>
 {
     public void Add(T input) { }
@@ -3573,15 +3563,15 @@ class TestGenericList
     private class ExampleClass { }
     static void Main()
     {
-        // Declare a list of type int.
+        // Declare a list of type int
         GenericList<int> list1 = new GenericList<int>();
         list1.Add(1);
 
-        // Declare a list of type string.
+        // Declare a list of type string
         GenericList<string> list2 = new GenericList<string>();
         list2.Add("");
 
-        // Declare a list of type ExampleClass.
+        // Declare a list of type ExampleClass
         GenericList<ExampleClass> list3 = new GenericList<ExampleClass>();
         list3.Add(new ExampleClass());
     }
@@ -3639,14 +3629,14 @@ public class Part : IEquatable<Part>
         if (other == null) return false;
         return (this.PartId.Equals(other.PartId));
     }
-// Should also override == and != operators.
+// Should also override == and != operators
 }
 
 
 // Create a list of parts
 List<Part> parts = new List<Part>();
 
-// Add parts to the list.
+// Add parts to the list
 parts.Add(new Part() { PartName = "crank arm", PartId = 1234 });
 parts.Add(new Part() { PartName = "chain ring", PartId = 1334 });
 parts.Add(new Part() { PartName = "regular seat", PartId = 1434 });
@@ -3683,7 +3673,7 @@ bool doseItContain = parts.Contains(new Part { PartId = 1734, PartName = "" }));
 bool doseItContain = parts.Exists(cust => cust.PartName.StartsWith("b"));
 // True
 
-// Insert a new item at position 2.
+// Insert a new item at position 2
 parts.Insert(2, new Part() { PartName = "brake lever", PartId = 1834 });
 
 parts[3];
@@ -3693,7 +3683,7 @@ parts[3];
 // because the Equals method only checks PartId for equality
 parts.Remove(new Part() { PartId = 1534, PartName = "cogs" });
 
-// This will remove the part at index 3.
+// This will remove the part at index 3
 parts.RemoveAt(3);
 
 // Concat 2 lists
@@ -3773,7 +3763,7 @@ parts.GetRange(2, 4);
   {
     public class ReverserClass : IComparer
     {
-        // Call CaseInsensitiveComparer.Compare with the parameters reversed.
+        // Call CaseInsensitiveComparer.Compare with the parameters reversed
         int IComparer.Compare(Object x, Object y)
         {
             return ((new CaseInsensitiveComparer()).Compare(y, x));
@@ -3782,20 +3772,20 @@ parts.GetRange(2, 4);
 
     public static void Main()
     {
-        // Initialize a string array.
+        // Initialize a string array
         string[] words = { "The", "quick", "brown", "fox", "jumps", "over",
                           "the", "lazy", "dog" };
 
-        // Display the array values.
+        // Display the array values
         Console.WriteLine("The array initially contains the following values:" );
         PrintIndexAndValues(words);
 
-        // Sort the array values using the default comparer.
+        // Sort the array values using the default comparer
         Array.Sort(words);
         Console.WriteLine("After sorting with the default comparer:" );
         PrintIndexAndValues(words);
 
-        // Sort the array values using the reverse case-insensitive comparer.
+        // Sort the array values using the reverse case-insensitive comparer
         Array.Sort(words, new ReverserClass());
         Console.WriteLine("After sorting with the reverse case-insensitive comparer:");
         PrintIndexAndValues(words);
@@ -3859,13 +3849,13 @@ parts.GetRange(2, 4);
               if (y == null)
               {
                   // If x is null and y is null, they're
-                  // equal.
+                  // equal
                   return 0;
               }
               else
               {
                   // If x is null and y is not null, y
-                  // is greater.
+                  // is greater
                   return -1;
               }
           }
@@ -3874,28 +3864,28 @@ parts.GetRange(2, 4);
               // If x is not null...
               //
               if (y == null)
-                  // ...and y is null, x is greater.
+                  // ...and y is null, x is greater
               {
                   return 1;
               }
               else
               {
                   // ...and y is not null, compare the
-                  // lengths of the two strings.
+                  // lengths of the two strings
                   //
                   int retval = x.Length.CompareTo(y.Length);
 
                   if (retval != 0)
                   {
                       // If the strings are not of equal length,
-                      // the longer string is greater.
+                      // the longer string is greater
                       //
                       return retval;
                   }
                   else
                   {
                       // If the strings are of equal length,
-                      // sort them with ordinary string comparison.
+                      // sort them with ordinary string comparison
                       //
                       return x.CompareTo(y);
                   }
@@ -4408,7 +4398,7 @@ Disadvantages:
 
 - Multithreaded applications are difficult to write, understand, debug and maintain
 
-`Thread` class: Creates and controls a thread, sets its priority, and gets its status.
+`Thread` class: Creates and controls a thread, sets its priority, and gets its status
 
 - Start a thread by supplying a delegate that represents the method the thread is to execute in its class constructor
 - Call `Start()` to begin execution
@@ -4450,15 +4440,15 @@ using System;
 using System.Threading;
 
 // Simple threading scenario:  Start a static method running
-// on a second thread.
+// on a second thread
 public class ThreadExample {
-    // The ThreadProc method is called when the thread starts.
+    // The ThreadProc method is called when the thread starts
     // It loops ten times, writing to the console and yielding
-    // the rest of its time slice each time, and then ends.
+    // the rest of its time slice each time, and then ends
     public static void ThreadProc() {
         for (int i = 0; i < 10; i++) {
             Console.WriteLine("ThreadProc: {0}", i);
-            // Yield the rest of the time slice.
+            // Yield the rest of the time slice
             Thread.Sleep(0);
         }
     }
@@ -4467,13 +4457,13 @@ public class ThreadExample {
         Console.WriteLine("Main thread: Start a second thread.");
         // The constructor for the Thread class requires a ThreadStart
         // delegate that represents the method to be executed on the
-        // thread.  C# simplifies the creation of this delegate.
+        // thread.  C# simplifies the creation of this delegate
         Thread t = new Thread(new ThreadStart(ThreadProc));
 
         // Start ThreadProc.  Note that on a uniprocessor, the new
         // thread does not get any processor time until the main thread
         // is preempted or yields.  Uncomment the Thread.Sleep that
-        // follows t.Start() to see the difference.
+        // follows t.Start() to see the difference
         t.Start();
         //Thread.Sleep(0);
 
@@ -4490,10 +4480,10 @@ public class ThreadExample {
 }
 ```
 
-- `Thread.Join`: Blocks the calling thread until the thread represented by this instance terminates, while continuing to perform standard COM and `SendMessage` pumping.
+- `Thread.Join`: Blocks the calling thread until the thread represented by this instance terminates, while continuing to perform standard COM and `SendMessage` pumping
   - Join is particularly useful when we need to wait and collect result from a thread execution or if we need to do some clean-up after the thread has completed
 
-- `IsAlive`: Gets a value indicating the execution status of the current thread.
+- `IsAlive`: Gets a value indicating the execution status of the current thread
 
 Protecting shared resources:
 
@@ -4574,7 +4564,7 @@ await foreach (var number in GenerateSequence())
 When you use the `yield` contextual keyword in a statement, you indicate that the method, operator, or `get` accessor in which it appears is an iterator
 
 - It returns an object that implements the `IEnumerable<T>` interface
-- It helps to do stateful iteration.
+- It helps to do stateful iteration
 
 ```csharp
 yield return <expression>;
@@ -4885,18 +4875,18 @@ Steps in .NET 5+:
 - `Fluent Assertions`: Assertion framework
   - `Shouldly`
 
-- `AutoMapper`: A convention-based object-object mapper in .NET.
+- `AutoMapper`: A convention-based object-object mapper in .NET
 
 - `Moq`: The most popular and friendly mocking framework for .NET
   - `NSubstitute`: A friendly substitute for .NET mocking libraries
   - `FakeItEasy`: The easy mocking library for .NET
 
-- `FluentValidation`: A popular .NET validation library for building strongly-typed validation rules.
+- `FluentValidation`: A popular .NET validation library for building strongly-typed validation rules
 
 - `Autofac`: is an addictive Inversion of Control container
   - `Scrutor`: Assembly scanning and decoration extensions for Microsoft.Extensions.DependencyInjection. (Alternative to `autofac` register by convention)
 
-- `Polly`: Resilience and transient-fault-handling library that allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback in a fluent and thread-safe manner.
+- `Polly`: Resilience and transient-fault-handling library that allows developers to express policies such as Retry, Circuit Breaker, Timeout, Bulkhead Isolation, and Fallback in a fluent and thread-safe manner
 
 - `Serilog`: Structured data Logging system (`log4NET`: old)
 - `Seq`: Machine data for humans
@@ -4907,7 +4897,7 @@ Steps in .NET 5+:
 - `Noda Time`: A better date and time API for .NET
 
 - `MediatR`: Simple, unambitious mediator implementation in .NET
-  - `Brighter`: Command Processor & Dispatcher implementation with support for task queues that can be used as a lightweight library.
+  - `Brighter`: Command Processor & Dispatcher implementation with support for task queues that can be used as a lightweight library
 
 - `refit`: The automatic type-safe REST library
   - `RestSharp`: REST API client library for .NET
@@ -4921,7 +4911,7 @@ Steps in .NET 5+:
   - `MailKit`: For **IMAP**, **POP3**, and **SMTP**
   - `Papercut-SMTP`: The simple Desktop Email Server. Test email system in local
 
-- `Html Agility Pack (HAP)`: HTML parser (web scraper) written in C# to read/write DOM and supports plain XPATH or XSLT.
+- `Html Agility Pack (HAP)`: HTML parser (web scraper) written in C# to read/write DOM and supports plain XPATH or XSLT
 
 - `EPPlus`: Excel spreadsheets
 

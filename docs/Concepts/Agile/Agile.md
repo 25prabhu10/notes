@@ -5,7 +5,7 @@ description: Agile software development
 
 # Agile
 
-Agile software development is an umbrella term for a set of frameworks and practices that break down complex projects into small manageable goals.
+Agile software development is an umbrella term for a set of frameworks and practices that break down complex projects into small manageable goals
 
 - Ability to adapt and change
 - Very flexible
@@ -80,4 +80,4 @@ What can be done better?
 - Around a kanban board
 - With a WIP (Work in Progress) limit of team size/2: maximum amount of work that can exist in each status of a workflow
 - Demo as often as you can
-- NOT ALL DOCUMENTATION IS BAD, sorry I wasn't clear. I love code documentation, API docs, etc., what I don't like is process documentation, overhead documentation, all the stuff that literally doesn't matter if you don't do it.
+- NOT ALL DOCUMENTATION IS BAD, sorry I wasn't clear. I love code documentation, API docs, etc., what I don't like is process documentation, overhead documentation, all the stuff that literally doesn't matter if you don't do it

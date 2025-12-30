@@ -1,7 +1,6 @@
 ---
 title: Dynamic Programming
 description: Dynamic Programming
-date: 2023-08-06
 ---
 
 # Dynamic Programming

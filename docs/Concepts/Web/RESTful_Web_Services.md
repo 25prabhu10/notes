@@ -1,7 +1,6 @@
 ---
 title: RESTful Web Services
 description: Representational state transfer
-lastmod: 2025-02-08
 ---
 
 # RESTful Web Services
@@ -371,7 +370,7 @@ API endpoint conventions and best practices:
 
 ### HTTP Methods
 
-HTTP protocol has several method defined for different use cases.
+HTTP protocol has several method defined for different use cases
 
 Checkout notes about HTTP here: [HTTP Notes Link](./HTTP.md)
 
@@ -499,7 +498,7 @@ Common Update Semantics:
 
 - The patch document doesn't describe the whole resource, only a set of changes to apply
 
-- There are two main JSON-based patch formats, called _JSON patch_ and _JSON merge patch_.
+- There are two main JSON-based patch formats, called _JSON patch_ and _JSON merge patch_
 
 - [JSON merge patch](https://datatracker.ietf.org/doc/html/rfc7396) is somewhat simpler. The patch document has the same structure as the original JSON resource, but includes just the subset of fields that should be changed or added. In addition, a field can be deleted by specifying `null` for the field value in the patch document. (That means merge patch is not suitable if the original resource can have explicit `null` values.)
 
@@ -522,7 +521,7 @@ Common Update Semantics:
   }
   ```
 
-- This tells the server to update `price`, delete `color`, and add `size`, while `name` and `category` are not modified.
+- This tells the server to update `price`, delete `color`, and add `size`, while `name` and `category` are not modified
 
 - Media type: `application/merge-patch+json`
 

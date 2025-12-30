@@ -53,6 +53,5 @@ def binary_search(list, item):
     return None
 ```
 
-::: tip Note
-Binary Search only works when the list is in **sorted order**.
-:::
+> [!NOTE]
+> Binary Search only works when the list is in **sorted order**.

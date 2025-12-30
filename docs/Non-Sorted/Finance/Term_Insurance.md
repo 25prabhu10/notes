@@ -1,8 +1,6 @@
 ---
 title: Term Insurance
 description: A pure life insurance plan
-date: 2023-04-16
-lastmod: 2023-04-16
 ---
 
 # Term Insurance

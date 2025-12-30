@@ -7,7 +7,7 @@ description: Collection of websites
 
 ## [Manifest](https://developers.google.com/web/fundamentals/web-app-manifest/)
 
-- The web app **manifest** is simple JSON file that tells the browser about your web application and how it should behave when _'installed'_ on the user's mobile device or desktop.
+- The web app **manifest** is simple JSON file that tells the browser about your web application and how it should behave when _'installed'_ on the user's mobile device or desktop
 
 ## [Robots](https://www.robotstxt.org/robotstxt.html)
 

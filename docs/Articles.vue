@@ -1,183 +1,185 @@
-<script setup>
+<script setup lang="ts">
 import { useData } from "vitepress";
 
 import Card from "./Card.vue";
 
 const { isDark } = useData();
 
-const getLightImg = (path) => {
+type ImgPath = string | { dark: string; light: string };
+
+function getLightImg(path: ImgPath): string {
   if (typeof path === "object" && path !== null) {
     return isDark.value ? path.dark : path.light;
   }
 
   return path;
-};
+}
 
 const languages = [
   {
-    title: "Markdown",
     href: "/Languages/Markdown/",
     imgPath: { dark: "/markdown.svg", light: "/markdown-light.svg" },
+    title: "Markdown",
   },
   {
-    title: "HTML",
+    borderColor: "#e34f26",
     href: "/Languages/HTML/",
     imgPath: "/html5.svg",
     shadowColor: "#e34f26",
-    borderColor: "#e34f26",
+    title: "HTML",
   },
   {
-    title: "CSS",
+    borderColor: "#ad91c8",
     href: "/Languages/CSS/",
     imgPath: "/css.svg",
     shadowColor: "#ad91c8",
-    borderColor: "#ad91c8",
+    title: "CSS",
   },
   {
-    title: "JavaScript",
+    borderColor: "#f0db4f",
     href: "/Languages/JavaScript/",
     imgPath: "/javascript.svg",
     shadowColor: "#f0db4f",
-    borderColor: "#f0db4f",
+    title: "JavaScript",
   },
   {
-    title: "TypeScript",
+    borderColor: "#669cd5fc",
     href: "/Languages/JavaScript/TypeScript/TypeScript",
     imgPath: "/typescript.svg",
     shadowColor: "#669cd5fc",
-    borderColor: "#669cd5fc",
+    title: "TypeScript",
   },
   {
-    title: "React",
+    borderColor: "#58c4dcfe",
     href: "/Languages/JavaScript/React/",
     imgPath: { dark: "/react.svg", light: "/react-light.svg" },
     shadowColor: "#087ea4fe",
-    borderColor: "#58c4dcfe",
+    title: "React",
   },
   {
-    title: "C#",
+    borderColor: "#a179dc",
     href: "/Languages/C-Sharp/",
     imgPath: "/csharp.svg",
     shadowColor: "#a179dc",
-    borderColor: "#a179dc",
+    title: "C#",
   },
   {
-    title: "Python",
+    borderColor: "#ffd343fe",
     href: "/Languages/Python/",
     imgPath: "/python.svg",
     shadowColor: "#3773a5fe",
-    borderColor: "#ffd343fe",
+    title: "Python",
   },
   {
-    title: "Git",
+    borderColor: "#f34f29",
     href: "/Languages/Git/Git",
     imgPath: "/git.svg",
     shadowColor: "#f34f29",
-    borderColor: "#f34f29",
+    title: "Git",
   },
   {
-    title: "Angular",
+    borderColor: "#f32bbffd",
     href: "/Languages/JavaScript/Angular/Angular",
     imgPath: "/angular.svg",
     shadowColor: "#f32bbffd",
-    borderColor: "#f32bbffd",
+    title: "Angular",
   },
   {
-    title: "SQLite",
+    borderColor: "#43a2dcfe",
     href: "/Concepts/Databases/SQLite",
     imgPath: "/sqlite.svg",
     shadowColor: "#43a2dcfe",
-    borderColor: "#43a2dcfe",
+    title: "SQLite",
   },
   {
-    title: "PostgreSQL",
+    borderColor: "#fbfcfd",
     href: "/Concepts/Databases/PostgreSQL",
     imgPath: "/postgresql.svg",
     shadowColor: "#346791",
-    borderColor: "#fbfcfd",
+    title: "PostgreSQL",
   },
   {
-    title: "MongoDB",
+    borderColor: "#00ED64",
     href: "/Concepts/Databases/MongoDB/MongoDB",
     imgPath: "/mongodb.svg",
     shadowColor: "#00ED64",
-    borderColor: "#00ED64",
+    title: "MongoDB",
   },
   {
-    title: "Redis",
+    borderColor: "#c6312cfd",
     href: "/Concepts/Databases/Redis",
     imgPath: "/redis.svg",
     shadowColor: "#c6312cfd",
-    borderColor: "#c6312cfd",
+    title: "Redis",
   },
   {
-    title: "C",
+    borderColor: "#669ad2fe",
     href: "/Languages/C-CPP/C",
     imgPath: "/c.svg",
     shadowColor: "#669ad2fe",
-    borderColor: "#669ad2fe",
+    title: "C",
   },
   {
-    title: "Docker",
+    borderColor: "#1d63ed",
     href: "/Languages/CI-CD/Docker/Docker",
     imgPath: "/docker.svg",
     shadowColor: "#1d63ed",
-    borderColor: "#1d63ed",
+    title: "Docker",
   },
   {
-    title: "Bash",
     href: "/Languages/Shell-Scripting/Bash",
     imgPath: { dark: "/bash.svg", light: "/bash-light.svg" },
+    title: "Bash",
   },
   {
-    title: "Linux",
+    borderColor: "#efb03ae2",
     href: "/Concepts/Linux",
     imgPath: "/linux.svg",
     shadowColor: "#efb03ae2",
-    borderColor: "#efb03ae2",
+    title: "Linux",
   },
   {
-    title: "Lua",
+    borderColor: "#4c4ca7",
     href: "/Languages/Lua",
     imgPath: "/lua.svg",
     shadowColor: "#000080",
-    borderColor: "#4c4ca7",
+    title: "Lua",
   },
   {
-    title: "Gulp.js",
+    borderColor: "#da4648fe",
     href: "/Languages/JavaScript/Tools/Gulp.js/Gulp.js",
     imgPath: "/gulp.svg",
     shadowColor: "#da4648fe",
-    borderColor: "#da4648fe",
+    title: "Gulp.js",
   },
   {
-    title: "Vue.js",
+    borderColor: "#41b883fe",
     href: "/Languages/JavaScript/Vue.js/",
     imgPath: "/vue.svg",
     shadowColor: "#41b883fe",
-    borderColor: "#41b883fe",
+    title: "Vue.js",
   },
   {
-    title: "NeoVim",
+    borderColor: "#6cae4cfb",
     href: "/Collection/Editors/Vim-Neovim",
     imgPath: "/neovim.svg",
     shadowColor: "#6cae4cfb",
-    borderColor: "#6cae4cfb",
+    title: "NeoVim",
   },
   {
-    title: "Concepts",
     href: "/Concepts/",
     imgPath: { dark: "/concept.svg", light: "/concept-light.svg" },
+    title: "Concepts",
   },
   {
-    title: "Languages",
     href: "/Languages/",
     imgPath: { dark: "/code-xml.svg", light: "/code-xml-light.svg" },
+    title: "Languages",
   },
   {
-    title: "Collection",
     href: "/Collection/",
     imgPath: { dark: "/collection.svg", light: "/collection-light.svg" },
+    title: "Collection",
   },
 ];
 </script>

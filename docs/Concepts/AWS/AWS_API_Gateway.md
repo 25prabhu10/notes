@@ -226,12 +226,12 @@ Mapping Example: **Query String parameters**
 
 To configure a usage plan:
 
-1. Create one or more APIs, configure the methods to require an API key, and deploy the APIs to stages.
-2. Generate or import API keys to distribute to application developers (your customers) who will be using your API.
-3. Create the usage plan with the desired throttle and quota limits.
-4. Associate API stages and API keys with the usage plan.
+1. Create one or more APIs, configure the methods to require an API key, and deploy the APIs to stages
+2. Generate or import API keys to distribute to application developers (your customers) who will be using your API
+3. Create the usage plan with the desired throttle and quota limits
+4. Associate API stages and API keys with the usage plan
 
-- Callers of the API must supply an assigned API key in the `x-api-key` header in requests to the API.
+- Callers of the API must supply an assigned API key in the `x-api-key` header in requests to the API
 
 ## API Gateway - Logging & Tracing
 
@@ -247,13 +247,13 @@ To configure a usage plan:
 
 - Metrics are by stage, Possibility to enable detailed metrics
 - **CacheHitCount** & **CacheMissCount**: efficiency of the cache
-- **Count**: The total number API requests in a given period.
+- **Count**: The total number API requests in a given period
 - **IntegrationLatency**: The time between when API Gateway relays a
   request to the backend and when it receives a response from the
-  backend.
+  backend
 - **Latency**: The time between when API Gateway receives a request from
   a client and when it returns a response to the client. The latency
-  includes the integration latency and other API Gateway overhead.
+  includes the integration latency and other API Gateway overhead
 - **4XXError** (client-side) & **5XXError** (server-side)
 
 ## API Gateway Throttling
@@ -273,13 +273,13 @@ To configure a usage plan:
   - 403: Access Denied, WAF filtered
   - 429: Quota exceeded, Throttle
 - **5xx means Server errors**
-  - 502: Bad Gateway Exception, usually for an incompatible output returned from a Lambda proxy integration backend and occasionally for out-of-order invocations due to heavy loads.
+  - 502: Bad Gateway Exception, usually for an incompatible output returned from a Lambda proxy integration backend and occasionally for out-of-order invocations due to heavy loads
   - 503: Service Unavailable Exception
   - 504: Integration Failure - ex Endpoint Request Timed-out Exception, API Gateway requests time out after 29 second maximum
 
 ## AWS API Gateway - CORS
 
-- CORS must be enabled when you receive API calls from another domain.
+- CORS must be enabled when you receive API calls from another domain
 - The OPTIONS pre-flight request must contain the following headers:
   - _Access-Control-Allow-Methods_
   - _Access-Control-Allow-Headers_
@@ -354,7 +354,7 @@ To configure a usage plan:
 - Two-way interactive communication between a user's browser and a server
 - Server can push information to the client
 - This enables stateful application use cases
-- WebSocket APIs are often used in **real-time applications** such as chat applications, collaboration platforms, multiplayer games, and financial trading platforms.
+- WebSocket APIs are often used in **real-time applications** such as chat applications, collaboration platforms, multiplayer games, and financial trading platforms
 - Works with AWS Services (Lambda, DynamoDB) or HTTP endpoints
 
 ### Connecting to the API

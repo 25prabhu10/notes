@@ -1,12 +1,17 @@
+---
+title: Scrum
+description: Scrum Framework
+---
+
 # Scrum
 
-An [Agile](./Agile.md) framework.
+An [Agile](./Agile.md) framework
 
-The term **Scrum** was first introduced by professors Hirotaka Takeuchi and Ikujiro Nonaka in their article _"The New New Product Development Game"_ at Harvard Business Review in 1986.
+The term **Scrum** was first introduced by professors Hirotaka Takeuchi and Ikujiro Nonaka in their article _"The New New Product Development Game"_ at Harvard Business Review in 1986
 
-They borrowed the name Scrum from the game of rugby, to stress the importance of teamwork to deal with a complex problem.
+They borrowed the name Scrum from the game of rugby, to stress the importance of teamwork to deal with a complex problem
 
-Jeff Sutherland implemented first Scrum project at the Easel Corporation in 1993.
+Jeff Sutherland implemented first Scrum project at the Easel Corporation in 1993
 
 Ken Schwaber and Jeff Sutherland co-present a paper called "The Scrum Development Process" at the OOPSLA Conference in 1995
 
@@ -31,7 +36,7 @@ In Scrum, you break down the phases of your project into smaller pieces that can
 
 ### Roles and Responsibilities
 
-- Scrum is self managed and everybody is equal.
+- Scrum is self managed and everybody is equal
 
 - Business Owner and End Users --> Product Owner (Optimizes the value of the product) --> Scrum Master (Servant-leader of the scrum team) and Development Team (Self-organized cross-functional group)
 
@@ -43,7 +48,7 @@ In Scrum, you break down the phases of your project into smaller pieces that can
 
 ### Kanban
 
-Kanban is highly visual way of executing agile.
+Kanban is highly visual way of executing agile
 
 A Toyota engineer, named Taiichi Ohno, created a systme that used paper cards for signaling and tracking demand in his factory, naming the new system Kanban in 1940
 
@@ -101,5 +106,5 @@ Summary:
 
 Scrumban is a project management framework that combines important features of two popular agile methodologies: **Scrum and Kanban**
 
-- Scrumban provides the structure of Scrum with the flexibility and visualization of Kanban, making it a highly versatile approach to workflow management.
+- Scrumban provides the structure of Scrum with the flexibility and visualization of Kanban, making it a highly versatile approach to workflow management
 - Was initially created as a way to transition from Scrum to Kanban

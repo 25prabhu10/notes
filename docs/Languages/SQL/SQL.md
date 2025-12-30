@@ -36,7 +36,7 @@ Even though there is a standard SQL, every database system has its own dialect. 
   - All identifiers, commands and keywords can be written in any case
   - Usually, SQL commands and keywords are written in upper-case like `SELECT`
 
-- Identifiers are the names of tables, columns, etc.
+- Identifiers are the names of tables, columns, etc...
   - Identifiers must start with a letter or an underscore (`_`)
   - Can be enclosed in double quotes (`"`) to allow the inclusion of spaces or other non-standard characters
 
@@ -153,7 +153,7 @@ SQL commands are divided into 4 major categories, or _languages_
 
 1. **DDL (Data Definition Language)**:
    - Commands that can be used to define the database schema
-   - A set of statements that allow the user to define or modify data structures and objects, such as tables, views, indexes, etc.
+   - A set of statements that allow the user to define or modify data structures and objects, such as tables, views, indexes, etc...
    - Some commands:
      - [`CREATE`](#create-ddl): to create entire databases and objects in database
      - [`ALTER`](#alter): alters the structure of existing objects such as database

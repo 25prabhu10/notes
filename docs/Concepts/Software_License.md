@@ -1,8 +1,6 @@
 ---
 title: Software License
 description: A license tells others what they can and can't do with your code
-date: 2023-09-03
-lastmod: 2023-09-04
 ---
 
 # Software License

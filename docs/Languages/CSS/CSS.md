@@ -5,7 +5,7 @@ description: CSS is a style sheet language used for describing the presentation 
 
 # CSS
 
-[Cascading Style-Sheets](https://www.w3.org/TR/CSS/) (CSS) is a **stylesheet language** for describing the rendering of structured documents (such as HTML and XML) on screen, on paper, etc.
+[Cascading Style-Sheets](https://www.w3.org/TR/CSS/) (CSS) is a **stylesheet language** for describing the rendering of structured documents (such as HTML and XML) on screen, on paper, etc...
 
 - CSS is a declarative language
 
@@ -141,16 +141,14 @@ This is the HTML element name at the start of the rule-set. It defines the eleme
    | Substring | `[*=]` - Matches a specific attribute whose value contains a certain substring               | `a[href*="example"]` - Matches all links with `example`        |
    | Suffix    | `[$=]` - Matches a specific attribute whose value ends with a certain string                 | `a[href$=".pdf"]` - Matches all links to PDF files             |
 
-::: tip NOTE
-
-Because class and ID are both HTML attributes, the class and ID selectors have attribute selector equivalents
-
-| Type            | Basic Selector | Attribute Selector   |
-| --------------- | -------------- | -------------------- |
-| Select by ID    | `#contactForm` | `[id=contactForm]`   |
-| Select by Class | `.outline`     | `[class~="outline"]` |
-
-:::
+> [!NOTE]
+>
+> Because class and ID are both HTML attributes, the class and ID selectors have attribute selector equivalents
+>
+> | Type            | Basic Selector | Attribute Selector   |
+> | --------------- | -------------- | -------------------- |
+> | Select by ID    | `#contactForm` | `[id=contactForm]`   |
+> | Select by Class | `.outline`     | `[class~="outline"]` |
 
 ### Combinators
 
@@ -228,16 +226,13 @@ List of Pseudo Elements:
 - `::backdrop`:
 - `::selection`: Apply styles to the part of a document that has been highlighted by the user (such as clicking and dragging the mouse across text)
 
-::: warning NOTE
-
-The CSS specification calls for a two-colon prefix before a pseudo element, such as `::after`. However, most browsers support pseudo elements with just a single colon (`:after`) without throwing an error
-
-Best practice is to use two-colon prefix for two reasons:
-
-1. It adheres to the CSS specification
-2. It clearly distinguishes pseudo elements from pseudo classes
-
-:::
+> [!WARNING]
+> The CSS specification calls for a two-colon prefix before a pseudo element, such as `::after`. However, most browsers support pseudo elements with just a single colon (`:after`) without throwing an error
+>
+> Best practice is to use two-colon prefix for two reasons:
+>
+> 1. It adheres to the CSS specification
+> 2. It clearly distinguishes pseudo elements from pseudo classes
 
 ### Pseudo Classes
 
@@ -511,7 +506,7 @@ The CSS box model is a box that wraps around every HTML element. It consists of:
 
 - By default a box's size is determined by its content, but the `width` and `height` properties can be used to set the size of the box
 
-- Size of the box can be specified in different units like `px`, `em`, `rem`, `vh`, `vw`, etc.
+- Size of the box can be specified in different units like `px`, `em`, `rem`, `vh`, `vw`, etc...
   - When using pixels, the size of the box is fixed and does not change when the window is resized
   - When using percentage, the size of the box is relative to the size of the parent element
   - When using `em`, the size of the box is relative to the font-size of text in the box
@@ -1087,19 +1082,13 @@ Please test these as they are _not a foolproof solution for all accessibility is
   }
   ```
 
-::: tip REFERENCE
-
-- For more info on `calc`, `min` and `max` go to [w3.org](https://www.w3.org/TR/css-values-4/#calc-notation)
-
-- [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
-
-- [Modern fluid typography editor](https://modern-fluid-typography.vercel.app/)
-
-- Also watch [Video](https://twitter.com/i/status/1252140444231712769)
-
-- Using device-width-ration see [Github Gist](https://gist.github.com/scottkellum/1438467)
-
-:::
+> [!TIP] REFERENCE
+>
+> - For more info on `calc`, `min` and `max` go to [w3.org](https://www.w3.org/TR/css-values-4/#calc-notation)
+> - [Modern Fluid Typography Using CSS Clamp](https://www.smashingmagazine.com/2022/01/modern-fluid-typography-css-clamp/)
+> - [Modern fluid typography editor](https://modern-fluid-typography.vercel.app/)
+> - Also watch [Video](https://twitter.com/i/status/1252140444231712769)
+> - Using device-width-ration see [Github Gist](https://gist.github.com/scottkellum/1438467)
 
 ## CSS Colours
 
@@ -1120,7 +1109,7 @@ Please test these as they are _not a foolproof solution for all accessibility is
 - [CSS Colour Module Level 5](https://www.w3.org/TR/css-color-5/)
 
   ```css
-  /* These examples use hsl() for illustration.
+  /* These examples use hsl() for illustration
     Don't use it in real code since hsl() format has bad a11y. */
   :root {
     --accent: hsl(63 61% 40%);
@@ -1352,10 +1341,10 @@ Luckily, OKLCH has a good readability, supports P3 and beyond, as well as any co
 
 The `color-scheme` CSS property allows an element to indicate which color schemes it can comfortably be rendered in. User agents change the following aspects of the UI chrome to match the used color scheme:
 
-- The colour of the canvas surface.
-- The default colours of scrollbars and other interaction UI.
-- The default colours of form controls.
-- The default colours of other browser-provided UI, such as "spellcheck" underlines.
+- The colour of the canvas surface
+- The default colours of scrollbars and other interaction UI
+- The default colours of form controls
+- The default colours of other browser-provided UI, such as "spellcheck" underlines
 
 [`prefers-color-scheme`](#media-features) is a media feature that can be used to detect if the user has requested the system use a light or dark colour theme
 
@@ -1376,17 +1365,15 @@ color-scheme: unset;
 
 Then using `light-dark` function to set colours based on the colour scheme
 
-````css
+```css
 body {
   background-color: light-dark(#ffffff, #000000); /* white in light mode, black in dark mode */
   color: light-dark(#000000, #ffffff); /* black in light mode, white in dark mode */
 }
+```
 
-:::tip Colour Scheme
-
-If not sure on what colours to work with, use black and white
-
-:::
+> [!TIP] Colour Scheme
+> If not sure on what colours to work with, use black and white
 
 ### Accent Colour
 
@@ -1398,7 +1385,7 @@ Accent colours are used to highlight important elements on a page. They can be u
 button {
   accent-color: #ff0000;
 }
-````
+```
 
 ## Shadows
 
@@ -2481,6 +2468,69 @@ CSS was first introduced in 1996 and has since gone through several versions. Th
 - Typography
 - Viewport Units
 - Web Compat
+
+## CSS Testing
+
+```bash
+npm install jest
+```
+
+```js
+// jest.config.js
+
+module.exports = {
+  moduleFileExtensions: ["js"],
+  testRegex: "(\\.|/)spec\\.js$",
+};
+```
+
+```js
+scripts: {
+  test: `jest -c path/jest.config.js`;
+}
+```
+
+```js
+// jest
+
+expect(expression).toBe(expected);
+```
+
+```bash
+npm install node-sass
+```
+
+```js
+const sass = require("node-sass");
+
+const result = sass.renderSync({
+    data: "SCSS CODE..."
+});
+
+result.css.toString(); // generate css
+
+// testing
+
+function(SCSS) => CSS
+
+// &
+
+expect(str).toBe(str)
+
+```
+
+```js
+const result = sass.renderSync({
+    data : @import 'functions.scss'
+            .test { background: getPrimary() }
+});
+
+expect(result.css.toString()).toBe(`.test { background: #fa3}`);
+```
+
+### Snapshot Testing
+
+- [dahfazz/test-my-css](https://github.com/dahfazz/test-my-css)
 
 ## Tools
 

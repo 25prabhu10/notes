@@ -1,6 +1,6 @@
 ---
 title: Bash Snippets
-description: Collection of CLI applications and commands.
+description: Collection of CLI applications and commands
 ---
 
 # Bash Snippets

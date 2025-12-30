@@ -1,19 +1,19 @@
 ---
 title: Same-Origin Policy
-description: Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
+description: Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin
 ---
 
 # Same-Origin Policy (SOP)
 
-Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin.
+Same-Origin Policy is a critical security mechanism that restricts how a document or script loaded by one origin can interact with a resource from another origin
 
 - This is the fundamental security model of the web
 
 - Two pages from different sources should not be allowed to interfere with each other
 
-- It helps isolate potentially malicious documents, reducing possible attack vectors.
+- It helps isolate potentially malicious documents, reducing possible attack vectors
 
-- For example, it prevents a malicious website on the Internet from running JavaScript in a browser to read data from a third-party webmail service (which the user is signed into) or a company intranet (which is protected from direct access by the attacker by not having a public IP address) and relaying that data to the attacker.
+- For example, it prevents a malicious website on the Internet from running JavaScript in a browser to read data from a third-party webmail service (which the user is signed into) or a company intranet (which is protected from direct access by the attacker by not having a public IP address) and relaying that data to the attacker
 
 ## Origin
 
@@ -111,7 +111,7 @@ Which is blocked?
 
 - Web page `https://cross-origin/home.html` can embed `https://example.org` using iframe, even though they are Cross-origin
 
-- But the embedded site content cannot be modified.
+- But the embedded site content cannot be modified
 
 _Example:_
 
@@ -233,8 +233,8 @@ Methods to work around SOP restrictions in ajax
   - Secure cross-origin communications between cooperating origins
   - Send strings and arbitrarily complicated data cross-origin
   - Useful features:
-    - "Structured clone" algorithm used for complicated objects. Handles cycles. Can't handle object instances, functions, DOM nodes.
-    - "Transferable objects" allow transferring ownership of an object. It becomes unusable (neutered) in the context it was sent from.
+    - "Structured clone" algorithm used for complicated objects. Handles cycles. Can't handle object instances, functions, DOM nodes
+    - "Transferable objects" allow transferring ownership of an object. It becomes unusable (neutered) in the context it was sent from
 
 ## Same-Origin and Same-Site
 

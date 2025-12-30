@@ -14,10 +14,10 @@
 HTML5 Boilerplate includes a basic project-level `.gitignore`. This should
 primarily be used to avoid certain project-level files and directories from
 being kept under source control. Different development-environments will
-benefit from different collections of ignores.
+benefit from different collections of ignores
 
 OS-specific and editor-specific files should be ignored using a "global
-ignore" that applies to all repositories on your system.
+ignore" that applies to all repositories on your system
 
 For example, add the following to your `~/.gitconfig`, where the `.gitignore`
 in your HOME directory contains the files and directories you'd like to
@@ -35,12 +35,12 @@ globally ignore:
 
 The `.editorconfig` file is provided in order to encourage and help you and
 your team define and maintain consistent coding styles between different
-editors and IDEs.
+editors and IDEs
 
 By default, `.editorconfig` includes some basic
 [properties](https://editorconfig.org/#supported-properties) that reflect the
 coding styles from the files provided by default, but you can easily change
-them to better suit your needs.
+them to better suit your needs
 
 In order for your editor/IDE to apply the
 [properties](https://editorconfig.org/#supported-properties) from the
@@ -59,7 +59,7 @@ H5BP includes a `.htaccess` file for the [Apache HTTP
 server](https://httpd.apache.org/docs/). If you are not using Apache
 as your web server, then you are encouraged to download a
 [server configuration](https://github.com/h5bp/server-configs) that
-corresponds to your web server and environment.
+corresponds to your web server and environment
 
 A `.htaccess` (hypertext access) file is an [Apache HTTP server configuration file](https://github.com/h5bp/server-configs-apache)
 
@@ -89,14 +89,14 @@ In the repo the `.htaccess` is used for:
 - Enabling the rewrite URLs engine
 - Forcing or removing the `www.` at the begin of a URL
 - It blocks access to directories without a default document
-- It blocks access to files that can expose sensitive information.
+- It blocks access to files that can expose sensitive information
 - It reduces MIME type security risks
 - It forces compressing (gzipping)
 - It tells the browser whether they should request a specific file from the
   server or whether they should grab it from the browser's cache
 
 When using `.htaccess` we recommend reading all inline comments (the rules after
-a `#`) in the file once. There is a bunch of optional stuff in it.
+a `#`) in the file once. There is a bunch of optional stuff in it
 
 If you want to know more about the `.htaccess` file check out the
 [Apache HTTP server docs](https://httpd.apache.org/docs/) or more
@@ -109,7 +109,7 @@ one](https://github.com/h5bp/server-configs-apache).
 ## robots.txt
 
 The `robots.txt` file is used to give instructions to web robots on what can
-be crawled from the website.
+be crawled from the website
 
 By default, the file provided by this project includes the next two lines:
 
@@ -121,11 +121,11 @@ If you want to disallow certain pages you will need to specify the path in a
 crawling of all content, use `Disallow: /`.
 
 The `/robots.txt` file is not intended for access control, so don't try to
-use it as such. Think of it as a "No Entry" sign, rather than a locked door.
+use it as such. Think of it as a "No Entry" sign, rather than a locked door
 URLs disallowed by the `robots.txt` file might still be indexed without being
 crawled, and the content from within the `robots.txt` file can be viewed by
 anyone, potentially disclosing the location of your private content! So, if
-you want to block access to private content, use proper authentication instead.
+you want to block access to private content, use proper authentication instead
 
 For more information about `robots.txt`, please see:
 
@@ -135,7 +135,7 @@ For more information about `robots.txt`, please see:
 ## humans.txt
 
 The `humans.txt` file is used to provide information about people involved with
-the website.
+the website
 
 The provided file contains three sections:
 
@@ -154,9 +154,9 @@ tile colors, custom images or even [live tiles](https://msdn.microsoft.com/libra
 
 By default, the file points to 2 placeholder tile images:
 
-- `tile.png` (558x558px): used for `Small`, `Medium` and `Large` tiles.
-  This image resizes automatically when necessary.
-- `tile-wide.png` (558x270px): user for `Wide` tiles.
+- `tile.png` (558x558px): used for `Small`, `Medium` and `Large` tiles
+  This image resizes automatically when necessary
+- `tile-wide.png` (558x270px): user for `Wide` tiles
 
 Notice that IE11 uses the same images when adding a site to the `favorites`.
 

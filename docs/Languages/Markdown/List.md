@@ -37,6 +37,5 @@ Like...
 
 Like...
 
-- A list item. with multi-paragraphs.
-- Another item.  
-  with 4 spaces.
+- A list item. With multi-paragraphs
+- Another item. With 4 spaces

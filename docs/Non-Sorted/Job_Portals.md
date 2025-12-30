@@ -1,8 +1,6 @@
 ---
 title: Job Portals
 description: Job portals and channels
-date: 2023-03-08
-lastmod: 2024-10-05
 ---
 
 # Job Portals
@@ -16,5 +14,3 @@ lastmod: 2024-10-05
 7. [It Jobs (not India)](https://it-jobs.de/)
 8. [JavaScriptBoard](https://platform.javascriptboard.com/)
 9. [KEYBOARD JOBS](https://keyboardjobs.com/jobs/tagged/remote)
-
-- Discord Channels

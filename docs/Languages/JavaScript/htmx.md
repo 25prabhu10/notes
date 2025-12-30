@@ -1,8 +1,6 @@
 ---
 title: htmx
 description: A frontend JavaScript library
-date: 2024-08-23
-lastmod: 2024-08-23
 ---
 
 # htmx

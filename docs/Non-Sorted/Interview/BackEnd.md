@@ -26,7 +26,7 @@
 
 The mobile apps IOS and Android consume a microservice platform backend to retrieve the data
 
-There are separate backend API for functions such as login, accounts list, retrieval, transaction history etc.
+There are separate backend API for functions such as login, accounts list, retrieval, transaction history etc...
 
 Consider that the user is already logged in has seen a list of all his accounts and now clicked in one particular account to see its details which led to the screen
 

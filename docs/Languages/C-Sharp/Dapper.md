@@ -1,8 +1,6 @@
 ---
 title: Dapper
 description: A simple object mapper for .Net Core applications
-date: 2024-08-22
-lastmod: 2024-10-03
 ---
 
 # Dapper
@@ -341,7 +339,7 @@ lastmod: 2024-10-03
 
     var builder = WebApplication.CreateBuilder(args);
 
-    // Add services to the container.
+    // Add services to the container
     // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
     builder.Services.AddEndpointsApiExplorer();
     builder.Services.AddSwaggerGen();
@@ -349,7 +347,7 @@ lastmod: 2024-10-03
 
     var app = builder.Build();
 
-    // Configure the HTTP request pipeline.
+    // Configure the HTTP request pipeline
     if (app.Environment.IsDevelopment())
     {
        app.UseSwagger();

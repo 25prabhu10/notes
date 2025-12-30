@@ -1,8 +1,6 @@
 ---
 title: Salary
-description:
-date: 2023-02-19
-lastmod: 2023-02-19
+description: Overview of salary structures and components
 ---
 
 # Salary
@@ -17,7 +15,7 @@ A typical salary structure includes several components such as:
 
 - Bonuses: These are one-time payments made to employees for achieving specific goals or targets
 
-- Benefits: These are non-monetary compensation provided to employees such as health insurance, retirement plans, paid time off, etc.
+- Benefits: These are non-monetary compensation provided to employees such as health insurance, retirement plans, paid time off, etc...
 
 - Incentives: These are payments or rewards that encourage employees to improve their performance or achieve specific goals
 
@@ -25,4 +23,4 @@ A typical salary structure includes several components such as:
 
 - Stock options: These are a type of incentive compensation that gives employees the right to purchase company stock at a discounted price
 
-Salary structures vary across organizations and industries, but they are essential for ensuring that employees are fairly compensated for their work and for attracting and retaining top talent. A well-designed salary structure can also help organizations to manage costs and stay competitive in the job market.
+Salary structures vary across organizations and industries, but they are essential for ensuring that employees are fairly compensated for their work and for attracting and retaining top talent. A well-designed salary structure can also help organizations to manage costs and stay competitive in the job market

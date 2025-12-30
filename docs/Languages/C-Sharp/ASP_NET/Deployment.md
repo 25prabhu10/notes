@@ -53,7 +53,7 @@ Handling Internet traffic:
 ### Kestrel
 
 - Fast, open-source, cross-platform web server based on `libuv`
-- It is a light weight web server, it can only execute the requests. So external web server is used to configure security, hashing, etc.
+- It is a light weight web server, it can only execute the requests. So external web server is used to configure security, hashing, etc...
 - Not used directly in production in production
 
 ## Deployment Strategies
@@ -70,18 +70,18 @@ Handling Internet traffic:
 Launch settings:
 
 - Profiles are configured with `Properties/launchSettings.json` (edit directly the JSON or project properties)
-  - Running an IIS simulates a deployment to a Windows server, using both IIS and Kestrel and tying them together with a reverse proxy.
+  - Running an IIS simulates a deployment to a Windows server, using both IIS and Kestrel and tying them together with a reverse proxy
 
-  - Running in Kestrel is useful for development purposes because of all the extra logging that gets output in the console window.
+  - Running in Kestrel is useful for development purposes because of all the extra logging that gets output in the console window
 
 There are 2 types of web servers:
 
-1. The external web server like (IIS, Apache, etc.) and internal web server hosted by the application like Kestrel. We can use any external or internal servers.
+1. The external web server like (IIS, Apache, etc.) and internal web server hosted by the application like Kestrel. We can use any external or internal servers
 
-2. We use _Kestrel_ as it has a first class support in ASP.NET Core.
+2. We use _Kestrel_ as it has a first class support in ASP.NET Core
 
-- Classic System relied heavily on `System.web`, which was tied to _IIS_ and _IIS_ is tied to windows.
-- That is the reason Classic System cannot be run on servers other than _IIS_ or _Windows_.
+- Classic System relied heavily on `System.web`, which was tied to _IIS_ and _IIS_ is tied to windows
+- That is the reason Classic System cannot be run on servers other than _IIS_ or _Windows_
 
 ### Portable or Stand-Alone Deployment
 
@@ -193,11 +193,11 @@ To add these files: These settings will be included in every publish profile
 
    3. Using SSL Locally
 
-2. HTTPS on reverse proxy servers (Apache or Nginx): Instead of copying a certificate to and adding the right configuration to each server, you only need to configure the certificate at the reverse proxy level.
-   - When a new connection arrives, the proxy handles the HTTPS connection, then it turns around and makes an unencrypted HTTP connection internally to your web servers.
-   - That way your web servers let the proxy do all the work and don't have to worry about HTTPS and certificates and encryption.
-   - Their responses are relayed back over HTTPS by the proxy.
-   - The proxy or load balancer will include one or more headers on the internal HTTP connection so that your web servers can understand if requests started on HTTPS.
+2. HTTPS on reverse proxy servers (Apache or Nginx): Instead of copying a certificate to and adding the right configuration to each server, you only need to configure the certificate at the reverse proxy level
+   - When a new connection arrives, the proxy handles the HTTPS connection, then it turns around and makes an unencrypted HTTP connection internally to your web servers
+   - That way your web servers let the proxy do all the work and don't have to worry about HTTPS and certificates and encryption
+   - Their responses are relayed back over HTTPS by the proxy
+   - The proxy or load balancer will include one or more headers on the internal HTTP connection so that your web servers can understand if requests started on HTTPS
    - It's important to configure ASP.NET Core to look for these forwarded headers:
      - `X-Forwarded-For: 203.0.113.195`
      - `X-Forwarded-Host: example.io`
@@ -205,7 +205,7 @@ To add these files: These settings will be included in every publish profile
 
    - `ForwardedHeadersMiddleware`, reads these headers and fills in the associated fields on `HttpContext`.
 
-   - Forwarded Headers Middleware is enabled by default by IIS Integration Middleware when the app is hosted out-of-process behind IIS and the ASP.NET Core Module.
+   - Forwarded Headers Middleware is enabled by default by IIS Integration Middleware when the app is hosted out-of-process behind IIS and the ASP.NET Core Module
 
    - For other proxies: **Forwarded Headers Middleware should run before other middleware**.
 
@@ -371,7 +371,7 @@ Adding Nginx Reverse Proxy:
    ```
 
 4. Text the configurations: `sudo nginx -t`
-5. On a production server, it's important to set the `server_name` property as well to the domain name that your site will be hosted on.
+5. On a production server, it's important to set the `server_name` property as well to the domain name that your site will be hosted on
 6. Reload Nginx: `sudo nginx -s reload`
 
 Nginx starts up automatically when the machine boots, but Kestrel and the application have to be started manually:

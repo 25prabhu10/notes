@@ -1,11 +1,11 @@
 ---
-title: FORMIk
-description: Build forms in React, without the tears.
+title: FORMIK
+description: Build forms in React, without the tears
 ---
 
 # FORMIK
 
-Build forms in React, without the tears.
+Build forms in React, without the tears
 
 ## Presentation
 

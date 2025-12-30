@@ -5,4 +5,4 @@ description: This pattern allows two classes to work together that otherwise wou
 
 # Adapter Design Pattern
 
-The Adapter Design Pattern, also known as the Wrapper, allows two classes to work together that otherwise would have incompatible interfaces.
+The Adapter Design Pattern, also known as the Wrapper, allows two classes to work together that otherwise would have incompatible interfaces

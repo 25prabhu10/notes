@@ -1,8 +1,6 @@
 ---
 title: Dal Khichdi
-description:
-date: 2024-08-03
-lastmod: 2024-08-03
+description: Dal Khichdi is a popular basic food prepared and served across India for myriad reasons for lunch and dinner
 ---
 
 # Dal Khichdi

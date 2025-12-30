@@ -84,7 +84,7 @@ Typical _File-system Hierarchy Standard_ (FHS): To get more information checkout
     - The place where most of the installed programs reside
 
 18. `/var`:
-    - System specific variable files: likes logs, temp message files, spool files etc
+    - System specific variable files: likes logs, temp message files, spool files etc...
     - Variable files that grow
     - Some web servers like Apache server files from `/var/www` directory
 
@@ -200,12 +200,11 @@ AWK (`awk`) is a **domain-specific language** designed for text processing and t
   awk "/pattern/ {print \"$1\"}"  # GnuWin32, UnxUtils, Mingw
   ```
 
-::: warning DOS/Windows Quoting Caveats
-The DJGPP compilation (for DOS or Windows-32) permits an `awk` script to follow Unix quoting syntax `'/like/ {"this"}'`. However, if the command interpreter is `CMD.EXE` or `COMMAND.COM`, single quotes will not protect the redirection arrows `(<, >)` nor do they protect pipes `(|)`. These are special symbols which require "double quotes" to protect them from interpretation as operating system directives. If the command interpreter is `bash`, `ksh`, `zsh` or another Unix shell, then single and double quotes will follow the standard Unix usage
-
-Users of MS-DOS or Microsoft Windows must remember that the percent sign `(%)` is used to indicate environment variables, so this symbol must be doubled `(%%)` to yield a single percent sign visible to awk
-To conserve space, use `'1'` instead of `'{print}'` to print each line. Either one will work
-:::
+> [!WARNING] DOS/Windows Quoting Caveats
+> The DJGPP compilation (for DOS or Windows-32) permits an `awk` script to follow Unix quoting syntax `'/like/ {"this"}'`. However, if the command interpreter is `CMD.EXE` or `COMMAND.COM`, single quotes will not protect the redirection arrows `(<, >)` nor do they protect pipes `(|)`. These are special symbols which require "double quotes" to protect them from interpretation as operating system directives. If the command interpreter is `bash`, `ksh`, `zsh` or another Unix shell, then single and double quotes will follow the standard Unix usage
+>
+> Users of MS-DOS or Microsoft Windows must remember that the percent sign `(%)` is used to indicate environment variables, so this symbol must be doubled `(%%)` to yield a single percent sign visible to awk
+> To conserve space, use `'1'` instead of `'{print}'` to print each line. Either one will work
 
 #### Handy one-line AWK scripts
 
@@ -216,9 +215,9 @@ To conserve space, use `'1'` instead of `'{print}'` to print each line. Either o
  awk '1;{print ""}'
  awk 'BEGIN{ORS="\n\n"};1'
  # double space a file which already has blank lines in it. Output file
- # should contain no more than one blank line between lines of text.
+ # should contain no more than one blank line between lines of text
  # NOTE: On Unix systems, DOS lines which have only CRLF (\r\n) are
- # often treated as non-blank, and thus 'NF' alone will return TRUE.
+ # often treated as non-blank, and thus 'NF' alone will return TRUE
  awk 'NF{print $0 "\n"}'
  # triple space a file
  awk '1;{print "\n"}'
@@ -228,12 +227,12 @@ To conserve space, use `'1'` instead of `'{print}'` to print each line. Either o
 
 ```bash
  # precede each line by its line number FOR THAT FILE (left alignment).
- # Using a tab (\t) instead of space will preserve margins.
+ # Using a tab (\t) instead of space will preserve margins
  awk '{print FNR "\t" $0}' files*
- # precede each line by its line number FOR ALL FILES TOGETHER, with tab.
+ # precede each line by its line number FOR ALL FILES TOGETHER, with tab
  awk '{print NR "\t" $0}' files*
  # number each line of a file (number on left, right-aligned)
- # Double the percent signs if typing from the DOS command prompt.
+ # Double the percent signs if typing from the DOS command prompt
  awk '{printf("%5d : %s\n", NR,$0)}'
  # number each line of file, but only print numbers if line is not blank
  # Remember caveats about Unix treatment of \r (mentioned above)
@@ -273,7 +272,7 @@ To conserve space, use `'1'` instead of `'{print}'` to print each line. Either o
  # create a string of a specific length (e.g., generate 513 spaces)
  awk 'BEGIN{while (a++<513) s=s " "; print s}'
  # insert a string of specific length at a certain character position
- # Example: insert 49 spaces after column #6 of each input line.
+ # Example: insert 49 spaces after column #6 of each input line
  gawk --re-interval 'BEGIN{while(a++<49)s=s " "};{sub(/^.{6}/,"&" s)};1'
 ```
 
@@ -281,10 +280,10 @@ To conserve space, use `'1'` instead of `'{print}'` to print each line. Either o
 
 ```bash
  # These next 2 entries are not one-line scripts, but the technique
- # is so handy that it merits inclusion here.
+ # is so handy that it merits inclusion here
 
  # create an array named "month", indexed by numbers, so that month[1]
- # is 'Jan', month[2] is 'Feb', month[3] is 'Mar' and so on.
+ # is 'Jan', month[2] is 'Feb', month[3] is 'Mar' and so on
  split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec", month, " ")
  # create an array named "mdigit", indexed by strings, so that
  # mdigit["Jan"] is 1, mdigit["Feb"] is 2, etc. Requires "month" array
@@ -303,7 +302,7 @@ To conserve space, use `'1'` instead of `'{print}'` to print each line. Either o
  # IN DOS ENVIRONMENT: convert DOS newlines (CR/LF) to Unix format
  # Cannot be done with DOS versions of awk, other than gawk:
  gawk -v BINMODE="w" '1' infile >outfile
- # Use "tr" instead.
+ # Use "tr" instead
  tr -d \r <infile >outfile            # GNU tr version 1.22 or higher
  # delete leading whitespace (spaces, tabs) from front of each line
  # aligns all text flush left
@@ -367,7 +366,7 @@ To conserve space, use `'1'` instead of `'{print}'` to print each line. Either o
  # print any line where field #5 is equal to "abc123"
  awk '$5 == "abc123"'
  # print only those lines where field #5 is NOT equal to "abc123"
- # This will also print lines which have less than 5 fields.
+ # This will also print lines which have less than 5 fields
  awk '$5 != "abc123"'
  awk '!($5 == "abc123")'
  # matching a field against a regular expression
@@ -649,9 +648,8 @@ tar -xvf directory.tar
    systemctl status bluetooth.service
    ```
 
-   ::: tip REFERENCE
-   [Cleaning Your Linux start-up Process](https://www.linux.com/topic/desktop/cleaning-your-linux-startup-process/)
-   :::
+   > [!TIP] REFERENCE
+   > [Cleaning Your Linux start-up Process](https://www.linux.com/topic/desktop/cleaning-your-linux-startup-process/)
 
 2. To stop other service to start Bluetooth, mask it using `sudo systemctl mask bluetooth.service`
 
@@ -661,13 +659,13 @@ Dual boot Windows and Linux
 
 ### Remove Linux From Dual Boot
 
-Here are two methods to remove the OS.
+Here are two methods to remove the OS
 
 #### Method 1
 
-1. Boot into _Windows 10_.
+1. Boot into _Windows 10_
 2. Go to **Disk Management**.
-3. Delete the drive(s) containing the _Linux OS_.
+3. Delete the drive(s) containing the _Linux OS_
 4. Delete the **Free Partition**.
 5. Then rebuild **`mbr`**.
 

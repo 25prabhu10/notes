@@ -6,11 +6,10 @@ sidebar: false
 
 # Table of Content
 
-1. [Aptitude](./Apti/Programs/)
-2. [Income Tax](./Finance/Income-Tax.md)
-3. [Math](./Math/)
-4. [Nature](./Nature.md)
-5. [Camera](./Camera.md)
+1. [Income Tax](./Finance/Income-Tax.md)
+2. [Math](./Math/)
+3. [Nature](./Nature.md)
+4. [Camera](./Camera.md)
 
 [Open Source SmartWatch](https://open-smartwatch.github.io/)
 

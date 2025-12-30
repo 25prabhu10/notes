@@ -1,7 +1,6 @@
 ---
 title: Mathematics
 description: Mathematics is the study of numbers, quantity, space, structure, and change
-date: 2024-11-08
 ---
 
 # Mathematics

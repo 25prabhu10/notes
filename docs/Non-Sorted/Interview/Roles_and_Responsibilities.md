@@ -4,7 +4,7 @@ title: Roles and Responsibilities
 
 # Roles and Responsibilities
 
-Experienced Web Developer adept in all stages of advanced web development. Knowledgeable in user interface, testing, and debugging processes. Bringing forth expertise in design, installation, testing and maintenance of web systems. Equipped with a diverse and promising skill-set. Proficient in an assortment of technologies, including Java, ASP.NET, C#, IIS, Tomcat, and Microsoft SQL Server. Able to effectively self-manage during independent projects, as well as collaborate in a team setting.
+Experienced Web Developer adept in all stages of advanced web development. Knowledgeable in user interface, testing, and debugging processes. Bringing forth expertise in design, installation, testing and maintenance of web systems. Equipped with a diverse and promising skill-set. Proficient in an assortment of technologies, including Java, ASP.NET, C#, IIS, Tomcat, and Microsoft SQL Server. Able to effectively self-manage during independent projects, as well as collaborate in a team setting
 
 One formula you can use for this is to say "[action verb such as created, wrote, developed] [product], using [highlight the language or tool you've used], in order to achieve [result]."
 
@@ -48,7 +48,7 @@ Responsibilities:
 
 9. Strong organizational skills to juggle multiple tasks within the constraints of timelines and budgets with business acumen
 
-10. Ability to work and thrive in a fast-paced environment, learn rapidly and master diverse web technologies and techniques.
+10. Ability to work and thrive in a fast-paced environment, learn rapidly and master diverse web technologies and techniques
 
 ## Day To Day
 

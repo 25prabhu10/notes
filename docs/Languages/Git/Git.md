@@ -213,9 +213,8 @@ We can modify configurations from the CLI or by directly modifying the configura
   git config --global push.autoSetupRemote true
   ```
 
-::: tip WINDOWS
-In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER`)
-:::
+> [!TIP] WINDOWS
+> In windows Git looks for `.gitconfig` file in `$HOME` directory (`C:\Users\$USER`)
 
 ### Attributes
 
@@ -379,9 +378,8 @@ To remove Git tracking from the project, just delete the hidden `.git` folder
 rm -rf .git
 ```
 
-::: danger NOTE
-If you remove this folder you will permanently loose the project history, unless you have a remote copy
-:::
+> [!CAUTION]
+> If you remove this folder you will permanently loose the project history, unless you have a remote copy
 
 ### Status
 
@@ -495,9 +493,8 @@ Git commit amend should be used only if:
 - There is a spelling error in the commit message
 - It doesn't contain the changes that you'd like to contain
 
-::: danger NOTE
-Amending commits is not advisable. It changes the commit-hash and hence changing the history
-:::
+> [!CAUTION]
+> Amending commits is not advisable. It changes the commit-hash and hence changing the history
 
 Fix-up commits:
 
@@ -692,9 +689,8 @@ Reasons to force push:
 - Remote version went wrong and needs repair
 - Versions have diverged and merging is undesirable
 
-::: danger NOTE
-Use force push with extreme caution. Disruptive for others using the remote branch. Commits disappear. Subsequent local commits are orphaned for others
-:::
+> [!CAUTION]
+> Use force push with extreme caution. Disruptive for others using the remote branch. Commits disappear. Subsequent local commits are orphaned for others
 
 ### Rename File
 
@@ -910,7 +906,7 @@ git log --patch
 # list edits to lines 100-150 in filename.txt
 git log -L 100,150:filename.txt
 
-# Use heuristics to get log of a certain function, class, etc..
+# Use heuristics to get log of a certain function, class, etc...
 git log -L :funcName:filename.ts
 
 # get logs contains an expression
@@ -1082,9 +1078,8 @@ Apply reset command on:
 git reset --hard ORIG_HEAD
 ```
 
-::: tip NOTE
-Use revert whenever possible
-:::
+> [!NOTE]
+> Use revert whenever possible
 
 ### Revert
 
@@ -1137,23 +1132,21 @@ Compare two branches:
 git diff [first branch]...[second branch]
 ```
 
-::: tip TOOL
-We can use a GUI tool or an external diff viewing program
-
-```bash
-git difftool
-```
-
-To get help and add your preferred tool:
-
-```bash
-git difftool --tool-help
-
-# ADD A TOOL
-git difftool --tool=[tool]
-```
-
-:::
+> [!TIP] TOOL
+> We can use a GUI tool or an external diff viewing program
+>
+> ```bash
+> git difftool
+> ```
+>
+> To get help and add your preferred tool:
+>
+> ```bash
+> git difftool --tool-help
+>
+> # ADD A TOOL
+> git difftool --tool=[tool]
+> ```
 
 ### Checkout
 
@@ -1448,19 +1441,24 @@ git stash drop [stash@{id}]
 git stash -p
 ```
 
-::: tip NOTE
-Git stash is branch agnostic. All branches use the same stash list. This is helpful when moving the changes from one branch to another branch
-:::
+> [!NOTE]
+> Git stash is branch agnostic. All branches use the same stash list. This is helpful when moving the changes from one branch to another branch
 
-::: warning UNTRACKED FILES
-By default, Git will not stash changes made to untracked or ignored files
+Unstash specific file:
 
 ```bash
-# TO STASH UNTRACKED FILES
-git stash -u or --include-untracked [filename]
+# get the list of all stashes
+git stash list
+git stash show -p stash@{0} -- [filename] | git apply -R
 ```
 
-:::
+> [!WARNING] UNTRACKED FILES
+> By default, Git will not stash changes made to untracked or ignored files
+>
+> ```bash
+> # TO STASH UNTRACKED FILES
+> git stash -u or --include-untracked [filename]
+> ```
 
 ### Show
 

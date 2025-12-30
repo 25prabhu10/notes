@@ -1,8 +1,6 @@
 ---
 title: Azure
 description: Azure Cloud Services
-date: 2024-10-05
-lastmod: 2024-10-05
 ---
 
 # Azure

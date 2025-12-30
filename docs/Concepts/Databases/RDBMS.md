@@ -1,8 +1,6 @@
 ---
 title: RDBMS
 description: Relational Database Management System (RDBMS)
-date: 2023-02-04
-lastmod: 2024-08-22
 ---
 
 # Relational Database Management System (RDBMS)

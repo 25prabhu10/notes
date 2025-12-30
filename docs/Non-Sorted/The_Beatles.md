@@ -1,6 +1,6 @@
 # The Beatles
 
-1. A day in the life - sgt.
+1. A day in the life - sgt
 2. I want to hold your hand - Past Masters
 3. Strawberry fields forever - Magical mystery tour
 4. Yesterday - Help!

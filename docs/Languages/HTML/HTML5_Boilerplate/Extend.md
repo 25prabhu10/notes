@@ -2,7 +2,7 @@
 
 Here is some useful advice for how you can make your project with HTML5
 Boilerplate even better. We don't want to include it all by default, as
-not everything fits with everyone's needs.
+not everything fits with everyone's needs
 
 - [App Stores](#app-stores)
 - [DNS prefetching](#dns-prefetching)
@@ -21,7 +21,7 @@ not everything fits with everyone's needs.
 ### Smart App Banners in iOS 6+ Safari
 
 Stop bothering everyone with gross modals advertising your entry in the
-App Store. Including the following [meta tag](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) will unobtrusively give the user the option to download your iOS app, or open it with some data about the user's current state on the website.
+App Store. Including the following [meta tag](https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/PromotingAppswithAppBanners/PromotingAppswithAppBanners.html) will unobtrusively give the user the option to download your iOS app, or open it with some data about the user's current state on the website
 
 ```html
 <meta name="apple-itunes-app" content="app-id=APP_ID,app-argument=SOME_TEXT" />
@@ -32,7 +32,7 @@ App Store. Including the following [meta tag](https://developer.apple.com/librar
 In short, DNS Prefetching is a method of informing the browser of domain names
 referenced on a site so that the client can resolve the DNS for those hosts,
 cache them, and when it comes time to use them, have a faster turn around on
-the request.
+the request
 
 ### Implicit prefetches
 
@@ -42,12 +42,12 @@ domain name as the current location the browser requests, from the client OS,
 the IP address for this new domain. The client first checks its cache and
 then, lacking a cached copy, makes a request from a DNS server. These requests
 happen in the background and are not meant to block the rendering of the
-page.
+page
 
 The goal of this is that when the foreign IP address is finally needed it will
 already be in the client cache and will not block the loading of the foreign
 content. Fewer requests result in faster page load times. The perception of this
-is increased on a mobile platform where DNS latency can be greater.
+is increased on a mobile platform where DNS latency can be greater
 
 #### Disable implicit prefetching
 
@@ -56,17 +56,17 @@ is increased on a mobile platform where DNS latency can be greater.
 ```
 
 Even with X-DNS-Prefetch-Control meta tag (or http header) browsers will still
-prefetch any explicit dns-prefetch links.
+prefetch any explicit dns-prefetch links
 
 **_WARNING:_** THIS MAY MAKE YOUR SITE SLOWER IF YOU RELY ON RESOURCES FROM
-FOREIGN DOMAINS.
+FOREIGN DOMAINS
 
 ### Explicit prefetches
 
 Typically the browser only scans the HTML for foreign domains. If you have
 resources that are outside of your HTML (a javascript request to a remote
 server or a CDN that hosts content that may not be present on every page of
-your site, for example) then you can queue up a domain name to be prefetched.
+your site, for example) then you can queue up a domain name to be prefetched
 
 ```html
 <link rel="dns-prefetch" href="//example.com" />
@@ -77,7 +77,7 @@ You can use as many of these as you need, but it's best if they are all
 immediately after the [Meta
 Charset](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta#attr-charset)
 element (which should go right at the top of the `head`), so the browser can
-act on them ASAP.
+act on them ASAP
 
 #### Common Prefetch Links
 
@@ -122,7 +122,7 @@ ga("send", "pageview");
 To customize further, see Google's [Advanced
 Setup](https://developers.google.com/analytics/devguides/collection/analyticsjs/),
 [Pageview](https://developers.google.com/analytics/devguides/collection/analyticsjs/pages),
-and [Event](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) Docs.
+and [Event](https://developers.google.com/analytics/devguides/collection/analyticsjs/events) Docs
 
 ### Anonymize IP addresses
 
@@ -233,7 +233,7 @@ Pinned Sites](<https://docs.microsoft.com/en-us/previous-versions/windows/intern
 ### Name the Pinned Site for Windows
 
 Without this rule, Windows will use the page title as the name for your
-application.
+application
 
 ```html
 <meta name="application-name" content="Sample Title" />
@@ -242,7 +242,7 @@ application.
 ### Give your Pinned Site a tooltip
 
 You know - a tooltip. A little textbox that appears when the user holds their
-mouse over your Pinned Site's icon.
+mouse over your Pinned Site's icon
 
 ```html
 <meta name="msapplication-tooltip" content="A description of what this site does." />
@@ -273,7 +273,7 @@ named colors (`red`) or hex colors (`#ff0000`).
 
 If the site should open at a certain window size once pinned, you can specify
 the dimensions here. It only supports static pixel dimensions. 800x600
-minimum.
+minimum
 
 ```html
 <meta name="msapplication-window" content="width=800;height=600" />
@@ -284,7 +284,7 @@ minimum.
 Add Jump List Tasks that will appear when the Pinned Site's icon gets a
 right-click. Each Task goes to the specified URL, and gets its own mini icon
 (essentially a favicon, a 16x16 .ICO). You can add as many of these as you
-need.
+need
 
 ```html
 <meta
@@ -304,18 +304,18 @@ tile's background color. [Full details on the IE
 blog](https://blogs.msdn.microsoft.com/ie/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8/).
 
 - Create a 144x144 image of your site icon, filling all of the canvas, and
-  using a transparent background.
+  using a transparent background
 - Save this image as a 32-bit PNG and optimize it without reducing
   colour-depth. It can be named whatever you want (e.g. `metro-tile.png`).
 - To reference the tile and its color, add the HTML `meta` elements described
-  in the IE Blog post.
+  in the IE Blog post
 
 ### (Windows 8) Badges for Pinned Sites
 
 IE will poll an XML document for badge information to display on your app's
 tile in the Start screen. The user will be able to receive these badge updates
 even when your app isn't actively running. The badge's value can be a number,
-or one of a predefined list of glyphs.
+or one of a predefined list of glyphs
 
 - [Tutorial on IEBlog with link to badge XML schema](https://blogs.msdn.microsoft.com/ie/2012/04/03/pinned-sites-in-windows-8/)
 - [Available badge values](https://docs.microsoft.com/en-us/uwp/schemas/tiles/badgeschema/element-badge)
@@ -331,7 +331,7 @@ or one of a predefined list of glyphs.
 
 Similar to [-webkit-tap-highlight-color](https://davidwalsh.name/mobile-highlight-color)
 in iOS Safari. Unlike that CSS property, this is an HTML meta element, and its
-value is boolean rather than a color. It's all or nothing.
+value is boolean rather than a color. It's all or nothing
 
 ```html
 <meta name="msapplication-tap-highlight" content="no" />
@@ -361,13 +361,13 @@ Or insert the following line anywhere in your `robots.txt` file, specifying the 
 
 According to Heather Champ, former community manager at Flickr, you should not
 allow search engines to index your "Contact Us" or "Complaints" page if you
-value your sanity. This is an HTML-centric way of achieving that.
+value your sanity. This is an HTML-centric way of achieving that
 
 ```html
 <meta name="robots" content="noindex" />
 ```
 
-**_WARNING:_** DO NOT INCLUDE ON PAGES THAT SHOULD APPEAR IN SEARCH ENGINES.
+**_WARNING:_** DO NOT INCLUDE ON PAGES THAT SHOULD APPEAR IN SEARCH ENGINES
 
 ### Firefox and IE Search Plugins
 
@@ -429,7 +429,7 @@ about](<https://en.wikipedia.org/wiki/Atom_(Web_standard)>).
 ### Pingbacks
 
 Your server may be notified when another site links to yours. The href
-attribute should contain the location of your pingback service.
+attribute should contain the location of your pingback service
 
 ```html
 <link rel="pingback" href="" />
@@ -496,12 +496,12 @@ of [schema.org's microdata vocabulary](https://schema.org/), which
 covers many other schemas that can describe the content of your pages
 to search engines. For this reason, this metadata is more generic for
 SEO, notably for Google's search-engine, although this vocabulary is
-also used by Microsoft, Pinterest and Yandex.
+also used by Microsoft, Pinterest and Yandex
 
 You can validate your markup with the [Structured Data Testing
 Tool](https://developers.google.com/structured-data/testing-tool/).
 Also, please note that this markup requires to add attributes to your
-top `html` tag.
+top `html` tag
 
 ```html
 <html class="no-js" lang="" itemscope itemtype="https://schema.org/Article">
@@ -520,7 +520,7 @@ top `html` tag.
 ### Canonical URL
 
 Signal to search engines and others "Use this URL for this page!" Useful when
-parameters after a `#` or `?` is used to control the display state of a page.
+parameters after a `#` or `?` is used to control the display state of a page
 `https://www.example.com/cart.html?shopping-cart-open=true` can be indexed as
 the cleaner, more accurate `https://www.example.com/cart.html`.
 
@@ -532,7 +532,7 @@ the cleaner, more accurate `https://www.example.com/cart.html`.
 
 If you use separate URLs for desktop and mobile users, you should consider
 helping search engine algorithms better understand the configuration on your
-web site.
+web site
 
 This can be done by adding the following annotations in your HTML pages:
 
@@ -563,7 +563,7 @@ added to the Home Screen on iOS:
 ```
 
 - You can use `apple-mobile-web-app-title` to add a specific sites name for the
-  Home Screen icon. This works since iOS 6.
+  Home Screen icon. This works since iOS 6
 
 ```html
 <meta name="apple-mobile-web-app-title" content="" />
@@ -571,12 +571,12 @@ added to the Home Screen on iOS:
 
 For further information please read the [official
 documentation](https://developer.apple.com/library/safari/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
-on Apple's site.
+on Apple's site
 
 ### Apple Touch Icons
 
 Apple touch icons are used as icons when a user adds your webapp to the home
-screen of aniOS devices.
+screen of aniOS devices
 
 Though the dimensions of the icon can vary between iOS devices and versions
 one `180×180px` touch icon named `icon.png` and including the following in
@@ -624,13 +624,13 @@ Same applies to the touch icons:
 You can add the [`theme-color` meta extension](https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color)
 in the `<head>` of your pages to suggest the color that browsers and
 OSes should use if they customize the display of individual pages in
-their UIs with varying colors.
+their UIs with varying colors
 
 ```html
 <meta name="theme-color" content="#ff69b4" />
 ```
 
-The `content` attribute extension can take any valid CSS color.
+The `content` attribute extension can take any valid CSS color
 
 Currently, the `theme-color` meta extension is supported by [Chrome 39+
 for Android Lollipop](https://developers.google.com/web/updates/2014/11/Support-for-theme-color-in-Chrome-39-for-Android).
@@ -638,13 +638,13 @@ for Android Lollipop](https://developers.google.com/web/updates/2014/11/Support-
 ## security.txt
 
 When security risks in web services are discovered by users they often lack the
-channels to disclose them properly. As a result, security issues may be left unreported.
+channels to disclose them properly. As a result, security issues may be left unreported
 
 Security.txt defines a standard to help organizations define the process for
 users to disclose security vulnerabilities securely. Include a text
-file on your server at `.well-known/security.txt` with the relevant contact details.
+file on your server at `.well-known/security.txt` with the relevant contact details
 
-Check [https://securitytxt.org/](https://securitytxt.org/) for more details.
+Check [https://securitytxt.org/](https://securitytxt.org/) for more details
 
 ## TODO
 

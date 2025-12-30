@@ -1,7 +1,6 @@
 ---
 title: Number Theory
 description: Number theory is the study of the properties and relationships of numbers
-date: 2024-11-08
 ---
 
 # Number Theory

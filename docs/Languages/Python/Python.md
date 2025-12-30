@@ -48,7 +48,7 @@ python
 
 # Output:
 # Python 3.12.5 (main, Aug  9 2024, 08:20:41) [GCC 14.2.1 20240805] on linux
-# Type "help", "copyright", "credits" or "license" for more information.
+# Type "help", "copyright", "credits" or "license" for more information
 >>>
 ```
 
@@ -935,7 +935,7 @@ print(locale.currency(amount, grouping=True))
   - A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir"
 
 - [asn1crypto](https://github.com/wbond/asn1crypto):
-  - A fast, pure Python library for parsing and serializing ASN.1 structures.
+  - A fast, pure Python library for parsing and serializing ASN.1 structures
 
 - [astroid](https://github.com/PyCQA/astroid):
   - A common base representation of python source code for pylint and other projects
@@ -1005,7 +1005,7 @@ sdev = statistics.stdev(x)
 ver = statistics.variance(x)
 
 # import statistics as s
-# from statistics import *  # all without using statistics.
+# from statistics import *  # all without using statistics
 # from statistics import mean
 # from statistics import mean as m
 # from statistics import median
@@ -1022,7 +1022,7 @@ print(
 
 # (quotient without floating point) i.e. 17/3 is 5.66667 but 17//3 is 5 using _ we can add the value the previous answer i.e. new + _
 
-# The "pass"  statement does nothing.
+# The "pass"  statement does nothing
 pass
 
 print(r"C:\some\name")  # r used to to differentiate \name form \n
@@ -1061,7 +1061,7 @@ print("%s %s %s" % ("I like", quote, multiline_quote))
 print("I do't like this", end="")
 
 # import modules using = import_random, import_sys, import_os
-# Lists [] will have index with first one having index = 0.
+# Lists [] will have index with first one having index = 0
 
 grocery_lis = ["Juice", "Tomatoes", "Potato"]
 print("First item", grocery_lis[0])

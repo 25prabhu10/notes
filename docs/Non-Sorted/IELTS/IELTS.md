@@ -1,8 +1,6 @@
 ---
 title: IELTS
-description: IELTS
-date: 2023-07-26
-lastmod: 2025-04-26
+description: IELTS - International English Language Testing System
 ---
 
 # IELTS
