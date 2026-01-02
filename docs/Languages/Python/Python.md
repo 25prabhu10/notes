@@ -931,6 +931,14 @@ print(locale.currency(amount, grouping=True))
 
 ## Packages
 
+Package management is done through `pip` (the Python package installer) or `conda` (if using Anaconda distribution) or `uv` (for ultra fast package management)
+
+- pip batch update:
+
+  ```bash
+  pip install -U `pip list --outdated | tail -n +3 | awk '{print $1}'`
+  ```
+
 - [appdirs](https://github.com/ActiveState/appdirs):
   - A small Python module for determining appropriate platform-specific dirs, e.g. a "user data dir"
 

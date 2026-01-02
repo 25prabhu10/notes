@@ -23,11 +23,12 @@ sidebar: false
 13. [Text Encoding](./Text_Encoding.md)
 14. [Data Serialization](./Data_Serialization.md)
 15. [regex](./Regular_Expression/)
-16. [Logging](./Logging.md)
-17. [Telemetry](./Telemetry.md)
-18. [Agile](./Agile/Agile.md)
-19. [Artifactory](./Artifactory.md)
-20. [Key Words](./Key_Words.md)
+16. [Testing](./Testing/)
+17. [Logging](./Logging.md)
+18. [Telemetry](./Telemetry.md)
+19. [Agile](./Agile/Agile.md)
+20. [Artifactory](./Artifactory.md)
+21. [Key Words](./Key_Words.md)
 
 ## References
 

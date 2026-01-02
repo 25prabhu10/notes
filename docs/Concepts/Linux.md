@@ -7,6 +7,16 @@ description: GNU Linux is a family of OS
 
 Linux is a family of open-source Unix-like operating systems based on the Linux kernel
 
+## System Tools
+
+- `top` (1984): display Linux tasks
+- `htop` (2004): interactive process viewer
+
+```bash
+# get CPU info
+lscpu
+```
+
 ## File-system
 
 Typical _File-system Hierarchy Standard_ (FHS): To get more information checkout `man hier`
@@ -102,25 +112,73 @@ Typical _File-system Hierarchy Standard_ (FHS): To get more information checkout
 - `ls`: list directory contents
 - `man`: display manual pages
 - `bc` (1975): arbitrary-precision calculator language
+- `find`
+
+```bash
+# list all file types in the present directory
+fd -t f . --exec basename {} \; | rg -o '\.[^.]+$' | sort | uniq
+```
+
+## Compression Tools
+
+- `tar` (1979): archive files
+- `gzip` (1992): compress files
+- `bzip2` (1996): compress files
+- `xz` (2001): compress files
+- `zip` (1989): package and compress files
+- `unzip` (1996): extract compressed files
+
+### `7z`
+
+[`7z`](https://www.7-zip.org/) is a file archiver with a high compression ratio. It supports several compression, conversion and encryption algorithms
+
+```bash
+# compress
+7z a archive.7z /path/to/folder-or-file
+
+# ultra compression
+7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on archive.7z dir1
+
+# extract
+7z x archive.7z
+```
 
 ## Text Processing Tools
 
 - `cat`: concatenate and display files
 - `vi` (1976), [`vim` (1991) and `neovim` (2015)](../Collection/Editors/Vim-Neovim.md) : text editor
-- `diff` (1974): compare files line by line
+- [`diff`](#diff) (1974): compare files line by line
 - [`grep`](#grep): search text for patterns
 - [`sed`](#sed) (1974): stream editor for filtering and transforming text
 - [`awk`](#awk) (1977): pattern scanning and processing language
+- `sort`: sort lines of text files
+- `uniq`: report or omit repeated lines
+- `wc`: word, line, character, byte count
+- `cut`: remove sections from each line of files
+- [`tr`](#tr): translate or delete characters
+
+### `diff`
+
+[`diff`](https://www.gnu.org/software/diffutils/manual/diffutils.html) is a command-line utility that compares files line by line. It outputs the differences between two files, indicating which lines have been added, removed, or changed
+
+```bash
+diff file1 file2
+# or to see all the difference similar to (n)vim -d (diff)
+nvim <(pacman -Qi nvim) <(pacman -Si nvim)
+
+# compare results of two commands
+diff <(ls) <(ll)
+```
 
 ### `grep`
 
 [`grep`](https://www.gnu.org/software/grep/manual/grep.html) (1973) is a command-line utility for searching plain-text data sets for lines that match a regular expression. Its name comes from the `ed` command `g/re/p` (Global, Regular Expression, Print), which has the same effect
 
 ```bash
-grep 'pattern' [file]
+grep "pattern" "file-name.txt"
 
-# Example: search recursively in all files in current directory for 'TODO'
-grep -r 'TODO' .
+# Example: search recursively in all files in current directory for "TODO"
+grep -r "TODO" .
 ```
 
 Options:
@@ -134,8 +192,8 @@ Options:
 -n       # print line numbers with output lines
 -c       # print only a count of matching lines per file
 --color  # highlight matching strings
---include='*.ext'   # search only files with specified extension
---exclude='*.ext'   # exclude files with specified extension
+--include="*.ext"   # search only files with specified extension
+--exclude="*.ext"   # exclude files with specified extension
 ```
 
 #### `ripgrep`
@@ -143,10 +201,10 @@ Options:
 [ripgrep](https://github.com/BurntSushi/ripgrep) (`rg`) is a similar tool to `grep` written in Rust, that recursively searches directories for a regex pattern while respecting your gitignore rules
 
 ```bash
-rg 'pattern' [file]
+rg "pattern" "file-name.txt"
 
-# Example: search recursively in all files in current directory for 'TODO'
-rg 'TODO' .
+# Example: search recursively in all files in current directory for "TODO"
+rg "TODO" .
 ```
 
 Options:
@@ -155,7 +213,7 @@ Options:
 --smart-case  # search case insensitively unless pattern contains upper-case
 -v      # invert match (select non-matching lines)
 -c      # print only a count of matching lines for matching files only
--t ext  # search only files of type 'text'
+-t ext  # search only files of type "text"
 ```
 
 ### `sed`
@@ -167,17 +225,17 @@ Use [`sed` playground](https://sed.js.org/) for testing `sed` commands online
 - TMP replace pattern:
 
 ```bash
-# replace 'Steven' with 'Kate' on each line and print to standard output
-sed -i 's/Steven/Kate/' file
+# replace "Steven" with "Kate" on each line and print to standard output
+sed -i "s/Steven/Kate/" "file-name.txt"
 
-# replace all occurrences of 'foo' with 'bar' on each line
-sed -i 's/foo/bar/g' file
+# replace all occurrences of "foo" with "bar" on each line
+sed -i "s/foo/bar/g" "file-name.txt"
 
-# replace only the 2nd occurrence of 'foo' with 'bar' on each line
-sed -i 's/foo/bar/2' file
+# replace only the 2nd occurrence of "foo" with "bar" on each line
+sed -i "s/foo/bar/2" "file-name.txt"
 
 # apply multiple substitutions on each line
-sed -i -e 's/Steven/Kate/g' -e 's/Mike/John/g' file
+sed -i -e "s/Steven/Kate/g" -e "s/Mike/John/g" file
 ```
 
 - [`sd`](https://github.com/chmln/sd) is an alternative to `sed` written in Rust, with a simpler syntax for common use-cases
@@ -204,7 +262,7 @@ AWK (`awk`) is a **domain-specific language** designed for text processing and t
 > The DJGPP compilation (for DOS or Windows-32) permits an `awk` script to follow Unix quoting syntax `'/like/ {"this"}'`. However, if the command interpreter is `CMD.EXE` or `COMMAND.COM`, single quotes will not protect the redirection arrows `(<, >)` nor do they protect pipes `(|)`. These are special symbols which require "double quotes" to protect them from interpretation as operating system directives. If the command interpreter is `bash`, `ksh`, `zsh` or another Unix shell, then single and double quotes will follow the standard Unix usage
 >
 > Users of MS-DOS or Microsoft Windows must remember that the percent sign `(%)` is used to indicate environment variables, so this symbol must be doubled `(%%)` to yield a single percent sign visible to awk
-> To conserve space, use `'1'` instead of `'{print}'` to print each line. Either one will work
+> To conserve space, use `"1"` instead of `"{print}"` to print each line. Either one will work
 
 #### Handy one-line AWK scripts
 
@@ -212,12 +270,12 @@ AWK (`awk`) is a **domain-specific language** designed for text processing and t
 
 ```bash
  # double space a file
- awk '1;{print ""}'
+ awk "1;{print ""}"
  awk 'BEGIN{ORS="\n\n"};1'
  # double space a file which already has blank lines in it. Output file
  # should contain no more than one blank line between lines of text
  # NOTE: On Unix systems, DOS lines which have only CRLF (\r\n) are
- # often treated as non-blank, and thus 'NF' alone will return TRUE
+ # often treated as non-blank, and thus "NF" alone will return TRUE
  awk 'NF{print $0 "\n"}'
  # triple space a file
  awk '1;{print "\n"}'
@@ -412,6 +470,60 @@ AWK (`awk`) is a **domain-specific language** designed for text processing and t
  awk '!($0 in a){a[$0];print}'      # most efficient script
 ```
 
+### `tr`
+
+[`tr`](https://www.gnu.org/software/coreutils/manual/html_node/tr-invocation.html) (translate or delete characters) is a command in Unix and Unix-like operating systems that translates, squeezes, and/or deletes characters from standard input, writing to standard output
+
+```bash
+# translate lowercase to uppercase
+tr 'a-z' 'A-Z' < input.txt > output.txt
+
+# delete all digits from input
+tr -d '0-9' < input.txt > output.txt
+
+# squeeze multiple spaces into a single space
+tr -s ' ' < input.txt > output.txt
+
+# replace ":" with newlines
+echo $PATH
+# /home/user/.local/bin:/usr/local/sbin
+
+echo $PATH | tr ':' '\n'
+# /home/user/.local/bin
+# /usr/local/sbin
+```
+
+### PDF
+
+PDF to image:
+
+```bash
+# pdftoppm <image_format> <input_pdf> <image_output>
+
+pdftoppm -png resume.pdf resume.png
+
+# by default it will output 100 DPI, which can be increased
+pdftoppm -png -rx 300 -ry 300 resume.pdf resume.png
+```
+
+### mpv
+
+Use mpv to take snapshots from webcam:
+
+- [Arch Webcam Setup](https://wiki.archlinux.org/title/webcam_setup)
+
+```bash
+mpv av://v4l2:/dev/video0 --profile=low-latency --untimed
+```
+
+To use MJPEG as the pixelformat instead of the default, which in most cases is YUYV, you can run the following instead:
+
+```bash
+mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0
+```
+
+In some cases this can lead to drastic improvements in quality and performance (_5 FPS_ -> _30 FPS_ for example), [see the mpv documentation](https://github.com/mpv-player/mpv/wiki/Video4Linux2-Input)
+
 ## User Management
 
 | Command                               | Description                |
@@ -448,6 +560,9 @@ curl -O content.txt http://example.com/file.txt
 # send a POST request with data
 curl -X POST -H "Content-Type: application/json" -d '{"key":"value"}' http://httpbin.org/post
 curl --post
+
+# upload files and share for free (limit 10GB)
+curl --upload-file ./hello.txt https://transfer.sh/hello.txt
 ```
 
 Options from [man page](https://curl.se/docs/manpage.html):
@@ -515,6 +630,45 @@ curl --output - "mqtt://test.mosquitto.org:1883/demo/hello"
 
 - [xh](https://github.com/ducaale/xh) is an alternative to `curl` written in Rust, with a simpler syntax for common use-cases
 
+### OpenSSH
+
+Known Hosts
+
+- Remove Entry from the Known-Hosts File:
+
+```bash
+ssh-keygen -R hostname
+```
+
+Using the SSH Config File
+
+If you are regularly connecting to multiple remote systems over SSH, you can configure your remote servers with the `.ssh/config` file
+
+_Example:_
+
+```ini
+Host dev
+    HostName dev.your-domain
+    User xcad
+  Port 7654
+    IdentityFile ~/.ssh/targaryen.key
+Host *
+    User root
+    Compression yes
+```
+
+Connect to a host (like `dev` , eg.) with `ssh dev`
+
+#### OpenSSL
+
+- Generate a DKIM private and public keypair:
+
+```bash
+openssl genrsa -out dkim_private.pem 2048
+
+openssl rsa -in dkim_private.pem -pubout -outform der 2>/dev/null | openssl base64 -A
+```
+
 ### `iptables`
 
 Iptables is a user-space utility program that allows a system administrator to configure the IP packet filter rules of the Linux kernel firewall, implemented as different Netfilter modules. The filters are organized in different tables, which contain chains of rules for how to treat network traffic packets. Different kernel modules and programs are currently used for different protocols; iptables applies to IPv4, ip6tables to IPv6, arptables to ARP, and ebtables to Ethernet frames
@@ -548,6 +702,47 @@ sudo ufw disable
 ```bash
 sudo ufw deny from 203.0.113.0/24
 ```
+
+## Images
+
+- Compress image:
+
+  ```bash
+  magick -format jpg -quality 50 /path/to/image.svg /path/to/image.jpg
+
+  # or
+
+  mogrify -compress JPEG -quality 50 /path/to/image.jpg
+
+  # or
+
+  convert -strip -interlace Plane -gaussian-blur 0.05 -quality 85% /path/to/source/image.jpg /path/to/result/image.jpg
+
+  # or
+
+  jpegoptim --size=512k /path/to/image.jpg
+  ```
+
+- Compare images: using [Image magick compare](https://imagemagick.org/script/compare.php)
+
+  ```bash
+  magick compare image1.jpg image2.jpg diff.png
+  ```
+
+## Other common tools
+
+- `column`: columnate or tabulate input
+
+  ```bash
+  # display file in columns
+  column -t filename.txt
+
+  # display output of command in columns
+  ls -l | column -t
+
+  # format `mount` output into neat columns
+  mount | column -t
+  ```
 
 ## `cron`
 
@@ -648,10 +843,83 @@ tar -xvf directory.tar
    systemctl status bluetooth.service
    ```
 
-   > [!TIP] REFERENCE
-   > [Cleaning Your Linux start-up Process](https://www.linux.com/topic/desktop/cleaning-your-linux-startup-process/)
+   [Cleaning Your Linux start-up Process](https://www.linux.com/topic/desktop/cleaning-your-linux-startup-process/)
 
 2. To stop other service to start Bluetooth, mask it using `sudo systemctl mask bluetooth.service`
+
+## Pacman
+
+- List all installed packages sorted by size:
+
+  ```bash
+  pacman -Qi | awk '/^Name/{name=$3} /^Installed Size/{print $4$5, name}' | sort -h
+  ```
+
+- Clear _pacman_ cache
+
+  ```bash
+  # get total cached packages
+  sudo ls /var/cache/pacman/pkg/ | wc -l
+
+  # get total cache size
+  du -sh /var/cache/pacman/pkg/
+
+  # clean all packages, expect the 3 most recent versions
+  sudo paccache -r
+
+  # clean all packages, expect the n most recent versions
+  sudo paccache -rk n
+
+  # remove all uninstalled packages
+  sudo paccache -ruk0
+
+  # OR
+  sudo pacman -Sc
+
+  # remove all installed and uninstalled package cache
+  sudo pacman -Scc
+  ```
+
+- Alternative create a hook to auto clean cache
+
+  ```bash
+  sudo vi /etc/pacman.d/hooks/clean_package_cache.hook
+  ```
+
+  ```text
+  [Trigger]
+  Operation = Upgrade
+  Operation = Install
+  Operation = Remove
+  Type = Package
+  Target = *
+  [Action]
+  Description = Cleaning pacman cache...
+  When = PostTransaction
+  Exec = /usr/bin/paccache -r
+  ```
+
+> Refer: [Recommended ways to clean cache](https://ostechnix.com/recommended-way-clean-package-cache-arch-linux/)
+
+## Starship Prompt
+
+[Starship](https://starship.rs/) is a minimal, blazing-fast, and infinitely customizable cross-shell prompt for any shell
+
+### Installation Linux
+
+1. Install/Update the latest version:
+
+   ```bash
+   curl -sS https://starship.rs/install.sh | sh
+   ```
+
+2. Add the following to the end of `~/.bashrc` or `~/.zshrc`:
+
+   ```bash
+   eval "$(starship init bash)"
+   # -- or --
+   eval "$(starship init zsh)"
+   ```
 
 ## Dual Booting OS
 

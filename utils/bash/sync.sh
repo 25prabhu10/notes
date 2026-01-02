@@ -54,7 +54,7 @@ set -o pipefail
 NOTES_DEST="${NOTES_DEST:-docs/}"
 
 # Source directory for the synchronization.
-if [ -z "$NOTES_SRC_DIR"]; then
+if [ -z "$NOTES_SRC_DIR" ]; then
   echo "Error: NOTES_SRC_DIR environment variable is not set."
   echo "Please set NOTES_SRC_DIR to the path of the source directory."
   echo "Example: export NOTES_SRC_DIR=\"/path/to/Notes\""
@@ -81,7 +81,7 @@ info_msg "Source:      '$NOTES_SRC_DIR'"
 info_msg "Destination: '$NOTES_DEST'"
 
 # Check if the source directory exists and is a directory.
-if [! -d "$NOTES_SRC_DIR"]; then
+if [ ! -d "$NOTES_SRC_DIR" ]; then
   error_msg "Source directory not found or is not a directory: '$NOTES_SRC_DIR'"
   error_msg "Please ensure the path is correct and the source is accessible (e.g., mounted)."
   exit 1

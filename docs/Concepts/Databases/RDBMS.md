@@ -5,42 +5,77 @@ description: Relational Database Management System (RDBMS)
 
 # Relational Database Management System (RDBMS)
 
-> A Relational Model of Data for Large Shared Data Banks - Ted Codd (1970)
+The relational database model was introduced by **E.F. Codd in 1970** of IBM's research laboratory in the paper titled **"A Relational Model of Data for Large Shared Data Banks"**
 
+- It is based on the concept of tables, where data is stored in rows and columns
+- Rather than using pointers to navigate between related entities, redundant data is used to link related records in different tables
 - A few related tables form a relational database
-- _Relational Algebra_ allows us to retrieve data efficiently
+- The data can be accessed or reassembled in many different ways without having to reorganize the database tables
+
+_Relational Algebra_ allows us to retrieve data efficiently
 
 Relationships: tell you how much of the data from foreign key field can be seen in the primary key column of the table that data is related to and vice-versa
 
 - Cardinality constraints
 
-Types of relationships:
+## Types of Relationships
 
-- One-to-Many relationships: one value from a column under a table can be found many times in the column in the other table
+1. **One-to-One Relationship**: A relationship where each record in one table is related to only one record in another table
 
-- One-to-One
+   _Example_: A person has only one passport
 
-- Many-to-Many
+2. **One-to-Many Relationship**: A relationship where each record in one table is related to one or more records in another table
+   - One value from a column under a table can be found many times in the column in the other table
 
-Query Execution Diagram?
-Explain?
+   _Example_: A customer can have multiple orders
+
+3. **Many-to-Many Relationship**: A relationship where each record in one table is related to one or more records in another table, and vice versa
+
+   _Example_: A student can enrol in multiple courses, and a course can have multiple students
+
+## Key Concepts
+
+- **Table**: A table is a collection of data organized into rows and columns
+  - Modelled after a real-world entity
+
+- **Column**: A column is a set of data values of a particular type
+  - Some attribute of the entity
+
+- **Row**: A row is a single record in a table
+  - A single instance of the entity
+
+- **Cell**: A cell is a single data value in a table
+  - A single value for a single instance
+  - The intersection of a row and a column
+
+- **Field**: A field is a single piece of data in a table
+- **Record**: A record is a complete set of fields in a table
+- **Primary Key**: A primary key is a unique identifier for each row in a table
+- **Foreign Key**: A foreign key is a column that references a primary key in another table
+- **Index**: An index is a data structure that improves the speed of data retrieval operations on a database table
+- **View**: A view is a virtual table that is based on the result of a `SELECT` query
+- **Transaction**: A transaction is a single unit of work that is performed on a database
+
+- Foreign key
+- Referential integrity
+- One-to-many relationship
+- One-to-one relationship
+- Many-to-many relationship
+- Data type
+- Null value
+- Default value
+- Auto increment column
+- Relational database
+- Table
+- Column
+- Row
+- Cell
+- Primary key
+- Composite primary key
+- Non-primary key (unique key)
+- Index
 
 ## Transactional
-
-Transaction is:
-
-- A collection of queries
-- Treated as one unit of work
-- E.g. Account deposit (`SELECT`, `UPDATE`, `UPDATE`)
-
-A transactional database is one in which all changes and queries appear to be **Atomic**, **Consistent**, **Isolated**, and **Durable** ([ACID](#acid))
-
-Transaction Lifespan:
-
-- Transaction `BEGIN`
-- Transaction `COMMIT`
-- Transaction `ROLLBACK`
-- Transaction unexpected ending = `ROLLBACK` (e.g. crash)
 
 Nature of Transactions:
 
@@ -71,7 +106,9 @@ UPDATE ACCOUNT SET BALANCE = BALANCE + 100 WHERE ID = 2
 COMMIT TX1
 ```
 
-### ACID
+## ACID Properties
+
+**ACID** is a set of properties that guarantee that [database transactions](./Database.md#transaction) are processed reliably
 
 1. [Atomicity](#atomicity)
 2. [Isolation](#isolation)

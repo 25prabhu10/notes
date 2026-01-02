@@ -58,70 +58,7 @@ Databases before the advent of relational databases were non-relational. They we
 
 ## Relational Database Systems
 
-A **relational database** is a type of database that stores and provides access to data points that are related to one another
-
-The relational database model was introduced by **E.F. Codd in 1970** of IBM's research laboratory
-
-- Published a paper titled **"A Relational Model of Data for Large Shared Data Banks"**
-- It is based on the concept of tables, where data is stored in rows and columns
-- Rather than using pointers to navigate between related entities, redundant data is used to link related records in different tables
-- The data can be accessed or reassembled in many different ways without having to reorganize the database tables
-
-### Key Concepts
-
-- **Table**: A table is a collection of data organized into rows and columns
-  - Modelled after a real-world entity
-
-- **Column**: A column is a set of data values of a particular type
-  - Some attribute of the entity
-
-- **Row**: A row is a single record in a table
-  - A single instance of the entity
-
-- **Cell**: A cell is a single data value in a table
-  - A single value for a single instance
-  - The intersection of a row and a column
-
-- **Field**: A field is a single piece of data in a table
-- **Record**: A record is a complete set of fields in a table
-- **Primary Key**: A primary key is a unique identifier for each row in a table
-- **Foreign Key**: A foreign key is a column that references a primary key in another table
-- **Index**: An index is a data structure that improves the speed of data retrieval operations on a database table
-- **View**: A view is a virtual table that is based on the result of a `SELECT` query
-- **Transaction**: A transaction is a single unit of work that is performed on a database
-
-- Foreign key
-- Referential integrity
-- One-to-many relationship
-- One-to-one relationship
-- Many-to-many relationship
-- Data type
-- Null value
-- Default value
-- Auto increment column
-- Relational database
-- Table
-- Column
-- Row
-- Cell
-- Primary key
-- Composite primary key
-- Non-primary key (unique key)
-- Index
-
-### Types of Relationships
-
-1. **One-to-One Relationship**: A relationship where each record in one table is related to only one record in another table
-
-   _Example_: A person has only one passport
-
-2. **One-to-Many Relationship**: A relationship where each record in one table is related to one or more records in another table
-
-   _Example_: A customer can have multiple orders
-
-3. **Many-to-Many Relationship**: A relationship where each record in one table is related to one or more records in another table, and vice versa
-
-   _Example_: A student can enrol in multiple courses, and a course can have multiple students
+A [**relational database**](./RDBMS.md) is a type of database that stores and provides access to data points that are related to one another
 
 ## Data Models
 
@@ -141,13 +78,6 @@ A **data model** is a conceptual representation of the data structures that are 
    - _JSON_ and _XML_ are examples of semi-structured data formats
 
 4. **Object-Oriented Model**: A data model that represents data as objects, similar to object-oriented programming
-
-### Relational Data Model
-
-Data are represented in the form of tables
-
-- Each table has multiple columns, and each column has a unique name
-- Each row in a table represents one piece of information (one record)
 
 ### Data Abstraction
 
@@ -187,16 +117,7 @@ Different levels of data abstraction:
 
 The database system allows application developers to store and retrieve data using the abstractions of the data model, and converts the abstract operations into operations on the low-level implementation
 
-## ACID Properties
-
-**ACID** is a set of properties that guarantee that [database transactions](#transaction) are processed reliably
-
-1. [Atomicity](#atomicity)
-2. [Consistency](#consistency)
-3. [Isolation](#isolation)
-4. [Durability](#durability)
-
-### Transaction
+## Transaction
 
 What is a Transaction?
 
@@ -209,7 +130,7 @@ Transaction is a sequence of operations that are executed as a single unit
 Transaction Life-cycle:
 
 - Transaction `BEGIN`
-- `COMMIT` or `ROLLBACK`
+- `COMMIT` transaction if all queries completed or `ROLLBACK` to revert back the changes
 - Transaction unexpected ending = `ROLLBACK` (e.g. crash)
 
 Nature of Transactions:
@@ -217,7 +138,6 @@ Nature of Transactions:
 - Usually Transactions are used to change and modify data
 - However, it is perfectly normal to have a read only transaction
 - Example, you want to generate a report and you want to get consistent snapshot based at the time of transaction
-- We will learn more about this in the Isolation section
 
 _Example_:
 
@@ -239,6 +159,15 @@ BEGIN TRANSACTION
 
 COMMIT TRANSACTION
 ```
+
+## ACID Properties
+
+**ACID** is a set of properties that guarantee that [database transactions](#transaction) are processed reliably
+
+1. [Atomicity](#atomicity)
+2. [Consistency](#consistency)
+3. [Isolation](#isolation)
+4. [Durability](#durability)
 
 ### Atomicity
 

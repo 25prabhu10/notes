@@ -1,116 +1,13 @@
 ---
-title: Testing
-description: Testing
+title: Unit Testing
+description: Unit Testing is the practice of testing individual units or components of a software application in isolation to ensure they function as intended
 ---
 
-# Testing
+# Unit Testing
 
-_Tests_ describe the expected behaviour of the application
+_Unit test:_ Test(s) written for testing a _unit_ of code in isolation
 
-Types of Tests:
-
-- [Unit Testing](#unit-testing): Writing tests that confirm an individual function or piece of code works
-
-- [Integration Testing](#integration-testing): Testing multiple units of together
-
-- [End-To-End Testing (E2E)](#end-to-end-testing): Run app in simulated environment
-
-- Acceptance Testing (UAT): test client or user's requirements
-
-- Regression Testing:
-
-- System Testing: Works on real hardware
-
-- Sanity or smoke test: Run few of most important test first to make sure the app is not on fire before testing rest of the test suite
-
-- [Functional Testing](#functional-testing): tests that test actual code
-
-- Performance Testing:
-
-- Usability Testing:
-
-- Security Testing:
-
-- Stress or failure-over testing: Testing the infrastructure capabilities
-
-## Testing Methods and Approaches
-
-Common Testing Approaches:
-
-1. Obvious implementation
-2. Fake it till you make it
-3. Triangulation
-
-Testing Methodologies:
-
-1. [Test-Driven Development](#test-driven-development-tdd):
-2. [Behaviour Driven Development](#behaviour-driven-development-bdd):
-3. Acceptance Test-Driven Development:
-
-### Test-Driven Development (TDD)
-
-TDD is software development process relying on software requirements being converted to test cases before software is fully developed, and tracking all software development by repeatedly testing the software against all test cases. This is as opposed to software being developed first and test cases created later
-
-- **Refactoring**: Improving the internal structure of your code without changing its external behaviour
-
-TDD cycle (_Test-Code-Refactor_):
-
-1. Add a test
-2. Run all test. The new test _should fail_ for expected reasons
-3. Write the simplest code that passes the new test
-4. All tests should now pass
-5. Refactor as needed, using tests after each refactor to ensure that functionality is preserved
-6. Repeat
-
-The above cycle of steps, which repeat over and over again are usually represented as:
-
-**Red** --> **Green** --> **Refactor** (Blue)
-
-Advantages:
-
-- Small test --> modular apps
-- Refactor early, not late
-- Allows automated testing
-
-Disadvantages:
-
-- Writing tests can be hard
-- Initially takes more time
-- Danger of constant refactoring
-
-### Behaviour Driven Development (BDD)
-
-BDD emerged from TDD
-
-- In BDD, tests are written first as in TDD, but **focuses on tests which describe behaviour**, rather than tests which test a unit of implementation
-
-- The **Given-When-Then** approach is used for writing test cases:
-  - **Given** the user has entered valid login credentials
-  - **When** a user clicks on the login button
-  - **Then** display the successful validation message
-
-- BDD suggests that unit test names be whole sentences starting with a conditional verb ("should" in English for example)
-
-Benefits of BDD approach:
-
-- Helps reach a wider audience by the usage of non-technical language
-
-- Focuses in how the system should behave from customer's and the developer's perspective
-
-- BDD is a cost-effective technique
-
-BDD is very explicitly defined:
-
-- Involves collaboration between lots of roles
-  - Developers, QA, business partners, etc...
-
-- Defines process for different groups to interact
-
-## Unit Testing
-
-Unit test: Test(s) written for testing a _unit_ of code in isolation
-
-- Verify that **a known, fixed input produces a known, fixed output**
+Verify that **a known, fixed input produces a known, fixed output**
 
 - Testing a unit of work
 - An unit can be a method
@@ -133,7 +30,7 @@ Unit tests should not be the only means to test an application, as:
 
 - **Fast**: It is not uncommon for mature projects to have thousands of unit tests. Unit tests should take very little time to run (in _milliseconds_)
 
-- **Isolated**: Unit tests are standalone, can be run in isolation, and have no dependencies on any outside factors such as a file system or database
+- **Isolated**: Unit tests are stand-alone, can be run in isolation, and have no dependencies on any outside factors such as a file system or database
   - Mock dependencies
   - Test internals
 
@@ -182,31 +79,6 @@ Tools:
 - [Coverlet](https://github.com/coverlet-coverage/coverlet): Code coverage framework
 
 - [ReportGenerator](https://github.com/danielpalme/ReportGenerator): Report generator
-
-## Integration Testing
-
-Integration Testing: How multiple units work together
-
-## Functional Testing
-
-Functional Testing: Tests a particular function (behaviour) of software
-
-- Include all relevant units, test behaviour
-- Close to how users interact with software
-- Robust tests
-
-More difficult to debug failing tests
-
-## End-To-End Testing
-
-Use actual browser and server to test
-
-Tools:
-
-- [Cypress](https://www.cypress.io/)
-- [Playwright](https://playwright.dev/)
-- [Puppeteer Library](https://pptr.dev/)
-- Selenium
 
 ## Test Doubles
 

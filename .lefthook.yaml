@@ -1,0 +1,7 @@
+pre-commit:
+  commands:
+    format:
+      interactive: true
+      stage_fixed: true
+      glob: "*.{html,js,json,md,mts,ts,vue,yaml}"
+      run: pnpm exec oxfmt --no-error-on-unmatched-pattern {staged_files}
