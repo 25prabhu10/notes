@@ -1,6 +1,11 @@
 ---
 title: Azure
-next: ./Azure
+next:
+  text: Azure
+  link: ./Azure.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

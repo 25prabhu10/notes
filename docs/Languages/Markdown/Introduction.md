@@ -1,6 +1,11 @@
 ---
-prev: ./
-next: ./Heading
+title: Introduction
+next:
+  text: Heading
+  link: ./Heading.md
+prev:
+  text: Markdown
+  link: ./
 ---
 
 # Introduction

@@ -1,6 +1,12 @@
 ---
 title: Agile
 description: Agile software development
+next:
+  text: Scrum
+  link: ./Scrum.md
+prev:
+  text: Concepts
+  link: ..
 ---
 
 # Agile

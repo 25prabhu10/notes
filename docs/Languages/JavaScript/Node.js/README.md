@@ -1,6 +1,11 @@
 ---
 title: Node.js
-next: ./Node.js.md
+next:
+  text: Node.js
+  link: ./Node.js.md
+prev:
+  text: JavaScript
+  link: ..
 sidebar: false
 ---
 

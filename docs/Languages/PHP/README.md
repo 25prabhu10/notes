@@ -1,6 +1,11 @@
 ---
 title: PHP
-next: ./PHP.md
+next:
+  text: PHP
+  link: ./PHP.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

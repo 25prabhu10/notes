@@ -1,6 +1,11 @@
 ---
 title: Regular Expression
-next: ./regex.md
+next:
+  text: regex
+  link: ./regex.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

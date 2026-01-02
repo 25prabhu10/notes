@@ -1,7 +1,9 @@
 ---
 title: AWS Certified Developer - Associate
 description: AWS Certified Developer - Associate
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Certified Developer - Associate

@@ -1,7 +1,9 @@
 ---
 title: Route 53
 description: Route 53
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # Route 53

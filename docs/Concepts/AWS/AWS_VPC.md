@@ -1,7 +1,9 @@
 ---
 title: VPC
 description: VPC
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # VPC

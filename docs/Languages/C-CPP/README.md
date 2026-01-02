@@ -1,6 +1,11 @@
 ---
 title: C-CPP
-next: ./C.md
+next:
+  text: C
+  link: ./C.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

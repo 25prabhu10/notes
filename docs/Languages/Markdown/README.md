@@ -1,6 +1,11 @@
 ---
 title: Markdown
-next: ./Introduction.md
+next:
+  text: Introduction
+  link: ./Introduction.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

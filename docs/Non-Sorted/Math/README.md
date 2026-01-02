@@ -1,6 +1,5 @@
 ---
 title: Math
-next: ./Numbers.md
 sidebar: false
 ---
 

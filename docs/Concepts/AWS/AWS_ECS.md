@@ -1,7 +1,9 @@
 ---
 title: ECS
 description: ECS
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # ECS

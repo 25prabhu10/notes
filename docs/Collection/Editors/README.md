@@ -1,6 +1,11 @@
 ---
 title: Text Editors
-next: ./Vim-Neovim.md
+next:
+  text: Vim/Neovim
+  link: ./Vim-Neovim.md
+prev:
+  text: Collection
+  link: ..
 sidebar: false
 ---
 

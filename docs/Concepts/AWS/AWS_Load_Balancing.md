@@ -1,7 +1,9 @@
 ---
 title: Load Balancing
 description: Load Balancing
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # Load Balancing

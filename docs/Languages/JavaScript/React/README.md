@@ -1,6 +1,11 @@
 ---
 title: React.js
-next: ./React.md
+next:
+  text: React.js
+  link: ./React.md
+prev:
+  text: JavaScript
+  link: ..
 sidebar: false
 ---
 

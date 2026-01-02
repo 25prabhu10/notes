@@ -1,6 +1,11 @@
 ---
 title: HTML5 Boilerplate
-next: ./Usage.md
+next:
+  text: Usage
+  link: ./Usage.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

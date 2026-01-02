@@ -1,6 +1,11 @@
 ---
 title: Application Security
-next: ./Web_Security.md
+next:
+  text: Web Security
+  link: ./Web_Security.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

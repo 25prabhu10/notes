@@ -1,7 +1,9 @@
 ---
 title: AWS CloudFront
 description: AWS CloudFront
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS CloudFront

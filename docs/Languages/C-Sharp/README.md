@@ -1,6 +1,11 @@
 ---
 title: C-Sharp
-next: ./C-Sharp.md
+next:
+  text: C#
+  link: ./C-Sharp.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

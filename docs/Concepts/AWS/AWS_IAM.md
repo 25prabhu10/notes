@@ -1,7 +1,9 @@
 ---
 title: IAM
 description: IAM
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # IAM

@@ -1,6 +1,11 @@
 ---
 title: Python
-next: ./Python.md
+next:
+  text: Python
+  link: ./Python.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

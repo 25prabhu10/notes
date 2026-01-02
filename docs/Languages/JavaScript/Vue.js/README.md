@@ -1,6 +1,11 @@
 ---
 title: Vue.js
-next: ./Vue.js.md
+next:
+  text: Vue.js
+  link: ./Vue.js.md
+prev:
+  text: JavaScript
+  link: ..
 sidebar: false
 ---
 

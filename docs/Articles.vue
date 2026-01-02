@@ -72,7 +72,7 @@ const languages = [
   },
   {
     borderColor: "#f34f29",
-    href: "/Languages/Git/Git",
+    href: "/Concepts/Git/Git",
     imgPath: "/git.svg",
     shadowColor: "#f34f29",
     title: "Git",

@@ -1,6 +1,11 @@
 ---
 title: Software Design
-next: ./Programming_Paradigms/
+next:
+  text: Programming Paradigms
+  link: ./Programming_Paradigms/
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 
@@ -9,5 +14,4 @@ sidebar: false
 1. [Programming Paradigms](./Programming_Paradigms/)
 2. [Design Principles](./Design_Principles.md)
 3. [Design Patterns](./Design_Patterns.md)
-4. [Adapter](./Adapter.md)
-5. [System Design](./System_Designs/)
+4. [System Design](./System_Designs/)

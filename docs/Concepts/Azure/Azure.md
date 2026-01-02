@@ -1,6 +1,12 @@
 ---
 title: Azure
 description: Azure Cloud Services
+next:
+  text: Azure SignalR Service
+  link: ./Azure_SignalR.md
+prev:
+  text: Concepts
+  link: ..
 ---
 
 # Azure

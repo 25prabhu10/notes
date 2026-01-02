@@ -1,7 +1,9 @@
 ---
 title: AWS RDS
 description: AWS RDS
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS RDS Overview

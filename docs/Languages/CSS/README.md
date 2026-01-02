@@ -1,6 +1,11 @@
 ---
 title: CSS
-next: ./CSS.md
+next:
+  text: CSS
+  link: ./CSS.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

@@ -1,6 +1,11 @@
 ---
 title: ASP.NET
-next: ./ASP_NET_Core.md
+next:
+  text: ASP.NET Core
+  link: ./ASP_NET_Core.md
+prev:
+  text: C#
+  link: ..
 sidebar: false
 ---
 

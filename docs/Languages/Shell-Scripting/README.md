@@ -1,6 +1,11 @@
 ---
 title: Shell-Scripting
-next: ./Bash.md
+next:
+  text: Bash
+  link: ./Bash.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

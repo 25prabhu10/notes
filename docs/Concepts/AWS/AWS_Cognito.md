@@ -1,7 +1,9 @@
 ---
 title: AWS Cognito
 description: AWS Cognito
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Cognito

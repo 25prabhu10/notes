@@ -1,7 +1,9 @@
 ---
 title: AWS Lambda
 description: AWS Lambda
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Lambda

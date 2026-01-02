@@ -1,6 +1,11 @@
 ---
 title: System Design
-next: ./Microservices.md
+next:
+  text: Microservices
+  link: ./Microservices.md
+prev:
+  text: Designs
+  link: ..
 sidebar: false
 ---
 

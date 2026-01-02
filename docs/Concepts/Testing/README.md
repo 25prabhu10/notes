@@ -1,6 +1,11 @@
 ---
 title: Testing
-next: ./Unit_Testing.md
+next:
+  text: Testing
+  link: ./Testing.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

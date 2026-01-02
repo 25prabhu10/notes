@@ -1,6 +1,11 @@
 ---
 title: AWS
-next: ./AWS
+next:
+  text: AWS
+  link: ./AWS.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

@@ -1,7 +1,11 @@
 ---
 title: Databases
 next:
+  text: Database
   link: ./Database.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

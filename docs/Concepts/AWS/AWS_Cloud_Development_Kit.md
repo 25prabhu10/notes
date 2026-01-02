@@ -1,7 +1,9 @@
 ---
 title: AWS Cloud Development Kit
 description: AWS Cloud Development Kit
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Cloud Development Kit

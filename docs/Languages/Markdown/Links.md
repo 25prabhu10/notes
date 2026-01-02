@@ -1,6 +1,11 @@
 ---
-prev: ./Heading
-next: ./Images
+title: Links
+next:
+  text: Images
+  link: ./Images.md
+prev:
+  text: Heading
+  link: ./Heading.md
 ---
 
 # Links

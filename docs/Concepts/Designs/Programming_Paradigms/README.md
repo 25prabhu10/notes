@@ -1,6 +1,11 @@
 ---
 title: Programming Paradigms
-next: ./Object-Oriented_Programming.md
+next:
+  text: Object-Oriented Programming
+  link: ./Object-Oriented_Programming.md
+prev:
+  text: Designs
+  link: ..
 sidebar: false
 ---
 

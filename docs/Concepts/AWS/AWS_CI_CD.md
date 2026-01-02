@@ -1,7 +1,9 @@
 ---
 title: AWS CI CD
 description: AWS CI CD
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS CI CD

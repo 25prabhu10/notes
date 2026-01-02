@@ -1,6 +1,11 @@
 ---
 title: Git
-next: ./Git.md
+next:
+  text: Git
+  link: ./Git.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

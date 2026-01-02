@@ -1,6 +1,11 @@
 ---
-prev: ./Images
-next: ./Tables
+title: Code Blocks
+next:
+  text: Tables
+  link: ./Tables.md
+prev:
+  text: Images
+  link: ./Images.md
 ---
 
 # Code Blocks

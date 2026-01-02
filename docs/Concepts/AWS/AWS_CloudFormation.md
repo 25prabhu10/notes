@@ -1,7 +1,9 @@
 ---
 title: AWS CloudFormation
 description: AWS CloudFormation
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS CloudFormation

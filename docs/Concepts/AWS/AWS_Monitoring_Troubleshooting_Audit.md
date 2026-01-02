@@ -1,7 +1,9 @@
 ---
 title: AWS Monitoring Troubleshooting Audit
 description: AWS Monitoring Troubleshooting Audit
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Monitoring Troubleshooting Audit

@@ -1,6 +1,11 @@
 ---
 title: HTML
-next: ./HTML.md
+next:
+  text: HTML
+  link: ./HTML.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

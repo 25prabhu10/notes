@@ -1,7 +1,9 @@
 ---
 title: API Gateway
 description: API Gateway
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # API Gateway

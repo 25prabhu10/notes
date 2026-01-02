@@ -1,7 +1,9 @@
 ---
 title: AWS Integration and Messaging
 description: AWS Integration and Messaging
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Integration and Messaging

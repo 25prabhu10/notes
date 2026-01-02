@@ -3,6 +3,9 @@ title: Concepts
 next:
   text: Data-Structures and Algorithms
   link: ./Data-Structures_and_Algorithms/
+prev:
+  text: Home
+  link: /
 sidebar: false
 ---
 
@@ -15,20 +18,21 @@ sidebar: false
 5. [Application Security](./Application_Security/)
 6. [Programming Paradigms](./Designs/Programming_Paradigms/)
 7. [Object-Oriented Programming](./Designs/Programming_Paradigms/Object-Oriented_Programming.md)
-8. [Databases](./Databases/): An organized collection of data stored and accessed electronically
-9. [Metaprogramming](./Metaprogramming.md)
-10. [Linux](./Linux.md)
-11. [AWS](./AWS/)
-12. [CI-CD](./CI-CD/): Continuous Integration and Continuous Deployment
-13. [Text Encoding](./Text_Encoding.md)
-14. [Data Serialization](./Data_Serialization.md)
-15. [regex](./Regular_Expression/)
-16. [Testing](./Testing/)
-17. [Logging](./Logging.md)
-18. [Telemetry](./Telemetry.md)
-19. [Agile](./Agile/Agile.md)
-20. [Artifactory](./Artifactory.md)
-21. [Key Words](./Key_Words.md)
+8. [Git](./Git/): A Distributed Version-Control System
+9. [Databases](./Databases/): An organized collection of data stored and accessed electronically
+10. [Metaprogramming](./Metaprogramming.md)
+11. [Linux](./Linux.md)
+12. [AWS](./AWS/)
+13. [CI-CD](./CI-CD/): Continuous Integration and Continuous Deployment
+14. [Text Encoding](./Text_Encoding.md)
+15. [Data Serialization](./Data_Serialization.md)
+16. [regex](./Regular_Expression/)
+17. [Testing](./Testing/)
+18. [Logging](./Logging.md)
+19. [Telemetry](./Telemetry.md)
+20. [Agile](./Agile/Agile.md)
+21. [Artifactory](./Artifactory.md)
+22. [Key Words](./Key_Words.md)
 
 ## References
 

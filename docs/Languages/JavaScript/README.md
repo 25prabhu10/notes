@@ -1,6 +1,11 @@
 ---
 title: JavaScript
-next: ./JavaScript.md
+next:
+  text: JavaScript
+  link: ./JavaScript.md
+prev:
+  text: Languages
+  link: ..
 sidebar: false
 ---
 

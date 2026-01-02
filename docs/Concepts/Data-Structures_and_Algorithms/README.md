@@ -1,8 +1,11 @@
 ---
 title: Data-Structures and Algorithms
 next:
-  text: Data-Structures
+  text: Data Structures
   link: ./Data-Structures/
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

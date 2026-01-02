@@ -1,6 +1,11 @@
 ---
-prev: ./Code
-next: ./List
+title: Tables
+next:
+  text: List
+  link: ./List.md
+prev:
+  text: Code Blocks
+  link: ./Code.md
 ---
 
 # Tables

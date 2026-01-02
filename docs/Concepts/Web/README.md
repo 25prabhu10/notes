@@ -1,6 +1,11 @@
 ---
-title: HTTP
-next: ./HTTP.md
+title: World Wide Web
+next:
+  text: World Wide Web
+  link: ./World_Wide_Web.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

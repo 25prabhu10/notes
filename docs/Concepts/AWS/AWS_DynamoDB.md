@@ -1,7 +1,9 @@
 ---
 title: AWS DynamoDB
 description: AWS DynamoDB
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS DynamoDB

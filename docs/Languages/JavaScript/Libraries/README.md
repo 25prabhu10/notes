@@ -1,6 +1,11 @@
 ---
 title: JavaScript Libraries
-next: ./NPM_Packages.md
+next:
+  text: NPM Packages List
+  link: ./NPM_Packages.md
+prev:
+  text: JavaScript
+  link: ..
 sidebar: false
 ---
 

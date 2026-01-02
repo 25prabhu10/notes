@@ -1,7 +1,9 @@
 ---
 title: AWS Serverless Application Model
 description: AWS Serverless Application Model
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Serverless Application Model

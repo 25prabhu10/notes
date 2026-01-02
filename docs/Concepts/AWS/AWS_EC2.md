@@ -1,7 +1,9 @@
 ---
 title: EC2
 description: EC2
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # EC2

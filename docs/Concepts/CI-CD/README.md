@@ -1,6 +1,9 @@
 ---
 title: CI-CD
 next: ./CI-CD.md
+prev:
+  text: Concepts
+  link: ..
 sidebar: false
 ---
 

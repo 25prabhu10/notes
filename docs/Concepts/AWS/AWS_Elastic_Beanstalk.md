@@ -1,7 +1,9 @@
 ---
 title: AWS Elastic Beanstalk
 description: AWS Elastic Beanstalk
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # AWS Elastic Beanstalk

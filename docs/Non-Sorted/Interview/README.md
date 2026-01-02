@@ -1,6 +1,5 @@
 ---
 title: Interview
-next: ./General.md
 sidebar: false
 ---
 

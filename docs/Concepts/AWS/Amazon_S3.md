@@ -1,7 +1,9 @@
 ---
 title: Amazon S3
 description: Amazon S3
-prev: ./AWS
+prev:
+  text: AWS
+  link: ./AWS
 ---
 
 # Amazon S3 (Simple Storage Service)

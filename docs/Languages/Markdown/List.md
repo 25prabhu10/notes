@@ -1,6 +1,9 @@
 ---
-prev: ./List
+title: Lists
 next: false
+prev:
+  text: Lists
+  link: ./List.md
 ---
 
 # Lists

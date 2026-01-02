@@ -1,6 +1,8 @@
 ---
 title: Algorithms
-next: ./Algorithms.md
+next:
+  text: Algorithms
+  link: ./Algorithms.md
 sidebar: false
 ---
 
