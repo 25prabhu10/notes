@@ -1,0 +1,20 @@
+# Default to LF for all text files
+* text=auto eol=lf
+
+*.ps1 text eol=crlf
+
+*.sh text eol=lf
+*.ts text eol=lf
+*.js text eol=lf
+*.vue text eol=lf
+*.md text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.txt text eol=lf
+
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.docx binary

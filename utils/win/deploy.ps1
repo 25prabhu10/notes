@@ -19,7 +19,7 @@
 
 .EXAMPLE
     .\deploy.ps1
-    Deploys the content from "docs/.vitepress/dist" to the 'master' branch of 'git@github.com:username/username.github.io.git'.
+    Deploys the content from "docs/.vitepress/dist" to the 'master' branch of 'git@github.com:25prabhu10/25prabhu10.github.io.git'.
 
 .EXAMPLE
     .\deploy.ps1 -DistPath "build" -RemoteUrl "git@github.com:myuser/myrepo.git" -BranchName "gh-pages" -Verbose
@@ -33,15 +33,15 @@
 
 [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'Low')]
 param(
-    [Parameter(Mandatory, Position = 0, HelpMessage = 'Relative path to VitePress build output.')]
+    [Parameter(Mandatory = $false, Position = 0, HelpMessage = 'Relative path to VitePress build output.')]
     [ValidateNotNullOrEmpty()]
     [string]$DistPath = 'docs/.vitepress/dist',
 
-    [Parameter(Mandatory, Position = 1, HelpMessage = 'Remote Git repo URL for deployment.')]
+    [Parameter(Mandatory = $false, Position = 1, HelpMessage = 'Remote Git repo URL for deployment.')]
     [ValidateNotNullOrEmpty()]
-    [string]$RemoteUrl = 'git@github.com:username/username.github.io.git',
+    [string]$RemoteUrl = 'git@github.com:25prabhu10/25prabhu10.github.io.git',
 
-    [Parameter(Mandatory, Position = 2, HelpMessage = 'Target branch name for deployment.')]
+    [Parameter(Mandatory = $false, Position = 2, HelpMessage = 'Target branch name for deployment.')]
     [ValidateNotNullOrEmpty()]
     [string]$BranchName = 'master'
 )
@@ -89,7 +89,8 @@ try {
         if (-not $gitStatus) {
             Write-Host "No changes detected. Deployment not required."
             # No need to exit here, just skip commit and push
-        } else {
+        }
+        else {
             Write-Verbose "Committing changes..."
             git commit -m 'deploy: automated deployment'
             if ($LASTEXITCODE -ne 0) { throw "Git commit failed." }
@@ -100,7 +101,8 @@ try {
 
             Write-Host "Deployment complete to $RemoteUrl branch $BranchName."
         }
-    } else {
+    }
+    else {
         Write-Warning "'-WhatIf' specified: Deployment steps skipped."
     }
 
@@ -118,71 +120,4 @@ finally {
 }
 
 Write-Verbose "Script finished."
-# Implicit exit 0 on success
 
-
-# [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'Low')]
-# param(
-#     [Parameter(Mandatory, Position = 0, HelpMessage = 'Relative path to VitePress build output.')]
-#     [ValidateNotNullOrEmpty()]
-#     [string]$DistPath = 'docs/.vitepress/dist',
-
-#     [Parameter(Mandatory, Position = 1, HelpMessage = 'Remote Git repo URL for deployment.')]
-#     [ValidateNotNullOrEmpty()]
-#     [string]$RemoteUrl = 'git@github.com:username/username.github.io.git',
-
-#     [Parameter(Mandatory, Position = 2, HelpMessage = 'Target branch name for deployment.')]
-#     [ValidateNotNullOrEmpty()]
-#     [string]$BranchName = 'master'
-# )
-
-# $ErrorActionPreference = 'Stop'
-
-# # Resolve absolute path to the distribution directory
-# $ScriptRoot    = Split-Path -Parent $MyInvocation.MyCommand.Path
-# $FullDistPath  = Join-Path $ScriptRoot $DistPath
-
-# if (-not (Test-Path -Path $FullDistPath -PathType Container)) {
-#     throw "Distribution directory not found: '$FullDistPath'"
-# }
-
-# Write-Verbose "Resolved distribution directory: $FullDistPath"
-
-# if ($PSCmdlet.ShouldProcess("$FullDistPath → $RemoteUrl/$BranchName", 'Deploy site')) {
-#     Push-Location -Path $FullDistPath
-
-#     try {
-#         Write-Verbose 'Initializing Git repository (if not already)...'
-#         git init --quiet
-#         if ($LASTEXITCODE -ne 0) { throw 'git init failed.' }
-
-#         Write-Verbose 'Staging all files...'
-#         git add -A
-#         if ($LASTEXITCODE -ne 0) { throw 'git add failed.' }
-
-#         $changes = git status --porcelain
-#         if (-not $changes) {
-#             Write-Host 'No changes to deploy. Exiting.'
-#             return
-#         }
-
-#         Write-Verbose 'Committing changes...'
-#         git commit --message 'deploy: automated deployment' --quiet
-#         if ($LASTEXITCODE -ne 0) { throw 'git commit failed.' }
-
-#         Write-Verbose "Pushing to $RemoteUrl ($BranchName) with force..."
-#         git push --force $RemoteUrl "HEAD:$BranchName" --quiet
-#         if ($LASTEXITCODE -ne 0) { throw 'git push failed.' }
-
-#         Write-Host "Deployment succeeded to $RemoteUrl#$BranchName."
-#     }
-#     catch {
-#         throw "Deployment failed: $($_.Exception.Message)"
-#     }
-#     finally {
-#         Pop-Location
-#     }
-# }
-# else {
-#     Write-Verbose 'Deployment skipped by ShouldProcess/WhatIf.'
-# }

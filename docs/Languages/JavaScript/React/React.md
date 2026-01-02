@@ -96,7 +96,7 @@ We can either:
    - [Redwood SDK](https://rwsdk.com/)
    - [Waku](https://waku.gg/)
 
-> [!NOTE] Official Guide
+> [!NOTE]
 > [Official react installation guide](https://react.dev/learn/installation) for latest info
 
 ### React Project Setup From Scratch (only for learning purposes)

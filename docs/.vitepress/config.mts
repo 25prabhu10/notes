@@ -107,4 +107,9 @@ export default defineConfig({
     socialLinks: [{ icon: "github", link: "https://github.com/25prabhu10/notes" }],
   },
   title: "Notes",
+  vite: {
+    build: {
+      emptyOutDir: true,
+    },
+  },
 });

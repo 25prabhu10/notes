@@ -11,6 +11,7 @@
 
 .PARAMETER SourcePath
     Specifies the source directory path from which files will be copied.
+    Defaults to the environment variable 'NOTES_SRC_DIR'.
     This directory must exist.
 
 .PARAMETER DestinationPath
@@ -32,17 +33,21 @@
 
 [CmdletBinding(SupportsShouldProcess = $true)]
 param(
-    [Parameter(Mandatory = $true, HelpMessage = "Enter the source directory path.")]
+    [Parameter(Mandatory = $false, HelpMessage = "Enter the source directory path. Defaults to env:NOTES_SRC_DIR.")]
     [ValidateScript({
-        if (Test-Path -Path $_ -PathType Container) {
-            return $true
-        } else {
-            throw "Source path '$_' not found or is not a directory."
-        }
-    })]
-    [string]$SourcePath = "D:\Users\Vinayak\Dropbox\Notes\",
+            if ([string]::IsNullOrWhiteSpace($_)) {
+                throw "Source path is empty. Please set the NOTES_SRC_DIR environment variable or provide the -SourcePath parameter."
+            }
+            if (Test-Path -Path $_ -PathType Container) {
+                return $true
+            }
+            else {
+                throw "Source path '$_' not found or is not a directory."
+            }
+        })]
+    [string]$SourcePath = $env:NOTES_SRC_DIR,
 
-    [Parameter(Mandatory = $true, HelpMessage = "Enter the destination directory path.")]
+    [Parameter(Mandatory = $false, HelpMessage = "Enter the destination directory path.")]
     [string]$DestinationPath = "docs\"
 )
 
@@ -66,17 +71,20 @@ if (-not $destinationExists) {
         try {
             New-Item -Path $DestinationPath -ItemType Directory -Force -ErrorAction Stop | Out-Null
             Write-Verbose "Successfully created destination directory: '$DestinationPath'."
-        } catch {
+        }
+        catch {
             Write-Error "Failed to create destination directory '$DestinationPath'. Error: $($_.Exception.Message)"
             # Script will terminate due to $ErrorActionPreference = 'Stop'
         }
-    } else {
+    }
+    else {
         # If -WhatIf is used and directory doesn't exist, stop the script.
         Write-Warning "'-WhatIf' specified: Cannot proceed without creating destination directory '$DestinationPath'."
         return
     }
-} else {
-     Write-Verbose "Destination directory '$DestinationPath' already exists."
+}
+else {
+    Write-Verbose "Destination directory '$DestinationPath' already exists."
 }
 
 # Define robocopy arguments
@@ -111,17 +119,20 @@ if ($PSCmdlet.ShouldProcess($DestinationPath, "Synchronize from '$SourcePath'"))
         if ($LASTEXITCODE -lt 8) {
             Write-Verbose "Robocopy completed successfully (Exit Code: $LASTEXITCODE)."
             Write-Host "Synchronization from '$SourcePath' to '$DestinationPath' completed successfully."
-        } else {
+        }
+        else {
             # Throw a terminating error for robocopy failures
             throw "Robocopy failed with Exit Code $LASTEXITCODE. Check robocopy logs or output for details."
         }
-    } catch {
+    }
+    catch {
         # Catch errors from robocopy execution or the explicit throw above
         Write-Error "Synchronization failed. Error: $($_.Exception.Message)"
         # Script will terminate due to $ErrorActionPreference = 'Stop'
     }
-} else {
-     Write-Warning "'-WhatIf' specified: Robocopy synchronization not executed."
+}
+else {
+    Write-Warning "'-WhatIf' specified: Robocopy synchronization not executed."
 }
 
 Write-Verbose "Script finished."

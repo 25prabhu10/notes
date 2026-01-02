@@ -228,7 +228,8 @@ module.exports = () => {
 };
 ```
 
-> [!CAUTION] ASYNCHRONOUS `require` AND `exports`
+> [!CAUTION]
+> ASYNCHRONOUS `require` AND `exports`
 > The `require` function is synchronous
 > Any assignment to `module.exports` must be synchronous
 >
