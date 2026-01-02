@@ -19,7 +19,7 @@ sidebar: false
 9. [Metaprogramming](./Metaprogramming.md)
 10. [Linux](./Linux.md)
 11. [AWS](./AWS/)
-12. [CI-CD](./CI-CD/): A method to frequently deliver apps to customers by introducing automation into the stages of app development
+12. [CI-CD](./CI-CD/): Continuous Integration and Continuous Deployment
 13. [Text Encoding](./Text_Encoding.md)
 14. [Data Serialization](./Data_Serialization.md)
 15. [regex](./Regular_Expression/)
