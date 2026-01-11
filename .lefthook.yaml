@@ -1,7 +1,16 @@
 pre-commit:
-  commands:
-    format:
-      interactive: true
-      stage_fixed: true
-      glob: "*.{html,js,json,md,mts,ts,vue,yaml}"
+  parallel: false
+  jobs:
+    - stage_fixed: true
+      glob:
+        - "*.html"
+        - "*.{js,mts,ts,vue}"
+        - "*.{json,jsonc,yaml}"
+        - "*.md"
       run: pnpm exec oxfmt --no-error-on-unmatched-pattern {staged_files}
+    - stage_fixed: true
+      glob: "*.{js,mts,ts,vue}"
+      run: pnpm exec oxlint --type-aware --type-check --deny-warnings {staged_files}
+    - stage_fixed: true
+      glob: "*.md"
+      run: pnpm exec markdownlint-cli2 {staged_files} '#./docs/README.md' '#./docs/about.md'
