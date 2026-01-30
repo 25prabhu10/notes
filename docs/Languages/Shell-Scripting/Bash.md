@@ -92,8 +92,9 @@ pstree -p process_id
 
 Different Bash shebang:
 
-- `#!/usr/bin/env bash`: Flexibility on different systems (protability)
+- `#!/usr/bin/env bash`: Flexibility on different systems (portability)
   - Different `*nixes` put `bash` in different places
+  - Using `env` will search for `bash` in the system's `PATH` and use the first occurrence, as bash is not always located at `/bin/bash`
 
 - `#!/usr/bin/bash`: Explicit control on a given system of what executable is called
 
@@ -604,6 +605,35 @@ Thus, in `2>&1`:
 
 - `2>` redirects `stderr` to an _(unspecified) file_
 - `&1` redirects `stderr` to `stdout`
+
+## `set` Command
+
+The `set` command is used to change the value of shell options and positional parameters
+
+- Enable bash strict mode at the start of every script to catch errors early:
+
+  ```bash
+  set -Eeuo pipefail  # Exit on error, unset variables, pipe failures
+  ```
+
+  - `set -E`: Inherit ERR trap in functions
+  - `set -e`: Exit on any error (command returns non-zero)
+  - `set -u`: Exit on undefined variable reference
+  - `set -o pipefail`: Pipe fails if any command fails (not just last)
+
+## `trap` Command
+
+The `trap` command is used to specify commands that will be executed when the shell receives certain signals
+
+Syntax:
+
+```bash
+trap 'commands' SIGNALS
+
+# Example: Clean up temporary files on exit
+trap 'echo "Error on line $LINENO"' ERR
+trap 'echo "Cleaning up..."; rm -rf "$TMPDIR"' EXIT
+```
 
 ## References
 

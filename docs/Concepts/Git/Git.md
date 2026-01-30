@@ -13,7 +13,7 @@ It helps in **tracking changes in the project** and **coordinating work** on tho
 
 Types of Version Control Systems:
 
-1. **Local**: It allows you to copy files into another directory and rename it (For example, project.1.1). This method is error-prone and introduces redundancy
+1. **Local**: It allows you to copy files into another directory and rename it (like `project.1.1/` to `project.1.2/`). This method is error-prone and introduces redundancy
 
 2. **Centralised**: All version files are present in a single central server. For example, CVS, SVN, and Perforce
 
@@ -23,29 +23,29 @@ Types of Version Control Systems:
 
 Old VCS that predate Git:
 
-- Source Code Control System (SCCS):
+- [Source Code Control System (SCCS)](https://pubs.opengroup.org/onlinepubs/9699919799/utilities/sccs.html):
   - 1972: closed source, free with Unix
   - Stored original version and sets of changes
 
-- Revision Control System (RCS):
-  - 1982: open source
+- [Revision Control System (RCS)](https://www.gnu.org/software/rcs/):
+  - 1982: [Open Source repo](https://cvsweb.openbsd.org/cgi-bin/cvsweb/src/usr.bin/rcs/)
   - Stored latest version and sets of changes
 
-- Concurrent Version System (CVS):
+- [Concurrent Version System (CVS)](https://cvs.nongnu.org/):
   - 1986-1990: open source
   - Multiple files, entire project
   - Multi-user repositories
 
-- Apache Subversion (SVN):
+- [Apache Subversion (SVN)](https://subversion.apache.org/):
   - 2000: open source
   - Track text and images
   - Track file changes collectively (track directory)
 
-- BitKeeper SCM:
+- [BitKeeper SCM](https://www.bitkeeper.org/):
   - 2000: closed source, proprietary
   - Distributed version control
 
-- Git:
+- [Git](https://git-scm.com/):
   - April 2005
   - Linus Tovalds
   - Distributed version control
@@ -72,17 +72,42 @@ Old VCS that predate Git:
 
 Git uses 3 Tree architecture:
 
-- Repository
-- Staging Index
-- Working
+1. Working Directory
+2. Staging Area (Index)
+3. Repository
 
-These 3 stages are:
+| #   | Stages            | Details                                                                                                                                    |
+| --- | ----------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1   | Working Directory | The actual files you are currently editing on your computer. Changes here are "untracked" or "modified" until you stage them.              |
+| 2   | Staging Area      | Also known as the Index. This is a "preview" of your next commit. You add specific changes here that you want to include in your snapshot. |
+| 3   | Repository        | The `.git` directory on the machine. Once you commit, your changes are permanently stored in this local database.                          |
 
-| #   | Stages            | Details                                                       |
-| --- | ----------------- | ------------------------------------------------------------- |
-| 1   | Working Directory | Un-tracked new files and modified directories are found here. |
-| 2   | Staging Area      | Things we want to commit and ignore which we don't want.      |
-| 3   | Remote Repository | `.git` directory(Repository)                                  |
+```text
+LOCAL ENVIRONMENT                                REMOTE
+=========================================        ========
+
+  Working          Staging          Local           Remote
+   Tree             Area            Repo             Repo
+(Modified)        (Index)          (.git)          (Github/Gitlab/etc.)
+    |                |               |                |
+    |      add       |               |                |
+    | -------------> |               |                |
+    |                |    commit     |                |
+    |                | ------------> |                |
+    |                |               |      push      |
+    |                |               | -------------> |
+    |                |               |                |
+    |     checkout / restore         |                |
+    | <----------------------------- |                |
+    |                |               |      fetch     |
+    |                |               | <------------- |
+    |                |    merge      |                |
+    | <----------------------------- |                |
+    |                |               |                |
+    |                pull (fetch + merge)             |
+    | <---------------------------------------------- |
+    |                |               |                |
+```
 
 The `.git` folder contains different files and folders:
 
@@ -108,10 +133,10 @@ The `objects` folder consists of 4 types of objects:
 
   ```bash
   # find the type of object
-  git cat-file -t [commitSHA]
+  git cat-file -t "commitSHA"
 
   # see file content
-  git cat-file -p HEAD:"[filename]"
+  git cat-file -p HEAD:"filename"
   ```
 
 ### Repositories
@@ -119,8 +144,36 @@ The `objects` folder consists of 4 types of objects:
 When working on a Git project most of the time the user will have to deal with two repositories:
 
 - _Remote Repository_: They are versions of your project that are hosted on the Internet or network somewhere
+  - These are typically [hosted by services](https://git-scm.com/tools/hosting) such as [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org), or a private Git server
+  - These repositories are used to share code between multiple developers
+  - They are also used as a backup of your code in case something happens to your local copy
+  - These repositories can be accessed using different protocols such as HTTPS or SSH
 
 - _Local Repository_: It is a copy of the remote repository that exists on the user's workstation. This is the repository where the user works on the project
+  - The user can make changes to the files in the local repository and commit those changes to create a new version of the project
+  - The user can also push their changes to the remote repository to share them with other developers
+
+#### Git Server
+
+A Git server is a program that allows you to host Git repositories and provides access to them over a network
+
+- [Git on the Server - Setting Up the Server](https://git-scm.com/book/en/v2/Git-on-the-Server-Setting-Up-the-Server) explains how to set up a Git server
+
+```bash
+# create a bare repository on the server
+git init --bare "repository_name"
+
+# set permissions (optional)
+chown -R gituser:gitgroup "repository_name"
+chmod -R 770 "repository_name"
+
+# copy the repository to the server
+scp -r "repository_name" user@server:/path/to/repositories/repository_name
+# or directly use `git clone` to clone the repository from the server
+git clone user@server:/path/to/repositories/repository_name
+```
+
+- Or use tools like [gitea](https://github.com/go-gitea/gitea), [gogs](https://gogs.io/), GitHub, GitLab, Bitbucket etc. to host Git repositories
 
 ### Head
 
@@ -671,7 +724,7 @@ git push -f
 
 Generally most of us don't love doing forced pushes, because there is always a chance that you're overwriting someone else's commits. Let's take a scenario:
 
-- You commit and push something to GitHub
+- You commit and push something to remote branch
 
 - Someone else pulls it down, commits something and pushes it back up
 
@@ -1845,7 +1898,7 @@ This will modify your `.git/config` file to add a `maintenance.strategy` value s
 - `loose-objects`: daily
 - `incremental-repack`: daily
 
-This means that every hour it will rebuild your commit graph and do a prefetch, and once per day it will clean up loose objects and put them in pack-files and also repack the object directory using the multi-pack-index feature (read more about that in an incredible blog post from GitHub's Taylor Blau - [Multi-pack indexes](https://github.blog/2021-04-29-scaling-monorepo-maintenance/?ref=blog.gitbutler.com#multi-pack-indexes))
+This means that every hour it will rebuild your commit graph and do a prefetch, and once per day it will clean up loose objects and put them in pack-files and also repack the object directory using the multi-pack-index feature (read more about that in an incredible blog post from [GitHub's Taylor Blau - Multi-pack indexes](https://github.blog/2021-04-29-scaling-monorepo-maintenance/?ref=blog.gitbutler.com#multi-pack-indexes))
 
 - This makes things like `git log --graph` or `git branch --contains` much, much faster
 
@@ -1934,7 +1987,7 @@ Running `scalar clone [repo https url/ssh link]` will do the following:
 
 An open source Git extension for versioning large files
 
-Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise
+Git Large File Storage (LFS) replaces large files such as audio samples, videos, datasets, and graphics with text pointers inside Git, while storing the file contents on a remote server like GitHub.com or GitHub Enterprise or another Git LFS server
 
 ```bash
 # install LFS
@@ -1956,7 +2009,9 @@ git push origin master
 
 Git RCS keywords: `$Date$`
 
-## Github Folder
+## GitHub Folder
+
+The `.github` folder is used to store GitHub-specific files related to your repository. These files help manage and automate various aspects of your project on GitHub
 
 The below mentioned files can be created in the `.github` folder:
 
@@ -1966,12 +2021,12 @@ The below mentioned files can be created in the `.github` folder:
 
 - `FUNDING.yml`: Displays a sponsor button in your repository to increase the visibility of funding options for your open source project
 
-- `ISSUE_TEMPLATE`: Folder that contains a templates of possible issues user can use to open issue (such as if issue is related to documentation, if it's a bug, if user wants new feature etc)
+- `ISSUE_TEMPLATE`: Folder that contains a templates of possible issues user can use to open issue (such as if issue is related to documentation, if it's a bug, if user wants new feature etc.)
   - `config.yml`: Customize the issue template chooser that people see when creating a new issue in your repository by adding a `config.yml` file to the .`github/ISSUE_TEMPLATE` folder
 
 - `PULL_REQUEST_TEMPLATE.md`: How to make a pull request to project
 
-- `stale.yml`: Probot configuration to close stale issues. There are many other apps on Github Marketplace that place their configurations inside .github folder because they are related to GitHub specifically
+- `stale.yml`: Probot configuration to close stale issues. There are many other apps on GitHub Marketplace that place their configurations inside `.github` folder because they are related to GitHub specifically
 
 - `SECURITY.md`: Gives instructions for how to report a security vulnerability in your project
 

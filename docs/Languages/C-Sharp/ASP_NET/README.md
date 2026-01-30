@@ -26,7 +26,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
 - [Proto Hackers](https://protohackers.com/)
 
 1. General Development Skills
-   - [GIT](../../Git/Git.md)
+   - [GIT](../../../Concepts/Git/Git.md)
    - [HTTP/HTTPS](../../../Concepts/Web/HTTP.md) protocol
    - [dotnet CLI](../Dotnet_CLI.md)
    - [Data Structures and Algorithms](./../../../Concepts/Data-Structures_and_Algorithms/)

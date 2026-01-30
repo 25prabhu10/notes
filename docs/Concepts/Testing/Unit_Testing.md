@@ -11,7 +11,7 @@ Verify that **a known, fixed input produces a known, fixed output**
 
 - Testing a unit of work
 - An unit can be a method
-- [Red-green testing](#test-driven-development-tdd)
+- [Red-green testing](./Testing.md#test-driven-development-tdd)
 - System under test (SUT)
 - [Code coverage](#code-coverage)
 - One _unit test_ runs independently of any other unit test
@@ -26,7 +26,7 @@ Unit tests should not be the only means to test an application, as:
 - They are further away from how users interact with software
 - More likely to break with refactoring
 
-### Characteristics of a good unit test
+## Characteristics of a good unit test
 
 - **Fast**: It is not uncommon for mature projects to have thousands of unit tests. Unit tests should take very little time to run (in _milliseconds_)
 
@@ -47,7 +47,7 @@ Unit testing tips:
 - Cover edge cases
 - Write tests that are independent of each other
 
-### Unit Test Structure
+## Unit Test Structure
 
 1. **Setup**: Put the Unit Under Test (UUT) or the overall test system in the state needed to run the test
 
@@ -65,12 +65,12 @@ Arranging your tests: **Arrange, Act, Assert** is a common pattern when unit tes
 
 - _Assert_ that something is as expected
 
-### Naming conventions
+## Naming conventions
 
 - Roy Osherove's naming strategy for unit tests: `[UnitOfWork_StateUnderTest_ExpectedBehaviour]`
   - E.g. `Divide_PositiveNumbers_ReturnsPositiveQuotient`
 
-### Code Coverage
+## Code Coverage
 
 A high code coverage percentage is often associated with a higher quality of code
 

@@ -435,6 +435,9 @@ Executable file
 
    - C++ files are called Translation Units (Files have no meaning to C++ Compiler)
 
+   - `nm` tool can be used to see the symbols in the object file
+   - `strings` tool can be used to see the printable strings in the object file
+
 3. **Assembler**: Translate assembly code to object file
 
    _Flag:_ `-c` to compile only
@@ -2490,6 +2493,84 @@ while (x == y) {
 while (x == y)
   { func1();
     func2(); }
+```
+
+## Function Overloading
+
+C does not support function overloading like C++, but we can achieve similar functionality using different techniques:
+
+- Using different function names:
+
+```c
+#include <stdio.h>
+
+void printInt(int a) {
+  printf("Integer: %d\n", a);
+}
+
+void printFloat(float b) {
+  printf("Float: %f\n", b);
+}
+
+int main() {
+  printInt(10);
+  printFloat(20.5);
+  return 0;
+}
+```
+
+- Using `void` pointers:
+
+```c
+#include <stdio.h>
+
+void printValue(void *value, char type) {
+  switch (type) {
+    case 'i':
+      printf("Integer: %d\n", *(int *)value);
+      break;
+    case 'f':
+      printf("Float: %f\n", *(float *)value);
+      break;
+    default:
+      printf("Unknown type\n");
+  }
+}
+
+int main() {
+  int a = 10;
+  float b = 20.5;
+
+  printValue(&a, 'i');
+  printValue(&b, 'f');
+
+  return 0;
+}
+```
+
+- Using macros with `_Generic` (introduced in C11):
+
+```c
+#include <stdio.h>
+
+#define printValue(value) _Generic((value), \
+    int: printInt, \
+    float: printFloat \
+)(value)
+
+void printInt(int a) {
+  printf("Integer: %d\n", a);
+}
+
+void printFloat(float b) {
+  printf("Float: %f\n", b);
+}
+
+int main() {
+  printValue(10);
+  printValue(20.5f);
+  return 0;
+}
 ```
 
 ## References

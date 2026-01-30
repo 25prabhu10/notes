@@ -384,13 +384,14 @@ A React elements look similar to the HTML elements and describe how React should
 - Create a React element which represents `h1` using `React.createElement`:
 
   ```javascript
-  React.createElement("h1", { id: "recipe-0" }, "Baked Salmon");
+  const recipeName = "Baked Salmon";
+  React.createElement("h1", { id: "recipe-0" }, recipeName);
   ```
 
   - JSX is used for creating React element which look similar to HTML. This JSX code will be converted into the above mentioned `React.createElement`
 
   ```jsx
-  <h1 id="recipe-0">Baked Salmon</h1>
+  <h1 id="recipe-0">{recipeName}</h1>
   ```
 
 - React will create the actual DOM elements based on the above code:
@@ -498,8 +499,8 @@ Ways to create a React class component:
   }
   ```
 
-  > [!TIP] HEADS-UP
-  > This syntax may as well be deprecated in near future
+  > [!TIP]
+  > Prefer using **functional components** with [hooks](#hooks) over class components for new code
 
 - `displayName`: This string property is used in debugging messages
 
@@ -521,7 +522,7 @@ When will React render a component?
 
 1. State changes
 
-2. Parent component renders
+2. Parent component renders (also causes child components to render)
 
 3. Props changes
 
@@ -564,7 +565,7 @@ function Welcome({ name }) {
 }
 ```
 
-- To overcome these issue, we should wrap the two elements with a parent element such as a `div`, so that only one `createElement` is returned by the function after transpilation:
+- To overcome these issue, we should wrap the two elements with a parent element such as a `div`, so that only one `createElement` with two elements as children is returned by the function after transpilation:
 
 ```jsx
 function Welcome({ name }) {
@@ -3274,20 +3275,24 @@ export default App;
 
 ## Versions
 
-1. React `v0.3.0` (July 2013):
+1. Birth of React (2011)
+
+2. React `v0.3.0` (July 2013):
    - First public release
 
-2. React `v0.x` (July 2013 - March 2015):
+3. React `v0.x` (July 2013 - March 2015):
    - JSX
    - Virtual DOM
    - Component-based architecture
 
-3. React `v15` (April 2016):
+4. React `v15` (April 2016):
+   - Flux architecture
+     - Unidirectional data flow
    - Optimized Reconciliation
    - Developer tools
    - Introduced `prop-types` and `create-react-class` packages
 
-4. React `v16` (September 2017):
+5. React `v16` (September 2017):
    - Error Boundaries
    - Fragments
    - Portals
@@ -3298,7 +3303,7 @@ export default App;
      - [`React.createContext`](#context-api)
      - [`React.createRef`](#creating-refs)
 
-5. React `v17` (October 2020):
+6. React `v17` (October 2020):
    - React import is not required
    - New JSX transform:
      - Old transformation
@@ -3335,7 +3340,7 @@ export default App;
 
    - React will no longer attach event handlers at the `document` level. Instead, it will attach them to the root DOM container into which your React tree is rendered
 
-6. React `v18` (March 2022):
+7. React `v18` (March 2022):
    - `ReactDOM.render` is deprecated
    - Concurrent Rendering (opt-in)
    - Automatic batching
@@ -3349,7 +3354,7 @@ export default App;
    - Streaming SSR with [Suspense](#suspense)
    - Concurrent rendering: A behind-the-scenes
 
-7. React `v19` (June 2024):
+8. React `v19` (June 2024):
    - React Server Components (RSC) stable
    - Actions
    - New Hooks:

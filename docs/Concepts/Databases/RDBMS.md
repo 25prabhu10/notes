@@ -115,7 +115,7 @@ COMMIT TX1
 3. [Consistency](#consistency)
 4. [Durability](#durability)
 
-#### Atomicity
+### Atomicity
 
 - All queries in a transaction must succeed
 - If one query fails, all prior successful queries in the transaction should rollback
@@ -152,7 +152,7 @@ UPDATE ACCOUNT SET BALANCE = BALANCE - 100 WHERE ID = 1
 - An atomic transaction is a transaction that will rollback all queries if one or more queries failed
 - The database should clean this up after restart
 
-#### Isolation
+### Isolation
 
 - Can my in-flight transaction see changes made by other transactions?
 
@@ -284,7 +284,7 @@ Database Implementation of Isolation:
 
 - Serializable are usually implemented with optimistic concurrency control, you can implement it pessimistically with SELECT FOR UPDATE
 
-#### Consistency
+### Consistency
 
 Consistency in Data:
 
@@ -335,7 +335,7 @@ Consistency in reads:
 - Relational and NoSQL databases suffer from this
 - Eventual consistency
 
-#### Durability
+### Durability
 
 - Once a transaction has been committed, it will remain so, even in the event of power loss, crashes, or errors
 
