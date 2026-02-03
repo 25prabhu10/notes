@@ -13,6 +13,8 @@ description: A statically typed, compiled programming language designed at Googl
 
 Language designed at Google. It is syntactically similar to C, but with memory safety, structural typing, and CSP-style concurrency
 
+[Learn Go by Example](https://gobyexample.com/) is a great resource to get started with Go programming language
+
 ## Hello, World
 
 1. To create a simple "Hello, World!" program in Go, you can use the following code:

@@ -12,3 +12,6 @@ MD033:
 # MD046 - Code block style
 MD046:
   style: fenced
+
+# MD010 - No hard tabs: formatters handle this
+MD010: false

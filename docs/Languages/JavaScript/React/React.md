@@ -31,10 +31,10 @@ If you are using node.js, it will by default install [npm](https://www.npmjs.com
   npm -v
   ```
 
-To create a basic React project we need the `React` library and `ReactDOM` library because _React_ only creates views, to render these views we need a library that will handle DOM manipulations. _ReactDOM_ library dose this for us
+To create a basic React project we need the [`React`](https://www.npmjs.com/package/react) library and `ReactDOM` library.
 
-- **React** is the **library for creating views**
-- **ReactDOM** is the **library used to render the UI in the browser**
+- **React** is the **library for creating UI components**
+- **ReactDOM** is the **library used to render these UI components in the browser**
 
 We write React code using [JSX](#javascript-xml-jsx) which is a syntax extension of JavaScript
 
@@ -42,8 +42,6 @@ We write React code using [JSX](#javascript-xml-jsx) which is a syntax extension
 - Tools like [Babel](#babel) are used for this purpose
 
 ### Ways To Setup React Project
-
-We can either:
 
 1. Use CDN links (**not recommended** for newer versions of react) to get the JS files of the two libraries and add them as script tags in `index.html` file. Add your react code inside a script tag with type attribute set to `text/babel`:
 
@@ -146,19 +144,26 @@ Steps to create a base React project without using any boilerplate tools:
      <body>
        <div id="root"></div>
        <noscript>You need to enable JavaScript to run this app.</noscript>
-       <script src="../dist/bundle.js"></script>
      </body>
    </html>
    ```
 
 6. Create a source directory called `src`, which will containing all the user written content such as JSX components, CSS files, etc...
 
-7. Now you need a **module packager or build tool**, which will orchestrate JSX transformation, file minification and concatenation, module/dependency bundling or any other tasks. Tools such as [webpack](../Tools/Webpack/Webpack.md), [rollup.js](https://rollupjs.org/), [PARCEL](https://parceljs.org/), [Rolldown](https://rolldown.rs/), [Rsbuild](https://rsbuild.rs/), [esbuild](https://esbuild.github.io/) can be used
+7. Now you need a **module packager or build tool**, which will orchestrate JSX transformation, file minification and concatenation, module/dependency bundling or any other tasks
+   - Tools such as:
+     - [webpack](../Tools/Webpack/Webpack.md)
+     - [rollup.js](https://rollupjs.org/)
+     - [PARCEL](https://parceljs.org/)
+     - [Rolldown](https://rolldown.rs/)
+     - [Rsbuild](https://rsbuild.rs/)
+     - [esbuild](https://esbuild.github.io/)
+
    - Each tool has its own pros and cons. Choose the one which best suits your project requirements
    - The next steps will vary based on the tool you choose
 
 8. We will use webpack (v5)
-   - Install `webpack` (library) and `webpack-cli` (command line interface) as dev dependencies:
+   - Install `webpack` (library) and `webpack-cli` as dev dependencies:
 
      ```bash
      npm install webpack webpack-cli --save-dev
@@ -175,29 +180,27 @@ Steps to create a base React project without using any boilerplate tools:
    - Add the below settings inside `webpack.config.js` file:
 
      ```javascript
-     {
+     export default {
+        entry: "./src/main.jsx", // entry point for the app
+         output: {
+            filename: "bundle.js", // output bundle file name
+            path: path.resolve(__dirname, "dist"), // output directory
+            clean: true, // clean the output directory before emit
+          },
        module: {
          rules: [
            {
-             test: /\.m?js$/,
-             exclude: /node_modules/,
+             test: /\.(js|jsx)$/, // what files to apply this rule to
+             exclude: /node_modules/, // exclude node_modules directory
              use: {
-               loader: "babel-loader",
+               loader: "babel-loader", // use babel-loader to transpile JSX files
                options: {
-                 presets: ["@babel/preset-env"],
+                 presets: ["@babel/preset-env", "@babel/preset-react"], // presets for modern JS and React
                },
              },
            },
          ];
        }
-     }
-     ```
-
-   - Create `babel.config.json` or `.babelrc` configuration file and add:
-
-     ```json
-     {
-       "presets": ["@babel/preset-env", "@babel/preset-react"]
      }
      ```
 
@@ -210,7 +213,8 @@ Steps to create a base React project without using any boilerplate tools:
 11. Now all the basic setup is done and you can proceed with working on the project. For example create an `main.jsx` and `app.jsx` file inside the `src` directory which will contain the main application code and create a `styles.css` file for styling
 
     ```css
-    # ./src/styles.css body {
+    /* ./src/styles.css */
+    body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
@@ -219,7 +223,7 @@ Steps to create a base React project without using any boilerplate tools:
     ```
 
     ```jsx
-    # ./src/app.jsx
+    // ./src/app.jsx
     function App() {
       return <h1>Hello, World!</h1>;
     }
@@ -228,7 +232,7 @@ Steps to create a base React project without using any boilerplate tools:
     ```
 
     ```jsx
-    # ./src/main.jsx
+    // ./src/main.jsx
     import { StrictMode } from "react";
     import { createRoot } from "react-dom/client";
     import "./styles.css";
@@ -238,30 +242,46 @@ Steps to create a base React project without using any boilerplate tools:
     const rootElement = document.getElementById("root");
 
     if (rootElement && !rootElement.innerHTML) {
-        const root = createRoot(rootElement);
-        root.render(
-            <StrictMode>
-                <RootProvider>
-                    <App />
-                </RootProvider>
-            </StrictMode>,
-        );
+      const root = createRoot(rootElement);
+      root.render(
+        <StrictMode>
+          <RootProvider>
+            <App />
+          </RootProvider>
+        </StrictMode>
+      );
     }
     ```
 
-12. Add build and start scripts inside `package.json` file:
+12. We need to install the `html-webpack-plugin` plugin to copy HTML to dist directory
+    - It also injects the bundled JavaScript file containing the React code into the HTML file
+
+    ```bash
+    npm install --save-dev html-webpack-plugin
+    ```
+
+    - Add the below code inside `webpack.config.js` file:
+
+    ```javascript
+    import HtmlWebpackPlugin from "html-webpack-plugin";
+
+    export default {
+      // ... other settings
+      plugins: [
+        new HtmlWebpackPlugin({
+          template: "./public/index.html",
+          inject: "body",
+        }),
+      ],
+    };
+    ```
+
+13. Add a build script inside `package.json` file to create a production build:
 
     ```json
     "scripts": {
       "build": "webpack --mode production",
-      "dev": "webpack serve --mode development --open"
     }
-    ```
-
-13. Now you can run the below command to start the development server:
-
-    ```bash
-    npm dev
     ```
 
 14. To create a production build run:
@@ -270,8 +290,7 @@ Steps to create a base React project without using any boilerplate tools:
     npm run build
     ```
 
-> [!NOTE]
-> If you are using a boilerplate generator such as create-react-app, you don't need to worry about the initial setup. You can just start working on the project which has been scaffolded
+15. Now you can open the `./dist/index.html` file in a browser to see the output
 
 ### Babel
 
