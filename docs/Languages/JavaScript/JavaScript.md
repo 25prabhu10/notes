@@ -4581,6 +4581,21 @@ const logValues = (obj: any) => {
 };
 ````
 
+## Platform Apps
+
+1. Web Apps: run in a web browser, built with HTML, CSS, and JavaScript
+2. Mobile Apps: run on mobile devices, built with frameworks like React Native, Flutter, or native languages (Swift for iOS, Kotlin for Android)
+   - [React Native](https://reactnative.dev/): Build native mobile apps using React and JavaScript
+   - [lynx](https://lynxjs.org/): Build cross-platform mobile apps with JavaScript and React
+3. Desktop Apps: run on desktop operating systems, built with frameworks like Electron or native languages (C#, Java, etc.)
+   - [Electron](https://www.electronjs.org/): Build cross-platform desktop apps with JavaScript, HTML, and CSS
+   - [Tauri](https://v2.tauri.app/): Build smaller, faster, and more secure desktop applications with Rust and JavaScript
+   - [electrobun](https://github.com/blackboardsh/electrobun): Build ultra fast, tiny, and cross-platform desktop apps with Typescript
+
+4. Server-side Apps: run on servers, built with Node.js or other server-side JavaScript environments
+5. Command-line Tools: run in the terminal, built with Node.js or other JavaScript environments
+6. Embedded Systems: run on microcontrollers or other embedded devices, built with frameworks like Espruino or Johnny-Five
+
 ## To Read
 
 1. Primitive Wrapper Objects

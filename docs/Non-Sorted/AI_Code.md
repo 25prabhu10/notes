@@ -149,6 +149,28 @@ description: An AI-powered code assistant that helps developers write, debug, an
    Test the AI's ability to handle edge cases, such as invalid inputs, unexpected user requests, or complex coding scenarios. Evaluate its responses for accuracy, clarity, and adherence to best practices.
    ```
 
+### Prompts Collection
+
+1. 5 UI design prototypes
+
+   ```markdown
+   I am building a "React Showcase Gallery." This application is a living documentation site designed to demonstrate React Hooks, UI design patterns, and popular library integrations. It will have power user interface for viewing the react examples and link to the code of that page/component.
+
+   It is like having a collection of rendered snippets that can be referenced by user like multi step form, useFetch hook, etc.
+
+   Your task is to build an incredible homepage for this app. I want it to be creative and unique. Really push the limits of your design capabilities.
+
+   You have the directory setup with Next.js, React and Tailwind CSS. Feel free to add additional libraries if needed.
+
+   I want you to create FIVE different designs. Each design should be creative and unique from all the others that you create. They should be hosted on /1, /2, /3, /4, and /5 routes respectively.
+
+   Use your frontend design skill to make these designs exceptional.
+   ```
+
+   ```markdown
+   I really like the design /4, but I hate all of the others. I have attached the screenshot of the design. [Image 1] . Remove the existing implementations. And make 5 fresh ones that channel the good design sensibilities of /4. Be creative and make something unique. Some designs should be just iterative, others should be meaningful creative divergence from /4. Use your frontend design skill.
+   ```
+
 ## Files
 
 ### Rules

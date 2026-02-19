@@ -1,13 +1,15 @@
 <#
 .SYNOPSIS
-    Synchronizes files and directories from a source path to a destination path using robocopy.
+    Synchronizes files and directories from a source path to a destination path
+    using robocopy.
 
 .DESCRIPTION
-    This script performs a one-way synchronization from a specified source directory to a destination directory.
-    It uses robocopy to efficiently copy files, preserving timestamps and attributes.
-    Specific directories (.obsidian, .trash) are excluded from the synchronization.
-    The script ensures the destination directory exists before starting the sync.
-    It handles robocopy exit codes to report success or failure.
+    This script performs a one-way synchronization from a specified source
+    directory to a destination directory. It uses robocopy to efficiently copy
+    files, preserving timestamps and attributes. Specific directories
+    (.obsidian, .trash) are excluded from the synchronization. The script
+    ensures the destination directory exists before starting the sync. It
+    handles robocopy exit codes to report success or failure.
 
 .PARAMETER SourcePath
     Specifies the source directory path from which files will be copied.
@@ -19,16 +21,18 @@
     If it doesn't exist, it will be created.
 
 .EXAMPLE
-    .\sync.ps1 -SourcePath "D:\Users\User\Notes" -DestinationPath ".\docs" -Verbose
-    Synchronizes files from the Dropbox Notes directory to the local docs directory, showing verbose output.
+    .\sync.ps1 -SourcePath "D:\Users\User\Notes" -DestinationPath ".\docs"
+    Synchronizes files from the Notes directory to the local docs directory.
 
 .EXAMPLE
     .\sync.ps1 -WhatIf
-    Shows what actions would be taken by the script without actually performing the synchronization.
+    Shows what actions would be taken by the script without actually performing
+    the synchronization.
 
 .NOTES
     Requires robocopy.exe to be available in the system's PATH.
-    Robocopy exit codes 0-7 are considered success. Higher codes indicate errors.
+    Robocopy exit codes 0-7 are considered success. Higher codes indicate
+    errors.
 #>
 
 [CmdletBinding(SupportsShouldProcess = $true)]
@@ -51,16 +55,16 @@ param(
     [string]$DestinationPath = "docs\"
 )
 
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Error handling - Stop on script-terminating errors (like validation failures)
 # Non-terminating errors from cmdlets will be handled individually if needed.
 # Robocopy errors are handled via $LASTEXITCODE.
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 $ErrorActionPreference = 'Stop'
 
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Sync files from Source to Destination
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 Write-Verbose "Starting synchronization from '$SourcePath' to '$DestinationPath'."
 
 # Ensure destination directory exists
@@ -103,7 +107,8 @@ $robocopyArgs = @(
     "/MT:8",              # Use 8 threads for copying
     "/NFL",               # No File List - don't log file names
     "/NDL"                # No Directory List - don't log directory names
-    # Consider adding /NJH (No Job Header) and /NJS (No Job Summary) for less verbose output
+    # Consider adding /NJH (No Job Header) and /NJS (No Job Summary) for less
+    # verbose output
 )
 
 Write-Verbose "Running Robocopy with arguments: $($robocopyArgs -join ' ')"
@@ -114,7 +119,8 @@ if ($PSCmdlet.ShouldProcess($DestinationPath, "Synchronize from '$SourcePath'"))
         & robocopy @robocopyArgs
 
         # Check the exit code from robocopy
-        # Exit codes 0-7 indicate success (some files copied, extra files present, etc.)
+        # Exit codes 0-7 indicate success (some files copied, extra files
+        # present, etc.)
         # Exit codes >= 8 indicate failure.
         if ($LASTEXITCODE -lt 8) {
             Write-Verbose "Robocopy completed successfully (Exit Code: $LASTEXITCODE)."

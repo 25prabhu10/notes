@@ -4,31 +4,38 @@
 
 .DESCRIPTION
     This script automates the deployment process for a VitePress site.
-    It navigates to the distribution directory, initializes a git repository (if needed),
-    commits all changes, and force-pushes the contents to the 'master' branch
-    of the specified GitHub repository, typically configured for GitHub Pages.
+    It navigates to the distribution directory, initializes a git repository
+    (if needed), commits all changes, and force-pushes the contents to the
+    'master' branch of the specified GitHub repository, typically configured
+    for GitHub Pages.
 
 .PARAMETER DistPath
-    The relative path to the VitePress build output directory (e.g., "docs/.vitepress/dist").
+    The relative path to the VitePress build output directory (e.g.,
+    "docs/.vitepress/dist").
 
 .PARAMETER RemoteUrl
     The URL of the remote Git repository to push the deployment to.
 
 .PARAMETER BranchName
-    The name of the branch to push the deployment to (e.g., "master", "gh-pages").
+    The name of the branch to push the deployment to (e.g., "master",
+    "gh-pages").
 
 .EXAMPLE
     .\deploy.ps1
-    Deploys the content from "docs/.vitepress/dist" to the 'master' branch of 'git@github.com:25prabhu10/25prabhu10.github.io.git'.
+    Deploys the content from "docs/.vitepress/dist" to the 'master' branch of
+    'git@github.com:25prabhu10/25prabhu10.github.io.git'.
 
 .EXAMPLE
-    .\deploy.ps1 -DistPath "build" -RemoteUrl "git@github.com:myuser/myrepo.git" -BranchName "gh-pages" -Verbose
-    Deploys the content from the "build" directory to the 'gh-pages' branch of the specified repository with verbose output.
+    .\deploy.ps1 -DistPath "build" -RemoteUrl \
+    "git@github.com:myuser/myrepo.git" -BranchName "gh-pages" -Verbose
+    Deploys the content from the "build" directory to the 'gh-pages' branch of
+    the specified repository with verbose output.
 
 .NOTES
     Author: GitHub Copilot
     Requires Git to be installed and available in the system's PATH.
-    Uses force push (`git push -f`), which overwrites the history of the target branch. Use with caution.
+    Uses force push (`git push -f`), which overwrites the history of the target
+    branch. Use with caution.
 #>
 
 [CmdletBinding(SupportsShouldProcess = $true, ConfirmImpact = 'Low')]
@@ -46,14 +53,14 @@ param(
     [string]$BranchName = 'master'
 )
 
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Error handling - Stop on script-terminating errors
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 $ErrorActionPreference = 'Stop'
 
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Variable declarations
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Resolve the path relative to the script's location for robustness
 $ScriptRoot = Split-Path -Parent -Path $MyInvocation.MyCommand.Definition
 $FullDistPath = Join-Path -Path $ScriptRoot -ChildPath $DistPath
@@ -64,16 +71,16 @@ if (-not (Test-Path -Path $FullDistPath -PathType Container)) {
     exit 1 # Exit with a non-zero code to indicate failure
 }
 
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 # Navigate to the dist (build output) directory
-# ---------------------------------------------------------------------------------
+# ------------------------------------------------------------------------------
 Write-Verbose "Changing directory to '$FullDistPath'"
 Push-Location -Path $FullDistPath -ErrorAction Stop
 
 try {
-    # ---------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     # Deployment Steps
-    # ---------------------------------------------------------------------------------
+    # --------------------------------------------------------------------------
     if ($PSCmdlet.ShouldProcess($FullDistPath, "Deploy to $RemoteUrl branch $BranchName")) {
 
         Write-Verbose "Initializing Git repository..."
@@ -109,8 +116,8 @@ try {
 }
 catch {
     Write-Error "Deployment failed: $($_.Exception.Message)"
-    # Consider re-throwing to preserve the original error record and stack trace
-    # throw $_
+    # Consider re-throwing to preserve the original error record and stack
+    # trace # throw $_
     exit 1 # Exit with a non-zero code to indicate failure
 }
 finally {

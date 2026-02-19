@@ -291,6 +291,91 @@ Some Pseudo Classes:
   }
   ```
 
+## CSS Nesting
+
+CSS Nesting (baseline 2023) allows you to nest your CSS selectors in a way that follows the same visual hierarchy of your HTML. This makes it easier to read and maintain your CSS code
+
+```css
+nav {
+  background-color: #333;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      a {
+        color: white;
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+```
+
+Specificity is calculated as if the nested rules were written out in full
+
+```css
+nav {
+  background-color: #333;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}
+```
+
+CSS nesting selector `&` refers to the parent selector
+
+```css
+/* Without nesting selector */
+.parent {
+  /* parent styles */
+  .child {
+    /* child of parent styles */
+  }
+}
+
+/* With nesting selector */
+.parent {
+  /* parent styles */
+  & .child {
+    /* child of parent styles */
+  }
+}
+
+/* the browser will parse both of these as */
+.parent {
+  /* parent styles */
+}
+.parent .child {
+  /* child of parent styles */
+}
+```
+
+```css
+.button {
+  background-color: blue;
+  &:hover {
+    background-color: darkblue;
+  }
+}
+```
+
 ## Properties
 
 The properties in CSS refer to the various aspects of layout and style that can be affected. These are ways in which you can style an HTML element
@@ -1092,19 +1177,21 @@ Please test these as they are _not a foolproof solution for all accessibility is
 
 ## CSS Colours
 
-[CSS Colour Module Level 4](https://www.w3.org/TR/css-color-4/): This specification describes CSS `<color>` values, and properties for foreground colour and group opacity
+CSS colours allow you to specify the colour of text, backgrounds, borders, and other elements on a web page
 
-```css
-.old {
-  color: rgb(51, 170, 51);
-  color: rgba(51, 170, 51, 0.5);
-}
+- [CSS Colour Module Level 4](https://www.w3.org/TR/css-color-4/): This specification describes CSS `<color>` values, and properties for foreground colour and group opacity
 
-.new {
-  color: rgb(51 170 51);
-  color: rgb(51 170 51 / 50%);
-}
-```
+  ```css
+  .old {
+    color: rgb(51 170 51);
+    color: rgba(51 170 51 0.5);
+  }
+
+  .new {
+    color: rgb(51 170 51);
+    color: rgb(51 170 51 / 50%);
+  }
+  ```
 
 - [CSS Colour Module Level 5](https://www.w3.org/TR/css-color-5/)
 
@@ -1139,6 +1226,7 @@ Please test these as they are _not a foolproof solution for all accessibility is
 There are several ways to set colours in CSS, each with its advantages and use cases:
 
 1. **Predefined Colour Names:** This is a simple and readable way to set colours using keywords like `red`, `green`, `blue`, `purple`, etc. While convenient for basic colours, it offers a limited range
+   - There are 148 predefined colour names in CSS, but they may not be supported in all browsers, and they may not be available in all colour spaces (e.g., `currentcolor` is a special keyword that represents the current value of the `color` property)
 
    ```css
    a {
@@ -1165,25 +1253,31 @@ There are several ways to set colours in CSS, each with its advantages and use c
      color: #ff0000; /* fallback */
 
      /* 255 is red, 0 is green, 0 is blue */
-     color: rgb(255, 0, 0); /* red */
-     color: rgba(255, 0, 0, 0.5); /* red with 50% opacity */
+     color: rgb(255 0 0); /* red */
+     color: rgba(255 0 0 0.5); /* red with 50% opacity */
    }
    ```
 
+   > ![IMPORTANT]
+   > Do not use `rgba()` with the syntax `rgba(R, G, B, A)` as it is deprecated and may not be supported in all browsers. Instead, use the newer syntax `rgba(R G B / A)` or `rgb(R G B / A)`
+
 4. **HSL/HSLA Colours:** This method defines colours based on hue (colour angle), saturation (colour intensity), and lightness (brightness). It can be more intuitive for some users. Similar to RGBA, HSLA adds an alpha channel for transparency to HSL colours
    - In `hsl(H S L)` or `hsla(H S L / a)` each item corresponds as follows:
-     - `H` is the hue angle (`0-360`)
-     - `S` is saturation (`0%-100%`)
-     - `L` is lightness (`0%-100%`)
+     - `H` is the hue angle (`0-360`): 0 is red, 120 is green, 240 is blue, and so on
+     - `S` is saturation (`0%-100%`): 0% is a shade of grey, and 100% is the full colour (richness of the colour)
+     - `L` is lightness (`0%-100%`): 0% is black, 100% is white, and 50% is the pure colour (brightness of the colour)
      - `a` is opacity (`0-1` or `0-100%`)
+
+   - Avoid `hsl()` because its lightness value doesn't align with **perceived brightness**, which can lead to issues with contrast and readability. This discrepancy can result in inconsistent contrast ratios and poor readability across different hues
+     - For instance, black text on a blue background is significantly less readable than on a yellow background, even if both have the same HSL lightness value
 
    ```css
    a {
      color: #ff0000; /* fallback */
 
      /* 0 is red, 100% is fully saturated, 50% is medium lightness */
-     color: hsl(0, 100%, 50%); /* red */
-     color: hsla(0, 100%, 50%, 0.5); /* red with 50% opacity */
+     color: hsl(0 100% 50%); /* red */
+     color: hsla(0 100% 50% 0.5); /* red with 50% opacity */
    }
    ```
 
@@ -1205,9 +1299,13 @@ There are several ways to set colours in CSS, each with its advantages and use c
 6. **`lab()`:** which specifies a CIELAB colour by CIE Lightness and its a- and b-axis hue coordinates (red/green-ness, and yellow/blue-ness) using the CIE LAB rectangular coordinate model
    - `lab()` is a new way to define CSS colour. In `lab(L A B)` or `lab(L A B / a)` each item corresponds as follows:
      - `L` is perceived lightness (`0-100` or `0%-100%`). "Perceived" means that it has consistent lightness for our eyes, unlike `L`in`hsl()`
-     - `A` is the a-axis hue coordinate (`-125-125` or `-100%-100%`)
-     - `B` is the b-axis hue coordinate (`-125-125` or `-100%-100%`)
+     - `A` is the a-axis hue coordinate (`-125-125` or `-100%-100%`): negative values indicate green, and positive values indicate red
+     - `B` is the b-axis hue coordinate (`-125-125` or `-100%-100%`): negative values indicate blue, and positive values indicate yellow
      - `a` is opacity (`0-1` or `0-100%`)
+
+   - Was used by Television and printing industries for decades before being adopted by CSS
+
+   - The `lab()` colour space is designed to be perceptually uniform, meaning that the same amount of numerical change in these values corresponds to about the same amount of visually perceived change. This makes it a better choice for tasks like colour manipulation and palette generation compared to other colour spaces like RGB or HSL
 
    ```css
    a {
@@ -1240,8 +1338,6 @@ There are several ways to set colours in CSS, each with its advantages and use c
      - `C` is chroma, from grey to the most saturated colour
      - `H` is the hue angle (`0-360`)
      - `a` is opacity (`0-1` or `0-100%`)
-
-   - [Why use OKLCH](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
 
    ```css
    a:hover {
@@ -1279,6 +1375,12 @@ There are several ways to set colours in CSS, each with its advantages and use c
    ```
 
 10. **`color()`:** which allows specifying colours in a variety of colour spaces including sRGB, Linear-light sRGB, Display P3, A98 RGB, ProPhoto RGB, ITU-R BT.2020-2, and CIE XYZ
+
+### OKLCH
+
+OKLCH was introduced by [Björn Ottosson](https://bottosson.github.io/posts/oklab/) in 2020
+
+- [Why use OKLCH](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl)
 
 The benefits of OKLCH:
 
@@ -1384,6 +1486,40 @@ Accent colours are used to highlight important elements on a page. They can be u
 ```css
 button {
   accent-color: #ff0000;
+}
+```
+
+### Relative Colours
+
+Relative colours allows you to specify a colour relative to another colour. This can be useful for creating colour schemes that are based on a single colour, or for creating colour schemes that are based on the user's preference
+
+- This is the reason the comma based syntax for `rgb()` and `hsl()` is deprecated, as it doesn't allow for relative colour adjustments. The newer space-based syntax allows for relative colour adjustments using the `from` keyword
+
+```css
+a {
+  background-color: hsl(from plum 180deg s l); /* 180 degrees from plum on the
+hue wheel */
+
+  background-color: hsl(from plum 100deg s l);
+}
+```
+
+_Example:_
+
+```css
+:root {
+  --base-color: plum;
+}
+
+p {
+  /* this creates a series of colours that are 20 degrees apart on the hue
+wheel, starting from the base colour */ /* sibling-index() is a function that
+returns the index of the current element among its siblings, starting from 1 */
+  /* using hsl creates an unexpected result because the lightness value doesn't
+align with perceived brightness, so we use oklch instead */
+  background-color: hsl(from var(--base-color) calc(20 * (sibling-index() - 1)) s l);
+
+  background-color: oklch(from var(--base-color) calc(20 * (sibling-index() - 1)) c h);
 }
 ```
 
@@ -2070,6 +2206,43 @@ body {
 }
 ```
 
+_Example:_
+
+```css
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: true;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes spin-and-hue {
+  0% {
+    --angle: 0deg;
+  }
+  100% {
+    --angle: 360deg;
+  }
+}
+
+:root {
+  animation: spin-and-hue 5s infinite;
+}
+
+h1 {
+  /* using the custom property --angle to rotate the element and change its
+background colour */
+  background-color: oklch(80% 50% var(--angle));
+  transform: rotate(var(--angle));
+}
+```
+
 ### Starting Styles
 
 `@starting-style` at-rule is used to define the starting styles for an element
@@ -2120,11 +2293,68 @@ CSS transitions are controlled with the `transition` property
 - Optional **timing function** to control the acceleration curve (such as **ease-in and ease-out**)
 - Optional **delay** before the animation starts
 
+_Example:_
+
+```html
+<body>
+  <a href="#"><img src="vlc.png" /></a>
+  <a href="#"><img src="spotify.png" /></a>
+  <a href="#"><img src="chrome.png" /></a>
+  <a href="#"><img src="code.png" /></a>
+  <a href="#"><img src="github.png" /></a>
+</body>
+```
+
+```css
+body {
+  box-sizing: border-box;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  padding: 4rem;
+}
+
+a {
+  outline: 1px solid orange;
+
+  img {
+    width: 4rem;
+    transition: all 0.2s;
+  }
+
+  &:hover {
+    img {
+      width: 8rem;
+    }
+  }
+
+  /* left and right sibling selectors */
+  &:hover + a,
+  &:has(+ a:hover) {
+    img {
+      width: 2rem;
+    }
+  }
+}
+```
+
+> [!IMPORTANT]
+> Transitions dose not work on `auto` values for properties like `height` and `width`. To work around this, you can use `max-height` and `max-width` instead of `height` and `width`, and set the initial value to `0` and the final value to a large number
+>
+> Or use the new `interpolate-size` property (experimental) to enable animations and transitions between a `<length-percentage>` value and an intrinsic size, `fit-content,` or `max-content`.
+>
+> ```css
+> :root {
+>   interpolate-size: allow-keywords;
+> }
+> ```
+
 ### Keyframe Animations
 
 CSS keyframe are controlled with the `keyframe` property
 
-TO use keyframes, we need to specify animation steps in a separate block with a `@keyframes`rule and a name to reference it
+To use keyframes, we need to specify animation steps in a separate block with a `@keyframes`rule and a name to reference it
 
 _Example:_
 
@@ -2139,6 +2369,41 @@ _Example:_
   100% {
     transform: none;
   }
+}
+```
+
+- The `animation` property is used to apply the keyframe animation to an element
+  - By default, the animation will play once and then stop. The element returns to its original state after the animation is complete
+
+  - `animation-fill-mode` property can be used to specify how a CSS animation should apply styles to its target before and after it is executing
+
+```html
+<body>
+  <h1>Hello World</h1>
+</body>
+```
+
+```css
+@keyframes moving-h1-horizontally {
+  from {
+    left: 1rem;
+  }
+  to {
+    left: 20rem;
+  }
+}
+
+h1 {
+  animation: moving-h1-horizontally;
+  animation-duration: 2s;
+  animation-fill-mode: forwards; /* Keep the final state of the animation after
+it finishes */
+
+  position: abosolute;
+  left: 1rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: lime;
 }
 ```
 
@@ -2442,6 +2707,8 @@ h6 {
 
 CSS was first introduced in 1996 and has since gone through several versions. The latest version is CSS3
 
+- [modern.css](https://modern-css.com/): Stop writing CSS like it's 2015. Collection of Modern CSS code snippets.
+
 ### CSS1 (1996)
 
 - The first version of CSS
@@ -2451,6 +2718,10 @@ CSS was first introduced in 1996 and has since gone through several versions. Th
 ### CSS2.1 (2011)
 
 ### CSS3 (2011)
+
+## Hard Parts of CSS
+
+[Incomplete List of Mistakes in the Design of CSS](https://wiki.csswg.org/ideas/mistakes) by CSS Working Group lists the mistakes in the design of CSS, and the hard parts of CSS
 
 ## Topics
 
@@ -2470,6 +2741,8 @@ CSS was first introduced in 1996 and has since gone through several versions. Th
 - Web Compat
 
 ## CSS Testing
+
+It is very hard to test CSS, but we can use some mechanisms such as snapshot testing to test our CSS
 
 ```bash
 npm install jest

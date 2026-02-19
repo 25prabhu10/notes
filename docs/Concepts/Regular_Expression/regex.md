@@ -145,3 +145,13 @@ console.log(regTerm.source); // hello
   console.log(regex.test(str));
   // expected output: true
   ```
+
+## Vulnerabilities
+
+- ReDoS (Regular Expression Denial of Service): A type of attack that exploits the fact that some regular expression implementations can take a long time to evaluate certain patterns, leading to a denial of service
+- Catastrophic backtracking: A situation where a regular expression engine takes an excessive amount of time to evaluate a pattern due to the way it handles certain input, often leading to a denial of service
+
+ReDoS can be mitigated by using non-backtracking regular expression engines, such as those that use a finite automaton approach, or by carefully designing regular expressions to avoid patterns that can lead to excessive backtracking
+
+- [Regular Expression Denial of Service (ReDoS)](https://owasp.org/www-community/attacks/Regular_expression_Denial_of_Service_-_ReDoS)
+- [ReDoS Checker](https://devina.io/redos-checker)

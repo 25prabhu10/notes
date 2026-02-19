@@ -1667,6 +1667,7 @@ _Example:_
 ```
 
 - [A Responsive Accessible Table](https://adrianroselli.com/2017/11/a-responsive-accessible-table.html)
+- [Virtual Tables](https://rednegra.net/blog/20260212-virtual-scroll/?ck_subscriber_id=3634007049)
 
 ### HTML Forms
 
@@ -2086,6 +2087,15 @@ _Example:_
 </select>
 ```
 
+Styling the select element was difficult in the past, but now we can style it like any other element using CSS `::picker` pseudo-element
+
+```css
+select,
+::picker(select) {
+  appearance: base-select;
+}
+```
+
 #### Data-List
 
 The `<datalist>` HTML element contains a set of `<option>` elements that represent the **permissible or recommended options available to choose** from within other controls
@@ -2175,6 +2185,8 @@ The `<details>` HTML element creates a disclosure widget in which information is
 
 - A summary or label must be provided using the `<summary>` element
 - The contents of the `<details>` element are hidden by default, but can be shown when the user clicks on the summary
+- The open state can be toggled programmatically using JavaScript by setting the `open` attribute on the `<details>` element
+- It is similar to an accordion, but it is not limited to a single section being open at a time
 
 _Example:_
 
@@ -2184,6 +2196,81 @@ _Example:_
 
   <p>Something small enough to escape casual notice.</p>
 </details>
+```
+
+```javascript
+// Open details
+document.querySelector("details").open = true;
+
+// Close details
+document.querySelector("details").open = false;
+```
+
+```css
+:root {
+  interpolate-size: allow-keywords;
+}
+
+details {
+  margin-bottom: 0.5rem;
+
+  summary {
+    cursor: pointer;
+    font-weight: bold;
+    border: 2px solid silver;
+    background-color: grainsboro;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: border-radius 0.1s ease-out 1s; /* delay the transition until
+the details content is fully open */
+
+    + * {
+      margin-top: 0; /* remove default margin from first child (any element) */
+    }
+  }
+
+  &::details-content {
+    height: 0;
+    border-width: 0;
+    border-radius: 0 0 6px 6px;
+    border-style: solid;
+    border-color: transparent;
+    padding: 0 0.5rem;
+    overflow: hidden;
+
+    @supports (interpolate-size: allow-keywords) {
+      transistion-behavior: allow-discrete; /* allow animations during closing */
+      transition:
+        all 1s ease-out,
+        border-width 1s step-end;
+      interpolate-size: allow-keywords;
+    }
+  }
+
+  &:open {
+    summary {
+      border-radius: 6px 6px 0 0;
+      border-color: navy;
+      background-color: royalblue;
+      color: white;
+      transition: border-radius step-start;
+    }
+
+    &::details-content {
+      height: auto;
+      border-width: 0 2px 2px 2px;
+      padding: 0.5rem;
+      border-color: silver;
+      border-style: solid;
+      border-width: 0 2px 2px 2px;
+      padding: 0.5rem;
+      border-radius: 0 0 6px 6px;
+      transition:
+        all 1s ease-out,
+        border-width step-start;
+    }
+  }
+}
 ```
 
 - If there are more than one `detials` elements on a page, you only want one to be open at a time, you can do this by giving them all the same `name` attribute

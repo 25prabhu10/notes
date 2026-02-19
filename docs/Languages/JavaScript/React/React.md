@@ -93,6 +93,7 @@ We write React code using [JSX](#javascript-xml-jsx) which is a syntax extension
    - [React Router 7](https://reactrouter.com/start/framework/installation)
    - [Redwood SDK](https://rwsdk.com/)
    - [Waku](https://waku.gg/)
+   - [rari](https://rari.build/)
 
 > [!NOTE]
 > [Official react installation guide](https://react.dev/learn/installation) for latest info
