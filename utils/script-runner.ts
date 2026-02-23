@@ -101,7 +101,7 @@ scriptProcess.on("close", (code, signal) => {
 });
 
 // Handle process errors
-scriptProcess.on("error", (error) => {
+scriptProcess.on("error", (error: Readonly<Error>) => {
   console.error("Failed to start process:", error.message);
   process.exit(1);
 });
@@ -138,7 +138,7 @@ function assertScriptExists(scriptPath: string, message: string): void {
  * @throws Will throw an error if the script cannot be found at the expected
  * path
  */
-function resolveUnixScript(name: string, args: string[]): ScriptCommand {
+function resolveUnixScript(name: string, args: Readonly<string[]>): ScriptCommand {
   const scriptPath = path.join(__dirname, "bash", `${name}.sh`);
   assertScriptExists(scriptPath, `No Bash script found for "${name}".`);
 
@@ -188,7 +188,7 @@ function resolvePowerShellShell(): string {
  * @throws Will throw an error if no PowerShell executable is found or if the
  * script cannot be found
  */
-function resolveWindowsScript(name: string, args: string[]): ScriptCommand {
+function resolveWindowsScript(name: string, args: Readonly<string[]>): ScriptCommand {
   const scriptPath = path.join(__dirname, "win", `${name}.ps1`);
   assertScriptExists(scriptPath, `No PowerShell script found for "${name}".`);
 
@@ -211,7 +211,7 @@ function resolveWindowsScript(name: string, args: string[]): ScriptCommand {
  * @throws Will throw an error if the platform is unsupported or if the script
  * cannot be found
  */
-function resolveScriptCommand(name: string, args: string[]): ScriptCommand {
+function resolveScriptCommand(name: string, args: Readonly<string[]>): ScriptCommand {
   if (process.platform === "win32") {
     return resolveWindowsScript(name, args);
   } else if (UNIX_PLATFORMS.has(process.platform)) {
