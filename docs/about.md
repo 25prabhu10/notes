@@ -21,26 +21,22 @@ This site serves as a personal reference library for programming concepts, imple
 Found this resource helpful? Contributions, corrections, and suggestions are welcome through GitHub.
 
 <script setup>
-import { VPTeamMembers } from 'vitepress/theme'
-import {
-  VPTeamPage,
-  VPTeamPageTitle,
-  VPTeamPageSection
-} from 'vitepress/theme'
+import { VPTeamMembers } from "vitepress/theme";
+import { VPTeamPage, VPTeamPageTitle, VPTeamPageSection } from "vitepress/theme";
 
 const members = [
   {
-  avatar: 'https://www.github.com/25prabhu10.png',
-  name: 'Prabhu Kallayya Hiremath',
-  title: 'Full Stack Developer',
-  links: [
-    { icon: 'github', link: 'https://github.com/25prabhu10' },
-    { icon: 'linkedin', link: 'https://www.linkedin.com/in/prabhuhiremath' }
-  ],
-  desc: 'React, ASP.NET Core, Docker',
-  // sponsor: 'Me'
-}
-]
+    avatar: "https://www.github.com/25prabhu10.png",
+    name: "Prabhu Kallayya Hiremath",
+    title: "Full Stack Developer",
+    links: [
+      { icon: "github", link: "https://github.com/25prabhu10" },
+      { icon: "linkedin", link: "https://www.linkedin.com/in/prabhuhiremath" },
+    ],
+    desc: "React, ASP.NET Core, Docker",
+    // sponsor: 'Me'
+  },
+];
 </script>
 
 <VPTeamPage>

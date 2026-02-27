@@ -42,7 +42,7 @@
     "oxc-minify": "^0.115.0",
     "oxfmt": "^0.35.0",
     "oxlint": "^1.50.0",
-    "oxlint-tsgolint": "^0.14.2",
+    "oxlint-tsgolint": "^0.15.0",
     "textlint": "^15.5.2",
     "textlint-filter-rule-comments": "^1.3.0",
     "textlint-rule-common-misspellings": "^1.0.1",
@@ -53,13 +53,13 @@
     "textlint-rule-write-good": "^2.0.0",
     "typescript": "~5.9.3",
     "vitepress": "2.0.0-alpha.16",
-    "vue": "^3.5.28",
+    "vue": "^3.5.29",
     "vue-tsc": "^3.2.5"
   },
-  "packageManager": "pnpm@10.30.0",
+  "packageManager": "pnpm@10.30.3",
   "pnpm": {
     "overrides": {
-      "vitepress>vite": "npm:vite@8.0.0-beta.14"
+      "vitepress>vite": "npm:vite@8.0.0-beta.15"
     },
     "onlyBuiltDependencies": [
       "lefthook"

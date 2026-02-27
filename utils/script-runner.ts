@@ -26,7 +26,7 @@ interface ScriptCommand {
 }
 
 //  ------------------------------------------------------------------------------------------------
-//  Main Procedure
+//  Utility Functions
 //  ------------------------------------------------------------------------------------------------
 
 /**
@@ -41,74 +41,12 @@ function printUsage(exitCode: number, message?: string): void {
     console.error(message);
   }
 
-  console.info("Usage: node ./utils/deploy.ts <script-name> [...script-args]");
+  console.info("Usage: node ./utils/script-runner.ts <script-name> [...script-args]");
   console.info("Examples:");
-  console.info("  node ./utils/deploy.ts sync");
-  console.info("  node ./utils/deploy.ts deploy");
+  console.info("  node ./utils/script-runner.ts sync");
+  console.info("  node ./utils/script-runner.ts deploy");
   process.exit(exitCode);
 }
-
-if (scriptName === "--help" || scriptName === "-h") {
-  printUsage(0);
-} else if (!scriptName || scriptName.trim() === "") {
-  printUsage(1, "Missing required script name.");
-} else if (scriptName.length > 250) {
-  printUsage(1, "Script name is too long. Ensure it's a valid file name without extensions.");
-}
-
-console.info(`Running "${scriptName}" script on ${process.platform} ...`);
-
-// Check Host OS and run the respective script
-let scriptProcess: ChildProcess;
-try {
-  const scriptCommand = resolveScriptCommand(scriptName, scriptArgs); // oxlint-disable-line no-use-before-define
-  const relativeScriptPath = path.relative(projectRoot, scriptCommand.scriptPath);
-  console.info(`Using script: ${relativeScriptPath}`);
-
-  scriptProcess = spawn(scriptCommand.command, scriptCommand.args, {
-    cwd: projectRoot,
-    stdio: "inherit",
-  });
-} catch (error) {
-  console.error(
-    "Failed to resolve script execution:",
-    error instanceof Error ? error.message : error
-  );
-  process.exit(1);
-}
-
-// Forward termination signals to the child process
-const FORWARDED_SIGNALS: NodeJS.Signals[] = ["SIGINT", "SIGTERM", "SIGHUP"];
-for (const signal of FORWARDED_SIGNALS) {
-  process.on(signal, () => {
-    // oxlint-disable-line no-loop-func
-    if (scriptProcess.exitCode === null && !scriptProcess.killed) {
-      scriptProcess.kill(signal);
-    }
-  });
-}
-
-// Process exit
-scriptProcess.on("close", (code, signal) => {
-  if (signal) {
-    console.error(`child process terminated by signal ${signal}`);
-    process.exit(1);
-  }
-
-  const exitCode = code ?? 1;
-  console.info(`child process exited with code ${exitCode}`);
-  process.exit(exitCode);
-});
-
-// Handle process errors
-scriptProcess.on("error", (error: Readonly<Error>) => {
-  console.error("Failed to start process:", error.message);
-  process.exit(1);
-});
-
-//  ------------------------------------------------------------------------------------------------
-//  Utility Functions
-//  ------------------------------------------------------------------------------------------------
 
 /**
  * Asserts that a script file exists at the given path. If the file does not
@@ -121,7 +59,11 @@ scriptProcess.on("error", (error: Readonly<Error>) => {
  * specified path
  */
 function assertScriptExists(scriptPath: string, message: string): void {
-  if (!fs.existsSync(scriptPath)) {
+  try {
+    if (!fs.statSync(scriptPath).isFile()) {
+      throw new Error(`${scriptPath} is not a file.`);
+    }
+  } catch {
     throw new Error(`${message} Expected path: ${path.relative(projectRoot, scriptPath)}`);
   }
 }
@@ -161,9 +103,10 @@ function resolveUnixScript(name: string, args: Readonly<string[]>): ScriptComman
  */
 function resolvePowerShellShell(): string {
   const candidates = ["pwsh", "powershell"];
+  const whereCmd = process.platform === "win32" ? "where" : "which";
 
   for (const candidate of candidates) {
-    const check = spawnSync(candidate, ["-NoProfile", "-Command", "exit 0"], {
+    const check = spawnSync(whereCmd, [candidate], {
       stdio: "ignore",
     });
 
@@ -220,3 +163,75 @@ function resolveScriptCommand(name: string, args: Readonly<string[]>): ScriptCom
 
   throw new Error(`Unsupported platform: ${process.platform}`);
 }
+
+//  ------------------------------------------------------------------------------------------------
+//  Main Procedure
+//  ------------------------------------------------------------------------------------------------
+
+if (scriptName === "--help" || scriptName === "-h") {
+  printUsage(0);
+} else if (!scriptName || scriptName.trim() === "") {
+  printUsage(1, "Missing required script name.");
+} else if (scriptName.length > 250) {
+  printUsage(1, "Script name is too long. Ensure it's a valid file name without extensions.");
+} else if (!/^[\w-]+$/.test(scriptName)) {
+  printUsage(1, "Invalid script name. Use only alphanumeric characters, dashes, and underscores.");
+}
+
+console.info(`Running "${scriptName}" script on ${process.platform} ...`);
+
+// Check Host OS and run the respective script
+let scriptProcess: ChildProcess;
+try {
+  const scriptCommand = resolveScriptCommand(scriptName, scriptArgs);
+  const relativeScriptPath = path.relative(projectRoot, scriptCommand.scriptPath);
+  console.info(`Using script: ${relativeScriptPath}`);
+
+  scriptProcess = spawn(scriptCommand.command, scriptCommand.args, {
+    cwd: projectRoot,
+    stdio: "inherit",
+  });
+} catch (error) {
+  console.error(
+    "Failed to resolve script execution:",
+    error instanceof Error ? error.message : error
+  );
+
+  process.exit(1);
+}
+
+// Forward termination signals to the child process
+const FORWARDED_SIGNALS: NodeJS.Signals[] = ["SIGINT", "SIGTERM", "SIGHUP"];
+for (const signal of FORWARDED_SIGNALS) {
+  process.on(signal, () => {
+    // oxlint-disable-line no-loop-func - Signal handlers must be registered in a loop for each signal
+    if (scriptProcess.exitCode === null && !scriptProcess.killed) {
+      scriptProcess.kill(signal);
+    }
+  });
+}
+
+// Process exit
+scriptProcess.on("close", (code, signal) => {
+  if (signal) {
+    console.error(`child process terminated by signal ${signal}`);
+
+    const signalMap: Record<string, number> = {
+      SIGHUP: 129,
+      SIGINT: 130,
+      SIGQUIT: 131,
+      SIGTERM: 143,
+    };
+
+    process.exit(signalMap[signal] ?? 1);
+  }
+
+  const exitCode = code ?? 1;
+  process.exit(exitCode);
+});
+
+// Handle process errors
+scriptProcess.on("error", (error: Readonly<Error>) => {
+  console.error("Failed to start process:", error.message);
+  process.exit(1);
+});

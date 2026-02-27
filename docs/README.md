@@ -7,7 +7,7 @@ hero:
 ---
 
 <script setup>
-import Articles from './Articles.vue'
+import Articles from "./Articles.vue";
 </script>
 
 <Articles />
