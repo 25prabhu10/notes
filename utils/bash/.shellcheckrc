@@ -1,0 +1,7 @@
+shell=bash
+
+# Enable all optional checks
+enable=all
+
+# Follow external sources (enable for projects with sourced files)
+external-sources=true
