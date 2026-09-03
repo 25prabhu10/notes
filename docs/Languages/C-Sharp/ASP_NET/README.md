@@ -53,7 +53,7 @@ Reference: [ASP.NET Core Developer Roadmap](https://github.com/MoienTajik/AspNet
    - Application Settings & Configurations
    - Authentication & Authorization (Identity, IdentityServer, Auth0/OIDC, OWASP Top 10)
 
-5. [SOLID Principals](../../../Concepts/Designs/README.md#solid-principles)
+5. [SOLID Principals](../../../Concepts/Designs/Design_Principles.md#solid-principles)
    - S: Single-responsiblity Principle (SRP)
    - O: Open-closed Principle (OCP)
    - L: Liskov Substitution Principle (LSP)

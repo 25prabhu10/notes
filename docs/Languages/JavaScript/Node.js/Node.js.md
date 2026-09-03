@@ -93,7 +93,7 @@ In 2015 _ECMAScript 6_ (ES6 or ES2015) proposed for a standard module system kno
 
 - JavaScript in the browser lacks namespacing. Every script runs in the global scope. So, if a third-party dependency instantiates a global variable called utils then any other library or the application code itself might accidentally override or alter utils. Causing unpredictable side effects
 
-- The [_revealing module pattern_](../../../Concepts/Designs/README.md#revealing-module-pattern) is used to solve this class of problems
+- The [_revealing module pattern_](../../../Concepts/Designs/Design_Patterns.md#revealing-module-pattern) is used to solve this class of problems
 
 ```javascript
 const myModule = (() => {

@@ -1,6 +1,6 @@
 ---
 title: Numbers
-description: 42
+description: "42"
 ---
 
 # Numbers

@@ -5,7 +5,7 @@ description: MySQL is an open-source RDBMS
 
 # MySQL
 
-[MySQL](https://www.mysql.com/) is an open-source [RDBMS](./README.md#relational-database-systems) created in 1995
+[MySQL](https://www.mysql.com/) is an open-source [RDBMS](./RDBMS.md) created in 1995
 
 - MySQL InnoDB Storage Engine
 

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "outDir": "build",
+    "rootDir": ".",
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "bundler",
@@ -9,7 +10,8 @@
     "allowJs": true,
     "strict": true,
     "jsx": "preserve",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "types": ["node"]
   },
   "include": ["utils/**/*", "docs/**/*"],
   "exclude": ["node_modules", "dev", "dist", ".vitepress/cache"]
