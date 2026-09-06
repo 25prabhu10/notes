@@ -56,13 +56,15 @@
     "vue-tsc": "^3.3.11"
   },
   "devEngines": {
-    "packageManager": {
+     "packageManager": {
       "name": "pnpm",
-      "version": "11.25.0",
+      "version": "12.3.4",
+      "onFail": "download"
+    },
+    "runtime": {
+      "name": "node",
+      "version": "^26",
       "onFail": "download"
     }
-  },
-  "engines": {
-    "node": ">=26"
   }
 }
