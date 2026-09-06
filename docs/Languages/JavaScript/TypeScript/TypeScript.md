@@ -1275,9 +1275,7 @@ type State = {
 
 // making `State` type a discriminated union
 type State =
-  | { state: "loading" }
-  | { state: "success"; data: string }
-  | { state: "error"; error: string };
+  { state: "loading" } | { state: "success"; data: string } | { state: "error"; error: string };
 
 // better approach
 type LoadingState = {
@@ -1729,9 +1727,7 @@ type MusicProductWithoutId = Omit<MusicProduct, "id">;
 
 // Expected:
 type MusicProductWithoutId =
-  | Omit<Album, "id">
-  | Omit<CollectorEdition, "id">
-  | Omit<DigitalRelease, "id">;
+  Omit<Album, "id"> | Omit<CollectorEdition, "id"> | Omit<DigitalRelease, "id">;
 
 // Actual:
 type MusicProductWithoutId = {
@@ -1752,15 +1748,11 @@ type MusicProductWithoutId = DistributiveOmit<MusicProduct, "id">;
 
 // Expected:
 type MusicProductWithoutId =
-  | Omit<Album, "id">
-  | Omit<CollectorEdition, "id">
-  | Omit<DigitalRelease, "id">;
+  Omit<Album, "id"> | Omit<CollectorEdition, "id"> | Omit<DigitalRelease, "id">;
 
 // Actual:
 type MusicProductWithoutId =
-  | Omit<Album, "id">
-  | Omit<CollectorEdition, "id">
-  | Omit<DigitalRelease, "id">;
+  Omit<Album, "id"> | Omit<CollectorEdition, "id"> | Omit<DigitalRelease, "id">;
 ```
 
 ## Functions

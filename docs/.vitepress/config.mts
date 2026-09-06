@@ -51,7 +51,7 @@ export default defineConfig({
     [
       "link",
       {
-        color: "#00a300",
+        color: "#3eaf7c",
         href: "/icons/safari-pinned-tab.svg",
         rel: "mask-icon",
       },
@@ -60,7 +60,7 @@ export default defineConfig({
     ["meta", { content: "yes", name: "mobile-web-app-capable" }],
     ["meta", { content: "black", name: "apple-mobile-web-app-status-bar-style" }],
     ["meta", { content: "Notes", name: "application-name" }],
-    ["meta", { content: "#2bae66", name: "msapplication-TileColor" }],
+    ["meta", { content: "#3eaf7c", name: "msapplication-TileColor" }],
     ["meta", { content: "#3eaf7c", name: "theme-color" }],
     ["meta", { content: "/browserconfig.xml", name: "msapplication-config" }],
   ],
