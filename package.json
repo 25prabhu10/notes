@@ -19,8 +19,8 @@
   "scripts": {
     "build": "vitepress build docs",
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted",
-    "deploy": "npm run fetch && npm run build && node --env-file=.env ./utils/script-runner.ts deploy",
-    "dev": "npm run fetch && npm run docs:dev",
+    "deploy": "pnpm run fetch && pnpm run build && node --env-file=.env ./utils/script-runner.ts deploy",
+    "dev": "pnpm run fetch && pnpm run docs:dev",
     "docs:dev": "vitepress dev docs --host",
     "preview": "vitepress preview docs",
     "fetch": "node --env-file=.env ./utils/script-runner.ts sync",
@@ -36,10 +36,10 @@
   },
   "devDependencies": {
     "@textlint-rule/textlint-rule-no-unmatched-pair": "^2.0.4",
-    "@types/node": "^26.4.1",
+    "@types/node": "^26.6.3",
     "@typescript/native": "npm:typescript@~7.0.2",
     "markdown-it-mathjax3": "^5.2.0",
-    "markdownlint-cli2": "^0.23.2",
+    "markdownlint-cli2": "^0.23.3",
     "textlint": "^15.8.0",
     "textlint-filter-rule-comments": "^1.3.0",
     "textlint-rule-common-misspellings": "^1.0.1",
@@ -51,14 +51,14 @@
     "typescript": "npm:@typescript/typescript6@^6.0.2",
     "vite": "catalog:",
     "vite-plus": "catalog:",
-    "vitepress": "2.0.0-alpha.19",
-    "vue": "^3.5.42",
+    "vitepress": "2.0.0-alpha.20",
+    "vue": "^3.5.43",
     "vue-tsc": "^3.3.11"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.3.4",
+      "version": "12.7.0",
       "onFail": "download"
     },
     "runtime": {
