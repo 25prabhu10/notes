@@ -1,3 +1,7 @@
+---
+title: Miscellaneous
+---
+
 # Miscellaneous
 
 - [.gitignore](#gitignore)

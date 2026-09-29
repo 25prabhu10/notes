@@ -1,5 +1,5 @@
 ---
-title: Collection
+title: Reading
 next:
   text: Books
   link: ./Books.md

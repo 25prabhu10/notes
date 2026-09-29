@@ -1,3 +1,7 @@
+---
+title: Frequently asked questions
+---
+
 # Frequently asked questions
 
 - [Why is the Google Analytics code at the bottom? Google recommends it be

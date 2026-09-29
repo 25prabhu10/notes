@@ -1,3 +1,7 @@
+---
+title: Art
+---
+
 # Art
 
 Art is a diverse range of human activities in creating visual, auditory or performing artifacts (artworks), expressing the author's imaginative, conceptual ideas, or technical skill, intended to be appreciated for their beauty or emotional power

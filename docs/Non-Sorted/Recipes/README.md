@@ -1,8 +1,8 @@
 ---
-title: README
+title: Recipes 
 ---
 
-# README
+# Recipes
 
 ## Measurements
 

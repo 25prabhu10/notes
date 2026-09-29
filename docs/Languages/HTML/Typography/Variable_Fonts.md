@@ -1,3 +1,7 @@
+---
+title: Variable Fonts
+---
+
 # Variable Fonts
 
 - **DECOVAR Font**

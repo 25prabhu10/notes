@@ -1,5 +1,5 @@
 ---
-title: Collection
+title: Hardware
 next:
   text: Camera
   link: ./Camera.md

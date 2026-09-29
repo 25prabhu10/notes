@@ -1,3 +1,7 @@
+---
+title: Frontend Questions
+---
+
 # Frontend Questions
 
 [Front-end-Developer-Interview-Questions](https://github.com/h5bp/Front-end-Developer-Interview-Questions/tree/main)

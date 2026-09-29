@@ -1,3 +1,7 @@
+---
+title: The Beatles
+---
+
 # The Beatles
 
 1. A day in the life - sgt

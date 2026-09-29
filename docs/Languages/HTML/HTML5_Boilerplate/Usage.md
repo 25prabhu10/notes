@@ -1,3 +1,7 @@
+---
+title: Usage
+---
+
 # Usage
 
 The most basic usage of HTML5 Boilerplate is to create a static site or simple

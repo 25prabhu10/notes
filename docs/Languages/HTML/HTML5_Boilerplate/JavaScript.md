@@ -1,3 +1,7 @@
+---
+title: The JavaScript
+---
+
 # The JavaScript
 
 Information about the default JavaScript included in the project

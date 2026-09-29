@@ -1,3 +1,7 @@
+---
+title: Extend and customize HTML5 Boilerplate
+---
+
 # Extend and customize HTML5 Boilerplate
 
 Here is some useful advice for how you can make your project with HTML5
@@ -199,7 +203,7 @@ $(function () {
 
   $window.scroll(function () {
     scrollPercent = Math.round(
-      (100 * ($window.height() + $window.scrollTop())) / $document.height()
+      (100 * ($window.height() + $window.scrollTop())) / $document.height(),
     );
     if (scrollPercent > 90 && !isDuplicateScrollEvent) {
       //page scrolled to 90%
@@ -214,7 +218,7 @@ $(function () {
           $document.height() +
           "px; Time: " +
           Math.round((new Date() - scrollTimeStart) / 1000, 1) +
-          "s"
+          "s",
       );
     }
   });

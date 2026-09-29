@@ -1,3 +1,7 @@
+---
+title: The HTML
+---
+
 # The HTML
 
 By default, HTML5 Boilerplate provides two `html` pages:

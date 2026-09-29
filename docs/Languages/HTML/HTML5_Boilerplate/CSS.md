@@ -1,3 +1,7 @@
+---
+title: The CSS
+---
+
 # The CSS
 
 HTML5 Boilerplate's CSS includes:

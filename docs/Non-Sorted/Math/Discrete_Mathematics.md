@@ -1,5 +1,5 @@
 ---
-title: Descrete Mathematics
+title: Discrete Mathematics
 description: A collection of notes and resources on discrete mathematics topics including combinatorics, graph theory, and logic.
 ---
 

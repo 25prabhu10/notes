@@ -2,7 +2,7 @@
 title: Data-Structures
 next:
   text: Data-Structures
-  link: ./Data-Structures/
+  link: ./Data-Structures.md
 sidebar: false
 ---
 

@@ -1,3 +1,7 @@
+---
+title: Work-Out
+---
+
 # Work-Out
 
 Strength: Heavy weights and less reps
