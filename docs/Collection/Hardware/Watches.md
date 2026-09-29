@@ -5,6 +5,8 @@ description: A collection of watches
 
 # Watches
 
+[Open Source SmartWatch](https://open-smartwatch.github.io/)
+
 ## Casio
 
 - [Casio F-91W](https://www.casio.com/products/watches/classic/f91w-1)

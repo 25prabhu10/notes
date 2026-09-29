@@ -33,6 +33,7 @@ sidebar: false
 20. [Agile](./Agile/Agile.md)
 21. [Artifactory](./Artifactory.md)
 22. [Key Words](./Key_Words.md)
+23. [AI Coding](./AI_Code.md)
 
 ## References
 

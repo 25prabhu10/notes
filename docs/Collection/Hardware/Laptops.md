@@ -15,6 +15,16 @@ Cinebench 2024 Multicore scores:
 | AMD Ryzen 8945HS        | 960   | 127W    | 3h 51m (73Wh) |
 | Intel Core Ultra 9 185H | 991   | 143W    | 4h 17m (99Wh) |
 
+As it was
+
+Someone you loved
+
+Stay
+
+Lovely
+
+The night we met
+
 ### AMD
 
 New processor naming convention:

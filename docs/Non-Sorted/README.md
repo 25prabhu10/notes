@@ -8,9 +8,6 @@ sidebar: false
 1. [Income Tax](./Finance/Income-Tax.md)
 2. [Math](./Math/)
 3. [Nature](./Nature.md)
-4. [Camera](./Camera.md)
-
-[Open Source SmartWatch](https://open-smartwatch.github.io/)
 
 ## Wallpapers
 
