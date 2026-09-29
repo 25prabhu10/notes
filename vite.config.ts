@@ -57,7 +57,7 @@ export default defineConfig({
     },
     overrides: [
       {
-        files: ["utils/script-runner.ts"],
+        files: ["utils/script-runner.ts", "utils/clean-dist.ts"],
         rules: {
           "eslint/no-underscore-dangle": "off",
           "eslint/one-var": "off",

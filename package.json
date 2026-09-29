@@ -17,7 +17,8 @@
   },
   "type": "module",
   "scripts": {
-    "build": "vitepress build docs",
+    "build": "pnpm run clean:dist && vitepress build docs",
+    "clean:dist": "node ./utils/clean-dist.ts",
     "clean:docs": "cd docs && rm -rf Collection Concepts Languages Non-Sorted",
     "deploy": "pnpm run fetch && pnpm run build && node --env-file=.env ./utils/script-runner.ts deploy",
     "dev": "pnpm run fetch && pnpm run docs:dev",
